@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="4f097d5c-9229-4afb-a310-c4331d222a16" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>Layout</name>
-  <display>Layout</display>
+<class id="7c76fa0c-59ee-4111-9166-68faafc2dcf7" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Pages</name>
+  <display>Pages</display>
+  <externalReference>e67bf80e-176e-4ed2-b312-8f4f5ea23345</externalReference>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

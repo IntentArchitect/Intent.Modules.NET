@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="19f142a9-239c-4971-9728-1833092ad7e9">
-  <sourceEnd id="19a582ae-e900-43a4-b000-73705d805769" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+<association id="b2f6769e-5b0a-4034-ba4a-fab33a6efdf5">
+  <sourceEnd id="c49704b8-b494-40bd-b656-b2e20561e5a3" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
     <display>: MainLayout</display>
     <order>0</order>
-    <typeReference id="7c804365-64e6-4410-afae-bb02e6eb72e5">
-      <typeId>a562c507-f367-435c-8c93-a236dd3f7070</typeId>
+    <typeReference id="fe33f3f3-7ff8-4991-90d4-3e1ce7008b98">
+      <typeId>a178d0e7-8bc2-47a2-9724-fc672ce37c13</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,12 +18,15 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="19f142a9-239c-4971-9728-1833092ad7e9" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+  <targetEnd id="b2f6769e-5b0a-4034-ba4a-fab33a6efdf5" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
     <name>NavigateToHome</name>
-    <display>navigate: Home</display>
+    <display>[navigate] Home</display>
     <order>3</order>
-    <typeReference id="647acfbf-8feb-458b-abf5-a66188c62576">
-      <typeId>fb620d93-23a7-4a7c-b7a4-a6e45839d64d</typeId>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="5e05ac47-3332-4bdc-b457-c9d57cf013f9">
+      <typeId>5cf35899-5d12-4e0c-8642-ba734abbf14d</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -35,9 +38,11 @@
     </typeReference>
     <stereotypes />
     <metadata />
+    <externalReference>7ff5ab0c-c681-4883-909f-624d2ffd42b9</externalReference>
     <childElements />
   </targetEnd>
   <associationType>Navigation</associationType>
   <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>7ff5ab0c-c681-4883-909f-624d2ffd42b9</externalReference>
   <stereotypes />
 </association>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="01f02822-4131-4787-a45b-3a10c82cf9e7" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>ExamplePage</name>
+  <display>ExamplePage</display>
+  <externalReference>dadbc10a-7c82-43fb-8071-8c2038637860</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c76fa0c-59ee-4111-9166-68faafc2dcf7</parentFolderId>
+  <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+  <packageName>${application.name}.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/example-page/{Title}" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="7d1e1684-93a5-43e0-825c-601fece85c07" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="01f02822-4131-4787-a45b-3a10c82cf9e7" location="[Webinar.Blazor].[User Interface].[ExamplePage]" />
+      <target applicationId="7d1e1684-93a5-43e0-825c-601fece85c07" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="b82fca39-d0f5-4088-82a6-3e0f2f900287" location="[Webinar.Blazor].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>###{Title}</expression>
+          <path>
+            <target id="b82fca39-d0f5-4088-82a6-3e0f2f900287" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d407fe59-4947-4a91-a1a2-e4ebd3765246" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="1c8eb785-4363-4983-aa1e-135634ba4fcc" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="874acd90-a2a0-4588-afa4-e9b9440227c3" name="Head" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources>
+            <source identifier="Title" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="01f02822-4131-4787-a45b-3a10c82cf9e7" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="44294593-08b6-40c2-aceb-249be2679f86" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>A simple example "{Title}" page for navigation purposes.</expression>
+          <path>
+            <target id="b82fca39-d0f5-4088-82a6-3e0f2f900287" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d407fe59-4947-4a91-a1a2-e4ebd3765246" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="1c8eb785-4363-4983-aa1e-135634ba4fcc" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="cec254d4-cec7-4135-a6b6-2180e6687c7d" name="Text" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources>
+            <source identifier="Title" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="01f02822-4131-4787-a45b-3a10c82cf9e7" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="44294593-08b6-40c2-aceb-249be2679f86" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{NavigateToHome}</expression>
+          <path>
+            <target id="b82fca39-d0f5-4088-82a6-3e0f2f900287" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="d407fe59-4947-4a91-a1a2-e4ebd3765246" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="11349ba0-410f-4de7-9d30-bb2c886a7699" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="a5284b62-52e8-450b-8e8d-dc4b184e9f8c" name="Return Home" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="ddfa6961-1042-4bea-84c7-4b2e9853c80a" name="Link To" type="static-mappable" specialization="Link To" specializationId="ddfa6961-1042-4bea-84c7-4b2e9853c80a" />
+          </path>
+          <sources>
+            <source identifier="NavigateToHome" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="01f02822-4131-4787-a45b-3a10c82cf9e7" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="e9626fc0-0be4-4af9-91f8-2aaa5919edbf" name="NavigateToHome" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="44294593-08b6-40c2-aceb-249be2679f86" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Title</name>
+      <display>Title: string = "Example Page"</display>
+      <externalReference>e0748358-c37e-487a-b23e-6d2b3b0fcf7d</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>"Example Page"</value>
+      <genericTypes />
+      <typeReference id="52f396e4-1936-4a9a-9cd3-9ea928a8d995">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>01f02822-4131-4787-a45b-3a10c82cf9e7</parentFolderId>
+      <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+      <packageName>${application.name}.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="f324c4ea-bac2-450d-b1b1-cc7f09ca3472" name="[Route Parameter]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="f3dda682-fbf5-47c1-b526-b1ef2c6f6355" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <externalReference>ef92ccf1-f1db-471e-9678-a14593d70cc2</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="41d85db7-0c1b-43b0-bc44-b8cc68545f2e">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>01f02822-4131-4787-a45b-3a10c82cf9e7</parentFolderId>
+      <packageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</packageId>
+      <packageName>${application.name}.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

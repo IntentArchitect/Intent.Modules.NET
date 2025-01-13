@@ -61,6 +61,8 @@ public class ComponentViewBuilder : IConfigurableRazorComponentBuilder
 
     public static void ConfigureRazor(IRazorConfigurator configurator)
     {
+        
+
         MudBlazorComponentConfigurators.MudAlert(configurator);
         MudBlazorComponentConfigurators.MudProgressLinear(configurator);
     }

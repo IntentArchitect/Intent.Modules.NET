@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e9626fc0-0be4-4af9-91f8-2aaa5919edbf">
+  <sourceEnd id="1c467a04-ecb9-4f5f-8c42-7511786eb446" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExamplePage</display>
+    <order>0</order>
+    <typeReference id="0394870c-4441-407b-a113-3216c273b004">
+      <typeId>01f02822-4131-4787-a45b-3a10c82cf9e7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>${application.name}.UI</typePackageName>
+      <typePackageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e9626fc0-0be4-4af9-91f8-2aaa5919edbf" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToHome</name>
+    <display>[navigate] Home</display>
+    <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="0b161a66-b0ba-4626-b30a-06787a8b174b">
+      <typeId>5cf35899-5d12-4e0c-8642-ba734abbf14d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>${application.name}.UI</typePackageName>
+      <typePackageId>540f4aa0-d1d6-4199-8bba-9757d2652d50</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <externalReference>f13e3def-5de6-489f-9c47-319744a532c1</externalReference>
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>f13e3def-5de6-489f-9c47-319744a532c1</externalReference>
+  <stereotypes />
+</association>

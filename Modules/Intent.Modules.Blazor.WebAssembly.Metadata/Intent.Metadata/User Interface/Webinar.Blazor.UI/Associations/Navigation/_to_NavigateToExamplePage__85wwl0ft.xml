@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="42be8176-95c8-4c8b-889c-3759394ae5ab">
+  <sourceEnd id="9b4b70df-3f64-4d6c-8527-441986b3cd7b" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: MainLayout</display>
+    <order>0</order>
+    <typeReference id="a99a14de-d3c5-43f3-9db2-80115f708474">
+      <typeId>a178d0e7-8bc2-47a2-9724-fc672ce37c13</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>false</isRequired>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="42be8176-95c8-4c8b-889c-3759394ae5ab" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToExamplePage</name>
+    <display>[navigate] ExamplePage</display>
+    <order>0</order>
+    <typeReference id="0e2545f5-2d78-4bdf-9bf1-617e79c275fd">
+      <typeId>01f02822-4131-4787-a45b-3a10c82cf9e7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>false</isRequired>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Navigation Mapping" typeId="b4777251-a390-48f0-877a-102069e88a22">
+        <source applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a178d0e7-8bc2-47a2-9724-fc672ce37c13" location="[Webinar.Blazor].[User Interface].[MainLayout]" />
+        <target applicationId="92ee89ba-5c27-445d-9418-ee24e0cd20f6" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="01f02822-4131-4787-a45b-3a10c82cf9e7" location="[Webinar.Blazor].[User Interface].[ExamplePage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{NavigateToExamplePage.title}</expression>
+            <path>
+              <target id="01f02822-4131-4787-a45b-3a10c82cf9e7" name="ExamplePage" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+              <target id="44294593-08b6-40c2-aceb-249be2679f86" name="Title" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+            </path>
+            <sources>
+              <source identifier="NavigateToExamplePage.title" mappingType="Data Mapping" mappingTypeId="8363dcb6-416c-4478-a7f4-b7aabad1ec23">
+                <path>
+                  <target id="a178d0e7-8bc2-47a2-9724-fc672ce37c13" name="MainLayout" type="element" specialization="Layout" specializationId="776a9393-6b23-4a8c-8937-fd7e833fa0ef" />
+                  <target id="42be8176-95c8-4c8b-889c-3759394ae5ab" name="NavigateToExamplePage" type="association" specialization="Navigation Target End" specializationId="2b191288-ecae-4743-b069-cbdd927ef349" />
+                  <target id="54990e31-2b36-45c6-a359-34ca14401dec" name="title" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements>
+      <childElement id="54990e31-2b36-45c6-a359-34ca14401dec" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+        <name>title</name>
+        <display>in : title: string</display>
+        <externalReference>ab2bdfae-e733-4773-a26e-bc26b169dcb2</externalReference>
+        <isAbstract>false</isAbstract>
+        <genericTypes />
+        <typeReference id="112b0fd7-042a-48fc-aa18-3f07045d5c2d">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>false</isRequired>
+          <stereotypes />
+          <genericTypeParameters />
+        </typeReference>
+        <isMapped>false</isMapped>
+        <parentFolderId>42be8176-95c8-4c8b-889c-3759394ae5ab</parentFolderId>
+        <stereotypes />
+        <metadata />
+        <childElements />
+      </childElement>
+    </childElements>
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>8f475d6e-770e-47ea-a7f6-2f06e01897ef</externalReference>
+  <stereotypes />
+</association>
