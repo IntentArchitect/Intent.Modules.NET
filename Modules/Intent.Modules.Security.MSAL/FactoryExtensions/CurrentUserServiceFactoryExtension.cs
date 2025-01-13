@@ -37,11 +37,11 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 file.AddUsing("Microsoft.AspNetCore.Http");
 
                 var priClass = file.Classes.First();
-                priClass.AddField("ClaimsPrincipal", "_claimsPrincipal", prop => prop.PrivateReadOnly());
+                priClass.AddField("IHttpContextAccessor", "_httpContextAccessor", prop => prop.PrivateReadOnly());
+
                 var ctor = priClass.Constructors.First();
                 ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
-                ctor.AddStatement($@"_claimsPrincipal = httpContextAccessor?.HttpContext?.User;");
-                ctor.AddParameter("IAuthorizationService", "authorizationService", prop => prop.IntroduceReadonlyField());
+                ctor.AddStatement($@"_httpContextAccessor = httpContextAccessor;");
 
                 var userIdProperty = priClass.Properties.First(p => p.Name == "UserId");
                 userIdProperty
@@ -52,15 +52,43 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 priClass.Properties.First(p => p.Name == "UserName")
                     .WithoutSetter()
                     .Getter
-                    .WithExpressionImplementation("_claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value");
+                    .WithExpressionImplementation("GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Name)?.Value");
+
 
                 var authMethod = priClass.FindMethod("AuthorizeAsync");
                 authMethod.Statements.Clear();
-                authMethod.Statements.Add("return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;");
+
+                authMethod.Statements.Add(@"if (GetClaimsPrincipal() == null)
+                {
+                    return false;
+                }");
+                authMethod.Statements.Add("");
+                authMethod.AddObjectInitStatement("var authService", " GetAuthorizationService();");
+                authMethod.AddIfStatement("authService == null", @if =>
+                {
+                    @if.AddReturn("false");
+                });
+
+                authMethod.Statements.Add("");
+                authMethod.AddObjectInitStatement("var claimsPrinciple", "  GetClaimsPrincipal();");
+
+                authMethod.Statements.Add("return (await authService.AuthorizeAsync(claimsPrinciple!, policy))?.Succeeded ?? false;");
 
                 var roleMethod = priClass.FindMethod("IsInRoleAsync");
                 roleMethod.Statements.Clear();
-                roleMethod.Statements.Add("return await Task.FromResult(_claimsPrincipal?.IsInRole(role) ?? false);");
+                roleMethod.Statements.Add("return await Task.FromResult(GetClaimsPrincipal()?.IsInRole(role) ?? false);");
+
+                priClass.AddMethod("ClaimsPrincipal?", "GetClaimsPrincipal", method =>
+                {
+                    method.Private();
+                    method.WithExpressionBody("_httpContextAccessor?.HttpContext?.User");
+                });
+
+                priClass.AddMethod("IAuthorizationService?", "GetAuthorizationService", method =>
+                {
+                    method.Private();
+                    method.WithExpressionBody("_httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService");
+                });
             });
         }
 
@@ -69,11 +97,11 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             var propertyType = p.Type.Replace("?", "");
             if (propertyType == "string")
             {
-                return "_claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value";
+                return "GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value";
             }
             else
             {
-                return $"{propertyType}.TryParse(_claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : null";
+                return $"{propertyType}.TryParse(GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : null";
             }
         }
 

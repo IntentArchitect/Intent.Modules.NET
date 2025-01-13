@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfi
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", prop => prop.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement($"services.AddTransient<{this.GetCurrentUserServiceInterfaceName()}, {this.GetCurrentUserServiceName()}>();");
+                        method.AddStatement($"services.AddSingleton<{this.GetCurrentUserServiceInterfaceName()}, {this.GetCurrentUserServiceName()}>();");
                         method.AddStatement("return services;");
                     });
                 });

@@ -1,3 +1,7 @@
+### Version 3.5.6
+
+- Improvement: The `ICurrentUserService` implementation is now added as a singleton
+
 ### Version 3.5.5
 
 - Improvement: Converted `Result` model to builder pattern with small syntax improvements

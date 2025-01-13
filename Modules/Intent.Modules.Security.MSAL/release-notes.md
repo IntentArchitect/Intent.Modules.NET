@@ -1,3 +1,7 @@
+### Version 4.2.4
+
+- Improvement: `ICurrentUserService` implementation updated to allow for it to be added as a singleton to the DI container
+
 ### Version 4.2.3
 
 - Improvement: Updated NuGet package versions.
