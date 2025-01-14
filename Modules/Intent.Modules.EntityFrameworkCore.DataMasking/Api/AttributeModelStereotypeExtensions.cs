@@ -77,6 +77,26 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Api
                 return _stereotype.GetProperty<int?>("Unmasked Suffix Length");
             }
 
+            public string Roles()
+            {
+                return _stereotype.GetProperty<string>("Roles");
+            }
+
+            public string Policy()
+            {
+                return _stereotype.GetProperty<string>("Policy");
+            }
+
+            public IElement[] SecurityRoles()
+            {
+                return _stereotype.GetProperty<IElement[]>("Security Roles") ?? new IElement[0];
+            }
+
+            public IElement[] SecurityPolicies()
+            {
+                return _stereotype.GetProperty<IElement[]>("Security Policies") ?? new IElement[0];
+            }
+
             public class DataMaskTypeOptions
             {
                 public readonly string Value;

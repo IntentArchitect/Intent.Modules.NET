@@ -77,7 +77,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                         foreach (var attribute in maskedAttributes)
                         {
                             EfCoreFieldConfigStatement statement = (EfCoreFieldConfigStatement)configMethod.FindStatement(s => s.Text == $"builder.Property(x => x.{attribute.Name})");
-                            if(statement != null)
+                            if (statement != null)
                             {
                                 statement.AddStatement(GetConversionStatement(attribute));
                             }

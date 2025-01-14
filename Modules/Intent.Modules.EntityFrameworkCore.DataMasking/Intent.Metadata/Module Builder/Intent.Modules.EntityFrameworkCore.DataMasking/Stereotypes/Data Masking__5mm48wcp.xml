@@ -9,7 +9,7 @@
   <applyMode>manually</applyMode>
   <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>false</displayIcon>
-  <displayIconFunction>return false;</displayIconFunction>
+  <displayIconFunction>return true;</displayIconFunction>
   <displayFunction />
   <displayAsAnnotation>false</displayAsAnnotation>
   <displayAsText>true</displayAsText>
@@ -80,6 +80,54 @@
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return DataMaskType === `Partial Mask`;</isActiveFunction>
+    </property>
+    <property id="d525f5b5-10a3-43dc-85f5-6cbc527e4c76">
+      <hint>Comma separated list of role names.</hint>
+      <name>Roles</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>let securityElementsDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Roles !== null &amp;&amp; Roles !== undefined &amp;&amp; Roles.trim() !== ''));</isActiveFunction>
+    </property>
+    <property id="1f4d27c8-8f73-4967-a289-cad5110944fd">
+      <hint>Comma separated list of policy names.</hint>
+      <name>Policy</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(optional)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>let securityElementsDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
+return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Policy !== null &amp;&amp; Policy !== undefined &amp;&amp; Policy.trim() !== ''));</isActiveFunction>
+    </property>
+    <property id="94865e3a-d9a7-4788-82f1-338c87f462b9">
+      <name>Security Roles</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
+    </property>
+    <property id="6a39a279-177c-480f-88fd-61d8e837fd68">
+      <name>Security Policies</name>
+      <type>string</type>
+      <controlType>multi-select</controlType>
+      <optionsSource>lookup-element</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes>
+        <type>9f37c60e-ad88-4484-98ca-6c9aa7ca3134</type>
+      </lookupTypes>
+      <isActiveFunction>return lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;</isActiveFunction>
     </property>
   </properties>
 </stereotypeDefinition>

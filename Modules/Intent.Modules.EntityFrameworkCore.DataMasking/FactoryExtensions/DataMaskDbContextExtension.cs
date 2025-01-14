@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -10,7 +11,6 @@ using Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConverter
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -80,10 +80,10 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                 var entities = application.MetadataManager.Domain(application).GetClassModels().Where(c => c.Attributes.Any(a => a.HasDataMasking()));
                 var modelCreatingMethod = @class.Methods.FirstOrDefault(m => m.Name == "OnModelCreating");
 
-                foreach(var entity in entities)
+                foreach (var entity in entities)
                 {
                     // this should always return a valid statement
-                    var statement = modelCreatingMethod.Statements.FirstOrDefault(s => s.Text.StartsWith("modelBuilder.ApplyConfiguration") 
+                    var statement = modelCreatingMethod.Statements.FirstOrDefault(s => s.Text.StartsWith("modelBuilder.ApplyConfiguration")
                     && s.TryGetMetadata("model", out ClassModel model) && model.Name == entity.Name);
 
                     statement?.FindAndReplace("Configuration()", "Configuration(_currentUserService)");
