@@ -67,7 +67,10 @@ try
 
     app.Run();
 }
-catch (Exception ex)
+// The HostAbortedException is excluded from the catch as recommended (in the below link)
+// by the .NET team, as it causes issues when working with EF Core migrations
+// https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370
+catch (Exception ex) when (ex is not HostAbortedException)
 {
     Log.Fatal(ex, "Application terminated unexpectedly");
 }
