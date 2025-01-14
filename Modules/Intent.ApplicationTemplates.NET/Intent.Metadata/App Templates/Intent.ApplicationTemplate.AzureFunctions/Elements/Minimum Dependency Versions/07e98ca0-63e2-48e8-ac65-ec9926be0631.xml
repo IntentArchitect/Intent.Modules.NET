@@ -393,9 +393,9 @@
     </childElement>
     <childElement id="0a311147-4ba2-4e4c-9c02-9cb1f0895bbe" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Types.ServiceProxies</name>
-      <display>Intent.Modelers.Types.ServiceProxies 5.4.0</display>
+      <display>Intent.Modelers.Types.ServiceProxies 5.4.2</display>
       <isAbstract>false</isAbstract>
-      <value>5.4.0</value>
+      <value>5.4.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
