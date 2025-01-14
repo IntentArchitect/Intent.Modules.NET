@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#cd32236a-6224-46c8-b2a1-f79852082e15</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/CheckNewCompChildCrudsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCrudsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>68f4fb1c-9cdb-456c-8594-b5d4bc883cd2</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#17e4e577-b053-4c1c-a433-e552079175a7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Api/Controllers/ChildrenController.cs</ApplicationRelativeFilePath>
@@ -520,6 +528,278 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/Brands/UpdateBrand/UpdateBrandCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Brands/UpdateBrand/UpdateBrandCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#3cdcd494-4c77-43f9-aaec-d3944dc12958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CheckNewCompChildCrudDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CheckNewCompChildCrudDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#3cdcd494-4c77-43f9-aaec-d3944dc12958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CheckNewCompChildCrudDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CheckNewCompChildCrudDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2c6802bf-ca5d-4d18-8bc4-a0f3ac7805dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CNCCChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CNCCChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#2c6802bf-ca5d-4d18-8bc4-a0f3ac7805dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CNCCChildDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CNCCChildDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e7383cf6-1816-45b6-929c-f890a265252e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e7383cf6-1816-45b6-929c-f890a265252e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e7383cf6-1816-45b6-929c-f890a265252e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCheckNewCompChildCrud/CreateCheckNewCompChildCrudCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f1da1557-4bbd-4aed-a37f-7cdbefddbc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f1da1557-4bbd-4aed-a37f-7cdbefddbc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f1da1557-4bbd-4aed-a37f-7cdbefddbc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCNCCChild/CreateCNCCChildCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#295e1ec4-7819-4f27-82bc-bd41c463a97b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#295e1ec4-7819-4f27-82bc-bd41c463a97b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#295e1ec4-7819-4f27-82bc-bd41c463a97b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCheckNewCompChildCrud/DeleteCheckNewCompChildCrudCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0ae9a20b-1f4a-426e-a86d-10141b636748</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0ae9a20b-1f4a-426e-a86d-10141b636748</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0ae9a20b-1f4a-426e-a86d-10141b636748</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCNCCChild/DeleteCNCCChildCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a0abdb76-fc97-4973-b017-36b4d2897fe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a0abdb76-fc97-4973-b017-36b4d2897fe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a0abdb76-fc97-4973-b017-36b4d2897fe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCrudById/GetCheckNewCompChildCrudByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#49428d54-9ba2-4066-beb3-680e0807f997</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#49428d54-9ba2-4066-beb3-680e0807f997</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#49428d54-9ba2-4066-beb3-680e0807f997</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCruds/GetCheckNewCompChildCrudsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a9d09f0e-4ed9-4451-95ec-dafc686df3dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a9d09f0e-4ed9-4451-95ec-dafc686df3dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a9d09f0e-4ed9-4451-95ec-dafc686df3dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildById/GetCNCCChildByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#7c35e3c4-3900-4e15-8383-fa7e69ffe38c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#7c35e3c4-3900-4e15-8383-fa7e69ffe38c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#7c35e3c4-3900-4e15-8383-fa7e69ffe38c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildren/GetCNCCChildrenQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#d720a0e4-82f1-4181-9445-955af4906035</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#d720a0e4-82f1-4181-9445-955af4906035</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#d720a0e4-82f1-4181-9445-955af4906035</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCheckNewCompChildCrud/UpdateCheckNewCompChildCrudCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1348d8cb-0c75-4246-83ff-afa9d911bbd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1348d8cb-0c75-4246-83ff-afa9d911bbd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1348d8cb-0c75-4246-83ff-afa9d911bbd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application/CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCNCCChild/UpdateCNCCChildCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2724,6 +3004,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#971887c5-6745-46b0-9492-905e5fc75d98</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/CheckNewCompChildCrud.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCrud.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a3f2f76d-0867-4325-a5d6-fb4f1c83a247</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/Child.cs</ApplicationRelativeFilePath>
@@ -2736,6 +3024,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/Client.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Client.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0a7a6f49-71ab-4550-bee2-ad6f95dccae8</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e34ad5f4-0db3-4001-9c0f-fa7e0658ec9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Entities/CNCCChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CNCCChild.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2880,6 +3176,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/IBrandRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBrandRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bd2c8ef-87e5-48ec-aab2-e15aa8773c87</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#971887c5-6745-46b0-9492-905e5fc75d98</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Domain/Repositories/ICheckNewCompChildCrudRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICheckNewCompChildCrudRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3076,6 +3380,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#971887c5-6745-46b0-9492-905e5fc75d98</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/CheckNewCompChildCrudConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCrudConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b019a06f-0542-4575-97c9-60f9e54aedb9</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a3f2f76d-0867-4325-a5d6-fb4f1c83a247</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Persistence/Configurations/ChildConfiguration.cs</ApplicationRelativeFilePath>
@@ -3232,6 +3544,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/BrandRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BrandRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5dadd94-25e7-46b1-9df2-837e5af379ed</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#971887c5-6745-46b0-9492-905e5fc75d98</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Infrastructure/Repositories/CheckNewCompChildCrudRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCrudRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3432,6 +3752,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/Brands/IBrandsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Brands/IBrandsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#cd32236a-6224-46c8-b2a1-f79852082e15</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/CheckNewCompChildCruds/CheckNewCompChildCrudsHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CheckNewCompChildCrudsHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ae6542fd-a9ba-4d27-9533-4e62d9eb18f8</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#cd32236a-6224-46c8-b2a1-f79852082e15</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/HttpClients/CheckNewCompChildCruds/ICheckNewCompChildCrudsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/ICheckNewCompChildCrudsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3784,6 +4120,102 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/Brands/UpdateBrandCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Brands/UpdateBrandCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#3cdcd494-4c77-43f9-aaec-d3944dc12958</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/CheckNewCompChildCrudDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/CheckNewCompChildCrudDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2c6802bf-ca5d-4d18-8bc4-a0f3ac7805dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/CNCCChildDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/CNCCChildDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e7383cf6-1816-45b6-929c-f890a265252e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/CreateCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/CreateCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#f1da1557-4bbd-4aed-a37f-7cdbefddbc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/CreateCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/CreateCNCCChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#295e1ec4-7819-4f27-82bc-bd41c463a97b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/DeleteCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/DeleteCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0ae9a20b-1f4a-426e-a86d-10141b636748</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/DeleteCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/DeleteCNCCChildCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#a0abdb76-fc97-4973-b017-36b4d2897fe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/GetCheckNewCompChildCrudByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/GetCheckNewCompChildCrudByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#49428d54-9ba2-4066-beb3-680e0807f997</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/GetCheckNewCompChildCrudsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/GetCheckNewCompChildCrudsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#a9d09f0e-4ed9-4451-95ec-dafc686df3dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/GetCNCCChildByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/GetCNCCChildByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7c35e3c4-3900-4e15-8383-fa7e69ffe38c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/GetCNCCChildrenQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/GetCNCCChildrenQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#d720a0e4-82f1-4181-9445-955af4906035</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/UpdateCheckNewCompChildCrudCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/UpdateCheckNewCompChildCrudCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fda9375f-9964-43cf-9ff4-dbb6a285027c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#1348d8cb-0c75-4246-83ff-afa9d911bbd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Services/CheckNewCompChildCruds/UpdateCNCCChildCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/CheckNewCompChildCruds/UpdateCNCCChildCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4528,6 +4960,86 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/Brands/UpdateBrandTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Brands/UpdateBrandTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e7383cf6-1816-45b6-929c-f890a265252e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/CreateCheckNewCompChildCrudTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCheckNewCompChildCrudTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#f1da1557-4bbd-4aed-a37f-7cdbefddbc4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/CreateCNCCChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/CreateCNCCChildTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#295e1ec4-7819-4f27-82bc-bd41c463a97b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/DeleteCheckNewCompChildCrudTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCheckNewCompChildCrudTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#0ae9a20b-1f4a-426e-a86d-10141b636748</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/DeleteCNCCChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/DeleteCNCCChildTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a0abdb76-fc97-4973-b017-36b4d2897fe8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/GetCheckNewCompChildCrudByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCrudByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#49428d54-9ba2-4066-beb3-680e0807f997</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/GetCheckNewCompChildCrudsTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCheckNewCompChildCrudsTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a9d09f0e-4ed9-4451-95ec-dafc686df3dd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/GetCNCCChildByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7c35e3c4-3900-4e15-8383-fa7e69ffe38c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/GetCNCCChildrenTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/GetCNCCChildrenTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d720a0e4-82f1-4181-9445-955af4906035</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/UpdateCheckNewCompChildCrudTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCheckNewCompChildCrudTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d3d3e59b-761c-47db-b174-c17872941e92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1348d8cb-0c75-4246-83ff-afa9d911bbd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.IntegrationTests/Tests/CheckNewCompChildCruds/UpdateCNCCChildTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CheckNewCompChildCruds/UpdateCNCCChildTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -27,6 +27,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
 
         public DbSet<BadSignatures> BadSignatures { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<CheckNewCompChildCrud> CheckNewCompChildCruds { get; set; }
         public DbSet<Child> Children { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -65,6 +66,7 @@ namespace IntegrationTesting.Tests.Infrastructure.Persistence
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new BadSignaturesConfiguration());
             modelBuilder.ApplyConfiguration(new BrandConfiguration());
+            modelBuilder.ApplyConfiguration(new CheckNewCompChildCrudConfiguration());
             modelBuilder.ApplyConfiguration(new ChildConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());

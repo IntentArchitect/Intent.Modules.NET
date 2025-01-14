@@ -176,19 +176,29 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         private static bool ExpectedUpdateParameters(IHttpEndpointModel o, ClassModel entity, ClassModel? owningAggregate)
         {
-            if (owningAggregate == null)
-                return o.Inputs.Count == 2 &&                
-                o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
-            return o.Inputs.Count == 3 &&
-                o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id &&
-                o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+            //This is backwards compatible with old composite rest urls
+            if (o.Inputs.Count == 2 &&
+                o.Inputs.First().TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id)
+            {
+                return true;
+            }
+            if (owningAggregate != null)
+            {
+                return o.Inputs.Count == 3 &&
+                    o.Inputs.First().TypeReference?.Element?.Id == owningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id &&
+                    o.Inputs.ElementAt(1).TypeReference?.Element?.Id == entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference?.Element?.Id;
+            }
+            return false;
         }
 
         private static bool ExpectedCreateParameters(IHttpEndpointModel o, ClassModel? owningAggregate)
         {
-            if (owningAggregate == null)
-                return o.Inputs.Count == 1;
-            return o.Inputs.Count == 2;
+            //This is backwards compatible with old composite rest urls
+            if (o.Inputs.Count == 1)
+                return true;
+            if (owningAggregate is not  null)
+                return o.Inputs.Count == 2;
+            return false;
         }
 
         private static ClassModel? GetOwningAggregate(ClassModel entity)

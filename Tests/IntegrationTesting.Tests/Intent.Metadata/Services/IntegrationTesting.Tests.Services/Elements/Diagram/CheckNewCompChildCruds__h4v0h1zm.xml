@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8cbd4bdb-ba0f-4980-929e-6ed77ec366c8" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>CheckNewCompChildCruds</name>
+  <display>CheckNewCompChildCruds</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cd32236a-6224-46c8-b2a1-f79852082e15</parentFolderId>
+  <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
+  <packageName>IntegrationTesting.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>8cbd4bdb-ba0f-4980-929e-6ed77ec366c8</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

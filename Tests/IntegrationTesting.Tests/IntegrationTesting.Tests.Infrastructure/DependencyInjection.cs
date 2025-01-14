@@ -28,6 +28,7 @@ namespace IntegrationTesting.Tests.Infrastructure
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IBadSignaturesRepository, BadSignaturesRepository>();
             services.AddTransient<IBrandRepository, BrandRepository>();
+            services.AddTransient<ICheckNewCompChildCrudRepository, CheckNewCompChildCrudRepository>();
             services.AddTransient<IChildRepository, ChildRepository>();
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();

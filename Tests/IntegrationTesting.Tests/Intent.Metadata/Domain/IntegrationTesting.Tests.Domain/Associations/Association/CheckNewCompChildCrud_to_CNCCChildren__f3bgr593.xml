@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4e27a8bd-3927-45b6-8e64-4b78b4b3184f">
+  <sourceEnd id="96fdf45c-ab35-4a37-92c5-d68b78d9cc4f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CheckNewCompChildCrud</name>
+    <display>CheckNewCompChildCrud: CheckNewCompChildCrud</display>
+    <order>0</order>
+    <typeReference id="625fca05-dff4-4a82-8950-df6170c29bea">
+      <typeId>971887c5-6745-46b0-9492-905e5fc75d98</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4e27a8bd-3927-45b6-8e64-4b78b4b3184f" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>CNCCChildren</name>
+    <display>CNCCChildren: CNCCChild[*]</display>
+    <order>2</order>
+    <typeReference id="3ed4a774-0176-4200-bb1c-ba3d25ed1a39">
+      <typeId>e34ad5f4-0db3-4001-9c0f-fa7e0658ec9a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

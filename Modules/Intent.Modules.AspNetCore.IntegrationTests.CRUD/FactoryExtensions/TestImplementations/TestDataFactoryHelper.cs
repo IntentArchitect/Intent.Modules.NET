@@ -80,27 +80,33 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                     {
                         method.Async();
 
-                        var owningAggragateId = crudTest.OwningAggregate != null ? $"{crudTest.OwningAggregate?.Name.ToParameterName()}Id" : null;
-                        var dtoModel = crudTest.OwningAggregate == null ? crudTest.Create.Inputs.First() : crudTest.Create.Inputs.ElementAt(1); 
+                        var owningAggregateId = crudTest.OwningAggregate != null ? $"{crudTest.OwningAggregate?.Name.ToParameterName()}Id" : null;                        
+                        var dtoModel = crudTest.Create.Inputs.First(x => x.TypeReference?.Element.SpecializationTypeId == Constansts.DtoSpecializationType || x.TypeReference?.Element.SpecializationTypeId == Constansts.CommandSpecializationType);
 
                         var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
 
                         if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
                         {
-                            method.AddStatement($"{(crudTest.OwningAggregate != null ? $"var {owningAggragateId} = " : "")}await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
+                            method.AddStatement($"{(crudTest.OwningAggregate != null ? $"var {owningAggregateId} = " : "")}await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
                         }
 
                         method
                             .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(_factory.CreateClient());", s => s.SeparatedFromNext())
                             .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();");
 
+                        string parameters = $"command";
+                        if(crudTest.Create.Inputs.Count > 1 && owningAggregateId != null)
+                        {
+                            parameters = $"{owningAggregateId}, {parameters}";
+                        }
+
                         if (crudTest.ResponseDtoIdField is null)
                         {
-                            method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async({(owningAggragateId != null ? $"{owningAggragateId}, " :"")}command);");
+                            method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async({parameters});");
                         }
                         else
                         {
-                            method.AddStatement($"var dto = await client.{crudTest.Create.Name}Async({(owningAggragateId != null ? $"{owningAggragateId}, " : "")}command);");
+                            method.AddStatement($"var dto = await client.{crudTest.Create.Name}Async({parameters});");
                             method.AddStatement($"var {sutId} = dto.{crudTest.ResponseDtoIdField};");
                         }
                         method.AddStatement($"_idTracker[\"{sutId.ToPascalCase()}\"] = {sutId};");
@@ -113,8 +119,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         }
                         if (crudTest.OwningAggregate != null)
                         {
-                            method.WithReturnType($"Task<({template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {owningAggragateId.ToPascalCase()}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
-                            method.AddStatement($"return ({owningAggragateId}, {sutId});");
+                            method.WithReturnType($"Task<({template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {owningAggregateId.ToPascalCase()}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
+                            method.AddStatement($"return ({owningAggregateId}, {sutId});");
                         }
                         else
                         {

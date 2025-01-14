@@ -2,6 +2,7 @@ using AutoFixture;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Brands;
+using IntegrationTesting.Tests.IntegrationTests.HttpClients.CheckNewCompChildCruds;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Children;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Clients;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.Customers;
@@ -14,6 +15,7 @@ using IntegrationTesting.Tests.IntegrationTests.HttpClients.PartialCruds;
 using IntegrationTesting.Tests.IntegrationTests.HttpClients.RichProducts;
 using IntegrationTesting.Tests.IntegrationTests.Services.BadSignatures;
 using IntegrationTesting.Tests.IntegrationTests.Services.Brands;
+using IntegrationTesting.Tests.IntegrationTests.Services.CheckNewCompChildCruds;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Clients;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
@@ -71,6 +73,34 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var brandId = await client.CreateBrandAsync(command);
             _idTracker["BrandId"] = brandId;
             return brandId;
+        }
+
+        public async Task<Guid> CreateCheckNewCompChildCrud()
+        {
+            var client = new CheckNewCompChildCrudsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCheckNewCompChildCrudCommand>();
+            var checkNewCompChildCrudId = await client.CreateCheckNewCompChildCrudAsync(command);
+            _idTracker["CheckNewCompChildCrudId"] = checkNewCompChildCrudId;
+            return checkNewCompChildCrudId;
+        }
+
+        public async Task<Guid> CreateCNCCChildDependencies()
+        {
+            var checkNewCompChildCrudId = await CreateCheckNewCompChildCrud();
+            return checkNewCompChildCrudId;
+        }
+
+        public async Task<(Guid CheckNewCompChildCrudId, Guid CNCCChildId)> CreateCNCCChild()
+        {
+            var checkNewCompChildCrudId = await CreateCNCCChildDependencies();
+
+            var client = new CheckNewCompChildCrudsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCNCCChildCommand>();
+            var cNCCChildId = await client.CreateCNCCChildAsync(checkNewCompChildCrudId, command);
+            _idTracker["CNCCChildId"] = cNCCChildId;
+            return (checkNewCompChildCrudId, cNCCChildId);
         }
 
         public async Task CreateChildDependencies()
