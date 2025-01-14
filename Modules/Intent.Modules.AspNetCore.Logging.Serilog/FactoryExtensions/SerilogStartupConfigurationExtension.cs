@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks.Dataflow;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Logging.Serilog.Settings;
 using Intent.Modules.Common;
@@ -120,7 +121,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
 
             main.AddTryBlock(block =>
                 block.AddStatement(@"Log.Information(""Starting web host"");")
-                    .AddStatement(hostRunStmt));
+            .AddStatement(hostRunStmt));
 
             main.AddCatchBlock(template.UseType("System.Exception"), "ex",
                 block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
@@ -156,8 +157,12 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 }
             });
 
+            targetBlock.AddStatement("// The HostAbortedException is excluded from the catch as recommended (in the below link)");
+            targetBlock.AddStatement("// by the .NET team, as it causes issues when working with EF Core migrations");
+            targetBlock.AddStatement("// https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370");
             targetBlock.AddCatchBlock(@catch => @catch
                 .WithExceptionType(template.UseType("System.Exception"))
+                .WithWhenExpression($"ex is not {template.UseType("Microsoft.Extensions.Hosting.HostAbortedException")}")
                 .WithParameterName("ex")
                 .AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
 

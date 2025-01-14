@@ -1,3 +1,7 @@
+### Version 5.1.8
+
+- Improvement: Check added to the `catch` in program.cs for minimal hosting to prevent errors when working with EF Core migrations (as per the recommendation here: https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370)
+
 ### Version 5.1.7
 
 - Improvement: Updated NuGet package versions.
