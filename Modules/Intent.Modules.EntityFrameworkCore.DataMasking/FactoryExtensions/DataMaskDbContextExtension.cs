@@ -32,8 +32,12 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
             {
                 var @class = file.Classes.First();
 
-                @class.Constructors.First().AddParameter(template.GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface"), "currentUserService",
-                     param => { param.IntroduceReadonlyField(); });
+                var ctor = @class.Constructors.First();
+                if (!ctor.Parameters.Any(p => p.Name == "currentUserService" && p.Type == template.GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface")))
+                {
+                    @class.Constructors.First().AddParameter(template.GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface"), "currentUserService",
+                         param => { param.IntroduceReadonlyField(); });
+                }
 
                 var saveMethod = template.GetSaveChangesMethod();
                 saveMethod.InsertStatement(0, "PreventMaskedDataSave();");

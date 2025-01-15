@@ -70,12 +70,12 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
 
                         method.AddIfStatement("maskType == MaskDataType.SetLength", @if =>
                         {
-                            @if.AddReturn("string.Concat(Enumerable.Repeat(maskCharacter, maskLength))");
+                            @if.AddReturn($"string.Concat({UseType("System.Linq.Enumerable")}.Repeat(maskCharacter, maskLength))");
                         });
 
                         method.AddIfStatement("maskType == MaskDataType.VariableLength", @if =>
                         {
-                            @if.AddReturn("string.Concat(Enumerable.Repeat(maskCharacter, value.Length))");
+                            @if.AddReturn($"string.Concat({UseType("System.Linq.Enumerable")}.Repeat(maskCharacter, value.Length))");
                         });
 
                         method.AddIfStatement("unmaskedPrefixLength + unmaskedSuffixLength >= value.Length", @if =>

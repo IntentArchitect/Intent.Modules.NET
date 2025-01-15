@@ -10,6 +10,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.DataMasking.Api;
+using Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConverter;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -79,14 +80,14 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                         foreach (var attribute in maskedAttributes)
                         {
                             EfCoreFieldConfigStatement statement = (EfCoreFieldConfigStatement)configMethod.FindStatement(s => s.Text == $"builder.Property(x => x.{attribute.Name})");
-                            statement?.AddStatement(GetConversionStatement(attribute));
+                            statement?.AddStatement(GetConversionStatement(attribute, entity));
                         }
                     }
                 });
             }
         }
 
-        private static CSharpStatement GetConversionStatement(AttributeModel attribute)
+        private static CSharpStatement GetConversionStatement(AttributeModel attribute, ICSharpFileBuilderTemplate template)
         {
             var maskedChar = string.IsNullOrWhiteSpace(attribute.GetDataMasking().MaskCharacter()) ? "*" : attribute.GetDataMasking().MaskCharacter();
             var maskLength = attribute.GetDataMasking().SetLength() <= 0 ? 5 : attribute.GetDataMasking().SetLength();
@@ -96,7 +97,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
             if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsVariableLength())
             {
                 var variableStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
-                    .AddArgument(new CSharpInvocationStatement("new DataMaskConverter").WithoutSemicolon()
+                    .AddArgument(new CSharpInvocationStatement($"new {template.GetTypeName(DataMaskConverterTemplate.TemplateId)}").WithoutSemicolon()
                         .AddArgument("_currentUserService")
                         .AddArgument("MaskDataType.VariableLength")
                         .AddArgument($"\"{maskedChar}\"")
@@ -110,7 +111,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
             if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsSetLength())
             {
                 var fixedStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
-                     .AddArgument(new CSharpInvocationStatement("new DataMaskConverter").WithoutSemicolon()
+                     .AddArgument(new CSharpInvocationStatement($"new {template.GetTypeName(DataMaskConverterTemplate.TemplateId)}").WithoutSemicolon()
                          .AddArgument("_currentUserService")
                          .AddArgument("MaskDataType.SetLength")
                          .AddArgument($"\"{maskedChar}\"")
