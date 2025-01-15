@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter", Version = "1.0")]
+[assembly: IntentTemplate("Intent.EntityFrameworkCore.DataMasking.DataMaskConverter", Version = "1.0")]
 
 namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Interceptors
 {

@@ -9,9 +9,9 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="3368bb02-0206-4ea1-ad6e-52a800062cd0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter</name>
-      <display>Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter</display>
+    <childElement id="bc80d5dc-2e61-4c2b-9e03-679ee486356b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter</name>
+      <display>Intent.EntityFrameworkCore.DataMasking.DataMaskConverter</display>
       <externalReference>Intent.EntityFrameworkCore.DataMasking</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
