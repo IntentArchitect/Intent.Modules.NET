@@ -1,6 +1,8 @@
+using System;
 using System.Linq;
 using System.Transactions;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -77,10 +79,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                         foreach (var attribute in maskedAttributes)
                         {
                             EfCoreFieldConfigStatement statement = (EfCoreFieldConfigStatement)configMethod.FindStatement(s => s.Text == $"builder.Property(x => x.{attribute.Name})");
-                            if (statement != null)
-                            {
-                                statement.AddStatement(GetConversionStatement(attribute));
-                            }
+                            statement?.AddStatement(GetConversionStatement(attribute));
                         }
                     }
                 });
@@ -91,6 +90,8 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
         {
             var maskedChar = string.IsNullOrWhiteSpace(attribute.GetDataMasking().MaskCharacter()) ? "*" : attribute.GetDataMasking().MaskCharacter();
             var maskLength = attribute.GetDataMasking().SetLength() <= 0 ? 5 : attribute.GetDataMasking().SetLength();
+            var roles = string.Join("\",\"", GetRoles(attribute));
+            var policies = string.Join("\",\"", GetPolicies(attribute));
 
             if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsVariableLength())
             {
@@ -98,7 +99,10 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                     .AddArgument(new CSharpInvocationStatement("new DataMaskConverter").WithoutSemicolon()
                         .AddArgument("_currentUserService")
                         .AddArgument("MaskDataType.VariableLength")
-                        .AddArgument($"\"{maskedChar}\""));
+                        .AddArgument($"\"{maskedChar}\"")
+                        .AddArgument($"roles: [{roles}]")
+                        .AddArgument($"policies: [{policies}]")
+                        );
 
                 return variableStatement;
             }
@@ -110,7 +114,9 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                          .AddArgument("_currentUserService")
                          .AddArgument("MaskDataType.SetLength")
                          .AddArgument($"\"{maskedChar}\"")
-                         .AddArgument(maskLength.ToString()));
+                         .AddArgument(maskLength.ToString())
+                         .AddArgument($"roles: [{roles}]")
+                         .AddArgument($"policies: [{policies}]"));
 
                 return fixedStatement;
             }
@@ -125,9 +131,55 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                          .AddArgument($"\"{maskedChar}\"")
                          .AddArgument("0")
                          .AddArgument(prefixLength.ToString())
-                         .AddArgument(suffixLength.ToString()));
+                         .AddArgument(suffixLength.ToString())
+                         .AddArgument($"roles: [{roles}]")
+                         .AddArgument($"policies: [{policies}]"));
 
             return partialStatement;
+        }
+
+        public static string[] GetRoles(AttributeModel attribute)
+        {
+            var commaSeparatedRoles = attribute.GetDataMasking().Roles();
+            var roles = attribute.GetDataMasking().SecurityRoles();
+
+            if (roles?.Length > 0)
+            {
+                return roles!.Select(x => $"\"{x.Name}\"").ToArray();
+            }
+
+            if (commaSeparatedRoles?.Length > 0)
+            {
+                return commaSeparatedRoles
+                   .Split(',')
+                   .Select(x => $"\"{x.Trim()}\"")
+                   .Where(x => !string.IsNullOrWhiteSpace(x))
+                   .ToArray();
+            }
+
+            return [];
+        }
+
+        public static string[] GetPolicies(AttributeModel attribute)
+        {
+            var commaSeparatedPolicies = attribute.GetDataMasking().Policy();
+            var policies = attribute.GetDataMasking().SecurityPolicies();
+
+            if (policies?.Length > 0)
+            {
+                return policies!.Select(x => $"\"{x.Name}\"").ToArray();
+            }
+
+            if (commaSeparatedPolicies?.Length > 0)
+            {
+                return commaSeparatedPolicies
+                   .Split(',')
+                   .Select(x => $"\"{x.Trim()}\"")
+                   .Where(x => !string.IsNullOrWhiteSpace(x))
+                   .ToArray();
+            }
+
+            return [];
         }
 
     }

@@ -33,12 +33,14 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                             .AddParameter("string", "maskCharacter", param => param.WithDefaultValue("\"*\""))
                             .AddParameter("int", "maskLength", param => param.WithDefaultValue("0"))
                             .AddParameter("int", "unmaskedPrefixLength", param => param.WithDefaultValue("0"))
-                            .AddParameter("int", "unmaskedSuffixLength", param => param.WithDefaultValue("0"));
+                            .AddParameter("int", "unmaskedSuffixLength", param => param.WithDefaultValue("0"))
+                            .AddParameter("string[]?", "roles", param => param.WithDefaultValue("default"))
+                            .AddParameter("string[]?", "policies", param => param.WithDefaultValue("default"));
 
                         ctor.CallsBase(@base =>
                         {
                             @base.AddArgument("v => v");
-                            @base.AddArgument("v => MaskValue(currentUserService, maskType, v, maskCharacter, maskLength, unmaskedPrefixLength, unmaskedSuffixLength)");
+                            @base.AddArgument("v => MaskValue(currentUserService, maskType, v, maskCharacter, maskLength, unmaskedPrefixLength, unmaskedSuffixLength, roles, policies)");
                         });
                     });
 
@@ -52,7 +54,14 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                             .AddParameter("string", "maskCharacter")
                             .AddParameter("int", "maskLength")
                             .AddParameter("int", "unmaskedPrefixLength")
-                            .AddParameter("int", "unmaskedSuffixLength");
+                            .AddParameter("int", "unmaskedSuffixLength")
+                            .AddParameter("string[]?", "roles", param => param.WithDefaultValue("default"))
+                            .AddParameter("string[]?", "policies", param => param.WithDefaultValue("default"));
+
+                        method.AddIfStatement("UserAuthorized(currentUserService, roles, policies)", @if =>
+                        {
+                            @if.AddReturn("value");
+                        });
 
                         method.AddIfStatement("string.IsNullOrWhiteSpace(value)", @if =>
                         {
@@ -81,6 +90,47 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
 
                         method.AddReturn("$\"{prefix}{maskedPortion}{suffix}\"");
                     });
+
+                    @class.AddMethod("bool", "UserAuthorized", method =>
+                    {
+                        method.AddParameter("ICurrentUserService", "currentUserService")
+                            .AddParameter("string[]?", "roles", param => param.WithDefaultValue("default"))
+                            .AddParameter("string[]?", "policies", param => param.WithDefaultValue("default"));
+
+                        method.Static();
+
+                        method.AddIfStatement("(roles is null && policies is null) || (roles?.Length == 0 && policies?.Length == 0)", @if =>
+                        {
+                            @if.AddReturn("false");
+                        });
+
+                        method.AddIfStatement("roles != null && roles.Length > 0", @if =>
+                        {
+                            @if.AddForEachStatement("role", "roles", @for =>
+                            {
+                                @for.AddObjectInitStatement("var isInRole", "currentUserService.IsInRoleAsync(role).GetAwaiter().GetResult();");
+                                @for.AddIfStatement("isInRole", roleIf =>
+                                {
+                                    roleIf.AddReturn("true");
+                                });
+                            });
+                        });
+
+                        method.AddIfStatement("policies != null && policies.Length > 0", @if =>
+                        {
+                            @if.AddForEachStatement("policy", "policies", @for =>
+                            {
+                                @for.AddObjectInitStatement("var isAuthorized", "currentUserService.AuthorizeAsync(policy).GetAwaiter().GetResult();");
+                                @for.AddIfStatement("isAuthorized", roleIf =>
+                                {
+                                    roleIf.AddReturn("true");
+                                });
+                            });
+                        });
+
+                        method.AddReturn("false");
+                    });
+
                 }).AddEnum("MaskDataType", @enum =>
                 {
                     @enum.AddLiteral("SetLength")
