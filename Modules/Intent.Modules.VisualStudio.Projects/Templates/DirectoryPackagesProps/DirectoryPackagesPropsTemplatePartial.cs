@@ -25,7 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         private readonly ProjectRootElement _projectRootElement;
         private readonly bool _canRunTemplate;
         private readonly IFileMetadata _fileMetadata;
-        private readonly Dictionary<string, string> _cachedPackageVersions;
+        private Dictionary<string, string> _cachedPackageVersions;
 
         public const string TemplateId = "Intent.VisualStudio.Projects.DirectoryPackagesProps";
 
@@ -37,7 +37,6 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 ? File.ReadAllText(_fileMetadata.GetFilePath())
                 : GetInitialContent());
             _canRunTemplate = model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true;
-            _cachedPackageVersions = GetAllPrecomputedPackageVersions(_projectRootElement, Path.GetDirectoryName(_fileMetadata.GetFilePath()));
 
             Model = model;
         }
@@ -52,6 +51,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 return false;
             }
 
+            _cachedPackageVersions ??= GetAllPrecomputedPackageVersions(_projectRootElement, Path.GetDirectoryName(_fileMetadata.GetFilePath()));
+
             return _cachedPackageVersions.TryGetValue(packageId, out version);
         }
 
@@ -60,8 +61,22 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             string packageVersion,
             ISoftwareFactoryEventDispatcher sfEventDispatcher)
         {
-            var item = _projectRootElement.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase)) ??
-                       _projectRootElement.AddItem("PackageVersion", packageId);
+            var item = _projectRootElement.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
+            switch (item)
+            {
+                case null when _cachedPackageVersions.TryGetValue(packageId, out var importedPackageVersion):
+                {
+                    if (importedPackageVersion != packageVersion)
+                    {
+                        Utils.Logging.Log.Warning(
+                            $"Nuget Package {packageId} with version {packageVersion} differs from one imported in the Directory.Packages.props file. Imported package version: {importedPackageVersion}.");
+                    }
+                    return;
+                }
+                case null:
+                    item = _projectRootElement.AddItem("PackageVersion", packageId);
+                    break;
+            }
 
             var metadata = item.Metadata.SingleOrDefault(x => string.Equals(x.Name, "Version", StringComparison.OrdinalIgnoreCase));
             if (metadata == null)
@@ -81,6 +96,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             var item = _projectRootElement.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
             if (item == null)
             {
+                if (_cachedPackageVersions.TryGetValue(packageId, out var importedPackageVersion))
+                {
+                    Utils.Logging.Log.Warning(
+                        $"Nuget Package {packageId} is indicated to be removed from the project, though it is still present in one of the imports from the Directory.Packages.props file.");
+                }
                 return;
             }
 
@@ -101,6 +121,8 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
 
         private void UpdateChangeIfNeeded(ISoftwareFactoryEventDispatcher sfEventDispatcher)
         {
+            _cachedPackageVersions = null; // Recompute Packaged Versions on next TryGetVersion
+            
             if (!CanRunTemplate())
             {
                 return;
@@ -111,7 +133,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             var change = _application.ChangeManager.FindChange(filePath);
             if (change != null)
             {
-                change.ChangeContent(_projectRootElement.RawXml);
+                change.ChangeContent(_projectRootElement.RawXml, _projectRootElement.RawXml);
                 return;
             }
 
