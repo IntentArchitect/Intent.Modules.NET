@@ -157,14 +157,17 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 }
             });
 
-            targetBlock.AddStatement("// The HostAbortedException is excluded from the catch as recommended (in the below link)");
-            targetBlock.AddStatement("// by the .NET team, as it causes issues when working with EF Core migrations");
-            targetBlock.AddStatement("// https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370");
+            targetBlock.AddCatchBlock(@catch => @catch
+                .WithExceptionType(template.UseType("Microsoft.Extensions.Hosting.HostAbortedException"))
+                .AddStatement("// Excluding HostAbortedException from being logged, as this is an expected")
+                .AddStatement("// exception when working with EF Core migrations (as per the .NET team on the below link)")
+                .AddStatement("// https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370"));
+
             targetBlock.AddCatchBlock(@catch => @catch
                 .WithExceptionType(template.UseType("System.Exception"))
-                .WithWhenExpression($"ex is not {template.UseType("Microsoft.Extensions.Hosting.HostAbortedException")}")
                 .WithParameterName("ex")
                 .AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
+
 
             targetBlock.AddFinallyBlock(@finally => @finally
                 .AddStatement("Log.CloseAndFlush();"));
