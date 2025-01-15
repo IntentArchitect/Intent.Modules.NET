@@ -25,6 +25,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         private readonly ProjectRootElement _projectRootElement;
         private readonly bool _canRunTemplate;
         private readonly IFileMetadata _fileMetadata;
+        private readonly Dictionary<string, string> _cachedPackageVersions;
 
         public const string TemplateId = "Intent.VisualStudio.Projects.DirectoryPackagesProps";
 
@@ -36,12 +37,13 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 ? File.ReadAllText(_fileMetadata.GetFilePath())
                 : GetInitialContent());
             _canRunTemplate = model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true;
+            _cachedPackageVersions = GetAllPrecomputedPackageVersions(_projectRootElement, Path.GetDirectoryName(_fileMetadata.GetFilePath()));
 
             Model = model;
         }
 
         public VisualStudioSolutionModel Model { get; }
-
+        
         public bool TryGetVersion(string packageId, out string version)
         {
             if (!_canRunTemplate)
@@ -50,22 +52,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 return false;
             }
 
-            var item = _projectRootElement.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
-            if (item == null)
-            {
-                version = default;
-                return false;
-            }
-
-            var versionMetadata = item.Metadata.SingleOrDefault(x => string.Equals("Version", x.Name, StringComparison.OrdinalIgnoreCase));
-            if (versionMetadata == null)
-            {
-                version = default;
-                return false;
-            }
-
-            version = versionMetadata.Value;
-            return true;
+            return _cachedPackageVersions.TryGetValue(packageId, out version);
         }
 
         public void SetPackageVersion(
@@ -143,6 +130,58 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 ProjectCollection.GlobalProjectCollection,
                 preserveFormatting: true);
         }
+        
+        private static Dictionary<string, string> GetAllPrecomputedPackageVersions(ProjectRootElement project, string projectDirectory)
+        {
+            var precomputedPackageVersions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            PrecomputePackageVersions(project, precomputedPackageVersions);
+            foreach (var importedProject in LoadImportedProjects(project, projectDirectory, []))
+            {
+                PrecomputePackageVersions(importedProject, precomputedPackageVersions);
+            }
+            return precomputedPackageVersions;
+            
+            static void PrecomputePackageVersions(ProjectRootElement project, Dictionary<string, string> dict)
+            {
+                foreach (var item in project.Items.Where(x => x.ItemType == "PackageVersion"))
+                {
+                    var versionMetadata = item.Metadata.SingleOrDefault(x => string.Equals("Version", x.Name, StringComparison.OrdinalIgnoreCase));
+                    if (versionMetadata != null)
+                    {
+                        dict[item.Include] = versionMetadata.Value;
+                    }
+                }
+            }
+            
+            static IEnumerable<ProjectRootElement> LoadImportedProjects(ProjectRootElement projectRootElement, string projectDirectory, HashSet<string> loadedProjects)
+            {
+                var importedProjects = new List<ProjectRootElement>();
+
+                foreach (var importItem in projectRootElement.Imports)
+                {
+                    var importPath = importItem.Project;
+                    if (!Path.IsPathRooted(importPath))
+                    {
+                        importPath = Path.Combine(projectDirectory, importPath);
+                    }
+                    //Try and avoid possible circular references
+                    if (!loadedProjects.Add(importPath))
+                    {
+                        continue;
+                    }
+                    if (!File.Exists(importPath))
+                    {
+                        continue;
+                    }
+                    var importedProject = CreateProjectRootElement(File.ReadAllText(importPath));
+                    importedProjects.Add(importedProject);
+                    importedProjects.AddRange(LoadImportedProjects(importedProject, Path.GetDirectoryName(importPath), loadedProjects));
+                }
+
+                return importedProjects;
+            }
+        }
+
 
         #region ITemplate implementation
 
