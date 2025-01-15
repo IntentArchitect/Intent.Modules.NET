@@ -16,7 +16,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class DataMaskConverterTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter";
+        public const string TemplateId = "Intent.EntityFrameworkCore.DataMasking.DataMaskConverter";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DataMaskConverterTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

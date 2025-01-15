@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.DataMasking.Api
+namespace Intent.EntityFrameworkCore.DataMasking.Api
 {
     // This is for disambiguating the extension method
     using Intent.Modelers.Domain.Api;

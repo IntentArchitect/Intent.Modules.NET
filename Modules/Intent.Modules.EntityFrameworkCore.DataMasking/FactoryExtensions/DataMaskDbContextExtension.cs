@@ -1,12 +1,12 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.EntityFrameworkCore.DataMasking.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.DataMasking.Api;
 using Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConverter;
 using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
@@ -20,7 +20,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DataMaskDbContextExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskDbContextExtension";
+        public override string Id => "Intent.EntityFrameworkCore.DataMasking.DataMaskDbContextExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

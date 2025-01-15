@@ -20,7 +20,7 @@
   <parentFolderId>082f01f5-722f-4482-9bc4-8454b5346dd7</parentFolderId>
   <order>0</order>
   <packageId>082f01f5-722f-4482-9bc4-8454b5346dd7</packageId>
-  <packageName>Intent.Modules.EntityFrameworkCore.DataMasking</packageName>
+  <packageName>Intent.EntityFrameworkCore.DataMasking</packageName>
   <properties>
     <property id="90ebb1d5-5d50-4910-b039-3e437faf46ee">
       <name>Data Mask Type</name>

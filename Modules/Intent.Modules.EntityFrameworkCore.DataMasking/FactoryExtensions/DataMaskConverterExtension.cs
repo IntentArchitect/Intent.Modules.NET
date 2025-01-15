@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Transactions;
 using Intent.Engine;
+using Intent.EntityFrameworkCore.DataMasking.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -9,7 +10,6 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.EntityFrameworkCore.DataMasking.Api;
 using Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConverter;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.Plugins.FactoryExtensions;
@@ -23,7 +23,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DataMaskConverterExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverterExtension";
+        public override string Id => "Intent.EntityFrameworkCore.DataMasking.DataMaskConverterExtension";
         private readonly IMetadataManager _metadataManager;
 
         [IntentManaged(Mode.Ignore)]

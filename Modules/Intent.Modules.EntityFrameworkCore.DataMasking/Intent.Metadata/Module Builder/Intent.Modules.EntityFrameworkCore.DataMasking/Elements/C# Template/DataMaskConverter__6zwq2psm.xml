@@ -18,7 +18,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>082f01f5-722f-4482-9bc4-8454b5346dd7</parentFolderId>
   <packageId>082f01f5-722f-4482-9bc4-8454b5346dd7</packageId>
-  <packageName>Intent.Modules.EntityFrameworkCore.DataMasking</packageName>
+  <packageName>Intent.EntityFrameworkCore.DataMasking</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

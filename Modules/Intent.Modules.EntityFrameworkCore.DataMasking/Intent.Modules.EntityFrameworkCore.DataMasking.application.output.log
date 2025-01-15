@@ -34,18 +34,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>d9ee0b15-fa5d-4bad-90c2-cf771e4b80de</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d9ee0b15-fa5d-4bad-90c2-cf771e4b80de</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.EntityFrameworkCore.DataMasking.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.EntityFrameworkCore.DataMasking.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d9ee0b15-fa5d-4bad-90c2-cf771e4b80de</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#d9ee0b15-fa5d-4bad-90c2-cf771e4b80de</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.EntityFrameworkCore.DataMasking.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
