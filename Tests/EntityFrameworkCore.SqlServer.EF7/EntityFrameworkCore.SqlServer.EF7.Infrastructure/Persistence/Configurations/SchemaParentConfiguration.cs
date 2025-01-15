@@ -1,4 +1,6 @@
+using EntityFrameworkCore.SqlServer.EF7.Application.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities;
+using EntityFrameworkCore.SqlServer.EF7.Infrastructure.Interceptors;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -10,6 +12,12 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
 {
     public class SchemaParentConfiguration : IEntityTypeConfiguration<SchemaParent>
     {
+        private readonly ICurrentUserService _currentUserService;
+
+        public SchemaParentConfiguration(ICurrentUserService currentUserService)
+        {
+            _currentUserService = currentUserService;
+        }
         public void Configure(EntityTypeBuilder<SchemaParent> builder)
         {
             builder.ToTable("SchemaParents", "myapp");
@@ -17,7 +25,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
-                .IsRequired();
+                .IsRequired()
+                .HasConversion(new DataMaskConverter(_currentUserService, MaskDataType.VariableLength, "*", roles: ["admin"], policies: []));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();

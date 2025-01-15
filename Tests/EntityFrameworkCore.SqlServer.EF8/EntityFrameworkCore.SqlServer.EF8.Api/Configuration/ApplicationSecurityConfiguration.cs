@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Api.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddTransient<ICurrentUserService, CurrentUserService>();
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
             return services;
         }
     }

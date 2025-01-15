@@ -2531,6 +2531,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>79e45ecf-cb6d-4ec8-b022-c80c8daa1960</ProjectId>
+      <CorrelationId>Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Infrastructure/Interceptors/DataMaskConverter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataMaskConverter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a3b293fb-2867-4af8-8b37-30778c38848e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

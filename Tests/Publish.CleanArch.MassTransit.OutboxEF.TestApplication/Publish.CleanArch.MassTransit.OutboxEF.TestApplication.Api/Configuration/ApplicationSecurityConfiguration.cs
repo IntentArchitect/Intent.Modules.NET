@@ -20,7 +20,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Api.Configurati
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddTransient<ICurrentUserService, CurrentUserService>();
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
 

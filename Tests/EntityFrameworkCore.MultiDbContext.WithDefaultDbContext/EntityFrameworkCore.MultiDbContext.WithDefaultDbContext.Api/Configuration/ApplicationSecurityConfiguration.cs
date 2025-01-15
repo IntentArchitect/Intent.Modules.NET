@@ -15,7 +15,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api.Configurat
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddTransient<ICurrentUserService, CurrentUserService>();
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
             return services;
         }
     }

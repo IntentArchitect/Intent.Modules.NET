@@ -23,6 +23,7 @@ using EntityFrameworkCore.MySql.Domain.Entities.TPH.Polymorphic;
 using EntityFrameworkCore.MySql.Domain.Entities.TPT.InheritanceAssociations;
 using EntityFrameworkCore.MySql.Domain.Entities.TPT.Polymorphic;
 using EntityFrameworkCore.MySql.Domain.Entities.ValueObjects;
+using EntityFrameworkCore.MySql.Infrastructure.Interceptors;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Accounts;
 using EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations.Accounts.NotSchema;
@@ -196,6 +197,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
+            PreventMaskedDataSave();
             SetAuditableFields();
             SetSoftDeleteProperties();
             return base.SaveChanges(acceptAllChangesOnSuccess);
@@ -205,9 +207,25 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             bool acceptAllChangesOnSuccess,
             CancellationToken cancellationToken = default)
         {
+            PreventMaskedDataSave();
             SetAuditableFields();
             SetSoftDeleteProperties();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
+
+        public void PreventMaskedDataSave()
+        {
+            var properties = ChangeTracker.Entries()
+                .Where(t => t.State == EntityState.Modified)
+                .SelectMany(t => t.Properties)
+                .Where(p => p.Metadata?.GetValueConverter() is DataMaskConverter)
+                .ToArray();
+
+            if (properties.Length == 0)
+            {
+                return;
+            }
+            Array.ForEach(properties, p => p.IsModified = false);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -215,7 +233,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.ApplyConfiguration(new SchemaParentConfiguration());
+            modelBuilder.ApplyConfiguration(new SchemaParentConfiguration(_currentUserService));
             modelBuilder.ApplyConfiguration(new TableConfiguration());
             modelBuilder.ApplyConfiguration(new TableExplicitSchemaConfiguration());
             modelBuilder.ApplyConfiguration(new TableOverrideConfiguration());

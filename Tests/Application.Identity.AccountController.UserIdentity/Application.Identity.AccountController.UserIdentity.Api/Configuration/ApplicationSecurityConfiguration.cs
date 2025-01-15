@@ -21,7 +21,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Configuration
             IConfiguration configuration)
         {
             services.AddTransient<ITokenService, TokenService>();
-            services.AddTransient<ICurrentUserService, CurrentUserService>();
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
 

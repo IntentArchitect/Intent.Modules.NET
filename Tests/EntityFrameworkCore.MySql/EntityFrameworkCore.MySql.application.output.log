@@ -2507,6 +2507,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>eabb3507-6b31-4031-a95f-ea8eedba93f0</ProjectId>
+      <CorrelationId>Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Interceptors/DataMaskConverter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataMaskConverter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a3b293fb-2867-4af8-8b37-30778c38848e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

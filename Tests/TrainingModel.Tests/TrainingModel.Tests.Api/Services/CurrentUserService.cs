@@ -13,31 +13,41 @@ namespace TrainingModel.Tests.Api.Services
 {
     public class CurrentUserService : ICurrentUserService
     {
-        private readonly ClaimsPrincipal? _claimsPrincipal;
-        private readonly IAuthorizationService _authorizationService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CurrentUserService(IHttpContextAccessor httpContextAccessor, IAuthorizationService authorizationService)
+        public CurrentUserService(IHttpContextAccessor httpContextAccessor)
         {
-            _claimsPrincipal = httpContextAccessor?.HttpContext?.User;
-            _authorizationService = authorizationService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public string? UserId => _claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
-        public string? UserName => _claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+        public string? UserId => GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value;
+        public string? UserName => GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Name)?.Value;
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
-            if (_claimsPrincipal == null)
+            if (GetClaimsPrincipal() == null)
             {
                 return false;
             }
 
-            return (await _authorizationService.AuthorizeAsync(_claimsPrincipal, policy)).Succeeded;
+            var authService = GetAuthorizationService();
+
+            if (authService == null)
+            {
+                return false;
+            }
+
+            var claimsPrinciple = GetClaimsPrincipal();
+            return (await authService.AuthorizeAsync(claimsPrinciple!, policy))?.Succeeded ?? false;
         }
 
         public async Task<bool> IsInRoleAsync(string role)
         {
-            return await Task.FromResult(_claimsPrincipal?.IsInRole(role) ?? false);
+            return await Task.FromResult(GetClaimsPrincipal()?.IsInRole(role) ?? false);
         }
+
+        private ClaimsPrincipal? GetClaimsPrincipal() => _httpContextAccessor?.HttpContext?.User;
+
+        private IAuthorizationService? GetAuthorizationService() => _httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService;
     }
 }

@@ -79,6 +79,22 @@
             <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="2c878051-d640-47d6-98bf-243fda0e60fb" name="Data Masking">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.EntityFrameworkCore.DataMasking</definitionPackageName>
+          <definitionPackageId>082f01f5-722f-4482-9bc4-8454b5346dd7</definitionPackageId>
+          <properties>
+            <property name="90ebb1d5-5d50-4910-b039-3e437faf46ee" display="Data Mask Type" value="Variable Length" isActive="true" />
+            <property name="add377ef-ccbe-4dcf-9d6d-33d9d44a944c" display="Mask Character" value="*" isActive="true" />
+            <property name="ff9109e1-9a0f-487b-b30f-6ca5e78e447f" display="Set Length" value="5" isActive="false" />
+            <property name="f1d91382-6677-4f47-8f5a-e54b7b0e629e" display="Unmasked Prefix Length" value="5" isActive="false" />
+            <property name="ceb868dc-02b4-4e76-aff4-b80e1d03f60e" display="Unmasked Suffix Length" value="5" isActive="false" />
+            <property name="d525f5b5-10a3-43dc-85f5-6cbc527e4c76" display="Roles" value="admin" isActive="true" />
+            <property name="1f4d27c8-8f73-4967-a289-cad5110944fd" display="Policy" isActive="true" />
+            <property name="94865e3a-d9a7-4788-82f1-338c87f462b9" display="Security Roles" isActive="false" />
+            <property name="6a39a279-177c-480f-88fd-61d8e837fd68" display="Security Policies" isActive="false" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata />
       <childElements />

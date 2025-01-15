@@ -2507,6 +2507,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>0388fdff-fbf7-4624-aa04-d3b96c60208f</ProjectId>
+      <CorrelationId>Intent.Modules.EntityFrameworkCore.DataMasking.DataMaskConverter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Infrastructure/Interceptors/DataMaskConverter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DataMaskConverter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a3b293fb-2867-4af8-8b37-30778c38848e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
