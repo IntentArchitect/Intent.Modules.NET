@@ -26,7 +26,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                 {
                     @class.WithBaseType(UseType("Microsoft.EntityFrameworkCore.Storage.ValueConversion.ValueConverter<string, string>"));
 
-                    @class.AddField("Func<bool>", "_isAuthorized", @field => field.PrivateReadOnly());
+                    @class.AddField(UseType("System.Func<bool>"), "_isAuthorized", @field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
@@ -143,6 +143,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                             @if.AddReturn("false");
                         });
 
+                        method.AddStatement("");
                         method.AddStatement("// Role-based authorization");
                         method.AddIfStatement("roles.Length > 0", @if =>
                         {
@@ -158,6 +159,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                                 });
                             });
 
+                            @if.AddStatement("");
                             @if.AddStatement("// Must be a member of at least one role in roles");
                             @if.AddIfStatement("!authorized", authIf =>
                             {
@@ -166,6 +168,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                             });
                         });
 
+                        method.AddStatement("");
                         method.AddStatement("// Policy-based authorization");
                         method.AddIfStatement("policies.Length > 0", @if =>
                         {
@@ -182,6 +185,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                                 });
                             });
 
+                            @if.AddStatement("");
                             @if.AddStatement("// Must be authorized by at least one policy");
                             @if.AddIfStatement("!authorized", authIf =>
                             {
