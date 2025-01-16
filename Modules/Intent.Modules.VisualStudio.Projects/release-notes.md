@@ -1,4 +1,4 @@
-### Version 3.8.6
+### Version 3.8.7
 
 - Improvement: Added help topics for the Visual Studio Designer.
 
