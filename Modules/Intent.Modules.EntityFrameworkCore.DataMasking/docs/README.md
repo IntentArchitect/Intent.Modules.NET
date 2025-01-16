@@ -20,12 +20,12 @@ Several properties are available to customize the behavior of data masking. Usin
 
 - **Data Masking Type**: Defines the type of data masking to apply.
 
-  - **Set Length**: The data is always masked to the specified length (default behavior).
+  - **Fixed Length**: The data is always masked to the specified length (default behavior).
   - **Variable Length**: The data is masked to the length of the original value.
   - **Partial Mask**: The data is partially masked based on the configured lengths.
 
 - **Mask Character**: The character to use for masking (defaults to `*`).
-- **Set Length**: The length of the masked data (only available when _Data Masking Type_ is set to _Set Length_).
+- **Fixed Length**: The length of the masked data (only available when _Data Masking Type_ is set to _Set Length_).
 - **Unmasked Prefix Length**: The length at the beginning of the original value that will remain unmasked.
 - **Unmasked Suffix Length**: The length at the end of the original value that will remain unmasked.
 - **Roles**: A comma-separated list of security roles that bypass the data masking process. Users with these roles will see unmasked data. (This option is only available if no `Security Configuration` is added; otherwise, the `Security Roles` field is used. The `Security Configuration` option is available by installing the [Intent.Metadata.Security](https://docs.intentarchitect.com/articles/modules-common/intent-metadata-security/intent-metadata-security.html) module).

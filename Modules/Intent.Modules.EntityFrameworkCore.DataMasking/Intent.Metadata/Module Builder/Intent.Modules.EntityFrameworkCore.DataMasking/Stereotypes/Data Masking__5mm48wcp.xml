@@ -28,11 +28,11 @@
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
-      <defaultValue>Set Length</defaultValue>
+      <defaultValue>Fixed Length</defaultValue>
       <valueOptions>
-        <option>Set Length</option>
         <option>Variable Length</option>
         <option>Partial Mask</option>
+        <option>Fixed Length</option>
       </valueOptions>
       <lookupTypes />
     </property>
@@ -49,7 +49,7 @@
     </property>
     <property id="ff9109e1-9a0f-487b-b30f-6ca5e78e447f">
       <hint>The length of the masked data, regardless of original length</hint>
-      <name>Set Length</name>
+      <name>Fixed Length</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
@@ -57,7 +57,7 @@
       <defaultValue>5</defaultValue>
       <valueOptions />
       <lookupTypes />
-      <isActiveFunction>return DataMaskType === `Set Length`;</isActiveFunction>
+      <isActiveFunction>return DataMaskType === `Fixed Length`;</isActiveFunction>
     </property>
     <property id="f1d91382-6677-4f47-8f5a-e54b7b0e629e">
       <hint>The number of characters to remain unmasked at the start of the value</hint>
@@ -66,7 +66,7 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
-      <defaultValue>5</defaultValue>
+      <defaultValue>3</defaultValue>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return DataMaskType === `Partial Mask`;</isActiveFunction>
@@ -78,7 +78,7 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder />
-      <defaultValue>5</defaultValue>
+      <defaultValue>3</defaultValue>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return DataMaskType === `Partial Mask`;</isActiveFunction>

@@ -62,9 +62,9 @@ namespace Intent.EntityFrameworkCore.DataMasking.Api
                 return _stereotype.GetProperty<string>("Mask Character");
             }
 
-            public int? SetLength()
+            public int? FixedLength()
             {
-                return _stereotype.GetProperty<int?>("Set Length");
+                return _stereotype.GetProperty<int?>("Fixed Length");
             }
 
             public int? UnmaskedPrefixLength()
@@ -110,20 +110,20 @@ namespace Intent.EntityFrameworkCore.DataMasking.Api
                 {
                     switch (Value)
                     {
-                        case "Set Length":
-                            return DataMaskTypeOptionsEnum.SetLength;
                         case "Variable Length":
                             return DataMaskTypeOptionsEnum.VariableLength;
                         case "Partial Mask":
                             return DataMaskTypeOptionsEnum.PartialMask;
+                        case "Fixed Length":
+                            return DataMaskTypeOptionsEnum.FixedLength;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
                 }
 
-                public bool IsSetLength()
+                public bool IsFixedLength()
                 {
-                    return Value == "Set Length";
+                    return Value == "Fixed Length";
                 }
                 public bool IsVariableLength()
                 {
@@ -137,7 +137,7 @@ namespace Intent.EntityFrameworkCore.DataMasking.Api
 
             public enum DataMaskTypeOptionsEnum
             {
-                SetLength,
+                FixedLength,
                 VariableLength,
                 PartialMask
             }

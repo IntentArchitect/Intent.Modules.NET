@@ -89,35 +89,52 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
         private static CSharpStatement GetConversionStatement(AttributeModel attribute, ICSharpFileBuilderTemplate template)
         {
-            var maskedChar = string.IsNullOrWhiteSpace(attribute.GetDataMasking().MaskCharacter()) ? "*" : attribute.GetDataMasking().MaskCharacter();
-            var maskLength = attribute.GetDataMasking().SetLength() <= 0 ? 5 : attribute.GetDataMasking().SetLength();
+            var maskedChar = string.IsNullOrWhiteSpace(attribute.GetDataMasking().MaskCharacter()) ? '*' : attribute.GetDataMasking().MaskCharacter().First();
+            var maskLength = attribute.GetDataMasking().FixedLength() <= 0 ? 5 : attribute.GetDataMasking().FixedLength();
             var roles = string.Join("\",\"", GetRoles(attribute));
             var policies = string.Join("\",\"", GetPolicies(attribute));
 
             if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsVariableLength())
             {
-                var variableStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
-                    .AddArgument(new CSharpInvocationStatement($"new {template.GetTypeName(DataMaskConverterTemplate.TemplateId)}").WithoutSemicolon()
+                var variableInvoc = new CSharpInvocationStatement($"{template.GetTypeName(DataMaskConverterTemplate.TemplateId)}.VariableLength").WithoutSemicolon()
                         .AddArgument("_currentUserService")
-                        .AddArgument("MaskDataType.VariableLength")
-                        .AddArgument($"\"{maskedChar}\"")
-                        .AddArgument($"roles: [{roles}]")
-                        .AddArgument($"policies: [{policies}]")
-                        );
+                        .AddArgument($"'{maskedChar}'");
+
+                if (!string.IsNullOrWhiteSpace(roles))
+                {
+                    variableInvoc.AddArgument("roles", $"[{roles}]");
+                }
+
+                if (!string.IsNullOrWhiteSpace(policies))
+                {
+                    variableInvoc.AddArgument("roles", $"[{policies}]");
+                }
+
+                var variableStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
+                    .AddArgument(variableInvoc);
 
                 return variableStatement;
             }
 
-            if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsSetLength())
+            if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsFixedLength())
             {
-                var fixedStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
-                     .AddArgument(new CSharpInvocationStatement($"new {template.GetTypeName(DataMaskConverterTemplate.TemplateId)}").WithoutSemicolon()
+                var fixedInvoc = new CSharpInvocationStatement($"{template.GetTypeName(DataMaskConverterTemplate.TemplateId)}.FixedLength").WithoutSemicolon()
                          .AddArgument("_currentUserService")
-                         .AddArgument("MaskDataType.SetLength")
-                         .AddArgument($"\"{maskedChar}\"")
-                         .AddArgument(maskLength.ToString())
-                         .AddArgument($"roles: [{roles}]")
-                         .AddArgument($"policies: [{policies}]"));
+                         .AddArgument($"'{maskedChar}'")
+                         .AddArgument(maskLength.ToString());
+
+                if (!string.IsNullOrWhiteSpace(roles))
+                {
+                    fixedInvoc.AddArgument("roles", $"[{roles}]");
+                }
+
+                if (!string.IsNullOrWhiteSpace(policies))
+                {
+                    fixedInvoc.AddArgument("roles", $"[{policies}]");
+                }
+
+                var fixedStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
+                     .AddArgument(fixedInvoc);
 
                 return fixedStatement;
             }
@@ -125,16 +142,25 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
             var prefixLength = attribute.GetDataMasking().UnmaskedPrefixLength() <= 0 ? 3 : attribute.GetDataMasking().UnmaskedPrefixLength();
             var suffixLength = attribute.GetDataMasking().UnmaskedSuffixLength() <= 0 ? 3 : attribute.GetDataMasking().UnmaskedSuffixLength();
 
-            var partialStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
-                     .AddArgument(new CSharpInvocationStatement("new DataMaskConverter").WithoutSemicolon()
-                         .AddArgument("_currentUserService")
-                         .AddArgument("MaskDataType.PartialMask")
-                         .AddArgument($"\"{maskedChar}\"")
-                         .AddArgument("0")
-                         .AddArgument(prefixLength.ToString())
-                         .AddArgument(suffixLength.ToString())
-                         .AddArgument($"roles: [{roles}]")
-                         .AddArgument($"policies: [{policies}]"));
+            var partialInvoc = new CSharpInvocationStatement($"{template.GetTypeName(DataMaskConverterTemplate.TemplateId)}.Partial").WithoutSemicolon()
+                .AddArgument("_currentUserService")
+                .AddArgument($"'{maskedChar}'")
+                .AddArgument(prefixLength.ToString())
+                .AddArgument(suffixLength.ToString());
+
+            if (!string.IsNullOrWhiteSpace(roles))
+            {
+                partialInvoc.AddArgument("roles", $"[{roles}]");
+            }
+
+            if (!string.IsNullOrWhiteSpace(policies))
+            {
+                partialInvoc.AddArgument("roles", $"[{policies}]");
+            }
+
+            var partialStatement = new CSharpInvocationStatement(".HasConversion")
+                .WithoutSemicolon()
+                .AddArgument(partialInvoc);
 
             return partialStatement;
         }

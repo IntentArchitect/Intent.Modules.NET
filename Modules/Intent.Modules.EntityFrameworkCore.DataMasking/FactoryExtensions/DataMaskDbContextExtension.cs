@@ -61,23 +61,16 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
                         .OnNewLine()
                         .AddInvocation("Where", cfg =>
                         {
-                            cfg.AddArgument($"p => p.Metadata?.GetValueConverter() is {template.GetTypeName(DataMaskConverterTemplate.TemplateId)}");
+                            cfg.AddArgument($"p => p.Metadata?.GetValueConverter() is {template.GetTypeName(DataMaskConverterTemplate.TemplateId)} dataConverter && dataConverter.IsMasked()");
                         })
-                        .OnNewLine()
-                        .AddInvocation("ToArray")
                         .OnNewLine();
 
                     method.AddObjectInitStatement("var properties", invocation);
 
-                    method.AddIfStatement("properties.Length == 0", @if =>
+                    method.AddForEachStatement("prop", "properties", @for =>
                     {
-                        @if.AddReturn("");
-                    });
-
-                    method.AddInvocationStatement("Array.ForEach", invoc =>
-                    {
-                        invoc.AddArgument("properties");
-                        invoc.AddArgument("p => p.IsModified = false");
+                        @for.AddStatement("prop.IsModified = false;");
+                        @for.SeparatedFromPrevious();
                     });
                 });
 
