@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence.Configura
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasConversion(new DataMaskConverter(_currentUserService, MaskDataType.VariableLength, "*", roles: ["admin"], policies: []));
+                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"]));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();

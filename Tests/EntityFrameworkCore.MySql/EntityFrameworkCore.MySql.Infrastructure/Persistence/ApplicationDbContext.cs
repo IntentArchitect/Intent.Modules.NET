@@ -218,14 +218,12 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             var properties = ChangeTracker.Entries()
                 .Where(t => t.State == EntityState.Modified)
                 .SelectMany(t => t.Properties)
-                .Where(p => p.Metadata?.GetValueConverter() is DataMaskConverter)
-                .ToArray();
+                .Where(p => p.Metadata?.GetValueConverter() is DataMaskConverter dataConverter && dataConverter.IsMasked());
 
-            if (properties.Length == 0)
+            foreach (var prop in properties)
             {
-                return;
+                prop.IsModified = false;
             }
-            Array.ForEach(properties, p => p.IsModified = false);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

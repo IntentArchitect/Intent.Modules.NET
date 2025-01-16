@@ -1,4 +1,4 @@
-using System.Linq;
+using System;
 using EntityFrameworkCore.Postgres.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
@@ -10,104 +10,126 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Interceptors
 {
     public class DataMaskConverter : ValueConverter<string, string>
     {
-        public DataMaskConverter(ICurrentUserService currentUserService,
-            MaskDataType maskType,
-            string maskCharacter = "*",
-            int maskLength = 0,
-            int unmaskedPrefixLength = 0,
-            int unmaskedSuffixLength = 0,
-            string[]? roles = default,
-            string[]? policies = default) : base(v => v, v => MaskValue(currentUserService, maskType, v, maskCharacter, maskLength, unmaskedPrefixLength, unmaskedSuffixLength, roles, policies))
+        private readonly Func<bool> _isAuthorized;
+        /// <summary>
+        /// Creates a new instance of <see cref="DataMaskConverter"/>.
+        /// </summary>
+        /// <param name="isAuthorized">A function which returns whether the current user is authorized to see the unmasked version of the data.</param>
+        /// <param name="maskData">A function which is used to mask the data when <paramref name="isAuthorized"/> returns <see langword="false"/>.</param>
+        private DataMaskConverter(Func<bool> isAuthorized, Func<string, string> maskData) : base(originalValue => originalValue, originalValue => isAuthorized() ? originalValue : maskData(originalValue))
         {
+            _isAuthorized = isAuthorized;
         }
 
-        public static bool UserAuthorized(
+        public bool IsMasked() => !_isAuthorized();
+
+        public static ValueConverter<string, string> FixedLength(
             ICurrentUserService currentUserService,
-            string[]? roles = default,
-            string[]? policies = default)
+            char maskCharacter,
+            int maskLength,
+            string[]? roles = null,
+            string[]? policies = null)
         {
-            if ((roles is null && policies is null) || (roles?.Length == 0 && policies?.Length == 0))
+            roles ??= [];
+            policies ??= [];
+            var fixedLengthMask = string.Empty.PadLeft(maskLength, maskCharacter);
+            return new DataMaskConverter(
+                isAuthorized: () => IsAuthorized(currentUserService, roles, policies),
+                maskData: _ => fixedLengthMask);
+        }
+
+        public static ValueConverter<string, string> VariableLength(
+            ICurrentUserService currentUserService,
+            char maskCharacter,
+            string[]? roles = null,
+            string[]? policies = null)
+        {
+            roles ??= [];
+            policies ??= [];
+            return new DataMaskConverter(
+                isAuthorized: () => IsAuthorized(currentUserService, roles, policies),
+                maskData: originalValue => string.Empty.PadLeft(originalValue.Length, maskCharacter));
+        }
+
+        public static ValueConverter<string, string> Partial(
+            ICurrentUserService currentUserService,
+            char maskCharacter,
+            int unmaskedPrefixLength,
+            int unmaskedSuffixLength,
+            string[]? roles = null,
+            string[]? policies = null)
+        {
+            roles ??= [];
+            policies ??= [];
+            return new DataMaskConverter(
+                isAuthorized: () => IsAuthorized(currentUserService, roles, policies),
+                maskData: originalValue =>
+                {
+                    if (unmaskedPrefixLength + unmaskedSuffixLength >= originalValue.Length)
+                    {
+                        return string.Empty.PadLeft(originalValue.Length, maskCharacter);
+                    }
+                    var prefix = originalValue[..unmaskedPrefixLength];
+                    var suffix = originalValue[^unmaskedSuffixLength..];
+                    var maskLength = originalValue.Substring(unmaskedPrefixLength, originalValue.Length - unmaskedPrefixLength - unmaskedSuffixLength);
+                    return $"{prefix}{string.Empty.PadLeft(maskLength.Length, maskCharacter)}{suffix}";
+                });
+        }
+
+        public static bool IsAuthorized(ICurrentUserService currentUserService, string[] roles, string[] policies)
+        {
+            // Must be an authenticated user
+            if (currentUserService.UserId is null)
             {
                 return false;
             }
 
-            if (roles != null && roles.Length > 0)
+            // Role-based authorization
+            if (roles.Length > 0)
             {
+                var authorized = false;
+
                 foreach (var role in roles)
                 {
                     var isInRole = currentUserService.IsInRoleAsync(role).GetAwaiter().GetResult();
 
                     if (isInRole)
                     {
-                        return true;
+                        authorized = true;
+                        break;
                     }
+                }
+
+                // Must be a member of at least one role in roles
+                if (!authorized)
+                {
+                    return false;
                 }
             }
 
-            if (policies != null && policies.Length > 0)
+            // Policy-based authorization
+            if (policies.Length > 0)
             {
+                var authorized = false;
+
                 foreach (var policy in policies)
                 {
                     var isAuthorized = currentUserService.AuthorizeAsync(policy).GetAwaiter().GetResult();
 
                     if (isAuthorized)
                     {
-                        return true;
+                        authorized = true;
+                        break;
                     }
                 }
+
+                // Must be authorized by at least one policy
+                if (!authorized)
+                {
+                    return false;
+                }
             }
-            return false;
+            return true;
         }
-
-        private static string MaskValue(
-            ICurrentUserService currentUserService,
-            MaskDataType maskType,
-            string value,
-            string maskCharacter,
-            int maskLength,
-            int unmaskedPrefixLength,
-            int unmaskedSuffixLength,
-            string[]? roles = default,
-            string[]? policies = default)
-        {
-            if (UserAuthorized(currentUserService, roles, policies))
-            {
-                return value;
-            }
-
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return value;
-            }
-
-            if (maskType == MaskDataType.SetLength)
-            {
-                return string.Concat(Enumerable.Repeat(maskCharacter, maskLength));
-            }
-
-            if (maskType == MaskDataType.VariableLength)
-            {
-                return string.Concat(Enumerable.Repeat(maskCharacter, value.Length));
-            }
-
-            if (unmaskedPrefixLength + unmaskedSuffixLength >= value.Length)
-            {
-                return string.Concat(Enumerable.Repeat(maskCharacter, value.Length));
-            }
-            var prefix = value[..unmaskedPrefixLength];
-            var suffix = value[^unmaskedSuffixLength..];
-            var toMask = value.Substring(unmaskedPrefixLength, value.Length - unmaskedPrefixLength - unmaskedSuffixLength);
-            var maskedPortion = string.Concat(Enumerable.Repeat(maskCharacter, toMask.Length));
-            return $"{prefix}{maskedPortion}{suffix}";
-        }
-    }
-
-    public enum MaskDataType
-    {
-        SetLength,
-
-        VariableLength,
-
-        PartialMask
     }
 }
