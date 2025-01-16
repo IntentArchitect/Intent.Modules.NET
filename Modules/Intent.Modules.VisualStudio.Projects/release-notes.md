@@ -1,5 +1,9 @@
 ### Version 3.8.6
 
+- Improvement: Added help topics for the Visual Studio Designer.
+
+### Version 3.8.6
+
 - Fixed: Fixed Software Factory error when an application is using the `ASP.NET Core Web Application` project type.
 
 ### Version 3.8.5
