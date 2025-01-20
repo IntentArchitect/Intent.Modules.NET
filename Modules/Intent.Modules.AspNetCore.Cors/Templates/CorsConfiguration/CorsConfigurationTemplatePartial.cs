@@ -133,9 +133,10 @@ namespace Intent.Modules.AspNetCore.Cors.Templates.CorsConfiguration
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureCors", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
+            //-12 To make sure it occurs before UseAuthorization (-5) and UseAuthentication (-10), this is important if you have 
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
                 .ToRegister("UseCors")
-                .WithPriority(-2));
+                .WithPriority(-12));
 
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("CorsPolicies", new
             {

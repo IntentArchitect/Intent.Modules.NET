@@ -1,3 +1,7 @@
+### Version 3.3.13
+
+- Fixed: Updated `UseCors` registration to occur before `UseAuthentication` and `UseAuthorization`.
+
 ### Version 3.3.12
 
 - Improvement: Updated module NuGet packages infrastructure.
