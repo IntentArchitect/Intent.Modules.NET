@@ -25,19 +25,30 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         private readonly ProjectRootElement _projectRootElement;
         private readonly bool _canRunTemplate;
         private readonly IFileMetadata _fileMetadata;
+        private readonly IFileOperations _fileOperations;
         private Dictionary<string, string> _cachedPackageVersions;
 
         public const string TemplateId = "Intent.VisualStudio.Projects.DirectoryPackagesProps";
 
-        public DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model)
+        public DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model) : this(
+            application: application, 
+            model: model, 
+            canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true, 
+            fileOperations: new StandardFileOperations())
         {
-            _application = application;
-            _fileMetadata = new FileConfig(application.OutputRootDirectory, model.Id);
-            _projectRootElement = CreateProjectRootElement(File.Exists(_fileMetadata.GetFilePath())
-                ? File.ReadAllText(_fileMetadata.GetFilePath())
-                : GetInitialContent());
-            _canRunTemplate = model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true;
+        }
 
+        // Allow for testability
+        internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate, IFileOperations fileOperations)
+        {
+            _fileOperations = fileOperations;
+            _application = application;
+            _fileMetadata = new FileConfig(application.OutputRootDirectory, model.Id, _fileOperations);
+            _projectRootElement = CreateProjectRootElement(_fileOperations.FileExists(_fileMetadata.GetFilePath())
+                ? _fileOperations.ReadAllText(_fileMetadata.GetFilePath())
+                : GetInitialContent());
+            _canRunTemplate = canRunTemplate;
+            
             Model = model;
         }
 
@@ -64,7 +75,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             var item = _projectRootElement.Items.FirstOrDefault(x => x.ItemType == "PackageVersion" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
             switch (item)
             {
-                case null when _cachedPackageVersions.TryGetValue(packageId, out var importedPackageVersion):
+                case null when TryGetVersion(packageId, out var importedPackageVersion):
                 {
                     if (importedPackageVersion != packageVersion)
                     {
@@ -118,7 +129,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         public bool CanRunTemplate() => _canRunTemplate;
 
         public string SolutionModelId => Model.Id;
-
+        
         private void UpdateChangeIfNeeded(ISoftwareFactoryEventDispatcher sfEventDispatcher)
         {
             _cachedPackageVersions = null; // Recompute Packaged Versions on next TryGetVersion
@@ -153,7 +164,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 preserveFormatting: true);
         }
         
-        private static Dictionary<string, string> GetAllPrecomputedPackageVersions(ProjectRootElement project, string projectDirectory)
+        private Dictionary<string, string> GetAllPrecomputedPackageVersions(ProjectRootElement project, string projectDirectory)
         {
             var precomputedPackageVersions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             PrecomputePackageVersions(project, precomputedPackageVersions);
@@ -163,7 +174,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             }
             return precomputedPackageVersions;
             
-            static void PrecomputePackageVersions(ProjectRootElement project, Dictionary<string, string> dict)
+            void PrecomputePackageVersions(ProjectRootElement project, Dictionary<string, string> dict)
             {
                 foreach (var item in project.Items.Where(x => x.ItemType == "PackageVersion"))
                 {
@@ -175,7 +186,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 }
             }
             
-            static IEnumerable<ProjectRootElement> LoadImportedProjects(ProjectRootElement projectRootElement, string projectDirectory, HashSet<string> loadedProjects)
+            IEnumerable<ProjectRootElement> LoadImportedProjects(ProjectRootElement projectRootElement, string projectDirectory, HashSet<string> loadedProjects)
             {
                 var importedProjects = new List<ProjectRootElement>();
 
@@ -191,11 +202,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                     {
                         continue;
                     }
-                    if (!File.Exists(importPath))
+                    if (!_fileOperations.FileExists(importPath))
                     {
                         continue;
                     }
-                    var importedProject = CreateProjectRootElement(File.ReadAllText(importPath));
+                    var importedProject = CreateProjectRootElement(_fileOperations.ReadAllText(importPath));
                     importedProjects.Add(importedProject);
                     importedProjects.AddRange(LoadImportedProjects(importedProject, Path.GetDirectoryName(importPath), loadedProjects));
                 }
@@ -215,7 +226,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         {
             private readonly string _fullLocationPath;
 
-            public FileConfig(string fullLocationPath, string modelId)
+            public FileConfig(string fullLocationPath, string modelId, IFileOperations fileOperations)
             {
                 var currentDir = fullLocationPath;
 
@@ -228,7 +239,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                     }
 
                     var pathToCheck = Path.Combine(currentDir, $"{FileName}.{FileExtension}");
-                    if (File.Exists(pathToCheck))
+                    if (fileOperations.FileExists(pathToCheck))
                     {
                         _fullLocationPath = currentDir;
                         break;
@@ -253,6 +264,26 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         #endregion
     }
 
+    // Allow for testability
+    internal interface IFileOperations
+    {
+        bool FileExists(string path);
+        string ReadAllText(string path);
+    }
+
+    internal class StandardFileOperations : IFileOperations
+    {
+        public bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
+
+        public string ReadAllText(string path)
+        {
+            return File.ReadAllText(path);
+        }
+    }
+    
     public interface ICpmTemplate : ITemplate
     {
         string SolutionModelId { get; }
