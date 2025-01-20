@@ -56,8 +56,11 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
 
                     foreach (var property in Model.Properties)
                     {
-                        record.AddProperty(GetTypeName(property.TypeReference), property.Name.ToPascalCase(), p => p
-                            .Init());
+                        record.AddProperty(GetTypeName(property.TypeReference), property.Name.ToPascalCase(), p =>
+                        {
+                            p.Init();
+                            p.RepresentsModel(property);
+                        });
                     }
                 });
         }

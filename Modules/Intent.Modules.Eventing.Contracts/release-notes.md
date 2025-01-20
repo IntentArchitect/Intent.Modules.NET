@@ -1,5 +1,9 @@
 ### Version 5.1.4
 
+- Fixed: Add ModelRepresents for Integration Events and Integration Commands, this address Casing discrepancies in model.
+
+### Version 5.1.4
+
 - Improvement: Updated module icon
 
 ### Version 5.1.3
