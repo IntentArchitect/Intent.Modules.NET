@@ -1,3 +1,7 @@
+### Version 4.0.4
+
+- Improvement: Included module help topic.
+
 ### Version 4.0.3
 
 - Improvement: Updated module icon

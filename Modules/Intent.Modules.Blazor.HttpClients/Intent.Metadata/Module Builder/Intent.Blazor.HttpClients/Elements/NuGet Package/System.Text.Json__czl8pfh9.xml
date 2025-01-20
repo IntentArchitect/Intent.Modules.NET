@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="2164d710-f840-461b-b578-2894cc9e3dcc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="3717eab8-98c4-4a16-aac0-d20a64e1e445" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2164d710-f840-461b-b578-2894cc9e3dcc</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="345b1d9b-bda3-4a47-9c58-c814627799da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2164d710-f840-461b-b578-2894cc9e3dcc</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,10 +79,14 @@
     </childElement>
     <childElement id="88f68f9d-87e6-46bc-8218-7224aa612bda" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
+      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b22f70ad-9bbf-4b1d-85a1-f35245f619ed</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -92,77 +102,98 @@
       <childElements>
         <childElement id="d3732399-874f-4603-bae2-931314677427" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="827f800a-2948-43e7-a4fb-12f7e844d75f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.IO.Pipelines</name>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f6eaa679-2270-4f54-9ee3-77c6d1a3f216" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bf8afa93-9789-4bf0-b733-62ff0a11d07c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
+          <display>System.Buffers (4.5.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="827f800a-2948-43e7-a4fb-12f7e844d75f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="67979749-ebcb-4cf5-af55-4c307cec376e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
+          <display>System.Memory (4.5.5)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="b8880531-c74e-4254-bbea-1165c0900ebc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Runtime.CompilerServices.Unsafe</name>
+          <display>System.Runtime.CompilerServices.Unsafe (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f6eaa679-2270-4f54-9ee3-77c6d1a3f216" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <display>System.Text.Encodings.Web (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="43fd5e9c-44c3-4b7d-bcb8-895ecfd83ec1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>88f68f9d-87e6-46bc-8218-7224aa612bda</parentFolderId>
+          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -171,10 +202,13 @@
     </childElement>
     <childElement id="964a23f5-dc29-42c2-afe2-cb375248f3ba" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b22f70ad-9bbf-4b1d-85a1-f35245f619ed</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>

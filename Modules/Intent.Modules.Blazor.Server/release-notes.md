@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: Included module help topic.
+
 ### Version 1.0.2
 
 - Improvement: Updated module NuGet packages infrastructure.

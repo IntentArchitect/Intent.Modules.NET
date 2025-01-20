@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Server</id>
-  <version>1.0.2</version>
+  <version>1.0.3-pre.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Scaffolds Blazor Server infrastructure</summary>
   <description>Scaffolds Blazor Server infrastructure</description>
@@ -21,7 +21,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.3.37" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
@@ -34,4 +34,5 @@
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>
