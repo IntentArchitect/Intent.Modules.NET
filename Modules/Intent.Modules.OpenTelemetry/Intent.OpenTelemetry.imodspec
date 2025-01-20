@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.OpenTelemetry</id>
   <version>2.2.4-pre.0</version>
@@ -145,4 +145,5 @@ return getProperty(Export).value != AzureMonitorOpenTelemetryDistro &amp;&amp;
   <moduleSettingsExtensions />
   <metadata />
   <tags />
+  <migrations />
 </package>

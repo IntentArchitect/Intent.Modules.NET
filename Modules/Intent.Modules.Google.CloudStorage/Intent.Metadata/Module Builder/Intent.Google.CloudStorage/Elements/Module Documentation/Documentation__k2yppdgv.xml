@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="082b5bf7-bbc6-42fe-a011-acc7ab339326" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1cd103d0-3bec-4144-8795-b5d6066ca528</parentFolderId>
+  <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+  <packageName>Intent.Google.CloudStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="185c3ddd-a62e-4cb9-9062-0a53c35e1ce6" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Google CloudStorage Module Documentation</name>
+      <display>Google CloudStorage Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>082b5bf7-bbc6-42fe-a011-acc7ab339326</parentFolderId>
+      <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
+      <packageName>Intent.Google.CloudStorage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.Google.CloudStorage module." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAz9JREFUeF7t3E1rE1EUBuBzJ1PaNE0wpUZrUVu1oIUKVUFQEF25Ej9w4b8puPGvuNHahYKlWDd+QFxViAvBjQoqrRVDBOmEkWMb0Mm9yemcyaR03tlmTm7vkzM3N5M3NYRDJWBU1SgmACqbAIAAVAooy9GBAFQKKMvRgQBUCijL0YEAVAooy9GBAFQKKMudHXh3sTG39sN7YXv+M8fM9+KQCZRj76ry9XroP6gG49b5Hvev3bs99MT2mBvw8a/zn77Qa1vRxekcFfN76+pfq4d0/9Vm23SNIbp00tyYv1VYBGCHnncBlvKG5iYJgN3WCxfg6Iih2cMA7OZHLsAjYx5N7Q/Rgd0EXYAnDno0UQZgNz9rB+4rGBormuwAVkqGZiZyVC78v0PYaIRU+9ykbz9DJ6StAycrHvkeZQOQ8S5M+8TbDtsRhkQv3wdOxCggw/H652UF8PIpv63zopDcic/f2ff/UcDCoKHx8tarkeoaePX0QNf1ZicnPF1t39za6m+ek4278Mb+fFHA0rAh7urUAaUTkSK6Jhytl44rBZyqeJTztkZJtQOlE9nNgAzHgK0jVcArM77URnTeSk12z0L6wkk6kC9dvoT7AihS6cFJSb6JHCobGh7MGGBS2xjetvD2hbcxmepAnmwSG2mG4w30v0eqa2APrs5UnrK1jeGPbvwRDoA7ZG8B8s2D6IEOFGAy4MPq5t/1D4ACsOgpDLj0NiC+gQrAmIDPagHxLXwAxgSsfmha7+bEWwMf/Z5drzeXbX/L2aO5ryN5I/uUH2My/SjZaIQDqx+bB2xjj5bMnfnr+RXbY3vru8k+yANQiQ5AACoFlOXoQAAqBZTlSGdtAyKdpewkpLN6BIh0lhAW6SwhlOs0pLN6BIh0lhDW1oFIZ23jIZ0l6KKkvtZsDYV0lgUd6awOnZhktIOHQTrLgS3JxnAp0lkKQKSzOlzqkg5EOssBKH0TQTrLAigNmSOdpfyZA9JZgk237RSks2LCtcqQzkoAEOksBSLSWQo8LmVApLMUiAyIdJYCEOksBZ6mFNEOjR4R/gWo0g+AANQKKOuxBgJQKaAsRwcCUCmgLEcHAlApoCxHBwJQKaAs/wOwZSx+rac1AgAAAABJRU5ErkJggg==&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-google-cloudstorage/intent-google-cloudstorage.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Intent.Google.CloudStorage&#xA;module moduledocumentation google cloud storage" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

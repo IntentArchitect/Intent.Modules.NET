@@ -1,6 +1,10 @@
+### Version 4.8.2
+
+- Improvement: Included module help topic.
+
 ### Version 4.8.1
 
--- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
 
 ### Version 4.8.0
 

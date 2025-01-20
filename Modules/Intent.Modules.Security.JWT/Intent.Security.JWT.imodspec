@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>4.2.5-pre.0</version>
+  <version>4.2.5-pre.1</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
@@ -21,9 +21,10 @@
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.5.6-pre.0" />
     <dependency id="Intent.AspNetCore" version="6.0.3" />
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Types.ServiceProxies" version="5.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.1.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.3.25" />
   </dependencies>
@@ -43,4 +44,5 @@
   </metadata>
   <moduleSettings />
   <moduleSettingsExtensions />
+  <migrations />
 </package>

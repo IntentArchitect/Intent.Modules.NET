@@ -51,7 +51,7 @@
       <childElements>
         <childElement id="f97ddd36-c6ca-4eed-a84c-34d404fc4648" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Loaded</name>
-          <display>On Loaded: Script</display>
+          <display>On Loaded: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="8c54e1c1-46da-4ce0-805c-f3a35d909ccd">
@@ -76,6 +76,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const messageRequestEndpointStereotype = &quot;e8eaf275-8da4-4dde-8cc1-79bb1c6936c4&quot;;&#xD;&#xA;const messageTriggered = &quot;5150384d-18a3-4c7e-a716-599e6658abde&quot;;&#xD;&#xA;&#xD;&#xA;lookupTypesOf(&quot;Operation&quot;).forEach(op =&gt; {&#xD;&#xA;    let mappedServiceIsMessageRequestEndpoint = op.getMapping()?.getElement()?.hasStereotype(messageTriggered);&#xD;&#xA;    if (mappedServiceIsMessageRequestEndpoint &amp;&amp; !op.hasStereotype(messageRequestEndpointStereotype)) {&#xD;&#xA;        op.addStereotype(messageRequestEndpointStereotype);&#xD;&#xA;    } else if (!mappedServiceIsMessageRequestEndpoint &amp;&amp; op.hasStereotype(messageRequestEndpointStereotype)) {&#xD;&#xA;        op.removeStereotype(messageRequestEndpointStereotype);&#xD;&#xA;    }&#xD;&#xA;});" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</id>
-  <version>4.2.3</version>
+  <version>4.2.4-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</summary>
   <description>Leverage the DesignTimeDbContextFactory when your ef migration commands are hindered by your startup app.</description>
@@ -30,10 +30,11 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.4" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -42,4 +43,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Mvc</id>
-  <version>1.0.0-beta.2</version>
+  <version>1.0.0-beta.3</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Generates Controller classes based off of Services in the Services designer</summary>
   <description>Generates Controller classes based off of Services in the Services designer</description>
@@ -47,4 +47,5 @@
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.AspNetCore.Mvc/Intent.AspNetCore.Mvc.pkg.config" externalReference="539cecb5-aede-4b55-8dbb-7ba3e8bfd3d5" />
     <install target="Services" src="modelers/Services Extension.designer.settings" externalReference="711e46ed-af8f-4216-86f1-4ddea6d45f7c" />
   </metadata>
+  <migrations />
 </package>

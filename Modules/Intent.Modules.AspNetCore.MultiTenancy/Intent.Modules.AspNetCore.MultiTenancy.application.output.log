@@ -17,14 +17,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>563f042e-a72b-44b0-bd0d-699916ea8adf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#60e48d1f-446c-4bf0-96f2-438fc9169c33</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ClassMultiTenantExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassMultiTenantExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>183131c2-6fd6-45e8-88b1-0768d1205165</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#51668d76-10ce-4ae5-9725-650808a9dcd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,6 +54,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>875042fd-1b71-47b9-b0f8-a7678e6f9b2f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#cf41ec40-91d8-423e-8665-eef2ea67ad39</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -21,6 +21,7 @@
     <dependency id="Intent.Common.CSharp" version="3.4.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.MassTransit" version="6.1.0" />
+    <dependency id="Intent.Modelers.Services" version="3.9.1" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

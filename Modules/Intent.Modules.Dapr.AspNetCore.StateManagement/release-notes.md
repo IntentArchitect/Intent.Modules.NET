@@ -1,3 +1,7 @@
+### Version 1.2.8
+
+- Improvement: Included module help topic.
+
 ### Version 1.2.7
 
 - Improvement: Updated module icon.

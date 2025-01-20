@@ -216,10 +216,14 @@
     </childElement>
     <childElement id="a1a0345a-23bd-4467-858d-878fab69f8ed" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>0.29.0</name>
+      <display>0.29.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>870724b6-cdf1-45d3-a0d8-7c9b8b996714</parentFolderId>
+      <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+      <packageName>Intent.MongoDb</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -235,55 +239,70 @@
       <childElements>
         <childElement id="98d03cfd-844f-4910-855b-1539550b17a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1a0345a-23bd-4467-858d-878fab69f8ed</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d5c47cb7-6a21-45bd-a51b-a69e159813e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MongoDB.Driver</name>
+          <display>MongoDB.Driver (2.19.2)</display>
           <isAbstract>false</isAbstract>
           <value>2.19.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1a0345a-23bd-4467-858d-878fab69f8ed</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="6e41e6d5-161f-4c71-abc7-023ef3af989c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ComponentModel.Annotations</name>
+          <display>System.ComponentModel.Annotations (5.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1a0345a-23bd-4467-858d-878fab69f8ed</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="81493dc3-9f49-498b-930b-a692f6346d7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
+          <display>System.Configuration.ConfigurationManager (7.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1a0345a-23bd-4467-858d-878fab69f8ed</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ec5608d0-39fc-4236-be56-7aeadc9a61ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Linq.Async</name>
+          <display>System.Linq.Async (6.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a1a0345a-23bd-4467-858d-878fab69f8ed</parentFolderId>
+          <packageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</packageId>
+          <packageName>Intent.MongoDb</packageName>
           <stereotypes />
           <metadata />
           <childElements />

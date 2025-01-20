@@ -30,6 +30,7 @@
         <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
         <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
         <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
         <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
         <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
         <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
@@ -62,7 +63,7 @@
       <childElements>
         <childElement id="784a1e23-a4d1-48bc-8574-731b9b9a80db" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
           <name>On Changed</name>
-          <display>On Changed: Script</display>
+          <display>On Changed: Inline Script</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="fc34d53e-1c88-432b-8324-bd481eb9bb26">
@@ -87,6 +88,7 @@
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
                 <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="/// &lt;reference path=&quot;../../../Typings/elementmacro.context.api.d.ts&quot; /&gt;&#xD;&#xA;/**&#xD;&#xA; * Used by Intent.Modules.NET\Modules\Intent.Modules.Dapr.AspNetCore.Binding.Cron&#xD;&#xA; *&#xD;&#xA; * Source code here:&#xD;&#xA; * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/dapr-binding-cron/command-on-changed/command-on-changed.ts&#xD;&#xA; */&#xD;&#xA;async function execute(element) {&#xD;&#xA;    const daprCronBinding = element.getStereotype(&quot;48db7f06-3edd-488a-8838-1f7f33b81eb0&quot;);&#xD;&#xA;    if (daprCronBinding == null) {&#xD;&#xA;        return;&#xD;&#xA;    }&#xD;&#xA;    const httpSettingsId = &quot;b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6&quot;;&#xD;&#xA;    let httpSettings = element.getStereotype(httpSettingsId);&#xD;&#xA;    if (httpSettings == null) {&#xD;&#xA;        element.addStereotype(httpSettingsId);&#xD;&#xA;        httpSettings = element.getStereotype(httpSettingsId);&#xD;&#xA;        httpSettings.getProperty(&quot;Route&quot;).setValue(toKebabCase(removeSuffix(element.getName(), &quot;Command&quot;)));&#xD;&#xA;    }&#xD;&#xA;    if (httpSettings.getProperty(&quot;Verb&quot;).getValue() != &quot;POST&quot; ||&#xD;&#xA;        httpSettings.getProperty(&quot;Return Type Mediatype&quot;).getValue() != &quot;Default&quot; ||&#xD;&#xA;        element.typeReference.getTypeId() != null ||&#xD;&#xA;        element.getChildren().length !== 0) {&#xD;&#xA;        await dialogService.info(&quot;When the \&quot;Dapr Cron Binding\&quot; stereotype is applied, Commands must adhere to the following constraints for the binding to be able to work:\n&quot; +&#xD;&#xA;            &quot;\n&quot; +&#xD;&#xA;            &quot;- The \&quot;Http Settings\&quot; stereotype's \&quot;Verb\&quot; must be set to \&quot;POST\&quot;.\n&quot; +&#xD;&#xA;            &quot;- The \&quot;Http Settings\&quot; stereotype's \&quot;Return Type Mediatype\&quot; must be set to \&quot;Default\&quot;.\n&quot; +&#xD;&#xA;            &quot;- It cannot have any fields.\n&quot; +&#xD;&#xA;            &quot;- It cannot have a return type.&quot;);&#xD;&#xA;        httpSettings.getProperty(&quot;Verb&quot;).setValue(&quot;POST&quot;);&#xD;&#xA;        httpSettings.getProperty(&quot;Return Type Mediatype&quot;).setValue(&quot;Default&quot;);&#xD;&#xA;        element.typeReference.setType(null);&#xD;&#xA;        element.getChildren().forEach(child =&gt; child.delete());&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;await execute(element);&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
               </properties>
             </stereotype>
           </stereotypes>

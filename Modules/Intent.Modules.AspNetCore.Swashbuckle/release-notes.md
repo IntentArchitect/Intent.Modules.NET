@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Improvement: Included module help topic.
+
 ### Version 5.1.4
 
 - Fixed: `[app].UseEndpoints(..)` will now be called before `.UseEndpoints(...)` during application startup to ensure still works when MVC is installed.

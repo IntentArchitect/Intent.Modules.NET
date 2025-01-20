@@ -7,6 +7,7 @@
   <packageExtensions>
     <packageExtension type="Service Proxies Package" typeId="46ef9b5e-e38c-48f2-8516-ea48c310ce23">
       <requiredPackages />
+      <contextMenuOptions />
       <creationOptions />
       <scriptOptions />
       <typeOrder />

@@ -1,6 +1,7 @@
 ### Version 4.2.4
 
 - Improvement: `ICurrentUserService` implementation updated to allow for it to be added as a singleton to the DI container
+- Improvement: Included module help topic.
 
 ### Version 4.2.3
 

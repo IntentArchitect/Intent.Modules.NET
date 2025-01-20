@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.MultiTenancy</id>
-  <version>5.1.6</version>
+  <version>5.1.7-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</summary>
   <description>.NET multitenancy middleware using Finbuckle.MultiTenant framework.</description>
@@ -135,4 +135,5 @@
     <install target="Domain;Services" src="Intent.Metadata/Module Builder/Intent.Modules.AspNetCore.MultiTenancy/Intent.Modules.AspNetCore.MultiTenancy.pkg.config" externalReference="9d4225f4-5ab3-49e8-9fe1-073ad8df3453" />
   </metadata>
   <moduleSettingsExtensions />
+  <migrations />
 </package>
