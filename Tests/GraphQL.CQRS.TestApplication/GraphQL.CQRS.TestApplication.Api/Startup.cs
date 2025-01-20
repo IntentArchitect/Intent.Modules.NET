@@ -60,9 +60,9 @@ namespace GraphQL.CQRS.TestApplication.Api
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseWebSockets();
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseCors();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

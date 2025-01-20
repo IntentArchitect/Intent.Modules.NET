@@ -57,9 +57,9 @@ try
     app.UseHttpsRedirection();
     app.UseRouting();
     app.UseMultiTenancy();
+    app.UseCors();
     app.UseAuthentication();
     app.UseAuthorization();
-    app.UseCors();
     app.MapDefaultHealthChecks();
     app.MapDefaultHealthChecksUI();
     app.MapControllers();
