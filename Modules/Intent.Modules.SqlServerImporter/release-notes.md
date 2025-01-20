@@ -1,3 +1,7 @@
+### Version 1.0.8
+
+- Improvement: Included module help topic.
+
 ### Version 1.0.7
 
 - Fixed: A "Cannot cast System.DBNull to int?" exception would occur when processing certain schemas.

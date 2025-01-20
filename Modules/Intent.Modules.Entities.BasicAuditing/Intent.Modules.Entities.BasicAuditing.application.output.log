@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>621a2372-f87f-4a18-922e-faa3af04e38f</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#2cfca7d7-92e8-40ce-8b71-3c5ad74c7fbb</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ClassExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>621a2372-f87f-4a18-922e-faa3af04e38f</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -70,6 +62,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>60da304c-8c45-4e76-9e59-0ffdf03726b0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#7f5ec0c3-cee5-413c-9203-5131f8c24247</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

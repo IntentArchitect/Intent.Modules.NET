@@ -8,9 +8,96 @@
   <elementSettings />
   <elementExtensions>
     <elementExtension type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+      <contextMenuOptions>
+        <runScript type="run-script">
+          <text>Toggle Basic Auditing</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,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" />
+          <script>function execute() {
+    const auditStereotypeId = "796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93";
+    
+    if (element.hasStereotype(auditStereotypeId)) {
+        element.removeStereotype(auditStereotypeId);
+    } else {
+        element.addStereotype(auditStereotypeId);
+    }
+}
+
+execute();</script>
+        </runScript>
+        <runScript type="run-script">
+          <text>Synchronize Auditing Identifiers</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,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" />
+          <isOptionVisibleFunction>return element.hasStereotype("Basic Auditing");</isOptionVisibleFunction>
+          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
+function getUserIdentityType() {
+    var _a, _b, _c, _d, _e, _f;
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const guidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    const longTypeId = "33013006-E404-48C2-AC46-24EF5A5774FD";
+    //Setttings
+    const basicAudtingSettingsId = "e51c0868-816d-432b-9cc3-c597fdb1ef0d";
+    const userIdentityToAuditFieldId = "5f617e3b-b027-4b23-aeb5-5ee4c7968173";
+    const identitySettingsId = "1045dea6-d28f-4ab8-9b5e-6f360035fdb6";
+    const userIdTypeFieldId = "0ac959d1-dc9e-4403-ae44-2a75c53a1331";
+    let userIdentityToAudit = (_c = (_b = (_a = application.getSettings(basicAudtingSettingsId)) === null || _a === void 0 ? void 0 : _a.getField(userIdentityToAuditFieldId)) === null || _b === void 0 ? void 0 : _b.value) !== null &amp;&amp; _c !== void 0 ? _c : "user-id";
+    if (userIdentityToAudit == "user-name") {
+        return stringTypeId;
+    }
+    let userIdTypeName = (_f = (_e = (_d = application.getSettings(identitySettingsId)) === null || _d === void 0 ? void 0 : _d.getField(userIdTypeFieldId)) === null || _e === void 0 ? void 0 : _e.value) !== null &amp;&amp; _f !== void 0 ? _f : "string";
+    switch (userIdTypeName) {
+        case 'long':
+            return longTypeId;
+        case 'int':
+            return intTypeId;
+        case 'guid':
+            return guidTypeId;
+        case 'string':
+        default:
+            return stringTypeId;
+    }
+}
+function ensureAttributes(element, userIdentifier, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    ensureAttribute(element, userIdentifier, false, "CreatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "CreatedDate", enforceFieldTypes);
+    ensureAttribute(element, userIdentifier, true, "UpdatedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, true, "UpdatedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+}
+/// &lt;reference path="../common/basic-auditing.ts" /&gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.Entities.BasicAuditing
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/basic-auditing/synchronize-auditing-identifiers/synchronize-auditing-identifiers.ts
+ */
+function execute(element) {
+    let userIdentifier = getUserIdentityType();
+    let classes = lookupTypesOf("Class").filter(x =&gt; x.hasStereotype("Basic Auditing"));
+    classes.forEach(audit =&gt; {
+        ensureAttributes(audit, userIdentifier, true);
+    });
+}
+execute(element);
+</script>
+        </runScript>
+      </contextMenuOptions>
       <creationOptions />
       <scriptOptions>
-        <option>
+        <option type="run-script">
           <text>Toggle Basic Auditing</text>
           <icon type="UrlImagePath" source="data:image/png;base64,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" />
           <script>function execute() {
@@ -25,7 +112,7 @@
 
 execute();</script>
         </option>
-        <option>
+        <option type="run-script">
           <text>Synchronize Auditing Identifiers</text>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAB0VJREFUaEPtWWtsVNcR/ubuvWvjGIxtKE5sY+86xmmQ2oAJT9HEeO0okEZNVOwK0jQISksc+vrTlKpKFLUN/VUJajsRSUsCScWjlWgCSliDKxog+JFSFVHA2Ov1i5Bg1wbjx967d6pzqVWM79NrNYqU82ulnZnzfWfmzJmZS/icL/qc48cXBD5rD06JB/Yz+zKi2mJdRwkRilnHfRL4bp2QKghKjEFdoh4CLpKOJpa4/mS+0vAikZ7oASRE4P3LnOsjrUoHniJCthcwDHQRYa+sydUlhdTlRfd22UkRONLCsxVf/JeA/gxA/slufkuPYyDpdVJ8vwjlUK9XW54JhFu1dYC+E0QZXjezk2dwr0RSVSgg7/Ni1zWBpiZW+jPiNQze5GUDz7JMr8gdvq0lJaS50XVF4J0eTkkajh0kkh51YzRxGf3wSLK/4uv30JCTLUcC4uT70mOH/n/gxyDrh+Wo/xtOnnAkUNem7XIbNp9cGUTL+U/R3tKHvt6bGBpUAQampSiYNecu5OTPxJe/moXZWXc5Heyt/4lqywLys3bCtgTqWrX1TLzXabfOSD9OvN+KSIu7JDK3IB2hNfNwT16ak2nBorIsKO+3ErQkUNfFmXpMvUCgWVbKmqbj+OFLaPxbJ5gZScky5i/MQsG8TGRlz0BKqh+iWBm6GcPVrhu4fPEazp+9ipEhFURA8YpclD1eBJ9PsiQispOiKveVFNE1MyFLAuE27VWAN1tZHh3VsP/3ZxG93GcAWF4awNKH8gwSdkvoffjXKE4diyAe1zE3mI7KTQuQlGStR6DqUFB+zjWB+hbO0Xxqq9UjJTbeU9OErvZ+zEhLRuXGBZiTPd1FOPxP5ErXdRz4w1lc7x9B3r0ZWPfdhfDJVp7gUUlRCkpzqfvOTUw9UNeqbmfCT60QHT10AQ0nOpA2cxq+s/VBzJiZ7An8mPBA3zDeqG40SAjvhR4vsg4lwsvlAWWbI4EXmaXlES1KQI6Zte6OAezeccYIm2e2LkZWzoxJgR9TEp7YvbMBepyxYetiy4vNjO7+oJxXQRS/fcMJHqhrV5exjlNWqPa+0mSkyRWlAZSsLkwI/Jhy/ZEWnDwWQbAoE+s2F1valMBLSoP+BlsCR9vUbQT8ysxK76dDqN3+gXFRf/jCQ/D7fQkROHLwPD46bV6ILlyWg9XfvH+8fcbPygqU7fYeaFX/zIQnzJCJUxKntWBJNtZUzE8IvFCO64y3apvQ0fbvcbbEg/ftLYsmXGoGDpYHlbX2Hoio54iRODqX9AZvjOL1357BjYERQyN1ehI2/ngJpqeZJoZ/lgWVr9gSCLfGeqe6VHbi0h0dwJs1jYDOWL9lkfE2mC0GXysP+mfbE2iLjSbepDhBnvj/2F0QsW+9eLQs6B/nmglZKOxAoPl0lzHKsN/IOwF3Gm4I2ISQeHn31DY5utodGO9SrkLoqMUl9njZvKNzp+HiEkfUP4Hx5O32rNJddl4ann72QZsaxh0qIfXuvnM429CDVWsKsXxVwFSRgAOhoFLh+SHz/OC4x21Ijo5o2PHSCYhKtWrbSqRnTjPPQoTnywPKb+yzUCS2FEynrTC8/Woz2i71TmkpcfxwC04dF6XELKzbvNCSPjEvDhX4G20JiGJuRURtByjXzJLI2bt3noHkk4ziK9FiThSHb1Y3Qo/r2PijpTb2uONkQAncOc0zLafDEfVlMJ63OorwoYs4cyJqlNNPP7cIaenmLneKJFFO7/5do/EKLyvJR+lj86xPH/h1KKj8/E4BUwKODY2m4+1dHxndmOgF1m54AHd7LKtFGS06OgFeNDTrv1cMSbJqED02NIJlOKLVgHmL1ZGIC7fvtb8bhZjRUq7Kx9KH8x1bypFhFafr2/FhfbtRzOUXZqBywwIoSdaVrQ7a+UhQ/oEZFsue+L1OzvCp6gWAxtUe49JrXEf4LxfRfFI09UDyNAX3PzAHBUWZRiwbTT0Dgzdi+Lj7OiKXenGu+QpisTiICEu+NhcPry6EbNlKCnXulfxKkdXc1H6sEtG+xcx/dIrlnugAjh1pMULKaYlphMg2K8uCxpzIaRFobSgoH7SScxxshVu1WhB/32kj8f+1qzfxr398jM72fuP38JBqjFVSU/1In5WC/HszUDj/S5g9x91gyy50xvA4EjA+XrRpB6yaHDfEJiejvytH/U8kPFoUm4vhbvJIbD8grZkcGG9aBLyTosiVy3Np2EnT0QNjBurrWdby4zvsMpPTZm7+F2Hjj/p+4nTyrkPozk3DbVoFQ6+2Gzm6ATpRhj8hSFV2F9ZTGrUDIVKsrMZfYuibAEqaHOBbWsw8wiTtUn2+Fx7Lo/HdvQvDrkPIzNaxTs6Oa1oVMT9lVTtZY+AOgPawLNeUz6UeF1hNRRIiMGZRFIArI+oinWkVE4oJKAJzNv77mRXiMytRFwGXQGiSdD7+QVBp/sw/s0721KZSb0o8MJWAvNr6goDXE5tq+f8AZ0PgTx0fRwMAAAAASUVORK5CYII=" />
           <isOptionVisibleFunction>return element.hasStereotype("Basic Auditing");</isOptionVisibleFunction>

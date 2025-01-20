@@ -1,3 +1,7 @@
+### Version 1.3.9
+
+- Improvement: Included module help topics.
+
 ### Version 1.3.8
 
 - Improvement: Updated module references.

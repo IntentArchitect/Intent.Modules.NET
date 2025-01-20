@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.15</version>
+  <version>5.0.16-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -185,4 +185,5 @@
     <factoryExtension id="Intent.EntityFrameworkCore.LazyLoadingProxyFactoryExtension" externalReference="5e6a2761-b883-495c-a3b9-1309933b6f43" />
     <factoryExtension id="Intent.EntityFrameworkCore.PostgresUtcConverterExtension" externalReference="17df1d73-9ffb-4731-990c-4c8cc8230ad0" />
   </factoryExtensions>
+  <migrations />
 </package>

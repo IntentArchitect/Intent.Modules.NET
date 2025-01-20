@@ -93,10 +93,14 @@
     </childElement>
     <childElement id="48995e78-d658-4d62-aa92-0ccac5c5e017" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.3.0</name>
+      <display>2.3.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6efb7bc0-8227-4104-a912-a623ceb9966f</parentFolderId>
+      <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+      <packageName>Intent.FastEndpoints</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -110,35 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b468f50a-0c1d-45f0-a3ca-bd8c319f4198" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>FastEndpoints.ApiExplorer</name>
-          <isAbstract>false</isAbstract>
-          <value>2.3.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>48995e78-d658-4d62-aa92-0ccac5c5e017</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="92a81ff8-b85b-4052-9b84-df6f582298dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints</name>
+          <display>FastEndpoints (5.22.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.22.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48995e78-d658-4d62-aa92-0ccac5c5e017</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b468f50a-0c1d-45f0-a3ca-bd8c319f4198" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints.ApiExplorer</name>
+          <display>FastEndpoints.ApiExplorer (2.3.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>48995e78-d658-4d62-aa92-0ccac5c5e017</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e0498e7b-12da-4568-aec5-fb6a196e0535" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <display>Swashbuckle.AspNetCore.SwaggerGen (6.5.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.5.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48995e78-d658-4d62-aa92-0ccac5c5e017</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />

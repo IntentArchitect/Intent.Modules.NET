@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Improvement: Included module help topic.
+
 ### Version 5.0.0
 
 - Improvement: Migrated to using new `Intent.Metadata.Security` package.

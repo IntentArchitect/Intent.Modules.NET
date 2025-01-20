@@ -106,8 +106,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
                         ( >= 8, 0) => new PackageVersion("9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
@@ -119,8 +119,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                         ( >= 2, 0) => new PackageVersion("9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
@@ -129,8 +129,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                 (framework) => framework switch
                     {
                         ( >= 0, 0) => new PackageVersion("15.5.0")
-                            .WithNugetDependency("Microsoft.TestPlatform.TestHost", "15.5.0")
-                            .WithNugetDependency("Microsoft.CodeCoverage", "1.0.3"),
+                            .WithNugetDependency("Microsoft.CodeCoverage", "1.0.3")
+                            .WithNugetDependency("Microsoft.TestPlatform.TestHost", "15.5.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftNETTestSdkPackageName}'"),
                     }
                 );
@@ -143,11 +143,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                             .WithNugetDependency("System.Text.Encodings.Web", "9.0.0"),
                         ( >= 2, 0) => new PackageVersion("9.0.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.0")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")
+                            .WithNugetDependency("System.IO.Pipelines", "9.0.0")
                             .WithNugetDependency("System.Memory", "4.5.5")
                             .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
+                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.0")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }
@@ -212,9 +212,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                 (framework) => framework switch
                     {
                         ( >= 0, 0) => new PackageVersion("2.9.2")
-                            .WithNugetDependency("xunit.core", "2.9.2")
+                            .WithNugetDependency("xunit.analyzers", "1.16.0")
                             .WithNugetDependency("xunit.assert", "2.9.2")
-                            .WithNugetDependency("xunit.analyzers", "1.16.0"),
+                            .WithNugetDependency("xunit.core", "2.9.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitPackageName}'"),
                     }
                 );

@@ -26,10 +26,14 @@
   <childElements>
     <childElement id="a5ab365e-aa3c-45f1-af67-bb52ba527c82" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.10.0</name>
+      <display>1.10.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a2897ec-00ce-47db-b330-d57c0d7dd12c</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -43,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8d7fd23b-15be-47b1-8f73-4c6bf71b0c47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>1.10.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a5ab365e-aa3c-45f1-af67-bb52ba527c82</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="ee1b40d1-7fbd-4889-bfcb-03ab6ba64aed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a5ab365e-aa3c-45f1-af67-bb52ba527c82</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e69750ef-d184-4fe2-b144-e17581fe5244" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a5ab365e-aa3c-45f1-af67-bb52ba527c82</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="8d7fd23b-15be-47b1-8f73-4c6bf71b0c47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <display>OpenTelemetry.Api.ProviderBuilderExtensions (1.10.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a5ab365e-aa3c-45f1-af67-bb52ba527c82</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -80,10 +93,14 @@
     </childElement>
     <childElement id="e0619ba1-31b7-44d0-be0f-28316036374a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.10.0</name>
+      <display>1.10.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a2897ec-00ce-47db-b330-d57c0d7dd12c</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -97,35 +114,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9382cc9b-d717-4ddd-ab3b-9ba0b1ccc37c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>1.10.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e0619ba1-31b7-44d0-be0f-28316036374a</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="dd34306a-1dad-4ad7-b5b9-c7d8623404cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e0619ba1-31b7-44d0-be0f-28316036374a</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="1799ea3b-4bf7-432d-a8ec-983ca1d96156" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e0619ba1-31b7-44d0-be0f-28316036374a</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9382cc9b-d717-4ddd-ab3b-9ba0b1ccc37c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <display>OpenTelemetry.Api.ProviderBuilderExtensions (1.10.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e0619ba1-31b7-44d0-be0f-28316036374a</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,10 +160,14 @@
     </childElement>
     <childElement id="a2983073-c134-465e-8a88-da4596a31a38" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.10.0</name>
+      <display>1.10.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a2897ec-00ce-47db-b330-d57c0d7dd12c</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -151,35 +181,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2d33ff72-e160-46af-8b05-a8b2034ea07b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>1.10.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a2983073-c134-465e-8a88-da4596a31a38</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="0dfbd06e-7dfd-4520-bb2d-6017f1b5d356" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a2983073-c134-465e-8a88-da4596a31a38</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a4323ef1-eb6a-4c61-9006-62aaa8786be5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a2983073-c134-465e-8a88-da4596a31a38</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2d33ff72-e160-46af-8b05-a8b2034ea07b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <display>OpenTelemetry.Api.ProviderBuilderExtensions (1.10.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a2983073-c134-465e-8a88-da4596a31a38</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -188,10 +227,14 @@
     </childElement>
     <childElement id="ffe110f9-8890-4052-98b7-767943bfa4a1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.10.0</name>
+      <display>1.10.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>3a2897ec-00ce-47db-b330-d57c0d7dd12c</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -205,35 +248,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="390a3794-d597-4dac-b199-436357a98050" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
-          <isAbstract>false</isAbstract>
-          <value>1.10.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ffe110f9-8890-4052-98b7-767943bfa4a1</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="7a450dd4-1dae-415c-be94-9d8f56204b2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.Abstractions</name>
+          <display>Microsoft.Extensions.Diagnostics.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ffe110f9-8890-4052-98b7-767943bfa4a1</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c4034409-f894-494a-8d41-e6452f6186fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
+          <display>Microsoft.Extensions.Logging.Configuration (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ffe110f9-8890-4052-98b7-767943bfa4a1</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="390a3794-d597-4dac-b199-436357a98050" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
+          <display>OpenTelemetry.Api.ProviderBuilderExtensions (1.10.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.10.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ffe110f9-8890-4052-98b7-767943bfa4a1</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />

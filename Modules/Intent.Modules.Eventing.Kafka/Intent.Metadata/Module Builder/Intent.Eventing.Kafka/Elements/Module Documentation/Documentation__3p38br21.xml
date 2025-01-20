@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55224235-bcb4-4bb9-9a9c-3e33f3ba7cb8" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a586f55c-9eca-44ef-8409-e110d1644c0b</parentFolderId>
+  <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
+  <packageName>Intent.Eventing.Kafka</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="286a6651-009c-4f8a-91ab-ad4fccc3f949" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Kafka Module Documentation</name>
+      <display>Kafka Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>55224235-bcb4-4bb9-9a9c-3e33f3ba7cb8</parentFolderId>
+      <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
+      <packageName>Intent.Eventing.Kafka</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.Eventing.Kafka module" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHZlcnNpb249IjEuMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPgogIDxzdHlsZT4KICAgIC5rYWZrYUxvZ28gewogICAgICBmaWxsOiAjMDAwMDAwCiAgICB9CgogICAgW2RhdGEtdGhlbWU9ImRhcmsiXSAua2Fma2FMb2dvIHsKICAgICAgZmlsbDogI2ZmZmZmZgogICAgfQogIDwvc3R5bGU+CiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4wNjcwMzE3OCwwLDAsMC4wNjcwMzIwNCw1LjYwOTU4NjYsMS4wMTUwODEpIj4KICAgIDxwYXRoIGNsYXNzPSJrYWZrYUxvZ28iIGQ9Im0gMjM3LjYxNjg2LDI0OS4yNjc3NCBjIC0xOC41OTAxNywwIC0zNS4yNTY1NSw4LjIzNjE0IC00Ni42Njk1MywyMS4yMDMwOSBMIDE2MS43MDIyLDI0OS43NjczNiBjIDMuMTA0NDksLTguNTQ3MzkgNC44ODcwMiwtMTcuNzI1MzMgNC44ODcwMiwtMjcuMzMxNjcgMCwtOS40Mzk4IC0xLjcyMDUxLC0xOC40NjM4MyAtNC43MjI3OCwtMjYuODg0ODkgbCAyOS4xNzk2NiwtMjAuNDg0MSBjIDExLjQxMTg0LDEyLjkwMTQ4IDI4LjAzNDU3LDIxLjA5MjgzIDQ2LjU3MDc2LDIxLjA5MjgzIDM0LjMxMjQ2LDAgNjIuMjMyMTgsLTI3LjkxNTEzIDYyLjIzMjE4LC02Mi4yMzIxOCAwLC0zNC4zMTcwNDkgLTI3LjkxOTcyLC02Mi4yMzIxNzEgLTYyLjIzMjE4LC02Mi4yMzIxNzEgLTM0LjMxMjQ1LDAgLTYyLjIzMjE3LDI3LjkxNTEyMiAtNjIuMjMyMTcsNjIuMjMyMTcxIDAsNi4xNDIzNiAwLjkyODAyLDEyLjA2NTM1IDIuNTkzMzksMTcuNjc0NzkgTCAxNDguNzc4OSwxNzIuMDk2NTkgQyAxMzYuNTgxNDcsMTU2Ljk2NDY1IDExOS4wMTkyMywxNDYuMzk5MjggOTkuMDA5NDczLDE0My4xNzQyIGwgMCwtMzUuMTkxMDggYyAyOC4xODk2MTcsLTUuOTIwNyA0OS40Mjk0NTcsLTMwLjk2Njc4MiA0OS40Mjk0NTcsLTYwLjg5NDEzNiAwLC0zNC4zMTcwNTIgLTI3LjkxOTcxLC02Mi4yMzIxNzQgLTYyLjIzMjE2NywtNjIuMjMyMTc0IC0zNC4zMTI0NTgsMCAtNjIuMjMyMTc0LDI3LjkxNTEyMiAtNjIuMjMyMTc0LDYyLjIzMjE3NCAwLDI5LjUyNjUxNSAyMC42ODk2OTQsNTQuMjYzNjQ2IDQ4LjMxNTM4Niw2MC42MDY5OTYgbCAwLDM1LjY0ODIgYyAtMzcuNzAxNzgyLDYuNjE3ODYgLTY2LjQ2NTY3MTIsMzkuNTIxMDYgLTY2LjQ2NTY3MTIsNzkuMDkxNTEgMCwzOS43NjM0IDI5LjA0ODcyNTIsNzIuNzg3MiA2Ny4wMjI3MTAyLDc5LjE3OTk0IGwgMCwzNy42NDIwNiBjIC0yNy45MDgyMzEsNi4xMzQzMiAtNDguODcyNDI1LDMxLjAyMzA2IC00OC44NzI0MjUsNjAuNzUwNTcgMCwzNC4zMTcwNSAyNy45MTk3MTYsNjIuMjMyMTcgNjIuMjMyMTc0LDYyLjIzMjE3IDM0LjMxMjQ1NywwIDYyLjIzMjE2NywtMjcuOTE1MTIgNjIuMjMyMTY3LC02Mi4yMzIxNyAwLC0yOS43Mjc1MSAtMjAuOTY0MTksLTU0LjYxNjI1IC00OC44NzI0MTgsLTYwLjc1MDU3IGwgMCwtMzcuNjQzMiBDIDExOS4xODIzMiwyOTguMzExMyAxMzYuNDIxODIsMjg3Ljk1NDk3IDE0OC40OTQwNiwyNzMuMTU4NCBsIDI5LjQ0MDM4LDIwLjgzNzg2IGMgLTEuNjM0MzcsNS41NTg5IC0yLjU0OTc1LDExLjQyMzMyIC0yLjU0OTc1LDE3LjUwMzY2IDAsMzQuMzE3MDUgMjcuOTE5NzIsNjIuMjMyMTcgNjIuMjMyMTcsNjIuMjMyMTcgMzQuMzEyNDYsMCA2Mi4yMzIxOCwtMjcuOTE1MTIgNjIuMjMyMTgsLTYyLjIzMjE3IDAsLTM0LjMxNzA1IC0yNy45MTk3MiwtNjIuMjMyMTggLTYyLjIzMjE4LC02Mi4yMzIxOCBsIDAsMCB6IG0gMCwtMTQ1LjUxMzUzIGMgMTYuNjM4ODIsMCAzMC4xNzIsMTMuNTM4OTIgMzAuMTcyLDMwLjE3MzE0IDAsMTYuNjM0MjIgLTEzLjUzMzE4LDMwLjE3MTk5IC0zMC4xNzIsMzAuMTcxOTkgLTE2LjYzODgxLDAgLTMwLjE3MTk5LC0xMy41Mzc3NyAtMzAuMTcxOTksLTMwLjE3MTk5IDAsLTE2LjYzNDIyIDEzLjUzMzE4LC0zMC4xNzMxNCAzMC4xNzE5OSwtMzAuMTczMTQgbCAwLDAgeiBNIDU2LjAzMzYyMiw0Ny4wODg5ODQgYyAwLC0xNi42MzQyMiAxMy41MzQzMjcsLTMwLjE3MTk5MiAzMC4xNzMxNDEsLTMwLjE3MTk5MiAxNi42Mzg4MTcsMCAzMC4xNzE5ODcsMTMuNTM3NzcyIDMwLjE3MTk4NywzMC4xNzE5OTIgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkxIC0zMC4xNzE5ODcsMzAuMTcxOTkxIC0xNi42Mzg4MTQsMCAtMzAuMTczMTQxLC0xMy41Mzc3NzEgLTMwLjE3MzE0MSwtMzAuMTcxOTkxIGwgMCwwIHogTSAxMTYuMzc4NzUsNDAwLjAwODI2IGMgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkgLTMwLjE3MTk4NywzMC4xNzE5OSAtMTYuNjM4ODE0LDAgLTMwLjE3MzE0MSwtMTMuNTM3NzcgLTMwLjE3MzE0MSwtMzAuMTcxOTkgMCwtMTYuNjM0MjIgMTMuNTM0MzI3LC0zMC4xNzIgMzAuMTczMTQxLC0zMC4xNzIgMTYuNjM4ODE3LDAgMzAuMTcxOTg3LDEzLjUzNzc4IDMwLjE3MTk4NywzMC4xNzIgbCAwLDAgeiBNIDg2LjIwNDQ2NiwyNjQuNTE1NjggYyAtMjMuMjA2MTMzLDAgLTQyLjA4NDU4OCwtMTguODc1MDEgLTQyLjA4NDU4OCwtNDIuMDc5OTkgMCwtMjMuMjA2MTMgMTguODc4NDU1LC00Mi4wODQ1OSA0Mi4wODQ1ODgsLTQyLjA4NDU5IDIzLjIwNDk4NCwwIDQyLjA4MzQzNCwxOC44Nzg0NiA0Mi4wODM0MzQsNDIuMDg0NTkgMCwyMy4yMDQ5OCAtMTguODc4NDUsNDIuMDc5OTkgLTQyLjA4MzQzNCw0Mi4wNzk5OSBsIDAsMCB6IG0gMTUxLjQxMjM5NCw3Ny4xNTczOCBjIC0xNi42Mzg4MSwwIC0zMC4xNzE5OSwtMTMuNTM4OTIgLTMwLjE3MTk5LC0zMC4xNzMxNCAwLC0xNi42MzQyMiAxMy41MzMxOCwtMzAuMTcxOTkgMzAuMTcxOTksLTMwLjE3MTk5IDE2LjYzODgyLDAgMzAuMTcyLDEzLjUzNzc3IDMwLjE3MiwzMC4xNzE5OSAwLDE2LjYzNDIyIC0xMy41MzMxOCwzMC4xNzMxNCAtMzAuMTcyLDMwLjE3MzE0IGwgMCwwIHoiLz4KICA8L2c+Cjwvc3ZnPgo=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-kakfka/intent-eventing-kakfka.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="module moduledocumentation Intent.Eventing.Kafka apache pub sub publish subscribe streaming" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

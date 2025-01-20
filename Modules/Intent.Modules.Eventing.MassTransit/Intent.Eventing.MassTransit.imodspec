@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.MassTransit</id>
-  <version>6.2.10</version>
+  <version>6.2.11-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</summary>
   <description>MassTransit is a free, open-source distributed application framework for .NET which integrates with the Intent Architect Eventing designer.</description>
@@ -170,4 +170,5 @@
     <install target="Module Builder;Eventing;Services" src="Intent.Metadata/Module Builder/Intent.Eventing.MassTransit/Intent.Eventing.MassTransit.pkg.config" externalReference="6502ee82-f515-4007-9635-bade3eb88e72" />
   </metadata>
   <tags />
+  <migrations />
 </package>

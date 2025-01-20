@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>022dbddc-276c-406b-81e6-5034ad64db72</parentFolderId>
+  <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+  <packageName>Intent.AzureFunctions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b8faa7c5-a0d9-4c89-b3a4-86e60b276e23" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Configure an Azure Function Cosmos DB Trigger</name>
+      <display>Configure an Azure Function Cosmos DB Trigger</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to config an Azure Function Cosmos DB trigger" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyBpZD0iYTJjODgzMDYtZmEwMy00ZTViLWIxOTItNDAxZjBiNzc4MDhiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICAgdmlld0JveD0iMCAwIDE4IDE4Ij4NCiAgICA8ZGVmcz4NCiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJiNDAzYWNhNy1mMzg3LTQ0MzQtOTZiNC1hZTE1N2VkYzgzNWYiIHgxPSItMTc1Ljk5MyIgeTE9Ii0zNDMuNzIzIiB4Mj0iLTE3NS45OTMiDQogICAgICAgICAgICB5Mj0iLTM1OS4yMzIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjU3MyAzNzAuNTQ4KSBzY2FsZSgxLjE1NiAxLjAyOSkiDQogICAgICAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZWExMWIiIC8+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuMjg0IiBzdG9wLWNvbG9yPSIjZmVhNTFhIiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU0NyIgc3RvcC1jb2xvcj0iI2ZlYjAxOCIgLz4NCiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC44IiBzdG9wLWNvbG9yPSIjZmZjMzE0IiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkNzBmIiAvPg0KICAgICAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDwvZGVmcz4NCiAgICA8dGl0bGU+SWNvbi1jb21wdXRlLTI5PC90aXRsZT4NCiAgICA8Zz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yLjM3LDcuNDc1SDMuMmEuMjY3LjI2NywwLDAsMSwuMjY3LjI2N3Y2LjE0OGEuNTMzLjUzMywwLDAsMS0uNTMzLjUzM0gyLjFhMCwwLDAsMCwxLDAsMFY3Ljc0MWEuMjY3LjI2NywwLDAsMSwuMjY3LS4yNjdaIg0KICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuNTA3IDE2LjcwNSkgcm90YXRlKDEzNC45MTkpIiBmaWxsPSIjNTBlNmZmIiAvPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTIuMzI1LDMuNmguODMzYS4yNjcuMjY3LDAsMCwxLC4yNjcuMjY3djYuNTgzYTAsMCwwLDAsMSwwLDBIMi41OTFhLjUzMy41MzMsMCwwLDEtLjUzMy0uNTMzVjMuODY1QS4yNjcuMjY3LDAsMCwxLDIuMzI1LDMuNloiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Ljc1OSAwLjExNCkgcm90YXRlKDQ0LjkxOSkiIGZpbGw9IiMxNDkwZGYiIC8+DQogICAgPC9nPg0KICAgIDxnPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE0LjUzLDcuNDc1aC44MzNhLjUzMy41MzMsMCwwLDEsLjUzMy41MzN2Ni4xNDhhLjI2Ny4yNjcsMCwwLDEtLjI2Ny4yNjdIMTQuOGEuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNy40NzVhMCwwLDAsMCwxLDAsMFoiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4yMjMgLTcuNTU1KSByb3RhdGUoNDUuMDgxKSIgZmlsbD0iIzUwZTZmZiIgLz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0xNS4xMDgsMy42aC44MzNhMCwwLDAsMCwxLDAsMHY2LjU4M2EuMjY3LjI2NywwLDAsMS0uMjY3LjI2N2gtLjgzM2EuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNC4xMzFhLjUzMy41MzMsMCwwLDEsLjUzMy0uNTMzWiINCiAgICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxLjAyMiAxLjIyMikgcm90YXRlKDEzNS4wODEpIiBmaWxsPSIjMTQ5MGRmIiAvPg0KICAgIDwvZz4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNOC40NTksOS45SDQuODdhLjE5My4xOTMsMCwwLDEtLjItLjE4MS4xNjYuMTY2LDAsMCwxLC4wMTgtLjA3NUw4Ljk5MSwxLjEzYS4yMDYuMjA2LDAsMCwxLC4xODYtLjEwNmg0LjI0NWEuMTkzLjE5MywwLDAsMSwuMi4xODEuMTY1LjE2NSwwLDAsMS0uMDM1LjFMOC41MzQsNy45NjZoNC45MjhhLjE5My4xOTMsMCwwLDEsLjIuMTgxLjE3Ni4xNzYsMCwwLDEtLjA1Mi4xMjJMNS40MjEsMTYuNzg4Yy0uMDc3LjA0Ni0uNjI0LjUtLjM1Ni0uMTg5aDBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2I0MDNhY2E3LWYzODctNDQzNC05NmI0LWFlMTU3ZWRjODM1ZikiIC8+DQo8L3N2Zz4=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions/intent-azurefunctions.html#cosmos-db-triggers" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure function database cosmosdb microsoft ms" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d8309672-ff66-400e-8150-88293c56ce64" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Configure an Azure Function HTTP Trigger</name>
+      <display>Configure an Azure Function HTTP Trigger</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to config an Azure Function HTTP trigger" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyBpZD0iYTJjODgzMDYtZmEwMy00ZTViLWIxOTItNDAxZjBiNzc4MDhiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICAgdmlld0JveD0iMCAwIDE4IDE4Ij4NCiAgICA8ZGVmcz4NCiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJiNDAzYWNhNy1mMzg3LTQ0MzQtOTZiNC1hZTE1N2VkYzgzNWYiIHgxPSItMTc1Ljk5MyIgeTE9Ii0zNDMuNzIzIiB4Mj0iLTE3NS45OTMiDQogICAgICAgICAgICB5Mj0iLTM1OS4yMzIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjU3MyAzNzAuNTQ4KSBzY2FsZSgxLjE1NiAxLjAyOSkiDQogICAgICAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZWExMWIiIC8+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuMjg0IiBzdG9wLWNvbG9yPSIjZmVhNTFhIiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU0NyIgc3RvcC1jb2xvcj0iI2ZlYjAxOCIgLz4NCiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC44IiBzdG9wLWNvbG9yPSIjZmZjMzE0IiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkNzBmIiAvPg0KICAgICAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDwvZGVmcz4NCiAgICA8dGl0bGU+SWNvbi1jb21wdXRlLTI5PC90aXRsZT4NCiAgICA8Zz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yLjM3LDcuNDc1SDMuMmEuMjY3LjI2NywwLDAsMSwuMjY3LjI2N3Y2LjE0OGEuNTMzLjUzMywwLDAsMS0uNTMzLjUzM0gyLjFhMCwwLDAsMCwxLDAsMFY3Ljc0MWEuMjY3LjI2NywwLDAsMSwuMjY3LS4yNjdaIg0KICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuNTA3IDE2LjcwNSkgcm90YXRlKDEzNC45MTkpIiBmaWxsPSIjNTBlNmZmIiAvPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTIuMzI1LDMuNmguODMzYS4yNjcuMjY3LDAsMCwxLC4yNjcuMjY3djYuNTgzYTAsMCwwLDAsMSwwLDBIMi41OTFhLjUzMy41MzMsMCwwLDEtLjUzMy0uNTMzVjMuODY1QS4yNjcuMjY3LDAsMCwxLDIuMzI1LDMuNloiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Ljc1OSAwLjExNCkgcm90YXRlKDQ0LjkxOSkiIGZpbGw9IiMxNDkwZGYiIC8+DQogICAgPC9nPg0KICAgIDxnPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE0LjUzLDcuNDc1aC44MzNhLjUzMy41MzMsMCwwLDEsLjUzMy41MzN2Ni4xNDhhLjI2Ny4yNjcsMCwwLDEtLjI2Ny4yNjdIMTQuOGEuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNy40NzVhMCwwLDAsMCwxLDAsMFoiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4yMjMgLTcuNTU1KSByb3RhdGUoNDUuMDgxKSIgZmlsbD0iIzUwZTZmZiIgLz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0xNS4xMDgsMy42aC44MzNhMCwwLDAsMCwxLDAsMHY2LjU4M2EuMjY3LjI2NywwLDAsMS0uMjY3LjI2N2gtLjgzM2EuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNC4xMzFhLjUzMy41MzMsMCwwLDEsLjUzMy0uNTMzWiINCiAgICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxLjAyMiAxLjIyMikgcm90YXRlKDEzNS4wODEpIiBmaWxsPSIjMTQ5MGRmIiAvPg0KICAgIDwvZz4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNOC40NTksOS45SDQuODdhLjE5My4xOTMsMCwwLDEtLjItLjE4MS4xNjYuMTY2LDAsMCwxLC4wMTgtLjA3NUw4Ljk5MSwxLjEzYS4yMDYuMjA2LDAsMCwxLC4xODYtLjEwNmg0LjI0NWEuMTkzLjE5MywwLDAsMSwuMi4xODEuMTY1LjE2NSwwLDAsMS0uMDM1LjFMOC41MzQsNy45NjZoNC45MjhhLjE5My4xOTMsMCwwLDEsLjIuMTgxLjE3Ni4xNzYsMCwwLDEtLjA1Mi4xMjJMNS40MjEsMTYuNzg4Yy0uMDc3LjA0Ni0uNjI0LjUtLjM1Ni0uMTg5aDBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2I0MDNhY2E3LWYzODctNDQzNC05NmI0LWFlMTU3ZWRjODM1ZikiIC8+DQo8L3N2Zz4=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions/intent-azurefunctions.html#http-triggers" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure function http trigger microsoft ms" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fea74333-dfd0-4aa1-82e9-ac935b2c2a14" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Configure an Azure Function Queue Trigger</name>
+      <display>Configure an Azure Function Queue Trigger</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to config an Azure Function queue trigger" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyBpZD0iYTJjODgzMDYtZmEwMy00ZTViLWIxOTItNDAxZjBiNzc4MDhiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICAgdmlld0JveD0iMCAwIDE4IDE4Ij4NCiAgICA8ZGVmcz4NCiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJiNDAzYWNhNy1mMzg3LTQ0MzQtOTZiNC1hZTE1N2VkYzgzNWYiIHgxPSItMTc1Ljk5MyIgeTE9Ii0zNDMuNzIzIiB4Mj0iLTE3NS45OTMiDQogICAgICAgICAgICB5Mj0iLTM1OS4yMzIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjU3MyAzNzAuNTQ4KSBzY2FsZSgxLjE1NiAxLjAyOSkiDQogICAgICAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZWExMWIiIC8+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuMjg0IiBzdG9wLWNvbG9yPSIjZmVhNTFhIiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU0NyIgc3RvcC1jb2xvcj0iI2ZlYjAxOCIgLz4NCiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC44IiBzdG9wLWNvbG9yPSIjZmZjMzE0IiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkNzBmIiAvPg0KICAgICAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDwvZGVmcz4NCiAgICA8dGl0bGU+SWNvbi1jb21wdXRlLTI5PC90aXRsZT4NCiAgICA8Zz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yLjM3LDcuNDc1SDMuMmEuMjY3LjI2NywwLDAsMSwuMjY3LjI2N3Y2LjE0OGEuNTMzLjUzMywwLDAsMS0uNTMzLjUzM0gyLjFhMCwwLDAsMCwxLDAsMFY3Ljc0MWEuMjY3LjI2NywwLDAsMSwuMjY3LS4yNjdaIg0KICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuNTA3IDE2LjcwNSkgcm90YXRlKDEzNC45MTkpIiBmaWxsPSIjNTBlNmZmIiAvPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTIuMzI1LDMuNmguODMzYS4yNjcuMjY3LDAsMCwxLC4yNjcuMjY3djYuNTgzYTAsMCwwLDAsMSwwLDBIMi41OTFhLjUzMy41MzMsMCwwLDEtLjUzMy0uNTMzVjMuODY1QS4yNjcuMjY3LDAsMCwxLDIuMzI1LDMuNloiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Ljc1OSAwLjExNCkgcm90YXRlKDQ0LjkxOSkiIGZpbGw9IiMxNDkwZGYiIC8+DQogICAgPC9nPg0KICAgIDxnPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE0LjUzLDcuNDc1aC44MzNhLjUzMy41MzMsMCwwLDEsLjUzMy41MzN2Ni4xNDhhLjI2Ny4yNjcsMCwwLDEtLjI2Ny4yNjdIMTQuOGEuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNy40NzVhMCwwLDAsMCwxLDAsMFoiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4yMjMgLTcuNTU1KSByb3RhdGUoNDUuMDgxKSIgZmlsbD0iIzUwZTZmZiIgLz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0xNS4xMDgsMy42aC44MzNhMCwwLDAsMCwxLDAsMHY2LjU4M2EuMjY3LjI2NywwLDAsMS0uMjY3LjI2N2gtLjgzM2EuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNC4xMzFhLjUzMy41MzMsMCwwLDEsLjUzMy0uNTMzWiINCiAgICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxLjAyMiAxLjIyMikgcm90YXRlKDEzNS4wODEpIiBmaWxsPSIjMTQ5MGRmIiAvPg0KICAgIDwvZz4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNOC40NTksOS45SDQuODdhLjE5My4xOTMsMCwwLDEtLjItLjE4MS4xNjYuMTY2LDAsMCwxLC4wMTgtLjA3NUw4Ljk5MSwxLjEzYS4yMDYuMjA2LDAsMCwxLC4xODYtLjEwNmg0LjI0NWEuMTkzLjE5MywwLDAsMSwuMi4xODEuMTY1LjE2NSwwLDAsMS0uMDM1LjFMOC41MzQsNy45NjZoNC45MjhhLjE5My4xOTMsMCwwLDEsLjIuMTgxLjE3Ni4xNzYsMCwwLDEtLjA1Mi4xMjJMNS40MjEsMTYuNzg4Yy0uMDc3LjA0Ni0uNjI0LjUtLjM1Ni0uMTg5aDBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2I0MDNhY2E3LWYzODctNDQzNC05NmI0LWFlMTU3ZWRjODM1ZikiIC8+DQo8L3N2Zz4=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions/intent-azurefunctions.html#queue-triggers" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure function queue microsoft ms" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="37efd27a-4066-4706-92f6-e11a6237a5c7" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Configure an Azure Function Timer Trigger</name>
+      <display>Configure an Azure Function Timer Trigger</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to config an Azure Function timer trigger" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyBpZD0iYTJjODgzMDYtZmEwMy00ZTViLWIxOTItNDAxZjBiNzc4MDhiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICAgdmlld0JveD0iMCAwIDE4IDE4Ij4NCiAgICA8ZGVmcz4NCiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJiNDAzYWNhNy1mMzg3LTQ0MzQtOTZiNC1hZTE1N2VkYzgzNWYiIHgxPSItMTc1Ljk5MyIgeTE9Ii0zNDMuNzIzIiB4Mj0iLTE3NS45OTMiDQogICAgICAgICAgICB5Mj0iLTM1OS4yMzIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjU3MyAzNzAuNTQ4KSBzY2FsZSgxLjE1NiAxLjAyOSkiDQogICAgICAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZWExMWIiIC8+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuMjg0IiBzdG9wLWNvbG9yPSIjZmVhNTFhIiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU0NyIgc3RvcC1jb2xvcj0iI2ZlYjAxOCIgLz4NCiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC44IiBzdG9wLWNvbG9yPSIjZmZjMzE0IiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkNzBmIiAvPg0KICAgICAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDwvZGVmcz4NCiAgICA8dGl0bGU+SWNvbi1jb21wdXRlLTI5PC90aXRsZT4NCiAgICA8Zz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yLjM3LDcuNDc1SDMuMmEuMjY3LjI2NywwLDAsMSwuMjY3LjI2N3Y2LjE0OGEuNTMzLjUzMywwLDAsMS0uNTMzLjUzM0gyLjFhMCwwLDAsMCwxLDAsMFY3Ljc0MWEuMjY3LjI2NywwLDAsMSwuMjY3LS4yNjdaIg0KICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuNTA3IDE2LjcwNSkgcm90YXRlKDEzNC45MTkpIiBmaWxsPSIjNTBlNmZmIiAvPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTIuMzI1LDMuNmguODMzYS4yNjcuMjY3LDAsMCwxLC4yNjcuMjY3djYuNTgzYTAsMCwwLDAsMSwwLDBIMi41OTFhLjUzMy41MzMsMCwwLDEtLjUzMy0uNTMzVjMuODY1QS4yNjcuMjY3LDAsMCwxLDIuMzI1LDMuNloiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Ljc1OSAwLjExNCkgcm90YXRlKDQ0LjkxOSkiIGZpbGw9IiMxNDkwZGYiIC8+DQogICAgPC9nPg0KICAgIDxnPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE0LjUzLDcuNDc1aC44MzNhLjUzMy41MzMsMCwwLDEsLjUzMy41MzN2Ni4xNDhhLjI2Ny4yNjcsMCwwLDEtLjI2Ny4yNjdIMTQuOGEuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNy40NzVhMCwwLDAsMCwxLDAsMFoiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4yMjMgLTcuNTU1KSByb3RhdGUoNDUuMDgxKSIgZmlsbD0iIzUwZTZmZiIgLz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0xNS4xMDgsMy42aC44MzNhMCwwLDAsMCwxLDAsMHY2LjU4M2EuMjY3LjI2NywwLDAsMS0uMjY3LjI2N2gtLjgzM2EuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNC4xMzFhLjUzMy41MzMsMCwwLDEsLjUzMy0uNTMzWiINCiAgICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxLjAyMiAxLjIyMikgcm90YXRlKDEzNS4wODEpIiBmaWxsPSIjMTQ5MGRmIiAvPg0KICAgIDwvZz4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNOC40NTksOS45SDQuODdhLjE5My4xOTMsMCwwLDEtLjItLjE4MS4xNjYuMTY2LDAsMCwxLC4wMTgtLjA3NUw4Ljk5MSwxLjEzYS4yMDYuMjA2LDAsMCwxLC4xODYtLjEwNmg0LjI0NWEuMTkzLjE5MywwLDAsMSwuMi4xODEuMTY1LjE2NSwwLDAsMS0uMDM1LjFMOC41MzQsNy45NjZoNC45MjhhLjE5My4xOTMsMCwwLDEsLjIuMTgxLjE3Ni4xNzYsMCwwLDEtLjA1Mi4xMjJMNS40MjEsMTYuNzg4Yy0uMDc3LjA0Ni0uNjI0LjUtLjM1Ni0uMTg5aDBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2I0MDNhY2E3LWYzODctNDQzNC05NmI0LWFlMTU3ZWRjODM1ZikiIC8+DQo8L3N2Zz4=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions/intent-azurefunctions.html#timer-triggers" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure function timer microsoft ms" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="af6ed519-0d0a-41b1-9d29-e7c6a85d39f1" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Migrate from in-process Azure Functions</name>
+      <display>Migrate from in-process Azure Functions</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>e8b8a5ee-2b83-4d7d-ba58-ffca8e8c30f0</parentFolderId>
+      <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+      <packageName>Intent.AzureFunctions</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Steps to migrate from in-process model to isolated process model." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyBpZD0iYTJjODgzMDYtZmEwMy00ZTViLWIxOTItNDAxZjBiNzc4MDhiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQogICAgdmlld0JveD0iMCAwIDE4IDE4Ij4NCiAgICA8ZGVmcz4NCiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJiNDAzYWNhNy1mMzg3LTQ0MzQtOTZiNC1hZTE1N2VkYzgzNWYiIHgxPSItMTc1Ljk5MyIgeTE9Ii0zNDMuNzIzIiB4Mj0iLTE3NS45OTMiDQogICAgICAgICAgICB5Mj0iLTM1OS4yMzIiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjEyLjU3MyAzNzAuNTQ4KSBzY2FsZSgxLjE1NiAxLjAyOSkiDQogICAgICAgICAgICBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZWExMWIiIC8+DQogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAuMjg0IiBzdG9wLWNvbG9yPSIjZmVhNTFhIiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwLjU0NyIgc3RvcC1jb2xvcj0iI2ZlYjAxOCIgLz4NCiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMC44IiBzdG9wLWNvbG9yPSIjZmZjMzE0IiAvPg0KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZmZkNzBmIiAvPg0KICAgICAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDwvZGVmcz4NCiAgICA8dGl0bGU+SWNvbi1jb21wdXRlLTI5PC90aXRsZT4NCiAgICA8Zz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0yLjM3LDcuNDc1SDMuMmEuMjY3LjI2NywwLDAsMSwuMjY3LjI2N3Y2LjE0OGEuNTMzLjUzMywwLDAsMS0uNTMzLjUzM0gyLjFhMCwwLDAsMCwxLDAsMFY3Ljc0MWEuMjY3LjI2NywwLDAsMSwuMjY3LS4yNjdaIg0KICAgICAgICAgICAgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIuNTA3IDE2LjcwNSkgcm90YXRlKDEzNC45MTkpIiBmaWxsPSIjNTBlNmZmIiAvPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTIuMzI1LDMuNmguODMzYS4yNjcuMjY3LDAsMCwxLC4yNjcuMjY3djYuNTgzYTAsMCwwLDAsMSwwLDBIMi41OTFhLjUzMy41MzMsMCwwLDEtLjUzMy0uNTMzVjMuODY1QS4yNjcuMjY3LDAsMCwxLDIuMzI1LDMuNloiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1Ljc1OSAwLjExNCkgcm90YXRlKDQ0LjkxOSkiIGZpbGw9IiMxNDkwZGYiIC8+DQogICAgPC9nPg0KICAgIDxnPg0KICAgICAgICA8cGF0aA0KICAgICAgICAgICAgZD0iTTE0LjUzLDcuNDc1aC44MzNhLjUzMy41MzMsMCwwLDEsLjUzMy41MzN2Ni4xNDhhLjI2Ny4yNjcsMCwwLDEtLjI2Ny4yNjdIMTQuOGEuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNy40NzVhMCwwLDAsMCwxLDAsMFoiDQogICAgICAgICAgICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMi4yMjMgLTcuNTU1KSByb3RhdGUoNDUuMDgxKSIgZmlsbD0iIzUwZTZmZiIgLz4NCiAgICAgICAgPHBhdGgNCiAgICAgICAgICAgIGQ9Ik0xNS4xMDgsMy42aC44MzNhMCwwLDAsMCwxLDAsMHY2LjU4M2EuMjY3LjI2NywwLDAsMS0uMjY3LjI2N2gtLjgzM2EuMjY3LjI2NywwLDAsMS0uMjY3LS4yNjdWNC4xMzFhLjUzMy41MzMsMCwwLDEsLjUzMy0uNTMzWiINCiAgICAgICAgICAgIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMxLjAyMiAxLjIyMikgcm90YXRlKDEzNS4wODEpIiBmaWxsPSIjMTQ5MGRmIiAvPg0KICAgIDwvZz4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNOC40NTksOS45SDQuODdhLjE5My4xOTMsMCwwLDEtLjItLjE4MS4xNjYuMTY2LDAsMCwxLC4wMTgtLjA3NUw4Ljk5MSwxLjEzYS4yMDYuMjA2LDAsMCwxLC4xODYtLjEwNmg0LjI0NWEuMTkzLjE5MywwLDAsMSwuMi4xODEuMTY1LjE2NSwwLDAsMS0uMDM1LjFMOC41MzQsNy45NjZoNC45MjhhLjE5My4xOTMsMCwwLDEsLjIuMTgxLjE3Ni4xNzYsMCwwLDEtLjA1Mi4xMjJMNS40MjEsMTYuNzg4Yy0uMDc3LjA0Ni0uNjI0LjUtLjM1Ni0uMTg5aDBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2I0MDNhY2E3LWYzODctNDQzNC05NmI0LWFlMTU3ZWRjODM1ZikiIC8+DQo8L3N2Zz4=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-azurefunctions/intent-azurefunctions.html#migrating-from-in-process-functions" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure function in-process process isolated microsoft ms" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

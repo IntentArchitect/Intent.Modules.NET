@@ -113,6 +113,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>592fc0aa-8927-4518-b8a3-6ce72273a184</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#e714a2c3-b010-497c-9e24-b32e2e48005f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>939c915d-b634-40e8-bd0b-2be78965dd2b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#6502ee82-f515-4007-9635-bade3eb88e72</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

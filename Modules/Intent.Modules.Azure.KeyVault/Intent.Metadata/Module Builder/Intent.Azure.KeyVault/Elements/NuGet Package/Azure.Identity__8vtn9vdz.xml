@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -24,8 +26,9 @@
   <childElements>
     <childElement id="dfddc7d5-de99-45de-8469-502129219a44" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.13.1</name>
-      <display>1.12.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>1.13.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6d5c4680-925c-4457-a8f0-5e9e0b22f146</parentFolderId>
@@ -46,66 +49,84 @@
       <childElements>
         <childElement id="af4767c9-fbdf-4e05-973b-b114764afd9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.44.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="185480b2-5b1b-4163-9f0b-03ba6bbfbb5d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client</name>
+          <display>Microsoft.Identity.Client (4.66.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.66.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="82923e49-8a81-471a-aff5-87c9c71201d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Client.Extensions.Msal</name>
+          <display>Microsoft.Identity.Client.Extensions.Msal (4.66.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.66.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="bdda6888-38b8-4e9d-a8bf-86551bbcf856" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
+          <display>System.Memory (4.5.5)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f1868a5a-215d-40b3-8808-29f9d8bac5c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (6.0.10)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.10</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c710d713-be11-413d-b03d-d864a2bc6994" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfddc7d5-de99-45de-8469-502129219a44</parentFolderId>
+          <packageId>fc85592b-ee1e-4416-aeda-4bf7c425b47d</packageId>
+          <packageName>Intent.Azure.KeyVault</packageName>
           <stereotypes />
           <metadata />
           <childElements />

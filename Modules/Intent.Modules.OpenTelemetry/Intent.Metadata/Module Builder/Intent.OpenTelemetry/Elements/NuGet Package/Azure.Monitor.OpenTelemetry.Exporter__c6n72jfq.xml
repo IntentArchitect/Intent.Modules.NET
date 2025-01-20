@@ -49,10 +49,14 @@
     </childElement>
     <childElement id="f8da8d78-9c50-481e-8db4-88136c544ef5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.3.0</name>
+      <display>1.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fb0044a2-4362-4715-9cd1-bec1b564dc06</parentFolderId>
+      <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+      <packageName>Intent.OpenTelemetry</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -68,33 +72,42 @@
       <childElements>
         <childElement id="f8d5e75d-82a7-452c-bfb7-914ab43c9018" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.40.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.40.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="39913f3b-8d0f-4789-a347-ed17a5ed102c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
+          <display>OpenTelemetry (1.8.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.8.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3a71fae2-a8db-4896-a5c5-e3a41790b181" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.PersistentStorage.FileSystem</name>
+          <display>OpenTelemetry.PersistentStorage.FileSystem (1.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8da8d78-9c50-481e-8db4-88136c544ef5</parentFolderId>
+          <packageId>652bd831-c437-4fba-8857-6387959bb71d</packageId>
+          <packageName>Intent.OpenTelemetry</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Hangfire</id>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
   <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
@@ -83,7 +83,7 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
@@ -101,4 +101,5 @@
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Hangfire/Intent.Hangfire.pkg.config" externalReference="fda30066-088b-48e0-9189-6cad1c70af13" />
     <install src="modelers/Hangfire Settings.designer.settings" externalReference="045155f0-a262-425a-a77f-1e080062aeba" target="Services" />
   </metadata>
+  <migrations />
 </package>

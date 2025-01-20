@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.DistributedCaching</id>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0-beta.6</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</summary>
   <description>Configures IDistributedCache and a unit of work enabled interface for using a Distributed Cache with an application.</description>
@@ -52,9 +52,10 @@
     </group>
   </moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Services" version="3.9.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -64,4 +65,5 @@
   <moduleSettingsExtensions />
   <metadata />
   <releaseNotes>release-notes.md</releaseNotes>
+  <migrations />
 </package>

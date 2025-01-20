@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0118c10d-3289-4717-9653-dbdfcc58d98a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#7696394b-7b8a-4bde-9110-cc2ce8101115</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/DiagramExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DiagramExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0118c10d-3289-4717-9653-dbdfcc58d98a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#449b11f7-a9f7-4ccc-b8bd-6b1dc8930b0c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/FolderExtensionModel.cs</ApplicationRelativeFilePath>
@@ -110,6 +102,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb4aec74-2a72-44d6-9934-c4ba4dfbe620</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#40533642-0c78-4c59-81a1-7edc4091f64a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

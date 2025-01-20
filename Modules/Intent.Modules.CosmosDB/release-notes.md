@@ -1,3 +1,7 @@
+### Version 1.2.9
+
+- Improvement: Included module help topic.
+
 ### Version 1.2.8
 
 - Improvement: It is now possible to specify the throughput type and amount (when applicable) for a container. Refer to the [documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-cosmosdb/intent-cosmosdb.html#throughput) for more details.

@@ -36,9 +36,9 @@ namespace Intent.Hangfire.Api
 
         public string Id => _association.Id;
 
-        public ScheduledCommandPublishSourceEndModel SourceEnd => _sourceEnd ?? (_sourceEnd = new ScheduledCommandPublishSourceEndModel(_association.SourceEnd, this));
+        public ScheduledCommandPublishSourceEndModel SourceEnd => _sourceEnd ??= new ScheduledCommandPublishSourceEndModel(_association.SourceEnd, this);
 
-        public ScheduledCommandPublishTargetEndModel TargetEnd => _targetEnd ?? (_targetEnd = new ScheduledCommandPublishTargetEndModel(_association.TargetEnd, this));
+        public ScheduledCommandPublishTargetEndModel TargetEnd => _targetEnd ??= new ScheduledCommandPublishTargetEndModel(_association.TargetEnd, this);
 
         public IAssociation InternalAssociation => _association;
 

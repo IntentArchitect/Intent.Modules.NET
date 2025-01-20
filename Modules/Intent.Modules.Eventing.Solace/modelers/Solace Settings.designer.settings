@@ -7,6 +7,16 @@
   <packageExtensions>
     <packageExtension type="Services Package" typeId="df45eaf6-9202-4c25-8dd5-677e9ba1e906">
       <requiredPackages />
+      <contextMenuOptions>
+        <createElement type="element">
+          <text>New Queue</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
+          <specializationType>Queue</specializationType>
+          <specializationTypeId>7c61be7b-8260-40ec-9722-8798b8261bb1</specializationTypeId>
+          <defaultName>NewQueue</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </createElement>
+      </contextMenuOptions>
       <creationOptions>
         <option type="element">
           <text>New Queue</text>
@@ -28,7 +38,7 @@
       <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
       <saveAsOwnFile>true</saveAsOwnFile>
       <allowRename>true</allowRename>
-      <nameMustBeUnique>false</nameMustBeUnique>
+      <nameMustBeUnique>true</nameMustBeUnique>
       <allowAbstract>false</allowAbstract>
       <allowStatic>false</allowStatic>
       <allowGenericTypes>false</allowGenericTypes>
@@ -39,6 +49,7 @@
       <allowTypeReference>false</allowTypeReference>
       <allowConvertToType p4:nil="true" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance" />
       <allowSetValue>false</allowSetValue>
+      <contextMenuOptions />
       <creationOptions />
       <scriptOptions />
       <mappingOptions />
@@ -53,6 +64,16 @@ element.addStereotype(queueConfigStereoTypeId);</script>
   </elementSettings>
   <elementExtensions>
     <elementExtension type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+      <contextMenuOptions>
+        <createElement type="element">
+          <text>New Queue</text>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQFJREFUaEPtVsERgkAMTCgCfagliAVgAVoIPVGJ/qUApQX8QBHEuYcPP9zkct4NM8s7e0l2d8gyrfzjlc9PWCC3glAAChgZ8Fqo76brLNIy087YSwUXoXfB3Bzr8rYE9C7wfIxD6uG/AwvJcKq3B9MCr24UFXWRi6t6s0iyVwEsYFQECsBCuS20+t9o302XmeaWifdGMlVwdwNYiqY6l3fTHVB1zVDsvQMZZlK19C6ALKTi87cYWcjxgUNmsJCDIgvBQrkthCwUqACyUCBxyWHIQv+kHFkIWSiCv5CFkIWMNjJbCFkoUAFkoUDiksO8WSj5RMqGWEBJWPRyKBCdUuWDHzVltDHP/UJ6AAAAAElFTkSuQmCC" />
+          <specializationType>Queue</specializationType>
+          <specializationTypeId>7c61be7b-8260-40ec-9722-8798b8261bb1</specializationTypeId>
+          <defaultName>NewQueue</defaultName>
+          <allowMultiple>true</allowMultiple>
+        </createElement>
+      </contextMenuOptions>
       <creationOptions>
         <option type="element">
           <text>New Queue</text>

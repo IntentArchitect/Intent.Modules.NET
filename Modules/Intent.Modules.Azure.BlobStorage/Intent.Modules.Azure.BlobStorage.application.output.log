@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c05a7e25-65df-4a6d-8dae-e529302bf5fc</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#569b26a5-a090-4488-a97f-4bdb058c3cd2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>fcdfb9eb-60f5-4369-9a24-6a20e49e70d8</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#6c3788bc-6eb0-445b-b622-22c78db244a6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

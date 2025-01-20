@@ -72,10 +72,14 @@
     </childElement>
     <childElement id="a6ea4121-6631-4185-95e0-ff7712aa4421" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.1.7</name>
+      <display>8.1.7 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9d6ace5a-ad9c-4a06-8b15-54b5c49e2aaf</parentFolderId>
+      <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+      <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -91,44 +95,56 @@
       <childElements>
         <childElement id="c83c52e4-024e-486a-8cad-aeabfa3c6641" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.38.0)</display>
           <isAbstract>false</isAbstract>
           <value>3.38.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="06211c2c-90f9-42fe-bbab-90b457bfbd2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="612c1553-98fd-4a0f-bc92-1367a7b89f96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="309c24e7-c799-4337-bbd9-ce0e4158c046" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a6ea4121-6631-4185-95e0-ff7712aa4421</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />

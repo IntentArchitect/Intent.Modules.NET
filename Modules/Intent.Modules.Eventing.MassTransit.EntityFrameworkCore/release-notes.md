@@ -1,3 +1,7 @@
+### Version 5.2.4
+
+- Improvement: Included module help topic.
+
 ### Version 5.2.3
 
 - Improvement: Updated module NuGet packages infrastructure.

@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>950d5deb-551d-4f10-9272-2b780a9e0c0a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#b894aafd-02e1-4697-9371-6b7b669022c8</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/Api/NewElementExtensionModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NewElementExtensionModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1b22e40e-d1a3-41ac-8a7c-9b21c33526f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -46,6 +38,14 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2841e1ec-9c21-41c7-9a40-dc9aa6bc831a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#97a1fda8-8b73-4470-bb1f-e00b2a4c3ce0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.OpenApi.Importer/resources/documentation.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

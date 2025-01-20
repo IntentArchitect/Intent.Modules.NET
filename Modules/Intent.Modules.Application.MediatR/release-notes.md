@@ -1,4 +1,8 @@
-﻿### Version 4.3.0
+﻿### Version 4.3.1
+
+- Improvement: Included module help topic.
+
+### Version 4.3.0
 
 - Improvement: The `Authorize` stereotype has been removed and its usage has been replaced with the `Security` stereotype. A module migration will automatically convert existing `Authorize` stereotypes to `Secured` stereotypes which should allow everything to continue working without any additional intervention required.
 

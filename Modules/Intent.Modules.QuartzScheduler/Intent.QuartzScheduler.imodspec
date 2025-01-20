@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.QuartzScheduler</id>
-  <version>1.0.5</version>
+  <version>1.0.6-pre.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Quartz Scheduling patterns for time based activities</summary>
   <description>Quartz Scheduling patterns for time based activities</description>
@@ -52,4 +52,5 @@
     <install target="Services" src="modelers/Quartz Scheduler Settings.designer.settings" externalReference="02e13e2c-d86e-4cb8-9bc8-61d83c1b5447" />
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.QuartzScheduler/Intent.QuartzScheduler.pkg.config" externalReference="046b57a5-7822-4ce0-aad8-dd40a93ecee5" />
   </metadata>
+  <migrations />
 </package>

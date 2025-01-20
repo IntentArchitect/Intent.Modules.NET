@@ -26,8 +26,9 @@
   <childElements>
     <childElement id="b291e8ba-2da9-4eba-bb77-d0bb3191e965" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.9.2</name>
-      <display>2.9.0 ( &gt;= Any,Version=v0.0 )</display>
+      <display>2.9.2 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>6ba3f6f6-1325-4fd0-a538-9e85c2adfed4</parentFolderId>
@@ -46,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fe30c620-65f2-409d-b080-af038f908482" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>xunit.core</name>
+        <childElement id="10635000-9505-418e-8048-5d5cfc72495d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.analyzers</name>
+          <display>xunit.analyzers (1.16.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.9.2</value>
+          <value>1.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8eca3161-8add-44e4-9a2a-69025cebc593" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.assert</name>
+          <display>xunit.assert (2.9.2)</display>
           <isAbstract>false</isAbstract>
           <value>2.9.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="10635000-9505-418e-8048-5d5cfc72495d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>xunit.analyzers</name>
+        <childElement id="fe30c620-65f2-409d-b080-af038f908482" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>xunit.core</name>
+          <display>xunit.core (2.9.2)</display>
           <isAbstract>false</isAbstract>
-          <value>1.16.0</value>
+          <value>2.9.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b291e8ba-2da9-4eba-bb77-d0bb3191e965</parentFolderId>
+          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
+          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />

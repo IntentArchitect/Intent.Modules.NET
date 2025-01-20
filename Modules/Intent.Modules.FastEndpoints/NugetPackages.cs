@@ -44,14 +44,14 @@ namespace Intent.Modules.FastEndpoints
                 (framework) => framework switch
                     {
                         ( >= 9, 0) => new PackageVersion("5.31.0")
-                            .WithNugetDependency("FastEndpoints", "5.31.0")
                             .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
                             .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
+                            .WithNugetDependency("FastEndpoints", "5.31.0")
                             .WithNugetDependency("NSwag.Generation.AspNetCore", "14.1.0"),
                         ( >= 8, 0) => new PackageVersion("5.31.0")
-                            .WithNugetDependency("FastEndpoints", "5.31.0")
                             .WithNugetDependency("Asp.Versioning.Http", "8.1.0")
                             .WithNugetDependency("Asp.Versioning.Mvc.ApiExplorer", "8.1.0")
+                            .WithNugetDependency("FastEndpoints", "5.31.0")
                             .WithNugetDependency("NSwag.Generation.AspNetCore", "14.1.0"),
                         ( >= 7, 0) => new PackageVersion("5.31.0")
                             .WithNugetDependency("Asp.Versioning.Http", "7.1.0")
@@ -72,8 +72,8 @@ namespace Intent.Modules.FastEndpoints
                 (framework) => framework switch
                     {
                         ( >= 8, 0) => new PackageVersion("2.3.0")
-                            .WithNugetDependency("FastEndpoints.ApiExplorer", "2.3.0")
                             .WithNugetDependency("FastEndpoints", "5.22.0")
+                            .WithNugetDependency("FastEndpoints.ApiExplorer", "2.3.0")
                             .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "6.5.0"),
                         ( >= 6, 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("FastEndpoints", "5.22.0")

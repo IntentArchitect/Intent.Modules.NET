@@ -1,3 +1,7 @@
+### Version 5.0.16
+
+- Improvement: Included module help topic.
+
 ### Version 5.0.15
 
 - Improvement: Updated NuGet package versions.

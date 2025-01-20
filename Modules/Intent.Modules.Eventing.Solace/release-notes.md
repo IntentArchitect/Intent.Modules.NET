@@ -1,3 +1,7 @@
+### Version 1.0.7
+
+- Improvement: Included module help topic.
+
 ### Version 1.0.6
 
 - Improvement: Updated package references

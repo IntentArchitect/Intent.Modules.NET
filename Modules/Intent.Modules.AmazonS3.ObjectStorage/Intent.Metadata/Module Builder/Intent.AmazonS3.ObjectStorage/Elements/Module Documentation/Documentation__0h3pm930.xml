@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ad463a00-92a3-4ceb-ad13-fa11693fca29" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>582e71a9-49c5-4208-a326-3dd3fa9bd950</parentFolderId>
+  <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+  <packageName>Intent.AmazonS3.ObjectStorage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b1e6f0b1-f171-447a-8197-08b604ecf327" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Amazon S3 Module Documentation</name>
+      <display>Amazon S3 Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ad463a00-92a3-4ceb-ad13-fa11693fca29</parentFolderId>
+      <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
+      <packageName>Intent.AmazonS3.ObjectStorage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.AmazonS3.ObjectStorage module" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgaWQ9IlRyYXNoIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iLTU2IiB5MT0iMTgyLjkiIHgyPSItNTYiIHkyPSIxODIuOSIgZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgxMzk5NDQgNDU3MzY5KSBzY2FsZSgyNTAwIC0yNTAwKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWI2NjBmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2Y2FlM2UiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICA8L2RlZnM+DQogIDxwYXRoIGQ9Ik05LjEsMGgzMS43YzUuMSwwLDkuMSw0LjEsOS4xLDkuMXYzMS43YzAsNS4xLTQuMSw5LjEtOS4xLDkuMUg5LjFjLTUuMSwwLTkuMS00LjEtOS4xLTkuMVY5LjFDMCw0LjEsNC4xLDAsOS4xLDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudCkiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLXdpZHRoPSIwIi8+DQogIDxwYXRoIGQ9Ik0zOC4xLDI2LjhsLjItMS43YzIuMiwxLjMsMi4yLDEuOSwyLjIsMS45LDAsMC0uNC4zLTIuNS0uMlpNMzYuOSwyNi41Yy0zLjgtMS4yLTkuMi0zLjYtMTEuMy00LjYsMCwwLDAsMCwwLDAsMC0uOC0uNy0xLjUtMS41LTEuNS0uOCwwLTEuNS43LTEuNSwxLjVzLjcsMS41LDEuNSwxLjUuNy0uMSwxLS40YzIuNSwxLjIsNy44LDMuNiwxMS43LDQuN2wtMS41LDEwLjhzMCwwLDAsMGMwLC45LTQuMiwyLjctMTEsMi43cy0xMS4yLTEuNy0xMS4yLTIuNywwLDAsMCwwbC0zLjItMjMuM2MyLjgsMS45LDguNywyLjksMTQuNCwyLjlzMTEuNi0xLDE0LjMtMi45bC0xLjYsMTEuMlpNOS40LDEyLjhjMC0uOCw0LjgtNCwxNC43LTRzMTQuNiwzLjIsMTQuNyw0di4zYy0uNSwxLjgtNi43LDMuOC0xNC43LDMuOHMtMTQuMi0yLTE0LjctMy44di0uM1pNNDAuMSwxMi44YzAtMi4yLTYuMi01LjMtMTUuOS01LjNzLTE1LjksMy4xLTE1LjksNS4zdi41YzAsMCwzLjUsMjUuMywzLjUsMjUuMywwLDIuOCw3LjYsMy45LDEyLjQsMy45czEyLjItMS40LDEyLjMtMy45bDEuNS0xMC42Yy44LjIsMS41LjMsMi4xLjNzMS4yLS4yLDEuNS0uNWMuMi0uMy4zLS43LjMtMS0uMi0uOS0xLjItMS44LTMuMy0zbDEuNS0xMC41di0uNVoiIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLXdpZHRoPSIwIi8+DQo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-amazons3-objectstorage/intent-amazons3-objectstorage.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="amazon s3 storage object objectstorage module moduledocumentation Intent.AmazonS3.ObjectStorage" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

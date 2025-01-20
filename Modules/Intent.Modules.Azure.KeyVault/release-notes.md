@@ -1,3 +1,7 @@
+### Version 2.0.7
+
+- Improvement: Included module help topic.
+
 ### Version 2.0.6
 
 - Improvement: Updated NuGet package versions.

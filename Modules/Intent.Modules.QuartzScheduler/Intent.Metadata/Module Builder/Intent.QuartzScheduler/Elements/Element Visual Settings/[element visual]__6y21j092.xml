@@ -3,7 +3,7 @@
   <name>[element visual]</name>
   <display>[visual]: Scheduled Job</display>
   <isAbstract>false</isAbstract>
-  <sort-children>by-type-then-manually</sort-children>
+  <sort-children>manually</sort-children>
   <genericTypes />
   <typeReference id="a2829372-30ac-4a17-86fd-9987eb5c43ea">
     <typeId>57b933b6-cec8-4fd5-8060-948f5e39d45e</typeId>

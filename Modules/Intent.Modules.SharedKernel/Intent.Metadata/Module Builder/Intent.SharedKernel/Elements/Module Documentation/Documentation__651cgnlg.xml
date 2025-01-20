@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bc522b59-d60f-4a98-8c55-9a5b53085016" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3cb13f27-e282-4d78-aee8-605c2f395991</parentFolderId>
+  <packageId>3cb13f27-e282-4d78-aee8-605c2f395991</packageId>
+  <packageName>Intent.SharedKernel</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="c4293f51-134a-46b0-9682-321c223fbc46" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Shared Kernel Module Documentation</name>
+      <display>Shared Kernel Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bc522b59-d60f-4a98-8c55-9a5b53085016</parentFolderId>
+      <packageId>3cb13f27-e282-4d78-aee8-605c2f395991</packageId>
+      <packageName>Intent.SharedKernel</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.SharedKernel module" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA2VJREFUaEPtWE1PE1EUPffNUC3yUWo0SAFNQHcC0V/gxg0rDbowuGliWGE00QBqlIiREpckLExgYWShMbjRrVuXJcaVX4mlVFRiC0gxZfqumcQq9GvmTbFTknbZue/NOffe9849Q9jlP9rl+FEl4HYFqxWoVqDEDFREC3U8WDpoGPIyE/eC+ajJSRK9I9BLjyYmP15v/laIp+sE2sej5wBMg6g+L0jmNQgEI0Otz/I9d5XAH/BPQFQcBzND4Hw+Eq4RMNtm0zA+FMx8VroZcnVT6p1LNw593/rINQKHx2P3mPimyhlmprGFkZbbFUGgLbQ4T0C3CgEJhKPDgROuEugcfL8nWZs8rTftnwNIVyEA5rXISGuDKwQCQ2+7JaeDDPQTyK83+S3PbjY58xwsDLc1lo3AkSth3y+PuEBMQRBObn2x3uAD6ZpSAcrTQqMsAsk3pyRTkMFniWhvPpTCWwvN61UiAOBuZDhwx3YFVBSy9ep8QNaIfoAvMajDChkJAa3RZ7uNGLSS1tEZu9aybIuAHYUUkAOpRPwnM10E4wwISodSeDzQ9tXD0pUwMwnR93moZS47MXl1wL5CAun1NchUyirh258zS0l4LZgeefwN65K0KYLYdrtkFpiZF4RgPvBmTA4BZYVkhpFIACwtSUjCIjEes8DDr6GuT5kFzfe/HKghHgTJXgKOmf8zYA5zLwydJrPbpmgLOVHI9MYG5EaywCzGv4joOUnMxOqOv8IoWTO1TMW/gJwKOFFIThswVla2vZaBsABmdIHZSKgrroBJKTSHQHsougZQncou5rBoxH+AGXGwnBU6ZmKhnrDKHk5jcwmMR1ftToh/D1pFEQgtmpnrUclIRbVQWyg2RuBbKgQq6hA7ukZXEoC0vlwKXaMqim9PyCaifZB4aqnzXLqQ1fgakxDa1I574vaJaB8zTxdTSI15IJVYTpZjlHDkiVUU8v8Pc+XyxDbHac1bC6E4TpfdExc1NOYorVWioSlw/2Zbyhq/P98sWfz2dtMTZ5BlTL3m888RCSX/UHZPXCyd7Q4Uvzye2KaEO1F8ZU9sE4ujMGXFV/XEjlApLjLF0p7iK3piRRwlhdtRfCVPXBIah4tVFN/WMOcQhyvLXPu8vlNsqwR2KpNO96lWwGnmdmrdrq/AbzQB9UB3QW6xAAAAAElFTkSuQmCC&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-sharedkernel/intent-sharedkernel.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="module moduledocumentation Intent.SharedKernel  share common" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
