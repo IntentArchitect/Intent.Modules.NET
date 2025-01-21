@@ -1,4 +1,4 @@
-﻿# Intent.Eventing.Kakfka
+﻿# Intent.Eventing.Kafka
 
 This module provides patterns for working with Apache Kafka as a publish/subscribe message system.
 
