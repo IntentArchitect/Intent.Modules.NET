@@ -1,5 +1,6 @@
 ### Version 3.3.13
 
+- Improvement: Added documentation links.
 - Fixed: Updated `UseCors` registration to occur before `UseAuthentication` and `UseAuthorization`.
 
 ### Version 3.3.12
