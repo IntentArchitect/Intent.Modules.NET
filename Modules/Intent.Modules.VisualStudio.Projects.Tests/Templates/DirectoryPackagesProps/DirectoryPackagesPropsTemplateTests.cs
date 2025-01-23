@@ -39,7 +39,7 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenCentralPackageManagementDisabled_ShouldNotReturnVersions()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
         _fileSystem[mainPath] = @"
 <Project>
   <ItemGroup>
@@ -61,7 +61,7 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenPackageDefinedInMainFile_ShouldReturnVersion()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
         _fileSystem[mainPath] = @"
 <Project>
   <ItemGroup>
@@ -83,7 +83,7 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenPackageVersionUpdated_ShouldNotifyChanges()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
         _fileSystem[mainPath] = @"
 <Project>
   <ItemGroup>
@@ -109,8 +109,8 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenPackageVersionOverriddenLocally_ShouldWarnAboutImportedVersion()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
-        var importPath = @"C:\proj\imported.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        var importPath = FixPathForCurrentOs(@"C:\proj\imported.props");
 
         _fileSystem[mainPath] = @"
 <Project>
@@ -135,8 +135,8 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenPackageRemovedButExistsInImport_ShouldWarnAboutImportedVersion()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
-        var importPath = @"C:\proj\imported.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        var importPath = FixPathForCurrentOs(@"C:\proj\imported.props");
 
         _fileSystem[mainPath] = @"
 <Project>
@@ -168,8 +168,8 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenImportPathIsRelative_ShouldResolveAgainstMainDirectory()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
-        var subfolderPath = @"C:\proj\subfolder\other.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        var subfolderPath = FixPathForCurrentOs(@"C:\proj\subfolder\other.props");
 
         _fileSystem[mainPath] = @"
 <Project>
@@ -197,9 +197,9 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenCircularImportsExist_ShouldHandleGracefully()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
-        var import1Path = @"C:\proj\import1.props";
-        var import2Path = @"C:\proj\import2.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
+        var import1Path = FixPathForCurrentOs(@"C:\proj\import1.props");
+        var import2Path = FixPathForCurrentOs(@"C:\proj\import2.props");
 
         _fileSystem[mainPath] = @"
 <Project>
@@ -237,7 +237,7 @@ public class DirectoryPackagesPropsTemplateTests
     public void WhenRunTemplateIsCalled_ShouldReturnValidXml()
     {
         // Arrange
-        var mainPath = @"C:\proj\Directory.Packages.props";
+        var mainPath = FixPathForCurrentOs(@"C:\proj\Directory.Packages.props");
         _fileSystem[mainPath] = @"
 <Project>
   <ItemGroup>
@@ -255,6 +255,16 @@ public class DirectoryPackagesPropsTemplateTests
         result.ShouldContain("<Project>");
         result.ShouldContain("TestPackage");
         result.ShouldContain("1.0.0");
+    }
+
+    private string FixPathForCurrentOs(string path)
+    {
+        if (!OperatingSystem.IsWindows())
+        {
+            return path.Replace("C:", "").Replace("\\", "/");
+        }
+
+        return path;
     }
 
     private DirectoryPackagesPropsTemplate CreateTemplate(
