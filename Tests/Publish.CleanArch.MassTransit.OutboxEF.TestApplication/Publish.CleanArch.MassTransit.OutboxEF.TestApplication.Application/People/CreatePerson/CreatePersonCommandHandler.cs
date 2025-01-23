@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Eventing;
-using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services;
+using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services.People;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "2.0")]

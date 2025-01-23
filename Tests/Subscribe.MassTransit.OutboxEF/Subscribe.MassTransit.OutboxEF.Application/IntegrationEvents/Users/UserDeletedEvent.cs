@@ -5,7 +5,7 @@ using Subscribe.MassTransit.OutboxEF.Application.IntegrationEvents;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]
 
-namespace MassTransit.Messages.Shared
+namespace MassTransit.Messages.Shared.Users
 {
     public record UserDeletedEvent
     {
@@ -14,6 +14,7 @@ namespace MassTransit.Messages.Shared
             Email = null!;
             UserName = null!;
         }
+
         public Guid Id { get; init; }
         public string Email { get; init; }
         public string UserName { get; init; }

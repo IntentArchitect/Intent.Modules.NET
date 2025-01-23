@@ -3,7 +3,7 @@ using System.Reflection;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
 using MassTransit.Configuration;
-using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.Baskets;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;

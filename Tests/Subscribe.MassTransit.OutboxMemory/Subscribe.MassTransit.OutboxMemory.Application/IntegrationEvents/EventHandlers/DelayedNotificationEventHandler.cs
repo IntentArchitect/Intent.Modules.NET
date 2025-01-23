@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.Scheduled;
 using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

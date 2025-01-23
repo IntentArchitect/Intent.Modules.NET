@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]
 
-namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services
+namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Services.People
 {
     public record PersonCreatedEvent
     {

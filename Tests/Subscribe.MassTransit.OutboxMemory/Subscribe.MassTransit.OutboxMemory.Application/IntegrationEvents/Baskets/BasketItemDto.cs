@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventDto", Version = "1.0")]
 
-namespace MassTransit.Messages.Shared
+namespace MassTransit.Messages.Shared.Baskets
 {
     public class BasketItemDto
     {

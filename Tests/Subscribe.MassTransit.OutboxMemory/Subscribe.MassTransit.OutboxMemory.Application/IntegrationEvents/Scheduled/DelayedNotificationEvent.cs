@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]
 
-namespace MassTransit.Messages.Shared
+namespace MassTransit.Messages.Shared.Scheduled
 {
     public record DelayedNotificationEvent
     {
@@ -11,6 +11,7 @@ namespace MassTransit.Messages.Shared
         {
             Message = null!;
         }
+
         public string Message { get; init; }
     }
 }

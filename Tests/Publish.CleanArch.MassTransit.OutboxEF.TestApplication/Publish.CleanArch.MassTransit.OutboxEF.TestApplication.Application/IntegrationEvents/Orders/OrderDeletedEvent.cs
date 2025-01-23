@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]
 
-namespace MassTransit.Messages.Shared
+namespace MassTransit.Messages.Shared.Orders
 {
     public record OrderDeletedEvent
     {
@@ -13,6 +13,7 @@ namespace MassTransit.Messages.Shared
         {
             Number = null!;
         }
+
         public Guid Id { get; init; }
         public string Number { get; init; }
     }

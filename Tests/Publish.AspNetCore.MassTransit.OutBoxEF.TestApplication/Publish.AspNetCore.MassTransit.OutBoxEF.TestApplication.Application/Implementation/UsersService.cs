@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.Users;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Users;
@@ -59,7 +60,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
                 UserName = user.UserName,
                 Type = user.Type,
                 Preferences = user.Preferences
-                    .Select(p => new global::MassTransit.Messages.Shared.PreferenceDto
+                    .Select(p => new global::MassTransit.Messages.Shared.Users.PreferenceDto
                     {
                         Id = p.Id,
                         Key = p.Key,
@@ -109,7 +110,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
                 UserName = user.UserName,
                 Type = user.Type,
                 Preferences = user.Preferences
-                    .Select(p => new global::MassTransit.Messages.Shared.PreferenceDto
+                    .Select(p => new global::MassTransit.Messages.Shared.Users.PreferenceDto
                     {
                         Id = p.Id,
                         Key = p.Key,

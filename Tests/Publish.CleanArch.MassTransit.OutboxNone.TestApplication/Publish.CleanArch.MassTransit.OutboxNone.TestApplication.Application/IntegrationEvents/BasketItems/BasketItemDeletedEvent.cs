@@ -4,7 +4,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventMessage", Version = "1.0")]
 
-namespace MassTransit.Messages.Shared
+namespace MassTransit.Messages.Shared.BasketItems
 {
     public record BasketItemDeletedEvent
     {
@@ -12,6 +12,7 @@ namespace MassTransit.Messages.Shared
         {
             Description = null!;
         }
+
         public Guid Id { get; init; }
         public string Description { get; init; }
         public decimal Amount { get; init; }

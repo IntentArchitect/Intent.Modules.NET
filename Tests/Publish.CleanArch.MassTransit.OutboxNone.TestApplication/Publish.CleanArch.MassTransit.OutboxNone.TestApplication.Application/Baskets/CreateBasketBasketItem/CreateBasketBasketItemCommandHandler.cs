@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.BasketItems;
 using MediatR;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Common.Exceptions;

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
-using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.Orders;
 using MediatR;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Common.Eventing;
 using Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Domain.Common.Exceptions;

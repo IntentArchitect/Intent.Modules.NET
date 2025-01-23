@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.AzureServiceBus.Application.Common.Eventing;
-using MassTransit.AzureServiceBus.Services;
+using MassTransit.AzureServiceBus.Services.NamingOverrides;
 using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

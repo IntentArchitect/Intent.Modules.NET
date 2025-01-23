@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.Messages.Shared;
+using MassTransit.Messages.Shared.Roles;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Interfaces;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles;
@@ -55,7 +56,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
                 Id = role.Id,
                 Name = role.Name,
                 Priviledges = role.Priviledges
-                    .Select(p => new global::MassTransit.Messages.Shared.PriviledgeDto
+                    .Select(p => new global::MassTransit.Messages.Shared.Roles.PriviledgeDto
                     {
                         Id = p.Id,
                         RoleId = p.RoleId,
@@ -100,7 +101,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
                 Id = role.Id,
                 Name = role.Name,
                 Priviledges = role.Priviledges
-                    .Select(p => new global::MassTransit.Messages.Shared.PriviledgeDto
+                    .Select(p => new global::MassTransit.Messages.Shared.Roles.PriviledgeDto
                     {
                         Id = p.Id,
                         RoleId = p.RoleId,
