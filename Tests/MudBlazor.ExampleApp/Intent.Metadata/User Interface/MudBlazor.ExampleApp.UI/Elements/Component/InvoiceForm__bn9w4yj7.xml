@@ -21,7 +21,7 @@
             <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
             <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
             <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
-              <typeReference id="5b0106aa-b39c-4025-815b-7d91c119d84d">
+              <typeReference id="a1ddf17a-f126-419d-834e-c6ecd12c5f41">
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
                 <isCollection>false</isCollection>
@@ -153,6 +153,25 @@
                 <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="cc128abf-0324-4a13-9fcf-dd4785d095e3" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                 <target id="047d5852-bb22-4030-b066-d53823ac553e" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnCustomerSelectedChanged}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="d1b0a7da-3167-4e1d-a489-5385e07eaca5" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="919d2201-db56-448c-bdc8-7f2fd353cfd8" name="On Selected" type="static-mappable" specialization="On Selected" specializationId="919d2201-db56-448c-bdc8-7f2fd353cfd8" />
+          </path>
+          <sources>
+            <source identifier="OnCustomerSelectedChanged" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ec200fbe-01ef-4696-9cdf-d74954eb181f" name="OnCustomerSelectedChanged" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
               </path>
             </source>
           </sources>
@@ -801,7 +820,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="40626900-37dc-4986-aaa7-714434fe13a6" name="Add()" type="static-mappable" specialization="Add()" specializationId="40626900-37dc-4986-aaa7-714434fe13a6" />
                     <target id="8eca5952-2a80-448c-b03c-0170c8a16371" name="item" type="static-mappable" specialization="item" specializationId="8eca5952-2a80-448c-b03c-0170c8a16371">
-                      <typeReference id="cae8ac07-c463-490e-832f-724c001a082a">
+                      <typeReference id="3922eeba-fa45-4728-90ad-f6207c1cdf59">
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -921,7 +940,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="f6bfb740-ca91-409b-a5d1-884c31385a68" name="Remove()" type="static-mappable" specialization="Remove()" specializationId="f6bfb740-ca91-409b-a5d1-884c31385a68" />
                     <target id="cce5f491-3ab2-40ed-8f72-081de4975ca9" name="item" type="static-mappable" specialization="item" specializationId="cce5f491-3ab2-40ed-8f72-081de4975ca9">
-                      <typeReference id="79a51013-e1ab-410f-9609-08a6dcac32a2">
+                      <typeReference id="ff6eaf41-71d9-443b-9da8-b80b8d7a6eac">
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -951,6 +970,27 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="ec200fbe-01ef-4696-9cdf-d74954eb181f" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnCustomerSelectedChanged</name>
+      <display>OnCustomerSelectedChanged(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e3f2d819-a27e-4ddc-9b17-3ea7b7ea17a1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

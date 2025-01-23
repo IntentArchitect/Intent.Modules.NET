@@ -4,6 +4,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -26,8 +27,13 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement("MudSelect", _componentTemplate.RazorFile);
         var valueMapping = _bindingManager.GetMappedEndFor(selectModel);
         var valueBinding = _bindingManager.GetBinding(valueMapping, parentNode)?.ToString();
+
+        var onSelectedMapping = _bindingManager.GetMappedEndFor(selectModel, "919d2201-db56-448c-bdc8-7f2fd353cfd8"); // On Selected
+        var onSelectedBinding = _bindingManager.GetBinding(onSelectedMapping, parentNode);
+
         htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(valueMapping, parentNode)?.ToString());
         htmlElement.AddAttribute("Label", selectModel.TryGetLabelAddon(out var label) ? label.Label() : selectModel.Name);
+        htmlElement.AddAttributeIfNotEmpty("@bind-Value:after", onSelectedBinding?.ToLambda());
 
         var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
         if (mappedEnd == null)

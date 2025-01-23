@@ -26,6 +26,7 @@
                              xl="3">
                         <MudSelect @bind-Value="Model.CustomerId"
                                    Label="Customer"
+                                   @bind-Value:after="() => OnCustomerSelectedChanged()"
                                    For="@(() => Model.CustomerId)">
                             @foreach (var item in CustomerOptions) 
                             {

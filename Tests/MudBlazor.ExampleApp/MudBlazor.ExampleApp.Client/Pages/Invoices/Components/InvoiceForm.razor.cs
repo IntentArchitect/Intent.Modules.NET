@@ -93,5 +93,9 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         {
             Model.OrderLines.Remove(orderLine);
         }
+
+        private void OnCustomerSelectedChanged()
+        {
+        }
     }
 }

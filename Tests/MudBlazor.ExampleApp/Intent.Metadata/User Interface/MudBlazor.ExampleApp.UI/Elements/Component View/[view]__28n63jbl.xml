@@ -181,6 +181,7 @@
                         <property name="83c7d771-b51b-4ca8-9451-10d154c99b05" display="Options" value="{CustomerOptions}" isActive="true" />
                         <property name="cdbb3669-f3b5-4d56-a274-4a1f92d4a451" display="Key" value="{CustomerOptions.Id}" isActive="true" />
                         <property name="4d698735-be31-4e69-9fa0-27ddd077b465" display="Value" value="{CustomerOptions.Name}" isActive="true" />
+                        <property name="b3b1b7ec-7913-4b58-854e-9582ba5ab8a0" display="On Selected" isActive="true" />
                       </properties>
                     </stereotype>
                     <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
@@ -337,6 +338,7 @@
                                 <property name="83c7d771-b51b-4ca8-9451-10d154c99b05" display="Options" value="{ProductOptions}" isActive="true" />
                                 <property name="cdbb3669-f3b5-4d56-a274-4a1f92d4a451" display="Key" value="{ProductOptions.Id}" isActive="true" />
                                 <property name="4d698735-be31-4e69-9fa0-27ddd077b465" display="Value" value="{ProductOptions.Name}" isActive="true" />
+                                <property name="b3b1b7ec-7913-4b58-854e-9582ba5ab8a0" display="On Selected" isActive="true" />
                               </properties>
                             </stereotype>
                           </stereotypes>
