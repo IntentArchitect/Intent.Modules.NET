@@ -1,6 +1,8 @@
 ### Version 5.1.5
 
 - Fixed: Add ModelRepresents for Integration Events and Integration Commands, this address Casing discrepancies in model.
+- Fixed: Generated `Event Messages` and `Event Dtos` will now have the namespace respect folder.
+- Fixed: `Event Dto` now correctly referenced in `Integration Commands` and `Event Messages`.
 
 ### Version 5.1.4
 

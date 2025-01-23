@@ -12,6 +12,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventDto;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventEnum;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -33,6 +34,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand
             AddTypeSource(TemplateId);
             AddTypeSource(IntegrationEventEnumTemplate.TemplateId);
             AddTypeSource(TemplateRoles.Domain.Enum);
+            AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
 
             var classNamespace = Model.InternalElement.Package.Name.ToCSharpNamespace();
             var extendedNamespace = Model.GetParentFolders().Where(x =>
