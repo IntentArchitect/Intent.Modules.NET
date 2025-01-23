@@ -31,9 +31,9 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         public const string TemplateId = "Intent.VisualStudio.Projects.DirectoryPackagesProps";
 
         public DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model) : this(
-            application: application, 
-            model: model, 
-            canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true, 
+            application: application,
+            model: model,
+            canRunTemplate: model.GetVisualStudioSolutionOptions()?.ManagePackageVersionsCentrally() == true,
             fileOperations: new StandardFileOperations())
         {
         }
@@ -48,12 +48,12 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 ? _fileOperations.ReadAllText(_fileMetadata.GetFilePath())
                 : GetInitialContent());
             _canRunTemplate = canRunTemplate;
-            
+
             Model = model;
         }
 
         public VisualStudioSolutionModel Model { get; }
-        
+
         public bool TryGetVersion(string packageId, out string version)
         {
             if (!_canRunTemplate)
@@ -76,14 +76,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             switch (item)
             {
                 case null when TryGetVersion(packageId, out var importedPackageVersion):
-                {
-                    if (importedPackageVersion != packageVersion)
                     {
-                        Utils.Logging.Log.Warning(
-                            $"Nuget Package {packageId} with version {packageVersion} differs from one imported in the Directory.Packages.props file. Imported package version: {importedPackageVersion}.");
+                        if (importedPackageVersion != packageVersion)
+                        {
+                            Utils.Logging.Log.Warning(
+                                $"Nuget Package {packageId} with version {packageVersion} differs from one imported in the Directory.Packages.props file. Imported package version: {importedPackageVersion}.");
+                        }
+                        return;
                     }
-                    return;
-                }
                 case null:
                     item = _projectRootElement.AddItem("PackageVersion", packageId);
                     break;
@@ -129,11 +129,11 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         public bool CanRunTemplate() => _canRunTemplate;
 
         public string SolutionModelId => Model.Id;
-        
+
         private void UpdateChangeIfNeeded(ISoftwareFactoryEventDispatcher sfEventDispatcher)
         {
             _cachedPackageVersions = null; // Recompute Packaged Versions on next TryGetVersion
-            
+
             if (!CanRunTemplate())
             {
                 return;
@@ -163,7 +163,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 ProjectCollection.GlobalProjectCollection,
                 preserveFormatting: true);
         }
-        
+
         private Dictionary<string, string> GetAllPrecomputedPackageVersions(ProjectRootElement project, string projectDirectory)
         {
             var precomputedPackageVersions = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
@@ -173,7 +173,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                 PrecomputePackageVersions(importedProject, precomputedPackageVersions);
             }
             return precomputedPackageVersions;
-            
+
             void PrecomputePackageVersions(ProjectRootElement project, Dictionary<string, string> dict)
             {
                 foreach (var item in project.Items.Where(x => x.ItemType == "PackageVersion"))
@@ -185,7 +185,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
                     }
                 }
             }
-            
+
             IEnumerable<ProjectRootElement> LoadImportedProjects(ProjectRootElement projectRootElement, string projectDirectory, HashSet<string> loadedProjects)
             {
                 var importedProjects = new List<ProjectRootElement>();
@@ -283,7 +283,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             return File.ReadAllText(path);
         }
     }
-    
+
     public interface ICpmTemplate : ITemplate
     {
         string SolutionModelId { get; }

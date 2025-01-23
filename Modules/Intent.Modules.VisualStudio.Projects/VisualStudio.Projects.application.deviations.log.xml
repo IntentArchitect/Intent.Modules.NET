@@ -368,12 +368,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/DirectoryPackagesProps/DirectoryPackagesPropsTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-01-16T11:32:11.4651416Z</updatedAt>
-      <deviationsHash>E8F2279B1A7207BED11BF7D16929CA34732637EA885E5658005455607E34375B</deviationsHash>
-      <fileHash>19FC2E34257918F9E2B8B8E1365EEF526F80EB76C6BD82512A4E7CDF0E094A09</fileHash>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-01-23T08:20:24.5541639Z</updatedAt>
+      <deviationsHash>C0DCCD7E71FC67ABD8FFD60A265629B153EED314AB7ED75EE43E9A6FEC998AFC</deviationsHash>
+      <fileHash>569B23BAB063DF734B0B2931B71E23756220613B4B4326F09B29B71EBE4C11B1</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#807ee533-3ab8-4fe6-a06c-30d45eecf014</correlationId>

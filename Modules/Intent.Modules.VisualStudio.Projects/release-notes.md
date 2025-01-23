@@ -1,7 +1,8 @@
 ### Version 3.8.7
 
 - Improvement: Added help topics for the Visual Studio Designer.
-- Improvement: Additional readme help topics added
+- Improvement: Additional readme help topics added.
+- Fixed: `PackageVersions` located in projects that are imported from the `Directory.Packages.props` are now taken into account when the props file is being generated.
 
 ### Version 3.8.6
 
