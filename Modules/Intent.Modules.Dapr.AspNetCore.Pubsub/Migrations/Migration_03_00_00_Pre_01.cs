@@ -1,14 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 using static Intent.Dapr.AspNetCore.Pubsub.Api.MessageModelStereotypeExtensions;
-using System.Diagnostics;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
-using Intent.Modules.Common.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]

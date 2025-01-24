@@ -74,12 +74,12 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.FactoryExtensions
         {
             var topic = template.Model.GetDaprSettings()?.TopicName();
 
-            if(string.IsNullOrWhiteSpace(topic))
+            if (string.IsNullOrWhiteSpace(topic))
             {
-                return $"\"{template.FullTypeName()}\""; 
+                return $"\"{template.FullTypeName()}\"";
             }
 
-            if(topic == template.ClassName)
+            if (topic == template.ClassName)
             {
                 return $"nameof({template.ClassName})";
             }
