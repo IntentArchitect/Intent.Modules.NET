@@ -20,6 +20,13 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
             return new MethodInvocationMapping(mappingModel, _template);
         }
 
+        if (mappingModel.Mapping?.MappingTypeId == "720f119b-39b3-4f11-8d96-27fa82d1f4e2" // Invocation Mapping
+            && mappingModel.Model.SpecializationType is "Event Emitter")
+        {
+            //return new MethodInvocationMapping(mappingModel, _template);
+            return new RazorEventEmitterInvocationMapping(mappingModel, _template);
+        }
+
         if (mappingModel.Model.TypeReference?.Element?.SpecializationType is "Command" or "DTO" or "Model Definition")
         {
             return new ObjectInitializationMapping(mappingModel, _template);

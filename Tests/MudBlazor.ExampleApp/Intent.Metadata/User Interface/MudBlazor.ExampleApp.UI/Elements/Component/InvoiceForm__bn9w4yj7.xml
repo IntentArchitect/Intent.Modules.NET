@@ -709,6 +709,7 @@
       <name>OnSaveClicked</name>
       <display>OnSaveClicked(): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="cd0d6cce-1125-49d1-a3c0-3ed727a6afc4">
         <isNavigable>true</isNavigable>
@@ -724,12 +725,62 @@
       <packageName>MudBlazor.ExampleApp.UI</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="99b47d0b-ed56-4d02-b5fd-af1cde292f56" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>SaveClicked</name>
+          <display>[call] SaveClicked</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2b222d27-6824-4c78-8a42-60db3aee7fce">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>e1049e66-5b19-4da0-8256-694630f3697a</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceForm]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnSaveClicked.SaveClicked}</expression>
+                  <path>
+                    <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="3342a9e2-397a-49e6-9091-a64d5be7f013" name="SaveClicked" type="element" specialization="Event Emitter" specializationId="d6739ffc-30e6-4170-a105-bf28e69aa578" />
+                  </path>
+                  <sources>
+                    <source identifier="OnSaveClicked.SaveClicked" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="e1049e66-5b19-4da0-8256-694630f3697a" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="99b47d0b-ed56-4d02-b5fd-af1cde292f56" name="SaveClicked" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="c00d8417-7bad-4a90-bec6-7b832323e627" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>OnCancelClicked</name>
       <display>OnCancelClicked(): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="fd19e655-545c-422d-9bbf-0ace3c30cb13">
         <isNavigable>true</isNavigable>
@@ -745,7 +796,56 @@
       <packageName>MudBlazor.ExampleApp.UI</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="bd6623cd-2605-4f0a-bd17-2a2c9198c05a" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>CancelClicked</name>
+          <display>[call] CancelClicked</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="75803019-66af-480d-a610-bd97b2ab4dea">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c00d8417-7bad-4a90-bec6-7b832323e627</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceForm]" />
+              <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnCancelClicked.CancelClicked}</expression>
+                  <path>
+                    <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="ddd40871-192c-4fae-8630-665fa09bb5f9" name="CancelClicked" type="element" specialization="Event Emitter" specializationId="d6739ffc-30e6-4170-a105-bf28e69aa578" />
+                  </path>
+                  <sources>
+                    <source identifier="OnCancelClicked.CancelClicked" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="c00d8417-7bad-4a90-bec6-7b832323e627" name="OnCancelClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="bd6623cd-2605-4f0a-bd17-2a2c9198c05a" name="CancelClicked" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="bc07adb6-20ab-47d4-a63c-f729d53f3da4" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>AddLineClicked</name>

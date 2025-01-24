@@ -20,7 +20,7 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
         }
 
         if (mappingModel.Mapping?.MappingTypeId == "95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8") // Event Mapping
-        {
+        {   
             //return new MethodInvocationMapping(mappingModel, _template);
             return new RazorEventBindingMapping(mappingModel, _template);
         }

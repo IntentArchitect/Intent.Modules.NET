@@ -261,12 +261,12 @@ public static class RazorFileExtensions
                             }
                         }
 
-                        var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
-                        if (hasImplicitEventEmitter != null)
-                        {
-                            method.Async();
-                            method.AddStatement(new CSharpAwaitExpression(new CSharpStatement($"{hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();")));
-                        }
+                        //var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
+                        //if (hasImplicitEventEmitter != null)
+                        //{
+                        //    method.Async();
+                        //    method.AddStatement(new CSharpAwaitExpression(new CSharpStatement($"{hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();")));
+                        //}
 
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))
                         {
