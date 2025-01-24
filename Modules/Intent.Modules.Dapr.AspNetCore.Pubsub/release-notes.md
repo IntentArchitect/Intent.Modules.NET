@@ -6,6 +6,12 @@
   >
   > This major version change of `Intent.Modelers.Eventing` is a possibly breaking change, please refer to [its release notes](https://github.com/IntentArchitect/Intent.Modules/blob/master/Modules/Intent.Modules.Modelers.Eventing/release-notes.md#version-600) for additional details.
 
+- Improvement: TopicName will now contain the full `Message Event` name (namespace and class name).
+
+  > ⚠️ **NOTE**
+  >
+  > The changing of the `Topic Name` is potentially a breaking change for existing applications. When updating to this version, existing messages will me migrated to have the `Dapr Settings -> Topic Name` set to the existing topic name. Any new messages created will default to the full name.
+
 ### Version 2.2.2
 
 - Fixed: `DaprEventHandlerController` would not be generated when there was no Event Designer installed.

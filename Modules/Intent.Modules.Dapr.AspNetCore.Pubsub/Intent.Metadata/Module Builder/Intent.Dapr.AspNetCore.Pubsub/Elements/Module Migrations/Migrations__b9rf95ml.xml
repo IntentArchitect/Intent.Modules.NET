@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="39b33e95-62cc-4796-b5fe-53dc026819f0" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</parentFolderId>
+  <packageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</packageId>
+  <packageName>Intent.Dapr.AspNetCore.Pubsub</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
