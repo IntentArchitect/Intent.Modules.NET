@@ -16,7 +16,7 @@
       <definitionPackageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</definitionPackageId>
       <properties>
         <property name="059416d7-133b-4053-ab32-35412a06f670" display="Pubsub Name" isActive="true" />
-        <property name="a15b6899-7366-4fd7-b018-47a482e05432" display="Topic Name" isActive="true" />
+        <property name="a15b6899-7366-4fd7-b018-47a482e05432" display="Topic Name" value="CustomerCreatedEvent" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

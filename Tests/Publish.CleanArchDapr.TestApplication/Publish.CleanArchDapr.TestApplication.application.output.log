@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b2fc5c60-dac2-451b-b01e-9bda0ad5781e</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.DaprEventHandlerController</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Api/Controllers/DaprEventHandlerController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DaprEventHandlerController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b2fc5c60-dac2-451b-b01e-9bda0ad5781e</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#8e162cce-45ac-496a-b939-cb19c16be951</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Api/Controllers/OrdersController.cs</ApplicationRelativeFilePath>
@@ -507,11 +515,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>ea795b27-f4db-4830-9067-b8546a900cf9</ProjectId>
+      <CorrelationId>Intent.Dapr.AspNetCore.Pubsub.EventHandler#bbb4b2fb-e561-49ff-8dda-ca52d5b9d7f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEventHandlers/Customers/FullNamespaceEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/FullNamespaceEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3e2c5d5d-050d-4908-83db-ae5c5275ea43</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#115837d7-a8d5-4f87-befe-c68fbab0d6f5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEvents/CustomerCreatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerCreatedEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3e2c5d5d-050d-4908-83db-ae5c5275ea43</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#7aacf3d0-f523-471b-bbb9-ede0c19d5950</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArchDapr.TestApplication.Application/IntegrationEvents/FullNamespaceEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FullNamespaceEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

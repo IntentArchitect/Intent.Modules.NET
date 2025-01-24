@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6f9df77e-67a5-4e37-b2f9-55fce52e42e5">
+  <sourceEnd id="25a6a07e-f3f0-4e76-a2e5-30a945457a66" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Customers.FullNamespaceEventHandler</display>
+    <order>0</order>
+    <typeReference id="b90d3ffc-1067-4cd1-9839-2afb6361ce95">
+      <typeId>bbb4b2fb-e561-49ff-8dda-ca52d5b9d7f3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Services</typePackageName>
+      <typePackageId>3f763df0-a134-4460-b12c-76f0df862016</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6f9df77e-67a5-4e37-b2f9-55fce52e42e5" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: FullNamespaceEvent</display>
+    <order>0</order>
+    <typeReference id="1a5c435f-4939-4781-b342-1e455990c04e">
+      <typeId>7aacf3d0-f523-471b-bbb9-ede0c19d5950</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</typePackageName>
+      <typePackageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

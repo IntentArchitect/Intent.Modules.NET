@@ -54,7 +54,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCloudEvents();
             app.UseSerilogRequestLogging();
             app.UseExceptionHandler();
             app.UseRouting();
@@ -62,6 +62,7 @@ namespace Publish.CleanArchDapr.TestApplication.Api
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapSubscribeHandler();
                 endpoints.MapControllers();
             });
             app.UseSwashbuckle(Configuration);

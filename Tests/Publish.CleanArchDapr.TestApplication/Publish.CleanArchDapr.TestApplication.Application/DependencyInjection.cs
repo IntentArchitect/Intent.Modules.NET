@@ -6,7 +6,10 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours;
+using Publish.CleanArchDapr.TestApplication.Application.Common.Eventing;
 using Publish.CleanArchDapr.TestApplication.Application.Common.Validation;
+using Publish.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers.Customers;
+using Publish.CleanArchDapr.TestApplication.Eventing.Messages;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -30,6 +33,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IIntegrationEventHandler<FullNamespaceEvent>, FullNamespaceEventHandler>();
             return services;
         }
     }

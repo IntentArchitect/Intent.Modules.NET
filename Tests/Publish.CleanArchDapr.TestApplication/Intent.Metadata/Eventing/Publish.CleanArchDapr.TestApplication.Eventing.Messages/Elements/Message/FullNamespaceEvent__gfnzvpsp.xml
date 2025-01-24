@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7aacf3d0-f523-471b-bbb9-ede0c19d5950" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>FullNamespaceEvent</name>
+  <display>FullNamespaceEvent</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</parentFolderId>
+  <packageId>ffccc440-6691-4fa5-99f6-bb5444ad4dac</packageId>
+  <packageName>Publish.CleanArchDapr.TestApplication.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ec96e452-9084-49bb-a883-aa42eb327fe7" name="Dapr Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Dapr.AspNetCore.Pubsub</definitionPackageName>
+      <definitionPackageId>ed7d7f87-babb-4f57-83bf-d35b9f826bf6</definitionPackageId>
+      <properties>
+        <property name="059416d7-133b-4053-ab32-35412a06f670" display="Pubsub Name" isActive="true" />
+        <property name="a15b6899-7366-4fd7-b018-47a482e05432" display="Topic Name" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>
