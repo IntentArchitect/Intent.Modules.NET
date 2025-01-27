@@ -13,7 +13,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
     {
         private MudForm _form;
         private bool _onSaveClickedProcessing = false;
-        private bool _onCancelClickedProcessing = false;
         [Parameter]
         public InvoiceModel Model { get; set; } = new();
         [Parameter]
@@ -47,41 +46,15 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
 
         private async Task OnSaveClicked()
         {
-            try
+            await _form!.Validate();
+            if (!_form.IsValid)
             {
-                _onSaveClickedProcessing = true;
-                await _form!.Validate();
-                if (!_form.IsValid)
-                {
-                    return;
-                }
-                await SaveClicked.InvokeAsync();
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
-            finally
-            {
-                _onSaveClickedProcessing = false;
+                return;
             }
         }
 
-        private async Task OnCancelClicked()
+        private void OnCancelClicked()
         {
-            try
-            {
-                _onCancelClickedProcessing = true;
-                await CancelClicked.InvokeAsync();
-            }
-            catch (Exception e)
-            {
-                Snackbar.Add(e.Message, Severity.Error);
-            }
-            finally
-            {
-                _onCancelClickedProcessing = false;
-            }
         }
 
         private void AddLineClicked()
@@ -96,6 +69,11 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
 
         private void OnCustomerSelectedChanged()
         {
+        }
+
+        private async Task<List<CustomerLookupDto>> OnAutoCompleteSearchFunction(string value, CancellationToken c)
+        {
+            return new List<CustomerLookupDto> { new CustomerLookupDto() { Id = Guid.NewGuid(), Name = "Value1" }, new CustomerLookupDto() { Id = Guid.NewGuid(), Name = "Value2" } };
         }
     }
 }

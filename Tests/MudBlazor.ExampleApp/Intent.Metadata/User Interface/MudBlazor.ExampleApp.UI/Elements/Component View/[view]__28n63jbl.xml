@@ -181,7 +181,7 @@
                         <property name="83c7d771-b51b-4ca8-9451-10d154c99b05" display="Options" value="{CustomerOptions}" isActive="true" />
                         <property name="cdbb3669-f3b5-4d56-a274-4a1f92d4a451" display="Key" value="{CustomerOptions.Id}" isActive="true" />
                         <property name="4d698735-be31-4e69-9fa0-27ddd077b465" display="Value" value="{CustomerOptions.Name}" isActive="true" />
-                        <property name="b3b1b7ec-7913-4b58-854e-9582ba5ab8a0" display="On Selected" isActive="true" />
+                        <property name="b3b1b7ec-7913-4b58-854e-9582ba5ab8a0" display="On Selected" value="{OnCustomerSelectedChanged}" isActive="true" />
                       </properties>
                     </stereotype>
                     <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
@@ -246,6 +246,49 @@
                     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
                   </traits>
                   <stereotypes>
+                    <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
+                      <addedByDefault>false</addedByDefault>
+                      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+                      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+                      <properties>
+                        <property name="80fd6320-1bc9-4a95-8b95-59640877e978" display="xs" value="12" isActive="true" />
+                        <property name="9561bc34-a1f1-4167-938a-84e2a3a9446f" display="sm" isActive="true" />
+                        <property name="3a6d24b8-6761-40e2-8277-b8a21e158fb9" display="md" value="6" isActive="true" />
+                        <property name="d45056ab-9ce5-467d-a05f-24f43bd79ff3" display="lg" isActive="true" />
+                        <property name="6cd2eeb6-9dc4-46f2-ac0f-ac370fd0d894" display="xl" value="3" isActive="true" />
+                        <property name="475fd55a-540c-4a64-bb7d-174c0171f9be" display="xxl" isActive="true" />
+                      </properties>
+                    </stereotype>
+                  </stereotypes>
+                  <metadata />
+                  <childElements />
+                </childElement>
+                <childElement id="3a06a68c-28fc-46e9-a76d-ffcd97873122" type="AutoComplete" typeId="ff1ddb80-16e4-4e63-ace3-4ef96a03b4b0">
+                  <name>AutoComplete</name>
+                  <display>AutoComplete = {Model.CustomerId}</display>
+                  <isAbstract>false</isAbstract>
+                  <value>{Model.CustomerId}</value>
+                  <genericTypes />
+                  <isMapped>false</isMapped>
+                  <parentFolderId>c201116c-c305-415e-9043-f2178e67fe63</parentFolderId>
+                  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+                  <packageName>MudBlazor.ExampleApp.UI</packageName>
+                  <traits>
+                    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+                  </traits>
+                  <stereotypes>
+                    <stereotype stereotypeDefinitionId="44dcdc3d-3445-435c-9013-197ab9836f09" name="Interaction">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                      <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                      <properties>
+                        <property name="cbffba33-4c42-435a-869a-dc002dae7617" display="Options" value="{CustomerOptions}" isActive="true" />
+                        <property name="b3a5b94a-f3ff-4860-acaf-297fdac66dd1" display="Key" value="{CustomerOptions.Id}" isActive="true" />
+                        <property name="bf75f566-f520-4b32-a311-5ee858aec2bf" display="Value" value="{CustomerOptions.Name}" isActive="true" />
+                        <property name="fcc2a89f-5c1d-4d25-a26e-8bab029d7061" display="On Selected" isActive="true" />
+                        <property name="d3d16611-f218-457e-a0ca-df626c1e60e3" display="Search Function" value="{OnAutoCompleteSearchFunction}" isActive="true" />
+                      </properties>
+                    </stereotype>
                     <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
                       <addedByDefault>false</addedByDefault>
                       <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
