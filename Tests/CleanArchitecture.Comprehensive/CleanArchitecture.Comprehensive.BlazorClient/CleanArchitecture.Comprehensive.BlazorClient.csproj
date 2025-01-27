@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="6.0.20" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.12" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
     <PackageReference Include="SonarAnalyzer.CSharp" Version="9.32.0.97167">
       <PrivateAssets>all</PrivateAssets>
