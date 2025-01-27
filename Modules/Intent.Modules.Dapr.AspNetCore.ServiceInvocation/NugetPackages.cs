@@ -76,14 +76,14 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.11")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.11")
+                        ( >= 9, 0) => new PackageVersion("9.0.1")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.1"),
+                        ( >= 8, 0) => new PackageVersion("8.0.12")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.12")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("2.2.0")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.2.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "4.5.0"),
+                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
+                            .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
                 );

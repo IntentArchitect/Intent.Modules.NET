@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="d3775f20-108c-4510-af4e-f369d1b1fc97" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.2.0</name>
-      <display>2.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>2.3.0</name>
+      <display>2.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6af871c3-cd23-4313-b944-3fcaf48b0a42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="eb6b0ebf-d247-435a-b5db-1b28de7be0c5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (2.2.0)</display>
+          <display>Microsoft.Net.Http.Headers (2.3.0)</display>
           <isAbstract>false</isAbstract>
-          <value>2.2.0</value>
+          <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d3775f20-108c-4510-af4e-f369d1b1fc97</parentFolderId>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ee3a9485-4ffb-4565-a546-6feb09e11860" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="abdb3720-0258-4fcc-80dd-d68854179649" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (4.5.0)</display>
+          <display>System.Text.Encodings.Web (8.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.5.0</value>
+          <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d3775f20-108c-4510-af4e-f369d1b1fc97</parentFolderId>
@@ -78,8 +78,8 @@
       </childElements>
     </childElement>
     <childElement id="d94d51e1-5b47-48d0-84e5-4de4463b3342" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.11</name>
-      <display>8.0.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.12</name>
+      <display>8.0.12 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -100,11 +100,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ea13a328-0c50-46c4-9c3a-eca29ebf4d58" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="11146b37-e673-41d7-9041-e911d653cc28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (8.0.11)</display>
+          <display>Microsoft.Net.Http.Headers (8.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.11</value>
+          <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d94d51e1-5b47-48d0-84e5-4de4463b3342</parentFolderId>
@@ -114,7 +114,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e0a7c466-771a-47e7-9e85-53f57700085d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="507a93d7-b28d-4f96-a348-85aa35a71c8b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -131,8 +131,8 @@
       </childElements>
     </childElement>
     <childElement id="76f87d4f-b0f7-47c8-9452-918c6e00c32a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.0</name>
-      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.1</name>
+      <display>9.0.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -153,11 +153,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="be22e48f-24d0-42d5-b176-77bf3c609802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d6df4cea-2616-4169-9b83-2b87231c1a86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (9.0.0)</display>
+          <display>Microsoft.Net.Http.Headers (9.0.1)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>76f87d4f-b0f7-47c8-9452-918c6e00c32a</parentFolderId>
