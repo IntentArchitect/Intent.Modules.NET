@@ -12,6 +12,8 @@ namespace Intent.Modules.Integration.HttpClients
     public class NugetPackages : INugetPackages
     {
         public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
+        public const string MicrosoftAspNetCoreHttpPackageName = "Microsoft.AspNetCore.Http";
+        public const string MicrosoftAspNetCoreHttpExtensionsPackageName = "Microsoft.AspNetCore.Http.Extensions";
         public const string MicrosoftAspNetCoreWebUtilitiesPackageName = "Microsoft.AspNetCore.WebUtilities";
         public const string MicrosoftExtensionsHttpPackageName = "Microsoft.Extensions.Http";
         public const string SystemTextJsonPackageName = "System.Text.Json";
@@ -26,6 +28,29 @@ namespace Intent.Modules.Integration.HttpClients
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication.OpenIdConnect", "6.0.0"),
                         ( >= 2, 0) => new PackageVersion("2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAspNetCoreHttpPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.WebUtilities", "2.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.ObjectPool", "8.0.11")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftAspNetCoreHttpExtensionsPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
+                            .WithNugetDependency("System.Buffers", "4.6.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreHttpExtensionsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
@@ -89,6 +114,10 @@ namespace Intent.Modules.Integration.HttpClients
         }
 
         public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAspNetCoreHttp(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreHttpPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAspNetCoreHttpExtensions(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreHttpExtensionsPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAspNetCoreWebUtilities(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreWebUtilitiesPackageName, outputTarget.GetMaxNetAppVersion());
 

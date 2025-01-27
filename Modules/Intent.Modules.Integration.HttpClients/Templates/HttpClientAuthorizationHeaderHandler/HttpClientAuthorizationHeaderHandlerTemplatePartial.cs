@@ -30,7 +30,6 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizati
                 .AddUsing("System.Net.Http")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Microsoft.AspNetCore.Http")
                 .AddUsing("Microsoft.Extensions.Primitives")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .IntentManagedFully()
@@ -74,8 +73,15 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizati
             return builder;".ConvertToStatements())
 
                     )
-                )
-            ;
+                );
+
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+
+            AddNugetDependency(NugetPackages.MicrosoftExtensionsHttp(OutputTarget));
         }
 
         public override bool CanRunTemplate()

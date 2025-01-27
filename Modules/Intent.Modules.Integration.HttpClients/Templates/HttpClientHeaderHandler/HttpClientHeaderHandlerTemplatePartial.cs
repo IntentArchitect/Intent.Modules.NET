@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.HttpClients.Settings;
+using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHeaderDelegatingHandler;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -24,6 +25,15 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientHeaderHandl
 
         public HttpClientHeaderHandlerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+
+            AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp(OutputTarget));
+            AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreHttpExtensions(OutputTarget));
         }
 
         public override bool CanRunTemplate()

@@ -69,6 +69,8 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 var method = @class.FindMethod("AddHttpClients");
                 if (method == null) return;
 
+                file.Template.AddNugetDependency(NuGetPackages.IdentityModelAspNetCore(file.Template.OutputTarget));
+
                 method.InsertStatement(0,
                     """
                     services.AddAccessTokenManagement(options =>

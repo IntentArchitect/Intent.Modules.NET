@@ -143,8 +143,9 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHead
             return builder;".ConvertToStatements())
 
                     )
-                )               
-            ;
+                );
+
+            
         }
 
         public CSharpFile CSharpFile { get; }

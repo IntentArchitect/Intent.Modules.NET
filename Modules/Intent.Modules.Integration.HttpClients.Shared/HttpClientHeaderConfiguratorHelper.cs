@@ -25,8 +25,9 @@ namespace Intent.Modules.Integration.HttpClients.Shared
 
                 var method = @class.FindMethod("AddHttpClients");
                 if (method == null) return;
-                method.InsertStatement(0, "services.AddHttpContextAccessor();");
 
+                httpClientConfigurationTemplate.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreHttp(httpClientConfigurationTemplate.OutputTarget));
+                method.InsertStatement(0, "services.AddHttpContextAccessor();");
 
                 var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
                     .Cast<CSharpMethodChainStatement>().ToArray();

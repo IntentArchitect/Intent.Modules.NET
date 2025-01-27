@@ -1,6 +1,7 @@
 ### Version 5.3.1
 
 - Improvement: Included module help topic.
+- Improvement: Only required NuGet packages are installed based on authentication type.
 
 ### Version 5.3.0
 
