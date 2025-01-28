@@ -1,3 +1,7 @@
+### Version 4.8.3
+
+- Improvement: Ability to set a a timeout on `Regular Expression` validations
+
 ### Version 4.8.2
 
 - Improvement: Included module help topic.

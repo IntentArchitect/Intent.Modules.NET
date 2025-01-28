@@ -95,6 +95,11 @@ namespace Intent.Application.FluentValidation.Api
                 return _stereotype.GetProperty<string>("Regular Expression Message");
             }
 
+            public int? RegularExpressionTimeout()
+            {
+                return _stereotype.GetProperty<int?>("Regular Expression Timeout");
+            }
+
             public string Predicate()
             {
                 return _stereotype.GetProperty<string>("Predicate");

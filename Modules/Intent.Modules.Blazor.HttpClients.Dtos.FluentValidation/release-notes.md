@@ -1,3 +1,7 @@
+### Version 1.2.4
+
+- Improvement: Ability to set a a timeout on `Regular Expression` validations
+
 ### Version 1.2.3
 
 - Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations

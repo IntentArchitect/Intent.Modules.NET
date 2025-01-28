@@ -17,6 +17,8 @@ using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.FluentValidation.Shared;
 
@@ -317,7 +319,7 @@ public static class ValidationRulesExtensions
 
             if (field.HasValidations())
             {
-                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled);
+                AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled, template);
             }
 
             AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields, associationedElements);
@@ -366,10 +368,11 @@ public static class ValidationRulesExtensions
         return false;
     }
 
-    private static void AddValidatorsFromFluentValidationStereotype(
+    private static void AddValidatorsFromFluentValidationStereotype<TModel>(
         DTOFieldModel field,
         CSharpMethodChainStatement validationRuleChain,
-        bool customValidationEnabled)
+        bool customValidationEnabled,
+        CSharpTemplateBase<TModel> template)
     {
         var validations = field.GetValidations();
 
@@ -418,7 +421,14 @@ public static class ValidationRulesExtensions
 
         if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))
         {
-            validationRuleChain.AddChainStatement($@"Matches(@""{validations.RegularExpression()}"")");
+            var newRegex = 
+                new CSharpInvocationStatement($"new {template?.UseType("System.Text.RegularExpressions.Regex") ?? "System.Text.RegularExpressions.Regex"}")
+                .AddArgument($"\"{validations.RegularExpression()}\"")
+                .AddArgument("RegexOptions.Compiled")
+                .AddArgument($"{template?.UseType("System.TimeSpan") ?? "System.TimeSpan"}.FromSeconds({validations.RegularExpressionTimeout() ?? 1})")
+                .WithoutSemicolon();
+
+            validationRuleChain.AddChainStatement($@"Matches({newRegex})");
 
             if(!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
             {
