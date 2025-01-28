@@ -1,3 +1,5 @@
+using System;
+using System.Text.RegularExpressions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -63,7 +65,7 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
         }
     }
 }

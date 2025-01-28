@@ -29,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>03b3acca-44ed-4b84-95c3-8b1b1dbd032d</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

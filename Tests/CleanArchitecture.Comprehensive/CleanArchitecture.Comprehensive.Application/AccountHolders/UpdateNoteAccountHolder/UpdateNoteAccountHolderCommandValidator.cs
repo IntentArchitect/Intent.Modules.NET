@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Application.AccountHolders.UpdateNoteA
         {
             RuleFor(v => v.Note)
                 .NotNull()
-                .Matches(@"^[a-z]*$")
+                .Matches(new Regex(@"^[a-z]*$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)))
                 .WithMessage("Lower case only notes");
         }
     }

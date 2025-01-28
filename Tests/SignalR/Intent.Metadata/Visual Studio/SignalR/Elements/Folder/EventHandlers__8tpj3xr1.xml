@@ -61,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>63efbe7f-183b-475b-ae44-24c5b3792f52</parentFolderId>
+      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
+      <packageName>SignalR</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -1,3 +1,5 @@
+using System;
+using System.Text.RegularExpressions;
 using AzureFunctions.NET8.Application.Validation.InboundQueVal;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -64,7 +66,7 @@ namespace AzureFunctions.NET8.Application.Validators.Validation.InboundQueVal
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
+                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
         }
     }
 }
