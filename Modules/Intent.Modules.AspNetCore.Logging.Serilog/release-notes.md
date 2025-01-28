@@ -1,6 +1,11 @@
+### Version 5.1.9
+
+- Fixed: Moved the `Program.cs` extension to later in the Software pipeline, which now enables `app.*` invocations to be added in the correct order.
+
 ### Version 5.1.8
 
 - Improvement: Check added to the `catch` in program.cs for minimal hosting to prevent errors when working with EF Core migrations (as per the recommendation here: https://github.com/dotnet/efcore/issues/29809#issuecomment-1344101370)
+
 
 ### Version 5.1.7
 

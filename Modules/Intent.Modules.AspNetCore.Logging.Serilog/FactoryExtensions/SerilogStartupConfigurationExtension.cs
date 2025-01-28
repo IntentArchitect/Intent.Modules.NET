@@ -99,7 +99,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             if (usesMinimalHostingModel)
             {
                 var usesTopLevelStatements = template.OutputTarget.GetProject()?.InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
-                template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template));
+                template.CSharpFile.AfterBuild(file => MinimalHostingSerilogSetup(file, usesTopLevelStatements, template), 10);
                 return;
             }
 
