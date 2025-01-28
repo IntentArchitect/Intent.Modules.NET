@@ -209,7 +209,7 @@ public class MediatRControllerInstaller : FactoryExtensionBase
 
         foreach (var mappedParameter in GetMappedParameters(operationModel))
         {
-            validations.Add(new CSharpIfStatement($"{mappedParameter.Name} != {payloadParameter.Name}.{mappedParameter.MappedPayloadProperty.Name.ToPascalCase()}")
+            validations.Add(new CSharpIfStatement($"{mappedParameter.Name.ToParameterName()} != {payloadParameter.Name}.{mappedParameter.MappedPayloadProperty.Name.ToPascalCase()}")
                 .AddStatement("return BadRequest();"));
         }
 
