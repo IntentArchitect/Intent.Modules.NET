@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.6": {
+      "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.7": {
         "dependencies": {
           "Intent.MetadataSynchronizer": "1.0.0",
           "Intent.Modules.Modelers.Services": "3.4.7",
@@ -19,7 +19,7 @@
       },
       "Intent.Modules.Common/3.4.1": {
         "dependencies": {
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0",
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2",
           "System.Reflection.Emit": "4.7.0"
         },
         "runtime": {
@@ -33,7 +33,7 @@
         "dependencies": {
           "Intent.Modules.Common": "3.4.1",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Common.Types.dll": {
@@ -47,7 +47,7 @@
           "Intent.Modules.Common": "3.4.1",
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Domain.dll": {
@@ -61,7 +61,7 @@
           "Intent.Modules.Common": "3.4.1",
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.dll": {
@@ -76,7 +76,7 @@
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.Modules.Modelers.Services": "3.4.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.CQRS.dll": {
@@ -113,25 +113,25 @@
           }
         }
       },
-      "NuGet.Versioning/5.6.0": {
+      "NuGet.Versioning/6.12.1": {
         "runtime": {
           "lib/netstandard2.0/NuGet.Versioning.dll": {
-            "assemblyVersion": "5.6.0.5",
-            "fileVersion": "5.6.0.6591"
+            "assemblyVersion": "6.12.1.1",
+            "fileVersion": "6.12.1.1"
           }
         }
       },
-      "Serilog/2.12.0": {
+      "Serilog/4.1.0": {
         "runtime": {
           "lib/net6.0/Serilog.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.12.0.0"
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.1.0.0"
           }
         }
       },
       "Serilog.Sinks.Console/4.0.2-dev-00890": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "4.1.0"
         },
         "runtime": {
           "lib/net5.0/Serilog.Sinks.Console.dll": {
@@ -202,26 +202,35 @@
         "dependencies": {
           "Intent.IArchitect.Common": "1.0.0",
           "Intent.IArchitect.CrossPlatform": "1.0.0",
-          "Intent.SoftwareFactory.SDK": "3.7.0-pre.0"
+          "Intent.SoftwareFactory.SDK": "3.8.0-pre.2"
         },
         "runtime": {
-          "Intent.IArchitect.Agent.Persistence.dll": {}
+          "Intent.IArchitect.Agent.Persistence.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Intent.IArchitect.Common/1.0.0": {
         "dependencies": {
-          "NuGet.Versioning": "5.6.0"
+          "NuGet.Versioning": "6.12.1"
         },
         "runtime": {
-          "Intent.IArchitect.Common.dll": {}
+          "Intent.IArchitect.Common.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Intent.IArchitect.CrossPlatform/1.0.0": {
         "dependencies": {
-          "Serilog": "2.12.0"
+          "Serilog": "4.1.0"
         },
         "runtime": {
-          "Intent.IArchitect.CrossPlatform.dll": {}
+          "Intent.IArchitect.CrossPlatform.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Intent.MetadataSynchronizer/1.0.0": {
@@ -232,18 +241,24 @@
           "System.CommandLine": "2.0.0-beta3.22114.1"
         },
         "runtime": {
-          "Intent.MetadataSynchronizer.dll": {}
+          "Intent.MetadataSynchronizer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
-      "Intent.SoftwareFactory.SDK/3.7.0-pre.0": {
+      "Intent.SoftwareFactory.SDK/3.8.0-pre.2": {
         "runtime": {
-          "Intent.SoftwareFactory.SDK.dll": {}
+          "Intent.SoftwareFactory.SDK.dll": {
+            "assemblyVersion": "3.8.0-pre.2",
+            "fileVersion": "3.8.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
-    "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.6": {
+    "Intent.MetadataSynchronizer.OpenApi.CLI/1.0.0-pre.7": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -279,7 +294,7 @@
     "Intent.Modules.Modelers.Services.CQRS/4.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rwFNUudpRG9nkLjrqaymM2QkAfEjYYN1VjYVqKXyaa/9k8f7o8zZZxaxPZUdhxuEgtBj55C9xxq3kq1LJs/naw==",
+      "sha512": "sha512-MlFf0r1+c9lBX/MwddeOqx3j/xL8eRfaqOyjX6cQ+Jh/1PmvCF/QHgEuTj9STUx4PCq7RH11E8JqAyQ6m+ULJw==",
       "path": "intent.modules.modelers.services.cqrs/4.0.2",
       "hashPath": "intent.modules.modelers.services.cqrs.4.0.2.nupkg.sha512"
     },
@@ -304,19 +319,19 @@
       "path": "microsoft.openapi.readers/1.6.15",
       "hashPath": "microsoft.openapi.readers.1.6.15.nupkg.sha512"
     },
-    "NuGet.Versioning/5.6.0": {
+    "NuGet.Versioning/6.12.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UIUh1X1XXSOJwc18a7ssTmCAyN7sDXOTfNJN9HfJnWX8NStzQeZq/6RHfSHYMxUjECk6n5alCQjUA51C36R46A==",
-      "path": "nuget.versioning/5.6.0",
-      "hashPath": "nuget.versioning.5.6.0.nupkg.sha512"
+      "sha512": "sha512-fJ6rFYANDnohFsdpaY79FvrJxI6murmoOxXz6nZlf819F48+IBKMnAIg3oIBRtZq5y498ObMtKnro5IitvizUg==",
+      "path": "nuget.versioning/6.12.1",
+      "hashPath": "nuget.versioning.6.12.1.nupkg.sha512"
     },
-    "Serilog/2.12.0": {
+    "Serilog/4.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xaiJLIdu6rYMKfQMYUZgTy8YK7SMZjB4Yk50C/u//Z4OsvxkUfSPJy4nknfvwAC34yr13q7kcyh4grbwhSxyZg==",
-      "path": "serilog/2.12.0",
-      "hashPath": "serilog.2.12.0.nupkg.sha512"
+      "sha512": "sha512-u1aZI8HZ62LWlq5dZLFwm6jMax/sUwnWZSw5lkPsCt518cJBxFKoNmc7oSxe5aA5BgSkzy9rzwFGR/i/acnSPw==",
+      "path": "serilog/4.1.0",
+      "hashPath": "serilog.4.1.0.nupkg.sha512"
     },
     "Serilog.Sinks.Console/4.0.2-dev-00890": {
       "type": "package",
@@ -366,7 +381,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Intent.SoftwareFactory.SDK/3.7.0-pre.0": {
+    "Intent.SoftwareFactory.SDK/3.8.0-pre.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

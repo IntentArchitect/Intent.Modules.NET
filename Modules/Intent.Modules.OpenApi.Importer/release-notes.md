@@ -1,3 +1,9 @@
+### Version 1.1.4
+
+- Improvement: Importer now import non 200 success response codes.
+- Fixed: Some 204 scenario's in swagger docs causes the importer to fail.
+- Fixed: Updated to use new Secure Stereotype.
+
 ### Version 1.1.3
 
 - Improvement: Included module help topic.
