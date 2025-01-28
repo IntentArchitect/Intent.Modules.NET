@@ -423,7 +423,7 @@ public static class ValidationRulesExtensions
         {
             var newRegex = 
                 new CSharpInvocationStatement($"new {template?.UseType("System.Text.RegularExpressions.Regex") ?? "System.Text.RegularExpressions.Regex"}")
-                .AddArgument($"\"{validations.RegularExpression()}\"")
+                .AddArgument($"@\"{validations.RegularExpression()}\"")
                 .AddArgument("RegexOptions.Compiled")
                 .AddArgument($"{template?.UseType("System.TimeSpan") ?? "System.TimeSpan"}.FromSeconds({validations.RegularExpressionTimeout() ?? 1})")
                 .WithoutSemicolon();
