@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Fixed: `Create` method on `DtoContracts` will now used the default values from the original `Command/Query`.
+
 ### Version 5.1.0
 
 - Fixed: Introduce the new WebAPI module to make use of the Secure by Default setting for HTTP Clients but also to incorporate it for Controllers.

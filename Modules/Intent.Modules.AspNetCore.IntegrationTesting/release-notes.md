@@ -1,3 +1,7 @@
+### Version 1.0.13
+
+- Fixed: `Create` method on `DtoContracts` will now used the default values from the original `Command/Query`.
+
 ### Version 1.0.12
 
 - Improvement: Included module help topic.

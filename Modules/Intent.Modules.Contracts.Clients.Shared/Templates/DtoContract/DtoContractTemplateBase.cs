@@ -94,9 +94,19 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract
                     {
                         method.Static();
 
+                        // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                        var lastNonNullable = Model.Fields.LastOrDefault(p => string.IsNullOrEmpty(p.Value))?.InternalElement.Order ?? 0;
+
                         foreach (var field in Model.Fields)
                         {
-                            method.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName());
+                            method.AddParameter(GetTypeName(field.TypeReference), field.Name.ToParameterName(), param =>
+                            {
+                                // only parameters with a value AFTER the last parameter with a value get the value specified
+                                if (field.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(field.Value))
+                                {
+                                    param.WithDefaultValue(field.Value);
+                                }
+                            });
                         }
 
                         method.AddObjectInitializerBlock($"return new {ClassName}{GenericTypes}", block =>
