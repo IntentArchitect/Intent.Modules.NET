@@ -10,11 +10,11 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.CreateAccount
 {
     public class CreateAccountCommand : IRequest<Guid>, ICommand
     {
-        public CreateAccountCommand(string number, CreateAccountMoneyDto amount, Guid clientId)
+        public CreateAccountCommand(CreateAccountMoneyDto amount, Guid clientId, string number = "00")
         {
-            Number = number;
             Amount = amount;
             ClientId = clientId;
+            Number = number;
         }
 
         public string Number { get; set; }

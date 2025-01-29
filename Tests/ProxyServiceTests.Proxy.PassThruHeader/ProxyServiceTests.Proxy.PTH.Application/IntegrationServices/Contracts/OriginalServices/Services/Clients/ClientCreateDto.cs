@@ -8,14 +8,10 @@ namespace ProxyServiceTests.Proxy.PTH.Application.IntegrationServices.Contracts.
 {
     public class ClientCreateDto
     {
-        public ClientCreateDto()
-        {
-            Name = null!;
-        }
 
         public string Name { get; set; }
 
-        public static ClientCreateDto Create(string name)
+        public static ClientCreateDto Create(string name = "n/a")
         {
             return new ClientCreateDto
             {

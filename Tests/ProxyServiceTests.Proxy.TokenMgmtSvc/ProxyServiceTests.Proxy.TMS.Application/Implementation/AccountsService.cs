@@ -32,13 +32,13 @@ namespace ProxyServiceTests.Proxy.TMS.Application.Implementation
         {
             var result = await _ntegrationServicesIAccountsService.CreateAccountAsync(new IntegrationServices.Contracts.OriginalServices.Services.Accounts.CreateAccountCommand
             {
-                Number = command.Number,
                 Amount = new IntegrationServices.Contracts.OriginalServices.Services.Accounts.CreateAccountMoneyDto
                 {
                     Amount = command.Amount.Amount,
                     Currency = command.Amount.Currency
                 },
-                ClientId = command.ClientId
+                ClientId = command.ClientId,
+                Number = command.Number
             }, cancellationToken);
             return result;
         }

@@ -27,13 +27,13 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.AccountsService
         {
             var result = await _accountsService.CreateAccountAsync(new IntegrationServices.Contracts.OriginalServices.Services.Accounts.CreateAccountCommand
             {
-                Number = request.Number,
                 Amount = new IntegrationServices.Contracts.OriginalServices.Services.Accounts.CreateAccountMoneyDto
                 {
                     Amount = request.Amount.Amount,
                     Currency = request.Amount.Currency
                 },
-                ClientId = request.ClientId
+                ClientId = request.ClientId,
+                Number = request.Number
             }, cancellationToken);
             return result;
         }

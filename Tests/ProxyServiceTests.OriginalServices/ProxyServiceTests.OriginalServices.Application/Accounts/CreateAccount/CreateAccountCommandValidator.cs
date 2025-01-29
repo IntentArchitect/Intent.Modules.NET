@@ -18,12 +18,13 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts.CreateAccount
 
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
-            RuleFor(v => v.Number)
-                .NotNull();
 
             RuleFor(v => v.Amount)
                 .NotNull()
                 .SetValidator(provider.GetValidator<CreateAccountMoneyDto>()!);
+
+            RuleFor(v => v.Number)
+                .NotNull();
         }
     }
 }

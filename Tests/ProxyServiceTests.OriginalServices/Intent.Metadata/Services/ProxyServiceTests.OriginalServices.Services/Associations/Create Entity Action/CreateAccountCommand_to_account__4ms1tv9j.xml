@@ -22,6 +22,9 @@
     <name>account</name>
     <display>[create] account: Account</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="9d041d16-e199-4be5-8038-041191834ddc">
       <typeId>c131ad5f-d019-46db-89b7-0feae38586d7</typeId>
       <isNavigable>true</isNavigable>
@@ -42,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateAccountCommand}</expression>
             <path>
-              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateAccountCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
+                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -55,14 +58,14 @@
           <mappedEnd>
             <expression>{Number}</expression>
             <path>
-              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
-              <target id="976541b3-32c3-4ccd-a0a4-bb3c7a5af5f7" name="Number" type="element" specialization="Attribute" />
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="976541b3-32c3-4ccd-a0a4-bb3c7a5af5f7" name="Number" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Number" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
-                  <target id="649541cb-f170-4ed0-a5bb-db462f8e14b8" name="Number" type="element" specialization="DTO-Field" />
+                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="649541cb-f170-4ed0-a5bb-db462f8e14b8" name="Number" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -70,16 +73,16 @@
           <mappedEnd>
             <expression>{Amount.Amount}</expression>
             <path>
-              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
-              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" />
-              <target id="5887942b-0639-4455-8d72-4d8cb66a4155" name="Amount" type="element" specialization="Attribute" />
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="5887942b-0639-4455-8d72-4d8cb66a4155" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Amount.Amount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
-                  <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" />
-                  <target id="48e99cde-7403-469a-b01e-24866577f7d3" name="Amount" type="element" specialization="DTO-Field" />
+                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="48e99cde-7403-469a-b01e-24866577f7d3" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -87,16 +90,16 @@
           <mappedEnd>
             <expression>{Amount.Currency}</expression>
             <path>
-              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
-              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" />
-              <target id="698c7654-a7b2-4dfb-bf2d-15a7d2e7f2a9" name="Currency" type="element" specialization="Attribute" />
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c37d2f04-6010-4f45-96d0-4c5094038f02" name="Amount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="698c7654-a7b2-4dfb-bf2d-15a7d2e7f2a9" name="Currency" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Amount.Currency" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
-                  <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" />
-                  <target id="dbd1c9cb-20e8-4ec0-956e-ab3bf25a84b1" name="Currency" type="element" specialization="DTO-Field" />
+                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6246b4dd-01c6-4577-bed0-5a0782242d59" name="Amount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="dbd1c9cb-20e8-4ec0-956e-ab3bf25a84b1" name="Currency" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -104,14 +107,14 @@
           <mappedEnd>
             <expression>{ClientId}</expression>
             <path>
-              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" />
-              <target id="41fa30c0-408e-4f3d-a6e3-629ee02cbf8b" name="ClientId" type="element" specialization="Attribute" />
+              <target id="c131ad5f-d019-46db-89b7-0feae38586d7" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="41fa30c0-408e-4f3d-a6e3-629ee02cbf8b" name="ClientId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="ClientId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
-                  <target id="24a0217c-ee63-487b-a7a6-d39c951942de" name="ClientId" type="element" specialization="DTO-Field" />
+                  <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="24a0217c-ee63-487b-a7a6-d39c951942de" name="ClientId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

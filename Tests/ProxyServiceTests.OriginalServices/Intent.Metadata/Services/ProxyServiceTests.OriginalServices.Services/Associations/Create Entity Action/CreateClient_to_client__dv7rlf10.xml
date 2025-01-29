@@ -22,6 +22,9 @@
     <name>client</name>
     <display>[create] client: Client</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c4399ae7-6314-4101-a573-52181a3cdbce">
       <typeId>5ea8c86f-affd-4511-b3ae-c73a2e69fc9b</typeId>
       <isNavigable>true</isNavigable>
@@ -42,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateClient}</expression>
             <path>
-              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateClient" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="becaf9ea-12e9-4d96-a8bf-90bd1c5e28f7" name="CreateClient" type="element" specialization="Operation" />
+                  <target id="becaf9ea-12e9-4d96-a8bf-90bd1c5e28f7" name="CreateClient" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                 </path>
               </source>
             </sources>
@@ -55,15 +58,15 @@
           <mappedEnd>
             <expression>{dto.Name}</expression>
             <path>
-              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" />
-              <target id="7f6b4a54-9c14-4d6f-9919-887fa73d2f6b" name="Name" type="element" specialization="Attribute" />
+              <target id="5ea8c86f-affd-4511-b3ae-c73a2e69fc9b" name="Client" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7f6b4a54-9c14-4d6f-9919-887fa73d2f6b" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="becaf9ea-12e9-4d96-a8bf-90bd1c5e28f7" name="CreateClient" type="element" specialization="Operation" />
-                  <target id="92d5a7c4-179d-4427-abd2-35613935bfff" name="dto" type="element" specialization="Parameter" />
-                  <target id="d9e9cf81-cae9-444e-9720-91804b183633" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="becaf9ea-12e9-4d96-a8bf-90bd1c5e28f7" name="CreateClient" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="92d5a7c4-179d-4427-abd2-35613935bfff" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="d9e9cf81-cae9-444e-9720-91804b183633" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

@@ -12,7 +12,7 @@ namespace ProxyServiceTests.OriginalServices.Application.Accounts
         {
         }
 
-        public decimal Amount { get; set; }
+        public decimal Amount { get; set; } = 0;
         public Currency Currency { get; set; }
 
         public static CreateAccountMoneyDto Create(decimal amount, Currency currency)

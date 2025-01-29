@@ -9,10 +9,9 @@ namespace ProxyServiceTests.OriginalServices.Application.Clients
     {
         public ClientCreateDto()
         {
-            Name = null!;
         }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = "n/a";
 
         public static ClientCreateDto Create(string name)
         {

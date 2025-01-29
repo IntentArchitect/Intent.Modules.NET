@@ -11,7 +11,6 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.IntegrationServ
     {
         public CreateAccountCommand()
         {
-            Number = null!;
             Amount = null!;
         }
 
@@ -19,13 +18,13 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.IntegrationServ
         public CreateAccountMoneyDto Amount { get; set; }
         public Guid ClientId { get; set; }
 
-        public static CreateAccountCommand Create(string number, CreateAccountMoneyDto amount, Guid clientId)
+        public static CreateAccountCommand Create(CreateAccountMoneyDto amount, Guid clientId, string number = "00")
         {
             return new CreateAccountCommand
             {
-                Number = number,
                 Amount = amount,
-                ClientId = clientId
+                ClientId = clientId,
+                Number = number
             };
         }
     }
