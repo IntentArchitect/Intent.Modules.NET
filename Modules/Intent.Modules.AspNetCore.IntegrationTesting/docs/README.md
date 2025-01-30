@@ -99,3 +99,9 @@ Our `Intent.AspNetCore.IntegrationTesting.CRUD` module can be used to generate i
 ## Top Level Statements with this module
 
 IF you are using `top-level Statements`, you will get a compilation error around `Program is inaccessible!`, you will need to apply the following work-around to get the projects compiling. https://github.com/dotnet/AspNetCore.Docs/issues/23837
+
+## Frequently asked questions
+
+### How do I mock services?
+
+Mocking of services is supported by the `Microsoft.AspNetCore.Mvc.Testing` NuGet package utilized by this Intent Architect module, refer to [Microsoft's documentation on the subject](https://learn.microsoft.com/aspnet/core/test/integration-tests#inject-mock-services) for further details and examples.
