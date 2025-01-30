@@ -56,6 +56,10 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 configurator.AddTagNameAttributeMatch("MudMenu", "Label");
                 configurator.AddTagNameAttributeMatch("MudMenuItem", "Href");
                 configurator.AddTagNameAttributeMatch("MudPagination", "@bind-Selected");
+                configurator.AddTagNameAttributeMatch("MudNavGroup", "href");
+                configurator.AddTagNameAttributeMatch("MudNavGroup", "title");
+                configurator.AddTagNameAttributeMatch("MudNavLink", "href");
+
                 configurator.AllowMatchByTagNameOnly("CardHeaderContent");
                 configurator.AllowMatchByTagNameOnly("CellTemplate");
                 configurator.AllowMatchByTagNameOnly("Columns");
