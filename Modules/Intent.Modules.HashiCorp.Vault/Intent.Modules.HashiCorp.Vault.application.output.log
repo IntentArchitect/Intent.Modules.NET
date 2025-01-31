@@ -74,14 +74,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d103863d-1934-41e1-9859-731202144df3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#e93cd1f8-0a41-4a63-95b8-7e80bb30909b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d103863d-1934-41e1-9859-731202144df3</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e93cd1f8-0a41-4a63-95b8-7e80bb30909b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs</ApplicationRelativeFilePath>

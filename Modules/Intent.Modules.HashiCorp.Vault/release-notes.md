@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Fixed: Using statements not being added correctly.
+
 ### Version 1.0.4
 
 - Improvement: Included module help topic.

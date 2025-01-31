@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e93cd1f8-0a41-4a63-95b8-7e80bb30909b</correlationId>
+      <path>Intent.Modules.HashiCorp.Vault/Templates/HashiCorpVaultConfigurationSource/HashiCorpVaultConfigurationSourceTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2025-01-31T07:58:44.2436952Z</updatedAt>
+      <deviationsHash>BC665F621AD9C1E8DAFC8CA4B501466D698821C177621F8DA75D1FEBBD1BE37A</deviationsHash>
+      <fileHash>6648319D9A4B8C1EF06ABDE5E951A590F5F6ADD082EE303FF9C4D34A5989E633</fileHash>
+    </file>
+  </files>
 </deviationsLog>
