@@ -62,12 +62,13 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfigurationSo
 
                         ctor.AddIfStatement("hashiCorpVaultEntry.CacheTimeoutInSeconds != default", @if =>
                         {
-                            var init = new CSharpStatement(@"new  System.Timers.Timer
-            {
+                            AddUsing("System");
+                            var init = new CSharpStatement($@"new  System.Timers.Timer
+            {{
                 Enabled = true,
                 Interval = TimeSpan.FromSeconds(hashiCorpVaultEntry.CacheTimeoutInSeconds).TotalMilliseconds,
                 AutoReset = true
-            };");
+            }};");
 
                             @if.AddObjectInitStatement("_reloadTimer", init);
 
@@ -96,7 +97,7 @@ namespace Intent.Modules.HashiCorp.Vault.Templates.HashiCorpVaultConfigurationSo
                             @if.AddReturn($"new {UseType("VaultSharp.V1.AuthMethods.Token.TokenAuthMethodInfo")}(authMethod.Token.Token)");
                         });
 
-                        method.AddStatement("throw new InvalidOperationException(\"No Auth Method was specified\");");
+                        method.AddStatement($"throw new {UseType("System.InvalidOperationException")}(\"No Auth Method was specified\");");
 
                     });
 
