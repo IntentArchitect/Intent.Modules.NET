@@ -44,7 +44,7 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
 
         if (hashiCorpVaultEntry.CacheTimeoutInSeconds != default)
         {
-            _reloadTimer = new Timer
+            _reloadTimer = new System.Timers.Timer
             {
                 Enabled = true,
                 Interval = TimeSpan.FromSeconds(hashiCorpVaultEntry.CacheTimeoutInSeconds).TotalMilliseconds,
@@ -71,7 +71,6 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
         {
             return new TokenAuthMethodInfo(authMethod.Token.Token);
         }
-
         throw new InvalidOperationException("No Auth Method was specified");
     }
 
@@ -97,7 +96,7 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
         private readonly Stack<string> _paths = new Stack<string>();
 
         public static IDictionary<string, string?> Convert(KeyValuePair<string, object> pair)
-            => new JsonConfigurationFileParser().ConvertObject(pair);
+=> new JsonConfigurationFileParser().ConvertObject(pair);
 
         private Dictionary<string, string?> ConvertObject(KeyValuePair<string, object> pair)
         {
@@ -135,7 +134,7 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
         {
             var isEmpty = true;
 
-            foreach (JsonProperty property in element.EnumerateObject())
+            foreach (var property in element.EnumerateObject())
             {
                 isEmpty = false;
                 EnterContext(property.Name);
@@ -150,7 +149,7 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
         {
             int index = 0;
 
-            foreach (JsonElement arrayElement in element.EnumerateArray())
+            foreach (var arrayElement in element.EnumerateArray())
             {
                 EnterContext(index.ToString());
                 VisitValue(arrayElement, mainKey);
@@ -178,17 +177,16 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
                 case JsonValueKind.Object:
                     VisitObjectElement(value, mainKey);
                     break;
-
                 case JsonValueKind.Array:
                     VisitArrayElement(value, mainKey);
                     break;
-
                 case JsonValueKind.Number:
                 case JsonValueKind.String:
                 case JsonValueKind.True:
                 case JsonValueKind.False:
                 case JsonValueKind.Null:
                     string key = $"{mainKey}:{_paths.Peek()}".Replace("__", ":");
+
                     if (_data.ContainsKey(key))
                     {
                         throw new FormatException($"Key is duplicated: {mainKey}");
@@ -196,15 +194,13 @@ public class HashiCorpVaultConfigurationProvider : ConfigurationProvider
 
                     _data[key] = value.ToString();
                     break;
-
                 case JsonValueKind.Undefined:
                 default:
                     throw new FormatException($"Unsupported JSON Token: {value.ValueKind}");
             }
         }
 
-        private void EnterContext(string context) =>
-            _paths.Push(_paths.Count > 0 ? _paths.Peek() + ConfigurationPath.KeyDelimiter + context : context);
+        private void EnterContext(string context) => _paths.Push(_paths.Count > 0 ? _paths.Peek() + ConfigurationPath.KeyDelimiter + context : context);
 
         private void ExitContext() => _paths.Pop();
     }
