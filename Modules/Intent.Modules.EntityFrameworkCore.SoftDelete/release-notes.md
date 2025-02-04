@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Fixed: SoftDelete being added to child class and parent class EF Configurations when parent class wasn't `abstract`.
+
 ### Version 1.0.4
 
 - Fixed: Considers `Is Deleted` as set by infrastructure so it cannot be accidentally set by mapping systems.
