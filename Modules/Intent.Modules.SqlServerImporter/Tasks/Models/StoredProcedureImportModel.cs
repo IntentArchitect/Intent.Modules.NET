@@ -13,7 +13,6 @@ public class RepositoryImportModel
     public string EntityNameConvention { get; set; } = null!;
     public string TableStereotype { get; set; } = null!;
     public List<string> TypesToExport { get; set; } = [];
-    public List<string> SchemaFilter { get; set; } = [];
     
     public List<string> StoredProcNames { get; set; } = [];
     public string? StoredProcedureType { get; set; }

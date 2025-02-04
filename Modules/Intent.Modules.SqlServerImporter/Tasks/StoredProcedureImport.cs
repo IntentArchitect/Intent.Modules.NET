@@ -40,6 +40,30 @@ public class RepositoryImport : IModuleTask
             {
                 return Fail(errorMessage!);
             }
+            
+            if (importModel is null)
+            {
+                return Fail("Problem validating request model.");
+            }
+            
+            // After validation, we can safely assume the following lookups:
+            var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
+            var package = designer.Packages.First(p => p.Id == importModel.PackageId);
+            
+            importModel.EntityNameConvention = "SingularEntity";
+            importModel.TableStereotype = "WhenDifferent";
+            importModel.TypesToExport = ["StoredProcedure"];
+            importModel.PackageFileName = package.FileLocation;
+        
+            if (importModel.SettingPersistence == RepositorySettingPersistence.InheritDb)
+            {
+                SettingsHelper.HydrateDbSettings(importModel);
+            }
+
+            if (string.IsNullOrWhiteSpace(importModel.StoredProcedureType))
+            {
+                importModel.StoredProcedureType = "Default";
+            }
 
             var sqlImportSettings = JsonSerializer.Serialize(importModel);
             sqlImportSettings = sqlImportSettings.Replace("\"", "\\\"");
@@ -151,22 +175,6 @@ Please see reasons below:");
         {
             errorMessage = $"Unable to find package with Id : {settings.PackageId}";
             return false;
-        }
-
-        settings.EntityNameConvention = "SingularEntity";
-        settings.TableStereotype = "WhenDifferent";
-        settings.TypesToExport = ["StoredProcedure"];
-        settings.SchemaFilter = [];
-        settings.PackageFileName = package.FileLocation;
-        
-        if (settings.SettingPersistence == RepositorySettingPersistence.InheritDb)
-        {
-            SettingsHelper.HydrateDbSettings(settings);
-        }
-
-        if (string.IsNullOrWhiteSpace(settings.StoredProcedureType))
-        {
-            settings.StoredProcedureType = "Default";
         }
         
         return true;
