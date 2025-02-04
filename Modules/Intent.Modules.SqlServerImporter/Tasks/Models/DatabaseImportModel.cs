@@ -15,8 +15,7 @@ public class DatabaseImportModel
 
 	public List<string> TypesToExport { get; set; } = [];
 
-	public List<string> SchemaFilter { get; set; } = [];
-	public string TableViewFilterFilePath { get; set; } = null!;
+	public string ImportFilterFilePath { get; set; } = null!;
 	
 	public string? StoredProcedureType { get; set; }
 

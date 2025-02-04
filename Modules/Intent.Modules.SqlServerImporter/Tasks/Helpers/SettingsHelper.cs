@@ -20,8 +20,7 @@ public static class SettingsHelper
             package.AddMetadata("sql-import:entityNameConvention", importModel.EntityNameConvention);
             package.AddMetadata("sql-import:tableStereotypes", importModel.TableStereotype);
             package.AddMetadata("sql-import:typesToExport", importModel.TypesToExport.Any() ? string.Join(";", importModel.TypesToExport.Select(t => t.ToString())) : "");
-            package.AddMetadata("sql-import:schemaFilter", importModel.SchemaFilter.Any() ? string.Join(";", importModel.SchemaFilter) : "");
-            package.AddMetadata("sql-import:tableViewFilterFilePath", importModel.TableViewFilterFilePath);
+            package.AddMetadata("sql-import:importFilterFilePath", importModel.ImportFilterFilePath);
             package.AddMetadata("sql-import:storedProcedureType", importModel.StoredProcedureType);
             ProcessConnectionStringSetting(package, importModel);
             package.AddMetadata("sql-import:settingPersistence", importModel.SettingPersistence.ToString());
@@ -31,8 +30,7 @@ public static class SettingsHelper
             package.RemoveMetadata("sql-import:entityNameConvention");
             package.RemoveMetadata("sql-import:tableStereotypes");
             package.RemoveMetadata("sql-import:typesToExport");
-            package.RemoveMetadata("sql-import:schemaFilter");
-            package.RemoveMetadata("sql-import:tableViewFilterFilePath");
+            package.RemoveMetadata("sql-import:importFilterFilePath");
             package.RemoveMetadata("sql-import:storedProcedureType");
             package.RemoveMetadata("sql-import:connectionString");
             package.RemoveMetadata("sql-import:settingPersistence");

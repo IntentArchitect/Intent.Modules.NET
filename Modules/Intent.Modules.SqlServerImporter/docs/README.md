@@ -33,17 +33,60 @@ Sometimes Entity names may not be directly translatable back to the original tab
 - `If They Differ`,  only introduce Table stereotypes if the Entity name does not translate back to the original table name.
 - `Always`, always add explicit tables names.
 
-#### Schema Filter
-
-A `;` separated list of SQL Schemas to export from, allowing you to subset your export if required.
-
 #### Include Type (s)
 
 Select which SQL Types you would like to export e.g. Tables, Views and / or Stored Procedures.
 
-#### Table/View Filter
+#### Import Filter File
 
-Specify a file path that contains the names of Tables and Views that you would like to import and it will stick to those objects only. Each item is line separated.
+Specify a JSON file path **(that may be relative file path to the Package file being imported into)** that of the following structure to assist with importing only certain objects from SQL Server.
+
+
+```json
+{
+  "schemas": [
+    "dbo"
+  ],
+  "include_tables": [
+    {
+      "name": "ExistingTableName",
+      "exclude_columns": [
+        "LegacyColumn"
+      ]
+    }
+  ],
+  "include_views": [
+    {
+      "name": "ExistingViewName",
+      "exclude_columns": [
+        "LegacyColumn"
+      ]
+    }
+  ],
+  "include_stored_procedures": [
+    "ExistingStoredProcedureName"
+  ],
+  "exclude_tables": [
+    "LegacyTableName"
+  ],
+  "exclude_views": [
+    "LegacyViewName"
+  ],
+  "exclude_stored_procedures": [
+    "LegacyStoredProcedureName"
+  ]
+}
+```
+
+| JSON Field                | Description                                                                                                    |
+|---------------------------|----------------------------------------------------------------------------------------------------------------|
+| schemas                   | Database Schema names to import (rest is filtered out).                                                        |
+| include_tables            | Database Tables to import (rest is filtered out).                                                              |
+| include_views             | Database Views to import (rest is filtered out).                                                               |
+| include_stored_procedures | Database Stored Procedures to import (rest is filtered out).                                                   |
+| exclude_tables            | Database Tables to exclude from import (include takes preference above this if same name is found).            |
+| exclude_views             | Database Views to exclude from import (include takes preference above this if same name is found).             |
+| exclude_stored_procedures | Database Stored Procedures to exclude from import (include takes preference above this if same name is found). |
 
 #### Stored Procedure Representations
 

@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improved: Enhanced filter functionality using JSON configuration, allowing more granular control over table/column import selection.
+
 ### Version 1.0.9
 
 - Fixed: Importer will no longer replace Domain Entity Attributes that are of `Enum` type when the underlying SQL type is `int`, `smallint` or `bit` since developers may want to represent those fields as Enums in code.

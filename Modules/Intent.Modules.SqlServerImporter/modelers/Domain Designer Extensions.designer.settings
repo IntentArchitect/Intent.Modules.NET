@@ -41,14 +41,6 @@ async function importSqlDatabase(element) {
         value: defaults.entityNameConvention,
         selectOptions: [{ id: "SingularEntity", description: "Singularized table name" }, { id: "MatchTable", description: "Table name, as is" }]
     };
-    let schemaFilter = {
-        id: "schemaFilter",
-        fieldType: "text",
-        label: "Schema Filter",
-        placeholder: "all",
-        hint: "Specify which SQL schemas to export. (default is all) e.g dbo;accounts;security",
-        value: defaults.schemaFilter
-    };
     let includeTables = {
         id: "includeTables",
         fieldType: "checkbox",
@@ -90,20 +82,24 @@ async function importSqlDatabase(element) {
             { id: "AllWithoutConnectionString", description: "All (without connection string))" }
         ]
     };
-    let tableViewFilterFilePath = {
-        id: "tableViewFilterFilePath",
+    let importFilterFilePath = {
+        id: "importFilterFilePath",
         fieldType: "text",
-        label: "Table / View Filter",
-        hint: "Import selection file path (Tables/Views, one per line)",
+        label: "Import Filter File",
+        hint: "Path to import filter JSON file (see documentation)",
         placeholder: "(optional)",
-        value: defaults.tableViewFilterFilePath
+        value: defaults.importFilterFilePath
     };
     let storedProcedureType = {
         id: "storedProcedureType",
         fieldType: "select",
         label: "Stored Procedure Representation",
         value: defaults.storedProcedureType,
-        selectOptions: [{ id: "Default", description: "(Default)" }, { id: "StoredProcedureElement", description: "Stored Procedure Element" }, { id: "RepositoryOperation", description: "Stored Procedure Operation" }]
+        selectOptions: [
+            { id: "Default", description: "(Default)" },
+            { id: "StoredProcedureElement", description: "Stored Procedure Element" },
+            { id: "RepositoryOperation", description: "Stored Procedure Operation" }
+        ]
     };
     let formConfig = {
         title: "Sql Server Import",
@@ -111,12 +107,11 @@ async function importSqlDatabase(element) {
             connectionString,
             entityNameConvention,
             tableStereotypes,
-            schemaFilter,
             includeTables,
             includeViews,
             includeStoredProcedures,
             includeIndexes,
-            tableViewFilterFilePath,
+            importFilterFilePath,
             storedProcedureType,
             settingPersistence
         ]
@@ -143,8 +138,7 @@ async function importSqlDatabase(element) {
         entityNameConvention: inputs.entityNameConvention,
         tableStereotype: inputs.tableStereotypes,
         typesToExport: typesToExport,
-        schemaFilter: inputs.schemaFilter ? inputs.schemaFilter.split(";") : [],
-        tableViewFilterFilePath: inputs.tableViewFilterFilePath,
+        importFilterFilePath: inputs.importFilterFilePath,
         storedProcedureType: inputs.storedProcedureType,
         connectionString: inputs.connectionString,
         settingPersistence: inputs.settingPersistence
@@ -197,12 +191,11 @@ function getDialogDefaults(element) {
     let result = {
         entityNameConvention: getSettingValue(package, "sql-import:entityNameConvention", "SingularEntity"),
         tableStereotypes: getSettingValue(package, "sql-import:tableStereotypes", "WhenDifferent"),
-        schemaFilter: getSettingValue(package, "sql-import:schemaFilter", ""),
         includeTables: includeTables,
         includeViews: includeViews,
         includeStoredProcedures: includeStoredProcedures,
         includeIndexes: includeIndexes,
-        tableViewFilterFilePath: getSettingValue(package, "sql-import:tableViewFilterFilePath", null),
+        importFilterFilePath: getSettingValue(package, "sql-import:importFilterFilePath", null),
         connectionString: getSettingValue(package, "sql-import:connectionString", null),
         storedProcedureType: getSettingValue(package, "sql-import:storedProcedureType", ""),
         settingPersistence: getSettingValue(package, "sql-import:settingPersistence", "None")
@@ -259,14 +252,6 @@ async function importSqlDatabase(element) {
         value: defaults.entityNameConvention,
         selectOptions: [{ id: "SingularEntity", description: "Singularized table name" }, { id: "MatchTable", description: "Table name, as is" }]
     };
-    let schemaFilter = {
-        id: "schemaFilter",
-        fieldType: "text",
-        label: "Schema Filter",
-        placeholder: "all",
-        hint: "Specify which SQL schemas to export. (default is all) e.g dbo;accounts;security",
-        value: defaults.schemaFilter
-    };
     let includeTables = {
         id: "includeTables",
         fieldType: "checkbox",
@@ -308,20 +293,24 @@ async function importSqlDatabase(element) {
             { id: "AllWithoutConnectionString", description: "All (without connection string))" }
         ]
     };
-    let tableViewFilterFilePath = {
-        id: "tableViewFilterFilePath",
+    let importFilterFilePath = {
+        id: "importFilterFilePath",
         fieldType: "text",
-        label: "Table / View Filter",
-        hint: "Import selection file path (Tables/Views, one per line)",
+        label: "Import Filter File",
+        hint: "Path to import filter JSON file (see documentation)",
         placeholder: "(optional)",
-        value: defaults.tableViewFilterFilePath
+        value: defaults.importFilterFilePath
     };
     let storedProcedureType = {
         id: "storedProcedureType",
         fieldType: "select",
         label: "Stored Procedure Representation",
         value: defaults.storedProcedureType,
-        selectOptions: [{ id: "Default", description: "(Default)" }, { id: "StoredProcedureElement", description: "Stored Procedure Element" }, { id: "RepositoryOperation", description: "Stored Procedure Operation" }]
+        selectOptions: [
+            { id: "Default", description: "(Default)" },
+            { id: "StoredProcedureElement", description: "Stored Procedure Element" },
+            { id: "RepositoryOperation", description: "Stored Procedure Operation" }
+        ]
     };
     let formConfig = {
         title: "Sql Server Import",
@@ -329,12 +318,11 @@ async function importSqlDatabase(element) {
             connectionString,
             entityNameConvention,
             tableStereotypes,
-            schemaFilter,
             includeTables,
             includeViews,
             includeStoredProcedures,
             includeIndexes,
-            tableViewFilterFilePath,
+            importFilterFilePath,
             storedProcedureType,
             settingPersistence
         ]
@@ -361,8 +349,7 @@ async function importSqlDatabase(element) {
         entityNameConvention: inputs.entityNameConvention,
         tableStereotype: inputs.tableStereotypes,
         typesToExport: typesToExport,
-        schemaFilter: inputs.schemaFilter ? inputs.schemaFilter.split(";") : [],
-        tableViewFilterFilePath: inputs.tableViewFilterFilePath,
+        importFilterFilePath: inputs.importFilterFilePath,
         storedProcedureType: inputs.storedProcedureType,
         connectionString: inputs.connectionString,
         settingPersistence: inputs.settingPersistence
@@ -415,12 +402,11 @@ function getDialogDefaults(element) {
     let result = {
         entityNameConvention: getSettingValue(package, "sql-import:entityNameConvention", "SingularEntity"),
         tableStereotypes: getSettingValue(package, "sql-import:tableStereotypes", "WhenDifferent"),
-        schemaFilter: getSettingValue(package, "sql-import:schemaFilter", ""),
         includeTables: includeTables,
         includeViews: includeViews,
         includeStoredProcedures: includeStoredProcedures,
         includeIndexes: includeIndexes,
-        tableViewFilterFilePath: getSettingValue(package, "sql-import:tableViewFilterFilePath", null),
+        importFilterFilePath: getSettingValue(package, "sql-import:importFilterFilePath", null),
         connectionString: getSettingValue(package, "sql-import:connectionString", null),
         storedProcedureType: getSettingValue(package, "sql-import:storedProcedureType", ""),
         settingPersistence: getSettingValue(package, "sql-import:settingPersistence", "None")
