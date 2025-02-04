@@ -180,7 +180,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                                         var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
                                         if (!parameter.TypeReference.IsCollection)
                                         {
-                                            ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToParameterName()};");
+                                            ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
                                             continue;
                                         }
 
