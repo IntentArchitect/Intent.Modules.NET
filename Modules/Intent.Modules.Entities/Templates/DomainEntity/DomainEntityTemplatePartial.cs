@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -22,6 +23,7 @@ using Intent.Templates;
 using Intent.Utils;
 using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -94,7 +96,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                         @class.ExtendsClass(
                             @class: baseType,
-                            genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(GetTypeName));
+                            genericTypeParameters: Model.ParentClassTypeReference.GenericTypeParameters.Select(base.GetTypeName));
                     }
 
                     if (ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces())
@@ -136,29 +138,93 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
                             {
                                 ctor.AddStatements(GetMappingImplementation(ctorModel.InternalElement.Mappings.Single(), ctor));
                             }
-                            else
+                            else // LEGACY MAPPING:
                             {
-                                // LEGACY MAPPING:
+                                // get the parent constructor to use (if there is one)
+                                var parentConstructor = GetParentConstructor(ctorModel);
+                                var baseInvocations = new List<(string NamedParameter, string ArgumentName)>();
+
                                 foreach (var parameter in ctorModel.Parameters.Where(x => x.InternalElement.IsMapped))
                                 {
-                                    var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
-                                    if (!parameter.TypeReference.IsCollection)
+                                    var isAssignement = true;
+
+                                    // if no parent or not parent constructor
+                                    if (Model.ParentClass == null || Model.ParentClass.Constructors?.Count == 0)
                                     {
-                                        ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToCamelCase()};");
+                                        isAssignement = true;
+                                    }
+
+                                    // if its not mapped to a parent
+                                    if (parameter.InternalElement.MappedElement.Path.Count > 0
+                                        && parameter.InternalElement.MappedElement.Path.First().Name != "base")
+                                    {
+                                        isAssignement = true;
+                                    }
+
+                                    // if parameter is mapped to parent
+                                    if (parameter.InternalElement.IsMapped
+                                        && parameter.InternalElement.MappedElement.Path.Count == 2
+                                        && parameter.InternalElement.MappedElement.Path.First().Name == "base"
+                                        && parentConstructor is not null)
+                                    {
+                                        // if the parent construtor has a parameter which matches the current parameter
+                                        if (parentConstructor.Parameters.Any(p => p.Name.ToParameterName() == parameter.InternalElement.MappedElement.Path.Last().Name.ToParameterName()))
+                                        {
+                                            isAssignement = false;
+                                        }
+                                    }
+
+                                    // handle the assigment (vs calling into Base constructor)
+                                    if (isAssignement)
+                                    {
+                                        var assignmentTarget = parameter.InternalElement.MappedElement.Element.Name.ToPascalCase();
+                                        if (!parameter.TypeReference.IsCollection)
+                                        {
+                                            ctor.AddStatement($"{assignmentTarget} = {parameter.Name.ToParameterName()};");
+                                            continue;
+                                        }
+
+                                        if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                                        {
+                                            assignmentTarget = assignmentTarget.ToPrivateMemberName();
+                                        }
+
+                                        var mappedTypeAsList = GetTypeName(
+                                                typeReference: parameter.InternalElement.MappedElement.Element.TypeReference,
+                                                collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
+                                            .Replace("?", string.Empty);
+
+                                        ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+
                                         continue;
                                     }
 
-                                    if (ExecutionContext.Settings.GetDomainSettings().EnsurePrivatePropertySetters())
+                                    // else call into the base
+                                    baseInvocations.Add(new(parameter.InternalElement.MappedElement.Path.Last().Name.ToParameterName(), parameter.Name.ToParameterName()));
+                                }
+
+                                // if there are parameters which call into the base
+                                if (baseInvocations.Count != 0)
+                                {
+                                    ctor.CallsBase(@base =>
                                     {
-                                        assignmentTarget = assignmentTarget.ToPrivateMemberName();
-                                    }
+                                        // go through all parameters in the parent constrcutor
+                                        foreach (var @param in parentConstructor.Parameters)
+                                        {
+                                            // if there is a match where we are calling based
+                                            if (baseInvocations.Any(i => i.ArgumentName == param.Name.ToParameterName()))
+                                            {
+                                                // pass up the value
+                                                var invocation = baseInvocations.First(i => i.ArgumentName == param.Name.ToParameterName());
+                                                @base.AddArgument(invocation.ArgumentName.ToParameterName());
 
-                                    var mappedTypeAsList = GetTypeName(
-                                            typeReference: parameter.InternalElement.MappedElement.Element.TypeReference,
-                                            collectionFormat: UseType("System.Collections.Generic.List<{0}>"))
-                                        .Replace("?", string.Empty);
+                                                continue;
+                                            }
 
-                                    ctor.AddStatement($"{assignmentTarget} = new {mappedTypeAsList}({parameter.Name.ToCamelCase()});");
+                                            // add default
+                                            @base.AddArgument("default");
+                                        }
+                                    });
                                 }
                             }
 
@@ -221,6 +287,75 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
             {
                 CSharpFile.IntentTagModeImplicit();
             }
+        }
+
+        private ClassConstructorModel GetParentConstructor(ClassConstructorModel ctorModel)
+        {
+            // if the parent has no constructor, no base call to be made
+            if (Model.ParentClass is null || Model.ParentClass.Constructors.Count == 0)
+            {
+                return null;
+            }
+
+            // get parameters which are mappeds
+            var parantParameters = ctorModel.Parameters
+               .Where(x => x.InternalElement.IsMapped
+                       && x.InternalElement.MappedElement.Path.Count == 2
+                       && x.InternalElement.MappedElement.Path.First().Name == "base");
+
+            // find the constructor on the parent, which has the most matches by name, or if there is only 1, then use that one.
+            var parentCtor = Model.ParentClass.Constructors.Count == 1 ? Model.ParentClass.Constructors.First() :
+                Model.ParentClass.Constructors.Select(cons => new
+                {
+                    Constructor = cons,
+                    ParametersMatched = cons.Parameters.Count(param => parantParameters.Select(p => p.Name).Contains(param.Name))
+                })
+                .OrderByDescending(c => c.ParametersMatched)
+                .OrderByDescending(c => c.Constructor.Parameters.Count)
+                .FirstOrDefault()?.Constructor;
+
+            return parentCtor;
+        }
+
+        private void AddBaseParameters(CSharpConstructor ctor, ClassConstructorModel ctorModel)
+        {
+            //// if no parent constructor
+            //if(Model.ParentClass == null || Model.ParentClass.Constructors?.Count == 0)
+            //{
+            //    return;
+            //}
+
+            // the parameters which are mapped to the parent
+            //var parantParameters = ctorModel.Parameters
+            //    .Where(x => x.InternalElement.IsMapped
+            //            && x.InternalElement.MappedElement.Path.Count > 1
+            //            && x.InternalElement.MappedElement.Path.First().Name == "base");
+
+            //// get the constructor we will be calling. If there is 1, default to one, otherwise find the one which has the highest number of matches on name
+            //var parentCtor = Model.ParentClass.Constructors.Count == 1 ? Model.ParentClass.Constructors.First() :
+            //    Model.ParentClass.Constructors.Select(cons => new
+            //    {
+            //        Constructor = cons,
+            //        ParametersMatched = cons.Parameters.Count(param => parantParameters.Select(p => p.Name).Contains(param.Name))
+            //    })
+            //    .OrderByDescending(c => c.ParametersMatched)
+            //    .OrderByDescending(c => c.Constructor.Parameters.Count)
+            //    .FirstOrDefault()?.Constructor;
+
+            //if (parantParameters.Any())
+            //{
+            //    ctor.CallsBase(@base =>
+            //    {
+            //        // all elements which are mapped to the parent constructor
+            //        foreach (var parameter in parantParameters)
+            //        {
+            //            if (parentCtor.Parameters.Count(p => p.Name == parameter.InternalElement.MappedElement.Path.Last().Name.ToCamelCase()) > 0)
+            //            {
+            //                @base.AddArgument($"{parameter.InternalElement.MappedElement.Path.Last().Name.ToCamelCase()}:{parameter.Name.ToCamelCase()}");
+            //            }
+            //        }
+            //    });
+            //}
         }
 
         private void AddOperation(CSharpClass @class, OperationModel operation, bool isOverride)

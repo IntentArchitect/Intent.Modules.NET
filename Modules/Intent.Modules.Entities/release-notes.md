@@ -1,3 +1,7 @@
+### Version 5.1.10
+
+- Improvement: When available, constructor on a parent domain entity will be invoked from a child domain entity constructor, instead of inherited properties being set explicitly.
+
 ### Version 5.1.9
 
 - Fixed: Hierarchical Data Contracts call base constructors correctly.
