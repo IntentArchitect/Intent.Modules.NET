@@ -6,9 +6,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomain
 {
     public class ConcreteEntityB : BaseEntityB
     {
-        public ConcreteEntityB(string baseAttr, string concreteAttr)
+        public ConcreteEntityB(string baseAttr, string concreteAttr) : base(baseAttr)
         {
-            BaseAttr = baseAttr;
             ConcreteAttr = concreteAttr;
         }
 

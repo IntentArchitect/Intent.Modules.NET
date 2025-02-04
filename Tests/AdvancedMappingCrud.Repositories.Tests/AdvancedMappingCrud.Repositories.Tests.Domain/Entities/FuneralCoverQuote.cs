@@ -7,11 +7,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities
 {
     public class FuneralCoverQuote : Quote
     {
-        public FuneralCoverQuote(string refNo, Guid personId, string? personEmail)
+        public FuneralCoverQuote(string refNo, Guid personId, string? personEmail) : base(refNo, personId, personEmail)
         {
-            RefNo = refNo;
-            PersonId = personId;
-            PersonEmail = personEmail;
         }
 
         /// <summary>
