@@ -71,7 +71,7 @@
     </childElement>
     <childElement id="ce75394c-35fa-481a-8fb9-aaa95fe344a3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.3</display>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.4</display>
       <isAbstract>false</isAbstract>
       <value>4.2.4</value>
       <genericTypes />
@@ -85,7 +85,7 @@
     </childElement>
     <childElement id="619c45ba-7c69-4672-b98e-744777fdd44c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Eventing.MassTransit.EntityFrameworkCore</name>
-      <display>Intent.Eventing.MassTransit.EntityFrameworkCore 5.2.3</display>
+      <display>Intent.Eventing.MassTransit.EntityFrameworkCore 5.2.4</display>
       <isAbstract>false</isAbstract>
       <value>5.2.4</value>
       <genericTypes />
@@ -99,7 +99,7 @@
     </childElement>
     <childElement id="bbe33888-19f0-4b5f-a176-f5836e7c43fb" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.Security</name>
-      <display>Intent.Metadata.Security 1.0.1</display>
+      <display>Intent.Metadata.Security 1.0.2</display>
       <isAbstract>false</isAbstract>
       <value>1.0.2</value>
       <genericTypes />
@@ -113,7 +113,7 @@
     </childElement>
     <childElement id="cad638f4-4296-416c-bc1e-7997c44ed952" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.1</display>
+      <display>Intent.Metadata.WebApi 4.7.2</display>
       <isAbstract>false</isAbstract>
       <value>4.7.2</value>
       <genericTypes />
@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="b11fab40-ea02-4097-b8f0-6f5183b7f6d1" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Domain</name>
-      <display>Intent.Modelers.Domain 3.12.0</display>
+      <display>Intent.Modelers.Domain 3.12.1</display>
       <isAbstract>false</isAbstract>
       <value>3.12.1</value>
       <genericTypes />
@@ -169,7 +169,7 @@
     </childElement>
     <childElement id="17763df7-6b10-46dd-8208-e65ce5459345" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 5.1.0</display>
+      <display>Intent.Modelers.Services.CQRS 5.1.1</display>
       <isAbstract>false</isAbstract>
       <value>5.1.1</value>
       <genericTypes />
@@ -183,7 +183,7 @@
     </childElement>
     <childElement id="63797fac-27ed-4cb0-b460-319b83d443a0" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.ProxyInteractions</name>
-      <display>Intent.Modelers.Services.ProxyInteractions 1.0.2</display>
+      <display>Intent.Modelers.Services.ProxyInteractions 1.1.0</display>
       <isAbstract>false</isAbstract>
       <value>1.1.0</value>
       <genericTypes />
@@ -211,7 +211,7 @@
     </childElement>
     <childElement id="e2f3659b-22e5-4ad3-85cf-41df722f822a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.1</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.2</display>
       <isAbstract>false</isAbstract>
       <value>4.9.2</value>
       <genericTypes />

@@ -207,8 +207,8 @@
       </childElements>
     </childElement>
     <childElement id="35060733-c3f3-4219-91e1-577b5a8ec670" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Mongo DB</name>
-      <display>Mongo DB (2)</display>
+      <name>MongoDB</name>
+      <display>MongoDB (2)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
