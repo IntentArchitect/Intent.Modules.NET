@@ -98,10 +98,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         {
         }
 
-        private void OnStateAutoSelectedChanged()
-        {
-        }
-
         [IntentIgnore]
         private async Task<IEnumerable<string>> OnStateAutoAsync(string value, CancellationToken cancellationToken = default)
         {

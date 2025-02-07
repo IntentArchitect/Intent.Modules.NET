@@ -49,7 +49,6 @@
                              xl="3">
                         <MudAutocomplete @bind-Value="Model.CustomerName"
                                          Label="StateAuto"
-                                         @bind-Value:after="() => OnStateAutoSelectedChanged()"
                                          SearchFunc="(value, token) => OnStateAutoAsync(value, token)" />
 
                     </MudItem>

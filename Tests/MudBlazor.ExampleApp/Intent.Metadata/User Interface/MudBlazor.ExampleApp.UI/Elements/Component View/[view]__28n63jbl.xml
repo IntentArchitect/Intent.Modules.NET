@@ -251,7 +251,7 @@
                       <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
                       <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
                       <properties>
-                        <property name="fcc2a89f-5c1d-4d25-a26e-8bab029d7061" display="On Selected" value="{OnStateAutoSelectedChanged}" isActive="true" />
+                        <property name="fcc2a89f-5c1d-4d25-a26e-8bab029d7061" display="On Selected" value="" isActive="true" />
                         <property name="d3d16611-f218-457e-a0ca-df626c1e60e3" display="Search Function" value="{OnStateAutoAsync}" isActive="true" />
                       </properties>
                     </stereotype>
