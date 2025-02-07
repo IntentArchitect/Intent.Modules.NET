@@ -14,5 +14,15 @@
       <deviationsHash>894578E057A1DB7FCC8595B943E4980CBB34D1044635C0594EF67640BF02A7FF</deviationsHash>
       <fileHash>B20BC384A632E5ED5EA47B9BD7B19B47E39A185BC32197CC8EBAB7C699C3524F</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
+      <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-02-07T11:47:10.2101293Z</updatedAt>
+      <deviationsHash>D600D46E65CD71D5D03B26635C0CA57A67A6E99CB79BB15361F9B57915B001A1</deviationsHash>
+      <fileHash>186A69ADD2657DA27870BFFA711F2BE222EFCA5B5F536027D602BB06280C2355</fileHash>
+    </file>
   </files>
 </deviationsLog>

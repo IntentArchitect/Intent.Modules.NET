@@ -13,6 +13,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
     {
         private MudForm _form;
         private bool _onSaveClickedProcessing = false;
+        private bool _onCancelClickedProcessing = false;
         [Parameter]
         public InvoiceModel Model { get; set; } = new();
         [Parameter]
@@ -46,15 +47,41 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
 
         private async Task OnSaveClicked()
         {
-            await _form!.Validate();
-            if (!_form.IsValid)
+            try
             {
-                return;
+                _onSaveClickedProcessing = true;
+                await _form!.Validate();
+                if (!_form.IsValid)
+                {
+                    return;
+                }
+                await SaveClicked.InvokeAsync();
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+            finally
+            {
+                _onSaveClickedProcessing = false;
             }
         }
 
-        private void OnCancelClicked()
+        private async Task OnCancelClicked()
         {
+            try
+            {
+                _onCancelClickedProcessing = true;
+                await CancelClicked.InvokeAsync();
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+            finally
+            {
+                _onCancelClickedProcessing = false;
+            }
         }
 
         private void AddLineClicked()
@@ -71,9 +98,33 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         {
         }
 
-        private async Task<List<CustomerLookupDto>> OnAutoCompleteSearchFunction(string value, CancellationToken c)
+        private void OnStateAutoSelectedChanged()
         {
-            return new List<CustomerLookupDto> { new CustomerLookupDto() { Id = Guid.NewGuid(), Name = "Value1" }, new CustomerLookupDto() { Id = Guid.NewGuid(), Name = "Value2" } };
         }
+
+        [IntentIgnore]
+        private async Task<IEnumerable<string>> OnStateAutoAsync(string value, CancellationToken cancellationToken = default)
+        {
+            if (string.IsNullOrEmpty(value))
+                return _states.ToList();
+
+            return _states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase)).ToList();
+        }
+
+        [IntentIgnore]
+        private string[] _states =
+        {
+        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+        "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming" };
+
+
     }
 }

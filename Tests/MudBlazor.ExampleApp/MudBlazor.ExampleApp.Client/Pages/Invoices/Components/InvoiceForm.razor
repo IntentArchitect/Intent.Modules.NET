@@ -47,25 +47,18 @@
                     <MudItem xs="12"
                              md="6"
                              xl="3">
-                        <MudDatePicker @bind-Date="Model.DueDate"
-                                       Label="Due Date"
-                                       For="@(() => Model.DueDate)" />
+                        <MudAutocomplete @bind-Value="Model.CustomerName"
+                                         Label="StateAuto"
+                                         @bind-Value:after="() => OnStateAutoSelectedChanged()"
+                                         SearchFunc="(value, token) => OnStateAutoAsync(value, token)" />
+
                     </MudItem>
                     <MudItem xs="12"
                              md="6"
                              xl="3">
-                        <MudAutocomplete @bind-Value="Model.CustomerId"
-                                         Label="AutoComplete"
-                                         SearchFunc="(value, c) => OnAutoCompleteSearchFunction(value, c)"
-                                         For="@(() => Model.CustomerId)">
-                            @foreach (var item in CustomerOptions) 
-                            {
-                                <MudSelectItem T="Guid?"
-                                               Value="item.Id">
-                                    @item.Name
-                                </MudSelectItem>
-                            }
-                        </MudAutocomplete>
+                        <MudDatePicker @bind-Date="Model.DueDate"
+                                       Label="Due Date"
+                                       For="@(() => Model.DueDate)" />
                     </MudItem>
                     <MudItem xs="12">
                         @if (Model.OrderLines is not null) 
@@ -146,7 +139,14 @@
                            StartIcon="@Icons.Material.Filled.Cancel"
                            Class="my-2 mr-2"
                            Color="Color.Default"
-                           OnClick="() => OnCancelClicked()">
+                           OnClick="() => OnCancelClicked()"
+                           Disabled="@_onCancelClickedProcessing">
+                    @if (_onCancelClickedProcessing) 
+                    {
+                        <MudProgressCircular Class="ms-n1"
+                                             Size="Size.Small"
+                                             Indeterminate="true" />
+                    }
                     <MudText>Cancel</MudText>
                 </MudButton>
             </MudCardActions>

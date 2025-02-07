@@ -232,11 +232,11 @@
                   <metadata />
                   <childElements />
                 </childElement>
-                <childElement id="05add3a3-735a-4524-aeff-01fefa23d44f" type="Date Picker" typeId="9451fcdc-9406-4323-b354-2eaaabbf9ac5">
-                  <name>Due Date</name>
-                  <display>Due Date = {Model.DueDate}</display>
+                <childElement id="6ea738c9-2a5f-48d6-955f-6196f2d874d7" type="AutoComplete" typeId="ff1ddb80-16e4-4e63-ace3-4ef96a03b4b0">
+                  <name>StateAuto</name>
+                  <display>StateAuto = {Model.CustomerName}</display>
                   <isAbstract>false</isAbstract>
-                  <value>{Model.DueDate}</value>
+                  <value>{Model.CustomerName}</value>
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>c201116c-c305-415e-9043-f2178e67fe63</parentFolderId>
@@ -246,6 +246,15 @@
                     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
                   </traits>
                   <stereotypes>
+                    <stereotype stereotypeDefinitionId="44dcdc3d-3445-435c-9013-197ab9836f09" name="Interaction">
+                      <addedByDefault>true</addedByDefault>
+                      <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                      <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                      <properties>
+                        <property name="fcc2a89f-5c1d-4d25-a26e-8bab029d7061" display="On Selected" value="{OnStateAutoSelectedChanged}" isActive="true" />
+                        <property name="d3d16611-f218-457e-a0ca-df626c1e60e3" display="Search Function" value="{OnStateAutoAsync}" isActive="true" />
+                      </properties>
+                    </stereotype>
                     <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
                       <addedByDefault>false</addedByDefault>
                       <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
@@ -263,11 +272,11 @@
                   <metadata />
                   <childElements />
                 </childElement>
-                <childElement id="3a06a68c-28fc-46e9-a76d-ffcd97873122" type="AutoComplete" typeId="ff1ddb80-16e4-4e63-ace3-4ef96a03b4b0">
-                  <name>AutoComplete</name>
-                  <display>AutoComplete = {Model.CustomerId}</display>
+                <childElement id="05add3a3-735a-4524-aeff-01fefa23d44f" type="Date Picker" typeId="9451fcdc-9406-4323-b354-2eaaabbf9ac5">
+                  <name>Due Date</name>
+                  <display>Due Date = {Model.DueDate}</display>
                   <isAbstract>false</isAbstract>
-                  <value>{Model.CustomerId}</value>
+                  <value>{Model.DueDate}</value>
                   <genericTypes />
                   <isMapped>false</isMapped>
                   <parentFolderId>c201116c-c305-415e-9043-f2178e67fe63</parentFolderId>
@@ -277,18 +286,6 @@
                     <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
                   </traits>
                   <stereotypes>
-                    <stereotype stereotypeDefinitionId="44dcdc3d-3445-435c-9013-197ab9836f09" name="Interaction">
-                      <addedByDefault>true</addedByDefault>
-                      <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
-                      <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
-                      <properties>
-                        <property name="cbffba33-4c42-435a-869a-dc002dae7617" display="Options" value="{CustomerOptions}" isActive="true" />
-                        <property name="b3a5b94a-f3ff-4860-acaf-297fdac66dd1" display="Key" value="{CustomerOptions.Id}" isActive="true" />
-                        <property name="bf75f566-f520-4b32-a311-5ee858aec2bf" display="Value" value="{CustomerOptions.Name}" isActive="true" />
-                        <property name="fcc2a89f-5c1d-4d25-a26e-8bab029d7061" display="On Selected" isActive="true" />
-                        <property name="d3d16611-f218-457e-a0ca-df626c1e60e3" display="Search Function" value="{OnAutoCompleteSearchFunction}" isActive="true" />
-                      </properties>
-                    </stereotype>
                     <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
                       <addedByDefault>false</addedByDefault>
                       <definitionPackageName>Intent.Modelers.UI</definitionPackageName>

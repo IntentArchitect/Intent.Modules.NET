@@ -1,6 +1,7 @@
 ﻿using Intent.Metadata.Models;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using System;
 using System.Collections.Generic;
@@ -36,37 +37,28 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer
             var searchFuncMapping = _bindingManager.GetMappedEndFor(model, "a0232a41-ecc0-4ce6-86f2-de05f408770e"); // Search Function
             var searchFuncBinding = _bindingManager.GetBinding(searchFuncMapping, parentNode);
 
+            var codeBlock = _componentTemplate.GetCodeBehind();
+            var method = codeBlock.GetReferenceForModel(searchFuncMapping.SourceElement) as CSharpClassMethod;
+
+            var returnType = method.ReturnTypeInfo;
+            if (method.ReturnTypeInfo is CSharpTypeGeneric task && task.TypeName == "Task")
+            {
+                returnType = task.TypeArgumentList[0];
+            }
+            if (returnType is CSharpTypeGeneric gt && gt.TypeName == "List")
+            {
+                method.WithReturnType(new CSharpTypeGeneric("IEnumerable", gt.TypeArgumentList));
+            }
+            method.Async();
+            method.AddOptionalCancellationTokenParameter();
 
             htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(valueMapping, parentNode)?.ToString());
             htmlElement.AddAttribute("Label", model.TryGetLabelAddon(out var label) ? label.Label() : model.Name);
             htmlElement.AddAttributeIfNotEmpty("@bind-Value:after", onSelectedBinding?.ToLambda());
-            htmlElement.AddAttributeIfNotEmpty("SearchFunc", searchFuncBinding?.ToLambda());
+            htmlElement.AddAttributeIfNotEmpty("SearchFunc", searchFuncBinding?.ToLambda("value, token").Replace("(value)", "(value, token)"));
 
-            var mappedEnd = _bindingManager.GetMappedEndFor(model, "Options");
-            if (mappedEnd == null)
-            {
-                return [htmlElement];
-            }
-            htmlElement.AddCodeBlock($"@foreach (var item in {_bindingManager.GetBinding(model, "Options")})", code =>
-            {
-                htmlElement.AddMappingReplacement(mappedEnd.SourceElement, "item");
-                code.AddHtmlElement("MudSelectItem", selectItem =>
-                {
-                    var selectItemMapping = _bindingManager.GetMappedEndFor(model, "Value");
-                    selectItem.AddAttribute("T", _componentTemplate.GetTypeName(valueMapping.SourceElement.TypeReference));
-                    // TODO: Use bindings:
-                    selectItem.AddAttribute("Value", _bindingManager.GetBinding(model, "Value", htmlElement)?.ToString())
-                        .WithText(_bindingManager.GetBinding(model, "Text", htmlElement)?.ToString());
-                });
-            });
             parentNode.AddChildNode(htmlElement);
-            if (parentNode.GetAllNodesInHierarchy().OfType<HtmlElement>().Any(x => x.Name == "MudForm"))
-            {
-                if (valueMapping != null)
-                {
-                    htmlElement.AddAttribute("For", $"@(() => {valueBinding})");
-                }
-            }
+
             return [htmlElement];
         }
     }

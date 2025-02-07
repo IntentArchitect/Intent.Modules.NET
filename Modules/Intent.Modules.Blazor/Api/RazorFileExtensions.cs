@@ -105,6 +105,10 @@ public static class RazorFileExtensions
                 {
                     methodName += "Async";
                 }
+                if (methodName == "OnBobAutoAsync")
+                {
+
+                }
                 block.AddMethod(block.Template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.Private();
