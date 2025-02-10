@@ -102,7 +102,15 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         }
         foreach (var property in model.EventEmitters.Where(x => x.HasBindable()))
         {
-            htmlElement.AddAttributeIfNotEmpty(property.Name, _bindingManager.GetElementBinding(property, parentNode)?.ToLambda());
+            var binding = _bindingManager.GetElementBinding(property, parentNode);
+            if (binding is CSharpInvocationStatement invocation && invocation.Statements.Any(x => x.Text == "value"))
+            {
+                htmlElement.AddAttributeIfNotEmpty(property.Name, binding?.ToLambda("value"));
+            }
+            else
+            {
+                htmlElement.AddAttributeIfNotEmpty(property.Name, binding?.ToLambda());
+            }
         }
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];

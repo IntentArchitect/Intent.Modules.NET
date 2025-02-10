@@ -35,6 +35,7 @@ public abstract class RazorComponentTemplateBase<TModel> : RazorTemplateBase<TMo
         mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
         mappingManager.AddMappingResolver(new PropertyCollectionMappingResolver(template));
         mappingManager.AddMappingResolver(new RazorBindingMappingResolver(template));
+        mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
         mappingManager.SetFromReplacement(Model, null);
         mappingManager.SetToReplacement(Model, null);
         return mappingManager;

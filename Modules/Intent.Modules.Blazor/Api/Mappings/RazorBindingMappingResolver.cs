@@ -1,5 +1,6 @@
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Blazor.Api.Mappings;
 
@@ -25,9 +26,30 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 
-        if (mappingModel.Mapping != null)
+        //if (mappingModel.Mapping != null)
+        //{
+        //    return new RazorPropertyBindingMapping(mappingModel, _template);
+        //}
+
+        return null;
+    }
+}
+
+public class TypeConvertingMappingResolver : IMappingTypeResolver
+{
+    private readonly ICSharpTemplate _template;
+
+    public TypeConvertingMappingResolver(ICSharpTemplate template)
+    {
+        _template = template;
+    }
+
+    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    {
+        if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
+            || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
         {
-            return new RazorPropertyBindingMapping(mappingModel, _template);
+            return new TypeConvertingCSharpMapping(mappingModel, _template);
         }
 
         return null;

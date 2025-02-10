@@ -19,11 +19,6 @@ public class BindingManager
 
     public IElementToElementMapping ViewBinding { get; }
 
-    public CSharpStatement? GetEventEmitterBinding(IElementToElementMappedEnd mappedEnd, IRazorFileNode razorNode = null)
-    {
-        return GetBinding(mappedEnd, razorNode).ToLambda();
-    }
-
     public CSharpStatement? GetBinding(IElementToElementMappedEnd? mappedEnd, IRazorFileNode? razorNode = null, bool? isTargetNullable = default)
     {
         if (mappedEnd == null)
@@ -41,7 +36,7 @@ public class BindingManager
             }
         }
 
-        return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd, isTargetNullable)?.ToString();
+        return mappingManager.GenerateSourceStatementForMapping(ViewBinding, mappedEnd, isTargetNullable);
     }
 
     public CSharpStatement? GetBinding(IMetadataModel model, string mappableNameOrId, IRazorFileNode razorNode = null, bool? isTargetNullable = default)

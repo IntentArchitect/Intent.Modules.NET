@@ -32,11 +32,6 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
             return new ObjectInitializationMapping(mappingModel, _template);
         }
 
-        if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
-            || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
-        {
-            return new TypeConvertingCSharpMapping(mappingModel, _template);
-        }
         return null;
     }
 }
