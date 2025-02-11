@@ -421,14 +421,40 @@ public static class ValidationRulesExtensions
 
         if (!string.IsNullOrWhiteSpace(validations.RegularExpression()))
         {
-            var newRegex = 
-                new CSharpInvocationStatement($"new {template?.UseType("System.Text.RegularExpressions.Regex") ?? "System.Text.RegularExpressions.Regex"}")
-                .AddArgument($"@\"{validations.RegularExpression()}\"")
-                .AddArgument("RegexOptions.Compiled")
-                .AddArgument($"{template?.UseType("System.TimeSpan") ?? "System.TimeSpan"}.FromSeconds({validations.RegularExpressionTimeout() ?? 1})")
-                .WithoutSemicolon();
+            var invocation = new CSharpInvocationStatement($"new {template?.UseType("System.Text.RegularExpressions.Regex") ?? "System.Text.RegularExpressions.Regex"}")
+                            .AddArgument($"@\"{validations.RegularExpression()}\"")
+                            .AddArgument("RegexOptions.Compiled")
+                            .AddArgument($"{template?.UseType("System.TimeSpan") ?? "System.TimeSpan"}.FromSeconds({validations.RegularExpressionTimeout() ?? 1})")
+                            .WithoutSemicolon();
 
-            validationRuleChain.AddChainStatement($@"Matches({newRegex})");
+            // if the template is null for use the less efficient method of putting the Regex declaration in the Matches call
+            if (template is null || template is not ICSharpFileBuilderTemplate)
+            { 
+                validationRuleChain.AddChainStatement($@"Matches({invocation})");
+            }
+            else
+            {
+                if(template is ICSharpFileBuilderTemplate builderTemplate)
+                {
+                    // really should always be a class, just double checking
+                    if (builderTemplate.CSharpFile.Classes.Any())
+                    {
+                        var regexName = $"{field.Name}Regex";
+
+                        var @class = builderTemplate.CSharpFile.Classes.First();
+                        if (!@class.Fields.Any(f => f.Name == regexName))
+                        {
+                            @class.AddField(builderTemplate.UseType("System.Text.RegularExpressions.Regex"), regexName, @field =>
+                            {
+                                field.Static().PrivateReadOnly();
+                                field.WithAssignment(invocation);
+                            });
+
+                            validationRuleChain.AddChainStatement($@"Matches({regexName})");
+                        }
+                    }
+                }
+            }
 
             if(!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
             {
