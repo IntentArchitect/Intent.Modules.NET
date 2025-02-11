@@ -111,6 +111,18 @@
                         }
                     </MudItem>
                 </MudGrid>
+                <MudRadioGroup @bind-Value="Model.CustomerId"
+                               Label="CustomerRadio"
+                               @bind-Value:after="() => OnCustomerSelectedChanged()"
+                               For="@(() => Model.CustomerId)">
+                    @foreach (var item in CustomerOptions) 
+                    {
+                        <MudRadio T="Guid?"
+                                  Value="item.Id">
+                            @item.Name
+                        </MudRadio>
+                    }
+                </MudRadioGroup>
                 <MudButton Variant="Variant.Filled"
                            StartIcon="@Icons.Material.Filled.AddCircle"
                            Class="my-2 mr-2"

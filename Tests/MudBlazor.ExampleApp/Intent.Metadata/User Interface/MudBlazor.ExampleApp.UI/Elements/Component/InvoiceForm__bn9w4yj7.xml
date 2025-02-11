@@ -21,7 +21,7 @@
             <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
             <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
             <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
-              <typeReference id="8eaa353e-c95f-472b-bc65-008e53c7e3c5">
+              <typeReference id="4d251b35-b15f-4f87-9cfe-c20fb1d2b087">
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
                 <isCollection>false</isCollection>
@@ -166,6 +166,105 @@
             <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
             <target id="d1b0a7da-3167-4e1d-a489-5385e07eaca5" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
             <target id="919d2201-db56-448c-bdc8-7f2fd353cfd8" name="On Selected" type="static-mappable" specialization="On Selected" specializationId="919d2201-db56-448c-bdc8-7f2fd353cfd8" />
+          </path>
+          <sources>
+            <source identifier="OnCustomerSelectedChanged" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ec200fbe-01ef-4696-9cdf-d74954eb181f" name="OnCustomerSelectedChanged" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.CustomerId}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="3ca93dcd-3dbb-49ac-9e94-af02ecb090cf" name="CustomerRadio" type="element" specialization="Radio Group" specializationId="4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed" />
+          </path>
+          <sources>
+            <source identifier="Model.CustomerId" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="e8c1e20f-45f5-4a56-8c9d-22191c066a55" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="f015cff2-24f0-4261-9815-5449eff25c9b" name="CustomerId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="3ca93dcd-3dbb-49ac-9e94-af02ecb090cf" name="CustomerRadio" type="element" specialization="Radio Group" specializationId="4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed" />
+            <target id="c4f77048-2f6d-4bb5-b702-c3c35239e021" name="Options" type="static-mappable" specialization="Options" specializationId="c4f77048-2f6d-4bb5-b702-c3c35239e021" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="cc128abf-0324-4a13-9fcf-dd4785d095e3" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions.Id}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="3ca93dcd-3dbb-49ac-9e94-af02ecb090cf" name="CustomerRadio" type="element" specialization="Radio Group" specializationId="4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed" />
+            <target id="c4f77048-2f6d-4bb5-b702-c3c35239e021" name="Options" type="static-mappable" specialization="Options" specializationId="c4f77048-2f6d-4bb5-b702-c3c35239e021" />
+            <target id="5b9145ba-3359-4894-935e-d0911e11ed38" name="Value" type="static-mappable" specialization="Value" specializationId="5b9145ba-3359-4894-935e-d0911e11ed38" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions.Id" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="cc128abf-0324-4a13-9fcf-dd4785d095e3" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d66084fd-ddfb-4d82-bc08-36fe1736eedd" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions.Name}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="3ca93dcd-3dbb-49ac-9e94-af02ecb090cf" name="CustomerRadio" type="element" specialization="Radio Group" specializationId="4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed" />
+            <target id="c4f77048-2f6d-4bb5-b702-c3c35239e021" name="Options" type="static-mappable" specialization="Options" specializationId="c4f77048-2f6d-4bb5-b702-c3c35239e021" />
+            <target id="1e3986df-fb65-49da-ac44-ae37a06a0f1a" name="Text" type="static-mappable" specialization="Text" specializationId="1e3986df-fb65-49da-ac44-ae37a06a0f1a" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="cc128abf-0324-4a13-9fcf-dd4785d095e3" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="047d5852-bb22-4030-b066-d53823ac553e" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnCustomerSelectedChanged}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="3ca93dcd-3dbb-49ac-9e94-af02ecb090cf" name="CustomerRadio" type="element" specialization="Radio Group" specializationId="4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed" />
+            <target id="25a22edc-62f5-4daa-bb78-6e7a59855d6f" name="On Selected" type="static-mappable" specialization="On Selected" specializationId="25a22edc-62f5-4daa-bb78-6e7a59855d6f" />
           </path>
           <sources>
             <source identifier="OnCustomerSelectedChanged" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
@@ -971,7 +1070,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="40626900-37dc-4986-aaa7-714434fe13a6" name="Add()" type="static-mappable" specialization="Add()" specializationId="40626900-37dc-4986-aaa7-714434fe13a6" />
                     <target id="8eca5952-2a80-448c-b03c-0170c8a16371" name="item" type="static-mappable" specialization="item" specializationId="8eca5952-2a80-448c-b03c-0170c8a16371">
-                      <typeReference id="b5c85153-31fc-41de-87a5-54976be84eef">
+                      <typeReference id="4dde2dbe-d666-4448-a1a1-68866220f415">
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -1091,7 +1190,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="f6bfb740-ca91-409b-a5d1-884c31385a68" name="Remove()" type="static-mappable" specialization="Remove()" specializationId="f6bfb740-ca91-409b-a5d1-884c31385a68" />
                     <target id="cce5f491-3ab2-40ed-8f72-081de4975ca9" name="item" type="static-mappable" specialization="item" specializationId="cce5f491-3ab2-40ed-8f72-081de4975ca9">
-                      <typeReference id="252d7812-c790-4f51-9e07-e125d075e25a">
+                      <typeReference id="7c1f237f-79de-4d51-bfcf-1adf34eb70f7">
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>

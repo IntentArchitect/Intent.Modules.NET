@@ -35,6 +35,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
         htmlElement.AddAttribute("Label", selectModel.TryGetLabelAddon(out var label) ? label.Label() : selectModel.Name);
         htmlElement.AddAttributeIfNotEmpty("@bind-Value:after", onSelectedBinding?.ToLambda());
 
+        parentNode.AddChildNode(htmlElement);
         var mappedEnd = _bindingManager.GetMappedEndFor(selectModel, "Options");
         if (mappedEnd == null)
         {
@@ -52,7 +53,7 @@ public class SelectComponentBuilder : IRazorComponentBuilder
                     .WithText(_bindingManager.GetBinding(selectModel, "Text", htmlElement)?.ToString());
             });
         });
-        parentNode.AddChildNode(htmlElement);
+        
         if (parentNode.GetAllNodesInHierarchy().OfType<HtmlElement>().Any(x => x.Name == "MudForm"))
         {
             if (valueMapping != null)

@@ -45,6 +45,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(SpacerModel.SpecializationTypeId, (provider, componentTemplate) => new SpacerComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(ImageModel.SpecializationTypeId, (provider, componentTemplate) => new ImageComponentBuilder(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.Register(AutoCompleteModel.SpecializationTypeId, (provider, componentTemplate) => new AutoCompleteComponentBuilder(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.Register(RadioGroupModel.SpecializationTypeId, (provider, componentTemplate) => new RadioGroupComponentBuilder(provider, componentTemplate));
 
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new MudBlazorLayoutInterceptor(provider, componentTemplate));
 
@@ -60,6 +61,9 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 configurator.AddTagNameAttributeMatch("MudNavGroup", "href");
                 configurator.AddTagNameAttributeMatch("MudNavGroup", "title");
                 configurator.AddTagNameAttributeMatch("MudNavLink", "href");
+                configurator.AddTagNameAttributeMatch("MudSelect", "Label");
+                configurator.AddTagNameAttributeMatch("MudAutocomplete", "Label");
+                configurator.AddTagNameAttributeMatch("MudRadioGroup", "Label");
 
                 configurator.AllowMatchByTagNameOnly("CardHeaderContent");
                 configurator.AllowMatchByTagNameOnly("CellTemplate");
