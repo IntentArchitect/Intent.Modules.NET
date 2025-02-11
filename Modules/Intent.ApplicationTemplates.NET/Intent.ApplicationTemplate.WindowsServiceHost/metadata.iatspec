@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.WindowsServiceHost</id>
-  <version>2.0.10</version>
+  <version>2.0.11-pre.0</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Windows Service Host</displayName>
   <shortDescription>Create Windows Service Application for the Windows Platform.</shortDescription>
@@ -131,20 +131,21 @@
     </group>
   </additionalSettings>
   <minimumDependencyVersions>
-    <module id="Intent.Application.Contracts.Clients" version="5.1.0" />
+    <module id="Intent.Application.Contracts.Clients" version="5.1.1" />
     <module id="Intent.Application.DependencyInjection.MediatR" version="3.5.15" />
-    <module id="Intent.Common" version="3.7.4" />
-    <module id="Intent.Common.CSharp" version="3.8.7" />
+    <module id="Intent.Common" version="3.7.5" />
+    <module id="Intent.Common.CSharp" version="3.8.8" />
+    <module id="Intent.Common.Types" version="4.1.1" />
     <module id="Intent.EntityFrameworkCore.DesignTimeDbContextFactory" version="4.2.4" />
     <module id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.2.4" />
     <module id="Intent.Metadata.Security" version="1.0.2" />
     <module id="Intent.Metadata.WebApi" version="4.7.2" />
     <module id="Intent.Modelers.Domain" version="3.12.1" />
     <module id="Intent.Modelers.ServiceProxies" version="5.2.1" />
-    <module id="Intent.Modelers.Services" version="3.9.1" />
+    <module id="Intent.Modelers.Services" version="3.9.2" />
     <module id="Intent.Modelers.Services.CQRS" version="5.1.1" />
-    <module id="Intent.Modelers.Services.ProxyInteractions" version="1.1.0" />
+    <module id="Intent.Modelers.Services.ProxyInteractions" version="1.1.1" />
     <module id="Intent.Modelers.Types.ServiceProxies" version="5.4.2" />
-    <module id="Intent.OutputManager.RoslynWeaver" version="4.9.2" />
+    <module id="Intent.OutputManager.RoslynWeaver" version="4.9.3" />
   </minimumDependencyVersions>
 </applicationTemplate>
