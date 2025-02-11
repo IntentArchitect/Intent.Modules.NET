@@ -11,6 +11,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Validation
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class InboundValidationDtoValidator : AbstractValidator<InboundValidationDto>
     {
+        private static readonly Regex RegexFieldRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
         [IntentManaged(Mode.Merge)]
         public InboundValidationDtoValidator()
         {
@@ -65,7 +66,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Validation
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
+                .Matches(RegexFieldRegex);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AzureFunctions.NET8.Application.Validators.Validation.InboundComVal
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class InboundComValCommandValidator : AbstractValidator<InboundComValCommand>
     {
+        private static readonly Regex RegexFieldRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
         [IntentManaged(Mode.Merge)]
         public InboundComValCommandValidator()
         {
@@ -66,7 +67,7 @@ namespace AzureFunctions.NET8.Application.Validators.Validation.InboundComVal
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
+                .Matches(RegexFieldRegex);
         }
     }
 }

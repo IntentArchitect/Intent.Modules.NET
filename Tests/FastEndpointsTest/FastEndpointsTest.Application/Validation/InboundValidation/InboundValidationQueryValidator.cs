@@ -11,6 +11,7 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class InboundValidationQueryValidator : AbstractValidator<InboundValidationQuery>
     {
+        private static readonly Regex RegexFieldRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
         [IntentManaged(Mode.Merge)]
         public InboundValidationQueryValidator()
         {
@@ -65,7 +66,7 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
+                .Matches(RegexFieldRegex);
         }
     }
 }

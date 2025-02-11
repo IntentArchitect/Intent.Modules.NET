@@ -12,6 +12,7 @@ namespace AzureFunctions.NET6.Application.Validators.Validation.InboundQueVal
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class InboundQueValQueryValidator : AbstractValidator<InboundQueValQuery>
     {
+        private static readonly Regex RegexFieldRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
         [IntentManaged(Mode.Merge)]
         public InboundQueValQueryValidator()
         {
@@ -66,7 +67,7 @@ namespace AzureFunctions.NET6.Application.Validators.Validation.InboundQueVal
 
             RuleFor(v => v.RegexField)
                 .NotNull()
-                .Matches(new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)));
+                .Matches(RegexFieldRegex);
         }
     }
 }

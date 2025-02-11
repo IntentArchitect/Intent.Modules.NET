@@ -11,6 +11,7 @@ namespace CleanArchitecture.Comprehensive.Application.AccountHolders.UpdateNoteA
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateNoteAccountHolderCommandValidator : AbstractValidator<UpdateNoteAccountHolderCommand>
     {
+        private static readonly Regex NoteRegex = new Regex(@"^[a-z]*$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
         [IntentManaged(Mode.Merge)]
         public UpdateNoteAccountHolderCommandValidator()
         {
@@ -23,7 +24,7 @@ namespace CleanArchitecture.Comprehensive.Application.AccountHolders.UpdateNoteA
         {
             RuleFor(v => v.Note)
                 .NotNull()
-                .Matches(new Regex(@"^[a-z]*$", RegexOptions.Compiled, TimeSpan.FromSeconds(1)))
+                .Matches(NoteRegex)
                 .WithMessage("Lower case only notes");
         }
     }
