@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"]));
+                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"], policies: ["user"]));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();
