@@ -107,7 +107,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
                 if (!string.IsNullOrWhiteSpace(policies))
                 {
-                    variableInvoc.AddArgument("roles", $"[{policies}]");
+                    variableInvoc.AddArgument("policies", $"[{policies}]");
                 }
 
                 var variableStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
@@ -130,7 +130,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
                 if (!string.IsNullOrWhiteSpace(policies))
                 {
-                    fixedInvoc.AddArgument("roles", $"[{policies}]");
+                    fixedInvoc.AddArgument("policies", $"[{policies}]");
                 }
 
                 var fixedStatement = new CSharpInvocationStatement(".HasConversion").WithoutSemicolon()
@@ -155,7 +155,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
             if (!string.IsNullOrWhiteSpace(policies))
             {
-                partialInvoc.AddArgument("roles", $"[{policies}]");
+                partialInvoc.AddArgument("policies", $"[{policies}]");
             }
 
             var partialStatement = new CSharpInvocationStatement(".HasConversion")
