@@ -1,10 +1,14 @@
+### Version 1.0.4
+
+- Fixed: Validation classes for Model Definitions will generate correctly when Model Definitions are placed inside Components.
+
 ### Version 1.0.3
 
-- Improvement: Ability to set a a timeout on `Regular Expression` validations
+- Improvement: Ability to set a timeout on `Regular Expression` validations
 
 ### Version 1.0.2
 
-- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+- Improvement: Ability to set a custom message on `Regular Expression` and `Must` validations
 
 ### Version 1.0.1
 

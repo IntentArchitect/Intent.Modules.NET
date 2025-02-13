@@ -1,6 +1,8 @@
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modules.Blazor.FluentValidation.Templates;
+using Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValidator;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Templates;
 using Intent.Templates;
@@ -8,7 +10,7 @@ using Intent.Templates;
 namespace Intent.Modules.FluentValidation.Shared;
 
 public static class CreateCustomValidationsExtensions
-{
+{ 
     public static void AddCustomValidations(
         this CSharpMethodChainStatement validationRuleChain,
         IFluentValidationTemplate template,
@@ -18,10 +20,15 @@ public static class CreateCustomValidationsExtensions
         {
             return;
         }
+        if (!template.TryGetModel<IElementWrapper>(out var componentModel))
+        {
+            return;
+        }
+        
         var validations = field.GetValidations();
         var @class = template.CSharpFile.Classes.First();
-
-        var toValidateTypeName = template.GetTypeName(template.ToValidateTemplateId, (IMetadataModel)((ITemplateWithModel)template).Model);
+        
+        var toValidateTypeName = ValidationModelResolverHelper.GetDtoTypeName(template, componentModel.InternalElement);
         if (validations.Custom())
         {
             validationRuleChain.AddChainStatement($"CustomAsync(Validate{field.Name.ToPascalCase()}Async)");

@@ -26,7 +26,7 @@ public static class SimpleValidationRulesExtensions
             .AddUsing("FluentValidation")
             .AddClass($"{dtoModel.Name}Validator", @class =>
             {
-                var toValidateTypeName = template.GetTypeName(template.ToValidateTemplateId, dtoModel);
+                var toValidateTypeName = ValidationModelResolverHelper.GetDtoTypeName(template, dtoModel);
 
                 @class.AddMetadata("validator", true);
                 @class.WithBaseType($"AbstractValidator<{toValidateTypeName}>");
@@ -39,8 +39,7 @@ public static class SimpleValidationRulesExtensions
                         .AddMetadata("configure-validation-rules", true));
                     ctor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                 });
-
-
+                
                 @class.AddMethod("void", "ConfigureValidationRules", method =>
                 {
                     method.Private();
@@ -63,18 +62,15 @@ public static class SimpleValidationRulesExtensions
             });
     }
 
-    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements(this IFluentValidationTemplate template,
+    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements(
+        this IFluentValidationTemplate template,
         IElement dtoModel,
         List<Action<CSharpMethodChainStatement, IElement>> configureFieldValidations,
         List<Action<CSharpMethodChainStatement>> configureClassValidations)
     {
-        var modelTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>(template.ToValidateTemplateId, dtoModel);
-        foreach (var field in dtoModel.ChildElements)
+        foreach (var fieldWithReference in ValidationModelResolverHelper.GetDtoFields(template, dtoModel))
         {
-            if (!modelTemplate.CSharpFile.Classes.First().TryGetReferenceForModel(field, out var reference) || reference is not CSharpProperty)
-            {
-                continue;
-            }
+            var (field, reference) = fieldWithReference;
             var validationRuleChain = new CSharpMethodChainStatement($"RuleFor(v => v.{reference.Name.ToPascalCase()})");
             validationRuleChain.AddMetadata("model", field);
 

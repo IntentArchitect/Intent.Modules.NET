@@ -8,6 +8,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.FluentValidation.Shared;
 using Intent.RoslynWeaver.Attributes;
@@ -26,7 +27,7 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValida
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ModelDefinitionValidatorTemplate(IOutputTarget outputTarget, ModelDefinitionModel model) : base(TemplateId, outputTarget, model)
         {
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
+            CSharpFile = new CSharpFile(this.GetNamespace(), ValidationModelResolverHelper.GetFolderPath(this, model));
             this.ConfigureForValidation(
                 dtoModel: model.InternalElement,
                 configureClassValidations: [],
