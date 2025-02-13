@@ -1,3 +1,7 @@
+### Version 1.1.8
+
+- Improvement: Bumped Domain Service Designer dependency.
+
 ### Version 1.1.7
 
 - Improvement: Updated module icon
