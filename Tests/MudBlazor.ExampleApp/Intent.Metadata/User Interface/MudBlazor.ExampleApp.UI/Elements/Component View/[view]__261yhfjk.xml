@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ec570601-dc9a-4d43-83eb-6c0b48d9ae4d" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3307721a-6243-4e0d-9a54-0a5a67212629</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

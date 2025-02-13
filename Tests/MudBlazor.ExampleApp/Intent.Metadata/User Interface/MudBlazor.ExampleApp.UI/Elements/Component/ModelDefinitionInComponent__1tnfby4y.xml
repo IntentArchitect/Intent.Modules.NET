@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3307721a-6243-4e0d-9a54-0a5a67212629" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>ModelDefinitionInComponent</name>
+  <display>ModelDefinitionInComponent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4ce7c6ec-b0c7-4123-b8b3-ac33274f5353</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="3307721a-6243-4e0d-9a54-0a5a67212629" location="[MudBlazor.ExampleApp].[User Interface].[ModelDefinitionInComponent]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="ec570601-dc9a-4d43-83eb-6c0b48d9ae4d" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds />
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="d1ce5bc2-4b00-4586-aafd-1ace96c67613" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c81578f1-54d6-4962-a84a-8bc9dd1bafca">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3307721a-6243-4e0d-9a54-0a5a67212629</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1364,6 +1364,46 @@
     </FileLog>
     <FileLog>
       <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#3307721a-6243-4e0d-9a54-0a5a67212629</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionTest/ModelDefinitionInComponent.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#3307721a-6243-4e0d-9a54-0a5a67212629</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelDefinitionInComponent.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionTest/ModelDefinitionInComponent.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ModelDefinitionValidator#e5d51232-87f9-45a3-9fea-21d459877ae5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelInComponentValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionTest/ModelInComponentValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ModelDefinitionTemplate#5f37b94c-bb28-4f89-b424-b7e2da25fa3b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionTest/ModelOutsideComponent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ModelDefinitionValidator#5f37b94c-bb28-4f89-b424-b7e2da25fa3b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/ModelDefinitionTest/ModelOutsideComponentValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModelDefinitionTest/ModelOutsideComponentValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#034e5ad7-94f5-45b1-a010-3d60bd78514a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/MudBlazor.ExampleApp.Client.csproj</ApplicationRelativeFilePath>
