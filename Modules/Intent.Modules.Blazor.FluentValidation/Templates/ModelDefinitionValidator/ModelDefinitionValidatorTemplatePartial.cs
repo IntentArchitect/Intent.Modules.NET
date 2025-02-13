@@ -26,7 +26,6 @@ namespace Intent.Modules.Blazor.FluentValidation.Templates.ModelDefinitionValida
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ModelDefinitionValidatorTemplate(IOutputTarget outputTarget, ModelDefinitionModel model) : base(TemplateId, outputTarget, model)
         {
-            var letsPretendYouAreADto = new DTOModel(model.InternalElement, model.InternalElement.SpecializationType);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath());
             this.ConfigureForValidation(
                 dtoModel: model.InternalElement,

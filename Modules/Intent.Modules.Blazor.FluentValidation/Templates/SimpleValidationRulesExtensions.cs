@@ -16,23 +16,6 @@ namespace Intent.Modules.FluentValidation.Shared;
 
 public static class SimpleValidationRulesExtensions
 {
-    //public static bool HasValidationRules(
-    //    DTOModel dtoModel,
-    //    string dtoTemplateId,
-    //    string dtoValidatorTemplateId,
-    //    bool uniqueConstraintValidationEnabled,
-    //    bool customValidationEnabled,
-    //    List<Action<CSharpMethodChainStatement, IElement>> configureValidations)
-    //{
-    //    return GetValidationRulesStatements(
-    //        template: default,
-    //        dtoModel: dtoModel,
-    //        dtoTemplateId: dtoTemplateId,
-    //        dtoValidatorTemplateId: dtoValidatorTemplateId,
-    //        configureValidations: configureValidations).Any();
-    //}
-
-
     public static void ConfigureForValidation(
         this IFluentValidationTemplate template,
         IElement dtoModel,
@@ -279,19 +262,4 @@ public static class SimpleValidationRulesExtensions
         validatorClass.FindMethod(p => p.Name == "ConfigureValidationRules")
             ?.AddParameter(validatorProviderInterface, "provider");
     }
-
-    private static bool IsCreateDto(DTOModel dtoModel)
-    {
-        return dtoModel.Name.StartsWith("create", StringComparison.InvariantCultureIgnoreCase) ||
-               dtoModel.Name.StartsWith("add", StringComparison.InvariantCultureIgnoreCase) ||
-               dtoModel.Name.StartsWith("new", StringComparison.InvariantCultureIgnoreCase);
-    }
-
-    private static bool IsUpdateDto(DTOModel dtoModel)
-    {
-        return dtoModel.Name.StartsWith("update", StringComparison.InvariantCultureIgnoreCase) ||
-               dtoModel.Name.StartsWith("edit", StringComparison.InvariantCultureIgnoreCase);
-    }
-
-
 }
