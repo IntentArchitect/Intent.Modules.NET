@@ -127,6 +127,7 @@
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -278,6 +279,7 @@
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -453,6 +455,7 @@ for (let element of elements) {
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -489,6 +492,7 @@ for (let element of elements) {
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -550,6 +554,7 @@ for (let element of elements) {
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -586,6 +591,7 @@ for (let element of elements) {
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -637,6 +643,7 @@ for (let element of elements) {
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -664,6 +671,7 @@ for (let element of elements) {
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -751,6 +759,7 @@ return libraryIcon;</iconFunction>
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -795,6 +804,7 @@ return libraryIcon;</iconFunction>
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -933,6 +943,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -960,6 +971,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1011,6 +1023,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1038,6 +1051,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1099,6 +1113,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1135,6 +1150,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1196,6 +1212,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1232,6 +1249,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1284,6 +1302,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1311,6 +1330,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1362,6 +1382,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1389,6 +1410,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1596,6 +1618,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1721,6 +1744,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1765,6 +1789,7 @@ property.setValue("enable");
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1801,6 +1826,7 @@ property.setValue("enable");
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1915,6 +1941,7 @@ if (element.getParent().specialization == "Visual Studio Solution") {
         <createElement type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>
@@ -1941,6 +1968,7 @@ if (element.getParent().specialization == "Visual Studio Solution") {
         <option type="element">
           <text>Add Template Output</text>
           <icon type="FontAwesome" source="file-code-o" />
+          <isOptionVisibleFunction>return false;</isOptionVisibleFunction>
           <specializationType>Template Output</specializationType>
           <specializationTypeId>d421c322-7a51-4094-89fa-e5d8a0a97b27</specializationTypeId>
           <defaultName>NewTemplateOutput</defaultName>

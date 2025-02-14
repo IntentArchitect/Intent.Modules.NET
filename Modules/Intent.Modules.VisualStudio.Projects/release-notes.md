@@ -1,3 +1,7 @@
+### Version 3.8.8
+
+- Improvement: It is no longer possible to create `Template Output` elements (these are always installed as needed by modules).
+
 ### Version 3.8.7
 
 - Improvement: Added help topics for the Visual Studio Designer.
