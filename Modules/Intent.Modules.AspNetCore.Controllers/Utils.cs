@@ -1,8 +1,6 @@
-﻿#nullable enable
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using Intent.Metadata.Models;
 using Intent.Modules.AspNetCore.Controllers.Templates;
 using Intent.Modules.AspNetCore.Controllers.Templates.Controller;
@@ -11,20 +9,19 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
-using Microsoft.Build.Evaluation;
 
 namespace Intent.Modules.AspNetCore.Controllers;
 
 public static class Utils
 {
 
-    private static readonly Dictionary<string, ResponseCodeLookup> _responseCodeLookup = new() 
+    private static readonly Dictionary<string, ResponseCodeLookup> ResponseCodeLookups = new() 
         { 
             { "200 (Ok)", new ResponseCodeLookup("200", "Status200OK", resultExpression => $"Ok({resultExpression})") },
-            { "201 (Created)", new ResponseCodeLookup("201", "Status201Created", resultExpression => string.IsNullOrEmpty(resultExpression) ? $"Created(string.Empty, null)" : $"Created(string.Empty, {resultExpression})") },
+            { "201 (Created)", new ResponseCodeLookup("201", "Status201Created", resultExpression => string.IsNullOrEmpty(resultExpression) ? "Created(string.Empty, null)" : $"Created(string.Empty, {resultExpression})") },
             { "202 (Accepted)", new ResponseCodeLookup("202", "Status202Accepted", resultExpression => $"Accepted({resultExpression})") },
             { "203 (Non-Authoritative Information)", new ResponseCodeLookup("203", "Status203NonAuthoritative", resultExpression => $"StatusCode(203{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
-            { "204 (No Content)", new ResponseCodeLookup("204", "Status204NoContent", resultExpression => $"NoContent()") },
+            { "204 (No Content)", new ResponseCodeLookup("204", "Status204NoContent", _ => "NoContent()") },
             { "205 (Reset Content)", new ResponseCodeLookup("205", "Status205ResetContent", resultExpression => $"StatusCode(205{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
             { "206 (Partial Content)", new ResponseCodeLookup("206", "Status206PartialContent", resultExpression => $"StatusCode(206{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
             { "207 (Multi-Status)", new ResponseCodeLookup("207", "Status207MultiStatus", resultExpression => $"StatusCode(207{(string.IsNullOrEmpty(resultExpression) ? "" : $", {resultExpression}")})") },
@@ -39,7 +36,7 @@ public static class Utils
         var isWrappedReturnType = operationModel.MediaType == HttpMediaType.ApplicationJson;
         var returnsCollection = operationModel.ReturnType?.IsCollection == true;
         var returnsString = operationModel.ReturnType.HasStringType();
-        var returnsPrimitive = template.GetTypeInfo(operationModel.ReturnType).IsPrimitive &&
+        var returnsPrimitive = template.GetTypeInfo(operationModel.ReturnType!).IsPrimitive &&
                                !returnsCollection;
 
         return isWrappedReturnType && (returnsPrimitive || returnsString);
@@ -51,21 +48,20 @@ public static class Utils
         {
             return null;
         }
+
         var settings = operation.InternalElement.GetStereotype("Http Settings");
         if (!settings.TryGetProperty("Success Response Code", out var property))
         {
             return null;
         }
+
         //Not specified use the default
         if (string.IsNullOrEmpty(property.Value))
         {
             return null;
         }
-        if (!_responseCodeLookup.TryGetValue(property.Value, out var result))
-        {
-            return null;
-        }
-        return result;
+
+        return ResponseCodeLookups.GetValueOrDefault(property.Value);
     }
 
     internal static string GetSuccessResponseCode(this IControllerOperationModel operation, string defaultValue)
@@ -146,7 +142,7 @@ public static class Utils
                             {
                                 returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {resultExpression})";
 
-                                // if multitenancy configured and its an http post, then add the tenant to the parameters
+                                // if multitenancy configured, and it's a http post, then add the tenant to the parameters
                                 if(IsRouteMultiTenancyConfigured(template, operationModel) && operationModel.Verb == HttpVerb.Post)
                                 {
                                     returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result, tenant = tenantInfo.Id }}, {resultExpression})";
@@ -171,7 +167,7 @@ public static class Utils
                                 var aggregateIdParameter = getByIdOperation.Parameters[0].Name.ToCamelCase();
                                 returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result }}, {resultExpression})";
 
-                                // if multitenancy configured and its an http post, then add the tenant to the parameters
+                                // if multitenancy configured, and it's a http post, then add the tenant to the parameters
                                 if (IsRouteMultiTenancyConfigured(template, operationModel) && operationModel.Verb == HttpVerb.Post)
                                 {
                                     returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result, tenant = tenantInfo.Id }}, {resultExpression})";
@@ -216,12 +212,7 @@ public static class Utils
         var routeParamValue = template.ExecutionContext.GetSettings().GetSetting("41ae5a02-3eb2-42a6-ade2-322b3c1f1115", "c8ff4af6-68b6-4e31-a291-43ada6a0008a");
 
         // if the method is not using the route parameter in the URL path
-        if (!operation.Route.Contains($"{{{routeParamValue?.Value ?? string.Empty}}}"))
-        {
-            return false;
-        }
-
-        return true;
+        return operation.Route?.Contains($"{{{routeParamValue?.Value ?? string.Empty}}}") == true;
     }
 
     public static bool CanReturnNotFound(this IControllerOperationModel operation)
@@ -264,7 +255,7 @@ public static class Utils
         var openApiSettings = element?.GetStereotype("OpenAPI Settings");
         if (openApiSettings == null)
         {
-            value = default;
+            value = false;
             return false;
         }
 
