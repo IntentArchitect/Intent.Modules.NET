@@ -54,6 +54,13 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     {
                         priClass.ImplementsInterface(softDeleteInterfaceName);
                     }
+
+                    priClass.AddMethod("void", "ISoftDelete.SetDeleted", method =>
+                    {
+                        method.WithoutAccessModifier();
+                        method.AddParameter("bool", "isDeleted");
+                        method.AddStatement("IsDeleted = isDeleted;");
+                    });
                 });
             }
         }

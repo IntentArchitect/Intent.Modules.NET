@@ -56,6 +56,13 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     {
                         priClass.ImplementsInterface(softDeleteInterfaceName);
                     }
+
+                    priClass.AddMethod("void", "ISoftDelete.SetDeleted", method =>
+                    {
+                        method.WithoutAccessModifier();
+                        method.AddParameter("bool", "isDeleted");
+                        method.AddStatement("IsDeleted = isDeleted;");
+                    });
                 });
             }
         }
@@ -108,7 +115,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                         @else.AddStatements(existing);
                     });
                 }
-                
+
                 var findAllMethod = @class.Methods.FirstOrDefault(m => m.Name == "FindAllAsync" && m.Parameters.Count == 1);
                 if (findAllMethod is not null)
                 {
@@ -129,7 +136,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                             .AddStatement($"queryable = queryable.Where(d => (({repo.GetSoftDeleteInterfaceName()})d!).IsDeleted == false);"));
                     }
                 }
-                
+
                 var adaptFilterPredicateMethod = @class.FindMethod("AdaptFilterPredicate");
                 if (adaptFilterPredicateMethod is not null)
                 {
