@@ -132,8 +132,8 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     var targetStmt = createQueryMethod.Statements.LastOrDefault(x => x.GetText("") == "return queryable;");
                     if (targetStmt is not null)
                     {
-                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}).IsAssignableFrom(typeof(TDocumentInterface))")
-                            .AddStatement($"queryable = queryable.Where(d => (({repo.GetSoftDeleteInterfaceName()})d!).IsDeleted == false);"));
+                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly).IsAssignableFrom(typeof(TDocumentInterface))")
+                            .AddStatement($"queryable = queryable.Where(d => (({repo.GetSoftDeleteInterfaceName()}ReadOnly)d!).IsDeleted == false);"));
                     }
                 }
 
@@ -144,9 +144,9 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     if (targetStmt is not null)
                     {
                         targetStmt.InsertAbove("var adaptedBody = visitor.Visit(expression.Body)!;");
-                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}).IsAssignableFrom(typeof(TDocumentInterface))")
-                            .AddStatement($"var convertToSoftDelete = Expression.Convert(afterParameter, typeof({repo.GetSoftDeleteInterfaceName()}));")
-                            .AddStatement($"var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof({repo.GetSoftDeleteInterfaceName()}.IsDeleted));")
+                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly).IsAssignableFrom(typeof(TDocumentInterface))")
+                            .AddStatement($"var convertToSoftDelete = Expression.Convert(afterParameter, typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly));")
+                            .AddStatement($"var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof({repo.GetSoftDeleteInterfaceName()}ReadOnly.IsDeleted));")
                             .AddStatement("var isDeletedCheck = Expression.Equal(isDeletedProperty, Expression.Constant(false));")
                             .AddStatement("adaptedBody = Expression.AndAlso(adaptedBody, isDeletedCheck);"));
                         targetStmt.Replace("return Expression.Lambda<Func<TDocument, bool>>(adaptedBody, afterParameter);");
