@@ -1,12 +1,17 @@
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.SoftDelete.SoftDeleteInterface", Version = "1.0")]
 
 namespace EntityFrameworkCore.MySql.Domain.Common.Interfaces
 {
-    public interface ISoftDelete
+    public interface ISoftDelete : ISoftDeleteReadOnly
     {
-        bool IsDeleted { get; set; }
+        void SetDeleted(bool isDeleted);
+    }
+
+    public interface ISoftDeleteReadOnly
+    {
+        bool IsDeleted { get; }
     }
 }

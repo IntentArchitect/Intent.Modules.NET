@@ -79,11 +79,19 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
 
         public void Remove(TDomain entity)
         {
-            _unitOfWork.Enqueue(async cancellationToken =>
+            if (entity is ISoftDelete softDeleteEntity)
             {
-                var document = new TDocument().PopulateFromEntity(entity);
-                await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
-            });
+                softDeleteEntity.SetDeleted(true);
+                Update(entity);
+            }
+            else
+            {
+                _unitOfWork.Enqueue(async cancellationToken =>
+                {
+                    var document = new TDocument().PopulateFromEntity(entity);
+                    await _cosmosRepository.DeleteAsync(document, cancellationToken: cancellationToken);
+                });
+            }
         }
 
         public async Task<TDomain?> FindAsync(
@@ -103,7 +111,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
 
         public async Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            var documents = await _cosmosRepository.GetAsync(_ => true, cancellationToken);
+            var documents = await _cosmosRepository.GetAsync(AdaptFilterPredicate(_ => true), cancellationToken);
             var results = LoadAndTrackDocuments(documents).ToList();
 
             return results;
@@ -271,6 +279,11 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             //Filter by document type
             queryable = queryable.Where(d => ((IItem)d!).Type == _documentType);
 
+            if (typeof(ISoftDelete).IsAssignableFrom(typeof(TDocumentInterface)))
+            {
+                queryable = queryable.Where(d => ((ISoftDelete)d!).IsDeleted == false);
+            }
+
             return queryable;
         }
 
@@ -314,7 +327,16 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Repositories
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
-            return Expression.Lambda<Func<TDocument, bool>>(visitor.Visit(expression.Body)!, afterParameter);
+            var adaptedBody = visitor.Visit(expression.Body)!;
+
+            if (typeof(ISoftDelete).IsAssignableFrom(typeof(TDocumentInterface)))
+            {
+                var convertToSoftDelete = Expression.Convert(afterParameter, typeof(ISoftDelete));
+                var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof(ISoftDelete.IsDeleted));
+                var isDeletedCheck = Expression.Equal(isDeletedProperty, Expression.Constant(false));
+                adaptedBody = Expression.AndAlso(adaptedBody, isDeletedCheck);
+            }
+            return Expression.Lambda<Func<TDocument, bool>>(adaptedBody, afterParameter);
         }
 
         public TDomain LoadAndTrackDocument(TDocument document)

@@ -14,6 +14,8 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 
         string Name { get; set; }
 
+        bool IsDeleted { get; set; }
+
         void Update(ClientType type, string name);
     }
 }

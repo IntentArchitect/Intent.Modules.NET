@@ -434,7 +434,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Persistence
             foreach (var entry in entities)
             {
                 var entity = (ISoftDelete)entry.Entity;
-                entity.IsDeleted = true;
+                entity.SetDeleted(true);
                 entry.State = EntityState.Modified;
             }
         }

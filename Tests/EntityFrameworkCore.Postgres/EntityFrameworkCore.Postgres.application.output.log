@@ -164,7 +164,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>f63a3767-bdd5-4541-853a-5d368f61db7a</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISoftDelete.cs</ProjectRelativeFilePath>

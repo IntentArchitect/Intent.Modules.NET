@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3978a079-a151-4411-8893-569f98c7622f</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</CorrelationId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.DbContextInterface.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISoftDelete.cs</ProjectRelativeFilePath>

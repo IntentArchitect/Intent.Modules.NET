@@ -22,5 +22,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.SoftDelet
         public bool IsDeleted { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
+
+        void ISoftDelete.SetDeleted(bool isDeleted)
+        {
+            IsDeleted = isDeleted;
+        }
     }
 }

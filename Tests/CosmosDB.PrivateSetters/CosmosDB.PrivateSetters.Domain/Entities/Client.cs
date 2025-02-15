@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using CosmosDB.PrivateSetters.Domain.Common;
+using CosmosDB.PrivateSetters.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
 
 namespace CosmosDB.PrivateSetters.Domain.Entities
 {
-    public class Client : IHasDomainEvent
+    public class Client : IHasDomainEvent, ISoftDelete
     {
         private string? _identifier;
 
@@ -31,12 +32,19 @@ namespace CosmosDB.PrivateSetters.Domain.Entities
 
         public string Name { get; private set; }
 
+        public bool IsDeleted { get; private set; }
+
         public List<DomainEvent> DomainEvents { get; set; } = [];
 
         public void Update(ClientType type, string name)
         {
             Type = type;
             Name = name;
+        }
+
+        void ISoftDelete.SetDeleted(bool isDeleted)
+        {
+            IsDeleted = isDeleted;
         }
     }
 }

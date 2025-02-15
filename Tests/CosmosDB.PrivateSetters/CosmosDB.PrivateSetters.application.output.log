@@ -1612,6 +1612,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fe170cf5-5032-47be-9edf-65add3361587</ProjectId>
+      <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISoftDelete.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fe170cf5-5032-47be-9edf-65add3361587</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.PrivateSetters.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>

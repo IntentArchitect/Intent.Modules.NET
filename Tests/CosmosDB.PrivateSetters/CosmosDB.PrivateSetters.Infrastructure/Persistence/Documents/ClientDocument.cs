@@ -30,6 +30,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         [JsonProperty("@type")]
         public ClientType Type { get; set; }
         public string Name { get; set; } = default!;
+        public bool IsDeleted { get; set; }
 
         public Client ToEntity(Client? entity = default)
         {
@@ -38,6 +39,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
             ReflectionHelper.ForceSetProperty(entity, nameof(Identifier), Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(Type), Type);
             ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
+            ReflectionHelper.ForceSetProperty(entity, nameof(IsDeleted), IsDeleted);
 
             return entity;
         }
@@ -47,6 +49,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
             Identifier = entity.Identifier;
             Type = entity.Type;
             Name = entity.Name;
+            IsDeleted = entity.IsDeleted;
 
             return this;
         }

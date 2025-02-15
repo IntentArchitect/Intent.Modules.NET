@@ -17,5 +17,10 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Entities.SoftDelete
         public string Attribute1 { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        void ISoftDelete.SetDeleted(bool isDeleted)
+        {
+            IsDeleted = isDeleted;
+        }
     }
 }
