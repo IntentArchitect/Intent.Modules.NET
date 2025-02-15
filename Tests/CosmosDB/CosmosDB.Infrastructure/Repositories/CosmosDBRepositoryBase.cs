@@ -330,16 +330,16 @@ namespace CosmosDB.Infrastructure.Repositories
             var afterParameter = Expression.Parameter(typeof(TDocument), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);
             var adaptedBody = visitor.Visit(expression.Body)!;
-            
+
             if (typeof(ISoftDelete).IsAssignableFrom(typeof(TDocumentInterface)))
             {
                 var convertToSoftDelete = Expression.Convert(afterParameter, typeof(ISoftDelete));
                 var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof(ISoftDelete.IsDeleted));
                 var isDeletedCheck = Expression.Equal(isDeletedProperty, Expression.Constant(false));
-        
+
                 adaptedBody = Expression.AndAlso(adaptedBody, isDeletedCheck);
             }
-            
+
             return Expression.Lambda<Func<TDocument, bool>>(adaptedBody, afterParameter);
         }
 

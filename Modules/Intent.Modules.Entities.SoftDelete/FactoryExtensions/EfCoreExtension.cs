@@ -30,13 +30,13 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             {
                 return;
             }
-            
+
             InstallSoftDeleteOnEntities(application);
             InstallSoftDeleteOnDbContext(application);
             InstallSoftDeleteOnEntityTypeConfiguration(application);
         }
 
-        private void InstallSoftDeleteOnEntities(IApplication application)
+        private static void InstallSoftDeleteOnEntities(IApplication application)
         {
             var entities = application
                 .FindTemplateInstances<IIntentTemplate<ClassModel>>(
@@ -58,7 +58,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             }
         }
 
-        private void InstallSoftDeleteOnDbContext(IApplication application)
+        private static void InstallSoftDeleteOnDbContext(IApplication application)
         {
             var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(
                 TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
@@ -81,7 +81,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             }, 100);
         }
 
-        private void InstallSoftDeleteOnEntityTypeConfiguration(IApplication application)
+        private static void InstallSoftDeleteOnEntityTypeConfiguration(IApplication application)
         {
             var entities = application
                 .FindTemplateInstances<IIntentTemplate<ClassModel>>(

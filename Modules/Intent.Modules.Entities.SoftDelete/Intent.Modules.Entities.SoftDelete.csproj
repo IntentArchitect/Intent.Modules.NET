@@ -20,4 +20,10 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.CosmosDB\Templates\CosmosDBRepositoryBase\MetadataNames.cs">
+      <Link>FactoryExtensions\MetadataNames.cs</Link>
+    </Compile>
+  </ItemGroup>
+
 </Project>
