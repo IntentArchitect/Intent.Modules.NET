@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Moved Soft Delete pattern to `Intent.Entities.SoftDelete` (which is installed when you update to this module version). It is safe to remove this module.
+
 ### Version 1.0.5
 
 - Fixed: SoftDelete being added to child class and parent class EF Configurations when parent class wasn't `abstract`.

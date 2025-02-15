@@ -9,8 +9,17 @@
   <parentFolderId>eca90396-0828-43f5-9bbd-32c16ba595e4</parentFolderId>
   <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
   <packageName>CosmosDB.Domain</packageName>
-  <stereotypes />
-  <metadata />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="65860af3-8805-4a63-9fb9-3884b80f4380" name="Soft Delete Entity">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.SoftDelete</definitionPackageName>
+      <definitionPackageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
   <childElements>
     <childElement id="2f9e33e2-1bbe-4482-9c06-8df4c0682e11" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Identifier</name>
@@ -93,6 +102,33 @@
       <packageName>CosmosDB.Domain</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9a1760d6-4ac7-4a2d-88a9-4c1d2bf39c1a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsDeleted</name>
+      <display>IsDeleted: bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="adf10251-6c17-40ff-8c88-26069317bcee">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d929830c-66b5-41d7-8354-ff99c7c1410c</parentFolderId>
+      <packageId>eca90396-0828-43f5-9bbd-32c16ba595e4</packageId>
+      <packageName>CosmosDB.Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="soft-delete" value="true" />
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
     <childElement id="227427e8-d62a-4a51-9255-1d0acfa9b394" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">

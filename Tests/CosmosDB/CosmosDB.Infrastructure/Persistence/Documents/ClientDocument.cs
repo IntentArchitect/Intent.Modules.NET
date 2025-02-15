@@ -35,6 +35,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         [JsonProperty("@type")]
         public ClientType Type { get; set; }
         public string Name { get; set; } = default!;
+        public bool IsDeleted { get; set; }
 
         public Client ToEntity(Client? entity = default)
         {
@@ -43,6 +44,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
             entity.Type = Type;
             entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
+            entity.IsDeleted = IsDeleted;
 
             return entity;
         }
@@ -52,6 +54,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             Identifier = entity.Identifier;
             Type = entity.Type;
             Name = entity.Name;
+            IsDeleted = entity.IsDeleted;
 
             _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
 

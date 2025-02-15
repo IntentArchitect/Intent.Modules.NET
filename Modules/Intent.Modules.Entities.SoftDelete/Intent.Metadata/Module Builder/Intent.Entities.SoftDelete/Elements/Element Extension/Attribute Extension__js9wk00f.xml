@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7e6cdbf2-384d-4301-afd3-aa21e87466e4" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Attribute Extension</name>
+  <display>Attribute Extension: Attribute</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="61c047d7-b43e-454f-8f11-cfb709814ead">
+    <typeId>0090fb93-483e-41af-a11d-5ad2dc796adf</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>04aadad9-1b68-4001-9662-a62c500ca754</parentFolderId>
+  <packageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</packageId>
+  <packageName>Intent.Entities.SoftDelete</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" value="null" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" value="[]" isActive="true" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="3c5113b3-814f-43cd-9451-8ee3d849a61a" type="Element Event Settings" typeId="3c628ab0-2407-4fb0-8507-ddde986cff2e">
+      <name>NewElementEventSettings</name>
+      <display>[events]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7e6cdbf2-384d-4301-afd3-aa21e87466e4</parentFolderId>
+      <packageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</packageId>
+      <packageName>Intent.Entities.SoftDelete</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="6ee3fe4a-3ca5-40ec-ac3e-43a430e23def" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Changed</name>
+          <display>On Changed: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8576d771-931f-49ff-945c-9f83f05b8938">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3c5113b3-814f-43cd-9451-8ee3d849a61a</parentFolderId>
+          <packageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</packageId>
+          <packageName>Intent.Entities.SoftDelete</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;65860af3-8805-4a63-9fb9-3884b80f4380&quot;;&#xD;&#xA;const boolTypeId = &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;;&#xD;&#xA;&#xD;&#xA;if (!element.getParent().hasStereotype(stereotypeId)) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0];&#xD;&#xA;if (!isDeleteAttr) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;isDeleteAttr.setName(&quot;IsDeleted&quot;);&#xD;&#xA;isDeleteAttr.typeReference.setType(boolTypeId);" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[]" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="25ac3b74-2541-4af2-b04e-2a0199a86ac8" type="Element Event Handler" typeId="0ef412e3-d15a-45d3-bcd3-f646165f2eb6">
+          <name>On Deleted</name>
+          <display>On Deleted: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a2c024fa-0939-4062-85b4-b232bca5ae3d">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3c5113b3-814f-43cd-9451-8ee3d849a61a</parentFolderId>
+          <packageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</packageId>
+          <packageName>Intent.Entities.SoftDelete</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;65860af3-8805-4a63-9fb9-3884b80f4380&quot;;&#xD;&#xA;const boolTypeId = &quot;e6f92b09-b2c5-4536-8270-a4d9e5bbd930&quot;;&#xD;&#xA;&#xD;&#xA;if (element.getParent().hasStereotype(stereotypeId)) {&#xD;&#xA;    let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0] ||&#xD;&#xA;        createElement(&quot;Attribute&quot;, &quot;IsDeleted&quot;, element.id);&#xD;&#xA;    isDeleteAttr.typeReference.setType(boolTypeId);&#xD;&#xA;    isDeleteAttr.setMetadata(&quot;soft-delete&quot;, true);&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let isDeleteAttr = element.getParent().getChildren(&quot;Attribute&quot;).filter(x =&gt; x.hasMetadata(&quot;soft-delete&quot;))[0];&#xD;&#xA;if (isDeleteAttr) {&#xD;&#xA;    isDeleteAttr.delete();&#xD;&#xA;}&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[]" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

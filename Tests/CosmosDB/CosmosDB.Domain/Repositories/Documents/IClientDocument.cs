@@ -1,3 +1,5 @@
+using CosmosDB.Domain.Common;
+using CosmosDB.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -5,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CosmosDB.Domain.Repositories.Documents
 {
-    public interface IClientDocument
+    public interface IClientDocument : ISoftDeleteReadOnly
     {
         string Identifier { get; }
         ClientType Type { get; }

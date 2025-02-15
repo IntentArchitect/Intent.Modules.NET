@@ -47,7 +47,7 @@ namespace CosmosDB.Infrastructure
                     .Configure<AutoscaleWithMaxValueDocument>(c => c
                         .WithContainer("PackageContainer")
                         .WithPartitionKey("/packagePartitionKey")
-                        .WithAutoscaleThroughput(900))
+                        .WithAutoscaleThroughput(2000))
                     .Configure<BaseTypeDocument>(c => c
                         .WithContainer(defaultContainerId))
                     .Configure<CategoryDocument>(c => c
