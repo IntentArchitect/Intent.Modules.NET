@@ -213,10 +213,10 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             var returnType = FileTransferHelper.IsFileDownloadOperation(operation) ? "byte[]" : operation.ReturnType != null ? GetTypeName(operation.ReturnType) : "";
             lines.Add("/// </summary>");
 
-            foreach(var param in operation.Parameters)
+            foreach (var param in operation.Parameters)
             {
-                if(param.MappedPayloadProperty != null && 
-                    param.MappedPayloadProperty.HasStereotype("OpenAPI Settings") && 
+                if (param.MappedPayloadProperty != null &&
+                    param.MappedPayloadProperty.HasStereotype("OpenAPI Settings") &&
                     !string.IsNullOrWhiteSpace(param.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value))
                 {
                     lines.Add($"/// <param name=\"{param.Name.ToParameterName()}\" example=\"{param.MappedPayloadProperty.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}\"></param>");
@@ -322,6 +322,11 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Unknown verb: {operation.Verb}");
+            }
+
+            if (operation.Verb is not HttpVerb.Patch && operation.CanReturnNoContent())
+            {
+                attributes.Add(new CSharpAttribute($"[ProducesResponseType(StatusCodes.{operation.GetSuccessResponseCodeEnumValue("Status204NoContent")})]"));
             }
 
             if (operation.Parameters.Any())

@@ -53,6 +53,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("api/optional/{id}")]
         [ProducesResponseType(typeof(OptionalDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<OptionalDto?>> GetOptionalById(

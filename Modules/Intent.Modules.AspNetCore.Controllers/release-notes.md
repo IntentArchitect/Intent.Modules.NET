@@ -1,4 +1,8 @@
-﻿### Version 7.1.0
+﻿### Version 7.1.1
+
+- Improvement: Controller methods will now have `[ProducesResponseType(StatusCodes.Status204NoContent)]` applied to them when its operation returns a nullable non-collection.
+
+### Version 7.1.0
 
 - Fixed: Update to the new WebAPI module version to rather make use of the Secure by Default setting for HTTP Clients so that when the setting moves, everything is still intact.
 

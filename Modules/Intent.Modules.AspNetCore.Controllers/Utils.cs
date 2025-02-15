@@ -215,6 +215,12 @@ public static class Utils
         return operation.Route?.Contains($"{{{routeParamValue?.Value ?? string.Empty}}}") == true;
     }
 
+    public static bool CanReturnNoContent(this IControllerOperationModel operation)
+    {
+        return operation.ReturnType is { IsNullable: true, IsCollection: false } &&
+               !CSharpTypeIsCollection(operation.ReturnType);
+    }
+
     public static bool CanReturnNotFound(this IControllerOperationModel operation)
     {
         if (operation.ReturnType?.IsNullable == true)
@@ -232,22 +238,6 @@ public static class Utils
 
         return operation.Parameters.Any(x => x.Name.EndsWith("id", StringComparison.OrdinalIgnoreCase) ||
                                              x.Name.StartsWith("id", StringComparison.OrdinalIgnoreCase));
-
-        static bool CSharpTypeIsCollection(ITypeReference? typeReference)
-        {
-            if (typeReference?.Element is not IElement element)
-            {
-                return false;
-            }
-
-            var stereotype = element.GetStereotype("C#");
-            if (stereotype == null)
-            {
-                return false;
-            }
-
-            return stereotype.GetProperty<bool>("Is Collection");
-        }
     }
 
     public static bool TryGetIsIgnoredForApiExplorer(this IElement? element, out bool value)
@@ -261,5 +251,21 @@ public static class Utils
 
         value = openApiSettings.GetProperty<bool>("Ignore");
         return true;
+    }
+
+    private static bool CSharpTypeIsCollection(ITypeReference? typeReference)
+    {
+        if (typeReference?.Element is not IElement element)
+        {
+            return false;
+        }
+
+        var stereotype = element.GetStereotype("C#");
+        if (stereotype == null)
+        {
+            return false;
+        }
+
+        return stereotype.GetProperty<bool>("Is Collection");
     }
 }

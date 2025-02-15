@@ -34,6 +34,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("api/test-nullablity-with-null-return/{id}")]
         [ProducesResponseType(typeof(TestNullablityDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<TestNullablityDto?>> GetTestNullabilityWithNullReturn(

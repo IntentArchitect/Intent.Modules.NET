@@ -138,6 +138,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Api.Controllers
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("test-d-c/{id}")]
         [ProducesResponseType(typeof(TestAddressDCResultDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<TestAddressDCResultDto?>> TestDC(

@@ -104,6 +104,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Api.Controll
         /// <response code="400">One or more validation errors have occurred.</response>
         [HttpPut("api/user/{id}/test-d-c")]
         [ProducesResponseType(typeof(TestAddressDCDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<TestAddressDCDto?>> TestDCUser(
