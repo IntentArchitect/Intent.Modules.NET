@@ -29,11 +29,13 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
 
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Person> People { get; set; }
+        public DbSet<SoftDeleteEntity> SoftDeleteEntities { get; set; }
         public DbSet<Tag> Tags { get; set; }
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             SetAuditableFields();
+            SetSoftDeleteProperties();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -42,6 +44,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
             CancellationToken cancellationToken = default)
         {
             SetAuditableFields();
+            SetSoftDeleteProperties();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
@@ -54,6 +57,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new InvoiceConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            modelBuilder.ApplyConfiguration(new SoftDeleteEntityConfiguration());
             modelBuilder.ApplyConfiguration(new TagConfiguration());
         }
 
@@ -107,6 +111,26 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure.Persistence
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
+            }
+        }
+
+        private void SetSoftDeleteProperties()
+        {
+            var entities = ChangeTracker
+                .Entries()
+                .Where(t => t.Entity is ISoftDelete && t.State == EntityState.Deleted)
+                .ToArray();
+
+            if (!entities.Any())
+            {
+                return;
+            }
+
+            foreach (var entry in entities)
+            {
+                var entity = (ISoftDelete)entry.Entity;
+                entity.SetDeleted(true);
+                entry.State = EntityState.Modified;
             }
         }
     }

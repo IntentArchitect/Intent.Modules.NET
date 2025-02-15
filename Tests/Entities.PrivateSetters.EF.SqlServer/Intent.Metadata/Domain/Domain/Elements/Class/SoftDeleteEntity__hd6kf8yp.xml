@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="573fc6d4-941a-45f0-8dcc-b4b39bf257a5" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
-  <name>Person</name>
-  <display>Person</display>
+<class id="d5a7bcde-2561-45dd-8e26-99950aceb1be" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>SoftDeleteEntity</name>
+  <display>SoftDeleteEntity</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
@@ -9,15 +9,22 @@
   <parentFolderId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</parentFolderId>
   <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
   <packageName>Domain</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="65860af3-8805-4a63-9fb9-3884b80f4380" name="Soft Delete Entity">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Entities.SoftDelete</definitionPackageName>
+      <definitionPackageId>be0d00ee-2aeb-4e95-abc6-c2f4debf363b</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="96ca2492-4d4d-47ad-81ad-e2779fdefeab" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="3359f4fa-0dd3-4f7c-b0b8-292da0101f9a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Id</name>
       <display>Id: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="4f238cf7-ce72-4b6c-8862-56fcb8509fbd">
+      <typeReference id="1966328f-0e28-4f73-a247-eb410c33e6b7">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +36,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>573fc6d4-941a-45f0-8dcc-b4b39bf257a5</parentFolderId>
+      <parentFolderId>d5a7bcde-2561-45dd-8e26-99950aceb1be</parentFolderId>
       <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
       <packageName>Domain</packageName>
       <stereotypes>
@@ -48,12 +55,12 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9de5631a-4ac5-45e0-9c35-c03f4fb3310e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+    <childElement id="9a5470c7-2cce-405a-b7c8-35d9d39988f3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>Name</name>
       <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="2d019c61-b6ca-4bce-aa02-ee3839295a7e">
+      <typeReference id="cac29d77-120f-4b4d-ad14-693b4d8e6982">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -65,7 +72,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>573fc6d4-941a-45f0-8dcc-b4b39bf257a5</parentFolderId>
+      <parentFolderId>d5a7bcde-2561-45dd-8e26-99950aceb1be</parentFolderId>
       <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
       <packageName>Domain</packageName>
       <stereotypes>
@@ -81,6 +88,33 @@
         </stereotype>
       </stereotypes>
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="8f9c0671-0be5-4f16-b0f0-d0c2afa2e1ae" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsDeleted</name>
+      <display>IsDeleted: bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6fb36d85-eeb3-43b8-9396-e3d5f29e8c2c">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d5a7bcde-2561-45dd-8e26-99950aceb1be</parentFolderId>
+      <packageId>26d6ecd2-167c-4eb3-8620-8d262db9d94f</packageId>
+      <packageName>Domain</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="soft-delete" value="true" />
+        <entry key="set-by-infrastructure" value="true" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

@@ -31,6 +31,7 @@ namespace Entities.PrivateSetters.EF.SqlServer.Infrastructure
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IInvoiceRepository, InvoiceRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
+            services.AddTransient<ISoftDeleteEntityRepository, SoftDeleteEntityRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             return services;
         }

@@ -12,8 +12,8 @@
   <stereotypes>
     <stereotype stereotypeDefinitionId="796ec2fb-cdb9-4f8e-b096-a4f72c7a7f93" name="Basic Auditing">
       <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.EntityFrameworkCore.BasicAuditing</definitionPackageName>
-      <definitionPackageId>ef879334-e14d-46cc-b361-604ca8e95f60</definitionPackageId>
+      <definitionPackageName>Intent.Entities.BasicAuditing</definitionPackageName>
+      <definitionPackageId>bed6bd70-2214-4a74-a437-dfb3b68dd198</definitionPackageId>
       <properties />
     </stereotype>
   </stereotypes>
@@ -46,6 +46,7 @@
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
             <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -219,13 +220,13 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>true</isMapped>
-      <mappedClass>
+      <mappedClass isRoot="true">
         <applicationId>71903893-a1ac-4813-b542-56a8a7b93fa8</applicationId>
         <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
         <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="712719ad-e72e-4984-b36c-acb45a614030" name="Audited" type="element" specialization="Class" />
+          <target id="712719ad-e72e-4984-b36c-acb45a614030" name="Audited" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>712719ad-e72e-4984-b36c-acb45a614030</parentFolderId>
@@ -255,7 +256,7 @@
             <mappingSettingsId>7590bd83-04bc-40fe-8b5c-118277c049d4</mappingSettingsId>
             <autoSyncTypeReference>true</autoSyncTypeReference>
             <mappedPath>
-              <target id="ca57a8e1-1ad3-4b9b-afd0-5d80e526cee5" name="Attribute" type="element" specialization="Attribute" />
+              <target id="ca57a8e1-1ad3-4b9b-afd0-5d80e526cee5" name="Attribute" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>51159303-92d6-40eb-a8f8-9226c812ec17</parentFolderId>
