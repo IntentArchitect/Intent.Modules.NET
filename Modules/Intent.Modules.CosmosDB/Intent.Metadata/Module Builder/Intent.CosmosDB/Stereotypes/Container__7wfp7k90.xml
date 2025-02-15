@@ -27,7 +27,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>(optional)</placeholder>
       <valueOptions />
       <lookupTypes />
       <isRequiredFunction />
@@ -37,7 +37,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>(optional)</placeholder>
       <valueOptions />
       <lookupTypes />
     </property>
@@ -61,7 +61,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>(default)</placeholder>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return properties["Throughput Type"].value === "Autoscale";</isActiveFunction>
@@ -72,7 +72,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
+      <placeholder>(default)</placeholder>
       <valueOptions />
       <lookupTypes />
       <isActiveFunction>return properties["Throughput Type"].value === "Manual";</isActiveFunction>
