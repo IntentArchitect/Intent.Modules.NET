@@ -100,6 +100,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             repo.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
+
                 var removeMethod = @class.FindMethod("Remove");
                 if (removeMethod is not null)
                 {
@@ -132,8 +133,8 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     var targetStmt = createQueryMethod.Statements.LastOrDefault(x => x.GetText("") == "return queryable;");
                     if (targetStmt is not null)
                     {
-                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly).IsAssignableFrom(typeof(TDocumentInterface))")
-                            .AddStatement($"queryable = queryable.Where(d => (({repo.GetSoftDeleteInterfaceName()}ReadOnly)d!).IsDeleted == false);"));
+                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteReadonlyInterfaceName()}).IsAssignableFrom(typeof(TDocumentInterface))")
+                            .AddStatement($"queryable = queryable.Where(d => (({repo.GetSoftDeleteReadonlyInterfaceName()})d!).IsDeleted == false);"));
                     }
                 }
 
@@ -144,12 +145,35 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                     if (targetStmt is not null)
                     {
                         targetStmt.InsertAbove("var adaptedBody = visitor.Visit(expression.Body)!;");
-                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly).IsAssignableFrom(typeof(TDocumentInterface))")
-                            .AddStatement($"var convertToSoftDelete = Expression.Convert(afterParameter, typeof({repo.GetSoftDeleteInterfaceName()}ReadOnly));")
-                            .AddStatement($"var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof({repo.GetSoftDeleteInterfaceName()}ReadOnly.IsDeleted));")
+                        targetStmt.InsertAbove(new CSharpIfStatement($"typeof({repo.GetSoftDeleteReadonlyInterfaceName()}).IsAssignableFrom(typeof(TDocumentInterface))")
+                            .AddStatement($"var convertToSoftDelete = Expression.Convert(afterParameter, typeof({repo.GetSoftDeleteReadonlyInterfaceName()}));")
+                            .AddStatement($"var isDeletedProperty = Expression.Property(convertToSoftDelete, nameof({repo.GetSoftDeleteReadonlyInterfaceName()}.IsDeleted));")
                             .AddStatement("var isDeletedCheck = Expression.Equal(isDeletedProperty, Expression.Constant(false));")
                             .AddStatement("adaptedBody = Expression.AndAlso(adaptedBody, isDeletedCheck);"));
                         targetStmt.Replace("return Expression.Lambda<Func<TDocument, bool>>(adaptedBody, afterParameter);");
+                    }
+                }
+
+                var findByIdMethod = @class.FindMethod("FindByIdAsync");
+                if (findByIdMethod is not null)
+                {
+                    var targetStmt = findByIdMethod.FindStatement(s => s.HasMetadata(MetadataNames.DocumentDeclarationStatement));
+                    if (targetStmt is not null)
+                    {
+                        targetStmt.InsertBelow(new CSharpIfStatement($"document is {repo.GetSoftDeleteReadonlyInterfaceName()} doc && doc.IsDeleted")
+                            .AddStatement("return null;"));
+                    }
+                }
+
+                var findByIdsMethod = @class.FindMethod("FindByIdsAsync");
+                if (findByIdsMethod is not null)
+                {
+                    var targetStmt = findByIdsMethod.FindStatement(s => s.HasMetadata(MetadataNames.QueryDefinitionDeclarationStatement));
+                    if (targetStmt is not null)
+                    {
+                        targetStmt.InsertAbove($"var softDeleteCriteria = typeof({repo.GetSoftDeleteInterfaceName()}).IsAssignableFrom(typeof(TDomain)) ? \" AND c.isDeleted = false\" : string.Empty;");
+                        targetStmt.Replace(new CSharpStatement($@"var queryDefinition = new QueryDefinition($""SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{{_idFieldName}}){{softDeleteCriteria}}"")
+                .WithParameter(""@ids"", ids);").AddMetadata(MetadataNames.QueryDefinitionDeclarationStatement, true));
                     }
                 }
             }, 1);

@@ -16,5 +16,10 @@ namespace Intent.Modules.Entities.SoftDelete.Templates
             return template.GetTypeName(SoftDeleteInterfaceTemplate.TemplateId);
         }
 
+        [IntentIgnore]
+        public static string GetSoftDeleteReadonlyInterfaceName(this IIntentTemplate template)
+        {
+            return $"{template.GetTypeName(SoftDeleteInterfaceTemplate.TemplateId)}ReadOnly";
+        }
     }
 }

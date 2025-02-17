@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,7 +8,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 {
     public interface ICountry
     {
-        int Id { get; set; }
+        Guid Id { get; set; }
 
         string Name { get; set; }
     }

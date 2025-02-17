@@ -11,6 +11,7 @@ using CosmosDB.Application.Clients.DeleteClient;
 using CosmosDB.Application.Clients.GetClientById;
 using CosmosDB.Application.Clients.GetClientByName;
 using CosmosDB.Application.Clients.GetClients;
+using CosmosDB.Application.Clients.GetClientsByIds;
 using CosmosDB.Application.Clients.GetClientsFiltered;
 using CosmosDB.Application.Clients.GetClientsPaged;
 using CosmosDB.Application.Clients.UpdateClient;
@@ -182,6 +183,24 @@ namespace CosmosDB.Api.Controllers
         {
             var result = await _mediator.Send(new GetClientByNameQuery(searchText: searchText), cancellationToken);
             return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified List&lt;ClientDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">No List&lt;ClientDto&gt; could be found with the provided parameters.</response>
+        [HttpGet("api/clients/ids")]
+        [ProducesResponseType(typeof(List<ClientDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<List<ClientDto>>> GetClientsByIds(
+            [FromQuery] List<string> ids,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetClientsByIdsQuery(ids: ids), cancellationToken);
+            return result == null ? NotFound() : Ok(result);
         }
 
         /// <summary>

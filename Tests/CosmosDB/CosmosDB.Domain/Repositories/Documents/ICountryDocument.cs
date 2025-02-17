@@ -1,3 +1,4 @@
+using System;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -7,6 +8,6 @@ namespace CosmosDB.Domain.Repositories.Documents;
 
 public interface ICountryDocument
 {
-    int Id { get; }
+    Guid Id { get; }
     string Name { get; }
 }

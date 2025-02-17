@@ -10,7 +10,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
 {
     internal class CountryDocument : ICountryDocument
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = default!;
 
         public Country ToEntity(Country? entity = default)

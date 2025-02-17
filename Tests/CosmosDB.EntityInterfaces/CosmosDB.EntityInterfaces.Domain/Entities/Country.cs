@@ -7,15 +7,15 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
 {
     public class Country : ICountry
     {
-        private int? _id;
+        private Guid? _id;
         public Country()
         {
             Name = null!;
         }
 
-        public int Id
+        public Guid Id
         {
-            get => _id ?? throw new NullReferenceException("_id has not been set");
+            get => _id ??= Guid.NewGuid();
             set => _id = value;
         }
 

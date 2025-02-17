@@ -184,6 +184,19 @@
       <fileHash>E9217123006066765F693A02586802C187F0F557CAF8200169302DC56AD1D6BB</fileHash>
     </file>
     <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#9acb2a7b-1bb6-44b8-8bcb-1707fccd2ec0</correlationId>
+      <path>CosmosDB.Application/Clients/GetClientsByIds/GetClientsByIdsQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-02-17T12:04:06.6983673Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2025-02-17T13:50:26.767723Z</approvedAt>
+      <deviationsHash>155BCD3945BCD9C94C066018133564055F11BC91991AE7A25C377714C298CF74</deviationsHash>
+      <fileHash>288D7BBBEE7A9518A0F37E84033CF49FD5F23F1B56A148F6036E6590ADF1E470</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#67eddab2-86b5-4abe-abcc-56835f7c3f2c</correlationId>
       <path>CosmosDB.Application/Clients/GetClientsPaged/GetClientsPagedQueryHandler.cs</path>
       <count>1</count>

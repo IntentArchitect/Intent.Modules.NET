@@ -127,6 +127,11 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
             try
             {
                 var document = await _cosmosRepository.GetAsync(id, partitionKey, cancellationToken: cancellationToken);
+
+                if (document is ISoftDeleteReadOnly doc && doc.IsDeleted)
+                {
+                    return null;
+                }
                 var entity = LoadAndTrackDocument(document);
 
                 return entity;
@@ -174,7 +179,8 @@ namespace CosmosDB.EntityInterfaces.Infrastructure.Repositories
             IEnumerable<string> ids,
             CancellationToken cancellationToken = default)
         {
-            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName})")
+            var softDeleteCriteria = typeof(ISoftDelete).IsAssignableFrom(typeof(TDomain)) ? " AND c.isDeleted = false" : string.Empty;
+            var queryDefinition = new QueryDefinition($"SELECT * from c WHERE ARRAY_CONTAINS(@ids, c.{_idFieldName}){softDeleteCriteria}")
                 .WithParameter("@ids", ids);
 
             return await FindAllAsync(queryDefinition);
