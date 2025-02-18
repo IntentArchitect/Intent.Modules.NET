@@ -49,7 +49,7 @@ namespace CosmosDB.MultiTenancy.SeperateDB.Api.Controllers
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(command, cancellationToken);
-            return CreatedAtAction(nameof(GetCustomerById), new { id = result, tenant = tenantInfo.Id }, new JsonResponse<string>(result));
+            return CreatedAtAction(nameof(GetCustomerById), new { id = result, __tenant__ = tenantInfo.Id }, new JsonResponse<string>(result));
         }
 
         /// <summary>
