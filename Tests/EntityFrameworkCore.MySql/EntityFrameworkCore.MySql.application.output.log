@@ -804,6 +804,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#14cfc1cb-829c-4a9f-8317-441d7aac0429</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Entities/SoftDelete/AbstractParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/AbstractParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#8e43f59d-544c-4e15-bebe-a54cafddde10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Entities/SoftDelete/AbstractParentWithTable.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/AbstractParentWithTable.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#86fb1e21-fb88-462a-bd62-594e5ceac628</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Entities/SoftDelete/ChildOfParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#8973a0e7-e15e-4387-8aa2-5e6b2581953f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Entities/SoftDelete/ChildOfTableParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfTableParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f14e5807-38a1-4118-bb43-edab9c63e55f</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#85bfc1c6-7a1a-40b0-be55-b8c79818609e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Entities/SoftDelete/ClassWithSoftDelete.cs</ApplicationRelativeFilePath>
@@ -1956,6 +1988,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#8e43f59d-544c-4e15-bebe-a54cafddde10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Repositories/SoftDelete/IAbstractParentWithTableRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/IAbstractParentWithTableRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#86fb1e21-fb88-462a-bd62-594e5ceac628</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Repositories/SoftDelete/IChildOfParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/IChildOfParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#8973a0e7-e15e-4387-8aa2-5e6b2581953f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Repositories/SoftDelete/IChildOfTableParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/IChildOfTableParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>626e2e0b-6359-4926-9798-5cb6d78eaea7</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#85bfc1c6-7a1a-40b0-be55-b8c79818609e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Domain/Repositories/SoftDelete/IClassWithSoftDeleteRepository.cs</ApplicationRelativeFilePath>
@@ -3028,6 +3084,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8e43f59d-544c-4e15-bebe-a54cafddde10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Persistence/Configurations/SoftDelete/AbstractParentWithTableConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/AbstractParentWithTableConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#86fb1e21-fb88-462a-bd62-594e5ceac628</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Persistence/Configurations/SoftDelete/ChildOfParentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfParentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8973a0e7-e15e-4387-8aa2-5e6b2581953f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Persistence/Configurations/SoftDelete/ChildOfTableParentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfTableParentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6aaedea6-1f33-4884-b3c8-9314ffce70ff</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#85bfc1c6-7a1a-40b0-be55-b8c79818609e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Persistence/Configurations/SoftDelete/ClassWithSoftDeleteConfiguration.cs</ApplicationRelativeFilePath>
@@ -4064,6 +4144,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Repositories/SchemaParentRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SchemaParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e756ec92-4ab6-4c2a-b9f0-77357be95601</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8e43f59d-544c-4e15-bebe-a54cafddde10</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Repositories/SoftDelete/AbstractParentWithTableRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/AbstractParentWithTableRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e756ec92-4ab6-4c2a-b9f0-77357be95601</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#86fb1e21-fb88-462a-bd62-594e5ceac628</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Repositories/SoftDelete/ChildOfParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e756ec92-4ab6-4c2a-b9f0-77357be95601</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8973a0e7-e15e-4387-8aa2-5e6b2581953f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MySql.Infrastructure/Repositories/SoftDelete/ChildOfTableParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDelete/ChildOfTableParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -131,6 +131,9 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure
             services.AddTransient<IWormRepository, WormRepository>();
             services.AddTransient<ITableFolderRepository, TableFolderRepository>();
             services.AddTransient<IViewFolderRepository, ViewFolderRepository>();
+            services.AddTransient<IAbstractParentWithTableRepository, AbstractParentWithTableRepository>();
+            services.AddTransient<IChildOfParentRepository, ChildOfParentRepository>();
+            services.AddTransient<IChildOfTableParentRepository, ChildOfTableParentRepository>();
             services.AddTransient<IClassWithSoftDeleteRepository, ClassWithSoftDeleteRepository>();
             services.AddTransient<ITimeEntityRepository, TimeEntityRepository>();
             services.AddTransient<ITPC_ConcreteBaseClassRepository, TPC_ConcreteBaseClassRepository>();

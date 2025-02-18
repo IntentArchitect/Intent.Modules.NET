@@ -2,7 +2,6 @@ using System;
 using CosmosDB.Domain.Entities;
 using CosmosDB.Domain.Repositories.Documents;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Azure.CosmosRepository;
 using Newtonsoft.Json;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,8 +25,6 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         public DerivedTypeDocument PopulateFromEntity(DerivedType entity, Func<string, string?> getEtag)
         {
             DerivedTypeAggregateId = entity.DerivedTypeAggregateId;
-
-            _etag = _etag == null ? getEtag(((IItem)this).Id) : _etag;
             base.PopulateFromEntity(entity, getEtag);
 
             return this;

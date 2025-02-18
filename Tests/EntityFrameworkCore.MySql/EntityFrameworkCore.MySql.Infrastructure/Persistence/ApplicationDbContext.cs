@@ -131,6 +131,9 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
         public DbSet<Worm> Worms { get; set; }
         public DbSet<TableFolder> TableFolders { get; set; }
         public DbSet<ViewFolder> ViewFolders { get; set; }
+        public DbSet<AbstractParentWithTable> AbstractParentWithTables { get; set; }
+        public DbSet<ChildOfParent> ChildOfParents { get; set; }
+        public DbSet<ChildOfTableParent> ChildOfTableParents { get; set; }
         public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
         public DbSet<TimeEntity> TimeEntities { get; set; }
         public DbSet<TPC_ConcreteBaseClass> TPC_ConcreteBaseClasses { get; set; }
@@ -301,6 +304,9 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new WormConfiguration());
             modelBuilder.ApplyConfiguration(new TableFolderConfiguration());
             modelBuilder.ApplyConfiguration(new ViewFolderConfiguration());
+            modelBuilder.ApplyConfiguration(new AbstractParentWithTableConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildOfParentConfiguration());
+            modelBuilder.ApplyConfiguration(new ChildOfTableParentConfiguration());
             modelBuilder.ApplyConfiguration(new ClassWithSoftDeleteConfiguration());
             modelBuilder.ApplyConfiguration(new TimeEntityConfiguration());
             modelBuilder.ApplyConfiguration(new TPC_ConcreteBaseClassConfiguration());
