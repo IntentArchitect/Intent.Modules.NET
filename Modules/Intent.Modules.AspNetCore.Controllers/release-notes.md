@@ -1,6 +1,7 @@
 ﻿### Version 7.1.1
 
 - Improvement: Controller methods will now have `[ProducesResponseType(StatusCodes.Status204NoContent)]` applied to them when its operation returns a nullable non-collection.
+- Fixed: When using multitenancy the create action now has the correct response. 
 
 ### Version 7.1.0
 

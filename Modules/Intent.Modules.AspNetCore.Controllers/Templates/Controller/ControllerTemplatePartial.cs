@@ -107,7 +107,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                 });
                             }
 
-                            if (this.IsRouteMultiTenancyConfigured(operation) && operation.Verb == HttpVerb.Post)
+                            if (this.TryGetMultiTenancyRoute(operation, out var _) && operation.Verb == HttpVerb.Post)
                             {
                                 method.AddParameter(UseType("Finbuckle.MultiTenant.ITenantInfo"), "tenantInfo");
                             }

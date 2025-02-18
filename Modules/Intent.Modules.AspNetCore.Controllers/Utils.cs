@@ -143,9 +143,9 @@ public static class Utils
                                 returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result }}, {resultExpression})";
 
                                 // if multitenancy configured, and it's a http post, then add the tenant to the parameters
-                                if(IsRouteMultiTenancyConfigured(template, operationModel) && operationModel.Verb == HttpVerb.Post)
+                                if(TryGetMultiTenancyRoute(template, operationModel, out var tenantRoute) && operationModel.Verb == HttpVerb.Post)
                                 {
-                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result, tenant = tenantInfo.Id }}, {resultExpression})";
+                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ id = result, {tenantRoute} = tenantInfo.Id }}, {resultExpression})";
                                 }
                             }
                             else
@@ -168,9 +168,9 @@ public static class Utils
                                 returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result }}, {resultExpression})";
 
                                 // if multitenancy configured, and it's a http post, then add the tenant to the parameters
-                                if (IsRouteMultiTenancyConfigured(template, operationModel) && operationModel.Verb == HttpVerb.Post)
+                                if (TryGetMultiTenancyRoute(template, operationModel, out var tenantRoute) && operationModel.Verb == HttpVerb.Post)
                                 {
-                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result, tenant = tenantInfo.Id }}, {resultExpression})";
+                                    returnExpression = $"CreatedAtAction(nameof({getByIdOperation.Name}), new {{ {aggregateIdParameter} = {aggregateIdParameter}, id = result, {tenantRoute} = tenantInfo.Id }}, {resultExpression})";
                                 }
                             }
                             else
@@ -199,20 +199,24 @@ public static class Utils
         return $"return {returnExpression};";
     }
 
-    public static bool IsRouteMultiTenancyConfigured(this ControllerTemplate template, IControllerOperationModel operation)
+    public static bool TryGetMultiTenancyRoute(this ControllerTemplate template, IControllerOperationModel operation, out string routeParameter)
     {
         // only apply if the strategy is route strategy
         var tenancyStrategy = template.ExecutionContext.GetSettings().GetSetting("41ae5a02-3eb2-42a6-ade2-322b3c1f1115", "e15fe0fb-be28-4cc5-8b85-37a07b7ca160");
         if (tenancyStrategy is null || tenancyStrategy.Value != "route")
         {
+            routeParameter = string.Empty;
             return false;
         }
 
         // get the route parameter
         var routeParamValue = template.ExecutionContext.GetSettings().GetSetting("41ae5a02-3eb2-42a6-ade2-322b3c1f1115", "c8ff4af6-68b6-4e31-a291-43ada6a0008a");
 
+        var routePresent = operation.Route?.Contains($"{{{routeParamValue?.Value ?? string.Empty}}}") ?? false;
+        routeParameter = routePresent && routeParamValue?.Value != null ? routeParamValue?.Value! : string.Empty;
+
         // if the method is not using the route parameter in the URL path
-        return operation.Route?.Contains($"{{{routeParamValue?.Value ?? string.Empty}}}") == true;
+        return routePresent;
     }
 
     public static bool CanReturnNoContent(this IControllerOperationModel operation)
