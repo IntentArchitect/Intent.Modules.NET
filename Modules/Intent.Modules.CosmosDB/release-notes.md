@@ -1,3 +1,7 @@
+### Version 1.2.10
+
+-Fixed: Incorrect calculation done when working with inherited entities.
+
 ### Version 1.2.9
 
 - Improvement: Included module help topic.

@@ -348,7 +348,7 @@ namespace Intent.Modules.CosmosDB.Templates
                     method.AddStatement($"{associationEnd.Name} = {documentTypeName}.FromEntity(entity.{associationEnd.Name}){nullableSuppression};");
                 }
 
-                if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate)
+                if (useOptimisticConcurrency && template.Id != CosmosDBValueObjectDocumentTemplate.TemplateId && isAggregate && !hasBaseType)
                 {
                     method.AddStatement($"_etag = _etag == null ? getEtag((({template.UseType("Microsoft.Azure.CosmosRepository.IItem")})this).Id) : _etag;",
                         s => s.SeparatedFromPrevious());

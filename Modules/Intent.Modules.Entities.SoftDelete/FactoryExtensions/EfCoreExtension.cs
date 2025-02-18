@@ -93,17 +93,37 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             var entities = application
                 .FindTemplateInstances<IIntentTemplate<ClassModel>>(
                     TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"))
-                .Where(p => p.Model.HasSoftDeleteEntity() || (p.Model.ParentClass is not null && p.Model.ParentClass.HasSoftDeleteEntity() && p.Model.ParentClass.IsAbstract))
+                .Where(p => p.Model.HasSoftDeleteEntity() || (p.Model.ParentClass is not null && p.Model.ParentClass.HasSoftDeleteEntity()))
                 .Cast<ICSharpFileBuilderTemplate>()
                 .ToArray();
+
             foreach (var entity in entities)
             {
-                entity.CSharpFile.AfterBuild(file =>
+                // if there is no parent, then add the filter query to the class
+                // as it means the soft delete stereotype had to have been added to the class
+                var addQuery = (entity as IIntentTemplate<ClassModel>).Model.ParentClass is null;
+
+                if (!addQuery)
                 {
-                    var priClass = file.Classes.First();
-                    priClass.FindMethod("Configure")
-                        ?.AddStatement("builder.HasQueryFilter(t => t.IsDeleted == false);");
-                });
+                    // try find the configuration for the parent
+                    var parentConfiguration = application.FindTemplateInstance("Infrastructure.Data.EntityTypeConfiguration", (entity as IIntentTemplate<ClassModel>).Model.ParentClass);
+
+                    // only if there is no parent configuration for the parent, then add to the child
+                    if (parentConfiguration is null)
+                    {
+                        addQuery = true;
+                    }
+                }
+
+                if (addQuery)
+                {
+                    entity.CSharpFile.AfterBuild(file =>
+                    {
+                        var priClass = file.Classes.First();
+                        priClass.FindMethod("Configure")
+                            ?.AddStatement("builder.HasQueryFilter(t => t.IsDeleted == false);");
+                    });
+                }
             }
         }
 
