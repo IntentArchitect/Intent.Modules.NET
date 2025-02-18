@@ -637,14 +637,18 @@ public class DomainInteractionsManager
             // So that the mapping system can resolve the name of the operation from the interface itself:
             _template.AddTypeSource(dependencyInfo.ServiceInterfaceTemplate.Id);
 
-            string serviceField;
+            string? serviceField;
             if (dependencyInfo.Injectable)
             {
                 serviceField = InjectService(_template.GetTypeName(dependencyInfo.ServiceInterfaceTemplate), handlerClass);
             }
             else
             {
-                serviceField = this.TrackedEntities.Last().Value.VariableName;
+                serviceField = TrackedEntities.LastOrDefault().Value?.VariableName;
+                if (serviceField is null)
+                {
+                    throw new ElementException(callServiceOperation.InternalElement, @"Call Service Operation performed without a prior call to ""Create"" or ""Query"" an Entity.");
+                }
             }
 
             var methodInvocation = _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.First());

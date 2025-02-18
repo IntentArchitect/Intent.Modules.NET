@@ -5804,6 +5804,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8419b998-fbf1-42d9-b540-97586554e819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderName.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderName.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8419b998-fbf1-42d9-b540-97586554e819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderNameHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderNameHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8419b998-fbf1-42d9-b540-97586554e819</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderNameValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DDD/AdvChanceAccountHolderName/AdvChanceAccountHolderNameValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#83785012-b417-4544-9831-03d33fa13b41</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/DDD/ChangeAccountHolderName/ChangeAccountHolderName.cs</ApplicationRelativeFilePath>

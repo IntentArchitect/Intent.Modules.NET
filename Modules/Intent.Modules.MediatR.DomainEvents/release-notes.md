@@ -1,3 +1,7 @@
+### Version 5.0.21
+
+- Improvement: Provided a better error message to guide users when they attempt to call an operation using Call Service Operation on an Entity without Creating / Querying it first.
+
 ### Version 5.0.20
 
 - Fixed: For certain persistence technologies generated filter methods incorrectly used the concrete type of the entity as opposed to the document interface type resulting in un-compilable code.
