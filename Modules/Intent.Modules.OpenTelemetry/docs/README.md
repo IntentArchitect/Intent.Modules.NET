@@ -1,4 +1,4 @@
-# Intent.OpenTelemetry Module
+# Intent.OpenTelemetry
 
 ## Overview
 

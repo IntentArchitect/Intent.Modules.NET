@@ -1,4 +1,4 @@
-# Intent.Integration.HttpClients Module
+# Intent.Integration.HttpClients
 
 ## Introduction
 
