@@ -39,8 +39,6 @@ internal static class CustomRepositoryHelpers
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
         template.CSharpFile
-            .AddUsing("System.Threading")
-            .AddUsing("System.Threading.Tasks")
             .OnBuild(file =>
             {
                 var @interface = file.Interfaces.First();
@@ -72,6 +70,8 @@ internal static class CustomRepositoryHelpers
                             if (isAsync ||
                                 operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true))
                             {
+                                template.CSharpFile.AddUsing("System.Threading");
+                                template.CSharpFile.AddUsing("System.Threading.Tasks");
                                 method.Async();
                                 method.AddOptionalCancellationTokenParameter();
                             }
@@ -99,6 +99,9 @@ internal static class CustomRepositoryHelpers
                                 method.AddParameter(template.GetTypeName(parameter.TypeReference), parameter.InternalElement.Name.ToLocalVariableName());
                             }
 
+                            template.CSharpFile.AddUsing("System.Threading");
+                            template.CSharpFile.AddUsing("System.Threading.Tasks");
+                            method.Async();
                             method.AddOptionalCancellationTokenParameter();
                         });
                     }
