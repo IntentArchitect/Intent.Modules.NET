@@ -8,16 +8,8 @@ It provides the necessary components to configure entities to follow the `soft d
 
 The `Soft Delete` stereotype can be applied to _Entities_ in the Domain Designer. When applied, a `bool` column named `IsDeleted` is automatically added to the entity. This column tracks whether the record is deleted and cannot be removed as long as the `Soft Delete` stereotype is active.
 
+## Entity Framework and Inheritance
 
-## Entity Framework and Inheritence
+If the parent entity of a child entity has the `Soft Delete` pattern applied and an Entity Framework configuration (`IEntityTypeConfiguration`) is generated for the parent, the child entity's configuration will not explicitly include any `Soft Delete` functionality. Instead, this functionality is inherited from the parent entity's configuration.
 
-In certain cases, even if the `Soft Delete` stereotype is applied to an entity, the pattern may not be applied as expected. This behavior is intentional.
-
-The pattern will not apply under the following conditions:
-
-- A child entity inherits from a parent entity.
-- The child entity has the `Soft Delete` stereotype applied.
-- The parent entity does not have the `Soft Delete` stereotype applied.
-- The parent entity has a generated configuration (e.g., it is not abstract or has the `Table` stereotype applied).
-
-This design choice prevents runtime errors caused by incorrect Entity Framework Core configurations that would result from the above scenario.
+On the other hand, if the parent entity does not have the `Soft Delete` pattern applied, and an Entity Framework configuration (`IEntityTypeConfiguration`) has been generated for the parent,  neither the child nor the parent will have any `Soft Delete` functionality applied. This behavior is intentional, as applying the pattern to the child in this case would result in runtime errors due to incorrect Entity Framework Core configuration.
