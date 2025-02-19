@@ -1,3 +1,7 @@
+### Version 5.0.17
+
+- Fixed: `HasNoKey` will no longer incorrectly be added for owned entities with no primary key
+
 ### Version 5.0.16
 
 - Improvement: Included module help topic.

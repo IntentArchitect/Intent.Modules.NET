@@ -212,7 +212,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     statements.AddRange(GetTableMapping(classModel));
                 }
 
-                statements.AddRange(GetKeyMappings(classModel, ownedRelationship));
+                statements.AddRange(GetKeyMappings(classModel, ownedRelationship).Where(s => s.GetText("") != ""));
             }
 
             if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
@@ -684,9 +684,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield break;
             }
 
+            //if (model.IsAggregateRoot() || model.GetExplicitPrimaryKey().Any() || (ownedRelationship != RelationshipType.OneToOne && ownedRelationship != RelationshipType.OneToMany))
+            //{
+            //    yield return new EfCoreKeyMappingStatement(model);
+            //}
+
             if (!(ForCosmosDb() && !model.IsAggregateRoot() && !model.GetExplicitPrimaryKey().Any() && ownedRelationship == RelationshipType.OneToOne))
             {
-                yield return new EfCoreKeyMappingStatement(model);
+                yield return new EfCoreKeyMappingStatement(model, ownedRelationship);
             }
 
             foreach (var attributeModel in model.GetExplicitPrimaryKey())
