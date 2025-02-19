@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f0bf492b-b061-4984-9ebf-1f2836108fcf">
+  <sourceEnd id="aed87607-23a9-4659-b610-98741d19b09a" type="Upstream End" typeId="ee0fd658-2f0e-4647-892d-00d57ac69cbb">
+    <display>: CreateClientCommandGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="673ebdef-9470-4610-b49a-c1d67ad20dc8">
+      <typeId>1e2df99d-0fca-4c64-a471-11d1d525439f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ApiGatewayPoC.Services</typePackageName>
+      <typePackageId>40d761c4-d6f2-4d42-8776-f104f2f028b9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f0bf492b-b061-4984-9ebf-1f2836108fcf" type="Downstream End" typeId="65c76b11-a795-4062-a6fa-26f53e84f1bd">
+    <name>[call]</name>
+    <display>[call]: CreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="3a1e4a72-cc98-499b-be16-88eacae8cf02">
+      <typeId>6576bdf8-7c12-4b7d-a315-890f28cbc0c9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DownstreamService.Services</typePackageName>
+      <typePackageId>42cd965c-14a8-4ac4-a626-20b20887493d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes>
+      <stereotype stereotypeDefinitionId="5b275faf-da10-4ba2-b3f4-bd2c3c86d1e4" name="Downstream Route Settings">
+        <addedByDefault>false</addedByDefault>
+        <definitionPackageName>Intent.Modules.ApiGateway</definitionPackageName>
+        <definitionPackageId>18db9d52-fb52-4862-89b0-4b64afc91d32</definitionPackageId>
+        <properties>
+          <property name="1150e79d-a3e6-4d2b-87fc-3a56095a0a97" display="Scheme" isActive="true" />
+        </properties>
+      </stereotype>
+    </stereotypes>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>7dfffaea-06b8-49f4-af0c-5ace9d611646</associationTypeId>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="5b275faf-da10-4ba2-b3f4-bd2c3c86d1e4" name="Downstream Route Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.ApiGateway</definitionPackageName>
+      <definitionPackageId>18db9d52-fb52-4862-89b0-4b64afc91d32</definitionPackageId>
+      <properties>
+        <property name="1150e79d-a3e6-4d2b-87fc-3a56095a0a97" display="Scheme" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+</association>

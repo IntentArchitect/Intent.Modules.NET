@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e99aa86a-f632-4b1b-9ec5-0c55d5ada14c">
+  <sourceEnd id="a53674ca-824c-4190-9a25-c2e504c85540" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetClientsQuery</display>
+    <order>0</order>
+    <typeReference id="b7f816de-a80f-4d1e-8303-68ccc649ee65">
+      <typeId>4abc17ff-a2ac-4907-8254-415dbf83fbf4</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DownstreamService.Services</typePackageName>
+      <typePackageId>42cd965c-14a8-4ac4-a626-20b20887493d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e99aa86a-f632-4b1b-9ec5-0c55d5ada14c" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>clients</name>
+    <display>[query] clients: Client[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="4dd4ee18-8537-46a1-8647-db429f86f299">
+      <typeId>aa093eed-e13c-4bc6-a61d-d2edebc21c0c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DownstreamService.Domain</typePackageName>
+      <typePackageId>bad7144f-c9a9-4e2b-8da2-fe52cd812a11</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c522375c-ad19-4e73-943a-7c7630548b6a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4abc17ff-a2ac-4907-8254-415dbf83fbf4" location="[DownstreamService].[Services].[GetClientsQuery]" />
+        <target applicationId="c522375c-ad19-4e73-943a-7c7630548b6a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="aa093eed-e13c-4bc6-a61d-d2edebc21c0c" location="[DownstreamService].[Services].[Client]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

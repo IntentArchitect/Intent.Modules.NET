@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="5b275faf-da10-4ba2-b3f4-bd2c3c86d1e4" version="3.1.0">
+  <name>Downstream Route Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="65c76b11-a795-4062-a6fa-26f53e84f1bd">Downstream End</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>on-create</applyMode>
+  <icon type="FontAwesome" source="cloud-download-alt" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>90c0148e-ebc7-4857-9256-25bba71eb0b7</parentFolderId>
+  <order>0</order>
+  <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+  <packageName>Intent.Modules.ApiGateway</packageName>
+  <properties>
+    <property id="1150e79d-a3e6-4d2b-87fc-3a56095a0a97">
+      <name>Scheme</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>HTTP</option>
+        <option>HTTPS</option>
+        <option>WS</option>
+        <option>WSS</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

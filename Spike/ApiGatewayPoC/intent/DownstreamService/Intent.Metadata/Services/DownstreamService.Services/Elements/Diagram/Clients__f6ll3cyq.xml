@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="49de2dbf-c1b2-4bad-9dba-9c249a06523f" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Clients</name>
+  <display>Clients</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>70c03e1e-c491-45ce-bb58-09adda504fd4</parentFolderId>
+  <packageId>42cd965c-14a8-4ac4-a626-20b20887493d</packageId>
+  <packageName>DownstreamService.Services</packageName>
+  <diagram>
+    <targetPackageId>49de2dbf-c1b2-4bad-9dba-9c249a06523f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="65210e68-fff7-49e4-b191-65e76c21bc8a" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bad7144f-c9a9-4e2b-8da2-fe52cd812a11</parentFolderId>
+  <packageId>bad7144f-c9a9-4e2b-8da2-fe52cd812a11</packageId>
+  <packageName>DownstreamService.Domain</packageName>
+  <diagram>
+    <targetPackageId>65210e68-fff7-49e4-b191-65e76c21bc8a</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

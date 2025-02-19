@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="1ad354a7-9ef2-440f-acb2-d9cb11be3352" version="3.1.0">
+  <name>Api Gateway Route Settings</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="c1484b94-bac2-4fa8-86ff-fcdda4cb682c">Api Gateway Route</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>on-create</applyMode>
+  <icon type="FontAwesome" source="cloud" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction>const ApiGatewayRouteSettings = "1ad354a7-9ef2-440f-acb2-d9cb11be3352";
+const ApiGatewayRoute = "83bfc247-76f5-476d-8741-0ecd7f9971ed";
+const ApiGatewayMethod = "b8999d96-2f39-41bc-830a-9444114cb82e";
+
+function getMethodAndRoute(element) {
+    // Get custom settings
+    const customSettings = element.getStereotype(ApiGatewayRouteSettings);
+    const customRoute = customSettings?.getProperty(ApiGatewayRoute)?.getValue() || "";
+    const customMethod = customSettings?.getProperty(ApiGatewayMethod)?.getValue() || "";
+
+    // Get HTTP settings
+    const endpoints = element.getAssociations("Route Association")
+        .map(x =&gt; x.typeReference.getType())
+        .filter(x =&gt; x);
+
+    if (endpoints.length === 0) {
+        return { method: "", route: "", result: "None" };
+    }
+    if (endpoints.length &gt; 1) {
+        return { method: "", route: "", result: "Aggregate" };
+    }
+
+    const httpSettings = endpoints[0].getStereotype("Http Settings");
+    const httpMethod = httpSettings.getProperty("Verb").getValue();
+    const httpRoute = httpSettings.getProperty("Route").getValue();
+
+    // Use custom values if available, otherwise fall back to HTTP settings
+    return {
+        method: customMethod || httpMethod,
+        route: customRoute || httpRoute
+    };
+}
+
+function formatMethodAndRoute(element) {
+    const { method, route, result } = getMethodAndRoute(element);
+    
+    if (result === "None") return "[Disconnected]";
+    if (result === "Aggregate") return "[Aggregate]";
+    
+    return `${method} ("${route}")`;
+}
+
+return formatMethodAndRoute(element);</displayFunction>
+  <displayAsAnnotation>true</displayAsAnnotation>
+  <displayAsText>false</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>90c0148e-ebc7-4857-9256-25bba71eb0b7</parentFolderId>
+  <order>0</order>
+  <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+  <packageName>Intent.Modules.ApiGateway</packageName>
+  <properties>
+    <property id="b8999d96-2f39-41bc-830a-9444114cb82e">
+      <name>Http Method</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions>
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>PATCH</option>
+        <option>DELETE</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="83bfc247-76f5-476d-8741-0ecd7f9971ed">
+      <name>Upstream Path</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder>(default)</placeholder>
+      <valueOptions />
+      <lookupTypes />
+    </property>
+  </properties>
+</stereotypeDefinition>

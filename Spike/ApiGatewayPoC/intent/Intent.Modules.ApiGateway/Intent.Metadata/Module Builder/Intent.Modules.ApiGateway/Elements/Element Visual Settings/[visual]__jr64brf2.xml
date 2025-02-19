@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="167d55f2-ef13-4950-85d6-39856ee2b232" type="Element Visual Settings" typeId="5eea5fba-15df-4971-8541-6f19bad4297d">
+  <name>[visual]</name>
+  <display>[visual]: Api Gateway Route</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>2</order>
+  <genericTypes />
+  <typeReference id="235f96d8-cb9e-4de4-9c75-a0df4182baf5">
+    <typeId>c1484b94-bac2-4fa8-86ff-fcdda4cb682c</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modules.ApiGateway</typePackageName>
+    <typePackageId>18db9d52-fb52-4862-89b0-4b64afc91d32</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>c1484b94-bac2-4fa8-86ff-fcdda4cb682c</parentFolderId>
+  <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+  <packageName>Intent.Modules.ApiGateway</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="96a4fa17-6283-4626-835e-a8f013d98b19" name="Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="838dcc53-b73e-4381-a3d2-db0afaf230b2" display="Anchor Points" isActive="true" />
+        <property name="43c4e468-1139-42b3-a064-fb49f679b72b" display="Auto-Resize Default" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="fc50924a-9e51-40b9-88b6-c7556febdaea" name="Position Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="39117662-2823-4915-865e-4a0a178f1507" display="X" isActive="true" />
+        <property name="7cb647b7-bf50-4f9e-9f7b-8e01206d95c0" display="Y" isActive="true" />
+        <property name="b26180c1-e60a-4640-8284-51e760290a17" display="Width" isActive="true" />
+        <property name="51148847-9d8b-4294-9aba-f84211ba82d0" display="Height" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="1a14371d-f56f-430b-9166-373b55eb8a5a" type="SVG Resource Draw Settings" typeId="b5566ace-3353-4009-9370-475b561451a0">
+      <name>Dialog Symbol</name>
+      <display>[draw svg]: Dialog Symbol</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>167d55f2-ef13-4950-85d6-39856ee2b232</parentFolderId>
+      <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+      <packageName>Intent.Modules.ApiGateway</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="5dc1fff8-3fe7-4bb3-be4b-b6a26fa7b082" name="SVG Resource Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="8b60333a-8d5a-4ada-a498-2662a43d1c03" display="Resource Path" value="api-gateway.svg" isActive="true" />
+            <property name="6addd9b9-6f48-4054-b74c-f670e3b5f847" display="Condition" value="" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="fc50924a-9e51-40b9-88b6-c7556febdaea" name="Position Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="39117662-2823-4915-865e-4a0a178f1507" display="X" value="${x}" isActive="true" />
+            <property name="7cb647b7-bf50-4f9e-9f7b-8e01206d95c0" display="Y" value="${y + 6}" isActive="true" />
+            <property name="b26180c1-e60a-4640-8284-51e760290a17" display="Width" value="${w}" isActive="true" />
+            <property name="51148847-9d8b-4294-9aba-f84211ba82d0" display="Height" value="40" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1fd66557-2f70-4754-ab58-2d06175c5eef" type="Text Draw Settings" typeId="0250c934-455b-4bb6-b5d9-077c6e1ce72c">
+      <name>Display Label  for Symbol</name>
+      <display>[draw text]: Display Label  for Symbol</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>167d55f2-ef13-4950-85d6-39856ee2b232</parentFolderId>
+      <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+      <packageName>Intent.Modules.ApiGateway</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cb12b3c-f000-4331-b3fc-4250a5ced3fa" name="Text Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="30a84702-a35a-415d-bd8f-66a20d4c858b" display="Text" value="return getName();" isActive="true" />
+            <property name="3b7f711f-8a28-42c0-903d-c683a2eea56e" display="Condition" isActive="true" />
+            <property name="9d47b9f2-f715-4762-b276-1dc702dad067" display="Style" value="`font-size: 12px; font-family: Helvetica; font-weight: bold; text-align: center; white-space: inherit;vertical-align: center`" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="fc50924a-9e51-40b9-88b6-c7556febdaea" name="Position Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="39117662-2823-4915-865e-4a0a178f1507" display="X" value="${x}" isActive="true" />
+            <property name="7cb647b7-bf50-4f9e-9f7b-8e01206d95c0" display="Y" value="${y + 48}" isActive="true" />
+            <property name="b26180c1-e60a-4640-8284-51e760290a17" display="Width" value="${w}" isActive="true" />
+            <property name="51148847-9d8b-4294-9aba-f84211ba82d0" display="Height" value="18" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="c00f48ce-a16b-4755-bba3-d9945c50c1d7" type="Text Draw Settings" typeId="0250c934-455b-4bb6-b5d9-077c6e1ce72c">
+      <name>Display Route</name>
+      <display>[draw text]: Display Route</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>167d55f2-ef13-4950-85d6-39856ee2b232</parentFolderId>
+      <packageId>18db9d52-fb52-4862-89b0-4b64afc91d32</packageId>
+      <packageName>Intent.Modules.ApiGateway</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="1cb12b3c-f000-4331-b3fc-4250a5ced3fa" name="Text Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="30a84702-a35a-415d-bd8f-66a20d4c858b" display="Text" value="const ApiGatewayRouteSettings = &quot;1ad354a7-9ef2-440f-acb2-d9cb11be3352&quot;;&#xD;&#xA;const ApiGatewayRoute = &quot;83bfc247-76f5-476d-8741-0ecd7f9971ed&quot;;&#xD;&#xA;const ApiGatewayMethod = &quot;b8999d96-2f39-41bc-830a-9444114cb82e&quot;;&#xD;&#xA;&#xD;&#xA;function getMethodAndRoute(element) {&#xD;&#xA;    // Get custom settings&#xD;&#xA;    const customSettings = element.getStereotype(ApiGatewayRouteSettings);&#xD;&#xA;    const customRoute = customSettings?.getProperty(ApiGatewayRoute)?.getValue() || &quot;&quot;;&#xD;&#xA;    const customMethod = customSettings?.getProperty(ApiGatewayMethod)?.getValue() || &quot;&quot;;&#xD;&#xA;&#xD;&#xA;    // Get HTTP settings&#xD;&#xA;    const endpoints = element.getAssociations(&quot;Route Association&quot;)&#xD;&#xA;        .map(x =&gt; x.typeReference.getType())&#xD;&#xA;        .filter(x =&gt; x);&#xD;&#xA;&#xD;&#xA;    if (endpoints.length === 0) {&#xD;&#xA;        return { method: &quot;&quot;, route: &quot;&quot;, result: &quot;None&quot; };&#xD;&#xA;    }&#xD;&#xA;    if (endpoints.length &gt; 1) {&#xD;&#xA;        return { method: &quot;&quot;, route: &quot;&quot;, result: &quot;Aggregate&quot; };&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    const httpSettings = endpoints[0].getStereotype(&quot;Http Settings&quot;);&#xD;&#xA;    const httpMethod = httpSettings.getProperty(&quot;Verb&quot;).getValue();&#xD;&#xA;    const httpRoute = httpSettings.getProperty(&quot;Route&quot;).getValue();&#xD;&#xA;&#xD;&#xA;    // Use custom values if available, otherwise fall back to HTTP settings&#xD;&#xA;    return {&#xD;&#xA;        method: customMethod || httpMethod,&#xD;&#xA;        route: customRoute || httpRoute&#xD;&#xA;    };&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;function formatMethodAndRoute(element) {&#xD;&#xA;    const { method, route, result } = getMethodAndRoute(element);&#xD;&#xA;    &#xD;&#xA;    if (result === &quot;None&quot;) return &quot;[Disconnected]&quot;;&#xD;&#xA;    if (result === &quot;Aggregate&quot;) return &quot;[Aggregate]&quot;;&#xD;&#xA;    &#xD;&#xA;    return `${method} (&quot;${route}&quot;)`;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;return formatMethodAndRoute(element);" isActive="true" />
+            <property name="3b7f711f-8a28-42c0-903d-c683a2eea56e" display="Condition" isActive="true" />
+            <property name="9d47b9f2-f715-4762-b276-1dc702dad067" display="Style" value="`font-size: 12px; font-family: Helvetica; font-weight: bold; text-align: center; white-space: inherit;vertical-align: center`" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="fc50924a-9e51-40b9-88b6-c7556febdaea" name="Position Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="39117662-2823-4915-865e-4a0a178f1507" display="X" value="${x}" isActive="true" />
+            <property name="7cb647b7-bf50-4f9e-9f7b-8e01206d95c0" display="Y" value="${y + 68}" isActive="true" />
+            <property name="b26180c1-e60a-4640-8284-51e760290a17" display="Width" value="${w}" isActive="true" />
+            <property name="51148847-9d8b-4294-9aba-f84211ba82d0" display="Height" value="18" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

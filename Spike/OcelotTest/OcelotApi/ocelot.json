@@ -1,0 +1,24 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/Weather",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/api/weatherforecast",
+            "UpstreamHttpMethod": [ "Get" ],
+            "DangerousAcceptAnyServerCertificateValidator": true,
+            "UpstreamHeaderTransform": {
+                "X-Custom-Header": "Transformed-By-Ocelot"
+            },
+            "RouteIsCaseSensitive": false
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5000"
+    }
+}

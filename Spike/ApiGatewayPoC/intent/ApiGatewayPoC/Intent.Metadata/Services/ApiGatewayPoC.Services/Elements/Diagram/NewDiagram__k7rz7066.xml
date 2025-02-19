@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="db899af9-52a1-4a1b-a85c-8ab35fb3d9a1" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>NewDiagram</name>
+  <display>NewDiagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40d761c4-d6f2-4d42-8776-f104f2f028b9</parentFolderId>
+  <packageId>40d761c4-d6f2-4d42-8776-f104f2f028b9</packageId>
+  <packageName>ApiGatewayPoC.Services</packageName>
+  <diagram>
+    <targetPackageId>db899af9-52a1-4a1b-a85c-8ab35fb3d9a1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

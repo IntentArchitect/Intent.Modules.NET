@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="090609b2-6885-49b8-b85b-dfbd49295d1d" type="Api Gateway Route" typeId="c1484b94-bac2-4fa8-86ff-fcdda4cb682c">
+  <name>AggregateGatewayRoute</name>
+  <display>AggregateGatewayRoute</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>40d761c4-d6f2-4d42-8776-f104f2f028b9</parentFolderId>
+  <packageId>40d761c4-d6f2-4d42-8776-f104f2f028b9</packageId>
+  <packageName>ApiGatewayPoC.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="1ad354a7-9ef2-440f-acb2-d9cb11be3352" name="Api Gateway Route Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Modules.ApiGateway</definitionPackageName>
+      <definitionPackageId>18db9d52-fb52-4862-89b0-4b64afc91d32</definitionPackageId>
+      <properties>
+        <property name="b8999d96-2f39-41bc-830a-9444114cb82e" display="Http Method" isActive="true" />
+        <property name="83bfc247-76f5-476d-8741-0ecd7f9971ed" display="Upstream Path" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements />
+</class>
