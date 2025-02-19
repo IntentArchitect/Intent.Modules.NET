@@ -127,7 +127,7 @@ public partial class DesignTimeDbContextFactoryTemplate : CSharpTemplateBase<obj
                 {
                     returnStatement.AddArgument("null!");
                 }
-            });
+            }, 1100);
     }
 
     public CSharpFile CSharpFile { get; }
