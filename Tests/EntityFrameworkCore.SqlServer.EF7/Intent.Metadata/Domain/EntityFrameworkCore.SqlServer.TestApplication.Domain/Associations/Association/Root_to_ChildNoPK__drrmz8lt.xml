@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="828db8b8-3faf-4607-a2c8-8426fb0ca4bb">
+  <sourceEnd id="e01cf995-6473-47d3-a85a-d96a1f23b54d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Root</name>
+    <display>Root: Root</display>
+    <order>0</order>
+    <typeReference id="e62660c0-091f-4f15-ad55-f1e2dd587aad">
+      <typeId>056baa85-c148-410a-8bcd-27431a191cad</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="828db8b8-3faf-4607-a2c8-8426fb0ca4bb" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ChildNoPK</name>
+    <display>ChildNoPK: ChildNoPK</display>
+    <order>2</order>
+    <typeReference id="30b9072b-8ffa-4fcd-b820-5df818daa3ee">
+      <typeId>427fe109-3954-4fcc-bcc1-4920979ab88c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</typePackageName>
+      <typePackageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

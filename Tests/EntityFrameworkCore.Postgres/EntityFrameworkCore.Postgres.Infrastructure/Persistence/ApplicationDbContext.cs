@@ -102,6 +102,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence
         public DbSet<P_SourceNameDiff> P_SourceNameDiffs { get; set; }
         public DbSet<Q_DestNameDiff> Q_DestNameDiffs { get; set; }
         public DbSet<R_SourceNameDiff> R_SourceNameDiffs { get; set; }
+        public DbSet<Root> Roots { get; set; }
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<ChildNonStdId> ChildNonStdIds { get; set; }
@@ -276,6 +277,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new P_SourceNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new Q_DestNameDiffConfiguration());
             modelBuilder.ApplyConfiguration(new R_SourceNameDiffConfiguration());
+            modelBuilder.ApplyConfiguration(new RootConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_DerivedClassConfiguration());
             modelBuilder.ApplyConfiguration(new Audit_SoloClassConfiguration());
             modelBuilder.ApplyConfiguration(new ChildNonStdIdConfiguration());

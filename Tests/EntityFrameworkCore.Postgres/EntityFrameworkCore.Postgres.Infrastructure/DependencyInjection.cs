@@ -102,6 +102,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure
             services.AddTransient<IP_SourceNameDiffRepository, P_SourceNameDiffRepository>();
             services.AddTransient<IQ_DestNameDiffRepository, Q_DestNameDiffRepository>();
             services.AddTransient<IR_SourceNameDiffRepository, R_SourceNameDiffRepository>();
+            services.AddTransient<IRootRepository, RootRepository>();
             services.AddTransient<IAudit_DerivedClassRepository, Audit_DerivedClassRepository>();
             services.AddTransient<IAudit_SoloClassRepository, Audit_SoloClassRepository>();
             services.AddTransient<IFK_A_CompositeForeignKeyRepository, FK_A_CompositeForeignKeyRepository>();
