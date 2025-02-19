@@ -2164,6 +2164,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#bf174a01-db59-483e-a976-4113c761e571</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#d00b2ba7-bbec-4855-aa5d-2876d6503e18</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpResultCollection.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpResultCollection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#dc5425b9-511f-4b4f-bb3e-4eeb7a7e3df9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpResultItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpResultItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#0d48fe1e-87b1-4a21-a3b2-2cdf40b15e8a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpResultItemProperty.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpResultItemProperty.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/SpParameter.cs</ApplicationRelativeFilePath>

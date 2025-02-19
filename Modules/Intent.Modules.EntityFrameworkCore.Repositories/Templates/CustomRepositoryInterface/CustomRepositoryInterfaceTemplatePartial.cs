@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -31,16 +27,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                 {
                     @interface.TryAddXmlDocComments(Model.InternalElement);
 
-                    RepositoryOperationHelper.ApplyMethods(this, @interface, model);
+                    CustomRepositoryHelpers.ApplyInterfaceMethods<CustomRepositoryInterfaceTemplate, RepositoryModel>(this, Model);
                 });
-
-            var storedProcedures = Model.GetGeneralizedStoredProcedures();
-            if (!storedProcedures.Any())
-            {
-                return;
-            }
-
-            StoredProcedureHelpers.ApplyInterfaceMethods<CustomRepositoryInterfaceTemplate, RepositoryModel>(this, storedProcedures);
         }
 
         [IntentManaged(Mode.Fully)]

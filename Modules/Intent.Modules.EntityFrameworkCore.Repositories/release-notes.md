@@ -1,3 +1,7 @@
+### Version 4.7.5
+
+- Improvement: Implementations are now generated for Operations mapped to Stored Procedures.
+
 ### Version 4.7.4
 
 - Fixed: The generated `ExecuteScalarAsync` methods on a DbContext didn't robustly manage connections to Open and Close when needed.

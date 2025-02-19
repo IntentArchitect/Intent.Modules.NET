@@ -10,9 +10,11 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
+using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Templates;
+using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,9 +24,9 @@ using Intent.RoslynWeaver.Attributes;
 namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public class StoredProcedureFactoryExtension : FactoryExtensionBase
+    public class CustomRepositoryMethodsExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.EntityFrameworkCore.Repositories.StoredProcedureFactoryExtension";
+        public override string Id => "Intent.EntityFrameworkCore.Repositories.CustomRepositoryMethodsExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
@@ -37,7 +39,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             foreach (var dbContextTemplate in dbContextTemplates)
             {
                 var hasTypeDefinitionResults = repositoryModels
-                    .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
+                    .SelectMany(CustomRepositoryHelpers.GetStoredProcedureModels)
                     .Select(x => x.TypeReference?.Element.AsTypeDefinitionModel())
                     .Any(x => x != null);
 
@@ -88,7 +90,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 }
 
                 var dataContractResults = repositoryModels
-                    .SelectMany(StoredProcedureHelpers.GetStoredProcedureModels)
+                    .SelectMany(CustomRepositoryHelpers.GetStoredProcedureModels)
                     .Select(x => x.TypeReference?.Element.AsDataContractModel())
                     .Where(x => x != null)
                     .Distinct()
@@ -117,17 +119,11 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             }
 
             var classRepositories = repositoryModels
-                .Where(x => x.TypeReference.Element.IsClassModel())
-                .Select(x => (Entity: x.TypeReference.Element.AsClassModel(), Repository: x));
+                .Where(repositoryModel => repositoryModel.TypeReference.Element.IsClassModel())
+                .Select(repositoryModel => (Entity: repositoryModel.TypeReference.Element.AsClassModel(), Repository: repositoryModel));
 
             foreach (var (entity, repository) in classRepositories)
             {
-                var storedProcedures = repository.GetGeneralizedStoredProcedures();
-                if (!storedProcedures.Any())
-                {
-                    continue;
-                }
-
                 if (TryGetTemplate<EntityRepositoryInterfaceTemplate>(application, EntityRepositoryInterfaceTemplate.TemplateId, entity, out var interfaceTemplate))
                 {
                     // so that this template can be found when searched for by its various roles with the repository model (e.g. DomainInteractions with repositories):
@@ -138,7 +134,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                     // so that this template can be found when searched for by Id and the repository model (e.g. DomainInteractions with repositories):
                     application.RegisterTemplateInRoleForModel(interfaceTemplate.Id, repository, interfaceTemplate);
-                    StoredProcedureHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, storedProcedures);
+                    CustomRepositoryHelpers.ApplyInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, repository);
                 }
 
                 if (!TryGetTemplate<RepositoryTemplate>(application, RepositoryTemplate.TemplateId, entity, out var implementationTemplate))
@@ -146,7 +142,39 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     continue;
                 }
 
-                if (storedProcedures.Any(x => x.TypeReference.Element?.Id != implementationTemplate.Model.Id))
+                var requiresDbContextField = repository.InternalElement.ChildElements.Any(element =>
+                {
+                    if (element.TypeReference.Element?.IsClassModel() == true &&
+                        element.TypeReference.Element?.Id == implementationTemplate.Model.Id)
+                    {
+                        return false;
+                    }
+
+                    if (element.IsStoredProcedureModel())
+                    {
+                        return true;
+                    }
+
+                    var operationModel = Intent.Modelers.Domain.Api.OperationModelExtensions.AsOperationModel(element);
+                    if (operationModel == null)
+                    {
+                        return false;
+                    }
+
+                    if (operationModel.TryGetStoredProcedure(out _))
+                    {
+                        return true;
+                    }
+
+                    if (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true))
+                    {
+                        return true;
+                    }
+
+                    return false;
+                });
+
+                if (requiresDbContextField)
                 {
                     implementationTemplate.CSharpFile.AfterBuild(file =>
                     {
@@ -175,7 +203,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     }, 10);
                 }
 
-                StoredProcedureHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, storedProcedures, DbContextManager.GetDbContext(entity));
+                CustomRepositoryHelpers.ApplyImplementationMethods<RepositoryTemplate, ClassModel>(implementationTemplate, repository, DbContextManager.GetDbContext(entity));
             }
         }
 
@@ -186,15 +214,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             out T template) where T : class
         {
             template = application.FindTemplateInstance<T>(templateId, model);
-            return template != null;
-        }
-
-        private static bool TryGetTemplate<T>(
-            ISoftwareFactoryExecutionContext application,
-            string templateId,
-            out T template) where T : class
-        {
-            template = application.FindTemplateInstance<T>(templateId);
             return template != null;
         }
     }

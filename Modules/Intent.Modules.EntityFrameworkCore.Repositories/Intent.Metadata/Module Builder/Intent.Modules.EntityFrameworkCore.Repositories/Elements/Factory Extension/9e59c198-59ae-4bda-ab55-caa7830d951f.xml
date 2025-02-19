@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="9e59c198-59ae-4bda-ab55-caa7830d951f" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
-  <name>StoredProcedureFactoryExtension</name>
-  <display>StoredProcedureFactoryExtension</display>
+  <name>CustomRepositoryMethodsExtension</name>
+  <display>CustomRepositoryMethodsExtension</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

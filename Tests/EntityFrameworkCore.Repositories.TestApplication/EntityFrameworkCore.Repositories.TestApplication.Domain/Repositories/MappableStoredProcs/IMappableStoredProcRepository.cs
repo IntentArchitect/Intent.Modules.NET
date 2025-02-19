@@ -18,5 +18,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
         Task DoSomething(CancellationToken cancellationToken = default);
         Task CreateEntity(Guid id, string name, CancellationToken cancellationToken = default);
         Task<IReadOnlyCollection<EntityRecord>> GetEntities(CancellationToken cancellationToken = default);
+        Task<MappedSpResult> MappedOperation(string paramName2, string paramSomething1, CancellationToken cancellationToken = default);
+        Task<MappedSpResultCollection> MappedOperationWithCollection(string paramRandom2, string paramElse1, CancellationToken cancellationToken = default);
     }
 }

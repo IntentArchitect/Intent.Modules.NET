@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fd515490-9466-4e90-8983-c3289d954908">
+  <sourceEnd id="0a1de2d4-0864-4764-841a-53c389a1682c" type="Stored Procedure Invocation Source End" typeId="7b7d3fd8-5e32-4f8c-b4cc-7b92f45a8577">
+    <display>: MappedOperation</display>
+    <order>0</order>
+    <typeReference id="41fec859-fb32-4408-a278-a68652cb7fd3">
+      <typeId>a9613ae9-e210-4213-86c1-8c8b835275ec</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fd515490-9466-4e90-8983-c3289d954908" type="Stored Procedure Invocation Target End" typeId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d">
+    <name>mappedResult</name>
+    <display>mappedResult: MappedSp</display>
+    <order>2</order>
+    <typeReference id="dd470ec8-fc46-469c-96f1-efdaa81c5ec2">
+      <typeId>8f2cae22-88d0-49b3-89c7-09ff185c34e6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Stored Procedure Invocation" typeId="a7dbfc5c-f4f4-4f61-a176-6b652192ebfc">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a9613ae9-e210-4213-86c1-8c8b835275ec" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedOperation]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8f2cae22-88d0-49b3-89c7-09ff185c34e6" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedSp]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MappedOperation}</expression>
+            <path>
+              <target id="8f2cae22-88d0-49b3-89c7-09ff185c34e6" name="MappedSp" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+            </path>
+            <sources>
+              <source identifier="MappedOperation" mappingType="Invocation Mapping" mappingTypeId="125fe452-48cc-4082-bfde-3d65470ab345">
+                <path>
+                  <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{paramSomething1}</expression>
+            <path>
+              <target id="8f2cae22-88d0-49b3-89c7-09ff185c34e6" name="MappedSp" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+              <target id="84420057-eafe-4123-8664-90d6c34bc1fd" name="param1" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
+            </path>
+            <sources>
+              <source identifier="paramSomething1" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
+                <path>
+                  <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="aef63b2c-075a-438f-bba7-682194cd0d38" name="paramSomething1" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{paramName2}</expression>
+            <path>
+              <target id="8f2cae22-88d0-49b3-89c7-09ff185c34e6" name="MappedSp" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+              <target id="3d422431-f5f3-49a3-b63f-cf79d077a643" name="param2" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
+            </path>
+            <sources>
+              <source identifier="paramName2" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
+                <path>
+                  <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="7aea1864-e5c2-47d6-8140-944203d65c77" name="paramName2" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Stored Procedure Result" typeId="0af211bd-11c4-4981-b7bc-c42923a884d8">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="a9613ae9-e210-4213-86c1-8c8b835275ec" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedOperation]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bf174a01-db59-483e-a976-4113c761e571" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedSpResult]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{mappedResult.result}</expression>
+            <path>
+              <target id="bf174a01-db59-483e-a976-4113c761e571" name="MappedSpResult" type="element" specialization="Data Contract" specializationId="4464fabe-c59e-4d90-81fc-c9245bdd1afd" />
+              <target id="6e59cb81-d097-42fb-9bf1-f52b16906e96" name="Result" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="mappedResult.result" mappingType="Data Mapping" mappingTypeId="654a66b5-6ed4-41d2-abb3-25aaa12af829">
+                <path>
+                  <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="fd515490-9466-4e90-8983-c3289d954908" name="mappedResult" type="association" specialization="Stored Procedure Invocation Target End" specializationId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d" />
+                  <target id="1eba9280-3bf0-46f8-981c-414dee8e35c3" name="result" type="static-mappable" specialization="result" specializationId="1eba9280-3bf0-46f8-981c-414dee8e35c3">
+                    <typeReference id="6303dbd9-5e26-41b8-9703-201900ef63ad">
+                      <typeId>dc5425b9-511f-4b4f-bb3e-4eeb7a7e3df9</typeId>
+                      <isNavigable>true</isNavigable>
+                      <isNullable>false</isNullable>
+                      <isCollection>false</isCollection>
+                      <isRequired>true</isRequired>
+                      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+                      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+                      <stereotypes />
+                      <genericTypeParameters />
+                    </typeReference>
+                  </target>
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{mappedResult.outputParam2}</expression>
+            <path>
+              <target id="bf174a01-db59-483e-a976-4113c761e571" name="MappedSpResult" type="element" specialization="Data Contract" specializationId="4464fabe-c59e-4d90-81fc-c9245bdd1afd" />
+              <target id="6d54690b-8a15-4402-b4fd-29b6b5cd4559" name="SimpleString" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="mappedResult.outputParam2" mappingType="Data Mapping" mappingTypeId="654a66b5-6ed4-41d2-abb3-25aaa12af829">
+                <path>
+                  <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="fd515490-9466-4e90-8983-c3289d954908" name="mappedResult" type="association" specialization="Stored Procedure Invocation Target End" specializationId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d" />
+                  <target id="a2187c7f-8b32-49ae-910c-39f689fa8ff0" name="outputParam2" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Stored Procedure Invocation</associationType>
+  <associationTypeId>adf062ed-c0a4-421f-9940-318a91e9a52c</associationTypeId>
+  <stereotypes />
+</association>
