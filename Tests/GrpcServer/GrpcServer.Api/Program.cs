@@ -42,6 +42,7 @@ namespace GrpcServer.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+                builder.Services.ConfigureGrpc();
 
                 var app = builder.Build();
 
@@ -55,6 +56,7 @@ namespace GrpcServer.Api
                 app.MapDefaultHealthChecks();
                 app.MapControllers();
                 app.UseSwashbuckle(builder.Configuration);
+                app.MapGrpcServices();
 
                 app.Run();
             }
