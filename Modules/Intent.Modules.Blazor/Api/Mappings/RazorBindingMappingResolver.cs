@@ -26,6 +26,7 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 
+        //
         //if (mappingModel.Mapping != null)
         //{
         //    return new RazorPropertyBindingMapping(mappingModel, _template);

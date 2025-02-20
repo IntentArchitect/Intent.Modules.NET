@@ -1412,6 +1412,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#9202df0d-7aaf-4232-8273-9ae6319dd021</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/Login.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/Login.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#9202df0d-7aaf-4232-8273-9ae6319dd021</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/Login.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/Login.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ModelDefinitionTemplate#a20163ac-898d-4197-b13e-48cc4fa86c38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/LoginModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/LoginModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ModelDefinitionValidator#a20163ac-898d-4197-b13e-48cc4fa86c38</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/LoginModelValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/LoginModelValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#4162f680-1af2-4d82-b760-6989f2246679</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/Register.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/Register.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#4162f680-1af2-4d82-b760-6989f2246679</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/Register.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/Register.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ModelDefinitionTemplate#f03787d7-2092-4a96-a583-11447409d83b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/RegisterModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ModelDefinitionValidator#f03787d7-2092-4a96-a583-11447409d83b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Auth/RegisterModelValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Auth/RegisterModelValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#4255cff1-e16b-4c21-b4f4-8646011c7339</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Customers/Components/ConfirmationDialog.razor</ApplicationRelativeFilePath>

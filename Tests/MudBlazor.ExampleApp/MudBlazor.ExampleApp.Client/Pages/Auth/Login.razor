@@ -1,0 +1,44 @@
+@page "/auth/login"
+@using MudBlazor.ExampleApp.Client.Common.Validation
+@inject IValidatorProvider ValidatorProvider
+
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent />
+    </MudCardHeader>
+    <MudCardContent>
+        @if (Model is not null) 
+        {
+            <MudForm @ref="@_form"
+                     Model="Model"
+                     Validation="@(ValidatorProvider.GetValidationFunc<LoginModel>())">
+                <MudTextField @bind-Value="Model.Email"
+                              Label="Username"
+                              For="@(() => Model.Email)" />
+                <MudTextField @bind-Value="Model.Password"
+                              Label="Password"
+                              For="@(() => Model.Password)" />
+            </MudForm>
+        }
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled"
+                   Class="my-2 mr-2"
+                   Color="Color.Primary"
+                   OnClick="() => OnLoginClicked()"
+                   Disabled="@_onLoginClickedProcessing">
+            @if (_onLoginClickedProcessing) 
+            {
+                <MudProgressCircular Class="ms-n1"
+                                     Size="Size.Small"
+                                     Indeterminate="true" />
+            }
+            <MudText>Login</MudText>
+        </MudButton>
+    </MudCardActions>
+</MudCard>
+<MudText>Don't have an account?</MudText>
+<MudLink Href="/auth/register"
+         OnClick="() => OnRegisterClicked()">
+    Register
+</MudLink>
