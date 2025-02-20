@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c240d2f2-53d0-42f5-bf84-fdeb6035fc67">
+  <sourceEnd id="75cb815d-73c9-4787-bad2-e0183325c133" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="9ef9f38b-2b35-42cd-a28a-548be1adaa68">
+      <typeId>5c0e455e-61a0-4845-93fa-a02cc03f7cda</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c240d2f2-53d0-42f5-bf84-fdeb6035fc67" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Tags</name>
+    <display>Tags: Tag[*]</display>
+    <order>3</order>
+    <typeReference id="95288f20-9d57-4c65-b0bc-f7bc9b07b26a">
+      <typeId>9de518cf-bb92-454d-a099-d03e6372d015</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

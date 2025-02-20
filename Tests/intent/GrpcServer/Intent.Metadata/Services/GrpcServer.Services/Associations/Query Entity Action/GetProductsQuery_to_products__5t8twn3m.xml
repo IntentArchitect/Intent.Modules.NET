@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0dbd2554-c808-43d9-9d9b-88e0aa2507a9">
+  <sourceEnd id="97f2c412-2c3d-4ed3-827a-f525de66bb88" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductsQuery</display>
+    <order>0</order>
+    <typeReference id="bf4d4160-4c87-4483-86e5-342ec57aca46">
+      <typeId>3c749a3c-6f49-499f-b83a-c0dc8ca7070e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Services</typePackageName>
+      <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0dbd2554-c808-43d9-9d9b-88e0aa2507a9" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>products</name>
+    <display>[query] products: Product[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="700a7307-401c-4e00-af0e-eca2a5154d2b">
+      <typeId>5c0e455e-61a0-4845-93fa-a02cc03f7cda</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3c749a3c-6f49-499f-b83a-c0dc8ca7070e" location="[GrpcServer].[Services].[GetProductsQuery]" />
+        <target applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5c0e455e-61a0-4845-93fa-a02cc03f7cda" location="[GrpcServer].[Services].[Product]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
