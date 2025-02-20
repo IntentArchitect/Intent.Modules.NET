@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.DomainServices.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Services.Api;
 using Intent.Modules.Common;
@@ -10,8 +11,11 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.DomainServices.Templates.DomainServiceInterface;
+using Intent.Modules.Modelers.Domain.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.DomainServices.Api.DomainServiceModelStereotypeExtensions.ServiceRegistrationSettings;
+using static Intent.Modules.DomainServices.Settings.DomainSettingsExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -93,11 +97,36 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+
+            var request = ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Application")
                 .ForInterface(GetTemplate<IClassProvider>(DomainServiceInterfaceTemplate.TemplateId, Model))
-                .WithPriority(99));
+                .WithPriority(99);
+
+            request = ApplyRegistrationScope(request);
+
+            ExecutionContext.EventDispatcher.Publish(request);
         }
+
+        private ContainerRegistrationRequest ApplyRegistrationScope(ContainerRegistrationRequest request)
+        {
+            ServiceRegistrationScopeOptionsEnum? serviceScope = Model.HasServiceRegistrationSettings() && Model.GetServiceRegistrationSettings().ServiceRegistrationScope().Value != null ?
+               Model.GetServiceRegistrationSettings().ServiceRegistrationScope().AsEnum() : null;
+            DefaultDomainServiceScopeOptionsEnum globalScope = ExecutionContext.Settings.GetDomainSettings().DefaultDomainServiceScope().AsEnum();
+
+            return DetermineAndApplyScope(request, serviceScope, globalScope);
+        }
+
+        private ContainerRegistrationRequest DetermineAndApplyScope(ContainerRegistrationRequest request, ServiceRegistrationScopeOptionsEnum? serviceScope, DefaultDomainServiceScopeOptionsEnum globalScope) =>
+            (serviceScope, globalScope) switch
+            {
+                (null, DefaultDomainServiceScopeOptionsEnum.Transient) or
+                (ServiceRegistrationScopeOptionsEnum.Transient, _) => request,
+                (null, DefaultDomainServiceScopeOptionsEnum.Scoped) or
+                (ServiceRegistrationScopeOptionsEnum.Scoped, _) => request.WithPerServiceCallLifeTime(),
+                (ServiceRegistrationScopeOptionsEnum.Singleton, _) => request.WithSingletonLifeTime(),
+                (_, _) => request
+            };
 
         [IntentManaged(Mode.Fully)]
         public override string TransformText()

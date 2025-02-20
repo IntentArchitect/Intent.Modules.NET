@@ -1,6 +1,7 @@
 ### Version 1.1.8
 
 - Improvement: Bumped Domain Service Designer dependency.
+- Improvement: Ability to set DI scope at a global or individual domain service level
 
 ### Version 1.1.7
 

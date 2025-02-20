@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="40892dd6-c34c-4d8d-90a1-18aa72e54f5b" type="Module Settings Extension" typeId="72044cdf-1f96-4ad2-86be-8d5468725e67">
+  <name>Domain Settings</name>
+  <display>Domain Settings: Domain Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="a7a915c2-ef85-4ee6-8114-e4bc09dac8fa">
+    <typeId>c4d1e35c-7c0d-4926-afe0-18f17563ce17</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Domain</typePackageName>
+    <typePackageId>6572b98d-5e13-4d4b-9ffc-820057da974e</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</parentFolderId>
+  <packageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</packageId>
+  <packageName>Intent.DomainServices</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="03248aef-bdb6-4ec6-8b83-c7e8af6310c6" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Default Domain Service Scope</name>
+      <display>Default Domain Service Scope</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>40892dd6-c34c-4d8d-90a1-18aa72e54f5b</parentFolderId>
+      <packageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</packageId>
+      <packageName>Intent.DomainServices</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="This setting determines the default lifetime for services registered with the dependency injection container." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="Transient" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d6a77c6c-1566-4eb5-9fa3-c5e2f68e2c43" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Transient</name>
+          <display>Transient</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>03248aef-bdb6-4ec6-8b83-c7e8af6310c6</parentFolderId>
+          <packageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</packageId>
+          <packageName>Intent.DomainServices</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="70ba16c0-9f89-47c4-9810-1f8166d9ad3d" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Scoped</name>
+          <display>Scoped</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>03248aef-bdb6-4ec6-8b83-c7e8af6310c6</parentFolderId>
+          <packageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</packageId>
+          <packageName>Intent.DomainServices</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
