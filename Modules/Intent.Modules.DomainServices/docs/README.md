@@ -1,4 +1,4 @@
-﻿# Intent.Entities
+﻿# Intent.DomainServices
 
 This module realises `Domain Services` designed in the _Domain Designer_ in Intent Architect as interfaces and implementations for C#.
 
