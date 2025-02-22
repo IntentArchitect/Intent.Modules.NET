@@ -59,7 +59,7 @@ See [Docker's documentation](https://docs.docker.com/reference/cli/docker/buildx
 docker run -P <image-name> ..
 ```
 
-`-P` publishes exposed to random ports.
+`-P` publishes exposed ports to random ports.
 
 See [Docker's documentation](https://docs.docker.com/reference/cli/docker/container/run/) for more information.
 
