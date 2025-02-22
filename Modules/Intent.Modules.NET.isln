@@ -150,6 +150,7 @@
     <application id="7bda4e57-297a-4068-898e-85e199c5f5ea" name="Intent.Modules.EntityFrameworkCore.DataMasking" relativePath="Intent.Modules.EntityFrameworkCore.DataMasking/Intent.Modules.EntityFrameworkCore.DataMasking.application.config" />
     <application id="87eedb0d-b34c-492e-8645-7a9e56dd4b94" name="Intent.Modules.Entities.SoftDelete" relativePath="Intent.Modules.Entities.SoftDelete/Intent.Modules.Entities.SoftDelete.application.config" />
     <application id="2c301c3f-5c69-40bb-82ce-0d81c3cae946" name="Intent.Modules.AspNetCore.Docker" relativePath="Intent.Modules.AspNetCore.Docker/Intent.Modules.AspNetCore.Docker.application.config" />
+    <application id="7ed2377c-0074-4ac5-9cfe-aebce1bab761" name="Intent.Modules.AI.Prompts" relativePath="Intent.Modules.AI.Prompts/Intent.Modules.AI.Prompts.application.config" />
     <application id="e7f2c64a-c56c-4d8b-9d50-46e0d6fdb964" name="Intent.Modules.AspNetCore.Grpc" relativePath="Intent.Modules.AspNetCore.Grpc/Intent.Modules.AspNetCore.Grpc.application.config" />
     <application id="448c309a-5654-40dd-b5db-73571713819f" name="Intent.Modules.ApiGateway.Ocelot" relativePath="Intent.Modules.ApiGateway.Ocelot/Intent.Modules.ApiGateway.Ocelot.application.config" />
   </applications>
