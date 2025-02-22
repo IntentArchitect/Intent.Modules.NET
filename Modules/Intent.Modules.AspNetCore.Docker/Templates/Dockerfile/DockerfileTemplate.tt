@@ -1,27 +1,36 @@
-﻿<#@ template  debug="true"  inherits="IntentFileTemplateBase<object>" #>
+<#@ template language="C#" inherits="IntentTemplateBase<object>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
 <#@ import namespace="Intent.Modules.Common.Templates" #>
-<#@ output extension="" #>
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+<#@ import namespace="Intent.Metadata.Models" #>
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM <#= GetRuntime() #> AS base
-USER app
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-FROM <#= GetSdk() #> AS build
+
+# This stage is used to build the service project
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["<#= Project.Name #>.csproj", "<#= Project.Name #>/"]
-RUN dotnet restore "<#= Project.Name #>/<#= Project.Name #>.csproj"
+COPY ["<#= Project.Name #>/<#= Project.Name #>.csproj", "<#= Project.Name #>/"]
+RUN dotnet restore "./<#= Project.Name #>/<#= Project.Name #>.csproj"
 COPY . .
 WORKDIR "/src/<#= Project.Name #>"
-RUN dotnet build "<#= Project.Name #>.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./<#= Project.Name #>.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
+# This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "<#= Project.Name #>.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./<#= Project.Name #>.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

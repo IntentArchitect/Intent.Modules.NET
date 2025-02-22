@@ -1,19 +1,27 @@
-﻿using System.ComponentModel;
-using Intent.Modules.Common.Registrations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
+using Intent.Modules.Common;
+using Intent.Modules.Common.Registrations;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
+namespace Intent.Modules.AspNetCore.Docker.Templates.Dockerfile
 {
-    [Description(DockerfileTemplate.Identifier)]
-    public class DockerfileTemplateRegistration : NoModelTemplateRegistrationBase
+    [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
+    public class DockerfileTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => DockerfileTemplate.Identifier;
+        public override string TemplateId => DockerfileTemplate.TemplateId;
 
-        public override ITemplate CreateTemplateInstance(IProject project)
+        [IntentManaged(Mode.Fully)]
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new DockerfileTemplate(project);
+            return new DockerfileTemplate(outputTarget);
         }
     }
 }

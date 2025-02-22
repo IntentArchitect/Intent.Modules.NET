@@ -150,5 +150,6 @@
     <application id="4d6278e1-4897-4c4f-9fb5-1db5a30c3ead" name="Intent.Modules.EntityFrameworkCore.TemporalTables" relativePath="Intent.Modules.EntityFrameworkCore.TemporalTables/Intent.Modules.EntityFrameworkCore.TemporalTables.application.config" />
     <application id="7bda4e57-297a-4068-898e-85e199c5f5ea" name="Intent.Modules.EntityFrameworkCore.DataMasking" relativePath="Intent.Modules.EntityFrameworkCore.DataMasking/Intent.Modules.EntityFrameworkCore.DataMasking.application.config" />
     <application id="87eedb0d-b34c-492e-8645-7a9e56dd4b94" name="Intent.Modules.Entities.SoftDelete" relativePath="Intent.Modules.Entities.SoftDelete/Intent.Modules.Entities.SoftDelete.application.config" />
+    <application id="2c301c3f-5c69-40bb-82ce-0d81c3cae946" name="Intent.Modules.AspNetCore.Docker" relativePath="Intent.Modules.AspNetCore.Docker/Intent.Modules.AspNetCore.Docker.application.config" />
   </applications>
 </solution>

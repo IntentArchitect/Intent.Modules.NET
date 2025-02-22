@@ -1,29 +1,35 @@
-﻿using System.Collections.Generic;
-using Intent.Modules.Common.Plugins;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.VisualStudio;
-using Intent.Modules.Constants;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using Intent.Utils;
-using System;
 
-namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
+
+namespace Intent.Modules.AspNetCore.Docker.Templates.Dockerfile
 {
-    partial class DockerfileTemplate : IntentFileTemplateBase<object>, ITemplate, IHasNugetDependencies, ITemplateBeforeExecutionHook
+    [IntentManaged(Mode.Merge)]
+    partial class DockerfileTemplate : IntentTemplateBase<object>, IHasNugetDependencies
     {
-        public const string Identifier = "Intent.AspNetCore.Dockerfile";
-
         private string _defaultLaunchUrlPath;
         private readonly string _sdkVersion;
 
-        public DockerfileTemplate(IProject project)
-            : base(Identifier, project, null)
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.AspNetCore.Docker.Dockerfile";
+
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DockerfileTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<DefaultLaunchUrlPathRequest>(Handle);
+            Project = outputTarget.GetProject();
 
             _sdkVersion = Project.TryGetMaxNetAppVersion(out var netVersion) switch
             {
@@ -35,9 +41,31 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             };
         }
 
-        private void Handle(DefaultLaunchUrlPathRequest request)
+        public ICSharpProject Project { get; }
+
+        public override void BeforeTemplateExecution()
         {
-            _defaultLaunchUrlPath = request.UrlPath;
+            base.BeforeTemplateExecution();
+
+            var environmentVariables = new Dictionary<string, string>
+            {
+                { "ASPNETCORE_HTTPS_PORTS", "8081" },
+                { "ASPNETCORE_HTTP_PORTS", "8080" }
+            };
+            ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
+            {
+                Name = "Docker",
+                CommandName = "Docker",
+                LaunchBrowser = true,
+                LaunchUrl = $"{{Scheme}}://{{ServiceHost}}:{{ServicePort}}{AddDefaultLaunchUrl()}",
+                EnvironmentVariables = environmentVariables,
+                PublishAllPorts = true,
+                UseSsl = true,
+            });
+            ExecutionContext.EventDispatcher.Publish(new AddProjectPropertyEvent(Project, "DockerDefaultTargetOS", "Linux"));
+
+            //Make sure the file exists
+            ExecutionContext.EventDispatcher.Publish(new AddUserSecretsEvent(Project, new Dictionary<string, string>()));
         }
 
         public IEnumerable<INugetPackageInfo> GetNugetDependencies()
@@ -45,43 +73,22 @@ namespace Intent.Modules.AspNetCore.Docker.Templates.DockerFile
             yield return NugetPackages.MicrosoftVisualStudioAzureContainersToolsTargets;
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled,
-                codeGenType: CodeGenType.Basic,
-                fileName: "Dockerfile",
+                fileName: $"Dockerfile",
                 fileExtension: "",
-                relativeLocation: ""
-                );
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled
+            );
         }
 
-        public override void BeforeTemplateExecution()
+        private void Handle(DefaultLaunchUrlPathRequest request)
         {
-            base.BeforeTemplateExecution();
-
-            var environmentVariables = new Dictionary<string, string>
-			{
-				{ "ASPNETCORE_HTTPS_PORTS", "8081" },
-				{ "ASPNETCORE_HTTP_PORTS", "8080" }
-			};
-			ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
-			{
-				Name = "Docker",
-				CommandName = "Docker",
-				LaunchBrowser = true,
-                LaunchUrl = $"{{Scheme}}://{{ServiceHost}}:{{ServicePort}}{AddDefaultLaunchUrl()}",
-                EnvironmentVariables = environmentVariables,
-                PublishAllPorts = true,
-                UseSsl = true,
-			});
-            ExecutionContext.EventDispatcher.Publish(new AddProjectPropertyEvent(Project, "DockerDefaultTargetOS", "Linux"));
-
-            //Make sure the file exists
-            ExecutionContext.EventDispatcher.Publish(new AddUserSecretsEvent(Project, new Dictionary<string, string>()));
+            _defaultLaunchUrlPath = request.UrlPath;
         }
 
-		private string AddDefaultLaunchUrl()
+        private string AddDefaultLaunchUrl()
         {
             if (string.IsNullOrWhiteSpace(_defaultLaunchUrlPath))
             {

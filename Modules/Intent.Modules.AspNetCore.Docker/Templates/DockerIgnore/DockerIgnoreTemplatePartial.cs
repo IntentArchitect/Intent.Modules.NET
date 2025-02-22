@@ -1,30 +1,38 @@
-﻿using Intent.Modules.Common.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.Templates;
+using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
 namespace Intent.Modules.AspNetCore.Docker.Templates.DockerIgnore
 {
-    partial class DockerIgnoreTemplate : IntentFileTemplateBase<object>, ITemplate
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    partial class DockerIgnoreTemplate : IntentTemplateBase<object>
     {
-        public const string Identifier = "Intent.AspNetCore.DockerIgnore";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.AspNetCore.Docker.DockerIgnore";
 
-
-        public DockerIgnoreTemplate(IProject project)
-            : base (Identifier, project, null)
+        [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+        public DockerIgnoreTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
-
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
             return new TemplateFileConfig(
-                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled,
-                codeGenType: CodeGenType.Basic,
-                fileName: ".dockerignore",
-                fileExtension: "",
-                relativeLocation: ""
-                );
+                fileName: $"",
+                fileExtension: "dockerignore",
+                overwriteBehaviour: OverwriteBehaviour.OverwriteDisabled
+            );
         }
+
     }
 }
