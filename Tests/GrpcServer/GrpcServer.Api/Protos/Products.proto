@@ -5,12 +5,13 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "Common.proto";
 
-option csharp_namespace = "GrpcServer";
+option csharp_namespace = "GrpcServer.GrpcServices";
 
 package grpc_server;
 
-service Products {
+service ProductsService {
     rpc ApplyTagsProduct (ApplyTagsProductRequest) returns (google.protobuf.Empty);
     rpc CreateProduct (CreateProductRequest) returns (CreateProductReply);
     rpc DeleteProduct (DeleteProductRequest) returns (google.protobuf.Empty);
@@ -70,17 +71,6 @@ message ProductDto {
     string name = 2;
 }
 
-// See https://learn.microsoft.com/aspnet/core/grpc/protobuf?view=aspnetcore-9.0#creating-a-custom-decimal-type-for-protobuf
-// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
-message DecimalValue {
-    // Whole units part of the amount
-    int64 units = 1;
-
-    // Nano units of the amount (10^-9)
-    // Must be same sign as units
-    sfixed32 nanos = 2;
-}
-
 message MapOfStringAndString {
     map<string, string> items = 1;
 }
@@ -97,15 +87,15 @@ message TypeTestDto {
     bool bool_field = 5;
     repeated bool bool_field_collection = 6;
     google.protobuf.BoolValue bool_field_nullable = 7;
-    repeated google.protobuf.BoolValue bool_field_nullable_collection = 8;
+    ListOfBool bool_field_nullable_collection = 8;
     uint32 byte_field = 9;
     repeated uint32 byte_field_collection = 10;
     google.protobuf.UInt32Value byte_field_nullable = 11;
-    repeated google.protobuf.UInt32Value byte_field_nullable_collection = 12;
+    ListOfUint32 byte_field_nullable_collection = 12;
     string char_field = 13;
     repeated string char_field_collection = 14;
     google.protobuf.StringValue char_field_nullable = 15;
-    repeated google.protobuf.StringValue char_field_nullable_collection = 16;
+    google.protobuf.StringValue char_field_nullable_collection = 16;
     ComplexTypeDto complex_type_field = 17;
     repeated ComplexTypeDto complex_type_field_collection = 18;
     ComplexTypeDto complex_type_field_nullable = 19;
@@ -113,19 +103,19 @@ message TypeTestDto {
     google.protobuf.Timestamp date_only_field = 21;
     repeated google.protobuf.Timestamp date_only_field_collection = 22;
     google.protobuf.Timestamp date_only_field_nullable = 23;
-    repeated google.protobuf.Timestamp date_only_field_nullable_collection = 24;
+    ListOfTimeStamp date_only_field_nullable_collection = 24;
     google.protobuf.Timestamp date_time_field = 25;
     repeated google.protobuf.Timestamp date_time_field_collection = 26;
     google.protobuf.Timestamp date_time_field_nullable = 27;
-    repeated google.protobuf.Timestamp date_time_field_nullable_collection = 28;
+    ListOfTimeStamp date_time_field_nullable_collection = 28;
     google.protobuf.Timestamp date_time_offset_field = 29;
     repeated google.protobuf.Timestamp date_time_offset_field_collection = 30;
     google.protobuf.Timestamp date_time_offset_field_nullable = 31;
-    repeated google.protobuf.Timestamp date_time_offset_field_nullable_collection = 32;
+    ListOfTimeStamp date_time_offset_field_nullable_collection = 32;
     DecimalValue decimal_field = 33;
     repeated DecimalValue decimal_field_collection = 34;
     DecimalValue decimal_field_nullable = 35;
-    repeated DecimalValue decimal_field_nullable_collection = 36;
+    ListOfDecimalValue decimal_field_nullable_collection = 36;
     map<string, string> dictionary_field = 37;
     repeated MapOfStringAndString dictionary_field_collection = 38;
     map<string, string> dictionary_field_nullable = 39;
@@ -133,33 +123,33 @@ message TypeTestDto {
     double double_field = 41;
     repeated double double_field_collection = 42;
     google.protobuf.DoubleValue double_field_nullable = 43;
-    repeated google.protobuf.DoubleValue double_field_nullable_collection = 44;
+    ListOfDouble double_field_nullable_collection = 44;
     float float_field = 45;
     repeated float float_field_collection = 46;
     google.protobuf.FloatValue float_field_nullable = 47;
-    repeated google.protobuf.FloatValue float_field_nullable_collection = 48;
+    ListOfFloat float_field_nullable_collection = 48;
     string guid_field = 49;
     repeated string guid_field_collection = 50;
     google.protobuf.StringValue guid_field_nullable = 51;
-    repeated google.protobuf.StringValue guid_field_nullable_collection = 52;
+    ListOfString guid_field_nullable_collection = 52;
     int32 int_field = 53;
     repeated int32 int_field_collection = 54;
     google.protobuf.Int32Value int_field_nullable = 55;
-    repeated google.protobuf.Int32Value int_field_nullable_collection = 56;
+    ListOfInt32 int_field_nullable_collection = 56;
     int64 long_field = 57;
     repeated int64 long_field_collection = 58;
     google.protobuf.Int64Value long_field_nullable = 59;
-    repeated google.protobuf.Int64Value long_field_nullable_collection = 60;
+    ListInt64 long_field_nullable_collection = 60;
     google.protobuf.Any object_field = 61;
     repeated google.protobuf.Any object_field_collection = 62;
     google.protobuf.Any object_field_nullable = 63;
-    repeated google.protobuf.Any object_field_nullable_collection = 64;
+    ListOfAny object_field_nullable_collection = 64;
     PagedResultOfComplexTypeDto paged_result_field = 65;
     PagedResultOfComplexTypeDto paged_result_field_nullable = 66;
-    int32 short_field = 67;
-    repeated int32 short_field_collection = 68;
-    google.protobuf.Int32Value short_field_nullable = 69;
-    repeated google.protobuf.Int32Value short_field_nullable_collection = 70;
+    uint32 short_field = 67;
+    repeated uint32 short_field_collection = 68;
+    google.protobuf.UInt32Value short_field_nullable = 69;
+    ListOfUInt32 short_field_nullable_collection = 70;
     string string_field = 71;
     repeated string string_field_collection = 72;
     google.protobuf.StringValue string_field_nullable = 73;
@@ -167,5 +157,5 @@ message TypeTestDto {
     google.protobuf.Duration time_span_field = 75;
     repeated google.protobuf.Duration time_span_field_collection = 76;
     google.protobuf.Duration time_span_field_nullable = 77;
-    repeated google.protobuf.Duration time_span_field_nullable_collection = 78;
+    ListOfDuration time_span_field_nullable_collection = 78;
 }
