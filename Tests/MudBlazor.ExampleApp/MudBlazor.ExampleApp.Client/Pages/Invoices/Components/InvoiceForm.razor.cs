@@ -21,7 +21,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         public List<CustomerLookupDto> CustomerOptions { get; set; } = [];
         public List<ProductDto> ProductOptions { get; set; } = [];
         [Parameter]
-        public EventCallback SaveClicked { get; set; }
+        public EventCallback<InvoiceModel> SaveClicked { get; set; }
         [Parameter]
         public EventCallback CancelClicked { get; set; }
         [Inject]

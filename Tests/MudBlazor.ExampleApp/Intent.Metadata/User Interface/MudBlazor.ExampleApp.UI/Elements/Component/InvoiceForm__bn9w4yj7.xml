@@ -21,7 +21,7 @@
             <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
             <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
             <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
-              <typeReference id="4d251b35-b15f-4f87-9cfe-c20fb1d2b087">
+              <typeReference>
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
                 <isCollection>false</isCollection>
@@ -780,14 +780,17 @@
     </childElement>
     <childElement id="3342a9e2-397a-49e6-9091-a64d5be7f013" type="Event Emitter" typeId="d6739ffc-30e6-4170-a105-bf28e69aa578">
       <name>SaveClicked</name>
-      <display>SaveClicked&lt;void&gt;</display>
+      <display>SaveClicked&lt;InvoiceModel&gt;</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="351d4bc5-5bab-4fb7-8b26-32b21c9e7176">
+        <typeId>656d8ef2-df8e-4bca-9980-83363f8808a9</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+        <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -1070,7 +1073,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="40626900-37dc-4986-aaa7-714434fe13a6" name="Add()" type="static-mappable" specialization="Add()" specializationId="40626900-37dc-4986-aaa7-714434fe13a6" />
                     <target id="8eca5952-2a80-448c-b03c-0170c8a16371" name="item" type="static-mappable" specialization="item" specializationId="8eca5952-2a80-448c-b03c-0170c8a16371">
-                      <typeReference id="4dde2dbe-d666-4448-a1a1-68866220f415">
+                      <typeReference>
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -1190,7 +1193,7 @@
                     <target id="7ada006b-2886-4204-85de-c846a4656253" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
                     <target id="f6bfb740-ca91-409b-a5d1-884c31385a68" name="Remove()" type="static-mappable" specialization="Remove()" specializationId="f6bfb740-ca91-409b-a5d1-884c31385a68" />
                     <target id="cce5f491-3ab2-40ed-8f72-081de4975ca9" name="item" type="static-mappable" specialization="item" specializationId="cce5f491-3ab2-40ed-8f72-081de4975ca9">
-                      <typeReference id="7c1f237f-79de-4d51-bfcf-1adf34eb70f7">
+                      <typeReference>
                         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
