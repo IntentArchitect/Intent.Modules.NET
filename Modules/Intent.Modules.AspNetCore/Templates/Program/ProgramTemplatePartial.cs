@@ -161,6 +161,7 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                     .SeparatedFromPrevious());
 
                 hasStatements.AddStatement("app.Run();", s => s
+                    .AddMetadata("host-run", true)
                     .SeparatedFromPrevious());
             });
         }

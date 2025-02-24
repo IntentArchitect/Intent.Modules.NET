@@ -29,9 +29,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Multi-Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="true" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="[&quot;console&quot;]" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -39,7 +41,7 @@
       <childElements>
         <childElement id="d162de61-94ed-4317-bc5b-edb079b01205" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Console</name>
-          <display>Console</display>
+          <display>Console = console</display>
           <isAbstract>false</isAbstract>
           <value>console</value>
           <genericTypes />
@@ -53,7 +55,7 @@
         </childElement>
         <childElement id="8455672a-80f6-44ba-9021-1bf2c9aa3755" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>File</name>
-          <display>File</display>
+          <display>File = file</display>
           <isAbstract>false</isAbstract>
           <value>file</value>
           <genericTypes />
@@ -67,7 +69,7 @@
         </childElement>
         <childElement id="c2d56abb-5a83-4058-8ac9-91fd124a123c" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Graylog</name>
-          <display>Graylog</display>
+          <display>Graylog = graylog</display>
           <isAbstract>false</isAbstract>
           <value>graylog</value>
           <genericTypes />
@@ -81,7 +83,7 @@
         </childElement>
         <childElement id="e741dea1-711e-4435-8a30-49d7c8cfd33f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Application Insights</name>
-          <display>Application Insights</display>
+          <display>Application Insights = application-insights</display>
           <isAbstract>false</isAbstract>
           <value>application-insights</value>
           <genericTypes />

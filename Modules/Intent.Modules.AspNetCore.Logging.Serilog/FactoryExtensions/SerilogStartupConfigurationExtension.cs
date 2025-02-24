@@ -111,8 +111,7 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             file.AddUsing("Serilog");
             file.AddUsing("Serilog.Events");
 
-            var main = (IHasCSharpStatements)file.TopLevelStatements ?? file.Classes.First().FindMethod("Main");
-            var hostBuilder = (IHasCSharpStatements)file.TopLevelStatements?.FindMethod("CreateHostBuilder") ?? file.Classes.First().FindMethod("CreateHostBuilder");
+            var main = (IHasCSharpStatements)file.TopLevelStatements ?? file.Classes.First().Methods.First(x => x.Name == "Main");
 
             var hostRunStmt = main.FindStatement(stmt => stmt.HasMetadata("host-run"));
             hostRunStmt.Remove();
@@ -120,12 +119,14 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             AddBootstrapLoggerStatement(main);
 
             main.AddTryBlock(block =>
-                block.AddStatement(@"Log.Information(""Starting web host"");")
+                //block.AddStatement(@"Log.Information(""Starting web host"");")
+                block.AddStatement(@"logger.Write(LogEventLevel.Information, ""Starting web host"");")
             .AddStatement(hostRunStmt));
 
             main.AddCatchBlock(template.UseType("System.Exception"), "ex",
-                block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
-            main.AddFinallyBlock(block => block.AddStatement("Log.CloseAndFlush();"));
+                //block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
+                block => block.AddStatement(@"logger.Write(LogEventLevel.Fatal, ex, ""Unhandled exception"");"));
+            //main.AddFinallyBlock(block => block.AddStatement("Log.CloseAndFlush();"));
         }
 
         private static void MinimalHostingSerilogSetup(CSharpFile file, bool usesTopLevelStatements, ICSharpFileBuilderTemplate template)
@@ -155,6 +156,10 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 {
                     tryBlock.Statements[nextStatementIndex].SeparatedFromPrevious();
                 }
+                
+                var hostRunStmt = tryBlock.FindStatement(stmt => stmt.HasMetadata("host-run"));
+                //hostRunStmt?.InsertAbove(new CSharpStatement(@"Log.Information(""Starting web host"");").SeparatedFromPrevious());
+                hostRunStmt?.InsertAbove(new CSharpStatement(@"logger.Write(LogEventLevel.Information, ""Starting web host"");").SeparatedFromPrevious());
             });
 
             targetBlock.AddCatchBlock(@catch => @catch
@@ -166,16 +171,17 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             targetBlock.AddCatchBlock(@catch => @catch
                 .WithExceptionType(template.UseType("System.Exception"))
                 .WithParameterName("ex")
-                .AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
+                //.AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
+                .AddStatement(@"logger.Write(LogEventLevel.Fatal, ex, ""Unhandled exception"");"));
 
 
-            targetBlock.AddFinallyBlock(@finally => @finally
-                .AddStatement("Log.CloseAndFlush();"));
+            // targetBlock.AddFinallyBlock(@finally => @finally
+            //     .AddStatement("Log.CloseAndFlush();"));
         }
 
         private static void AddBootstrapLoggerStatement(IHasCSharpStatements targetBlock)
         {
-            targetBlock.AddMethodChainStatement("Log.Logger = new LoggerConfiguration()",
+            targetBlock.AddMethodChainStatement("using var logger = new LoggerConfiguration()",
                 stmt => stmt
                     .AddChainStatement("MinimumLevel.Override(\"Microsoft\", LogEventLevel.Information)")
                     .AddChainStatement("Enrich.FromLogContext()")
