@@ -17,7 +17,7 @@
       <name>Intent.AspNetCore</name>
       <display>Intent.AspNetCore 6.0.7</display>
       <isAbstract>false</isAbstract>
-      <value>6.0.7</value>
+      <value>6.0.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -31,7 +31,7 @@
       <name>Intent.Blazor</name>
       <display>Intent.Blazor 1.0.0-beta.8</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.8</value>
+      <value>1.0.0-beta.9</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -45,7 +45,7 @@
       <name>Intent.Blazor.Components.MudBlazor</name>
       <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.14</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.14</value>
+      <value>1.0.0-beta.15</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -59,7 +59,7 @@
       <name>Intent.Blazor.FluentValidation</name>
       <display>Intent.Blazor.FluentValidation 1.0.3</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.3</value>
+      <value>1.0.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.8</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.8</value>
+      <value>3.8.9</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -171,7 +171,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.2</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.2</value>
+      <value>4.7.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -241,7 +241,7 @@
       <name>Intent.Modelers.UI.Core</name>
       <display>Intent.Modelers.UI.Core 1.0.0-beta.9</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.9</value>
+      <value>1.0.0-beta.10</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -283,7 +283,7 @@
       <name>Intent.VisualStudio.Projects</name>
       <display>Intent.VisualStudio.Projects 3.8.7</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.7</value>
+      <value>3.8.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
