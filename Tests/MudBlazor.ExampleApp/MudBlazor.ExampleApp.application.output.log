@@ -1476,6 +1476,70 @@
     </FileLog>
     <FileLog>
       <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#78b7ece8-81d0-425b-8d33-0d91586289f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/BugCrash.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/BugCrash.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#78b7ece8-81d0-425b-8d33-0d91586289f7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/BugCrash.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/BugCrash.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#79acd14e-db18-4342-ab2e-b4a0403701bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/ImplicitLayout.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/ImplicitLayout.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#79acd14e-db18-4342-ab2e-b4a0403701bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/ImplicitLayout.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/ImplicitLayout.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#7c4f34b8-e020-47f4-b607-ab2cab4aa4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/NoGenerateBug.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/NoGenerateBug.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#7c4f34b8-e020-47f4-b607-ab2cab4aa4fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/NoGenerateBug.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/NoGenerateBug.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#8c97311d-f484-4c2d-ba5e-6c3c5fc53519</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/NonGridLayout.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/NonGridLayout.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#8c97311d-f484-4c2d-ba5e-6c3c5fc53519</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/NonGridLayout.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ContainerTests/NonGridLayout.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#4255cff1-e16b-4c21-b4f4-8646011c7339</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/Customers/Components/ConfirmationDialog.razor</ApplicationRelativeFilePath>
