@@ -179,8 +179,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                     }
 
+                    method.AddStatement("// Force materialization - Some combinations of .net9 runtime and EF runtime crash with \"Convert ReadOnlySpan to List since expression trees can't handle ref struct\"");
+                    method.AddStatement($"var idList = {pk.Name.ToCamelCase().Pluralize()}.ToList();");
                     string findMethod = makeAsync ? "await FindAllAsync" : "FindAll";
-                    method.AddStatement($"return {findMethod}(x => {pk.Name.ToCamelCase().Pluralize()}.Contains(x.{pk.Name}){(makeAsync ? ", cancellationToken" : "")});");
+                    method.AddStatement($"return {findMethod}(x => idList.Contains(x.{pk.Name}){(makeAsync ? ", cancellationToken" : "")});");
                 });
             }
 

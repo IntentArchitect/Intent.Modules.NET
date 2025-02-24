@@ -1,3 +1,7 @@
+### Version 4.7.6
+
+- Fix: Added an issues around `FindByIdsAsync` failing with runtime exception `Convert ReadOnlySpan to List since expression trees can't handle ref struct` on some combinations of .net SDK 9 and EF Framework.
+
 ### Version 4.7.5
 
 - Improvement: Implementations are now generated for Operations mapped to Stored Procedures.
