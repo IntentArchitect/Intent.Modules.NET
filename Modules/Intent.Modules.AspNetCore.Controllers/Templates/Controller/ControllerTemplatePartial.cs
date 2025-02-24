@@ -379,7 +379,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     return attribute;
                 });
         }
-        
+
         private static CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
             var arguments = new List<string>();

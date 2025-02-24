@@ -53,7 +53,7 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
                     startupTemplate.AddUsing("FastEndpoints.ApiExplorer");
                     startup.AddServiceConfiguration(c => $"{c.Services}.AddFastEndpointsApiExplorer();");
                 }
-                
+
                 startup.AddUseEndpointsStatement(
                     create: context => new CSharpInvocationStatement($"{context.Endpoints}.MapFastEndpoints")
                     .AddArgument(new CSharpLambdaBlock("c")
