@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#82ebd9ba-bbf3-426c-bc62-35626bd2c3c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProgramPartial/ProgramPartialTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProgramPartial/ProgramPartialTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#82ebd9ba-bbf3-426c-bc62-35626bd2c3c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ProgramPartial/ProgramPartialTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProgramPartial/ProgramPartialTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>51af8ab0-eeb7-4c0b-85af-34912b3ceed2</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2b0cd2c1-23c0-4841-a618-bc03211d9ae2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Startup/StartupTemplatePartial.cs</ApplicationRelativeFilePath>
