@@ -17,6 +17,8 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
@@ -70,10 +72,14 @@
     </childElement>
     <childElement id="9adfeda9-3114-4ed9-94f0-71521575dedd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>3.1.1</name>
+      <display>3.1.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>905c89e9-f795-472b-92e8-c10e379a0ad9</parentFolderId>
+      <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+      <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -89,33 +95,42 @@
       <childElements>
         <childElement id="842cf4d5-4dd9-4ccb-b0c9-6be2fc3e19d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
+          <display>System.Memory (4.5.5)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+          <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d05b3e05-3359-461d-bfa4-ce9f96349e6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encoding</name>
+          <display>System.Text.Encoding (4.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+          <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="73978603-3ed0-41de-8c84-4ad1274ded5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
+          <display>System.Text.Json (7.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9adfeda9-3114-4ed9-94f0-71521575dedd</parentFolderId>
+          <packageId>8b0c1ac1-fec4-498c-8f04-76519c498003</packageId>
+          <packageName>Intent.Modules.AspNetCore.Logging.Serilog</packageName>
           <stereotypes />
           <metadata />
           <childElements />

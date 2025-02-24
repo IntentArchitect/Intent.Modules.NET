@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Modules.AspNetCore.Logging.Serilog</id>
-  <version>5.1.9</version>
+  <version>5.1.10-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <releaseNotes>release-notes.md</releaseNotes>
   <summary>Provides Serilog logging for ASP.NET Core.</summary>
@@ -20,7 +20,6 @@
     <group id="627ffe24-50f0-4e12-8276-073a255523b0" title="Serilog Settings" externalReference="627ffe24-50f0-4e12-8276-073a255523b0">
       <settings>
         <setting id="e1e76d8d-298a-4f47-af08-0b08fdcc95c1" title="Sinks" type="multi-select">
-          <isRequired>true</isRequired>
           <defaultValue>["console"]</defaultValue>
           <options>
             <option value="console" description="Console" />
