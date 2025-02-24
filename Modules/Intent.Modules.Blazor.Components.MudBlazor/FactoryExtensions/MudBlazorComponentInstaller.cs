@@ -53,6 +53,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             application.ConfigureRazor(configurator =>
             {
                 configurator.AddTagNameAttributeMatch("MudButton", "Href");
+                configurator.AddTagNameAttributeMatch("MudButton", "OnClick");
                 configurator.AddTagNameAttributeMatch("MudDatePicker", "@bind-Date");
                 configurator.AddTagNameAttributeMatch("MudIconButton", "Href");
                 configurator.AddTagNameAttributeMatch("MudImage", "Src");

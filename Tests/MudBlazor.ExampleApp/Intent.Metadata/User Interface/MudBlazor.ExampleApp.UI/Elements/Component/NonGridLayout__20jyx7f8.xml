@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8c97311d-f484-4c2d-ba5e-6c3c5fc53519" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>NonGridLayout</name>
+  <display>NonGridLayout</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9836573d-5d72-4459-a205-138c70838dd9</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/container-tests/non-grid-layout" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="8c97311d-f484-4c2d-ba5e-6c3c5fc53519" location="[MudBlazor.ExampleApp].[User Interface].[NonGridLayout]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="ee4d90c3-9a93-4b3d-937d-2acf2fd06cde" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>http://www.google.com</expression>
+          <path>
+            <target id="ee4d90c3-9a93-4b3d-937d-2acf2fd06cde" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="33010db0-8469-4974-8603-4216864dbd14" name="Container" type="element" specialization="Container" specializationId="b97ea181-2462-431f-8f62-f90f79509b9e" />
+            <target id="dc359e37-fa49-4e65-841b-5883b17c6e9a" name="Link" type="element" specialization="Link" specializationId="a274918b-72d1-4913-95de-0a801ac90ce4" />
+          </path>
+          <sources />
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="5eb7366e-150e-4d37-bda6-b5152e432bd9" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a8652aef-6ec0-4d3b-ba3d-f1fb9156c42f">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>8c97311d-f484-4c2d-ba5e-6c3c5fc53519</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

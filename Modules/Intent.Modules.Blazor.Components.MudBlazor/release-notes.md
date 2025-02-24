@@ -5,3 +5,4 @@
 - Improvement : Support for `Layout` attributes on `Containers`.
 - Improvement : Support for `OnSelected` event on `Select`.
 - Improvement : Support for `Radio Button Group`
+- Improvement : Improved `Layout` and `Container` razor generation.

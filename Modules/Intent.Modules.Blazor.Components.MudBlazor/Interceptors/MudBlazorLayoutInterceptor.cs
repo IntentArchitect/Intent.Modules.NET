@@ -11,10 +11,15 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Interceptors;
 
 public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider componentResolver, IRazorComponentTemplate template) : IRazorComponentInterceptor
 {
-    // In this interceptor we dynamically add in MudGrids as they are required, based on the present of `Layout` stereotype.
+    // In this interceptor we dynamically add in MudGrids as they are required, based on the presence of `Layout` stereotype.
     public void Handle(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
     {
-        if (!(component.HasStereotype("Layout") && razorNodes.Any()))
+        if (RequiresANonGridContainer(component, razorNodes, node))
+        {
+            AddNonGridContainer(component, razorNodes, node);
+            return;
+        }
+        else if (!(component.HasStereotype("Layout") && razorNodes.Any()))
         {
             return;
         }
@@ -25,10 +30,6 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
             if (TryGetExistingGrid(node, component, out var childGrid))
             {
                 elementsToSwapParent = new List<IRazorFileNode> { childGrid };
-            }
-            else
-            {
-                throw new Exception($"Unexpected scenario. Could not find child Grid for component : {component.Name}({component.ParentElement?.Name})");
             }
         }
 
@@ -54,6 +55,27 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
             }
         }
         AddMudItem(component, grid, elementsToSwapParent);
+    }
+
+    private void AddNonGridContainer(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
+    {
+        var container = new HtmlElement("div", template.RazorFile);
+        //This is used to denote which component the div represents
+        container.AddMetadata("_containerModel", component);
+
+        node.AddChildNode(container);
+        foreach (var razorNode in razorNodes)
+        {
+            razorNode.Remove();
+            container.AddChildNode(razorNode);
+        }
+    }
+
+    private bool RequiresANonGridContainer(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
+    {
+        return component.IsContainerModel() 
+            && !component.HasStereotype("Layout") //Container doesn't have Layout
+            && !TryGetExistingGrid(node, component, out var childGrid); // Children don't have a layout
     }
 
     private static bool TryGetExistingGrid(IRazorFileNode node, IElement parent, out HtmlElement grid)

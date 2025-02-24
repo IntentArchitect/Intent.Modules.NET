@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ee4d90c3-9a93-4b3d-937d-2acf2fd06cde" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8c97311d-f484-4c2d-ba5e-6c3c5fc53519</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="33010db0-8469-4974-8603-4216864dbd14" type="Container" typeId="b97ea181-2462-431f-8f62-f90f79509b9e">
+      <name>Container</name>
+      <display>Container</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ee4d90c3-9a93-4b3d-937d-2acf2fd06cde</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="e88b7291-58e3-47c8-b53b-736d2687ac54" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+          <name>Text</name>
+          <display>Text</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>33010db0-8469-4974-8603-4216864dbd14</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dc359e37-fa49-4e65-841b-5883b17c6e9a" type="Link" typeId="a274918b-72d1-4913-95de-0a801ac90ce4">
+          <name>Link</name>
+          <display>Link = http://www.google.com</display>
+          <isAbstract>false</isAbstract>
+          <value>http://www.google.com</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>33010db0-8469-4974-8603-4216864dbd14</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <traits>
+            <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+          </traits>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5d0a10f7-ef5c-4f1e-af13-3471671b46a7" name="Interaction">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+              <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+              <properties>
+                <property name="c1be1bbb-0dc3-4186-b0a9-d0ea621f0e9a" display="On Click" isActive="true" />
+                <property name="257ead90-2cc1-44a3-9dc0-5bebf44bff91" display="Link To" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
