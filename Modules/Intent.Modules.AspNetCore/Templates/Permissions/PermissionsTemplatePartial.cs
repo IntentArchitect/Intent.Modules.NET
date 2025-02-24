@@ -24,7 +24,7 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
     {
         public const string TemplateId = "Intent.AspNetCore.Permissions";
 
-        
+
         private readonly IEnumerable<SecurityConstant> _securityConstants;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -42,7 +42,7 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
                     {
                         @class.AddField("string", @const.Name, @field =>
                         {
-                            @field.Constant($"\"{@const.Value}\"");
+                            @field.Constant($"\"{@const.Value.Trim()}\"");
                         });
                     }
 
@@ -134,14 +134,15 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
                 List<string> roles = [];
                 var securedStereo = e.GetStereotypes(Constants.Security.Secured.Id);
 
-                foreach(IStereotype secured in securedStereo)
+                foreach (IStereotype secured in securedStereo)
                 {
                     var tempRoles = secured?.GetProperty<string?>(Constants.Security.Secured.Properties.CommaSeparatedRoles) ?? string.Empty;
-                    roles.AddRange(tempRoles.Split(","));
+
+                    roles.AddRange(tempRoles.Split("+").SelectMany(s => s.Split(",")));
                 }
 
                 return roles;
-                
+
             }).Where(r => !string.IsNullOrWhiteSpace(r));
 
             var policiesList = securedElements.SelectMany(e =>
@@ -152,7 +153,7 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
                 foreach (IStereotype secured in securedStereo)
                 {
                     var tempPolicies = secured?.GetProperty<string?>(Constants.Security.Secured.Properties.CommaSeparatedPolicies) ?? string.Empty;
-                    policies.AddRange(tempPolicies.Split(","));
+                    policies.AddRange(tempPolicies.Split("+").SelectMany(s => s.Split(",")));
                 }
                 return policies;
             }).Where(r => !string.IsNullOrWhiteSpace(r));
@@ -180,7 +181,7 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
 
             return securityModels.GroupBy(c => c.Name).Select(c => c.First());
         }
-        
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
@@ -198,6 +199,6 @@ namespace Intent.Modules.AspNetCore.Templates.Permissions
 
         private record SecurityConstant(string Name, string Value, SecurityType Type);
 
-        
+
     }
 }
