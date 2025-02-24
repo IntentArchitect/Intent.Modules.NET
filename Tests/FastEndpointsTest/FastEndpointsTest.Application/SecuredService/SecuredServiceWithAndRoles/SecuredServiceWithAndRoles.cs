@@ -1,5 +1,6 @@
 using FastEndpointsTest.Application.Common.Interfaces;
 using FastEndpointsTest.Application.Common.Security;
+using FastEndpointsTest.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -8,8 +9,8 @@ using MediatR;
 
 namespace FastEndpointsTest.Application.SecuredService.SecuredServiceWithAndRoles
 {
-    [Authorize(Roles = "Admin,One")]
-    [Authorize(Roles = "Admin,Two")]
+    [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleOne}")]
+    [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleTwo}")]
     public class SecuredServiceWithAndRoles : IRequest, ICommand
     {
         public SecuredServiceWithAndRoles()

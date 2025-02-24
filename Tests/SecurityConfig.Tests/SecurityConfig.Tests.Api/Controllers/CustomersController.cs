@@ -16,6 +16,7 @@ using SecurityConfig.Tests.Application.Customers.DeleteCustomer;
 using SecurityConfig.Tests.Application.Customers.GetCustomerById;
 using SecurityConfig.Tests.Application.Customers.GetCustomers;
 using SecurityConfig.Tests.Application.Customers.UpdateCustomer;
+using SecurityConfig.Tests.Application.Security;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
@@ -40,7 +41,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpPost("api/customers")]
-        [Authorize(Policy = "Customer")]
+        [Authorize(Policy = Permissions.PolicyCustomer)]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -63,7 +64,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/customers/{id}")]
-        [Authorize(Policy = "Customer,Admin")]
+        [Authorize(Policy = $"{Permissions.PolicyCustomer},{Permissions.PolicyAdmin}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -84,7 +85,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/customers/{id}")]
-        [Authorize(Policy = "Customer")]
+        [Authorize(Policy = Permissions.PolicyCustomer)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -118,7 +119,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">No CustomerDto could be found with the provided parameters.</response>
         [HttpGet("api/customers/{id}")]
-        [Authorize(Policy = "Customer")]
+        [Authorize(Policy = Permissions.PolicyCustomer)]
         [ProducesResponseType(typeof(CustomerDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -139,7 +140,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpGet("api/customers")]
-        [Authorize(Policy = "Customer")]
+        [Authorize(Policy = Permissions.PolicyCustomer)]
         [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

@@ -1,4 +1,5 @@
 using EntityFrameworkCore.Postgres.Application.Common.Interfaces;
+using EntityFrameworkCore.Postgres.Application.Security;
 using EntityFrameworkCore.Postgres.Domain.Entities;
 using EntityFrameworkCore.Postgres.Infrastructure.Interceptors;
 using Intent.RoslynWeaver.Attributes;
@@ -26,7 +27,7 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"], policies: ["user"]));
+                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: [Permissions.RoleAdmin], policies: [Permissions.PolicyUser]));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();

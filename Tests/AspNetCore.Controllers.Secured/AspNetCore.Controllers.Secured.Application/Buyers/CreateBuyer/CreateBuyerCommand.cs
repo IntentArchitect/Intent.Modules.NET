@@ -1,6 +1,7 @@
 using System;
 using AspNetCore.Controllers.Secured.Application.Common.Interfaces;
 using AspNetCore.Controllers.Secured.Application.Common.Security;
+using AspNetCore.Controllers.Secured.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -9,7 +10,7 @@ using MediatR;
 
 namespace AspNetCore.Controllers.Secured.Application.Buyers.CreateBuyer
 {
-    [Authorize(Roles = "Role2", Policy = "Policy2")]
+    [Authorize(Roles = Permissions.Role2, Policy = Permissions.Policy2)]
     public class CreateBuyerCommand : IRequest<Guid>, ICommand
     {
         public CreateBuyerCommand(string name, string surname, string email)

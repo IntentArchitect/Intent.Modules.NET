@@ -10,6 +10,7 @@ using AspNetCore.Controllers.Secured.Application.Products.DeleteProduct;
 using AspNetCore.Controllers.Secured.Application.Products.GetProductById;
 using AspNetCore.Controllers.Secured.Application.Products.GetProducts;
 using AspNetCore.Controllers.Secured.Application.Products.UpdateProduct;
+using AspNetCore.Controllers.Secured.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -41,7 +42,7 @@ namespace AspNetCore.Controllers.Secured.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpPost("api/product")]
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleUser}")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(typeof(JsonResponse<Guid>), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -64,7 +65,7 @@ namespace AspNetCore.Controllers.Secured.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/product/{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = Permissions.RoleAdmin)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -85,7 +86,7 @@ namespace AspNetCore.Controllers.Secured.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/product/{id}")]
-        [Authorize(Roles = "Admin,User")]
+        [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleUser}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

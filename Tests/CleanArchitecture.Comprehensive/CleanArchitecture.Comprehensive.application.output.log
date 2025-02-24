@@ -7491,6 +7491,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a01ced4d-b653-49b7-a461-0f9821bce653</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Permissions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#346ccbdb-d029-4be8-966b-db74673096a3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

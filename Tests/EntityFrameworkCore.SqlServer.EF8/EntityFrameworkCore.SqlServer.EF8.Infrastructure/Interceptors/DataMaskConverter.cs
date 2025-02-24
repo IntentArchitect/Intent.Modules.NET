@@ -129,6 +129,11 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Interceptors
                     return false;
                 }
             }
+
+            if (roles.Length == 0 && policies.Length == 0)
+            {
+                return false;
+            }
             return true;
         }
     }

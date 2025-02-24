@@ -10,6 +10,7 @@ using AspNetCore.Controllers.Secured.Application.Buyers.DeleteBuyer;
 using AspNetCore.Controllers.Secured.Application.Buyers.GetBuyerById;
 using AspNetCore.Controllers.Secured.Application.Buyers.GetBuyers;
 using AspNetCore.Controllers.Secured.Application.Buyers.UpdateBuyer;
+using AspNetCore.Controllers.Secured.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -24,7 +25,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace AspNetCore.Controllers.Secured.Api.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "Role2", Policy = "Policy2")]
+    [Authorize(Roles = Permissions.Role2, Policy = Permissions.Policy2)]
     public class BuyersController : ControllerBase
     {
         private readonly ISender _mediator;
@@ -63,7 +64,7 @@ namespace AspNetCore.Controllers.Secured.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/buyers/{id}")]
-        [Authorize(Roles = "Role1", Policy = "Policy2")]
+        [Authorize(Roles = Permissions.Role1, Policy = Permissions.Policy2)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -84,7 +85,7 @@ namespace AspNetCore.Controllers.Secured.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("api/buyers/{id}")]
-        [Authorize(Roles = "Role1", Policy = "Policy1")]
+        [Authorize(Roles = Permissions.Role1, Policy = Permissions.Policy1)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

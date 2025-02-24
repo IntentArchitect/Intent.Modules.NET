@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="545de762-214d-4443-95d5-d9cfdc7a7ca2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+  <name>Intent.AspNetCore.Permissions</name>
+  <display>Intent.AspNetCore.Permissions</display>
+  <externalReference>Intent.AspNetCore</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>721330df-378a-4cad-b70f-f9f5f261fa0a</parentFolderId>
+  <stereotypes />
+  <metadata>
+    <entry key="status" value="unassigned" />
+  </metadata>
+  <childElements />
+</class>

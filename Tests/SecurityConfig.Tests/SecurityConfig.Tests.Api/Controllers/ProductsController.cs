@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using SecurityConfig.Tests.Application.Common.Validation;
 using SecurityConfig.Tests.Application.Interfaces;
 using SecurityConfig.Tests.Application.Products;
+using SecurityConfig.Tests.Application.Security;
 using SecurityConfig.Tests.Domain.Common.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -40,7 +41,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpPost]
-        [Authorize(Roles = "Product")]
+        [Authorize(Roles = Permissions.RoleProduct)]
         [ProducesResponseType(typeof(Guid), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -71,7 +72,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">No ProductDto could be found with the provided parameters.</response>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Product")]
+        [Authorize(Roles = Permissions.RoleProduct)]
         [ProducesResponseType(typeof(ProductDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -93,7 +94,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpGet]
-        [Authorize(Roles = "Product")]
+        [Authorize(Roles = Permissions.RoleProduct)]
         [ProducesResponseType(typeof(List<ProductDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
@@ -113,7 +114,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Product")]
+        [Authorize(Roles = Permissions.RoleProduct)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
@@ -145,7 +146,7 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Product,Admin")]
+        [Authorize(Roles = $"{Permissions.RoleProduct},{Permissions.RoleAdmin}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

@@ -139,6 +139,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4efffd6e-e6a2-403c-aecb-c03467a4b8f5</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Permissions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF7.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cfacc05f-82b5-4878-93ae-36f34fd89ed1</ProjectId>
       <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

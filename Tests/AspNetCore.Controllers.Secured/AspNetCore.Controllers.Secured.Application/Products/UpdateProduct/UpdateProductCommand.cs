@@ -1,6 +1,7 @@
 using System;
 using AspNetCore.Controllers.Secured.Application.Common.Interfaces;
 using AspNetCore.Controllers.Secured.Application.Common.Security;
+using AspNetCore.Controllers.Secured.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -9,7 +10,7 @@ using MediatR;
 
 namespace AspNetCore.Controllers.Secured.Application.Products.UpdateProduct
 {
-    [Authorize(Roles = "Admin,User")]
+    [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleUser}")]
     public class UpdateProductCommand : IRequest, ICommand
     {
         public UpdateProductCommand(Guid id, string name, string description, decimal price)

@@ -1,4 +1,5 @@
 using EntityFrameworkCore.MySql.Application.Common.Interfaces;
+using EntityFrameworkCore.MySql.Application.Security;
 using EntityFrameworkCore.MySql.Domain.Entities;
 using EntityFrameworkCore.MySql.Infrastructure.Interceptors;
 using Intent.RoslynWeaver.Attributes;
@@ -26,7 +27,7 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"], policies: ["user"]));
+                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: [Permissions.RoleAdmin], policies: [Permissions.PolicyUser]));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();

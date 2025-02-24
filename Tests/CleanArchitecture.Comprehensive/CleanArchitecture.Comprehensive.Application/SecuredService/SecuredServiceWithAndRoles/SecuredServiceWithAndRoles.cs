@@ -1,5 +1,6 @@
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using CleanArchitecture.Comprehensive.Application.Common.Security;
+using CleanArchitecture.Comprehensive.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -8,8 +9,8 @@ using MediatR;
 
 namespace CleanArchitecture.Comprehensive.Application.SecuredService.SecuredServiceWithAndRoles
 {
-    [Authorize(Roles = "Admin,One")]
-    [Authorize(Roles = "Admin,Two")]
+    [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleOne}")]
+    [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleTwo}")]
     public class SecuredServiceWithAndRoles : IRequest, ICommand
     {
         public SecuredServiceWithAndRoles()

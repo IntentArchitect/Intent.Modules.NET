@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Application.SecuredService.Secured;
 using CleanArchitecture.Comprehensive.Application.SecuredService.SecuredServiceWithAndRoles;
+using CleanArchitecture.Comprehensive.Application.Security;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -50,8 +51,8 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         /// <response code="401">Unauthorized request.</response>
         /// <response code="403">Forbidden request.</response>
         [HttpPut("api/secured-service/secured-service-with-and-roles")]
-        [Authorize(Roles = "Admin,One")]
-        [Authorize(Roles = "Admin,Two")]
+        [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleOne}")]
+        [Authorize(Roles = $"{Permissions.RoleAdmin},{Permissions.RoleTwo}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]

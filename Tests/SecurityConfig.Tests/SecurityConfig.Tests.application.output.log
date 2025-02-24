@@ -619,6 +619,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4f7d31b8-e16e-417c-b244-c9d7e772c78b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Permissions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SecurityConfig.Tests.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>35939061-0b77-464b-99ce-4dd7f1adc270</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#35939061-0b77-464b-99ce-4dd7f1adc270</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

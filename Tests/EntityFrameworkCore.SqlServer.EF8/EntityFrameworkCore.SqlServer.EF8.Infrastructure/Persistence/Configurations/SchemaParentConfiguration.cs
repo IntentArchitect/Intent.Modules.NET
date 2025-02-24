@@ -1,4 +1,5 @@
 using EntityFrameworkCore.SqlServer.EF8.Application.Common.Interfaces;
+using EntityFrameworkCore.SqlServer.EF8.Application.Security;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Interceptors;
 using Intent.RoslynWeaver.Attributes;
@@ -26,7 +27,7 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence.Configura
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: ["admin"], policies: ["user"]));
+                .HasConversion(DataMaskConverter.VariableLength(_currentUserService, '*', roles: [Permissions.RoleAdmin], policies: [Permissions.PolicyUser]));
 
             builder.OwnsOne(x => x.SchemaInLineChild, ConfigureSchemaInLineChild)
                 .Navigation(x => x.SchemaInLineChild).IsRequired();

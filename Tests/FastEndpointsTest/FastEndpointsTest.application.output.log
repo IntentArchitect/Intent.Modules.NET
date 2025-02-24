@@ -2241,6 +2241,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7ef3dc0f-ec65-433f-a312-85f83d2a481a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Permissions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#0e9818ca-8780-4bb7-8840-498eab6644d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
