@@ -28,7 +28,9 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.ExplicitKeys
 
         public async Task<List<ParentNonStdId>> FindByIdsAsync(Guid[] myIds, CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => myIds.Contains(x.MyId), cancellationToken);
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = myIds.ToList();
+            return await FindAllAsync(x => idList.Contains(x.MyId), cancellationToken);
         }
     }
 }

@@ -30,7 +30,9 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories
 
         public async Task<List<TemporalProduct>> FindByIdsAsync(Guid[] id1s, CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => id1s.Contains(x.Id1), cancellationToken);
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = id1s.ToList();
+            return await FindAllAsync(x => idList.Contains(x.Id1), cancellationToken);
         }
 
         public async Task<List<TemporalHistory<TemporalProduct>>> FindHistoryAsync(

@@ -40,7 +40,9 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
 
         public async Task<List<Customer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = ids.ToList();
+            return await FindAllAsync(x => idList.Contains(x.Id), cancellationToken);
         }
 
         [IntentManaged(Mode.Fully)]
@@ -52,7 +54,9 @@ namespace EntityFramework.SynchronousRepositories.Infrastructure.Repositories
         [IntentManaged(Mode.Fully)]
         public List<Customer> FindByIds(Guid[] ids)
         {
-            return FindAll(x => ids.Contains(x.Id));
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = ids.ToList();
+            return FindAll(x => idList.Contains(x.Id));
         }
     }
 }

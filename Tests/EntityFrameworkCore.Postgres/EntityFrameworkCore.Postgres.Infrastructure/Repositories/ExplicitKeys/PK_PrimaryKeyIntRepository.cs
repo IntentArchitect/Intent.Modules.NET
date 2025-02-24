@@ -30,7 +30,9 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.ExplicitKeys
             int[] primaryKeyIds,
             CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => primaryKeyIds.Contains(x.PrimaryKeyId), cancellationToken);
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = primaryKeyIds.ToList();
+            return await FindAllAsync(x => idList.Contains(x.PrimaryKeyId), cancellationToken);
         }
     }
 }

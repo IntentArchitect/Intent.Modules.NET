@@ -36,7 +36,9 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.Inheritanc
 
         public async Task<List<BaseClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
-            return await FindAllAsync(x => ids.Contains(x.Id), cancellationToken);
+            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
+            var idList = ids.ToList();
+            return await FindAllAsync(x => idList.Contains(x.Id), cancellationToken);
         }
     }
 }
