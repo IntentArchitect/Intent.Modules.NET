@@ -53,17 +53,15 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
                     startupTemplate.AddUsing("FastEndpoints.ApiExplorer");
                     startup.AddServiceConfiguration(c => $"{c.Services}.AddFastEndpointsApiExplorer();");
                 }
-
-                var mapFastEndpoints = new CSharpInvocationStatement("endpoints.MapFastEndpoints")
+                
+                startup.AddUseEndpointsStatement(
+                    create: context => new CSharpInvocationStatement($"{context.Endpoints}.MapFastEndpoints")
                     .AddArgument(new CSharpLambdaBlock("c")
                         .WithExpressionBody(
                             new CSharpAssignmentStatement("c.Endpoints.Configurator",
                                 new CSharpLambdaBlock("ep")
                                     .AddStatement($"ep.PostProcessors(0, new {startupTemplate.GetExceptionProcessorTemplateName()}());"))))
-                    .AddMetadata("configure-endpoints-map-fast-endpoints", true);
-
-                startup.AddUseEndpointsStatement(
-                    create: context => mapFastEndpoints,
+                    .AddMetadata("configure-endpoints-map-fast-endpoints", true),
                     configure: (s, _) => s.AddMetadata("configure-endpoints-controllers-generic", true));
             }, 10);
         }

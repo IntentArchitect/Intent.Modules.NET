@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>6.0.7</Version>
+    <Version>6.0.8-pre.0</Version>
     <Authors>Intent Architect</Authors>
     <Copyright>Copyright 2020</Copyright>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
@@ -19,6 +19,8 @@
   <ItemGroup>
     <None Remove="Templates\Startup\StartupTemplate.tt" />
   </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.6" />

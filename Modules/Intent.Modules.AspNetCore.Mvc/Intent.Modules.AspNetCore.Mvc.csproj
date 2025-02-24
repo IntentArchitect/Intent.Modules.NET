@@ -23,5 +23,6 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
+  <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -2,6 +2,7 @@
 
 - Improvement: Controller methods will now have `[ProducesResponseType(StatusCodes.Status204NoContent)]` applied to them when its operation returns a nullable non-collection.
 - Fixed: When using multitenancy the create action now has the correct response. 
+- Improvement: `Roles` and `Policies` will now used constants instead of strings, if they are available.
 
 ### Version 7.1.0
 

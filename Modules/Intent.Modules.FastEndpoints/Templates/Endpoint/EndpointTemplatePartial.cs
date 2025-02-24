@@ -14,6 +14,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.FastEndpoints.Templates.Endpoint.Models;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Modules.Security.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -329,18 +330,27 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 return;
             }
 
+            var permissionOptions = new PermissionConversionOptions
+            {
+                ConvertedCollectionFormat = "{0}",
+                UnconvertedCollectionFormat = "{0}",
+                ConvertedNameFormat = "{0}",
+                UnconvertedNameFormat = "\"{0}\"",
+                OuputFullyQualifiedName = true
+            };
+
             // FastEndpoints as this time doesn't allow an ANDing paradigm of a collection of
             // security models, so we can only do a union of all the roles and/or policies:
             var roles = Model.SecurityModels.SelectMany(x => x.Roles).Distinct().ToArray();
             if (roles.Length > 0)
             {
-                method.AddStatement($"Roles({string.Join(", ", roles.Select(role => $"\"{role}\""))});");
+                method.AddStatement($"Roles({SecurityHelper.RolesToPermissionConstants(roles, this, permissionOptions)});");
             }
 
             var policies = Model.SecurityModels.SelectMany(x => x.Policies).Distinct().ToArray();
             if (policies.Length > 0)
             {
-                method.AddStatement($"Policies({string.Join(", ", policies.Select(policy => $"\"{policy}\""))});");
+                method.AddStatement($"Policies({SecurityHelper.PoliciesToPermissionConstants(policies, this, permissionOptions)});");
             }
         }
 

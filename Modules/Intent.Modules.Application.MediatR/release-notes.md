@@ -1,4 +1,8 @@
-﻿### Version 4.3.1
+﻿### Version 4.3.2
+
+- Improvement: `Roles` and `Policies` will now used constants instead of strings, if they are available.
+
+### Version 4.3.1
 
 - Improvement: Included module help topic.
 

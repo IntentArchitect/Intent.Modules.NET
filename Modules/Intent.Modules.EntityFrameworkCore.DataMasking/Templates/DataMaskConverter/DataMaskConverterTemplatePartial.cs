@@ -194,6 +194,11 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
                             });
                         });
 
+                        method.AddIfStatement("roles.Length == 0 && policies.Length == 0", lengthIf =>
+                        {
+                            lengthIf.AddReturn("false");
+                        });
+
                         method.AddReturn("true");
                     });
 

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -13,8 +15,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.Security.Models;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Modules.Security.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -355,7 +359,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
             return attributes;
         }
 
-        private static IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
+        private IEnumerable<CSharpAttribute> GetAuthorizationAttributes(IReadOnlyCollection<ISecurityModel> securityModels)
         {
             return securityModels
                 .Select(model =>
@@ -364,18 +368,18 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
 
                     if (model.Roles.Count > 0)
                     {
-                        attribute.AddArgument($"Roles = \"{string.Join(",", model.Roles)}\"");
+                        attribute.AddArgument($"Roles = {SecurityHelper.RolesToPermissionConstants(model.Roles, this)}");
                     }
 
                     if (model.Policies.Count > 0)
                     {
-                        attribute.AddArgument($"Policy = \"{string.Join(",", model.Policies)}\"");
+                        attribute.AddArgument($"Policy = {SecurityHelper.PoliciesToPermissionConstants(model.Policies, this)}");
                     }
 
                     return attribute;
                 });
         }
-
+        
         private static CSharpAttribute GetHttpVerbAndPath(IControllerOperationModel o)
         {
             var arguments = new List<string>();

@@ -24,4 +24,9 @@ public static class Roles
     {
         public const string EntityInterface = "Domain.Entity.Interface";
     }
+
+    public static class Security
+    {
+        public const string Permissions = "Security.Permissions";
+    }
 }

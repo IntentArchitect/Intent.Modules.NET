@@ -20,5 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
+  
+  <Import Project="..\Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems" Label="Shared" />
 
 </Project>

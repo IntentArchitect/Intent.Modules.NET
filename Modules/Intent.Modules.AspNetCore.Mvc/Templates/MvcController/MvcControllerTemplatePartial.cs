@@ -14,6 +14,7 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Metadata.Security.Models;
+using Intent.Modules.Security.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.AspNetCore.Mvc.Api.OperationModelStereotypeExtensions;
@@ -177,12 +178,12 @@ namespace Intent.Modules.AspNetCore.Mvc.Templates.MvcController
 
                     if (model.Roles.Count > 0)
                     {
-                        attribute.AddArgument($"Roles = \"{string.Join(",", model.Roles)}\"");
+                        attribute.AddArgument($"Roles = {SecurityHelper.RolesToPermissionConstants(model.Roles, this)}");
                     }
 
                     if (model.Policies.Count > 0)
                     {
-                        attribute.AddArgument($"Policy = \"{string.Join(",", model.Policies)}\"");
+                        attribute.AddArgument($"Policy = {SecurityHelper.PoliciesToPermissionConstants(model.Policies, this)}");
                     }
 
                     return attribute;

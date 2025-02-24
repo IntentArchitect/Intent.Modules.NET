@@ -6,6 +6,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.Security.Models;
+using Intent.Modules.Security.Shared;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Application.MediatR.Templates;
 
@@ -51,12 +53,12 @@ internal static class CqrsTemplateHelpers
                 {
                     if (securityModel.Roles.Count > 0)
                     {
-                        attribute.AddArgument($"Roles = \"{string.Join(',', securityModel.Roles)}\"");
+                        attribute.AddArgument($"Roles = {SecurityHelper.RolesToPermissionConstants(securityModel.Roles, template)}");
                     }
 
                     if (securityModel.Policies.Count > 0)
                     {
-                        attribute.AddArgument($"Policy = \"{string.Join(',', securityModel.Policies)}\"");
+                        attribute.AddArgument($"Policy = {SecurityHelper.PoliciesToPermissionConstants(securityModel.Policies, template)}");
                     }
                 });
         }

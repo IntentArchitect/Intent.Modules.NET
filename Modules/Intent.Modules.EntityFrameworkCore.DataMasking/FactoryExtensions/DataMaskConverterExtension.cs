@@ -10,8 +10,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConverter;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
+using Intent.Modules.Security.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -91,8 +93,17 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
         {
             var maskedChar = string.IsNullOrWhiteSpace(attribute.GetDataMasking().MaskCharacter()) ? '*' : attribute.GetDataMasking().MaskCharacter().First();
             var maskLength = attribute.GetDataMasking().FixedLength() <= 0 ? 5 : attribute.GetDataMasking().FixedLength();
-            var roles = string.Join("\",\"", GetRoles(attribute));
-            var policies = string.Join("\",\"", GetPolicies(attribute));
+
+            var permissionOptions = new PermissionConversionOptions
+            {
+                ConvertedCollectionFormat = "{0}",
+                UnconvertedCollectionFormat = "{0}",
+                ConvertedNameFormat = "{0}",
+                UnconvertedNameFormat = "\"{0}\""
+            };
+
+            var roles = SecurityHelper.RolesToPermissionConstants(GetRoles(attribute), template, permissionOptions);
+            var policies = SecurityHelper.PoliciesToPermissionConstants(GetPolicies(attribute), template, permissionOptions);
 
             if (attribute.HasDataMasking() && attribute.GetDataMasking().DataMaskType().IsVariableLength())
             {
@@ -172,14 +183,14 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
             if (roles?.Length > 0)
             {
-                return roles!.Select(x => $"\"{x.Name}\"").ToArray();
+                return roles!.Select(x => $"{x.Name}").ToArray();
             }
 
             if (commaSeparatedRoles?.Length > 0)
             {
                 return commaSeparatedRoles
                    .Split(',')
-                   .Select(x => $"\"{x.Trim()}\"")
+                   .Select(x => $"{x.Trim()}")
                    .Where(x => !string.IsNullOrWhiteSpace(x))
                    .ToArray();
             }
@@ -194,14 +205,14 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.FactoryExtensions
 
             if (policies?.Length > 0)
             {
-                return policies!.Select(x => $"\"{x.Name}\"").ToArray();
+                return policies!.Select(x => $"{x.Name}").ToArray();
             }
 
             if (commaSeparatedPolicies?.Length > 0)
             {
                 return commaSeparatedPolicies
                    .Split(',')
-                   .Select(x => $"\"{x.Trim()}\"")
+                   .Select(x => $"{x.Trim()}")
                    .Where(x => !string.IsNullOrWhiteSpace(x))
                    .ToArray();
             }
