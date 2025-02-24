@@ -16,7 +16,8 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
     {
         if (RequiresANonGridContainer(component, razorNodes, node))
         {
-
+            AddNonGridContainer(component, razorNodes, node);
+            return;
         }
         else if (!(component.HasStereotype("Layout") && razorNodes.Any()))
         {
@@ -54,6 +55,20 @@ public class MudBlazorLayoutInterceptor(IRazorComponentBuilderProvider component
             }
         }
         AddMudItem(component, grid, elementsToSwapParent);
+    }
+
+    private void AddNonGridContainer(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
+    {
+        var container = new HtmlElement("div", template.RazorFile);
+        //This is used to denote which component the div represents
+        container.AddMetadata("_containerModel", component);
+
+        node.AddChildNode(container);
+        foreach (var razorNode in razorNodes)
+        {
+            razorNode.Remove();
+            container.AddChildNode(razorNode);
+        }
     }
 
     private bool RequiresANonGridContainer(IElement component, IEnumerable<IRazorFileNode> razorNodes, IRazorFileNode node)
