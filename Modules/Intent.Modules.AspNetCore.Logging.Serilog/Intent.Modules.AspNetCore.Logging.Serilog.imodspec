@@ -32,16 +32,9 @@
     </group>
   </moduleSettings>
   <interoperability>
-    <!-- Minimum Compatible Versions -->
-    <detect id="Intent.AspNetCore">
-      <install>
-        <package id="Intent.AspNetCore" version="6.0.2" />
-      </install>
-    </detect>
-    <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.AspNetCore" version="6.0.2" />
+    <dependency id="Intent.AspNetCore" version="6.0.9-pre.0" />
     <dependency id="Intent.Common" version="3.6.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />

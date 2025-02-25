@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
+using Intent.Modules.WindowsServiceHost.Events;
 using Intent.Modules.WindowsServiceHost.Templates.Program;
 
 namespace Intent.Modules.WindowsServiceHost.Templates;
@@ -227,6 +228,12 @@ internal class AppStartupFile : IAppStartupFile
     public IAppStartupFile AddMethod(string returnType, string name, Action<IStartupMethod> configure, int? priority)
     {
         StartupMethod.CreateOn(_template, returnType, name, configure, priority);
+        return this;
+    }
+
+    public IAppStartupFile ExposeProgramClass()
+    {
+        _template.ExecutionContext.EventDispatcher.Publish(new ExposeProgramClassRequest());
         return this;
     }
 

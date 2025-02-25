@@ -19,7 +19,7 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
     [IntentManaged(Mode.Merge, Signature = Mode.Merge)]
     public partial class StartupTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IAppStartupTemplate
     {
-        private readonly IAppStartupFile _startupFile;
+        private readonly IAppStartupFile? _startupFile;
 
         [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.AspNetCore.Startup";
 
@@ -74,6 +74,8 @@ namespace Intent.Modules.AspNetCore.Templates.Startup
                 $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
                 $"is not responsible for app startup, ensure that you resolve the template with " +
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
+
+        public bool HasStartupFile => _startupFile is not null;
 
         public override bool CanRunTemplate()
         {

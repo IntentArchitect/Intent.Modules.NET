@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -103,6 +104,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
                                 );
                     });
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            var template = GetTemplate<IntentTemplateBase>("App.Program");
+            var startupFile = template as IAppStartupTemplate;
+            if (startupFile?.HasStartupFile == true)
+            {
+                startupFile?.StartupFile.ExposeProgramClass();
+            }
         }
 
         private IEnumerable<RequiredContainer> GetRequiredContainers()

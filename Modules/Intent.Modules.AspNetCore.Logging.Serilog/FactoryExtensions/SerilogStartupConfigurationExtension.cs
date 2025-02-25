@@ -119,14 +119,11 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             AddBootstrapLoggerStatement(main);
 
             main.AddTryBlock(block =>
-                //block.AddStatement(@"Log.Information(""Starting web host"");")
                 block.AddStatement(@"logger.Write(LogEventLevel.Information, ""Starting web host"");")
             .AddStatement(hostRunStmt));
 
             main.AddCatchBlock(template.UseType("System.Exception"), "ex",
-                //block => block.AddStatement(@"Log.Fatal(ex, ""Host terminated unexpectedly"");"));
                 block => block.AddStatement(@"logger.Write(LogEventLevel.Fatal, ex, ""Unhandled exception"");"));
-            //main.AddFinallyBlock(block => block.AddStatement("Log.CloseAndFlush();"));
         }
 
         private static void MinimalHostingSerilogSetup(CSharpFile file, bool usesTopLevelStatements, ICSharpFileBuilderTemplate template)
@@ -156,9 +153,8 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                 {
                     tryBlock.Statements[nextStatementIndex].SeparatedFromPrevious();
                 }
-                
+
                 var hostRunStmt = tryBlock.FindStatement(stmt => stmt.HasMetadata("host-run"));
-                //hostRunStmt?.InsertAbove(new CSharpStatement(@"Log.Information(""Starting web host"");").SeparatedFromPrevious());
                 hostRunStmt?.InsertAbove(new CSharpStatement(@"logger.Write(LogEventLevel.Information, ""Starting web host"");").SeparatedFromPrevious());
             });
 
@@ -171,16 +167,22 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
             targetBlock.AddCatchBlock(@catch => @catch
                 .WithExceptionType(template.UseType("System.Exception"))
                 .WithParameterName("ex")
-                //.AddStatement("Log.Fatal(ex, \"Application terminated unexpectedly\");"));
                 .AddStatement(@"logger.Write(LogEventLevel.Fatal, ex, ""Unhandled exception"");"));
-
-
-            // targetBlock.AddFinallyBlock(@finally => @finally
-            //     .AddStatement("Log.CloseAndFlush();"));
         }
 
         private static void AddBootstrapLoggerStatement(IHasCSharpStatements targetBlock)
         {
+            // Why are we using a local variable as opposed to Log.Logger?
+            // WebApplicationFactory references the Program class and when Minimal Hosting Model is being used
+            // the Serilog Logger is lumped into the startup routine (which wasn't a problem with the older Startup class routine).
+            // Since Log.Logger is a global static property, it will persist through multiple Host creation instances.
+            // That causes the Serilog ReloadableLogger to think you're trying to make changes to it after its finalized
+            // that it throws an exception.
+            // Changing it to a local variable with its own "using" scope solves that problem so that a single instance isn't carried
+            // over to all created host instances, and it's automatically disposed.
+            // It does leave developers who wish to use Log.Logger in the dark but for now they will have to create a deviation
+            // to set `Log.Logger = logger;`.
+            // Serilog has an open ticket against this: https://github.com/serilog/serilog-aspnetcore/issues/289
             targetBlock.AddMethodChainStatement("using var logger = new LoggerConfiguration()",
                 stmt => stmt
                     .AddChainStatement("MinimumLevel.Override(\"Microsoft\", LogEventLevel.Information)")

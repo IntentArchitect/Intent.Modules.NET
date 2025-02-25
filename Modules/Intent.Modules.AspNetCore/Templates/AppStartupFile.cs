@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Modules.AspNetCore.Settings;
+using Intent.Modules.AspNetCore.Events;
 using Intent.Modules.AspNetCore.Templates.Program;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -277,6 +278,15 @@ internal class AppStartupFile : IAppStartupFile
     public IAppStartupFile AddMethod(string returnType, string name, Action<IStartupMethod> configure, int? priority)
     {
         StartupMethod.CreateOn(_template, returnType, name, configure, priority);
+        return this;
+    }
+
+    /// <summary>
+    /// When using Top level statements one cannot reference the Program class. Invoking this will expose it as a Public class.
+    /// </summary>
+    public IAppStartupFile ExposeProgramClass()
+    {
+        _template.ExecutionContext.EventDispatcher.Publish(new ExposeProgramClassRequest());
         return this;
     }
 

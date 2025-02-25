@@ -17,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.WindowsServiceHost.Templates.Program
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate
     {
         private readonly IAppStartupFile _startupFile;
 
@@ -72,11 +72,13 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
         }
 
         public IAppStartupFile StartupFile =>
-        _startupFile ?? throw new InvalidOperationException(
-            $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
-            $"is not responsible for app startup, ensure that you resolve the template with " +
-            $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
+            _startupFile ?? throw new InvalidOperationException(
+                $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
+                $"is not responsible for app startup, ensure that you resolve the template with " +
+                $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
+        public bool HasStartupFile => _startupFile is not null;
+        
         private void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {
             startupFile.ConfigureServices((hasStatements, _) =>
