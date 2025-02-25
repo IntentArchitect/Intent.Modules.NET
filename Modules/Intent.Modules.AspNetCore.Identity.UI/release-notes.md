@@ -1,3 +1,7 @@
+### Version 2.0.2
+
+- Improvement: Updated logic to cater for when `UseHttpsRedirection` is not present
+ 
 ### Version 2.0.1
 
 - Improvement: Updated module NuGet packages infrastructure.

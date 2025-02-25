@@ -27,7 +27,7 @@ namespace Intent.Modules.AspNetCore.Identity.UI.FactoryExtensions
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
             var startupTemplate = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            startupTemplate.CSharpFile.OnBuild(file =>
+            startupTemplate.CSharpFile.AfterBuild(file =>
             {
                 var startup = startupTemplate.StartupFile;
 
@@ -52,9 +52,10 @@ namespace Intent.Modules.AspNetCore.Identity.UI.FactoryExtensions
                     {
                         if (block.Statements.All(x => !x.ToString()!.Contains(".UseStaticFiles")))
                         {
-                            var insertAfter = block.Statements
-                                .Single(x => x.ToString()!.Contains(".UseHttpsRedirection("));
-                            insertAfter.InsertBelow(new CSharpInvocationStatement($"{ctx.App}.UseStaticFiles"));
+                            var insertBefore = block.Statements
+                                .Single(x => x.ToString()!.Contains(".UseRouting("));
+
+                            insertBefore.InsertAbove(new CSharpInvocationStatement($"{ctx.App}.UseStaticFiles"));
                         }
                     });
 

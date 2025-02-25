@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.8</version>
+  <version>6.0.9-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -143,6 +143,15 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore/Intent.AspNetCore.pkg.config" externalReference="9d83d9d6-7718-4b4a-b78b-725535182de3" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="9677c813-b334-4b0d-be2c-3b149f1f6ae8" title="ASP.NET Core Settings" externalReference="9677c813-b334-4b0d-be2c-3b149f1f6ae8">
+      <settings>
+        <setting id="e715d518-88c0-4688-91c4-01ec28ce43a2" title="Enable HTTPS Redirect" type="switch">
+          <hint>Controls if  the UseHttpsRedirection behavior is part of the application's HTTP pipeline or not.</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
 </package>

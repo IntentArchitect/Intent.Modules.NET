@@ -1,3 +1,7 @@
+### Version 6.0.9
+
+- Improvement: Ability to disable `HTTPS Redirect` in the application's HTTP pipeline.
+
 ### Version 6.0.8
 
 - Improvement: `Roles` and `Policies` now output as constants in a `Permissions` file.

@@ -16,6 +16,8 @@ namespace Intent.Modules.AspNetCore.Templates.Program
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class ProgramTemplateRegistration : SingleFileTemplateRegistration
     {
+        private IApplication _application;
+
         public override string TemplateId => ProgramTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]

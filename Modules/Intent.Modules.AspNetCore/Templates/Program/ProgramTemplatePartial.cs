@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -122,6 +124,14 @@ namespace Intent.Modules.AspNetCore.Templates.Program
                 $"Based on options chosen in the Visual Studio designer, \"{TemplateId}\" " +
                 $"is not responsible for app startup, ensure that you resolve the template with " +
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!(ExecutionContext.Settings.GetASPNETCoreSettings()?.EnableHTTPSRedirect() ?? true))
+            {
+                ExecutionContext.EventDispatcher.Publish(LaunchProfileHttpPortRequired.EventId, new Dictionary<string, string>());
+            }
+        }
 
         private static void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {

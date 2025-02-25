@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.AspNetCore.Templates.Program;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -137,7 +138,11 @@ internal class AppStartupFile : IAppStartupFile
                     }
                 });
 
-                _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseHttpsRedirection").WithPriority(-30));
+                if (template.ExecutionContext.Settings.GetASPNETCoreSettings()?.EnableHTTPSRedirect() ?? true)
+                {
+                    _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseHttpsRedirection").WithPriority(-30));
+                }
+
                 _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseRouting").WithPriority(-20));
                 _applicationBuilderRegistrationRequests.Add(ApplicationBuilderRegistrationRequest.ToRegister("UseAuthorization").WithPriority(-5));
 
