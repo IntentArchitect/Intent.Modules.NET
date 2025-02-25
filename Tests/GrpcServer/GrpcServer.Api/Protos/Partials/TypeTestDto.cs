@@ -1,0 +1,95 @@
+﻿namespace GrpcServer.GrpcServices
+{
+    partial class TypeTestDto
+    {
+        internal Application.TypeTestDto FromMessage()
+        {
+            return new Application.TypeTestDto
+            {
+                BinaryField = BinaryField.ToByteArray(),
+                BinaryFieldCollection = BinaryFieldCollection.Select(x => x.ToByteArray()).ToList(),
+                BinaryFieldNullable = BinaryField?.ToByteArray(),
+                BinaryFieldNullableCollection = BinaryFieldCollection?.Select(x => x.ToByteArray()).ToList(),
+                BoolField = BoolField,
+                BoolFieldCollection = BoolFieldCollection.ToList(),
+                BoolFieldNullable = BoolFieldNullable,
+                BoolFieldNullableCollection = BoolFieldNullableCollection?.Items?.ToList(),
+                ByteField = (byte)ByteField,
+                ByteFieldCollection = ByteFieldCollection.Select(x => (byte)x).ToList(),
+                ByteFieldNullable = (byte?)ByteField,
+                ByteFieldNullableCollection = ByteFieldNullableCollection?.Items.Select(x => (byte)x).ToList(),
+                CharField = CharField[0],
+                CharFieldCollection = CharFieldCollection.ToList(),
+                CharFieldNullable = CharFieldNullable?[0],
+                CharFieldNullableCollection = CharFieldNullableCollection?.ToList(),
+                ComplexTypeField = ComplexTypeField.FromMessage(),
+                ComplexTypeFieldCollection = ComplexTypeFieldCollection.Select(x => x.FromMessage()).ToList(),
+                ComplexTypeFieldNullable = ComplexTypeFieldNullable?.FromMessage(),
+                ComplexTypeFieldNullableCollection = ComplexTypeFieldNullableCollection?.Items.Select(x => x.FromMessage()).ToList(),
+                DateOnlyField = DateOnly.FromDateTime(DateOnlyField.ToDateTime()),
+                DateOnlyFieldCollection = DateOnlyFieldCollection.Select(x => DateOnly.FromDateTime(x.ToDateTime())).ToList(),
+                DateOnlyFieldNullable = DateOnlyFieldNullable != null ? DateOnly.FromDateTime(DateOnlyField.ToDateTime()) : null,
+                DateOnlyFieldNullableCollection = DateOnlyFieldNullableCollection?.Items.Select(x => DateOnly.FromDateTime(x.ToDateTime())).ToList(),
+                DateTimeField = DateTimeField.ToDateTime(),
+                DateTimeFieldCollection = null,
+                DateTimeFieldNullable = null,
+                DateTimeFieldNullableCollection = null,
+                DateTimeOffsetField = default,
+                DateTimeOffsetFieldCollection = null,
+                DateTimeOffsetFieldNullable = null,
+                DateTimeOffsetFieldNullableCollection = null,
+                DecimalField = 0,
+                DecimalFieldCollection = null,
+                DecimalFieldNullable = null,
+                DecimalFieldNullableCollection = null,
+                DictionaryField = null,
+                DictionaryFieldCollection = null,
+                DictionaryFieldNullable = null,
+                DictionaryFieldNullableCollection = null,
+                DoubleField = 0,
+                DoubleFieldCollection = null,
+                DoubleFieldNullable = null,
+                DoubleFieldNullableCollection = null,
+                FloatField = 0,
+                FloatFieldCollection = null,
+                FloatFieldNullable = null,
+                FloatFieldNullableCollection = null,
+                GuidField = default,
+                GuidFieldCollection = null,
+                GuidFieldNullable = null,
+                GuidFieldNullableCollection = null,
+                IntField = 0,
+                IntFieldCollection = null,
+                IntFieldNullable = null,
+                IntFieldNullableCollection = null,
+                LongField = 0,
+                LongFieldCollection = null,
+                LongFieldNullable = null,
+                LongFieldNullableCollection = null,
+                ObjectField = null,
+                ObjectFieldCollection = null,
+                ObjectFieldNullable = null,
+                ObjectFieldNullableCollection = null,
+                PagedResultField = null,
+                PagedResultFieldNullable = null,
+                ShortField = 0,
+                ShortFieldCollection = null,
+                ShortFieldNullable = null,
+                ShortFieldNullableCollection = null,
+                StringField = null,
+                StringFieldCollection = null,
+                StringFieldNullable = null,
+                StringFieldNullableCollection = null,
+                TimeSpanField = default,
+                TimeSpanFieldCollection = null,
+                TimeSpanFieldNullable = null,
+                TimeSpanFieldNullableCollection = null
+            };
+        }
+
+        internal static TypeTestDto ToMessage(Application.TypeTestDto data)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

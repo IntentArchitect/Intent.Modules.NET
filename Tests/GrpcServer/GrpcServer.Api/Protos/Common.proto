@@ -59,6 +59,6 @@ message ListOfTimeStamp {
     repeated google.protobuf.Timestamp items = 1;
 }
 
-message ListOfUint32 {
+message ListOfUInt32 {
     repeated uint32 items = 1;
 }

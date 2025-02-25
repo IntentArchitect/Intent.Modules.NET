@@ -79,6 +79,10 @@ message ComplexTypeDto {
     string field = 1;
 }
 
+message ListOfComplexTypeDto {
+    repeated ComplexTypeDto items = 1;
+}
+
 message TypeTestDto {
     bytes binary_field = 1;
     repeated bytes binary_field_collection = 2;
@@ -91,15 +95,15 @@ message TypeTestDto {
     uint32 byte_field = 9;
     repeated uint32 byte_field_collection = 10;
     google.protobuf.UInt32Value byte_field_nullable = 11;
-    ListOfUint32 byte_field_nullable_collection = 12;
+    ListOfUInt32 byte_field_nullable_collection = 12;
     string char_field = 13;
-    repeated string char_field_collection = 14;
+    string char_field_collection = 14;
     google.protobuf.StringValue char_field_nullable = 15;
     google.protobuf.StringValue char_field_nullable_collection = 16;
     ComplexTypeDto complex_type_field = 17;
     repeated ComplexTypeDto complex_type_field_collection = 18;
     ComplexTypeDto complex_type_field_nullable = 19;
-    repeated ComplexTypeDto complex_type_field_nullable_collection = 20;
+    ListOfComplexTypeDto complex_type_field_nullable_collection = 20;
     google.protobuf.Timestamp date_only_field = 21;
     repeated google.protobuf.Timestamp date_only_field_collection = 22;
     google.protobuf.Timestamp date_only_field_nullable = 23;
@@ -115,7 +119,7 @@ message TypeTestDto {
     DecimalValue decimal_field = 33;
     repeated DecimalValue decimal_field_collection = 34;
     DecimalValue decimal_field_nullable = 35;
-    ListOfDecimalValue decimal_field_nullable_collection = 36;
+    ListOfDecimal decimal_field_nullable_collection = 36;
     map<string, string> dictionary_field = 37;
     repeated MapOfStringAndString dictionary_field_collection = 38;
     map<string, string> dictionary_field_nullable = 39;
@@ -139,7 +143,7 @@ message TypeTestDto {
     int64 long_field = 57;
     repeated int64 long_field_collection = 58;
     google.protobuf.Int64Value long_field_nullable = 59;
-    ListInt64 long_field_nullable_collection = 60;
+    ListOfInt64 long_field_nullable_collection = 60;
     google.protobuf.Any object_field = 61;
     repeated google.protobuf.Any object_field_collection = 62;
     google.protobuf.Any object_field_nullable = 63;
