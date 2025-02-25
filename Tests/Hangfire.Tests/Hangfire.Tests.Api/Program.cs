@@ -53,7 +53,6 @@ namespace Hangfire.Tests.Api
                 // Configure the HTTP request pipeline.
                 app.UseSerilogRequestLogging();
                 app.UseExceptionHandler();
-                app.UseHttpsRedirection();
                 app.UseRouting();
                 app.UseAuthentication();
                 app.UseAuthorization();
