@@ -49,6 +49,12 @@
         <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+      <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+      <properties />
+    </stereotype>
   </stereotypes>
   <metadata>
     <entry key="baseName" value="Products" />
