@@ -19,7 +19,7 @@ namespace SignalR.Api
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
+            using var logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
@@ -60,6 +60,8 @@ namespace SignalR.Api
                 app.MapHubs();
                 app.UseSwashbuckle(builder.Configuration);
 
+                logger.Write(LogEventLevel.Information, "Starting web host");
+
                 app.Run();
             }
             catch (HostAbortedException)
@@ -70,11 +72,7 @@ namespace SignalR.Api
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Application terminated unexpectedly");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
+                logger.Write(LogEventLevel.Fatal, ex, "Unhandled exception");
             }
         }
     }

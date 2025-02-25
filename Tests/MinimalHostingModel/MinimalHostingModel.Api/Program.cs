@@ -15,7 +15,7 @@ using Serilog.Events;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]
 
-Log.Logger = new LoggerConfiguration()
+using var logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
     .Enrich.FromLogContext()
     .WriteTo.Console()
@@ -65,6 +65,8 @@ try
     app.MapControllers();
     app.UseSwashbuckle(builder.Configuration);
 
+    logger.Write(LogEventLevel.Information, "Starting web host");
+
     app.Run();
 }
 catch (HostAbortedException)
@@ -75,9 +77,5 @@ catch (HostAbortedException)
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "Application terminated unexpectedly");
-}
-finally
-{
-    Log.CloseAndFlush();
+    logger.Write(LogEventLevel.Fatal, ex, "Unhandled exception");
 }

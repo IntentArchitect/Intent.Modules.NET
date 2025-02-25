@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3591c932-879e-4ab6-b5a0-fbf55f9e7e1d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.Server/Config/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>6efe9270-514e-4385-96f2-f4e21a58e9b8</ProjectId>
       <CorrelationId>Intent.Modules.Blazor.Server.Templates.StaticContentTemplateRegistrations.StaticFilesStaticContentTemplateRegistration#Data/WeatherForecast.cs</CorrelationId>
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
@@ -102,14 +110,6 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.Server/Pages/Index.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Pages/Index.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6efe9270-514e-4385-96f2-f4e21a58e9b8</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.Server/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

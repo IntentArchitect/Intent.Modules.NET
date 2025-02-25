@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.ProblemDetailsConfiguration", Version = "1.0")]
 
-namespace Blazor.Server
+namespace Blazor.Server.Config
 {
     public static class ProblemDetailsConfiguration
     {

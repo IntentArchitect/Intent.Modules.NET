@@ -19,7 +19,7 @@ namespace Hangfire.Tests.Api
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
+            using var logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
@@ -61,6 +61,8 @@ namespace Hangfire.Tests.Api
                 app.UseHangfire(builder.Configuration);
                 app.UseSwashbuckle(builder.Configuration);
 
+                logger.Write(LogEventLevel.Information, "Starting web host");
+
                 app.Run();
             }
             catch (HostAbortedException)
@@ -71,11 +73,7 @@ namespace Hangfire.Tests.Api
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Application terminated unexpectedly");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
+                logger.Write(LogEventLevel.Fatal, ex, "Unhandled exception");
             }
         }
     }

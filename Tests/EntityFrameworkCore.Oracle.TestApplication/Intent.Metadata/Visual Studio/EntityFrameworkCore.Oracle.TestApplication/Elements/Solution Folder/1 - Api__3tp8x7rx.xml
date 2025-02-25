@@ -142,6 +142,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="97913fb1-8209-48f6-a576-606480ba4f2b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.AspNetCore.ProgramPartial</name>
+          <display>Intent.AspNetCore.ProgramPartial</display>
+          <externalReference>Intent.AspNetCore</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d110e403-24d4-43fa-b63a-f175475c915a</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

@@ -236,5 +236,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="24bd6fe9-27d0-4dd1-8a41-bbcaa2a3ee96" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.WindowsServiceHost.ProgramPartial</name>
+      <display>Intent.WindowsServiceHost.ProgramPartial</display>
+      <externalReference>Intent.WindowsServiceHost</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0da1c5db-f98c-4823-b467-1708a6b3ce35</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
