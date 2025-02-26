@@ -17,8 +17,8 @@
       <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk.Web" isActive="true" />
-        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="true" />
-        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="true" />
+        <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="true" isActive="true" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="true" isActive="true" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
@@ -53,6 +53,22 @@
     <childElement id="158e5f94-e74b-4ecd-85c2-6ec1071b4951" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Program</name>
       <display>Intent.AspNetCore.Program</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</parentFolderId>
+      <packageId>941f8521-a7d4-4bbb-86d2-988a78ff25c1</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5dba43aa-e958-4892-bee5-606e0e0f3e19" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProgramPartial</name>
+      <display>Intent.AspNetCore.ProgramPartial</display>
       <externalReference>Intent.AspNetCore</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -108,20 +124,6 @@
       <packageName>AdvancedMappingCrud.Cosmos.Tests</packageName>
       <stereotypes />
       <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="5dba43aa-e958-4892-bee5-606e0e0f3e19" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProgramPartial</name>
-      <display>Intent.AspNetCore.ProgramPartial</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
       <childElements />
     </childElement>
   </childElements>

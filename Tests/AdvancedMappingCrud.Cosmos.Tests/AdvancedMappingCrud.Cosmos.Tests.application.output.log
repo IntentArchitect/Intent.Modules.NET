@@ -196,6 +196,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</ProjectId>
+      <CorrelationId>Intent.AspNetCore.ProgramPartial</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Program.Partial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Program.Partial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Properties/launchSettings.json</ApplicationRelativeFilePath>
@@ -208,14 +216,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>96fe8fb6-d4fd-4352-9bca-58fd6a6146f0</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Api/Startup.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

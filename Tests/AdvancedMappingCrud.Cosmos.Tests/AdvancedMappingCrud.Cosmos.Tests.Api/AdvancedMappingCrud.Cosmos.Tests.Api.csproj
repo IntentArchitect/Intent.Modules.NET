@@ -27,4 +27,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Program.Partial.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Program.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>
