@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Improvement: When Top level Statements are enabled, the Program class can be exposed for Type reference purposes.
+
 ### Version 1.0.4
 
 - Fixed: When using minimal hosting model some service registration statements would be generated after application configuration statements.

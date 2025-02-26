@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.0.9-pre.0</version>
+  <version>6.1.0-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -73,7 +73,7 @@
     </detect>
     <detect id="Intent.Modules.AspNetCore.Logging.Serilog">
       <install>
-        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.1.10-pre.0" />
+        <package id="Intent.Modules.AspNetCore.Logging.Serilog" version="5.2.0-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Modules.AspNetCore.MultiTenancy">

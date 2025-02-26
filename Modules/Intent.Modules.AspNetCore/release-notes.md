@@ -1,3 +1,7 @@
+### Version 6.1.0
+
+- Improvement: When Top level Statements are enabled, the Program class can be exposed for Type reference purposes.
+
 ### Version 6.0.9
 
 - Improvement: Ability to disable `HTTPS Redirect` in the application's HTTP pipeline.

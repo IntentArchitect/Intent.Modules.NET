@@ -1,3 +1,7 @@
+### Version 1.0.14
+
+- Fixed: Updated dependencies based on the changes made in the `Intent.AspNetCore.IntegrationTesting` module.
+
 ### Version 1.0.13
 
 - Fixed: Fixed an issue where Test Implementations for Composite children was not generating the correct code.

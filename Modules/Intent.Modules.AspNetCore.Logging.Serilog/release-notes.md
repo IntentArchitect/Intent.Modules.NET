@@ -1,3 +1,11 @@
+### Version 5.2.0
+
+- Improvement: Due to a limitation between Minimal Hosting Model being enabled, Serilog's Bootstrap Logger stored in the `Log.Logger` and the `WebApplicationFactory` (used for integration testing) creating multiple instances of the Program class, an improvement was made to move away from `Log.Logger` to favor a local variable instead. See this [GitHub issue](https://github.com/serilog/serilog-aspnetcore/issues/289).
+
+> ⚠️ NOTE
+> 
+> If your application relies on using `Log.Logger`, you can introduce a deviation in the `Program.cs` file where you can assign the `logger` to `Log.Logger`, provided you don't need integration testing support.
+
 ### Version 5.1.9
 
 - Fixed: Moved the `Program.cs` extension to later in the Software pipeline, which now enables `app.*` invocations to be added in the correct order.
