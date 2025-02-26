@@ -25,27 +25,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>903541d9-c16b-46e9-b836-2d51dc1448bf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FileTemplateStringInterpolation#2355832c-3153-4ac5-b7f3-6f599611460b</CorrelationId>
+      <ProjectId>99c9a2a9-4eaa-43b2-8cec-b620a963ba8d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#fb10d092-104a-414d-935a-4046713b5bcd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MediatRImplementationPrompts/MediatRImplementationPromptsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRImplementationPrompts/MediatRImplementationPromptsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>903541d9-c16b-46e9-b836-2d51dc1448bf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#2355832c-3153-4ac5-b7f3-6f599611460b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MediatRImplementationPrompts/MediatRImplementationPromptsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRImplementationPrompts/MediatRImplementationPromptsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>903541d9-c16b-46e9-b836-2d51dc1448bf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#2355832c-3153-4ac5-b7f3-6f599611460b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/MediatRImplementationPrompts/MediatRImplementationPromptsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MediatRImplementationPrompts/MediatRImplementationPromptsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>modelers/AI Prompts.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AI Prompts.designer.settings</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
