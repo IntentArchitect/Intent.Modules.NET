@@ -16,7 +16,7 @@ using Intent.Templates;
 
 namespace Intent.Modules.WindowsServiceHost.Templates.Program
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
     public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate, IProgramTemplate, IAppStartupTemplate
     {
         private readonly IAppStartupFile _startupFile;
@@ -78,7 +78,7 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
                 $"the role \"{IAppStartupTemplate.RoleName}\" to get the correct template.");
 
         public bool HasStartupFile => _startupFile is not null;
-        
+
         private void ApplyMinimalHostingModelStatements(IAppStartupFile startupFile, CSharpFile cSharpFile)
         {
             startupFile.ConfigureServices((hasStatements, _) =>
