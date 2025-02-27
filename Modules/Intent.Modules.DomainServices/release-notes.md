@@ -1,3 +1,7 @@
+### Version 1.1.9
+
+- Improvement: Updated help topic URL to point to docs website.
+
 ### Version 1.1.8
 
 - Improvement: Bumped Domain Service Designer dependency.
