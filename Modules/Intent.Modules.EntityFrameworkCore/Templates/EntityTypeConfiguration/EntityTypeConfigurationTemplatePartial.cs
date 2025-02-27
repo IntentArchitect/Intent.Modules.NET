@@ -418,7 +418,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
             if (GetPartitionKey(model) != null)
             {
-                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name.ToPascalCase()});";
+                yield return $@"builder.HasPartitionKey(x => x.{GetPartitionKey(model).Name});";
             }
             else
             {
@@ -450,7 +450,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings(), _enforceColumnOrdering ? _columnCurrentOrder++ : null);
             }
 
-            @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
+            @class.AddMethod("void", $"Configure{attribute.Name}", method =>
             {
                 method.Static();
                 method.AddMetadata("model", attribute.TypeReference.Element);
@@ -482,7 +482,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     if (IsOwned(associationEnd.Element))
                     {
                         var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd, targetType);
-                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                        @class.AddMethod("void", $"Configure{associationEnd.Name}", method =>
                         {
                             method.Static();
 
@@ -511,7 +511,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         if (IsOwned(associationEnd.Element))
                         {
                             var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd, targetType);
-                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+                            @class.AddMethod("void", $"Configure{associationEnd.Name}", method =>
                             {
                                 method.Static();
 
@@ -673,8 +673,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         private static string GetIndexColumnPropertyName(IndexColumn column, string prefix = null)
         {
             return column.SourceType.IsAssociationEndModel()
-                ? $"{prefix}{column.Name.ToPascalCase()}Id"
-                : $"{prefix}{column.SourceType.Name.ToPascalCase()}";
+                ? $"{prefix}{column.Name}Id"
+                : $"{prefix}{column.SourceType.Name}";
         }
 
         public IEnumerable<CSharpStatement> GetKeyMappings(ClassModel model, RelationshipType? ownedRelationship)

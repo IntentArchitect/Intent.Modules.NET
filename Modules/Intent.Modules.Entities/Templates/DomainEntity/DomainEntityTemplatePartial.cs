@@ -129,7 +129,7 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                             foreach (var parameter in ctorModel.Parameters)
                             {
-                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name.ToCamelCase(), param =>
+                                ctor.AddParameter(GetOperationTypeName(parameter), parameter.Name, param =>
                                 {
                                     param.WithDefaultValue(parameter.Value).RepresentsModel(parameter);
                                 });

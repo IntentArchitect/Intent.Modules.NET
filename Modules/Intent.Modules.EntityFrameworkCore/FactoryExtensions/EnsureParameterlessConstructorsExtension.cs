@@ -86,7 +86,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     var typeInfo = primaryTemplate.GetTypeInfo(attribute.TypeReference);
                     if (NeedsNullabilityAssignment(typeInfo))
                     {
-                        ctor.AddStatement($"{attribute.Name.ToPascalCase()} = null!;");
+                        ctor.AddStatement($"{attribute.Name} = null!;");
                     }
                 }
 

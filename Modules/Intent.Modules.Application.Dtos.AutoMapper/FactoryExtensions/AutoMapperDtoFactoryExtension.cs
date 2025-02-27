@@ -87,14 +87,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
                                  template.GetFullyQualifiedTypeName(field.TypeReference) != template.GetFullyQualifiedTypeName(field.Mapping.Element.TypeReference));
 
                 var (mappingExpression, methodName) = GetMappingExpression(template, field);
-                if ("src." + field.Name.ToPascalCase() != mappingExpression || shouldCast)
+                if ("src." + field.Name != mappingExpression || shouldCast)
                 {
                     var mapping = $"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {(shouldCast ? $"({template.GetTypeName(field)})" : string.Empty)}{mappingExpression}))";
                     AddFieldMapping(statement, field, mapping);
                 }
                 else if (field.TypeReference.IsCollection && field.TypeReference.Element.Name != field.Mapping.Element?.TypeReference?.Element.Name)
                 {
-                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))";
+                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src1234 => {mappingExpression}))";
                     AddFieldMapping(statement, field, mapping);
                 }
             }
@@ -211,10 +211,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
                                      pathTarget.Specialization != DataContractGeneralizationModel.SpecializationType)
                 .Select(pathTarget =>
                 {
-                    // Can't just .ToPascalCase(), since it turns string like "Count(x => x.IsAssigned())" into "Count(x => X.IsAssigned())"
-                    var name = !string.IsNullOrWhiteSpace(pathTarget.Name)
-                        ? char.ToUpperInvariant(pathTarget.Name[0]) + pathTarget.Name[1..]
-                        : pathTarget.Name;
+                    var name = pathTarget.Name;
 
                     var nullForgivingOperator = pathTarget.Element?.TypeReference.IsNullable == true ? "!" : string.Empty;
                     var operationCall = pathTarget.Specialization == OperationModel.SpecializationType ? "()" : string.Empty;

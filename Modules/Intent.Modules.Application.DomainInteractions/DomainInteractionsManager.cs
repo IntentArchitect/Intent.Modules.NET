@@ -255,7 +255,7 @@ public class DomainInteractionsManager
                 statements.Add(CreateIfNullThrowNotFoundStatement(
                     template: _template,
                     variable: entityVariableName,
-                    message: $"Could not find {foundEntity.Name.ToPascalCase()} '{queryFields.AsSingleOrTuple()}'"));
+                    message: $"Could not find {foundEntity.Name} '{queryFields.AsSingleOrTuple()}'"));
 
             }
 
@@ -415,7 +415,7 @@ public class DomainInteractionsManager
 		{
 			var entityDetails = entitiesReturningPk.Single();
 			var entity = entityDetails.ElementModel.AsClassModel();
-			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
+			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name ?? "Id"};");
 		}
 		else if (TrackedEntities.Any() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
 		{
@@ -1038,7 +1038,7 @@ public class DomainInteractionsManager
         statements.Add(CreateIfNullThrowNotFoundStatement(
             template: _template,
             variable: aggregateVariableName,
-            message: $"Could not find {foundEntity.Name.ToPascalCase()} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
+            message: $"Could not find {foundEntity.Name} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
         return true;
     }
 

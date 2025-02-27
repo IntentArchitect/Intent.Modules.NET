@@ -221,7 +221,7 @@ namespace Intent.Modules.Application.Dtos.Templates.DtoModel
                     var typeInfo = GetTypeInfo(field.TypeReference);
                     if (NeedsNullabilityAssignment(typeInfo))
                     {
-                        ctor.AddStatement($"{field.Name.ToPascalCase()} = null!;");
+                        ctor.AddStatement($"{field.Name} = null!;");
                     }
                 }
             }

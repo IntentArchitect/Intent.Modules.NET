@@ -15,7 +15,7 @@ public class EfCoreKeyMappingStatement : CSharpStatement
     public EfCoreKeyMappingStatement(ClassModel model, RelationshipType? ownedRelationship) : base(null)
     {
         KeyColumns = model.GetExplicitPrimaryKey()
-            .Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name.ToPascalCase(), Type: x.Type.Element))
+            .Select(x => new RequiredEntityProperty(Class: model.InternalElement, Name: x.Name, Type: x.Type.Element))
             .ToArray();
 
         // determine if the model is an owned entity, with no primary key

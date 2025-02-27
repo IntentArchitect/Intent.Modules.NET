@@ -129,12 +129,12 @@ namespace Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.Factory
                             var defaultResultValue = GetDefaultValue(template.GetTypeName(operationModel));
 
                             method.AddStatement($"var result = {defaultResultValue};");
-                            method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
+                            method.AddStatement($"result = {awaitModifier}_appService.{operationModel.Name}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
                         else
                         {
-                            method.AddStatement($"{awaitModifier}_appService.{operationModel.Name.ToPascalCase()}({arguments});",
+                            method.AddStatement($"{awaitModifier}_appService.{operationModel.Name}({arguments});",
                                 stmt => stmt.AddMetadata("service-contract-dispatch", true));
                         }
 

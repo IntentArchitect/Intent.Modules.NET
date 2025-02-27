@@ -60,7 +60,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                     });
                     foreach (var operation in Model.Operations)
                     {
-                        priClass.AddMethod(GetOperationReturnType(operation), operation.Name.ToPascalCase(), method =>
+                        priClass.AddMethod(GetOperationReturnType(operation), operation.Name, method =>
                         {
                             foreach (var genericType in operation.GenericTypes)
                             {

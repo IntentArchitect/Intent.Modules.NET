@@ -47,7 +47,7 @@ public class EfCoreKeyColumnPropertyStatement : CSharpStatement
 {indentation}    .ValueGeneratedOnAdd()"
             : string.Empty;
 
-        return @$"{indentation}builder.Property(x => x.{_model.Name.ToPascalCase()}){name}{type}{order}{valueGeneratedOnAdd};";
+        return @$"{indentation}builder.Property(x => x.{_model.Name}){name}{type}{order}{valueGeneratedOnAdd};";
     }
 
     public static bool RequiresConfiguration(AttributeModel attribute)
