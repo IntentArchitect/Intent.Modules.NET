@@ -1,11 +1,13 @@
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Customers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Farmers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.ParentWithAnemicChildren;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Farmers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.PagingTS;
@@ -37,6 +39,34 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             fixture.RepeatCount = 1;
             fixture.Customizations.Add(new PopulateIdsSpecimenBuilder(_idTracker));
             return fixture.Create<T>();
+        }
+
+        public async Task<Guid> CreateFarmer()
+        {
+            var client = new FarmersHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateFarmerCommand>();
+            var farmerId = await client.CreateFarmerAsync(command);
+            _idTracker["FarmerId"] = farmerId;
+            return farmerId;
+        }
+
+        public async Task<Guid> CreateMachinesDependencies()
+        {
+            var farmerId = await CreateFarmer();
+            return farmerId;
+        }
+
+        public async Task<(Guid FarmerId, Guid MachinesId)> CreateMachines()
+        {
+            var farmerId = await CreateMachinesDependencies();
+
+            var client = new FarmersHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateMachinesCommand>();
+            var machinesId = await client.CreateMachinesAsync(farmerId, command);
+            _idTracker["MachinesId"] = machinesId;
+            return (farmerId, machinesId);
         }
 
         public async Task<Guid> CreateCustomer()

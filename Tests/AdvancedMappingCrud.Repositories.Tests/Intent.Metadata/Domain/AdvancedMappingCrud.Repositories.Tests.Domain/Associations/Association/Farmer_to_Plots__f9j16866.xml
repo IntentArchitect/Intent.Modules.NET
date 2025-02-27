@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c8848ac0-85f4-445c-9295-84a7f6952050">
+  <sourceEnd id="6aea9f7a-240c-4fad-9988-d1d9f75d6e4a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Farmer</name>
+    <display>Farmer: Farmer</display>
+    <order>0</order>
+    <typeReference id="a6f394f2-53eb-4415-b178-e8ace7e151b1">
+      <typeId>126cd6ab-34b8-42cd-93c9-1801d3f63f0e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c8848ac0-85f4-445c-9295-84a7f6952050" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Plots</name>
+    <display>Plots: Plot[*]</display>
+    <order>6</order>
+    <typeReference id="9a31adf4-2448-4913-b886-7e9b3cfbfe3b">
+      <typeId>884ac5c9-4a0d-410e-b6cc-900fc5e044c6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

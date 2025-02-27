@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1dbfdf49-715c-4d41-9594-3d735a83f956">
+  <sourceEnd id="897dc5be-9390-4bcf-a4f4-cf0b310b9d3d" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Farmer</name>
+    <display>Farmer: Farmer</display>
+    <order>0</order>
+    <typeReference id="46e18357-1f08-4613-8306-b39d8abe10e9">
+      <typeId>126cd6ab-34b8-42cd-93c9-1801d3f63f0e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1dbfdf49-715c-4d41-9594-3d735a83f956" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Machines</name>
+    <display>Machines: Machines[*]</display>
+    <order>7</order>
+    <typeReference id="7385a514-f2cc-4ea7-b4c5-5bc3afa7f4ec">
+      <typeId>f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

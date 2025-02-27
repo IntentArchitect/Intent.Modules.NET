@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3ba3647d-5de0-497d-9fd1-352a81f5e42c">
+  <sourceEnd id="54803433-ac99-4c26-95c8-d0ccdad24a37" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Farmers.ChangeNameMachinesCommand</display>
+    <order>0</order>
+    <typeReference id="977fb15b-c9a0-43c0-8d27-7cc4f50555d3">
+      <typeId>044514df-5fb4-4ac6-b940-57ea3a4616ab</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3ba3647d-5de0-497d-9fd1-352a81f5e42c" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>machines</name>
+    <display>[update] machines: ChangeName</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="3c783ea7-c7ba-4182-ad84-bad66195e9a8">
+      <typeId>34d69379-5f3f-4745-8da8-f95f004b2cb1</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="044514df-5fb4-4ac6-b940-57ea3a4616ab" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ChangeNameMachinesCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Machines]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0" name="Machines" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4c80378a-04ff-4447-8fc7-4511a0443a2c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="044514df-5fb4-4ac6-b940-57ea3a4616ab" name="ChangeNameMachinesCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="43fe2d65-75a9-4ccc-b55e-527dd7592a19" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="044514df-5fb4-4ac6-b940-57ea3a4616ab" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[ChangeNameMachinesCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Machines]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ChangeNameMachinesCommand}</expression>
+            <path>
+              <target id="f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0" name="Machines" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="34d69379-5f3f-4745-8da8-f95f004b2cb1" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="ChangeNameMachinesCommand" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="044514df-5fb4-4ac6-b940-57ea3a4616ab" name="ChangeNameMachinesCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="f1554ad7-87ec-4cd1-8a4c-ae97c1bc86e0" name="Machines" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="34d69379-5f3f-4745-8da8-f95f004b2cb1" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="f06118a6-b84d-4911-841f-042daab41aa2" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="044514df-5fb4-4ac6-b940-57ea3a4616ab" name="ChangeNameMachinesCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1ad143fa-721f-470d-835d-4725a2ec4f4f" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>
