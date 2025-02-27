@@ -1675,6 +1675,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#55fed8d6-495e-4f66-b173-7831c5f535e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/Stock.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Stock.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edef835f-e49f-48e6-b7f3-9e625679ec49</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0a67a269-563c-4253-a396-bb7e90ef49ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Entities/StockDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f3853c95-c817-43e2-bf36-aafb6221c7aa</ProjectId>
       <CorrelationId>Intent.Entities.DomainEnum#eee3c040-e9d7-44b1-8602-6ad78bf6db1c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1771,6 +1787,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#55fed8d6-495e-4f66-b173-7831c5f535e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IStockDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStockDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>81139bf6-2331-4314-907f-b164c5aadf86</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocumentInterface#0a67a269-563c-4253-a396-bb7e90ef49ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/Documents/IStockDocumentDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStockDocumentDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#ba238544-c312-43a9-8e6c-65010bd8d715</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -1840,6 +1872,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ISimpleOdataRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISimpleOdataRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0a67a269-563c-4253-a396-bb7e90ef49ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/IStockDocumentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStockDocumentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#55fed8d6-495e-4f66-b173-7831c5f535e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/IStockRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IStockRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1972,6 +2020,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#55fed8d6-495e-4f66-b173-7831c5f535e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/StockDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBDocument#0a67a269-563c-4253-a396-bb7e90ef49ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/StockDocumentDocument.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockDocumentDocument.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f74be9d3-c119-4e55-9c4a-73a7db11f4c3</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBDocumentTypeExtensionMethods</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Persistence/Documents/TypeExtensionMethods.cs</ApplicationRelativeFilePath>
@@ -2040,6 +2104,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/SimpleOdataCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SimpleOdataCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#55fed8d6-495e-4f66-b173-7831c5f535e8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/StockCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.CosmosDB.CosmosDBRepository#0a67a269-563c-4253-a396-bb7e90ef49ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/StockDocumentCosmosDBRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>StockDocumentCosmosDBRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
