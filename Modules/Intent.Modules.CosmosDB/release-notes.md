@@ -1,6 +1,11 @@
+### Version 1.2.11
+
+- Fixed: Incomplete namespaces being added to the `usings` under certain conditions.
+- Fixed: Correctly qualified entities now used if there are naming naming conflicts.
+
 ### Version 1.2.10
 
--Fixed: Incorrect calculation done when working with inherited entities.
+- Fixed: Incorrect calculation done when working with inherited entities.
 
 ### Version 1.2.9
 

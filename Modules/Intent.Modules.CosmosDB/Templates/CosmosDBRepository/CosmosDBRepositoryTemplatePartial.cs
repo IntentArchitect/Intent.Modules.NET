@@ -15,6 +15,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Settings;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.Entities.Repositories.Api.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Modelers.Domain.Settings;
@@ -38,12 +39,18 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             string nullableChar = OutputTarget.GetProject().NullableEnabled ? "?" : "";
 
+            //AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.CosmosRepository.Options")
                 .AddUsing("Microsoft.Azure.CosmosRepository.Providers")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"{Model.Name}CosmosDBRepository", @class =>
                 {
+                    // this will force a load of the Domain.Entities type which in turn means 
+                    // entityDocumentName resolves with the full namespace if conflicts occur
+                    _ = EntityTypeName;
+
                     var pkAttribute = Model.GetPrimaryKeyAttribute();
                     var pkFieldName = pkAttribute.IdAttribute.Name.ToCamelCase();
                     var genericTypeParameters = Model.GenericTypes.Any()
@@ -67,8 +74,8 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(this.GetCosmosDBUnitOfWorkName(), "unitOfWork");
-                        ctor.AddParameter(UseType($"Microsoft.Azure.CosmosRepository.IRepository<{entityDocumentName}>"), "cosmosRepository");
-                        ctor.AddParameter(UseType($"ICosmosContainerProvider<{entityDocumentName}>"), "containerProvider");
+                        ctor.AddParameter($"{UseType("Microsoft.Azure.CosmosRepository.IRepository")}<{entityDocumentName}>", "cosmosRepository");
+                        ctor.AddParameter($"{UseType("ICosmosContainerProvider")}<{entityDocumentName}>", "containerProvider");
                         ctor.AddParameter("IOptionsMonitor<RepositoryOptions>", "optionsMonitor");
                         ctor.CallsBase(callBase => callBase
                             .AddArgument("unitOfWork")
