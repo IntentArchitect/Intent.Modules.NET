@@ -81,6 +81,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
                     DoNotImplementedTest(template, crudTest, crudTest.GetAll);
                 }
+                if (crudTest.DomainInvocations.Any())
+                {
+                    foreach (var domainInvocation in crudTest.DomainInvocations)
+                    {
+                        template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", domainInvocation.Id);
+                        DoNotImplementedTest(template, crudTest, domainInvocation);
+                    }
+                }
             }
         }
 
@@ -138,6 +146,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                 {
                     template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", crudTest.GetAll.Id);
                     DoGetAllTest(template, crudTest);
+                }
+                if (crudTest.DomainInvocations.Any())
+                {
+                    foreach (var domainInvoation in crudTest.DomainInvocations)
+                    {
+                        template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", domainInvoation.Id);
+                        DoDomainInvocationTest(template, crudTest, domainInvoation);
+                    }
                 }
             }
         }
@@ -385,6 +401,74 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         }
                     }
 
+                });
+            });
+        }
+
+        private void DoDomainInvocationTest(ICSharpFileBuilderTemplate template, CrudMap crudTest, IHttpEndpointModel endpoint)
+        {
+            template.AddUsing("AutoFixture");
+            template.CSharpFile.OnBuild(file =>
+            {
+                var @class = template.CSharpFile.Classes.First();
+                var operation = endpoint;
+
+                @class.AddMethod("Task", $"{operation.Name}_Should{operation.Name}", method =>
+                {
+                    var sutId = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : $"ids.{crudTest.Entity.Name.ToPascalCase()}Id";
+                    var invocationDtoModel = endpoint.Inputs.First(x => x.TypeReference?.Element.SpecializationTypeId == Constansts.DtoSpecializationType || x.TypeReference?.Element.SpecializationTypeId == Constansts.CommandSpecializationType);
+                    var getDtoModel = crudTest.GetById.ReturnType!;
+                    var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
+                    var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{owningAggregateId}, {sutId}";
+                    var entityName = crudTest.Entity.Name.ToParameterName() == "client" ? "clientEntity" : crudTest.Entity.Name.ToParameterName();
+
+                    method
+                        .Async()
+                        .AddAttribute("Fact");
+                    AddRequirementTraits(crudTest, method, template);
+                    method
+                        .AddStatement("// Arrange")
+                        .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
+
+                        .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var {$"{createVarName}"} = await dataFactory.Create{crudTest.Entity.Name}();")
+                        .AddStatement($"var command = dataFactory.CreateCommand<{template.GetTypeName(invocationDtoModel.TypeReference)}>();", s => s.SeparatedFromPrevious());
+
+
+                    string parameters = $"{sutId}, command";
+                    if (endpoint.Inputs.Count > 2 && owningAggregateId != null)
+                    {
+                        parameters = $"{owningAggregateId}, {parameters}";
+                    }
+
+                    method
+                        .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
+
+                    method
+                        .AddStatement("// Act", s => s.SeparatedFromPrevious())
+                        .AddStatement($"await client.{endpoint.Name}Async({parameters});")
+                        .AddStatement("// Assert", s => s.SeparatedFromPrevious())
+                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"Assert.NotNull({entityName});")
+                        ;
+
+                    //Checking that at least 1 field changed, ideally a string field
+                    var matchingFields = ((IElement)getDtoModel.Element).ChildElements.Select(c => c.Name)
+                    .Intersect(
+                    ((IElement)invocationDtoModel.TypeReference.Element).ChildElements.Select(c => c.Name)).Where(x => !x.EndsWith("Id")).ToList();
+                    if (matchingFields.Any())
+                    {
+                        var stringField = (((IElement)getDtoModel.Element).ChildElements).FirstOrDefault(x => matchingFields.Contains(x.Name) && x.TypeReference.HasStringType());
+                        if (stringField != null)
+                        {
+                            method.AddStatement($"Assert.Equal(command.{stringField.Name}, {entityName}.{stringField.Name});");
+                        }
+                        else
+                        {
+                            method.AddStatement($"Assert.Equal(command.{matchingFields.First()}, {entityName}.{matchingFields.First()});");
+                        }
+                    }
                 });
             });
         }

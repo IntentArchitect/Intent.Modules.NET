@@ -1,5 +1,6 @@
 ### Version 1.0.14
 
+- Improvement: Add support for generating test implementations for `Domain Operation` based CRUD implementations.
 - Fixed: Updated dependencies based on the changes made in the `Intent.AspNetCore.IntegrationTesting` module.
 
 ### Version 1.0.13

@@ -8,7 +8,19 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 {
     internal class CrudMap
     {
-        public CrudMap(IServiceProxyModel proxy, ClassModel entity, List<Dependency> dependencies, IHttpEndpointModel create, IHttpEndpointModel? update, IHttpEndpointModel? delete, IHttpEndpointModel getById, IHttpEndpointModel? getAll, string? responseDtoIdField = null, ClassModel? owningAggregate = null)
+        public CrudMap(
+            IServiceProxyModel proxy, 
+            ClassModel entity, 
+            List<Dependency> dependencies, 
+            IHttpEndpointModel create, 
+            IHttpEndpointModel? update, 
+            IHttpEndpointModel? delete, 
+            IHttpEndpointModel getById, 
+            IHttpEndpointModel? getAll,
+            IEnumerable<IHttpEndpointModel> domainInvocations,
+            string? responseDtoIdField = null, 
+            ClassModel? owningAggregate = null
+            )
         {
             Proxy = proxy;
             Entity = entity;
@@ -18,6 +30,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             Delete = delete;
             GetById = getById;
             GetAll = getAll;
+            DomainInvocations = domainInvocations;
             ResponseDtoIdField = responseDtoIdField;
             OwningAggregate = owningAggregate;
         }
@@ -30,6 +43,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
         public IHttpEndpointModel? Delete { get; }
         public IHttpEndpointModel GetById { get; }
         public IHttpEndpointModel? GetAll { get; }
+        public IEnumerable<IHttpEndpointModel> DomainInvocations { get;}
         public List<Dependency> Dependencies { get; set; }
         public string? ResponseDtoIdField { get; }
     }
