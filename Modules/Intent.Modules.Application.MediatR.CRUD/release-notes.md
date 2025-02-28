@@ -1,3 +1,7 @@
+### Version 6.0.25
+
+- Fixed: Resolved error when mapping `Enum collections`
+
 ### Version 6.0.24
 
 - Improvement: Provided a better error message to guide users when they attempt to call an operation using Call Service Operation on an Entity without Creating / Querying it first.

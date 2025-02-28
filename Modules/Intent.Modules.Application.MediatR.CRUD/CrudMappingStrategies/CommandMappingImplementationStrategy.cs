@@ -57,6 +57,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new EnumCollectionMappingTypeResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(_model, "request");

@@ -1,5 +1,9 @@
 ### Version 5.0.21
 
+- Fixed: Added support for `ToList` mapping.
+
+### Version 5.0.21
+
 - Improvement: Provided a better error message to guide users when they attempt to call an operation using Call Service Operation on an Entity without Creating / Querying it first.
 
 ### Version 5.0.20
