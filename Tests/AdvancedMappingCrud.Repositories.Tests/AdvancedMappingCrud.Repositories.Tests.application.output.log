@@ -1267,6 +1267,118 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8fd489d0-ac30-40e7-8181-6f90b3618f0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8fd489d0-ac30-40e7-8181-6f90b3618f0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#8fd489d0-ac30-40e7-8181-6f90b3618f0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/CreateEntityListEnum/CreateEntityListEnumCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#ebe4629d-ecad-4de0-a5c4-3070d1062ef7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/DeleteEntityListEnum/DeleteEntityListEnumCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/DeleteEntityListEnum/DeleteEntityListEnumCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#ebe4629d-ecad-4de0-a5c4-3070d1062ef7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/DeleteEntityListEnum/DeleteEntityListEnumCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/DeleteEntityListEnum/DeleteEntityListEnumCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#55cc1533-3005-4a6a-9d94-e3c0e5d4fe2a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/EntityListEnumDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/EntityListEnumDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#55cc1533-3005-4a6a-9d94-e3c0e5d4fe2a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/EntityListEnumDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/EntityListEnumDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#2810e49e-4b41-4abc-928d-b49f0d7441e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/GetEntityListEnumById/GetEntityListEnumByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/GetEntityListEnumById/GetEntityListEnumByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#2810e49e-4b41-4abc-928d-b49f0d7441e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/GetEntityListEnumById/GetEntityListEnumByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/GetEntityListEnumById/GetEntityListEnumByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#062fb273-0e3a-4ea8-a41d-713fcf699334</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/GetEntityListEnums/GetEntityListEnumsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/GetEntityListEnums/GetEntityListEnumsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#062fb273-0e3a-4ea8-a41d-713fcf699334</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/GetEntityListEnums/GetEntityListEnumsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/GetEntityListEnums/GetEntityListEnumsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1b1d07b0-b98d-42a2-bf19-42a22c085cd4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1b1d07b0-b98d-42a2-bf19-42a22c085cd4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1b1d07b0-b98d-42a2-bf19-42a22c085cd4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnums/UpdateEntityListEnum/UpdateEntityListEnumCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>521e0420-cfad-464f-a8c0-04c5339c8c3f</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.DomainEventHandler#dd13015f-0643-4a62-9bc7-2d70eddf3de5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3340,6 +3452,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#0268502e-ea62-44ce-8f3a-d9ed097c628c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/EntityListEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnum.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#34526c10-fad8-41c4-ab28-9510ace886b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/ExtensiveDomainServices/BaseEntityA.cs</ApplicationRelativeFilePath>
@@ -3648,6 +3768,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#0268502e-ea62-44ce-8f3a-d9ed097c628c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IEntityListEnumRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEntityListEnumRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3996,6 +4124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#0268502e-ea62-44ce-8f3a-d9ed097c628c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/EntityListEnumConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnumConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#34526c10-fad8-41c4-ab28-9510ace886b8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/ExtensiveDomainServices/BaseEntityAConfiguration.cs</ApplicationRelativeFilePath>
@@ -4192,6 +4328,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/DomainServices/DomainServiceTestRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DomainServices/DomainServiceTestRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#0268502e-ea62-44ce-8f3a-d9ed097c628c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/EntityListEnumRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EntityListEnumRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

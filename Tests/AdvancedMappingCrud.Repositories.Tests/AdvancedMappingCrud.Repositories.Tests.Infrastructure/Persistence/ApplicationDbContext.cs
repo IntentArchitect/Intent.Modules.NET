@@ -42,6 +42,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<CorporateFuneralCoverQuote> CorporateFuneralCoverQuotes { get; set; }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<EntityListEnum> EntityListEnums { get; set; }
         public DbSet<FileUpload> FileUploads { get; set; }
         public DbSet<FuneralCoverQuote> FuneralCoverQuotes { get; set; }
         public DbSet<Optional> Optionals { get; set; }
@@ -86,6 +87,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ContractConfiguration());
             modelBuilder.ApplyConfiguration(new CorporateFuneralCoverQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityListEnumConfiguration());
             modelBuilder.ApplyConfiguration(new FileUploadConfiguration());
             modelBuilder.ApplyConfiguration(new FuneralCoverQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new OptionalConfiguration());

@@ -107,16 +107,16 @@
             <mappedEnd>
               <expression>{result.Email}</expression>
               <path>
-                <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
-                <target id="f34e74fc-4a33-4674-8d6b-677367c21644" name="entity" type="association" specialization="Query Entity Action Target End" />
-                <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" />
+                <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                <target id="f34e74fc-4a33-4674-8d6b-677367c21644" name="entity" type="association" specialization="Query Entity Action Target End" specializationId="93ef6675-cba4-4998-adff-cb22d5343ed4" />
+                <target id="c50c4d90-1295-4bfd-a3c8-9b2ff5fb4b77" name="PersonEmail" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
               </path>
               <sources>
                 <source identifier="result.Email" mappingType="Data Mapping" mappingTypeId="ac40ddfb-4d32-495d-928e-ddb991434a87">
                   <path>
-                    <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" />
-                    <target id="a2f7738f-4f46-484b-bb57-c411fb63a28d" name="result" type="association" specialization="Call Service Operation Target End" />
-                    <target id="6a5e4f4a-5988-4185-a2b7-764f4ebbe8d6" name="Email" type="element" specialization="DTO-Field" />
+                    <target id="1d883b18-40f6-4097-9989-8a8c0f5c99f2" name="ApproveQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                    <target id="a2f7738f-4f46-484b-bb57-c411fb63a28d" name="result" type="association" specialization="Call Service Operation Target End" specializationId="093e5909-ffe4-4510-b3ea-532f30212f3c" />
+                    <target id="6a5e4f4a-5988-4185-a2b7-764f4ebbe8d6" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                   </path>
                 </source>
               </sources>

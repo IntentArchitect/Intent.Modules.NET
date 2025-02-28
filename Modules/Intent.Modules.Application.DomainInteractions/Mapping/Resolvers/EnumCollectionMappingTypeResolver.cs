@@ -15,8 +15,8 @@ public class EnumCollectionMappingTypeResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
-        if ((mappingModel.Mapping.SourceElement?.TypeReference.IsCollection ?? false) && (mappingModel.Mapping.TargetElement?.TypeReference.IsCollection ?? false) &&
-            (mappingModel.Mapping.SourceElement?.TypeReference?.Element?.SpecializationType == "Enum") && (mappingModel.Mapping.TargetElement?.TypeReference?.Element?.SpecializationType == "Enum"))
+        if ((mappingModel.Mapping?.SourceElement?.TypeReference?.IsCollection ?? false) && (mappingModel.Mapping?.TargetElement?.TypeReference?.IsCollection ?? false) &&
+            (mappingModel.Mapping?.SourceElement?.TypeReference?.Element?.SpecializationType == "Enum") && (mappingModel.Mapping?.TargetElement?.TypeReference?.Element?.SpecializationType == "Enum"))
         {
             return new ToListMapping(mappingModel, _sourceTemplate);
         }
