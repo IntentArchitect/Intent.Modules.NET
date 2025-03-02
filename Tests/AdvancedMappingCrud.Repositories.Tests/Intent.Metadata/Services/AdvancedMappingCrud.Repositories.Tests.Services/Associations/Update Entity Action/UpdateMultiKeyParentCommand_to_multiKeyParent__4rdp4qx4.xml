@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d87dcd44-372d-4944-82a1-d7d1a096fc5c">
+  <sourceEnd id="7c310165-b683-4deb-81d7-f0655ab2ead2" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : MultiKeyParents.UpdateMultiKeyParentCommand</display>
+    <order>0</order>
+    <typeReference id="994a1616-99e4-4578-b54f-6fcfa6d49657">
+      <typeId>3cb51614-4e27-49bb-b458-a958c06c1b48</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d87dcd44-372d-4944-82a1-d7d1a096fc5c" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>multiKeyParent</name>
+    <display>[update] multiKeyParent: MultiKeyParent</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="e838299c-2f1d-4234-9f60-441b8f2473eb">
+      <typeId>46d1192b-aeda-4c7f-9d7c-371965ab1cb2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3cb51614-4e27-49bb-b458-a958c06c1b48" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateMultiKeyParentCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[MultiKeyParent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d077bdaf-cd0d-4f55-bdb3-617169f69c56" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="640d15bd-0cc8-4ef8-8c6a-70a029ca5aa5" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3cb51614-4e27-49bb-b458-a958c06c1b48" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateMultiKeyParentCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[MultiKeyParent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="384cf3b8-19cb-4fbe-b901-1b140c4a79f5" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="0f9b983e-38be-4c22-a93c-306cd56c5b34" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MultiKeyChildren}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ac3b401f-37a6-4b27-8411-b89fe77e660e" name="MultiKeyChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="MultiKeyChildren" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f18d5273-92cf-406e-9b0d-989637355f53" name="MultiKeyChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MultiKeyChildren.Id}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ac3b401f-37a6-4b27-8411-b89fe77e660e" name="MultiKeyChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="570e9b68-731c-4e85-b216-fc6e8043ee6e" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="MultiKeyChildren.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f18d5273-92cf-406e-9b0d-989637355f53" name="MultiKeyChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ec537cc3-c51c-41b0-b622-5225f2407a41" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MultiKeyChildren.RefNo}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ac3b401f-37a6-4b27-8411-b89fe77e660e" name="MultiKeyChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="8b5c9210-dd41-46a5-b891-584ae3fc3468" name="RefNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="MultiKeyChildren.RefNo" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f18d5273-92cf-406e-9b0d-989637355f53" name="MultiKeyChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="0ccf2063-f6e8-42e4-bef4-96787be5cdcc" name="RefNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{MultiKeyChildren.ChildName}</expression>
+            <path>
+              <target id="46d1192b-aeda-4c7f-9d7c-371965ab1cb2" name="MultiKeyParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ac3b401f-37a6-4b27-8411-b89fe77e660e" name="MultiKeyChildren" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="2324c04e-0da5-4b53-b000-5e328460b3c2" name="ChildName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="MultiKeyChildren.ChildName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="3cb51614-4e27-49bb-b458-a958c06c1b48" name="UpdateMultiKeyParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f18d5273-92cf-406e-9b0d-989637355f53" name="MultiKeyChildren" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="581ab820-4719-480b-a573-641ee67ed34c" name="ChildName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

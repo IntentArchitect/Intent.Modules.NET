@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ac3b401f-37a6-4b27-8411-b89fe77e660e">
+  <sourceEnd id="bc3cde3f-e208-47f6-bc52-0b1e3bcd6a7c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MultiKeyParent</name>
+    <display>MultiKeyParent: MultiKeyParent</display>
+    <order>0</order>
+    <typeReference id="64eae138-ebee-48fd-a7b5-d3eba0322d9d">
+      <typeId>46d1192b-aeda-4c7f-9d7c-371965ab1cb2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ac3b401f-37a6-4b27-8411-b89fe77e660e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MultiKeyChildren</name>
+    <display>MultiKeyChildren: MultiKeyChild[*]</display>
+    <order>2</order>
+    <typeReference id="9764e5a9-aafd-4391-adad-f9b46ecf39c3">
+      <typeId>872606fc-126e-4d55-9e5a-ba1313df42fa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

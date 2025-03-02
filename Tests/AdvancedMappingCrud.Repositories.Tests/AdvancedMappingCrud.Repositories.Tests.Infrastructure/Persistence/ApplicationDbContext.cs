@@ -45,6 +45,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<EntityListEnum> EntityListEnums { get; set; }
         public DbSet<FileUpload> FileUploads { get; set; }
         public DbSet<FuneralCoverQuote> FuneralCoverQuotes { get; set; }
+        public DbSet<MultiKeyParent> MultiKeyParents { get; set; }
         public DbSet<Optional> Optionals { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<PagingTS> PagingTs { get; set; }
@@ -90,6 +91,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new EntityListEnumConfiguration());
             modelBuilder.ApplyConfiguration(new FileUploadConfiguration());
             modelBuilder.ApplyConfiguration(new FuneralCoverQuoteConfiguration());
+            modelBuilder.ApplyConfiguration(new MultiKeyParentConfiguration());
             modelBuilder.ApplyConfiguration(new OptionalConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
             modelBuilder.ApplyConfiguration(new PagingTSConfiguration());

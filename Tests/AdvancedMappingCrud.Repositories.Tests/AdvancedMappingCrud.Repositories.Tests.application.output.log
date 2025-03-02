@@ -2212,6 +2212,150 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9789eec5-7fef-4cdf-99cf-393fea5c7b5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9789eec5-7fef-4cdf-99cf-393fea5c7b5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9789eec5-7fef-4cdf-99cf-393fea5c7b5d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/CreateMultiKeyParent/CreateMultiKeyParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#175baf3e-04b9-4620-b088-8bfca145a80d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/CreateMultiKeyParentCommandMultiKeyChildrenDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/CreateMultiKeyParentCommandMultiKeyChildrenDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#175baf3e-04b9-4620-b088-8bfca145a80d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/CreateMultiKeyParentCommandMultiKeyChildrenDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/CreateMultiKeyParentCommandMultiKeyChildrenDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#6cbbcabb-fb18-4db2-bfb1-e88dabe4bca9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/DeleteMultiKeyParent/DeleteMultiKeyParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/DeleteMultiKeyParent/DeleteMultiKeyParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#6cbbcabb-fb18-4db2-bfb1-e88dabe4bca9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/DeleteMultiKeyParent/DeleteMultiKeyParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/DeleteMultiKeyParent/DeleteMultiKeyParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#d5672382-22e2-4b21-8b59-293d850a5009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/GetMultiKeyParentById/GetMultiKeyParentByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/GetMultiKeyParentById/GetMultiKeyParentByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#d5672382-22e2-4b21-8b59-293d850a5009</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/GetMultiKeyParentById/GetMultiKeyParentByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/GetMultiKeyParentById/GetMultiKeyParentByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#0a0d667e-a3f7-48f8-894f-bcdcfbbc5db9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/GetMultiKeyParents/GetMultiKeyParentsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/GetMultiKeyParents/GetMultiKeyParentsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#0a0d667e-a3f7-48f8-894f-bcdcfbbc5db9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/GetMultiKeyParents/GetMultiKeyParentsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/GetMultiKeyParents/GetMultiKeyParentsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a0478ecf-5d1b-4a4e-bcc6-0b2dab9e8ada</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/MultiKeyParentDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/MultiKeyParentDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#a0478ecf-5d1b-4a4e-bcc6-0b2dab9e8ada</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/MultiKeyParentDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/MultiKeyParentDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#3cb51614-4e27-49bb-b458-a958c06c1b48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#3cb51614-4e27-49bb-b458-a958c06c1b48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#3cb51614-4e27-49bb-b458-a958c06c1b48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/UpdateMultiKeyParent/UpdateMultiKeyParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#a0e28044-52e8-4a2c-8e9c-c4ae2e4c4269</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/UpdateMultiKeyParentCommandMultiKeyChildrenDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/UpdateMultiKeyParentCommandMultiKeyChildrenDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#a0e28044-52e8-4a2c-8e9c-c4ae2e4c4269</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/MultiKeyParents/UpdateMultiKeyParentCommandMultiKeyChildrenDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParents/UpdateMultiKeyParentCommandMultiKeyChildrenDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#aaf0d2ac-94ac-4827-9592-0f8203157ace</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/CreateNestingParent/CreateNestingParentCommand.cs</ApplicationRelativeFilePath>
@@ -3540,6 +3684,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#872606fc-126e-4d55-9e5a-ba1313df42fa</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MultiKeyChild.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyChild.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#46d1192b-aeda-4c7f-9d7c-371965ab1cb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MultiKeyParent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#25b33f68-88fc-468d-9954-f9d67b53c057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Optional.cs</ApplicationRelativeFilePath>
@@ -3792,6 +3952,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IFuneralCoverQuoteRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IFuneralCoverQuoteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#46d1192b-aeda-4c7f-9d7c-371965ab1cb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/IMultiKeyParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IMultiKeyParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4196,6 +4364,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#46d1192b-aeda-4c7f-9d7c-371965ab1cb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/MultiKeyParentConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParentConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#25b33f68-88fc-468d-9954-f9d67b53c057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OptionalConfiguration.cs</ApplicationRelativeFilePath>
@@ -4400,6 +4576,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/MappingTests/NestingParentRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappingTests/NestingParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#46d1192b-aeda-4c7f-9d7c-371965ab1cb2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/MultiKeyParentRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MultiKeyParentRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

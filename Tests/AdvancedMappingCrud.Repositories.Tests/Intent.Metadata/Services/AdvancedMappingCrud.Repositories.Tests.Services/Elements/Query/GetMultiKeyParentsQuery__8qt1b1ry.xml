@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0a0d667e-a3f7-48f8-894f-bcdcfbbc5db9" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetMultiKeyParentsQuery</name>
+  <display>GetMultiKeyParentsQuery: MultiKeyParentDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="84daa3c3-a253-4c26-ba8c-f01124f01cfe">
+    <typeId>a0478ecf-5d1b-4a4e-bcc6-0b2dab9e8ada</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+    <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>2e5172e0-797e-4f2e-915c-866756f982e1</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="MultiKeyParents" />
+  </metadata>
+  <childElements />
+</class>
