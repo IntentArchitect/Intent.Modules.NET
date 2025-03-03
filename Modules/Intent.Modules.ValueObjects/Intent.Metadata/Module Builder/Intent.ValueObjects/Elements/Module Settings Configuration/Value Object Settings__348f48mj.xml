@@ -29,9 +29,11 @@
           <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
-            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
             <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="class" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -39,7 +41,7 @@
       <childElements>
         <childElement id="dad010ad-b9a3-4f8a-a88c-9012e883d69f" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Class</name>
-          <display>Class</display>
+          <display>Class = class</display>
           <isAbstract>false</isAbstract>
           <value>class</value>
           <genericTypes />
@@ -53,7 +55,7 @@
         </childElement>
         <childElement id="cd2af224-eac7-4602-975d-b24fd80b0d14" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
           <name>Record</name>
-          <display>Record</display>
+          <display>Record = record</display>
           <isAbstract>false</isAbstract>
           <value>record</value>
           <genericTypes />

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.ValueObjects</id>
   <version>4.2.5-pre.0</version>
@@ -57,4 +57,5 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations />
 </package>
