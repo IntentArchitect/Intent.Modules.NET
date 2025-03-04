@@ -1,6 +1,6 @@
 ### Version 0.0.3
 
-- Improvement: Moved the AI specification from a being a context menu item that stores in a config file on HD to a App Intent Setting.
+- Improvement: Moved the AI config from being on a context menu item (that stores in a config file on Hard drive) to an Intent Application Setting.
 - Improvement: Added ability to use Azure Open AI and Ollama too.
 - Improvement: Semantic Kernel logs will output to SF logger.
 - Improvement: LLM Prompt has been improved for better results.
