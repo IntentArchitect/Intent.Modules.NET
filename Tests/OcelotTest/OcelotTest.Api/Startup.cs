@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Options;
+using Ocelot.Middleware;
 using OcelotTest.Api.Configuration;
 using OcelotTest.Api.Filters;
 using OcelotTest.Application;
@@ -55,8 +56,10 @@ namespace OcelotTest.Api
             {
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
+                // Needed for Ocelot
             });
             app.UseSwashbuckle(Configuration);
+            app.UseOcelot().Wait();
         }
     }
 }

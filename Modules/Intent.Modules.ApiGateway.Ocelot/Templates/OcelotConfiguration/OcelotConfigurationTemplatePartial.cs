@@ -57,8 +57,14 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                 .ToRegister("ConfigureOcelot", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
             
-            var programTemplate = ExecutionContext.FindTemplateInstance<IProgramTemplate>(TemplateDependency.OnTemplate("App.Program"));
+            var programTemplate = ExecutionContext.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null)
+            {
+                return;
+            }
+
+            var startupFileTemplate = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            if (startupFileTemplate == null)
             {
                 return;
             }
@@ -79,11 +85,30 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                         var ctx = parameters.FirstOrDefault(p => p.Contains("config", StringComparison.OrdinalIgnoreCase));
                         if (ctx is not null)
                         {
-                            statements.InsertStatement(0, new CSharpStatement($"{ctx}.ConfigureOcelot();"));
+                            statements.AddStatement($"{ctx}.ConfigureOcelot();");
                         }
                     });
                 }
-            });
+            }, 1);
+
+            startupFileTemplate.CSharpFile.AfterBuild(file =>
+            {
+                startupFileTemplate.StartupFile.ConfigureApp((statements, context) =>
+                {
+                    startupFileTemplate.AddUsing("Ocelot.Middleware");
+                    
+                    var statement = statements.FindStatement(x => x.GetText("").Contains("app.Run"));
+                    if (statement is not null)
+                    {
+                        statement.InsertAbove($"await {context.App}.UseOcelot();");
+                    }
+                    else
+                    {
+                        statements.AddStatement($"{context.App}.UseOcelot().Wait();");
+                    }
+                });
+                startupFileTemplate.StartupFile.AddUseEndpointsStatement(ctx => "// Needed for Ocelot");
+            }, 9999);
         }
 
         [IntentManaged(Mode.Fully)]
