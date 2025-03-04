@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9eb759a3-6cbd-49b8-a17c-e83a22e35531" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ProgramExtension</name>
+  <display>ProgramExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</parentFolderId>
+  <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
+  <packageName>Intent.ApiGateway.Ocelot</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

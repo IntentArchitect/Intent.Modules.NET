@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5165e3cd-a36f-453b-ac14-9e1dfbdeebd8" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</parentFolderId>
+  <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
+  <packageName>Intent.ApiGateway.Ocelot</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
