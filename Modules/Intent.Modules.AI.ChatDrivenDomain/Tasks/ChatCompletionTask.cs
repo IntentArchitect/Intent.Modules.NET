@@ -202,7 +202,7 @@ public class ChatCompletionTask : IModuleTask
 
                 builder.Services.AddOpenAIChatCompletion(
                     modelId: model,
-                    apiKey: apiKey ?? throw new Exception("No API Key defined"));
+                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the OPENAI_API_KEY environment variable."));
                 break;
             case ChatDrivenDomainSettings.ProviderOptionsEnum.AzureOpenAi:
                 if (string.IsNullOrWhiteSpace(apiKey))
@@ -213,7 +213,7 @@ public class ChatCompletionTask : IModuleTask
                 builder.Services.AddAzureOpenAIChatCompletion(
                     deploymentName: settings.DeploymentName(),
                     endpoint: settings.APIUrl(),
-                    apiKey: apiKey ?? throw new Exception("No API Key defined"),
+                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the AZURE_OPENAI_API_KEY environment variable."),
                     modelId: model);
                 break;
             case ChatDrivenDomainSettings.ProviderOptionsEnum.Ollama:
