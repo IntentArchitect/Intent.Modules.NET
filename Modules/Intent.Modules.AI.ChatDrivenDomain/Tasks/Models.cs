@@ -1,19 +1,6 @@
 using System.Collections.Generic;
 
-namespace Intent.Modules.ChatDrivenDomain.Tasks.Models;
-
-public class SettingsResult
-{
-    public bool SettingsFileExists { get; set; }
-    public SettingsData? Data { get; set; }
-}
-
-public class SettingsData
-{
-    public string ApiKey { get; set; }
-    public string? Model { get; set; }
-    public string? ApiUrl { get; set; }
-}
+namespace Intent.Modules.AI.ChatDrivenDomain.Tasks;
 
 public class InputModel
 {

@@ -1,3 +1,10 @@
+### Version 0.0.3
+
+- Improvement: Moved the AI specification from a being a context menu item that stores in a config file on HD to a App Intent Setting.
+- Improvement: Added ability to use Azure Open AI and Ollama too.
+- Improvement: Semantic Kernel logs will output to SF logger.
+- Fixed: When canceling a prompt it won't try to execute it.
+
 ### Version 0.0.2
 
 - Improvement: Telling the model not to be lazy so that it can provide greater modeling support.
