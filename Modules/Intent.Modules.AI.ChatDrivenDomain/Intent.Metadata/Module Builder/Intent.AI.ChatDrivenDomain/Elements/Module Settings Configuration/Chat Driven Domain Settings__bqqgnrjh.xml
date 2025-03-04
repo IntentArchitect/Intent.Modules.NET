@@ -191,5 +191,32 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="4cb52ca6-af4f-4dbf-9f75-5a74438cd281" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Max Tokens</name>
+      <display>Max Tokens</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>62594c9b-21fe-4c65-ac5c-b32a836a2ca5</parentFolderId>
+      <packageId>65b68a93-9d50-4c16-a613-f37104dbe59f</packageId>
+      <packageName>Intent.AI.ChatDrivenDomain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Text Box" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Normally 4096 is the max but if your LLM can handle it you can increase this value." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="8192" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="return true;" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -90,5 +90,8 @@ namespace Intent.Modules.AI.ChatDrivenDomain.Settings
         public string APIUrl() => _groupSettings.GetSetting("5d2a1254-9f21-4cbd-818e-497bf09c87ea")?.Value;
 
         public string DeploymentName() => _groupSettings.GetSetting("07a3313b-0602-4f83-a1c1-820e746bde48")?.Value;
+
+        [IntentIgnore]
+        public int MaxTokens() => int.Parse(_groupSettings.GetSetting("4cb52ca6-af4f-4dbf-9f75-5a74438cd281")?.Value);
     }
 }

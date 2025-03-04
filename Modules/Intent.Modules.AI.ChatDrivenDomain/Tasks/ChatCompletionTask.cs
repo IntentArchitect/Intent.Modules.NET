@@ -160,7 +160,7 @@ public class ChatCompletionTask : IModuleTask
                 5. Output JSON WITHOUT whitespace
                 """, new OpenAIPromptExecutionSettings()
                 {
-                    MaxTokens = 4096
+                    MaxTokens = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings().MaxTokens()
                 });
 
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments

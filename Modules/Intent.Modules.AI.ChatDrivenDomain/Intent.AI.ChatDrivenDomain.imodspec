@@ -44,6 +44,11 @@ return provider === "ollama" || provider === "azure-open-ai";</isActiveFunction>
 return provider === "azure-open-ai";</isActiveFunction>
           <isRequiredFunction>return true;</isRequiredFunction>
         </setting>
+        <setting id="4cb52ca6-af4f-4dbf-9f75-5a74438cd281" title="Max Tokens" type="text">
+          <hint>Normally 4096 is the max but if your LLM can handle it you can increase this value.</hint>
+          <defaultValue>8192</defaultValue>
+          <isRequiredFunction>return true;</isRequiredFunction>
+        </setting>
       </settings>
     </group>
   </moduleSettings>

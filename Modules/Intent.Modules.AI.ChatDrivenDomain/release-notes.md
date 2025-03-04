@@ -4,6 +4,7 @@
 - Improvement: Added ability to use Azure Open AI and Ollama too.
 - Improvement: Semantic Kernel logs will output to SF logger.
 - Improvement: LLM Prompt has been improved for better results.
+- Improvement: Configure the Max Tokens for better results.
 - Fixed: When canceling a prompt it won't try to execute it.
 
 ### Version 0.0.2
