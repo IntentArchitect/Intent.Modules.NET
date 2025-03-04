@@ -137,6 +137,16 @@ public static class RazorFileExtensions
                     {
                         var mappingManager = template.CreateMappingManager();
                         mappingManager.SetFromReplacement(operation, null);
+
+                        // if the name of the opperation parameter is not "ParameterName case" (camel case)
+                        // then setup a mapping replacement to make it so. This caters for the cases where the operation parameter in the designer
+                        // is not added as camelcase
+                        foreach (var parameter in operation.Parameters
+                            .Where(p => !p.Name?.Equals(p.Name?.ToParameterName(), StringComparison.InvariantCulture) ?? false))
+                        {
+                            mappingManager.SetFromReplacement(parameter, parameter.Name.ToParameterName());
+                        }
+
                         var mappings = template.BindingManager.ViewBinding.MappedEnds.Where(x => x.SourceElement?.Id == operation.Id).ToList() ?? new();
                         //var mappedButton = mappings.FirstOrDefault(x => x.TargetPath.Any(p => p.Element.SpecializationType == "Button"));
 
