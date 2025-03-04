@@ -1,3 +1,8 @@
+### Version 1.1.1
+
+- Fixed: Invalid `Attribute` names will no longer be generated.
+- Fixed: `Class` member names will no longer be generated with the same name as the class.
+
 ### Version 1.1.0
 
 - Improved: Enhanced filter functionality using JSON configuration, allowing more granular control over table/column import selection.
