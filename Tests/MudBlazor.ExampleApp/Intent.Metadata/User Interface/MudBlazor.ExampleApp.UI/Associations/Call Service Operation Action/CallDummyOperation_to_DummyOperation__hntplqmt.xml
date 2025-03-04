@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4d4ec2e2-5dd4-4789-8683-31b9bc77c89d">
+  <sourceEnd id="31a0215e-150c-4bd5-a629-d78bf353650d" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: CallDummyOperation</display>
+    <order>0</order>
+    <typeReference id="4236cdbb-1454-4e66-9b3c-66a50460b0bc">
+      <typeId>045539ce-f414-49f5-b770-78368195fe5f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4d4ec2e2-5dd4-4789-8683-31b9bc77c89d" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>DummyOperation</name>
+    <display>[call] DummyService.DummyOperation(id: guid, name: string): void</display>
+    <order>2</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="63a0d663-841e-4e8a-8145-94ab6666d260">
+      <typeId>b5766610-aa1b-4925-8679-73ccb130e9a2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="80e3e769-da1c-40b1-9fd9-e9183240fd6f" location="[MudBlazor.ExampleApp].[User Interface].[ProductEditDialog]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="b5766610-aa1b-4925-8679-73ccb130e9a2" location="[MudBlazor.ExampleApp].[User Interface].[DummyOperation]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallDummyOperation.DummyOperation}</expression>
+            <path>
+              <target id="b5766610-aa1b-4925-8679-73ccb130e9a2" name="DummyOperation" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="CallDummyOperation.DummyOperation" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="045539ce-f414-49f5-b770-78368195fe5f" name="CallDummyOperation" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="4d4ec2e2-5dd4-4789-8683-31b9bc77c89d" name="DummyOperation" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CallDummyOperation.OddlyNamedParameter}</expression>
+            <path>
+              <target id="b5766610-aa1b-4925-8679-73ccb130e9a2" name="DummyOperation" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="afbc90cc-2e6b-4b98-9fb6-7dc13e358994" name="id" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="CallDummyOperation.OddlyNamedParameter" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="045539ce-f414-49f5-b770-78368195fe5f" name="CallDummyOperation" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="28b957b5-3e03-4f32-a342-71fa701f5105" name="OddlyNamedParameter" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{CallDummyOperation.DummyName}</expression>
+            <path>
+              <target id="b5766610-aa1b-4925-8679-73ccb130e9a2" name="DummyOperation" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="5ae3129a-d494-4d8f-b0b6-faaccc8e8d02" name="name" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="CallDummyOperation.DummyName" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="045539ce-f414-49f5-b770-78368195fe5f" name="CallDummyOperation" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="af2aaac0-3cac-4f0d-abce-d2f6367ba88c" name="DummyName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

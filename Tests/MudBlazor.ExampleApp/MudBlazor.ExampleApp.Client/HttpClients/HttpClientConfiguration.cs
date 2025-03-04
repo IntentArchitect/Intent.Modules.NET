@@ -18,6 +18,12 @@ namespace MudBlazor.ExampleApp.Client.HttpClients
                 });
 
             services
+                .AddHttpClient<IDummyService, DummyServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "MudBlazorExampleApp");
+                });
+
+            services
                 .AddHttpClient<IInvoiceService, InvoiceServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "MudBlazorExampleApp");

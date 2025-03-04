@@ -23,7 +23,7 @@
             <target id="cd820537-8e42-4e17-a903-5c7d3853b6e2" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
             <target id="cc758a41-b1bb-464d-95da-dc93056f2706" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
             <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
-              <typeReference id="12d4daae-a908-489d-b2ac-de36c1a1fa3e">
+              <typeReference>
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
                 <isCollection>false</isCollection>
@@ -305,7 +305,7 @@
                   <path>
                     <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="d89ad031-b514-41ce-b055-fa06346a9ca3">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -389,7 +389,7 @@
                   <path>
                     <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="8c562389-90ae-4149-ac2e-2e44d3fb9e70">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -473,7 +473,7 @@
                   <path>
                     <target id="80e3e769-da1c-40b1-9fd9-e9183240fd6f" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="c08a192d-f627-4ddf-ba32-93f86628d0d7">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -500,6 +500,77 @@
               </mappedEnds>
             </mapping>
           </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="045539ce-f414-49f5-b770-78368195fe5f" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CallDummyOperation</name>
+      <display>CallDummyOperation(OddlyNamedParameter: guid, DummyName: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2aeff0a3-18ac-4887-8acc-6be7c9ae1239">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>80e3e769-da1c-40b1-9fd9-e9183240fd6f</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="28b957b5-3e03-4f32-a342-71fa701f5105" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>OddlyNamedParameter</name>
+          <display>in : OddlyNamedParameter: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ff2bb078-36a3-40e7-adcb-d623b9df9a73">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>045539ce-f414-49f5-b770-78368195fe5f</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="af2aaac0-3cac-4f0d-abce-d2f6367ba88c" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>DummyName</name>
+          <display>in : DummyName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="efa06c35-d176-4de2-b7ea-ac8bc82a75ab">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>045539ce-f414-49f5-b770-78368195fe5f</parentFolderId>
+          <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+          <packageName>MudBlazor.ExampleApp.UI</packageName>
+          <stereotypes />
           <metadata />
           <childElements />
         </childElement>

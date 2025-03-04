@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="b69ebeac-c742-492d-9e83-c02f036bc3a9">
   <sourceEnd id="2a4d68ae-4bb2-44c0-b48a-f816aa900e33" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
-    <display>created by : MudBlazor.ExampleApp.Services.CreateInvoiceConvolutedCommand</display>
+    <display>created by : Invoices.CreateInvoiceConvolutedCommand</display>
     <order>0</order>
     <typeReference id="3437c537-8fdf-41c3-9b7a-370b17deb091">
       <typeId>dbb506ad-f246-4fc7-b655-93862aff6b7d</typeId>

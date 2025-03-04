@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.ExampleApp.Application.Common.Behaviours;
 using MudBlazor.ExampleApp.Application.Common.Validation;
+using MudBlazor.ExampleApp.Application.Implementation;
+using MudBlazor.ExampleApp.Application.Interfaces;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.DependencyInjection.DependencyInjection", Version = "1.0")]
@@ -30,6 +32,7 @@ namespace MudBlazor.ExampleApp.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IDummyService, DummyService>();
             return services;
         }
     }

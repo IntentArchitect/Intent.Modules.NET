@@ -84,6 +84,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c54329c2-ce25-47b5-a839-a35441048aff</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#55b6427b-fb14-427d-9437-8adad81c7c9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Api/Controllers/DummyController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DummyController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c54329c2-ce25-47b5-a839-a35441048aff</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#9b7c71cb-965f-45e8-b0a5-acbf054c2138</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Api/Controllers/InvoicesController.cs</ApplicationRelativeFilePath>
@@ -568,6 +576,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>17880d60-325c-4792-8eed-fa497d674f5a</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#55b6427b-fb14-427d-9437-8adad81c7c9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Implementation/DummyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DummyService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4f2a8b85-60b9-49ac-8c99-137e38623528</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#55b6427b-fb14-427d-9437-8adad81c7c9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Interfaces/IDummyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDummyService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1308,6 +1332,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#4feeccae-536d-4feb-8d7c-1be676e2b866</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/IDummyService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDummyService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#90e5a5c6-1b2a-4e70-b6c0-a8d73d360a89</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/IInvoiceService.cs</ApplicationRelativeFilePath>
@@ -1320,6 +1352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Implementations/CustomersServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomersServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>147210ba-42bc-4466-8e95-d397b4024083</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#4feeccae-536d-4feb-8d7c-1be676e2b866</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Implementations/DummyServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DummyServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

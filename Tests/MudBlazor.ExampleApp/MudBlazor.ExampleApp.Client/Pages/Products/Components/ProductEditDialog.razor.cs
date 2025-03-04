@@ -23,6 +23,8 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
         public ISnackbar Snackbar { get; set; } = default!;
         [Inject]
         public IDialogService DialogService { get; set; } = default!;
+        [Inject]
+        public IDummyService DummyService { get; set; } = default!;
         [CascadingParameter]
         public MudDialogInstance Dialog { get; set; }
 
@@ -103,6 +105,19 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
             {
                 _onDeleteClickProcessing = false;
             }
+        }
+
+        private async Task CallDummyOperation(Guid oddlyNamedParameter, string dummyName)
+        {
+            try
+            {
+                await DummyService.DummyOperationAsync(oddlyNamedParameter, dummyName);
+            }
+            catch (Exception e)
+            {
+                Snackbar.Add(e.Message, Severity.Error);
+            }
+            StateHasChanged();
         }
     }
 }
