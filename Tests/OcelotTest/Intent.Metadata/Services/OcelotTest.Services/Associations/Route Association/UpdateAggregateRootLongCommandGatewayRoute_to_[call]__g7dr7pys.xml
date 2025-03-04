@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="11f806ce-c793-496f-b0c3-cb0486dba684">
+  <sourceEnd id="97e8c78c-5719-490f-b878-7ed43cdda078" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: UpdateAggregateRootLongCommandGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="9de6cc30-69f3-4667-99bd-5bab478637e1">
+      <typeId>4f474427-b19d-4a7e-bc36-60c792cc7a1a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="11f806ce-c793-496f-b0c3-cb0486dba684" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: UpdateAggregateRootLongCommand</display>
+    <order>2</order>
+    <typeReference id="e4e2a575-08ff-4a6a-8808-031d0c74e29a">
+      <typeId>1ce12daa-edbb-417d-aa8c-53ff8f9aee13</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Route Mapping" typeId="48776d2f-ee28-4738-844f-d2ee610b516f">
+        <source applicationId="05c06fb4-1c1b-4a08-99e5-5d4b81551d3f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4f474427-b19d-4a7e-bc36-60c792cc7a1a" location="[OcelotTest].[Services].[UpdateAggregateRootLongCommandGatewayRoute]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1ce12daa-edbb-417d-aa8c-53ff8f9aee13" location="[OcelotTest].[Services].[UpdateAggregateRootLongCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="1ce12daa-edbb-417d-aa8c-53ff8f9aee13" name="UpdateAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="27c0b68a-91a3-4cd3-813f-91022a83fe50" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="b419f885-7eaa-4c32-a931-25b160eb258c">
+                <path>
+                  <target id="4f474427-b19d-4a7e-bc36-60c792cc7a1a" name="UpdateAggregateRootLongCommandGatewayRoute" type="element" specialization="Api Gateway Route" specializationId="b09d7684-5dde-4d4b-9cb5-0707bfd8578f" />
+                  <target id="11a1cf89-4a7b-43af-8fcc-7492160dcd42" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>

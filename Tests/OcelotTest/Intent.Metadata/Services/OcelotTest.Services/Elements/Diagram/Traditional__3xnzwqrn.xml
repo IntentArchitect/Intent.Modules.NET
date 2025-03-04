@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6fdfca38-a122-4f7f-8485-75885dcfaa32" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Traditional</name>
+  <display>Traditional</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>37bebcab-9609-4cf4-8080-219f1c22da7c</parentFolderId>
+  <packageId>051a6839-a5ce-4936-8b04-546bd17898d7</packageId>
+  <packageName>OcelotTest.Services</packageName>
+  <diagram>
+    <targetPackageId>6fdfca38-a122-4f7f-8485-75885dcfaa32</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

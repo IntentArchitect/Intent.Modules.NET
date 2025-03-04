@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="96779665-c0dd-4379-b63b-fb412356336b" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+  <name>GetAggregateRootLongsQuery</name>
+  <display>GetAggregateRootLongsQuery</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>90c59d98-3acc-4cb2-a98b-740d71cfca95</parentFolderId>
+  <packageId>051a6839-a5ce-4936-8b04-546bd17898d7</packageId>
+  <packageName>OcelotTest.Services</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="upstream" value="bca303c0-8d58-447a-bf12-6370845202b6" />
+  </metadata>
+  <childElements />
+</class>

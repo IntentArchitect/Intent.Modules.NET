@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1f44a993-eddb-43c9-bb49-9a57a445d99d">
+  <sourceEnd id="a3786251-115c-4b3b-9cd2-e4b81ecf3057" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: DeleteAggregateRootLongCommandGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="19927c37-3139-4cc4-ae75-8b8f4df17180">
+      <typeId>b9be7f41-1078-46a2-8603-28365667bf52</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1f44a993-eddb-43c9-bb49-9a57a445d99d" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: DeleteAggregateRootLongCommand</display>
+    <order>1</order>
+    <typeReference id="e96b6db2-fdf0-456b-a93f-ef6cb137a349">
+      <typeId>df13ac54-b772-48bf-aa21-0ed6011477fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Route Mapping" typeId="48776d2f-ee28-4738-844f-d2ee610b516f">
+        <source applicationId="05c06fb4-1c1b-4a08-99e5-5d4b81551d3f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b9be7f41-1078-46a2-8603-28365667bf52" location="[OcelotTest].[Services].[DeleteAggregateRootLongCommandGatewayRoute]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="df13ac54-b772-48bf-aa21-0ed6011477fc" location="[OcelotTest].[Services].[DeleteAggregateRootLongCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="df13ac54-b772-48bf-aa21-0ed6011477fc" name="DeleteAggregateRootLongCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="27f21506-800e-4198-a0f6-0bc6d4d5b3c2" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="b419f885-7eaa-4c32-a931-25b160eb258c">
+                <path>
+                  <target id="b9be7f41-1078-46a2-8603-28365667bf52" name="DeleteAggregateRootLongCommandGatewayRoute" type="element" specialization="Api Gateway Route" specializationId="b09d7684-5dde-4d4b-9cb5-0707bfd8578f" />
+                  <target id="54fc2571-a4c3-4598-ac43-1d429bd46536" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>

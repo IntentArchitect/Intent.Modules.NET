@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ed6a76bf-eb4a-4a7b-a9e7-3331da7c5435">
+  <sourceEnd id="ca5ea494-62c8-4e55-8f2c-a7fe9542ed83" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: FindInvoiceByIdGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="6e4c00d2-8c94-4420-93a2-12339c3ec880">
+      <typeId>724c0428-a237-4783-afeb-1308e22e87f1</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ed6a76bf-eb4a-4a7b-a9e7-3331da7c5435" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: FindInvoiceById</display>
+    <order>1</order>
+    <typeReference id="bcbe5e09-66c8-4c67-b867-7af523328396">
+      <typeId>29ef9955-17f5-409b-a329-ae148cf17f27</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+      <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Route Mapping" typeId="48776d2f-ee28-4738-844f-d2ee610b516f">
+        <source applicationId="05c06fb4-1c1b-4a08-99e5-5d4b81551d3f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="724c0428-a237-4783-afeb-1308e22e87f1" location="[OcelotTest].[Services].[FindInvoiceByIdGatewayRoute]" />
+        <target applicationId="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="29ef9955-17f5-409b-a329-ae148cf17f27" location="[OcelotTest].[Services].[FindInvoiceById]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="29ef9955-17f5-409b-a329-ae148cf17f27" name="FindInvoiceById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              <target id="af9519e4-8d2c-4a9e-9c35-4e0e2b97c5d9" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="b419f885-7eaa-4c32-a931-25b160eb258c">
+                <path>
+                  <target id="724c0428-a237-4783-afeb-1308e22e87f1" name="FindInvoiceByIdGatewayRoute" type="element" specialization="Api Gateway Route" specializationId="b09d7684-5dde-4d4b-9cb5-0707bfd8578f" />
+                  <target id="95fd8c5f-4481-4bab-b9ab-588fcc0f146c" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>

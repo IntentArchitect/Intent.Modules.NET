@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0e71d067-ed11-4b6f-8a8d-330b9d6eb99c">
+  <sourceEnd id="01d0a773-8e01-482b-92f6-afb5de8a6ece" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: FindInvoicesGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="1f038640-87b8-4cdf-abe2-4d85a7da8f3c">
+      <typeId>fa9f727d-38e1-45e1-b073-a06922f366fd</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0e71d067-ed11-4b6f-8a8d-330b9d6eb99c" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: FindInvoices</display>
+    <order>0</order>
+    <typeReference id="c94469ac-fa15-4da6-9364-df1f0b27772d">
+      <typeId>207687d9-7be5-4410-a0ab-20e2d2ad45dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+      <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>
