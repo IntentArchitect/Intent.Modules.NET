@@ -1,5 +1,6 @@
 ### Version 1.1.1
 
+- Improvement: `Triggers` are now modelled in the designer as part of the import process.
 - Fixed: Invalid `Attribute` names will no longer be generated.
 - Fixed: `Class` member names will no longer be generated with the same name as the class.
 
