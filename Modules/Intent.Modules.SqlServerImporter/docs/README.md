@@ -107,3 +107,12 @@ If you have any concerns around committing connection string in your code base, 
 - `All (with Sanitized connection string, no password)`,  All settings will be persisted, if the connection string has a password in it, the password will not be persisted.
 - `All (without connection string)`,  All settings, except for the connection string, will be persisted.
 - `All`, All settings will be persisted.
+
+## Trigger imports
+
+By default, if a qualifying table has a trigger, it will be automatically imported and modeled in Intent Architect:
+
+![Trigger Modelling](images/trigger-import.png)
+
+> [!NOTE]  
+> The actual `trigger` implementation is not modeled in the `Domain Designer`. The `trigger` stereotype is used only to mark to the underlying provider (specifically, Entity Framework Core) that the table has an existing trigger. This allows Entity Framework to correctly generate the appropriate SQL statements.
