@@ -66,6 +66,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="68897fb9-93e1-4c31-8a0e-657d43c06195" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProgramPartial</name>
+      <display>Intent.AspNetCore.ProgramPartial</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6c9d5b5c-355f-4de2-8101-4b4dc7a62939</parentFolderId>
+      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
+      <packageName>OcelotTest</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="e8815b59-89eb-4d5f-ad1c-adc91386dfe1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.Startup</name>
       <display>Intent.AspNetCore.Startup</display>
@@ -108,6 +124,20 @@
       <packageName>OcelotTest</packageName>
       <stereotypes />
       <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="ef9dec84-f906-4610-8b65-83e067381df8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ApiGateway.Ocelot.OcelotJson</name>
+      <display>Intent.ApiGateway.Ocelot.OcelotJson</display>
+      <externalReference>Intent.ApiGateway.Ocelot</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6c9d5b5c-355f-4de2-8101-4b4dc7a62939</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
       <childElements />
     </childElement>
   </childElements>

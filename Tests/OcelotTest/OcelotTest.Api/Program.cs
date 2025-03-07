@@ -12,7 +12,7 @@ namespace OcelotTest.Api
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
+            using var logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
@@ -20,16 +20,12 @@ namespace OcelotTest.Api
 
             try
             {
-                Log.Information("Starting web host");
+                logger.Write(LogEventLevel.Information, "Starting web host");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Host terminated unexpectedly");
-            }
-            finally
-            {
-                Log.CloseAndFlush();
+                logger.Write(LogEventLevel.Fatal, ex, "Unhandled exception");
             }
         }
 

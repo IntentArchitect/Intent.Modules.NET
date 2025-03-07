@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e9341fe9-2845-4672-8455-ead119ccc821</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#9eb759a3-6cbd-49b8-a17c-e83a22e35531</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ProgramExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProgramExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>30b56fbe-ebf5-4094-9962-fe128c1acc4d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -62,6 +54,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/OcelotConfiguration/OcelotConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OcelotConfiguration/OcelotConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>555d0538-5a83-4c34-96e6-71270f82c6ff</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#fa4ba618-ab66-4f10-b78a-24fdab1cb1fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OcelotJson/OcelotJsonTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OcelotJson/OcelotJsonTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>555d0538-5a83-4c34-96e6-71270f82c6ff</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#fa4ba618-ab66-4f10-b78a-24fdab1cb1fc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/OcelotJson/OcelotJsonTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OcelotJson/OcelotJsonTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

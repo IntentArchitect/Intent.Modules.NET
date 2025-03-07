@@ -16,11 +16,13 @@
       <role>Distribution.OcelotConfiguration</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.ApiGateway.Ocelot.OcelotJson" externalReference="fa4ba618-ab66-4f10-b78a-24fdab1cb1fc">
+      <role>Distribution.Ocelot</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions>
-    <factoryExtension id="Intent.ApiGateway.Ocelot.ProgramExtension" externalReference="9eb759a3-6cbd-49b8-a17c-e83a22e35531" />
-  </factoryExtensions>
+  <factoryExtensions />
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />

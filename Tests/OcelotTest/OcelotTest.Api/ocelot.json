@@ -1,0 +1,141 @@
+{
+  "GlobalConfiguration": {
+      "BaseUrl": "http://localhost:5000",
+      "Hosts": {
+          "CleanArchitecture.Comprehensive.Services": "",
+          "Standard.AspNetCore.TestApplication.Services": ""
+        }
+    },
+  "Routes": [
+      {
+          "UpstreamPathTemplate": "/api/aggregate-root-longs",
+          "UpstreamHttpMethod": [
+              "Post"
+            ],
+          "DownstreamPathTemplate": "/api/aggregate-root-longs",
+          "DownstreamHttpMethod": "POST",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{CleanArchitecture.Comprehensive.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/invoices",
+          "UpstreamHttpMethod": [
+              "Post"
+            ],
+          "DownstreamPathTemplate": "/api/invoices",
+          "DownstreamHttpMethod": "POST",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "UpstreamHttpMethod": [
+              "Delete"
+            ],
+          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "DownstreamHttpMethod": "DELETE",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{CleanArchitecture.Comprehensive.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/invoices/{id}",
+          "UpstreamHttpMethod": [
+              "Delete"
+            ],
+          "DownstreamPathTemplate": "/api/invoices/{id}",
+          "DownstreamHttpMethod": "DELETE",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/invoices/{id}",
+          "UpstreamHttpMethod": [
+              "Get"
+            ],
+          "DownstreamPathTemplate": "/api/invoices/{id}",
+          "DownstreamHttpMethod": "GET",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/invoices",
+          "UpstreamHttpMethod": [
+              "Get"
+            ],
+          "DownstreamPathTemplate": "/api/invoices",
+          "DownstreamHttpMethod": "GET",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "UpstreamHttpMethod": [
+              "Get"
+            ],
+          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "DownstreamHttpMethod": "GET",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{CleanArchitecture.Comprehensive.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/aggregate-root-longs",
+          "UpstreamHttpMethod": [
+              "Get"
+            ],
+          "DownstreamPathTemplate": "/api/aggregate-root-longs",
+          "DownstreamHttpMethod": "GET",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{CleanArchitecture.Comprehensive.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "UpstreamHttpMethod": [
+              "Put"
+            ],
+          "DownstreamPathTemplate": "/api/aggregate-root-longs/{id}",
+          "DownstreamHttpMethod": "PUT",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{CleanArchitecture.Comprehensive.Services}"
+                }
+            ]
+        },
+      {
+          "UpstreamPathTemplate": "/api/invoices/{id}",
+          "UpstreamHttpMethod": [
+              "Put"
+            ],
+          "DownstreamPathTemplate": "/api/invoices/{id}",
+          "DownstreamHttpMethod": "PUT",
+          "DownstreamHostAndPorts": [
+              {
+                  "Host": "{Standard.AspNetCore.TestApplication.Services}"
+                }
+            ]
+        }
+    ]
+}

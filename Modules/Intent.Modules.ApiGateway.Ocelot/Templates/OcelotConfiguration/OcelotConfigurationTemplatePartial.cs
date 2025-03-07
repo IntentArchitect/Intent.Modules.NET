@@ -25,7 +25,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
         public OcelotConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.Ocelot(outputTarget));
-            
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
@@ -56,7 +56,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureOcelot", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
-            
+
             var programTemplate = ExecutionContext.FindTemplateInstance<IProgramTemplate>("App.Program");
             if (programTemplate == null)
             {
@@ -96,7 +96,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                 startupFileTemplate.StartupFile.ConfigureApp((statements, context) =>
                 {
                     startupFileTemplate.AddUsing("Ocelot.Middleware");
-                    
+
                     var statement = statements.FindStatement(x => x.GetText("").Contains("app.Run"));
                     if (statement is not null)
                     {

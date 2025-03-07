@@ -98,6 +98,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c9d5b5c-355f-4de2-8101-4b4dc7a62939</ProjectId>
+      <CorrelationId>Intent.ApiGateway.Ocelot.OcelotJson</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OcelotTest.Api/ocelot.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ocelot.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6c9d5b5c-355f-4de2-8101-4b4dc7a62939</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#6c9d5b5c-355f-4de2-8101-4b4dc7a62939</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OcelotTest.Api/OcelotTest.Api.csproj</ApplicationRelativeFilePath>
@@ -326,7 +334,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OcelotTest.Application/Cqrs/CreateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Cqrs/CreateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
@@ -342,7 +350,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OcelotTest.Application/Cqrs/UpdateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Cqrs/UpdateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
+      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
