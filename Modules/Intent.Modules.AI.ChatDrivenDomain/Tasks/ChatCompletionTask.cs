@@ -1,7 +1,10 @@
 using System;
 using System.Net.Http;
+using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Unicode;
 using Intent.Engine;
+using Intent.Modules.AI.ChatDrivenDomain.Plugins;
 using Intent.Modules.AI.ChatDrivenDomain.Settings;
 using Intent.Modules.AI.ChatDrivenDomain.Utils;
 using Intent.Plugins;
@@ -20,7 +23,8 @@ public class ChatCompletionTask : IModuleTask
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        WriteIndented = false
     };
 
     public ChatCompletionTask(IApplicationConfigurationProvider applicationConfigurationProvider)
@@ -39,109 +43,68 @@ public class ChatCompletionTask : IModuleTask
         try
         {
             var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions)!;
-            var kernel = BuildSemanticKernel();
+            var modelMutationPlugin = new ModelMutationPlugin(inputModel);
+            var kernel = BuildSemanticKernel(modelMutationPlugin);
 
             var requestFunction = kernel.CreateFunctionFromPrompt(
                 """
                 # Domain Modeling Expert for Intent Architect
                 
-                You are a specialized domain modeling expert for Intent Architect. Your task is analyzing, optimizing, and modifying domain models using Domain-Driven Design principles. You MUST apply proper domain modeling constraints and best practices.
+                You are a specialized domain modeling expert for Intent Architect. 
+                Your task is analyzing, optimizing, and modifying domain models using Domain-Driven Design principles. 
+                You MUST apply proper domain modeling constraints and best practices.
                 
-                ## Data Structure
+                ## Domain Model Structure
                 
                 The domain model consists of Classes, Attributes, and Associations:
                 
-                ```
-                Class {
-                    id: string
-                    name: string
-                    comment: string
-                    associations: Association*
-                    attributes: Attribute*
-                }
-                
-                Association {
-                    id: string
-                    name: string
-                    associationEndType: string  // "Source End" or "Target End"
-                    classId: string
-                    relationship: string        // UML notation like "1 -> *"
-                }
-                
-                Attribute {
-                    id: string
-                    name: string
-                    type: string
-                    isNullable: bool
-                    isCollection: bool
-                    comment: string
-                }
-                ```
+                - Classes have a name, optional comment, attributes, and associations.
+                - Attributes have a name, type, and can be nullable or collections. Attributes are storage fields of a Class.
+                - Associations define relationships between classes.
                 
                 ## Primitive Types
-                - string, int, long, decimal, datetime, bool, guid, object
+                - string, int, long, decimal, datetime, bool, guid, object, float, double
                 
                 ## Relationship Rules - CRITICAL
                 
-                1. **Composite Relationships (1->1)**: 
+                1. **Composite Relationships (1 -> 1)**: 
                    - An entity can have only ONE composite owner
-                   - INVALID: If ClassA and ClassB both have a 1->1 composite relationship to ClassC
-                   - CORRECT: If an entity has a 1->1 relationship, it cannot be owned by multiple entities
+                   - INVALID: If ClassA and ClassB both have a 1 -> 1 composite relationship to ClassC.
+                   - CORRECT: If an entity has a 1 -> 1 relationship, it cannot be owned by multiple entities.
                 
-                2. **One-to-Many (1->*)**: 
-                   - Source has one reference to Target
-                   - Target has a collection of Source entities
+                2. **One-to-Many (1 -> *)**: 
+                   - Source has one reference to Target.
+                   - Target has a collection of Source entities.
+                   - This is considered a Composite relationship by default.
                    
-                3. **Many-to-Many (*->*)**:
-                   - Both sides have collections of each other
+                3. **Many-to-Many (* -> *)**:
+                   - Both sides have collections of each other.
+                   - This is considered an Aggregate relationship by default.
                 
                 4. **Navigability**:
-                   - "Source End" is where the relationship originates
-                   - "Target End" is where the relationship points to
+                   - "Source End" is where the relationship originates.
+                   - "Target End" is where the relationship points to.
+                   - Composite relationship will have the "Source End" on the Class being the "owner" and the "Target End" on the Class "being owned".
+                   - Aggregate relationship will favor the "Source End" on the Class needing the association on the other class while still retaining a unidirectional relationship (unless explicitly asked to make bidirectional by the user). 
                 
-                ## Example Interpretation
+                ## Available Functions
                 
-                ```json
-                [
-                  {
-                    "id": "order-1",
-                    "name": "Order",
-                    "associations": [
-                      {
-                        "id": "assoc-1",
-                        "name": "OrderLines",
-                        "associationEndType": "Target End",
-                        "classId": "line-1",
-                        "relationship": "1 -> *"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "line-1",
-                    "name": "OrderLine",
-                    "associations": [
-                      {
-                        "id": "assoc-1", 
-                        "name": "Order",
-                        "associationEndType": "Source End",
-                        "classId": "order-1",
-                        "relationship": "1 -> *"
-                      }
-                    ]
-                  }
-                ]
-                ```
+                Instead of generating JSON directly, you must use the following functions to modify the domain model:
                 
-                This means: 
-                - An Order has many OrderLines (collection)
-                - Each OrderLine belongs to exactly one Order
-                - Order is the Source End of the relationship
+                1. `CreateClass(name, comment)` - Creates a new class and returns its ID
+                2. `UpdateClass(classId, name, comment)` - Updates an existing class by ID and returns ID|name
+                3. `RemoveClass(classId)` - Removes a class by ID and all its associations
                 
-                ## Domain To Analyze/Modify
+                4. `CreateAttribute(classId, name, type, isNullable, isCollection, comment)` - Creates an attribute for a class and returns its ID
+                5. `UpdateAttribute(classId, attributeId, name, type, isNullable, isCollection, comment)` - Updates an attribute by ID
+                6. `RemoveAttribute(classId, attributeId)` - Removes an attribute by ID
                 
-                ```
-                {{$domain}}
-                ```
+                7. `CreateAssociation(sourceClassId, targetClassId, relationship)` - Creates an association between classes and returns its ID
+                8. `RemoveAssociation(sourceClassId, targetClassId)` - Removes an association between classes
+                
+                9. `ListClasses()` - Lists all classes in the model
+                10. `GetClassDetails(classNameOrId)` - Gets detailed information about a class (can use name or ID)
+                11. `GetDomainModel()` - Gets the current domain model as JSON
                 
                 ## User Instructions
                 
@@ -149,29 +112,32 @@ public class ChatCompletionTask : IModuleTask
                 {{$prompt}}
                 ```
                 
-                ## Output Requirements
+                ## Current Domain Model
                 
-                1. Provide ONLY a valid JSON domain model with NO explanations
-                2. New IDs should follow format "Element-number"
-                3. Associations MUST include "isNullable" and "isCollection" fields:
-                   - "*" = isCollection: true
-                   - "0..1" = isNullable: true
-                4. ENSURE all relationship constraints are enforced (particularly composite relationships)
-                5. Output JSON WITHOUT whitespace
+                First, analyze the current domain model by calling ListClasses() and GetClassDetails() for each class of interest.
+                Then, implement the user's instructions by calling the appropriate functions.
+                
+                DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
                 """, new OpenAIPromptExecutionSettings()
                 {
-                    MaxTokens = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings().MaxTokens()
+                    MaxTokens = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings().MaxTokens(),
+                    ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
                 });
 
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
             {
-                ["domain"] = JsonSerializer.Serialize(inputModel.Classes),
                 ["prompt"] = inputModel.Prompt
             }).Result;
 
-            Logging.Log.Info($"GPT Result: {result}");
+            Logging.Log.Info($"LLM Interaction Complete");
 
-            return result.GetValue<string>()!.Replace("```json", "").Replace("```", "");
+            // Get the final domain model from the plugin
+            var finalModel = modelMutationPlugin.GetClasses();
+            var jsonResult = JsonSerializer.Serialize(finalModel, SerializerOptions);
+            
+            Logging.Log.Debug($"Result: \r\n{jsonResult}");
+            
+            return jsonResult;
         }
         catch (Exception e)
         {
@@ -180,17 +146,17 @@ public class ChatCompletionTask : IModuleTask
         }
     }
 
-    private Kernel BuildSemanticKernel()
+    private Kernel BuildSemanticKernel(ModelMutationPlugin modelMutationPlugin)
     {
         var settings = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings();
-
         var model = string.IsNullOrWhiteSpace(settings.Model()) ? "gpt-4o" : settings.Model();
+        var apiKey = settings.APIKey();
 
         var builder = Kernel.CreateBuilder();
-
         builder.Services.AddLogging(b => b.AddProvider(new SoftwareFactoryLoggingProvider()).SetMinimumLevel(LogLevel.Trace));
-
-        var apiKey = settings.APIKey();
+        
+        // Register the ModelMutationPlugin with the kernel
+        builder.Plugins.AddFromObject(modelMutationPlugin);
 
         switch (settings.Provider().AsEnum())
         {
@@ -237,11 +203,11 @@ public class ChatCompletionTask : IModuleTask
         return kernel;
     }
 
-    private string Fail(string reason)
+    private static string Fail(string reason)
     {
         Logging.Log.Failure(reason);
         var errorObject = new { errorMessage = reason };
-        var json = JsonSerializer.Serialize(errorObject);
+        var json = JsonSerializer.Serialize(errorObject, SerializerOptions);
         return json;
     }
 }
