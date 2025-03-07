@@ -1,6 +1,8 @@
 ### Version 1.1.1
 
 - Improvement: `Triggers` are now modelled in the designer as part of the import process.
+- Improvement: Added support for `globally excluded` table and view columns in the filter file.
+- Improvement: Added schema validation for the filter file.
 - Fixed: Invalid `Attribute` names will no longer be generated.
 - Fixed: `Class` member names will no longer be generated with the same name as the class.
 

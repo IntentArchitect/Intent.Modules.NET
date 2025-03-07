@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemas": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "include_tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "exclude_columns": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": [ "name" ]
+      }
+    },
+    "include_views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "exclude_columns": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": [ "name" ]
+      }
+    },
+    "include_stored_procedures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exclude_tables": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exclude_views": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exclude_stored_procedures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exclude_table_columns": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "exclude_view_columns": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

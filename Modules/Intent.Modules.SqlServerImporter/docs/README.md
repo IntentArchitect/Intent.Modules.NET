@@ -74,19 +74,28 @@ Specify a JSON file path **(that may be relative file path to the Package file b
   ],
   "exclude_stored_procedures": [
     "LegacyStoredProcedureName"
+  ],
+  "exclude_table_columns" : [
+    "LegacyGlobalColumn"
+  ],
+  "exclude_view_columns" : [
+    "LegacyGlobalColumn"
   ]
 }
 ```
 
-| JSON Field                | Description                                                                                                    |
-|---------------------------|----------------------------------------------------------------------------------------------------------------|
-| schemas                   | Database Schema names to import (rest is filtered out).                                                        |
-| include_tables            | Database Tables to import (rest is filtered out).                                                              |
-| include_views             | Database Views to import (rest is filtered out).                                                               |
-| include_stored_procedures | Database Stored Procedures to import (rest is filtered out).                                                   |
-| exclude_tables            | Database Tables to exclude from import (include takes preference above this if same name is found).            |
-| exclude_views             | Database Views to exclude from import (include takes preference above this if same name is found).             |
-| exclude_stored_procedures | Database Stored Procedures to exclude from import (include takes preference above this if same name is found). |
+| JSON Field                | Description                                                                                                           |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| schemas                   | Database Schema names to import (rest is filtered out).                                                               |
+| include_tables            | Database Tables to import (rest is filtered out).                                                                     |
+| include_views             | Database Views to import (rest is filtered out).                                                                      |
+| include_stored_procedures | Database Stored Procedures to import (rest is filtered out).                                                          |
+| exclude_tables            | Database Tables to exclude from import (include takes preference above this if same name is found).                   |
+| exclude_views             | Database Views to exclude from import (include takes preference above this if same name is found).                    |
+| exclude_stored_procedures | Database Stored Procedures to exclude from import (include takes preference above this if same name is found).        |
+| exclude_table_columns     | A list of column names that should be excluded from import if they are found in any table during the import process.  |
+| exclude_view_columns      | A list of column names that should be excluded from import if they are found in any view during the import process.   |
+
 
 #### Stored Procedure Representations
 
