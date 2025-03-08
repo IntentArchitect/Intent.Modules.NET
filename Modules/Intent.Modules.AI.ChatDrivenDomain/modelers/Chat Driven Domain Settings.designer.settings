@@ -49,9 +49,13 @@ const parseMultiplicity = (relationship) =&gt; {
 const currentClasses = lookupTypesOf("Class").map(clazz =&gt; {
     // Get all associations where this class is either source or target
     const associations = clazz.getAssociations().map(assoc =&gt; {
+        //console.log(`classId = ${clazz.id}; className = ${clazz.getName()}; assoc = {classId: ${assoc.typeReference.getTypeId()}, name: ${assoc.getName()}, isSourceEnd: ${assoc.isSourceEnd()}, isCollection: ${assoc.typeReference.isCollection}}`)
         // Determine if this class is the source or target of the association
-        const isSource = assoc.getParent().id === clazz.id;
+        const isSource = assoc.isSourceEnd() //assoc.getParent().id === clazz.id;
         const sourceEnd = isSource ? assoc : assoc.getOtherEnd();
+
+        if (isSource &amp;&amp; !sourceEnd.typeReference.isNavigable) { return null; }
+
         const targetEnd = isSource ? assoc.getOtherEnd() : assoc;
         
         // Get type references for both ends
@@ -65,34 +69,35 @@ const currentClasses = lookupTypesOf("Class").map(clazz =&gt; {
                                   targetTypeRef.getIsNullable() ? "0..1" : "1";
         const relationship = `${sourceMultiplicity} -&gt; ${targetMultiplicity}`;
         
-        const otherClass = isSource ? targetEnd.getParent() : sourceEnd.getParent();
-        
         return {
             id: assoc.id,
-            name: isSource ? targetEnd.getName() : sourceEnd.getName(),
-            classId: otherClass.id,
+            name: assoc.getName(),
+            classId: assoc.typeReference.getTypeId(),
             type: relationship,
             specializationEndType: isSource ? "Source End" : "Target End",
             // Add these for compatibility with the C# model
             relationship: relationship,
             associationEndType: isSource ? "Source End" : "Target End",
-            isNullable: isSource ? targetTypeRef.getIsNullable() : sourceTypeRef.getIsNullable(),
-            isCollection: isSource ? targetTypeRef.getIsCollection() : sourceTypeRef.getIsCollection()
+            isNullable: assoc.typeReference.isNullable,
+            isCollection: assoc.typeReference.isCollection
         };
-    });
+    })
+    .filter(x =&gt; x != null);
 
     return {
         id: clazz.id,
         name: clazz.getName(),
         comment: clazz.getComment(),
-        attributes: clazz.getChildren("Attribute").map(attr =&gt; ({
-            id: attr.id,
-            name: attr.getName(),
-            type: attr.typeReference ? attr.typeReference.getType().getName() : null,
-            isNullable: attr.typeReference ? attr.typeReference.getIsNullable() : false,
-            isCollection: attr.typeReference ? attr.typeReference.getIsCollection() : false,
-            comment: attr.getComment()
-        })),
+        attributes: clazz.getChildren("Attribute")
+            .filter(attr =&gt; !attr.hasMetadata("is-managed-key") &amp;&amp; !attr.hasMetadata("set-by-infrastructure"))
+            .map(attr =&gt; ({
+                id: attr.id,
+                name: attr.getName(),
+                type: attr.typeReference ? attr.typeReference.getType().getName() : null,
+                isNullable: attr.typeReference ? attr.typeReference.getIsNullable() : false,
+                isCollection: attr.typeReference ? attr.typeReference.getIsCollection() : false,
+                comment: attr.getComment()
+            })),
         associations: associations
     };
 });
@@ -296,9 +301,13 @@ const parseMultiplicity = (relationship) =&gt; {
 const currentClasses = lookupTypesOf("Class").map(clazz =&gt; {
     // Get all associations where this class is either source or target
     const associations = clazz.getAssociations().map(assoc =&gt; {
+        //console.log(`classId = ${clazz.id}; className = ${clazz.getName()}; assoc = {classId: ${assoc.typeReference.getTypeId()}, name: ${assoc.getName()}, isSourceEnd: ${assoc.isSourceEnd()}, isCollection: ${assoc.typeReference.isCollection}}`)
         // Determine if this class is the source or target of the association
-        const isSource = assoc.getParent().id === clazz.id;
+        const isSource = assoc.isSourceEnd() //assoc.getParent().id === clazz.id;
         const sourceEnd = isSource ? assoc : assoc.getOtherEnd();
+
+        if (isSource &amp;&amp; !sourceEnd.typeReference.isNavigable) { return null; }
+
         const targetEnd = isSource ? assoc.getOtherEnd() : assoc;
         
         // Get type references for both ends
@@ -312,34 +321,35 @@ const currentClasses = lookupTypesOf("Class").map(clazz =&gt; {
                                   targetTypeRef.getIsNullable() ? "0..1" : "1";
         const relationship = `${sourceMultiplicity} -&gt; ${targetMultiplicity}`;
         
-        const otherClass = isSource ? targetEnd.getParent() : sourceEnd.getParent();
-        
         return {
             id: assoc.id,
-            name: isSource ? targetEnd.getName() : sourceEnd.getName(),
-            classId: otherClass.id,
+            name: assoc.getName(),
+            classId: assoc.typeReference.getTypeId(),
             type: relationship,
             specializationEndType: isSource ? "Source End" : "Target End",
             // Add these for compatibility with the C# model
             relationship: relationship,
             associationEndType: isSource ? "Source End" : "Target End",
-            isNullable: isSource ? targetTypeRef.getIsNullable() : sourceTypeRef.getIsNullable(),
-            isCollection: isSource ? targetTypeRef.getIsCollection() : sourceTypeRef.getIsCollection()
+            isNullable: assoc.typeReference.isNullable,
+            isCollection: assoc.typeReference.isCollection
         };
-    });
+    })
+    .filter(x =&gt; x != null);
 
     return {
         id: clazz.id,
         name: clazz.getName(),
         comment: clazz.getComment(),
-        attributes: clazz.getChildren("Attribute").map(attr =&gt; ({
-            id: attr.id,
-            name: attr.getName(),
-            type: attr.typeReference ? attr.typeReference.getType().getName() : null,
-            isNullable: attr.typeReference ? attr.typeReference.getIsNullable() : false,
-            isCollection: attr.typeReference ? attr.typeReference.getIsCollection() : false,
-            comment: attr.getComment()
-        })),
+        attributes: clazz.getChildren("Attribute")
+            .filter(attr =&gt; !attr.hasMetadata("is-managed-key") &amp;&amp; !attr.hasMetadata("set-by-infrastructure"))
+            .map(attr =&gt; ({
+                id: attr.id,
+                name: attr.getName(),
+                type: attr.typeReference ? attr.typeReference.getType().getName() : null,
+                isNullable: attr.typeReference ? attr.typeReference.getIsNullable() : false,
+                isCollection: attr.typeReference ? attr.typeReference.getIsCollection() : false,
+                comment: attr.getComment()
+            })),
         associations: associations
     };
 });
