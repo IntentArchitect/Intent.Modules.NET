@@ -1,11 +1,4 @@
 {
-  "GlobalConfiguration": {
-      "BaseUrl": "http://localhost:5000",
-      "Hosts": {
-          "CleanArchitecture.Comprehensive.Services": "",
-          "Standard.AspNetCore.TestApplication.Services": ""
-        }
-    },
   "Routes": [
       {
           "UpstreamPathTemplate": "/api/aggregate-root-longs",

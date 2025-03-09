@@ -1,6 +1,6 @@
 # Intent.AspNetCore
 
-This modules generates base code for hosting Web services on the ASP.NET Core infrastructure.
+This module generates base code for hosting Web services on the ASP.NET Core infrastructure.
 
 ## How to disable HTTPS Redirect
 

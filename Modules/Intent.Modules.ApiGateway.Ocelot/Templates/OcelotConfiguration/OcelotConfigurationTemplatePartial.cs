@@ -141,7 +141,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
 
                 if (programTemplate.ProgramFile.UsesMinimalHostingModel)
                 {
-                    
+
                     programTemplate.ProgramFile.AddHostBuilderConfigurationStatement("builder.Configuration.ConfigureOcelot();");
                 }
                 else
@@ -164,7 +164,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                     startupFileTemplate.AddUsing("Ocelot.Middleware");
 
                     var statement = statements.FindStatement(x => x.GetText("").Contains("app.Run"));
-                    if (statement is not null && 
+                    if (statement is not null &&
                         startupFileTemplate.Project.GetProject().InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings().UseTopLevelStatements() == true)
                     {
                         statement.InsertAbove($"await {context.App}.UseOcelot();");

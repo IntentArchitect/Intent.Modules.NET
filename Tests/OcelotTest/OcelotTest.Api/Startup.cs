@@ -56,7 +56,6 @@ namespace OcelotTest.Api
             {
                 endpoints.MapDefaultHealthChecks();
                 endpoints.MapControllers();
-                // Needed for Ocelot
             });
             app.UseSwashbuckle(Configuration);
             app.UseOcelot().Wait();
