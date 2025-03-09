@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.Products";
+
+package grpc_server.api.protos.messages.products;
+
+message GetProductByIdQuery {
+    string id = 1;
+}

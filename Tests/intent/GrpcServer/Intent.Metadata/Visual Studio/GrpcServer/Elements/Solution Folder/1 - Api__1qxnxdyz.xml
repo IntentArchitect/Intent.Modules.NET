@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b2572b19-9dd0-451c-a5bb-b32fa6ae469b" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>1 - Api</name>
+  <display>1 - Api</display>
+  <externalReference>2b76d8c9-dd09-40ff-9955-8ab74ee9512a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fe0fd886-be7e-4739-94ec-79db831f2e80</parentFolderId>
+  <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+  <packageName>GrpcServer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForObject {
+    rpc Operation (ForObjectOperationRequest) returns (google.protobuf.Any);
+    rpc OperationCollection (ForObjectOperationCollectionRequest) returns (messages.ListOfAny);
+    rpc OperationNullable (ForObjectOperationNullableRequest) returns (google.protobuf.Any);
+    rpc OperationNullableCollection (ForObjectOperationNullableCollectionRequest) returns (messages.ListOfAny);
+}
+
+message ForObjectOperationRequest {
+    google.protobuf.Any param = 1;
+}
+
+message ForObjectOperationCollectionRequest {
+    repeated google.protobuf.Any param = 1;
+}
+
+message ForObjectOperationNullableRequest {
+    google.protobuf.Any param = 1;
+}
+
+message ForObjectOperationNullableCollectionRequest {
+    messages.ListOfAny param = 1;
+}

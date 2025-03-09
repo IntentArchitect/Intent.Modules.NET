@@ -1,0 +1,15 @@
+{
+  "solution": {
+    "path": "Intent.Modules.NET.sln",
+    "projects": [
+      "Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract\\Intent.Modules.AspNetCore.Controllers.Dispatch.ServiceContract.csproj",
+      "Intent.Modules.AspNetCore.Controllers\\Intent.Modules.AspNetCore.Controllers.csproj",
+      "Intent.Modules.AspNetCore.Grpc\\Intent.Modules.AspNetCore.Grpc.csproj",
+      "Intent.Modules.AspNetCore\\Intent.Modules.AspNetCore.csproj",
+      "Intent.Modules.Constants\\Intent.Modules.Constants.csproj",
+      "Intent.Modules.Security.Shared\\Intent.Modules.Security.Shared.shproj",
+      "Intent.Modules.UnitOfWork.Persistence.Shared\\Intent.Modules.UnitOfWork.Persistence.Shared.shproj",
+      "Intent.Modules.VisualStudio.Projects\\Intent.Modules.VisualStudio.Projects.csproj"
+    ]
+  }
+}

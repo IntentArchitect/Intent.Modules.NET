@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForDictionary {
+    rpc Operation (ForDictionaryOperationRequest) returns (messages.MapOfStringAndString);
+    rpc OperationCollection (ForDictionaryOperationCollectionRequest) returns (messages.ListOfMapOfStringAndString);
+    rpc OperationNullable (ForDictionaryOperationNullableRequest) returns (messages.MapOfStringAndString);
+    rpc OperationNullableCollection (ForDictionaryOperationNullableCollectionRequest) returns (messages.ListOfMapOfStringAndString);
+}
+
+message ForDictionaryOperationRequest {
+    map<string, string> param = 1;
+}
+
+message ForDictionaryOperationCollectionRequest {
+    repeated messages.MapOfStringAndString param = 1;
+}
+
+message ForDictionaryOperationNullableRequest {
+    messages.MapOfStringAndString param = 1;
+}
+
+message ForDictionaryOperationNullableCollectionRequest {
+    messages.ListOfMapOfStringAndString param = 1;
+}

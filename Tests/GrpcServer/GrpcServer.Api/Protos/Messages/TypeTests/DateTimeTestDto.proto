@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message DateTimeTestDto {
+    google.protobuf.Timestamp date_time_field = 1;
+    repeated google.protobuf.Timestamp date_time_field_collection = 2;
+    google.protobuf.Timestamp date_time_field_nullable = 3;
+    ListOfTimestamp date_time_field_nullable_collection = 4;
+}

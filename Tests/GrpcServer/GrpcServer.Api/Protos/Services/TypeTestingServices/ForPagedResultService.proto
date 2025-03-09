@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "Messages/PagedResult.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForPagedResult {
+    rpc Operation (ForPagedResultOperationRequest) returns (messages.PagedResultOfComplexTypeDto);
+    rpc OperationCollection (ForPagedResultOperationCollectionRequest) returns (messages.ListOfPagedResultOfComplexTypeDto);
+    rpc OperationNullable (ForPagedResultOperationNullableRequest) returns (messages.PagedResultOfComplexTypeDto);
+    rpc OperationNullableCollection (ForPagedResultOperationNullableCollectionRequest) returns (messages.ListOfPagedResultOfComplexTypeDto);
+}
+
+message ForPagedResultOperationRequest {
+    messages.PagedResultOfComplexTypeDto param = 1;
+}
+
+message ForPagedResultOperationCollectionRequest {
+    repeated messages.PagedResultOfComplexTypeDto param = 1;
+}
+
+message ForPagedResultOperationNullableRequest {
+    messages.PagedResultOfComplexTypeDto param = 1;
+}
+
+message ForPagedResultOperationNullableCollectionRequest {
+    messages.ListOfPagedResultOfComplexTypeDto param = 1;
+}

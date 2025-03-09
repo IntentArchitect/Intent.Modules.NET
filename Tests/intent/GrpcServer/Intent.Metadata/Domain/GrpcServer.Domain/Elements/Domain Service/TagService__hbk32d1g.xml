@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aa4bf6dd-025a-4353-bb1f-5e9e88435c6e" type="Domain Service" typeId="07f936ea-3756-48c8-babd-24ac7271daac">
+  <name>TagService</name>
+  <display>TagService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</parentFolderId>
+  <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
+  <packageName>GrpcServer.Domain</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6ad19817-2014-464b-a525-409b3a5230d1" name="Service Registration Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.DomainServices</definitionPackageName>
+      <definitionPackageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</definitionPackageId>
+      <properties>
+        <property name="6b4d2aef-0f5a-46a1-b443-1d9f3286c128" display="Service Registration Scope" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b67273d3-29b8-44d9-bc4f-9969f8cb8340" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetOrCreateAsync</name>
+      <display>GetOrCreateAsync(tagNames: string[*]): Tag[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1005aee5-3e70-4227-ab47-27d9d3ba1bae">
+        <typeId>9de518cf-bb92-454d-a099-d03e6372d015</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>GrpcServer.Domain</typePackageName>
+        <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>aa4bf6dd-025a-4353-bb1f-5e9e88435c6e</parentFolderId>
+      <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
+      <packageName>GrpcServer.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="d420b021-9bc2-4775-bdc5-1c46e584897e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>tagNames</name>
+          <display>in : tagNames: string[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="da0bc128-964d-4971-a27f-d7af314c2819">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b67273d3-29b8-44d9-bc4f-9969f8cb8340</parentFolderId>
+          <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
+          <packageName>GrpcServer.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

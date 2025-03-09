@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1819a1bb-f198-4f38-9b3a-34a94ae6b8fd" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ForInt</name>
+  <display>ForInt</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3f05ac99-4e1b-4d63-a034-f14854b26696</parentFolderId>
+  <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+  <packageName>GrpcServer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="de2c663e-9d72-4dbb-9a07-0f3a5f5109ce" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Operation</name>
+      <display>Operation(param: int): int</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="fd19a7d1-1740-452e-8b02-9307c3610e3c">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1819a1bb-f198-4f38-9b3a-34a94ae6b8fd</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3c31818e-d36b-4a8f-ad01-1e277b1c5784" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3a78c3f7-34dd-4d86-85c1-4e719cd54ee8">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>de2c663e-9d72-4dbb-9a07-0f3a5f5109ce</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="991dd2f3-8183-43f2-8513-5a1814738ded" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationCollection</name>
+      <display>OperationCollection(param: int[*]): int[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="58473d50-9728-42ae-82e3-3926cce64b4c">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1819a1bb-f198-4f38-9b3a-34a94ae6b8fd</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="59d82c32-3818-4701-98f2-2a12d0d1792f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: int[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8ce2a0ea-64d1-4fe5-91d2-547a41d9083f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>991dd2f3-8183-43f2-8513-5a1814738ded</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9f930648-2543-4b99-89d9-52d00d6b5e02" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullable</name>
+      <display>OperationNullable(param: int?): int?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="18162483-8bdf-4042-b61a-7360240e246f">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1819a1bb-f198-4f38-9b3a-34a94ae6b8fd</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c3d57550-c4a5-41ec-bdbe-f350959ceceb" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: int?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d94ae117-c22d-4383-99d8-d40b567b7128">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9f930648-2543-4b99-89d9-52d00d6b5e02</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7512484e-5788-423c-9bf7-cf9bb2626c02" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullableCollection</name>
+      <display>OperationNullableCollection(param: int[*]?): int[*]?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="444d985a-e27e-4b88-8f48-df5be7ea6584">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>1819a1bb-f198-4f38-9b3a-34a94ae6b8fd</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e9d52df6-7a1b-4193-a0fa-de27692d4402" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: int[*]?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d1afc1f5-b78a-46aa-8288-c6b78feef92a">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7512484e-5788-423c-9bf7-cf9bb2626c02</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

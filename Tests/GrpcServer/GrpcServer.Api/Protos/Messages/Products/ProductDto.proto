@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.Products";
+
+package grpc_server.api.protos.messages.products;
+
+message ListOfProductDto {
+    repeated ProductDto items = 1;
+}
+message ProductDto {
+    string id = 1;
+    string name = 2;
+}

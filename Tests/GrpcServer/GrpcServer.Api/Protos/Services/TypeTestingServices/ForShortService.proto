@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForShort {
+    rpc Operation (ForShortOperationRequest) returns (google.protobuf.Int32Value);
+    rpc OperationCollection (ForShortOperationCollectionRequest) returns (messages.ListOfInt32);
+    rpc OperationNullable (ForShortOperationNullableRequest) returns (google.protobuf.Int32Value);
+    rpc OperationNullableCollection (ForShortOperationNullableCollectionRequest) returns (messages.ListOfInt32);
+}
+
+message ForShortOperationRequest {
+    int32 param = 1;
+}
+
+message ForShortOperationCollectionRequest {
+    repeated int32 param = 1;
+}
+
+message ForShortOperationNullableRequest {
+    google.protobuf.Int32Value param = 1;
+}
+
+message ForShortOperationNullableCollectionRequest {
+    messages.ListOfInt32 param = 1;
+}

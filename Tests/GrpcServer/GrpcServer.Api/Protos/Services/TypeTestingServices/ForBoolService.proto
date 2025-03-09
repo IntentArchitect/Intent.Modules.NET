@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForBool {
+    rpc Operation (ForBoolOperationRequest) returns (google.protobuf.BoolValue);
+    rpc OperationCollection (ForBoolOperationCollectionRequest) returns (messages.ListOfBool);
+    rpc OperationNullable (ForBoolOperationNullableRequest) returns (google.protobuf.BoolValue);
+    rpc OperationNullableCollection (ForBoolOperationNullableCollectionRequest) returns (messages.ListOfBool);
+}
+
+message ForBoolOperationRequest {
+    bool param = 1;
+}
+
+message ForBoolOperationCollectionRequest {
+    repeated bool param = 1;
+}
+
+message ForBoolOperationNullableRequest {
+    google.protobuf.BoolValue param = 1;
+}
+
+message ForBoolOperationNullableCollectionRequest {
+    messages.ListOfBool param = 1;
+}

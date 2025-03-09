@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages";
+
+package grpc_server.api.protos.messages;
+
+// See https://learn.microsoft.com/aspnet/core/grpc/protobuf?view=aspnetcore-9.0#creating-a-custom-decimal-type-for-protobuf
+// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
+message DecimalValue {
+    // Whole units part of the amount
+    int64 units = 1;
+
+    // Nano units of the amount (10^-9)
+    // Must be same sign as units
+    sfixed32 nanos = 2;
+}
+
+message ListOfAny {
+    repeated google.protobuf.Any items = 1;
+}
+
+message ListOfBool {
+    repeated bool items = 1;
+}
+
+message ListOfBytes {
+    repeated bytes items = 1;
+}
+
+message ListOfDecimalValue {
+    repeated DecimalValue items = 1;
+}
+
+message ListOfDouble {
+    repeated double items = 1;
+}
+
+message ListOfDuration {
+    repeated google.protobuf.Duration items = 1;
+}
+
+message ListOfFloat {
+    repeated float items = 1;
+}
+
+message ListOfInt32 {
+    repeated int32 items = 1;
+}
+
+message ListOfInt64 {
+    repeated int64 items = 1;
+}
+
+message ListOfMapOfStringAndString {
+    repeated MapOfStringAndString items = 1;
+}
+
+message ListOfString {
+    repeated string items = 1;
+}
+
+message ListOfTimestamp {
+    repeated google.protobuf.Timestamp items = 1;
+}
+
+message ListOfUInt32 {
+    repeated uint32 items = 1;
+}
+
+message MapOfStringAndString {
+    map<string, string> items = 1;
+}

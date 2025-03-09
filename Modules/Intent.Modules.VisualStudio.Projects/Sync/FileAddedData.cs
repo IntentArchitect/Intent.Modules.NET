@@ -13,6 +13,8 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
 
         public string RemoveItemType { get; set; }
 
+        public bool WasAddedImplicitly { get; set; } = true;
+
         public MsBuildFileItemGenerationBehaviour? MsBuildFileItemGenerationBehaviour { get; set; }
     }
 }

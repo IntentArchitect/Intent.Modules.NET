@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a8921ad1-d01f-44ed-8d45-58ffbfd2af99" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ForDateTimeOffset</name>
+  <display>ForDateTimeOffset</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3f05ac99-4e1b-4d63-a034-f14854b26696</parentFolderId>
+  <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+  <packageName>GrpcServer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="333a9495-e050-4a8d-b2ce-9227d2750170" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Operation</name>
+      <display>Operation(param: datetimeoffset): datetimeoffset</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1048953c-112f-4aee-8f96-46fda600d5e6">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a8921ad1-d01f-44ed-8d45-58ffbfd2af99</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="15e96057-a5f7-467a-ad6a-3ed743a6e9c5" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: datetimeoffset</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a219b2ef-0fb0-46aa-8c5e-eb23b9c85c7d">
+            <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>333a9495-e050-4a8d-b2ce-9227d2750170</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="4bf7d885-5acc-41aa-aab0-3f800f657ba4" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationCollection</name>
+      <display>OperationCollection(param: datetimeoffset[*]): datetimeoffset[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1651bca0-a2e0-4e50-bcf3-283b23e84df0">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a8921ad1-d01f-44ed-8d45-58ffbfd2af99</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="bc460229-a574-4551-a899-d440283c195f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: datetimeoffset[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7c0aaf45-b225-40da-9c50-7e806bc73d4a">
+            <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4bf7d885-5acc-41aa-aab0-3f800f657ba4</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="8c3823a8-9afe-4bae-b944-0092601a915f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullable</name>
+      <display>OperationNullable(param: datetimeoffset?): datetimeoffset?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6b9ee805-9803-427b-8b59-e3d659436dc8">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a8921ad1-d01f-44ed-8d45-58ffbfd2af99</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="af39beec-7b57-4004-93e7-5fdabe5d268b" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: datetimeoffset?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="51027cad-5b25-491a-a074-2803e828e0f4">
+            <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8c3823a8-9afe-4bae-b944-0092601a915f</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="21ad74ea-4a96-4152-a1fd-7f910ff59133" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullableCollection</name>
+      <display>OperationNullableCollection(param: datetimeoffset[*]?): datetimeoffset[*]?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c30e7bcb-3a7d-407f-81b4-6029938d91b0">
+        <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a8921ad1-d01f-44ed-8d45-58ffbfd2af99</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="c2a474aa-b4af-4023-a5f4-f086a4e6267c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: datetimeoffset[*]?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="26cf1ad8-0e75-443a-96d2-330a68da452f">
+            <typeId>f1ba4df3-a5bc-427e-a591-4f6029f89bd7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>21ad74ea-4a96-4152-a1fd-7f910ff59133</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

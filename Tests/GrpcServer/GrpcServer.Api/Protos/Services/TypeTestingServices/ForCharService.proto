@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForChar {
+    rpc Operation (ForCharOperationRequest) returns (google.protobuf.StringValue);
+    rpc OperationCollection (ForCharOperationCollectionRequest) returns (google.protobuf.StringValue);
+    rpc OperationNullable (ForCharOperationNullableRequest) returns (google.protobuf.StringValue);
+    rpc OperationNullableCollection (ForCharOperationNullableCollectionRequest) returns (google.protobuf.StringValue);
+}
+
+message ForCharOperationRequest {
+    string param = 1;
+}
+
+message ForCharOperationCollectionRequest {
+    string param = 1;
+}
+
+message ForCharOperationNullableRequest {
+    google.protobuf.StringValue param = 1;
+}
+
+message ForCharOperationNullableCollectionRequest {
+    google.protobuf.StringValue param = 1;
+}

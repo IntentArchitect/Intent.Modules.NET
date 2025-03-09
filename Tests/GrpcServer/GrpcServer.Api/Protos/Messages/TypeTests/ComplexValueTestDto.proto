@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "Messages/ComplexTypeDto.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message ComplexValueTestDto {
+    ComplexTypeDto complex_type_field = 1;
+    repeated ComplexTypeDto complex_type_field_collection = 2;
+    ComplexTypeDto complex_type_field_nullable = 3;
+    ListOfComplexTypeDto complex_type_field_nullable_collection = 4;
+}

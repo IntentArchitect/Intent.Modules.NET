@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "Messages/TypeTestDto.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.Products";
+
+package grpc_server.api.protos.messages.products;
+
+message CreateComplexProductCommand {
+    string name = 1;
+    TypeTestDto type_test_field = 2;
+}

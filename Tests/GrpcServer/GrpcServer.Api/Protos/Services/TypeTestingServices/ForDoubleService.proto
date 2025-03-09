@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForDouble {
+    rpc Operation (ForDoubleOperationRequest) returns (google.protobuf.DoubleValue);
+    rpc OperationCollection (ForDoubleOperationCollectionRequest) returns (messages.ListOfDouble);
+    rpc OperationNullable (ForDoubleOperationNullableRequest) returns (google.protobuf.DoubleValue);
+    rpc OperationNullableCollection (ForDoubleOperationNullableCollectionRequest) returns (messages.ListOfDouble);
+}
+
+message ForDoubleOperationRequest {
+    double param = 1;
+}
+
+message ForDoubleOperationCollectionRequest {
+    repeated double param = 1;
+}
+
+message ForDoubleOperationNullableRequest {
+    google.protobuf.DoubleValue param = 1;
+}
+
+message ForDoubleOperationNullableCollectionRequest {
+    messages.ListOfDouble param = 1;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message DoubleTestDto {
+    double double_field = 1;
+    repeated double double_field_collection = 2;
+    google.protobuf.DoubleValue double_field_nullable = 3;
+    ListOfDouble double_field_nullable_collection = 4;
+}

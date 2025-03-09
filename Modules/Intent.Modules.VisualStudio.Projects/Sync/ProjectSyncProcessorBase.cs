@@ -322,6 +322,11 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                     data.RemoveItemType = value;
                 }
 
+                if (key == CustomMetadataKeys.WasAddedImplicitly)
+                {
+                    data.WasAddedImplicitly = bool.Parse(value);
+                }
+
                 if (key == CustomMetadataKeys.MsBuildFileItemGenerationBehaviour)
                 {
                     data.MsBuildFileItemGenerationBehaviour = Enum.Parse<MsBuildFileItemGenerationBehaviour>(value);

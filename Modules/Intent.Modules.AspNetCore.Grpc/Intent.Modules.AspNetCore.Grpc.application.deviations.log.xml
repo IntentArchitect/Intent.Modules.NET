@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#314451f8-0d38-4b61-815b-f739e814697c</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/CommonTypesPartial/CommonTypesPartialTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-03-04T13:39:16.8435267Z</updatedAt>
+      <deviationsHash>AB9557DA7532EA9929CAC5982B9413D22B7A28256078154F00E76787E0997C73</deviationsHash>
+      <fileHash>815C48F4936FA8792138B1551DCEB0BFF89C0FD8B9B8B410CD5956AA66928F05</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#21340dca-296f-4ab7-9507-4a7883920527</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/CommonTypesProtoFile/CommonTypesProtoFileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-02-26T20:13:02.9146872Z</updatedAt>
+      <deviationsHash>304B56B63E59A7A555691BFCEE8BD23AC8B50A8CFCA6055E9CAD3C1B56455B57</deviationsHash>
+      <fileHash>D721B164B9B04B674FFFEC26EE6404249E415BA2B9388BDD56A8ECFA2A44596A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#27fca00f-e731-44ad-a845-e4b35b5b253a</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/MessagePartial/MessagePartialTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-03-04T13:39:16.8465161Z</updatedAt>
+      <deviationsHash>74377279BE481368E41C0B038831B62C6CFACDEA0239F1ADD464557AACFDCD68</deviationsHash>
+      <fileHash>A8DCE3E040CCB3299EF2C92881F275F7188A19E0F54BBD7458DFEC70328A5B79</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#efefd72b-af75-4f08-8525-81dd2061883f</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/MessageProtoFile/MessageProtoFileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-02-26T18:38:22.7631053Z</updatedAt>
+      <deviationsHash>92B27BF849C2B9B15AF828023E740F4CA9C69AB1EBBB4F15540FC519A4FB4AA3</deviationsHash>
+      <fileHash>FD89FE5D8F739887FA603820210880C1EE362C25E6052482BFA241D6348449DC</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2714a7e7-3666-40c0-9a44-d8941c5b9e4b</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/PagedResultPartial/PagedResultPartialTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-02-28T11:53:37.9164656Z</updatedAt>
+      <deviationsHash>07274580C0CD5F563BA9DC13C18770185E802089D5C8AB16B6D77FDBCAD14AB7</deviationsHash>
+      <fileHash>0FAA6537C5A248554351D2ED6C69055CE0E9AD749818315A1527F4320C143452</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#3fa31cc3-3bac-44f9-8824-48baff54dd17</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/PagedResultProtoFile/PagedResultProtoFileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-02-27T19:57:39.5507667Z</updatedAt>
+      <deviationsHash>A21A443DE254A9EEAE299D3DC3127234C1F077B9BCA660E285A736F9AF277E5E</deviationsHash>
+      <fileHash>CD39173227AAF00DFAFC22022065DEF3C789165B3E5B3110E3C804CB44DAB52F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#fccc1c59-6f3e-43a1-975b-80a18bb90f97</correlationId>
+      <path>Intent.Modules.AspNetCore.Grpc/Templates/ServiceProtoFile/ServiceProtoFileTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-03-04T15:14:48.1497923Z</updatedAt>
+      <deviationsHash>067CC790C36F8281DD9872965285F0E5D898C97FC1A905E0CF10F4018F422D11</deviationsHash>
+      <fileHash>8818F82876E97EA30088C38389BFE054654F1F61BB453557DDB38C3A319AB90B</fileHash>
+    </file>
+  </files>
+</deviationsLog>

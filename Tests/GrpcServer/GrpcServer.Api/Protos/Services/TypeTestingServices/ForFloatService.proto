@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForFloat {
+    rpc Operation (ForFloatOperationRequest) returns (google.protobuf.FloatValue);
+    rpc OperationCollection (ForFloatOperationCollectionRequest) returns (messages.ListOfFloat);
+    rpc OperationNullable (ForFloatOperationNullableRequest) returns (google.protobuf.FloatValue);
+    rpc OperationNullableCollection (ForFloatOperationNullableCollectionRequest) returns (messages.ListOfFloat);
+}
+
+message ForFloatOperationRequest {
+    float param = 1;
+}
+
+message ForFloatOperationCollectionRequest {
+    repeated float param = 1;
+}
+
+message ForFloatOperationNullableRequest {
+    google.protobuf.FloatValue param = 1;
+}
+
+message ForFloatOperationNullableCollectionRequest {
+    messages.ListOfFloat param = 1;
+}

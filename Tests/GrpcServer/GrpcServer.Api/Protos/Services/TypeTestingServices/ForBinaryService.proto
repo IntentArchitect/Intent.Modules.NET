@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForBinary {
+    rpc Operation (ForBinaryOperationRequest) returns (google.protobuf.BytesValue);
+    rpc OperationCollection (ForBinaryOperationCollectionRequest) returns (messages.ListOfBytes);
+    rpc OperationNullable (ForBinaryOperationNullableRequest) returns (google.protobuf.BytesValue);
+    rpc OperationNullableCollection (ForBinaryOperationNullableCollectionRequest) returns (messages.ListOfBytes);
+}
+
+message ForBinaryOperationRequest {
+    bytes param = 1;
+}
+
+message ForBinaryOperationCollectionRequest {
+    repeated bytes param = 1;
+}
+
+message ForBinaryOperationNullableRequest {
+    google.protobuf.BytesValue param = 1;
+}
+
+message ForBinaryOperationNullableCollectionRequest {
+    messages.ListOfBytes param = 1;
+}

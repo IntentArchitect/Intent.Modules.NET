@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.Tags";
+
+package grpc_server.api.protos.messages.tags;
+
+message ListOfTagDto {
+    repeated TagDto items = 1;
+}
+message TagDto {
+    string name = 1;
+    string id = 2;
+}

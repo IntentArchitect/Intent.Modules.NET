@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForDateTime {
+    rpc Operation (ForDateTimeOperationRequest) returns (google.protobuf.Timestamp);
+    rpc OperationCollection (ForDateTimeOperationCollectionRequest) returns (messages.ListOfTimestamp);
+    rpc OperationNullable (ForDateTimeOperationNullableRequest) returns (google.protobuf.Timestamp);
+    rpc OperationNullableCollection (ForDateTimeOperationNullableCollectionRequest) returns (messages.ListOfTimestamp);
+}
+
+message ForDateTimeOperationRequest {
+    google.protobuf.Timestamp param = 1;
+}
+
+message ForDateTimeOperationCollectionRequest {
+    repeated google.protobuf.Timestamp param = 1;
+}
+
+message ForDateTimeOperationNullableRequest {
+    google.protobuf.Timestamp param = 1;
+}
+
+message ForDateTimeOperationNullableCollectionRequest {
+    messages.ListOfTimestamp param = 1;
+}

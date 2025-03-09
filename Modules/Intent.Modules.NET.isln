@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.9" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.10" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -150,5 +150,6 @@
     <application id="7bda4e57-297a-4068-898e-85e199c5f5ea" name="Intent.Modules.EntityFrameworkCore.DataMasking" relativePath="Intent.Modules.EntityFrameworkCore.DataMasking/Intent.Modules.EntityFrameworkCore.DataMasking.application.config" />
     <application id="87eedb0d-b34c-492e-8645-7a9e56dd4b94" name="Intent.Modules.Entities.SoftDelete" relativePath="Intent.Modules.Entities.SoftDelete/Intent.Modules.Entities.SoftDelete.application.config" />
     <application id="2c301c3f-5c69-40bb-82ce-0d81c3cae946" name="Intent.Modules.AspNetCore.Docker" relativePath="Intent.Modules.AspNetCore.Docker/Intent.Modules.AspNetCore.Docker.application.config" />
+    <application id="e7f2c64a-c56c-4d8b-9d50-46e0d6fdb964" name="Intent.Modules.AspNetCore.Grpc" relativePath="Intent.Modules.AspNetCore.Grpc/Intent.Modules.AspNetCore.Grpc.application.config" />
   </applications>
 </solution>

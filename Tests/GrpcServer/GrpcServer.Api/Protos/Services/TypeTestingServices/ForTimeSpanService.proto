@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/duration.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForTimeSpan {
+    rpc Operation (ForTimeSpanOperationRequest) returns (google.protobuf.Duration);
+    rpc OperationCollection (ForTimeSpanOperationCollectionRequest) returns (messages.ListOfDuration);
+    rpc OperationNullable (ForTimeSpanOperationNullableRequest) returns (google.protobuf.Duration);
+    rpc OperationNullableCollection (ForTimeSpanOperationNullableCollectionRequest) returns (messages.ListOfDuration);
+}
+
+message ForTimeSpanOperationRequest {
+    google.protobuf.Duration param = 1;
+}
+
+message ForTimeSpanOperationCollectionRequest {
+    repeated google.protobuf.Duration param = 1;
+}
+
+message ForTimeSpanOperationNullableRequest {
+    google.protobuf.Duration param = 1;
+}
+
+message ForTimeSpanOperationNullableCollectionRequest {
+    messages.ListOfDuration param = 1;
+}

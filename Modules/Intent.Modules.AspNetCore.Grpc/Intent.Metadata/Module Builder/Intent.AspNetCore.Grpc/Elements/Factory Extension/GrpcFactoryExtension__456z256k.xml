@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="93b4503c-4c66-4c0b-9fc6-1c31c43d6148" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>GrpcFactoryExtension</name>
+  <display>GrpcFactoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2b80d4f5-b004-4832-8678-05b39e33193c</parentFolderId>
+  <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+  <packageName>Intent.AspNetCore.Grpc</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

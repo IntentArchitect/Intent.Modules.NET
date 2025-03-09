@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForEnum {
+    rpc Operation (ForEnumOperationRequest) returns (google.protobuf.Int32Value);
+    rpc OperationCollection (ForEnumOperationCollectionRequest) returns (messages.ListOfInt32);
+    rpc OperationNullable (ForEnumOperationNullableRequest) returns (google.protobuf.Int32Value);
+    rpc OperationNullableCollection (ForEnumOperationNullableCollectionRequest) returns (messages.ListOfInt32);
+}
+
+message ForEnumOperationRequest {
+    int32 param = 1;
+}
+
+message ForEnumOperationCollectionRequest {
+    repeated int32 param = 1;
+}
+
+message ForEnumOperationNullableRequest {
+    google.protobuf.Int32Value param = 1;
+}
+
+message ForEnumOperationNullableCollectionRequest {
+    messages.ListOfInt32 param = 1;
+}

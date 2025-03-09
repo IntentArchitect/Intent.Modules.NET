@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.TypeTestingServices";
+
+package grpc_server.api.protos.services.type_testing_services;
+
+service ForDecimal {
+    rpc Operation (ForDecimalOperationRequest) returns (messages.DecimalValue);
+    rpc OperationCollection (ForDecimalOperationCollectionRequest) returns (messages.ListOfDecimalValue);
+    rpc OperationNullable (ForDecimalOperationNullableRequest) returns (messages.DecimalValue);
+    rpc OperationNullableCollection (ForDecimalOperationNullableCollectionRequest) returns (messages.ListOfDecimalValue);
+}
+
+message ForDecimalOperationRequest {
+    messages.DecimalValue param = 1;
+}
+
+message ForDecimalOperationCollectionRequest {
+    repeated messages.DecimalValue param = 1;
+}
+
+message ForDecimalOperationNullableRequest {
+    messages.DecimalValue param = 1;
+}
+
+message ForDecimalOperationNullableCollectionRequest {
+    messages.ListOfDecimalValue param = 1;
+}

@@ -125,10 +125,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
             string type,
             string action)
         {
-            var expression = action is "Include"
-                ? "/ns:Project/ns:ItemGroup[*[@Include]]"
-                : $"/ns:Project/ns:ItemGroup[ns:{type}[@{action}]]";
-            var itemGroupElement = xml.Document.XPathSelectElement(expression, xml.Namespaces);
+            var itemGroupElement = xml.Document.XPathSelectElement($"/ns:Project/ns:ItemGroup[ns:{type}[@{action}]]", xml.Namespaces);
             if (itemGroupElement != null)
             {
                 return itemGroupElement;
@@ -266,7 +263,7 @@ namespace Intent.Modules.VisualStudio.Projects.Sync
                 removeItemElement.Remove();
             }
 
-            var action = data.RemoveItemType != null
+            var action = data.RemoveItemType != null || !data.WasAddedImplicitly
                 ? "Include"
                 : "Update";
             itemElement ??= CreateItemElement(xml, data.ItemType, action);

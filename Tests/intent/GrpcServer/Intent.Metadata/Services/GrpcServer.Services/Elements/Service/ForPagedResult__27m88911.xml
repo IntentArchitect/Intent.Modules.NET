@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c5df7e20-e3e8-494f-830d-48461bbded32" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>ForPagedResult</name>
+  <display>ForPagedResult</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3f05ac99-4e1b-4d63-a034-f14854b26696</parentFolderId>
+  <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+  <packageName>GrpcServer.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="182b6501-4a35-4d0d-b1de-3285db1e9385" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Operation</name>
+      <display>Operation(param: PagedResult&lt;ComplexTypeDto&gt;): PagedResult&lt;ComplexTypeDto&gt;</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="2adfe6c7-c73d-4e55-b611-e8ffdc739268">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="bfc29cad-a5e7-4f0a-8b8c-3efea3c0db68">
+            <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>GrpcServer.Services</typePackageName>
+            <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5df7e20-e3e8-494f-830d-48461bbded32</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="f3abba60-ab26-42be-8aec-f00c8245147a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: PagedResult&lt;ComplexTypeDto&gt;</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="72370b3a-21c0-49bf-8083-eca3c6f39567">
+            <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+            <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+            <stereotypes />
+            <genericTypeParameters>
+              <genericTypeParameter id="d21bd093-2738-4ba4-bbed-1aacbd8051a7">
+                <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+                <typePackageName>GrpcServer.Services</typePackageName>
+                <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </genericTypeParameter>
+            </genericTypeParameters>
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>182b6501-4a35-4d0d-b1de-3285db1e9385</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="22772e30-b7db-49ee-b50f-8835751389cc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationCollection</name>
+      <display>OperationCollection(param: PagedResult&lt;ComplexTypeDto&gt;[*]): PagedResult&lt;ComplexTypeDto&gt;[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="15766ade-46f5-4acc-8e26-3b32465bf260">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="2af064b5-540d-4931-9688-15ae10c3a258">
+            <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>GrpcServer.Services</typePackageName>
+            <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5df7e20-e3e8-494f-830d-48461bbded32</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="d100b411-d7d6-4730-b307-abcfcf0b035a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: PagedResult&lt;ComplexTypeDto&gt;[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="267e908e-b9a4-426a-aa04-17c760325d80">
+            <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+            <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+            <stereotypes />
+            <genericTypeParameters>
+              <genericTypeParameter id="8218ff59-6785-408d-8c8f-19215d29a3e0">
+                <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+                <typePackageName>GrpcServer.Services</typePackageName>
+                <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </genericTypeParameter>
+            </genericTypeParameters>
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>22772e30-b7db-49ee-b50f-8835751389cc</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d6bfe86b-ecc1-4424-9e28-3e2b98ce002c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullable</name>
+      <display>OperationNullable(param: PagedResult&lt;ComplexTypeDto&gt;?): PagedResult&lt;ComplexTypeDto&gt;?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6be582e3-7f2a-4f76-a853-2df744bf2144">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="96e4e328-9619-4242-b01c-0c743e85453f">
+            <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>GrpcServer.Services</typePackageName>
+            <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5df7e20-e3e8-494f-830d-48461bbded32</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cb3f5f8f-3706-4fac-a4eb-8c882e8f21cf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: PagedResult&lt;ComplexTypeDto&gt;?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cc849db4-f1e9-466e-a7ee-82240e2877fc">
+            <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+            <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+            <stereotypes />
+            <genericTypeParameters>
+              <genericTypeParameter id="f81bbcfd-2490-42a1-a2ee-7ce7564fe02d">
+                <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+                <typePackageName>GrpcServer.Services</typePackageName>
+                <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </genericTypeParameter>
+            </genericTypeParameters>
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d6bfe86b-ecc1-4424-9e28-3e2b98ce002c</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ce841ab6-64c5-47ce-b8a7-003fdb39f7a9" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OperationNullableCollection</name>
+      <display>OperationNullableCollection(param: PagedResult&lt;ComplexTypeDto&gt;[*]?): PagedResult&lt;ComplexTypeDto&gt;[*]?</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="25f25fa5-15a8-4ea7-96e3-8a0bb13ebf54">
+        <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+        <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+        <stereotypes />
+        <genericTypeParameters>
+          <genericTypeParameter id="a3143f57-8a1f-41f4-b10e-c610a4ba502a">
+            <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+            <typePackageName>GrpcServer.Services</typePackageName>
+            <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </genericTypeParameter>
+        </genericTypeParameters>
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c5df7e20-e3e8-494f-830d-48461bbded32</parentFolderId>
+      <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+      <packageName>GrpcServer.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="39863d70-29fe-44df-985d-d28fc00b4a96" name="Expose with gRPC">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modules.AspNetCore.Grpc</definitionPackageName>
+          <definitionPackageId>2b80d4f5-b004-4832-8678-05b39e33193c</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="5bb5f316-5078-4f0b-acda-daf1bcb6ed6c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>param</name>
+          <display>in : param: PagedResult&lt;ComplexTypeDto&gt;[*]?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7e8f0903-0a51-4594-a480-bf5bd177d5e6">
+            <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Modelers.Services.Pagination</typePackageName>
+            <typePackageId>7ed452ae-334c-48f7-b0aa-0426fc21e243</typePackageId>
+            <stereotypes />
+            <genericTypeParameters>
+              <genericTypeParameter id="e8835c3c-a970-4085-8edc-72635ca81f0e">
+                <typeId>e44d88da-79db-4835-9601-84233e28d583</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <genericTypeId>b2e9202d-2fb1-426b-91a9-02b6a3a294bd</genericTypeId>
+                <typePackageName>GrpcServer.Services</typePackageName>
+                <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </genericTypeParameter>
+            </genericTypeParameters>
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ce841ab6-64c5-47ce-b8a7-003fdb39f7a9</parentFolderId>
+          <packageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</packageId>
+          <packageName>GrpcServer.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

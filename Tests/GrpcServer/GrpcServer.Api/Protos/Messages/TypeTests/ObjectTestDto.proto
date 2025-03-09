@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message ObjectTestDto {
+    google.protobuf.Any object_field = 1;
+    repeated google.protobuf.Any object_field_collection = 2;
+    google.protobuf.Any object_field_nullable = 3;
+    ListOfAny object_field_nullable_collection = 4;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "Messages/PagedResult.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message PagedResultTestDto {
+    PagedResultOfComplexTypeDto paged_result_field = 1;
+    repeated PagedResultOfComplexTypeDto paged_result_field_collection = 2;
+    PagedResultOfComplexTypeDto paged_result_field_nullable = 3;
+    ListOfPagedResultOfComplexTypeDto paged_result_field_nullable_collection = 4;
+}

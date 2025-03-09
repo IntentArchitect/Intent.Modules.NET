@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ffdeca62-2d63-4e47-9215-fe05f1ff06a9">
+  <sourceEnd id="f7907a23-77d6-46a3-8b5c-4d336772c1cb" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : TagsService.UpdateTag</display>
+    <order>0</order>
+    <typeReference id="8ffc3ef7-6642-4569-b503-fdae2f02ced5">
+      <typeId>dcd5a1aa-daff-40b1-bd59-290f7a194f7f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Services</typePackageName>
+      <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ffdeca62-2d63-4e47-9215-fe05f1ff06a9" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>tag</name>
+    <display>[update] tag: Tag</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="0255eea2-566b-4197-a245-0b75498e02e5">
+      <typeId>9de518cf-bb92-454d-a099-d03e6372d015</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dcd5a1aa-daff-40b1-bd59-290f7a194f7f" location="[GrpcServer].[Services].[UpdateTag]" />
+        <target applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9de518cf-bb92-454d-a099-d03e6372d015" location="[GrpcServer].[Services].[Tag]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="9de518cf-bb92-454d-a099-d03e6372d015" name="Tag" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="47e1fb5c-6bb8-4436-97f3-e4ffc315f792" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="dcd5a1aa-daff-40b1-bd59-290f7a194f7f" name="UpdateTag" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="0be6ffe5-dfcb-40b4-a0eb-5bc7416fec0e" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="dcd5a1aa-daff-40b1-bd59-290f7a194f7f" location="[GrpcServer].[Services].[UpdateTag]" />
+        <target applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9de518cf-bb92-454d-a099-d03e6372d015" location="[GrpcServer].[Services].[Tag]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="9de518cf-bb92-454d-a099-d03e6372d015" name="Tag" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="81d62560-f7b9-44fe-849a-23fac6e160f6" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="dcd5a1aa-daff-40b1-bd59-290f7a194f7f" name="UpdateTag" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="30a3dfee-7868-44f2-a3ec-84b2acf03fdf" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="0062d570-f416-40e9-93b5-0eb425071409" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

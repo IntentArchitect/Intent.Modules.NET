@@ -1,0 +1,90 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GrpcServer.Application\GrpcServer.Application.csproj" />
+    <ProjectReference Include="..\GrpcServer.Infrastructure\GrpcServer.Infrastructure.csproj" />
+    <ProjectReference Include="..\GrpcServer.Domain\GrpcServer.Domain.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <Protobuf Include="Protos\Messages\CommonTypes.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\ApplyTagsProductCommand.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\CreateComplexProductCommand.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\CreateProductCommand.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\DeleteProductCommand.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\GetProductByIdQuery.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\GetProductsPagedQuery.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\GetProductsQuery.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\UpdateProductCommand.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\BinaryTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\BoolTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\ByteTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\CharTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\ComplexValueTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\ComplexTypeDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DateOnlyTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DateTimeTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DateTimeOffsetTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DecimalTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DictionaryTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\DoubleTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\EnumTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\FloatTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\GuidTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\IntTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\LongTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\ObjectTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\PagedResultTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\ShortTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\StringTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\TypeTests\TimeSpanTestDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Products\ProductDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Tags\TagCreateDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Tags\TagDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\Tags\TagUpdateDto.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Messages\PagedResult.proto" ProtoRoot="Protos" />
+    <Protobuf Include="Protos\Services\Products\ProductsService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TagsService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForGuidService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForPagedResultService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDictionaryService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDateTimeOffsetService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForLongService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForCharService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForShortService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForByteService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForStringService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForBoolService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForObjectService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForFloatService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDateOnlyService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDecimalService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForIntService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDateTimeService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForTimeSpanService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForEnumService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForDoubleService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+    <Protobuf Include="Protos\Services\TypeTestingServices\ForBinaryService.proto" ProtoRoot="Protos" GrpcServices="Server" />
+  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+      <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+      <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+      <PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
+      <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.67.0" />
+      <PackageReference Include="Grpc.StatusProto" Version="2.67.0" />
+      <PackageReference Include="IdentityModel" Version="7.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+      <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
+    </ItemGroup>
+
+</Project>

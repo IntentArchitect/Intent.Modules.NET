@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages";
+
+package grpc_server.api.protos.messages;
+
+message ComplexTypeDto {
+    string field = 1;
+}
+
+message ListOfComplexTypeDto {
+    repeated ComplexTypeDto items = 1;
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "Messages/Tags/TagCreateDto.proto";
+import "Messages/Tags/TagDto.proto";
+import "Messages/Tags/TagUpdateDto.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services";
+
+package grpc_server.api.protos.services;
+
+service TagsService {
+    rpc CreateTag (TagsServiceCreateTagRequest) returns (google.protobuf.StringValue);
+    rpc UpdateTag (TagsServiceUpdateTagRequest) returns (google.protobuf.Empty);
+    rpc FindTagById (TagsServiceFindTagByIdRequest) returns (messages.tags.TagDto);
+    rpc FindTags (google.protobuf.Empty) returns (messages.tags.ListOfTagDto);
+    rpc DeleteTag (TagsServiceDeleteTagRequest) returns (google.protobuf.Empty);
+}
+
+message TagsServiceCreateTagRequest {
+    messages.tags.TagCreateDto dto = 1;
+}
+
+message TagsServiceUpdateTagRequest {
+    string id = 1;
+    messages.tags.TagUpdateDto dto = 2;
+}
+
+message TagsServiceFindTagByIdRequest {
+    string id = 1;
+}
+
+message TagsServiceDeleteTagRequest {
+    string id = 1;
+}

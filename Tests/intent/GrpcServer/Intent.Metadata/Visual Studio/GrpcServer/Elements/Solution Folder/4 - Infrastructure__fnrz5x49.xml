@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6176cbc5-c8d8-492d-9e4a-ab363b6f6e54" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fe0fd886-be7e-4739-94ec-79db831f2e80</parentFolderId>
+  <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+  <packageName>GrpcServer</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

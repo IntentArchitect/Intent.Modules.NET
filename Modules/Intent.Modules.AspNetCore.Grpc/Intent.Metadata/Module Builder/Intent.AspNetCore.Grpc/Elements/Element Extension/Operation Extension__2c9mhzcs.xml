@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4cad3722-b41b-4e52-ba1e-10db09e07f19" type="Element Extension" typeId="e3c7b1ca-f080-45c1-b56f-8d44226c8e20">
+  <name>Operation Extension</name>
+  <display>Operation Extension: Operation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <typeReference id="96dfd892-15f0-451b-bb0a-cec6fcc58701">
+    <typeId>e030c97a-e066-40a7-8188-808c275df3cb</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Intent.Modelers.Services</typePackageName>
+    <typePackageId>4ba53041-59f9-4446-a207-6da4fbdf86fe</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>33115fb9-3c6c-4289-935f-21b0bca67867</parentFolderId>
+  <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+  <packageName>Intent.AspNetCore.Grpc</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="35226a83-3965-4224-8aef-20c68a0c5180" display="Mode" value="Inherit" isActive="true" />
+        <property name="7d3859d4-084d-4ff0-8b31-850b4a8f8cd0" display="Display Name" isActive="false" />
+        <property name="17223dbd-8df0-4700-8b81-02274ca3ed7f" display="Hint" isActive="false" />
+        <property name="b2cef034-5706-45d2-8554-f4dc582a18ff" display="Target Types" isActive="false" />
+        <property name="08ec0581-c90a-489b-858f-ee265327c948" display="Target Traits" isActive="true" />
+        <property name="93e4efa9-186d-4e88-ae0a-491bcd6e6f5e" display="Default Type Id" isActive="false" />
+        <property name="7a0c4185-1c08-4d3e-9185-14683d7a3bd0" display="Allow Collection" value="Inherit" isActive="false" />
+        <property name="e3dc90ec-4f5f-4f20-b271-e28a5094dc91" display="Allow Nullable" value="Inherit" isActive="false" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="312eab00-f6db-492e-bbb4-e41383c8d3d8" name="Extension Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="8c964307-9d03-4a14-9fd3-40ea2607955a" display="Display Text Function" value="" isActive="true" />
+        <property name="996ed45f-2318-4587-9618-73db3d7cfed0" display="Validate Function" value="" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="8a71a699-78ea-47b4-b900-b3ff66aea7db" type="Context Menu" typeId="d45e383d-90ba-4b64-aca7-34ca100cea21">
+      <name>[context menu]</name>
+      <display>[context menu]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>4cad3722-b41b-4e52-ba1e-10db09e07f19</parentFolderId>
+      <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+      <packageName>Intent.AspNetCore.Grpc</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="0d0c361f-7d94-49e3-bf26-8193b0d0dce7" type="Run Script Option" typeId="345d46fb-c500-409a-88c7-26720572c9af">
+          <name>Expose as gRPC Endpoint</name>
+          <display>Expose as gRPC Endpoint: Inline Script</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="39444189-a196-4900-b47d-ebcd850c4636">
+            <typeId>043eee26-1591-42ac-9f2c-fc911b070eb1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.ModuleBuilder</typePackageName>
+            <typePackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8a71a699-78ea-47b4-b900-b3ff66aea7db</parentFolderId>
+          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+          <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="const stereotypeId = &quot;39863d70-29fe-44df-985d-d28fc00b4a96&quot;;&#xD;&#xA;&#xD;&#xA;if (element.hasStereotype(stereotypeId)) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;element.addStereotype(stereotypeId);&#xD;&#xA;" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" isActive="true" />
+              </properties>
+            </stereotype>
+            <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
+              <comment />
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+              <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+              <properties>
+                <property name="b2c3a117-23d3-47e5-8b83-5b902c55a226" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIC0xNTIgNTEyIDUxMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+CiAgICA8dGl0bGU+Z1JQQzwvdGl0bGU+CiAgICA8c3R5bGU+CiAgICAgICAgLmdycGNMb2dvMjAyNTAyMjAgewogICAgICAgICAgICBmaWxsOiAjMjQ0QjVBOwogICAgICAgIH0KCiAgICAgICAgW2RhdGEtdGhlbWU9ImRhcmsiXSAuZ3JwY0xvZ28yMDI1MDIyMCB7CiAgICAgICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iMTAwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIiBpZD0ibGluZWFyR3JhZGllbnQtMSI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM3MkM5QzkiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzAyQjBBRCIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjEwMCUiIHkxPSIwJSIgeDI9Ii04Ljg4MTc4NDJlLTE0JSIgeTI9IjEwMCUiIGlkPSJsaW5lYXJHcmFkaWVudC0yIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzAzQjZCNCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNzRDQkNBIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImdycGNMb2dvMjAyNTAyMjAiIGQ9Ik01Ni42NzgxMzg3LDE3OS44Njc5NDIgQzYwLjQ3OTM4MDMsMTg0LjkyNTM3IDY1LjQxOTQwMzIsMTg5LjAxNTM4OSA3MS4wOTczMzY1LDE5MS44MDYxMDQgQzc3LjIzODAxMjgsMTk0Ljg0Nzc5NCA4NC4wMTM5MjQxLDE5Ni4zODU3ODkgOTAuODY2MDE5NiwxOTYuMjkzMTk3IEM5Ni40MDYyNjMsMTk2LjQzODQ1IDEwMS45MjEzNjIsMTk1LjQ5Nzc4MiAxMDcuMTAwMjIxLDE5My41MjQyNTQgQzExMS4yNDIyNzcsMTkxLjg5NjkwOCAxMTQuOTQwMDMsMTg5LjMxMTcwOSAxMTcuODkwNzM4LDE4NS45ODAzMTIgQzEyMC42NTk3OCwxODIuNzM0Nzc3IDEyMi42ODEyODUsMTc4LjkyMDA1NCAxMjMuODEyMDU2LDE3NC44MDYzNjMgQzEyNS4wNDQ5MywxNzAuMzYwNDI1IDEyNS42NTUzMDMsMTY1Ljc2NDk5NSAxMjUuNjI1NzMzLDE2MS4xNTEzNzcgTDEyNS42MjU3MzMsMTQ1LjEwODIyOCBMMTI1LjI0NDk1NCwxNDUuMTA4MjI4IEMxMjEuNjUzODcyLDE1MC44MDAwMTYgMTE2LjQ3NDA4OSwxNTUuMzE1MTQ2IDExMC4zNDU0NywxNTguMDk1ODU1IEMxMDQuNTAxOTU2LDE2MC42Mzk4NjIgOTguMTkzMTgzLDE2MS45NDA2NTMgOTEuODE5OTU4MSwxNjEuOTE1NTg5IEM4NS41NzQ5ODYzLDE2MS45NjI1MjMgNzkuMzgwNDQ0LDE2MC43OTQ5OTEgNzMuNTgxMDI2MSwxNTguNDc3OTYxIEM2OC4wODk4MjQzLDE1Ni4yOTc3NiA2My4wNjU1OTEyLDE1My4wODg3NzIgNTguNzc4Mzk1NCwxNDkuMDIzNDg5IEM1NC41MjQzMDU4LDE0NC45MzkxNzggNTEuMTQ1MTQ1NSwxNDAuMDMyNDg5IDQ4Ljg0NjI5MDYsMTM0LjYwMTYzOCBDNDYuNDAwMDU0NCwxMjguODY4MyA0NS4xNjQ2NzU0LDEyMi42OTE0MDQgNDUuMjE3NjA5NSwxMTYuNDU4MjMyIEM0NS4xNjQ4NTIzLDExMC4yNDMxNjMgNDYuMzMzMjg0NCwxMDQuMDc4MjQxIDQ4LjY1NjU2NDMsOTguMzEzNTAwMSBDNTAuODUyNTU5MSw5Mi44NTk1NjkgNTQuMDU5OTM4NCw4Ny44NzAwMTIxIDU4LjEwOTcwOTgsODMuNjA3NzIyNyBDNjIuMTU4OTIzOCw3OS4zODAzNzI3IDY3LjAzNTE1NjIsNzYuMDMxOTk5NCA3Mi40MzQ3MDc4LDczLjc3MTE0NDUgQzc4LjIxMjM4NTQsNzEuMzY5MDAwMiA4NC40MTgyMjU4LDcwLjE2NjkyMzMgOTAuNjc0OTY2NSw3MC4yMzc5ODk5IEM5My41MjM5MjgyLDcwLjI1NDUwNzggOTYuMzY2NDk3Myw3MC41MDk2OTU1IDk5LjE3Mjg0NjgsNzEuMDAwODc1MyBDMTAyLjI1OTAzNCw3MS41NDAwMTc0IDEwNS4yNzE3MTMsNzIuNDM3Njc2NSAxMDguMTQ5Njg2LDczLjY3NTYxNzkgQzExNC45ODI1MzYsNzYuNjM3MDYwNSAxMjAuODg4ODY2LDgxLjM4ODcxMTEgMTI1LjI0NDk1NCw4Ny40Mjg3ODM2IEwxMjUuNjI1NzMzLDg3LjQyODc4MzYgTDEyNS42MjU3MzMsNzIuNTI5Mjk5NyBMMTM4LjIzMjU4LDcyLjUyOTI5OTcgTDEzOC4yMzI1OCwxNjEuMTUxMzc3IEMxMzguMTg5NTIxLDE2Ni4zNTg1NDggMTM3LjU4MDk1LDE3MS41NDU2MzYgMTM2LjQxNzU3NiwxNzYuNjIxMzY3IEMxMzUuMjAwNTU5LDE4Mi4xMDkxODYgMTMyLjc4Nzc4LDE4Ny4yNjA5MTcgMTI5LjM1MTI2NywxOTEuNzA5MjUgQzEyNS40NDEwMTEsMTk2LjYxNjg0MSAxMjAuNDM3MjUxLDIwMC41NDE5NzMgMTE0LjczOTY5LDIwMy4xNzExMDYgQzEwOC40OTk1MDgsMjA2LjIyNTMwMSAxMDAuMzUwMTIzLDIwNy43NTIzOTkgOTAuMjkxNTMzNywyMDcuNzUyMzk5IEM4Mi4xMjA3MDQ2LDIwNy44OTE2OTMgNzQuMDA0MjU4NSwyMDYuMzk4NjcxIDY2LjQxNzg2MzcsMjAzLjM2MDgzMiBDNTkuMTU5NzcyNSwyMDAuMjUxMzgxIDUyLjY0ODk1MzksMTk1LjYyODU4MiA0Ny4zMjA1MTk4LDE4OS44MDEzNzMgTDU2LjY3ODEzODcsMTc5Ljg2Nzk0MiBaIE01OC45Njk0NDg1LDExNi4wNzc0NTMgQzU4LjkzNzkyMTMsMTIwLjYyOTI0OCA1OS44MTQ3NzE0LDEyNS4xNDE1OTggNjEuNTQ4NjY0NiwxMjkuMzUwMzMzIEM2My4yMDE3MDk1LDEzMy4zODkxMzkgNjUuNTk4MjAwMywxMzcuMDgxNzYgNjguNjEzNjQ2OSwxNDAuMjM2Mzc2IEM3MS42MTE1ODE5LDE0My4zNjMwMDggNzUuMTc2NjM3NiwxNDUuODkxMTQ1IDc5LjExODkxMDksMTQ3LjY4NjExOCBDODMuMjI1NjgzMSwxNDkuNTUyNjY0IDg3LjY5MTIxNjIsMTUwLjQ5Nzc1OCA5Mi4yMDIwNjQxLDE1MC40NTUwNiBDMTAxLjEzNTQ2OSwxNTAuNDg3Mjg0IDEwOS43NDM3NjMsMTQ3LjEwNTc1OSAxMTYuMjY2Nzg3LDE0MS4wMDE5MTUgQzExOS40NzA1MjEsMTM3Ljk3ODkxIDEyMS45Nzk3MiwxMzQuMjk2MzY3IDEyMy42MjEwMDMsMTMwLjIwODc0NSBDMTI1LjM4OTk1MywxMjUuNzE1MzI0IDEyNi4yMDMyOSwxMjAuOTAyNjMgMTI2LjAwOTE2NiwxMTYuMDc3NDUzIEMxMjYuMDQxMjA0LDExMS41NTEwOSAxMjUuMjY0ODA5LDEwNy4wNTUzNjcgMTIzLjcxNjUyOSwxMDIuODAxOTIgQzEyMi4yNDUyNTksOTguNzU5MzY1MSAxMTkuOTcxMTA2LDk1LjA1NjM2MzcgMTE3LjAzMDk5OSw5MS45MTU4NzY3IEMxMTQuMDA5MDc3LDg4LjczMjIzNDIgMTEwLjM3MDAzLDg2LjE5Nzg1NzIgMTA2LjMzNjAwOSw4NC40Njc0NjE0IEMxMDEuODY5MjksODIuNTY4OTYyOCA5Ny4wNTQ5NzIsODEuNjI1MzUxIDkyLjIwMjA2NDEsODEuNjk3MTkyMyBDODcuNjkxMjA3NCw4MS42NTU4MTIyIDgzLjIyNTg2MjYsODIuNjAxMzE4OCA3OS4xMTg5MTA5LDg0LjQ2NzQ2MTQgQzc1LjE3Nzg5MDgsODYuMjY0MDI3OCA3MS42MTMxOTY2LDg4Ljc5MTQ1ODEgNjguNjEzNjQ2OSw5MS45MTU4NzY3IEM2NS41OTkxNTk0LDk1LjA3MTUxNDcgNjMuMjAyMzk5OCw5OC43NjM4NTY1IDYxLjU0NzMzNzgsMTAyLjgwMTkyIEM1OS44MTQyMzY4LDEwNy4wMTE3NzggNTguOTM3ODU4NywxMTEuNTI0OTIyIDU4Ljk2OTQ0ODUsMTE2LjA3NzQ1MyBMNTguOTY5NDQ4NSwxMTYuMDc3NDUzIFogTTE4OS42MDcyNzUsMTYxLjkxNTU4OSBMMTc1Ljg1Njc2MiwxNjEuOTE1NTg5IEwxNzUuODU2NzYyLDI2LjY4OTgzNjYgTDIxNy40OTMwNTksMjYuNjg5ODM2NiBDMjMxLjI0NDQ1NSwyNi42ODk4MzY2IDI0Mi4wOTkwOTksMjkuNjgyMTE2NCAyNTAuMDU2OTg5LDM1LjY2NjY3NjEgQzI1OC4wMTM5OTQsNDEuNjUzMDA0OSAyNjEuOTkzMzgxLDUwLjY5MzUyODggMjYxLjk5NTE1LDYyLjc4ODI0NzkgQzI2Mi4yMzcxNzcsNzEuNTY3MjY4IDI1OS4wNTE3Nyw4MC4wOTU2MzIgMjUzLjExMzgzNyw4Ni41NjYzOTE0IEMyNDcuMTkyMDc4LDkyLjk5NzYyNjEgMjM4LjYyOTE4Niw5Ni43MjE4MzM3IDIyNy40MjUxNjMsOTcuNzM5MDE0MyBMMjY2LjM4ODA0NCwxNjEuOTE1NTg5IEwyNDkuNTc5MzU2LDE2MS45MTU1ODkgTDIxMi41MjgzMzMsOTkuMDc3NzEyMyBMMTg5LjYwODYwMSw5OS4wNzc3MTIzIEwxODkuNjA3Mjc1LDE2MS45MTU1ODkgWiBNMTg5LjYwNzI3NSw4Ni40NzIxOTE3IEwyMTQuMDU1NDMxLDg2LjQ3MjE5MTcgQzIxOS4zMDg1OTEsODYuNTgyNzUyOSAyMjQuNTUwNDU3LDg1LjkzOTM1OTggMjI5LjYyMDk0Nyw4NC41NjE2NjEyIEMyMzMuMzI5MzcxLDgzLjU3MDEyNTEgMjM2LjgwMzE3Miw4MS44NDk5MTI0IDIzOS44Mzk2MzEsNzkuNTAxNDA5IEMyNDIuMjg5MTIzLDc3LjUzMDA5MyAyNDQuMTk1MTksNzQuOTY2NDQ2MyAyNDUuMzc3NTE2LDcyLjA1Mjk5MzggQzI0Ni41Mzk1MTEsNjkuMTAzNTg5OSAyNDcuMTIzMjc3LDY1Ljk1ODE4ODkgMjQ3LjA5Njk5Myw2Mi43ODgyNDc5IEMyNDcuMTEwOTc1LDU5LjY4MjI2NzQgMjQ2LjUyNzIwNCw1Ni42MDI2MDc2IDI0NS4zNzc1MTYsNTMuNzE3MjA4NiBDMjQ0LjE4MTQ2Myw1MC43ODQyMzI2IDI0Mi4yNzkxMDQsNDguMTkyMzAyMyAyMzkuODM5NjMxLDQ2LjE3MTk0MDEgQzIzNi44MzIzOTgsNDMuNzc2ODAyIDIzMy4zNDg1NTEsNDIuMDUxMTYyNCAyMjkuNjIwOTQ3LDQxLjExMDM2MTIgQzIyNC41Mzg4NDMsMzkuODAxOTM5NyAyMTkuMzAyMjE0LDM5LjE5MTc3MzQgMjE0LjA1NTQzMSwzOS4yOTY2ODQgTDE4OS42MDcyNzUsMzkuMjk2Njg0IEwxODkuNjA3Mjc1LDg2LjQ3MjE5MTcgWiBNMjkwLjA2ODAwNywyNi42ODk4MzY2IEwzMjkuNDE0MzIsMjYuNjg5ODM2NiBDMzQzLjE2NDgzMiwyNi42ODk4MzY2IDM1NC4wMTkwMzQsMjkuNjgyNTU4NyAzNjEuOTc2OTI0LDM1LjY2ODAwMjkgQzM2OS45MzM5MjksNDEuNjU0MzMxNiAzNzMuOTEzMzE2LDUwLjY5NDg1NTYgMzczLjkxNTA4NSw2Mi43ODk1NzQ3IEMzNzMuOTE1MDg1LDc0Ljg4NzgzMTggMzY5LjkzNTY5OCw4My45NTk3NTU3IDM2MS45NzY5MjQsOTAuMDA1MzQ2MiBDMzU0LjAxOTAzNCw5Ni4wNTQ0NzQ4IDM0My4xNjQ4MzIsOTkuMDc4NTk2OCAzMjkuNDE0MzIsOTkuMDc3NzEyMyBMMzAzLjgyMTE3Myw5OS4wNzc3MTIzIEwzMDMuODIxMTczLDE2MS45MTU1ODkgTDI5MC4wNjgwMDcsMTYxLjkxNTU4OSBMMjkwLjA2ODAwNywyNi42ODk4MzY2IFogTTMwMy44MjI1LDg2LjQ3MzUxODQgTDMyNS45NzgwMTksODYuNDczNTE4NCBDMzMxLjIzMTE2OSw4Ni41ODM4NzgzIDMzNi40NzMwMDcsODUuOTQwNDg4NyAzNDEuNTQzNTM1LDg0LjU2Mjk4OCBDMzQ1LjI1MTgwOCw4My41NzEwNTIxIDM0OC43MjU1MzQsODEuODUwODc2OSAzNTEuNzYyMjE5LDc5LjUwMjczNTggQzM1NC4yMTE0NTcsNzcuNTMxMTc0MyAzNTYuMTE3NDcsNzQuOTY3NTk5NSAzNTcuMzAwMTA0LDcyLjA1NDMyMDYgQzM1OC40NjI1NzksNjkuMTA1MDU0MiAzNTkuMDQ2MzYyLDY1Ljk1OTU1OTIgMzU5LjAxOTU4Miw2Mi43ODk1NzQ3IEMzNTkuMDM0MDU5LDU5LjY4MzU0ODcgMzU4LjQ1MDI3MSw1Ni42MDM3OTUgMzU3LjMwMDEwNCw1My43MTg1MzUzIEMzNTYuMTAzODEsNTAuNzg1Njk0NCAzNTQuMjAxNDkxLDQ4LjE5MzgxODcgMzUxLjc2MjIxOSw0Ni4xNzMyNjY4IEMzNDguNzU0NzQ0LDQzLjc3ODUwOTIgMzQ1LjI3MDk4Myw0Mi4wNTI5MTIxIDM0MS41NDM1MzUsNDEuMTExNjg3OSBDMzM2LjQ2MTM5OCwzOS44MDM0NDUxIDMzMS4yMjQ3OTQsMzkuMTkzMjgxNiAzMjUuOTc4MDE5LDM5LjI5ODAxMDcgTDMwMy44MjExNzMsMzkuMjk4MDEwNyBMMzAzLjgyMjUsODYuNDczNTE4NCBaIE01MTIsMTQwLjUyNDI4MiBDNTA5LjU4MDMwOCwxNDQuMTA5MjIxIDUwNi43MjY0NTQsMTQ3LjM4MTA4MSA1MDMuNTAzNDQ3LDE1MC4yNjUzMzQgQzUwMC4wMTM5NTUsMTUzLjQwMDEzMSA0OTYuMTI4ODkyLDE1Ni4wNjQzNjYgNDkxLjk0NzM5MSwxNTguMTkwMDU1IEM0ODcuNDgzMzY5LDE2MC40Njk0NDcgNDgyLjc3Mzg5MywxNjIuMjMyMTYyIDQ3Ny45MTAyOTksMTYzLjQ0NDAxNCBDNDcyLjY5MzE4NywxNjQuNzM4ODU5IDQ2Ny4zMzUzNTIsMTY1LjM4MDE3NyA0NjEuOTYwMDIzLDE2NS4zNTMyMTcgQzQ1Mi4zNzE2MDQsMTY1LjQ0Mjk0IDQ0Mi44NjEwMjYsMTYzLjYyNTQzMSA0MzMuOTgxMzY2LDE2MC4wMDYzODYgQzQxNy4wNDY2NjIsMTUzLjE2Mjk3MSA0MDMuNjMyMDY1LDEzOS43MTM4NzkgMzk2LjgzMjE2MywxMjIuNzYxNjU2IEMzOTMuMTkzMjU4LDExMy43MTk5ODMgMzkxLjM3NjIwMywxMDQuMDQ4NTYzIDM5MS40ODUzMzIsOTQuMzAyNzEzIEMzOTEuMzc2MzQzLDg0LjU1Njg3NTYgMzkzLjE5MzM5Miw3NC44ODU0ODI3IDM5Ni44MzIxNjMsNjUuODQzNzY5OSBDNDAzLjYzMTg3Nyw0OC44OTIwMzIzIDQxNy4wNDY2NiwzNS40NDM3MTIyIDQzMy45ODEzNjYsMjguNjAxNjkzOCBDNDQyLjg2MDgwMiwyNC45ODE3NTE4IDQ1Mi4zNzE0NzMsMjMuMTYzNzc0MSA0NjEuOTYwMDIzLDIzLjI1MzUzNTMgQzQ3MC42MDI0MiwyMy4yOTk4MzU5IDQ3OS4xNTc2NTcsMjQuOTg0NTAxNCA0ODcuMTcyMzkyLDI4LjIxODI2MDkgQzQ5NS43MjA0NCwzMS42MzkyMTc4IDUwMy4xNzkzOTMsMzcuMzE2NjYxIDUwOC43NTM0MjUsNDQuNjQ0ODQyNSBMNDk2LjcyMjM5LDUzLjYyMTY4MjEgQzQ5NS4xMDYyMDMsNTEuMjEzODkyNSA0OTMuMTc4OTk5LDQ5LjAzMDE3NCA0OTAuOTkwNzk5LDQ3LjEyNzIwNTMgQzQ4OC40NjM1NjIsNDQuODg5NDgxMiA0ODUuNjc0Nzg1LDQyLjk2NTg0ODggNDgyLjY4NTI5OCw0MS4zOTgyNjc1IEM0NzkuNDkxMDEzLDM5LjcxNTkzODEgNDc2LjEyOTgwNSwzOC4zNzE3MjE3IDQ3Mi42NTYzNCwzNy4zODc0ODAzIEM0NjkuMTc5NjQ3LDM2LjM4MTU4MjEgNDY1LjU3OTMsMzUuODY3MTE5NCA0NjEuOTYwMDIzLDM1Ljg1OTA1NTkgQzQ1My45Mzc0MzcsMzUuNzI3NDcyIDQ0NS45ODM2NTUsMzcuMzU3NDQ5MiA0MzguNjU5NTEzLDQwLjYzNDA1NTMgQzQzMi4wMTQ3NTMsNDMuNjQ4NzU2MiA0MjYuMDY1MjU1LDQ4LjAwNTA2NjEgNDIxLjE4NDc5Myw1My40MjkzMDIzIEM0MTYuMzU0NDEsNTguODY5MTM2OCA0MTIuNjI0MjEyLDY1LjE5MzY2NzcgNDEwLjIwMDU2OSw3Mi4wNTI5OTM4IEM0MDUuMTA4NDkxLDg2LjQ0OTEyNDQgNDA1LjEwODQ5MSwxMDIuMTU2MzAyIDQxMC4yMDA1NjksMTE2LjU1MjQzMiBDNDEyLjYyMzc4NSwxMjMuNDExNTU5IDQxNi4zNTQwMzksMTI5LjczNTczMyA0MjEuMTg0NzkzLDEzNS4xNzQ3OTcgQzQyNi4wNjM4NjEsMTQwLjYwMDkxMSA0MzIuMDEzNjgxLDE0NC45NTc5MDkgNDM4LjY1OTUxMywxNDcuOTcxMzcxIEM0NDUuOTgyOTY2LDE1MS4yNTAyNTEgNDUzLjkzNzE2MSwxNTIuODgwNzY1IDQ2MS45NjAwMjMsMTUyLjc0NzY5NyBDNDY1LjUxNTE3MywxNTIuNzQ5MDY3IDQ2OS4wNjMxODIsMTUyLjQyOTM0NyA0NzIuNTYwODE0LDE1MS43OTI0MzIgQzQ3Ni4xMTkyMjMsMTUxLjEzODE1MSA0NzkuNTgzNDEzLDE1MC4wNDc3MzggNDgyLjg3NTAyNSwxNDguNTQ1ODU3IEM0ODYuMzQ0OTA5LDE0Ni45NTQzMzEgNDg5LjU2MjUwOCwxNDQuODYyMzExIDQ5Mi40MjUwMjMsMTQyLjMzNjYzMyBDNDk1LjY0MDk0MiwxMzkuNDYzOTU0IDQ5OC40MzcyMjUsMTM2LjE1MzYxMiA1MDAuNzMxODUxLDEzMi41MDI3MDggTDUxMiwxNDAuNTI0MjgyIFoiPjwvcGF0aD4KICAgICAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNS40ODE4NjgsIDM1LjQ4MTg2OCkgcm90YXRlKC0xMzUuMjEzMDAwKSB0cmFuc2xhdGUoLTM1LjQ4MTg2OCwgLTM1LjQ4MTg2OCkgIiBwb2ludHM9IjEwLjM5MjIyNTIgMTAuMzkyMjI1MiA2MC41NzE1MTEzIDEwLjM5MjIyNTIgNjAuNTcxNTExMyA2MC41NzE1MTEzIDEwLjM5MjIyNTIgNjAuNTcxNTExMyI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5Z29uIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMi40NDYyMDcsIDM1LjA2MjYxMCkgcm90YXRlKC0xMzUuMjEzMDAwKSB0cmFuc2xhdGUoLTEzMi40NDYyMDcsIC0zNS4wNjI2MTApICIgcG9pbnRzPSIxMTcuNzI5ODE1IDIwLjM0NjIxOCAxNDcuMTYyNTk4IDIwLjM0NjIxOCAxNDcuMTYyNTk4IDQ5Ljc3OTAwMSAxMTcuNzI5ODE1IDQ5Ljc3OTAwMSI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5Z29uIGNsYXNzPSJncnBjTG9nbzIwMjUwMjIwIiBwb2ludHM9IjM2LjkwOTQ1NTYgMTQuMDI3MjY1MyAxNS41MDIyMjczIDM1LjU5NTAzMTMgMzcuMDY4NjY2NSA1Ny4wMDIyNTk1IDU1LjMxNDIzMjIgNTYuOTM0NTk0OSAzNi4xODEwNjU5IDM3Ljk1NTMzMjQgMTMwLjY1ODEyMyAzNy42MDUwNjg1IDEyMi4zNzc4MzEgNDUuOTQxMDg0MyAxMzEuNTAwNjE0IDQ1LjkwNzkxNTQgMTQyLjIwNDg5MiAzNS4xMjQwMzI0IDEzMS40MjEwMDkgMjQuNDIxMDgxNyAxMjIuMjk4MjI2IDI0LjQ1NDI1MDYgMTMwLjY0MDg3NSAzMi43MzA1NjIzIDM2LjE2MzgxOCAzMy4wODA4MjYzIDU1LjE1MzY5NDYgMTMuOTU5NjAwNyI+PC9wb2x5Z29uPgogICAgPC9nPgo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+                <property name="0abff08a-3986-40b1-a28f-4cc03c4fc1ec" display="Shortcut" value="Ctrl +Shift + G" isActive="true" />
+                <property name="79f6973f-5e3a-4618-9d4c-d7cc604bffe0" display="Shortcut (macOS)" isActive="true" />
+                <property name="6087e660-9599-47fb-9ff4-1ad901ce2a00" display="Trigger On Double-Click" value="false" isActive="true" />
+                <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
+                <property name="e034a0ca-0101-4594-8384-43048b714578" display="Order" isActive="true" />
+                <property name="3e93529e-2110-414e-aec1-2656e1a99b22" display="Top Divider" value="false" isActive="true" />
+                <property name="d2572c08-f02e-40b2-8a06-4d5251bb3352" display="Bottom Divider" value="false" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

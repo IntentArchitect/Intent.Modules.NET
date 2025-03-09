@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "Messages/TypeTests/BinaryTestDto.proto";
+import "Messages/TypeTests/BoolTestDto.proto";
+import "Messages/TypeTests/ByteTestDto.proto";
+import "Messages/TypeTests/CharTestDto.proto";
+import "Messages/TypeTests/ComplexValueTestDto.proto";
+import "Messages/TypeTests/DateOnlyTestDto.proto";
+import "Messages/TypeTests/DateTimeOffsetTestDto.proto";
+import "Messages/TypeTests/DateTimeTestDto.proto";
+import "Messages/TypeTests/DecimalTestDto.proto";
+import "Messages/TypeTests/DictionaryTestDto.proto";
+import "Messages/TypeTests/DoubleTestDto.proto";
+import "Messages/TypeTests/EnumTestDto.proto";
+import "Messages/TypeTests/FloatTestDto.proto";
+import "Messages/TypeTests/GuidTestDto.proto";
+import "Messages/TypeTests/IntTestDto.proto";
+import "Messages/TypeTests/LongTestDto.proto";
+import "Messages/TypeTests/ObjectTestDto.proto";
+import "Messages/TypeTests/PagedResultTestDto.proto";
+import "Messages/TypeTests/ShortTestDto.proto";
+import "Messages/TypeTests/StringTestDto.proto";
+import "Messages/TypeTests/TimeSpanTestDto.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages";
+
+package grpc_server.api.protos.messages;
+
+message TypeTestDto {
+    type_tests.BinaryTestDto binary_field = 1;
+    type_tests.BoolTestDto bool_field = 2;
+    type_tests.ByteTestDto byte_field = 3;
+    type_tests.CharTestDto char_field = 4;
+    type_tests.ComplexValueTestDto complex_value_field = 5;
+    type_tests.DateOnlyTestDto date_only_field = 6;
+    type_tests.DateTimeTestDto date_time_field = 7;
+    type_tests.DateTimeOffsetTestDto date_time_offset_field = 8;
+    type_tests.DecimalTestDto decimal_field = 9;
+    type_tests.DictionaryTestDto dictionary_field = 10;
+    type_tests.DoubleTestDto double_field = 11;
+    type_tests.EnumTestDto enum_field = 12;
+    type_tests.FloatTestDto float_field = 13;
+    type_tests.GuidTestDto guid_field = 14;
+    type_tests.IntTestDto int_field = 15;
+    type_tests.LongTestDto long_field = 16;
+    type_tests.ObjectTestDto object_field = 17;
+    type_tests.PagedResultTestDto paged_result_field = 18;
+    type_tests.ShortTestDto short_field = 19;
+    type_tests.StringTestDto string_field = 20;
+    type_tests.TimeSpanTestDto time_span_field = 21;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "Messages/PagedResult.proto";
+import "Messages/Products/ApplyTagsProductCommand.proto";
+import "Messages/Products/CreateComplexProductCommand.proto";
+import "Messages/Products/CreateProductCommand.proto";
+import "Messages/Products/DeleteProductCommand.proto";
+import "Messages/Products/GetProductByIdQuery.proto";
+import "Messages/Products/GetProductsPagedQuery.proto";
+import "Messages/Products/GetProductsQuery.proto";
+import "Messages/Products/ProductDto.proto";
+import "Messages/Products/UpdateProductCommand.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Services.Products";
+
+package grpc_server.api.protos.services.products;
+
+service Products {
+    rpc ApplyTagsProduct (messages.products.ApplyTagsProductCommand) returns (google.protobuf.Empty);
+    rpc CreateComplexProduct (messages.products.CreateComplexProductCommand) returns (google.protobuf.StringValue);
+    rpc CreateProduct (messages.products.CreateProductCommand) returns (google.protobuf.StringValue);
+    rpc DeleteProduct (messages.products.DeleteProductCommand) returns (google.protobuf.Empty);
+    rpc UpdateProduct (messages.products.UpdateProductCommand) returns (google.protobuf.Empty);
+    rpc GetProductById (messages.products.GetProductByIdQuery) returns (messages.products.ProductDto);
+    rpc GetProductsPaged (messages.products.GetProductsPagedQuery) returns (messages.PagedResultOfProductDto);
+    rpc GetProducts (messages.products.GetProductsQuery) returns (messages.products.ListOfProductDto);
+}

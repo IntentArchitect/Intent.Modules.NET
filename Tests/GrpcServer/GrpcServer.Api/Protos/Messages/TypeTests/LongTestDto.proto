@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message LongTestDto {
+    int64 long_field = 1;
+    repeated int64 long_field_collection = 2;
+    google.protobuf.Int64Value long_field_nullable = 3;
+    ListOfInt64 long_field_nullable_collection = 4;
+}

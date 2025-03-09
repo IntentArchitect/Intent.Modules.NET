@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message CharTestDto {
+    string char_field = 1;
+    string char_field_collection = 2;
+    google.protobuf.StringValue char_field_nullable = 3;
+    google.protobuf.StringValue char_field_nullable_collection = 4;
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="461a5b94-f18a-45e0-8ba2-904d8b6f6474" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>MessagePartials</name>
+  <display>MessagePartials</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>06fd5da4-4383-4579-b00b-ccc06c6df3a7</parentFolderId>
+  <packageId>fe0fd886-be7e-4739-94ec-79db831f2e80</packageId>
+  <packageName>GrpcServer</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ddef641b-cf7a-474c-8be5-50c9f20860ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Grpc.CommonTypesPartial</name>
+      <display>Intent.AspNetCore.Grpc.CommonTypesPartial</display>
+      <externalReference>Intent.AspNetCore.Grpc</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>461a5b94-f18a-45e0-8ba2-904d8b6f6474</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="81a79914-aa77-402a-b873-3af767a7c984" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Grpc.MessagePartial</name>
+      <display>Intent.AspNetCore.Grpc.MessagePartial</display>
+      <externalReference>Intent.AspNetCore.Grpc</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>461a5b94-f18a-45e0-8ba2-904d8b6f6474</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fb9825e8-32a0-4488-80d2-fd85303594a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Grpc.PagedResultPartial</name>
+      <display>Intent.AspNetCore.Grpc.PagedResultPartial</display>
+      <externalReference>Intent.AspNetCore.Grpc</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>461a5b94-f18a-45e0-8ba2-904d8b6f6474</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

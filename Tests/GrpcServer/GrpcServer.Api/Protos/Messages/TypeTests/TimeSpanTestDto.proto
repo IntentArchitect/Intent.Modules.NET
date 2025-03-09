@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/duration.proto";
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message TimeSpanTestDto {
+    google.protobuf.Duration time_span_field = 1;
+    repeated google.protobuf.Duration time_span_field_collection = 2;
+    google.protobuf.Duration time_span_field_nullable = 3;
+    ListOfDuration time_span_field_nullable_collection = 4;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "Messages/ComplexTypeDto.proto";
+import "Messages/Products/ProductDto.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages";
+
+package grpc_server.api.protos.messages;
+
+message ListOfPagedResultOfComplexTypeDto {
+    repeated PagedResultOfComplexTypeDto items = 1;
+}
+message PagedResultOfComplexTypeDto {
+    int32 total_count = 1;
+    int32 page_count = 2;
+    int32 page_size = 3;
+    int32 page_number = 4;
+    repeated ComplexTypeDto data = 5;
+}
+message PagedResultOfProductDto {
+    int32 total_count = 1;
+    int32 page_count = 2;
+    int32 page_size = 3;
+    int32 page_number = 4;
+    repeated products.ProductDto data = 5;
+}

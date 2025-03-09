@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "Messages/CommonTypes.proto";
+
+option csharp_namespace = "GrpcServer.Api.Protos.Messages.TypeTests";
+
+package grpc_server.api.protos.messages.type_tests;
+
+message DecimalTestDto {
+    DecimalValue decimal_field = 1;
+    repeated DecimalValue decimal_field_collection = 2;
+    DecimalValue decimal_field_nullable = 3;
+    ListOfDecimalValue decimal_field_nullable_collection = 4;
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e3c7835a-99cc-41fb-add5-a2dddb8d6329">
+  <sourceEnd id="7ffa37c7-fde9-4fe7-965d-139e2b18b326" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetProductByIdQuery</display>
+    <order>0</order>
+    <typeReference id="71a27ecd-7da6-4c76-8f8d-4305c8ef11ff">
+      <typeId>43204e09-f3a8-4016-966c-c646a19eb8ba</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Services</typePackageName>
+      <typePackageId>137a211a-bbcb-4a61-9a3f-76e8847e6eaf</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e3c7835a-99cc-41fb-add5-a2dddb8d6329" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>product</name>
+    <display>[query] product: Product</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="47d842b8-9a48-441d-bfb4-b0dcc248cc6c">
+      <typeId>5c0e455e-61a0-4845-93fa-a02cc03f7cda</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="43204e09-f3a8-4016-966c-c646a19eb8ba" location="[GrpcServer].[Services].[GetProductByIdQuery]" />
+        <target applicationId="a9c0a7d2-76c4-408d-9d6b-26cfc0c30128" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5c0e455e-61a0-4845-93fa-a02cc03f7cda" location="[GrpcServer].[Services].[Product]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="5c0e455e-61a0-4845-93fa-a02cc03f7cda" name="Product" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ad77157a-929e-4a53-ad0c-78ba897b0e41" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="43204e09-f3a8-4016-966c-c646a19eb8ba" name="GetProductByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="aaa1963c-706d-4566-bb42-14c3826bdafb" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
