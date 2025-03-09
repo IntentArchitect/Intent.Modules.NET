@@ -24,12 +24,12 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="95fd8c5f-4481-4bab-b9ab-588fcc0f146c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="95d40268-5caf-4209-927f-93c469da235a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="0235823c-103d-4dab-81d7-e7007e300723">
+      <typeReference id="d2ac87e9-0f68-4d05-b9fb-afc8e5b3bd45">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

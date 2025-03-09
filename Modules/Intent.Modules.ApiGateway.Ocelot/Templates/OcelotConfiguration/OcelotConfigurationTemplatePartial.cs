@@ -2,12 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.ApiGateway.Api;
+using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -29,6 +34,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Ocelot.Configuration.File")
                 .AddUsing("Ocelot.DependencyInjection")
                 .AddClass($"OcelotConfiguration", @class =>
                 {
@@ -45,10 +51,69 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement(@"services.AddOcelot(configuration);");
+                        method.AddStatement("services.AddOcelot(configuration);");
+                        method.AddStatement("ConfigureDownstreamHostAndPortsPlaceholders(services, configuration);");
                         method.AddStatement("return services;");
                     });
+                    @class.AddNestedClass("GlobalHosts", nested =>
+                    {
+                        nested.WithBaseType("Dictionary<string, Uri>");
+                    });
+                    @class.AddMethod("void", "ConfigureDownstreamHostAndPortsPlaceholders", method =>
+                    {
+                        method.Static();
+                        method.Private();
+                        method.AddParameter("IServiceCollection", "services");
+                        method.AddParameter("IConfiguration", "configuration");
+                        method.AddInvocationStatement("services.PostConfigure<FileConfiguration>", inv => inv
+                            .AddArgument(new CSharpLambdaBlock("fileConfiguration")
+                                .AddStatement(@"var globalHosts = configuration.GetSection(""Ocelot:Hosts"").Get<GlobalHosts>();")
+                                .AddForEachStatement("route", "fileConfiguration.Routes", fe => fe
+                                    .AddStatement("ConfigureRoute(route, globalHosts);"))));
+                    });
+                    @class.AddMethod("void", "ConfigureRoute", method =>
+                    {
+                        method.Static();
+                        method.Private();
+                        method.AddParameter("FileRoute", "route");
+                        method.AddParameter("GlobalHosts" + (OutputTarget.GetProject().NullableEnabled ? "?" : ""), "globalHosts");
+                        method.AddForEachStatement("hostAndPort", "route.DownstreamHostAndPorts", fe =>
+                        {
+                            fe.AddStatements("""
+                                             var host = hostAndPort.Host;
+                                             if (!host.StartsWith('{') || !host.EndsWith('}'))
+                                             {
+                                                 continue;
+                                             }
+                                             var placeHolder = host.TrimStart('{').TrimEnd('}');
+                                             if (globalHosts?.TryGetValue(placeHolder, out var uri) != true || uri == null)
+                                             {
+                                                 continue;
+                                             }
+                                             route.DownstreamScheme = uri.Scheme;
+                                             hostAndPort.Host = uri.Host;
+                                             hostAndPort.Port = uri.Port;
+                                             """);
+                        });
+                    });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            var apiGatewayModels = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetApiGatewayRouteModels();
+            var downstreamServiceNames = apiGatewayModels
+                .Select(s => s.DownstreamEndpoints().FirstOrDefault())
+                .Where(p => p is not null)
+                .OfType<DownstreamEndModel>()
+                .Select(s => s.Element as IElement)
+                .OfType<IElement>()
+                .Select(s => s.Package.Name)
+                .Distinct();
+            foreach (var serviceName in downstreamServiceNames)
+            {
+                this.ApplyAppSetting($"Ocelot:Hosts:{serviceName}", "Enter URL here");
+            }
         }
 
         public override void AfterTemplateRegistration()
@@ -76,6 +141,7 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
 
                 if (programTemplate.ProgramFile.UsesMinimalHostingModel)
                 {
+                    
                     programTemplate.ProgramFile.AddHostBuilderConfigurationStatement("builder.Configuration.ConfigureOcelot();");
                 }
                 else
@@ -98,16 +164,20 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
                     startupFileTemplate.AddUsing("Ocelot.Middleware");
 
                     var statement = statements.FindStatement(x => x.GetText("").Contains("app.Run"));
-                    if (statement is not null)
+                    if (statement is not null && 
+                        startupFileTemplate.Project.GetProject().InternalElement?.AsCSharpProjectNETModel()?.GetNETSettings().UseTopLevelStatements() == true)
                     {
                         statement.InsertAbove($"await {context.App}.UseOcelot();");
+                    }
+                    else if (statement is not null)
+                    {
+                        statement.InsertAbove($"{context.App}.UseOcelot().Wait();");
                     }
                     else
                     {
                         statements.AddStatement($"{context.App}.UseOcelot().Wait();");
                     }
                 });
-                startupFileTemplate.StartupFile.AddUseEndpointsStatement(ctx => "// Needed for Ocelot");
             }, 9999);
         }
 

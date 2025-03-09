@@ -28,24 +28,6 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotJson
                 .WithJsonWriter()
                 .WithRootObject(this, x =>
                 {
-                    x.WithObject("GlobalConfiguration", config =>
-                    {
-                        config.WithValue("BaseUrl", "http://localhost:5000");
-                        config.WithObject("Hosts", hosts =>
-                        {
-                            foreach (var packageName in Model
-                                         .Select(s => s.DownstreamEndpoints().FirstOrDefault())
-                                         .Where(p => p is not null)
-                                         .OfType<DownstreamEndModel>()
-                                         .Select(s => s.Element as IElement)
-                                         .OfType<IElement>()
-                                         .Select(s => s.Package.Name)
-                                         .Distinct())
-                            {
-                                hosts.WithValue(packageName, "");
-                            }
-                        });
-                    });
                     x.WithArray("Routes", routes =>
                     {
                         foreach (var routeModel in Model)

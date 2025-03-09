@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ae9ef4fe-6e1b-446c-b262-284620d39ab2">
+  <sourceEnd id="fe8d48b7-dacc-47e0-9f75-e199b092e5b7" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: GetAggregateRootLongByIdQueryGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="bd56eb5f-6579-41c2-a8f4-de2eb397b0fe">
+      <typeId>e5a3f2b2-1dce-438c-9983-01744b42df12</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ae9ef4fe-6e1b-446c-b262-284620d39ab2" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: GetAggregateRootLongByIdQuery</display>
+    <order>1</order>
+    <typeReference id="46cd404e-2451-4165-9074-770506ece1ac">
+      <typeId>59b99d24-9469-4daf-b4a9-c2abfc6593db</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>

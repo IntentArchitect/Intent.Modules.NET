@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="a9ce42d1-aec0-4c33-ae75-2d0fc829b759">
-  <sourceEnd id="c734dbe3-b8f9-4c0f-893e-4c7665c785fb" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
-    <display>: GetAggregateRootLongsQueryGatewayRoute</display>
+<association id="e9586243-ed6f-4e4f-a849-72eee76f4692">
+  <sourceEnd id="106a8876-2288-46d2-b012-8de802b833a3" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: DeleteAggregateRootLongCommandGatewayRoute</display>
     <order>0</order>
-    <typeReference id="abe9411c-31ab-44a9-a65a-a31bf507c359">
-      <typeId>bca303c0-8d58-447a-bf12-6370845202b6</typeId>
+    <typeReference id="b1c34558-c52a-4066-a927-48c9bbd6b810">
+      <typeId>b9be7f41-1078-46a2-8603-28365667bf52</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,12 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="a9ce42d1-aec0-4c33-ae75-2d0fc829b759" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+  <targetEnd id="e9586243-ed6f-4e4f-a849-72eee76f4692" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
     <name>[call]</name>
-    <display>[call]: GetAggregateRootLongsQuery</display>
+    <display>[call]: DeleteAggregateRootLongCommand</display>
     <order>1</order>
-    <typeReference id="5e6760b8-eed6-4997-aedd-afffb6d1a7d0">
-      <typeId>b6c38348-e150-4d08-a171-7e7392655ee8</typeId>
+    <typeReference id="41ac0d1d-991c-4796-b139-f0deecebb5b1">
+      <typeId>df13ac54-b772-48bf-aa21-0ed6011477fc</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>

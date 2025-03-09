@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f8e56191-2029-4d90-871f-8390ad84f7ac">
+  <sourceEnd id="20d6c347-bd79-4cde-98e6-66e781ee162a" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: DeleteInvoiceGatewayRoute</display>
+    <order>0</order>
+    <typeReference id="f71e49e1-87ba-422f-b30b-23aaa4d6dc6b">
+      <typeId>a1b41dd2-ab09-442b-bb6a-a53af1052435</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>OcelotTest.Services</typePackageName>
+      <typePackageId>051a6839-a5ce-4936-8b04-546bd17898d7</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f8e56191-2029-4d90-871f-8390ad84f7ac" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+    <name>[call]</name>
+    <display>[call]: DeleteInvoice</display>
+    <order>1</order>
+    <typeReference id="d0229f39-780f-42f3-b28a-6a99938dea71">
+      <typeId>4b8be3e6-8297-4601-b832-b80811b5f1d7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+      <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Route Association</associationType>
+  <associationTypeId>dd35ed32-76bb-4abf-a4e0-370f230765cf</associationTypeId>
+  <stereotypes />
+</association>

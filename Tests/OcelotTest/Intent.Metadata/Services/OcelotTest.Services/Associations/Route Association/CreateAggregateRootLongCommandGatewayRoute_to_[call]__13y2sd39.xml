@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="0e71d067-ed11-4b6f-8a8d-330b9d6eb99c">
-  <sourceEnd id="01d0a773-8e01-482b-92f6-afb5de8a6ece" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
-    <display>: FindInvoicesGatewayRoute</display>
+<association id="f1af4e10-cf6e-44c1-aed2-ca3fc221c6f9">
+  <sourceEnd id="c5a77a9f-be0f-494c-9e9c-930cb5fda7c6" type="Upstream End" typeId="4143dbe5-12ce-4705-ba69-2683c46b1b96">
+    <display>: CreateAggregateRootLongCommandGatewayRoute</display>
     <order>0</order>
-    <typeReference id="1f038640-87b8-4cdf-abe2-4d85a7da8f3c">
-      <typeId>fa9f727d-38e1-45e1-b073-a06922f366fd</typeId>
+    <typeReference id="78a17c70-c598-46e8-95c7-fd32a1ee9734">
+      <typeId>1d3ee517-b6ef-41ad-bb34-332f0185c132</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,18 +18,18 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="0e71d067-ed11-4b6f-8a8d-330b9d6eb99c" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
+  <targetEnd id="f1af4e10-cf6e-44c1-aed2-ca3fc221c6f9" type="Downstream End" typeId="17084378-a3d8-4233-b275-c856eea4dd61">
     <name>[call]</name>
-    <display>[call]: FindInvoices</display>
-    <order>0</order>
-    <typeReference id="c94469ac-fa15-4da6-9364-df1f0b27772d">
-      <typeId>207687d9-7be5-4410-a0ab-20e2d2ad45dd</typeId>
+    <display>[call]: CreateAggregateRootLongCommand</display>
+    <order>1</order>
+    <typeReference id="e256d05e-36a4-4949-8a75-4a436ae40029">
+      <typeId>cc7186ab-1267-40a7-94f1-d3612d5abc90</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
-      <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

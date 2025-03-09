@@ -24,12 +24,12 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="fda9a384-4547-4a87-b16a-32f27fd20ad6" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="c155589b-b5da-4193-924d-1deeb3aab6ae" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Id</name>
       <display>Id: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="576ddd91-8484-4544-b0a1-8cba2372cd43">
+      <typeReference id="26f6cad6-ef58-45f8-b9f9-ae85c5512c7b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -74,6 +74,30 @@
       <metadata>
         <entry key="routeVar" value="id" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f8fa2762-bb3b-435e-b316-d19806c06b2d" type="Body Field" typeId="6b201f1e-03e3-4a9d-923f-ca3976c998c5">
+      <name>Body</name>
+      <display>Body: InvoiceUpdateDto</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="d8f85c23-6a2b-4d23-96d0-793634610fcd">
+        <typeId>f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Standard.AspNetCore.TestApplication.Services</typePackageName>
+        <typePackageId>9b97450b-e452-4722-9ccf-84e3dbd82fb0</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>eb993a90-69e2-4eb9-a9ef-0339e0ab1e87</parentFolderId>
+      <packageId>051a6839-a5ce-4936-8b04-546bd17898d7</packageId>
+      <packageName>OcelotTest.Services</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

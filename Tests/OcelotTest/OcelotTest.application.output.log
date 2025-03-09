@@ -298,26 +298,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>a1bf06da-8f91-4e86-a069-34231d4ab057</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OcelotTest.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a1bf06da-8f91-4e86-a069-34231d4ab057</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OcelotTest.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a1bf06da-8f91-4e86-a069-34231d4ab057</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OcelotTest.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -327,30 +311,6 @@
       <ApplicationRelativeFilePath>OcelotTest.Application/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#5747efbe-33f4-42dc-9ab4-42649b082450</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OcelotTest.Application/Cqrs/CreateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Cqrs/CreateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#96779665-c0dd-4379-b63b-fb412356336b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OcelotTest.Application/Cqrs/GetAggregateRootLongsQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Cqrs/GetAggregateRootLongsQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#bc19e921-f460-4e7e-9f4b-b7afe437310c</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OcelotTest.Application/Cqrs/UpdateAggregateRootLongCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Cqrs/UpdateAggregateRootLongCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>51d7eefa-73f7-4ddc-b53a-26cc228dd3f7</ProjectId>
