@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -133,6 +134,12 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
             {
                 return;
             }
+            
+            if (programTemplate.ProgramFile.UsesMinimalHostingModel && 
+                programTemplate.ExecutionContext.FindTemplateInstances<ITemplate>(TemplateRoles.Distribution.WebApi.Controller).Any())
+            {
+                throw new Exception("Using ASP.NET Core Web API Controller with Minimal Hosting Model is not supported. Please ensure that Minimal Hosting Model is disabled. If you need this capability please contact support at support@intentarchitect.com.");
+            }
 
             programTemplate.CSharpFile.OnBuild(file =>
             {
@@ -141,7 +148,6 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
 
                 if (programTemplate.ProgramFile.UsesMinimalHostingModel)
                 {
-
                     programTemplate.ProgramFile.AddHostBuilderConfigurationStatement("builder.Configuration.ConfigureOcelot();");
                 }
                 else
