@@ -26,7 +26,7 @@
 
 - Fixed: Added warning regarding using Health Checks UI when running against .NET 8 due to the following issues:
     - [Icons missing after upgrading to v8.0.0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/2130).
-    - [[UI] Relative Address for HealthCheckEndpoint with Kestrel at http://0.0.0.0:0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/410).
+    - [UI - Relative Address for HealthCheckEndpoint with Kestrel at http://0.0.0.0:0](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/issues/410).
 
 ### Version 2.0.4
 
