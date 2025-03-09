@@ -1,3 +1,7 @@
+### Version 3.8.9
+
+- Improvement: It is now possible to specify whether a `.csproj` item type was implicitly added, allowing item types to have an `Include` action without a `Remove` action having to also be generated.
+
 ### Version 3.8.8
 
 - Improvement: It is no longer possible to create `Template Output` elements (these are always installed as needed by modules).
