@@ -2332,6 +2332,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c640cc04-1499-4f52-9c83-d92fd938ebba</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#90f9e3aa-7deb-4419-8250-f7c9454dee25</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Contracts/ColumnDC.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ColumnDC.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c640cc04-1499-4f52-9c83-d92fd938ebba</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#92073c93-626c-43e7-84fe-8b20c2686d98</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Contracts/OrderItemUpdateDC.cs</ApplicationRelativeFilePath>
