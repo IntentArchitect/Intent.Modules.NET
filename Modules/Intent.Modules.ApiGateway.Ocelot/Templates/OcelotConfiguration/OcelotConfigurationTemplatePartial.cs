@@ -134,8 +134,8 @@ namespace Intent.Modules.ApiGateway.Ocelot.Templates.OcelotConfiguration
             {
                 return;
             }
-            
-            if (programTemplate.ProgramFile.UsesMinimalHostingModel && 
+
+            if (programTemplate.ProgramFile.UsesMinimalHostingModel &&
                 programTemplate.ExecutionContext.FindTemplateInstances<ITemplate>(TemplateRoles.Distribution.WebApi.Controller).Any())
             {
                 throw new Exception("Using ASP.NET Core Web API Controller with Minimal Hosting Model is not supported. Please ensure that Minimal Hosting Model is disabled. If you need this capability please contact support at support@intentarchitect.com.");

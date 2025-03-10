@@ -329,6 +329,7 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Security.Shared", "Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.shproj", "{87BE90B8-BD52-4284-8FC9-8A38AD6D283C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.Grpc", "Intent.Modules.AspNetCore.Grpc\Intent.Modules.AspNetCore.Grpc.csproj", "{4F03F39E-AAC1-4B43-8CF7-03C4EA2E945F}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ApiGateway.Ocelot", "Intent.Modules.ApiGateway.Ocelot\Intent.Modules.ApiGateway.Ocelot.csproj", "{30B56FBE-EBF5-4094-9962-FE128C1ACC4D}"
 EndProject
 Global
