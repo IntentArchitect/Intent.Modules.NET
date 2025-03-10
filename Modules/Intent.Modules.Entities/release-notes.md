@@ -1,3 +1,7 @@
+### Version 5.1.11
+
+- Improvement: `Column` stereotype applied to Data Contract Attributes will not be honoured in realized code.
+
 ### Version 5.1.10
 
 - Improvement: When available, constructor on a parent domain entity will be invoked from a child domain entity constructor, instead of inherited properties being set explicitly.

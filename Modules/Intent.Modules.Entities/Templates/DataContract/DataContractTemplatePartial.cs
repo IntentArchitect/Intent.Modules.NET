@@ -59,7 +59,20 @@ namespace Intent.Modules.Entities.Templates.DataContract
                             ctor.AddParameter(GetTypeName(attribute), attribute.Name.ToCamelCase(), param =>
                             {
                                 param.RepresentsModel(attribute);
-                                param.IntroduceProperty(prop => prop.Init().RepresentsModel(attribute));
+                                param.IntroduceProperty(prop =>
+                                {
+                                    prop.Init().RepresentsModel(attribute);
+
+                                    if (attribute.HasStereotype("0b630b29-9513-4bbb-87fa-6cb3e6f65199") &&
+                                        !string.IsNullOrWhiteSpace(attribute.GetStereotypeProperty<string>("0b630b29-9513-4bbb-87fa-6cb3e6f65199", "Name")))
+                                    {
+                                        prop.AddAttribute(UseType("System.ComponentModel.DataAnnotations.Schema.Column"), columnAttribute =>
+                                        {
+                                            var columnName = attribute.GetStereotypeProperty<string>("0b630b29-9513-4bbb-87fa-6cb3e6f65199", "Name");
+                                            columnAttribute.AddArgument($"\"{columnName}\"");
+                                        });
+                                    }
+                                });
                             });
                         }
                     });
