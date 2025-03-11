@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d20a3a35-c9dd-49ba-9c38-07968d701630" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>33f268df-0900-485a-a481-0e433d9b6c4d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6c5a63e0-5e09-4a59-98f7-a1a19a0bb726" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d20a3a35-c9dd-49ba-9c38-07968d701630</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

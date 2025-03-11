@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ceb86615-64b3-4059-a6d3-256f29e49567" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cf0231e4-07e0-48bc-b765-05b5509a569b</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ae7a3083-80f6-4def-8cf8-bfe8aae2bfc1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Permissions</name>
+      <display>Intent.AspNetCore.Permissions</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ceb86615-64b3-4059-a6d3-256f29e49567</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

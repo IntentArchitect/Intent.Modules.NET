@@ -1,8 +1,12 @@
-﻿### Version 7.1.1
+﻿### Version 7.1.2
+
+- Fixed: Traditional service controllers would not respect the "Default API Security" being set to "Secured by default".
+
+### Version 7.1.1
 
 - Improvement: Controller methods will now have `[ProducesResponseType(StatusCodes.Status204NoContent)]` applied to them when its operation returns a nullable non-collection.
-- Fixed: When using multitenancy the create action now has the correct response. 
 - Improvement: `Roles` and `Policies` will now used constants instead of strings, if they are available.
+- Fixed: When using multitenancy the create action now has the correct response. 
 
 ### Version 7.1.0
 

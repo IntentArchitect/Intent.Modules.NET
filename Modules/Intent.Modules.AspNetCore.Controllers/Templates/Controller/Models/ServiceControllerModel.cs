@@ -6,6 +6,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Metadata.Security.Api;
 using Intent.Metadata.WebApi.Api;
+using Intent.Modules.AspNetCore.Controllers.Settings;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Metadata.Security.Models;
@@ -36,8 +37,8 @@ public class ServiceControllerModel : IControllerModel
         }
 
         _model = model;
-        RequiresAuthorization = model.HasSecured();
-        AllowAnonymous = model.HasUnsecured();
+        RequiresAuthorization = endpointCollectionModel.RequiresAuthorization;
+        AllowAnonymous = endpointCollectionModel.AllowAnonymous;
         SecurityModels = endpointCollectionModel.SecurityModels;
         Route = GetControllerRoute(model.GetHttpServiceSettings()?.Route());
         Operations = endpointCollectionModel.Endpoints

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a6daea4b-84e9-4b4b-847d-376de264200f" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>TestService</name>
+  <display>TestService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>aa584bc9-14b7-4bc9-9dec-60a485fbe618</parentFolderId>
+  <packageId>aa584bc9-14b7-4bc9-9dec-60a485fbe618</packageId>
+  <packageName>AspNetControllers.SecuredByDefault.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/test" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ea33f23c-1736-4d4b-8124-f0924cea3d09" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Operation</name>
+      <display>Operation(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e54da3bb-abe9-4d45-96be-13194d065904">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a6daea4b-84e9-4b4b-847d-376de264200f</parentFolderId>
+      <packageId>aa584bc9-14b7-4bc9-9dec-60a485fbe618</packageId>
+      <packageName>AspNetControllers.SecuredByDefault.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="operation" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

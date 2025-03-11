@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{9CE2B38A-1CFD-449D-972D-F331A7A52B73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetControllers.SecuredByDefault.Api", "AspNetControllers.SecuredByDefault.Api\AspNetControllers.SecuredByDefault.Api.csproj", "{33F268DF-0900-485A-A481-0E433D9B6C4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{308EEA0B-B1C1-40C1-803E-71473F222207}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetControllers.SecuredByDefault.Application", "AspNetControllers.SecuredByDefault.Application\AspNetControllers.SecuredByDefault.Application.csproj", "{CF0231E4-07E0-48BC-B765-05B5509A569B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{16FEEBD0-B94A-4790-A3CA-C05EF57FE74D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetControllers.SecuredByDefault.Domain", "AspNetControllers.SecuredByDefault.Domain\AspNetControllers.SecuredByDefault.Domain.csproj", "{B25D2C56-43A8-4F42-B68D-2562118DB20F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{39B3D9AA-1813-4919-9531-8F4F2FF1B738}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetControllers.SecuredByDefault.Infrastructure", "AspNetControllers.SecuredByDefault.Infrastructure\AspNetControllers.SecuredByDefault.Infrastructure.csproj", "{1FE74517-DC48-44CE-B851-D03968DF356D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33F268DF-0900-485A-A481-0E433D9B6C4D} = {9CE2B38A-1CFD-449D-972D-F331A7A52B73}
+		{CF0231E4-07E0-48BC-B765-05B5509A569B} = {308EEA0B-B1C1-40C1-803E-71473F222207}
+		{B25D2C56-43A8-4F42-B68D-2562118DB20F} = {16FEEBD0-B94A-4790-A3CA-C05EF57FE74D}
+		{1FE74517-DC48-44CE-B851-D03968DF356D} = {39B3D9AA-1813-4919-9531-8F4F2FF1B738}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33F268DF-0900-485A-A481-0E433D9B6C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F268DF-0900-485A-A481-0E433D9B6C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F268DF-0900-485A-A481-0E433D9B6C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F268DF-0900-485A-A481-0E433D9B6C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0231E4-07E0-48BC-B765-05B5509A569B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0231E4-07E0-48BC-B765-05B5509A569B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0231E4-07E0-48BC-B765-05B5509A569B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0231E4-07E0-48BC-B765-05B5509A569B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25D2C56-43A8-4F42-B68D-2562118DB20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25D2C56-43A8-4F42-B68D-2562118DB20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25D2C56-43A8-4F42-B68D-2562118DB20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25D2C56-43A8-4F42-B68D-2562118DB20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE74517-DC48-44CE-B851-D03968DF356D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE74517-DC48-44CE-B851-D03968DF356D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE74517-DC48-44CE-B851-D03968DF356D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE74517-DC48-44CE-B851-D03968DF356D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
