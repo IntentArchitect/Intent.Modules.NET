@@ -14,13 +14,13 @@ The `Intent.Security.MSAL` module facilitates the integration of Azure Active Di
 
 ### Client Credential Setup
 
-This setup is used when one application needs to invoke endpoints from another, indirectly initiated by a user request or system-generated event.
+This setup is used when a back-end facing API (`Client`) needs to invoke another downstream API (`HostAPI`) with a secure credential where a user initiated the request (indirectly) or a system-driven event initiated it.
 
 The following instructions assume a `HostAPI` application exposing API endpoints and a `Client` application consuming them. Adjust these settings based on your specific needs.
 
 #### Registering the Host Application
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Microsoft Entra ID** > **App registrations**.
 3. Click **New registration**.
 4. Enter a **Name** for the application (e.g., "HostAPI").
@@ -36,9 +36,11 @@ The following instructions assume a `HostAPI` application exposing API endpoints
 4. Provide it a Display name: `Client Access Role`.
 5. Set the `Allowed member types` to `Application`.
 6. Se the Value to `Client.Access`.
-7. Give it a description.
+7. Give it a display name and description.
 8. Ensure that the `app role` is enabled by having the box checked at the end.
 9. Click on `Apply`.
+10. Select **Expose an API** and click on `Add` next to `Application ID URI`.
+11. Keep the URI as-is (for tutorial purposes) and click `Save`.
 
 #### Register the Client Application
 
@@ -52,7 +54,7 @@ The following instructions assume a `HostAPI` application exposing API endpoints
 #### Configure the Client Application
 
 1. After registering, go to the application's **Overview** page.
-2. Under **Manage**, select **Certificates & Secrets** and create a `Client secret`. Copy the value as it will be obfuscated later.
+2. Under **Manage**, select **Certificates & Secrets** and create a `Client secret`. **COPY** the `Value` and store it somewhere as it will be obfuscated once you start navigating.
 3. Navigate to `API permissions`. Click on `Add a permission`.
 4. Go to `My APIs`.
 5. Select `HostAPI`.
@@ -70,60 +72,63 @@ Ensure you specify the necessary properties for `AzureAd`.
     "Instance": "https://login.microsoftonline.com/",
     "Domain": "mydomain.onmicrosoft.com",
     "TenantId": "19f43eb9-a915-45a5-9f1f-71091e8c8f1b",
-    "ClientId": "325fbbd0-77e7-40f0-a25f-3857263fb265",
-    "Audience": "api://325fbbd0-77e7-40f0-a25f-3857263fb265"
+    "ClientId": "2825b206-549d-43c0-96c8-10a6a196d679",
+    "Audience": "api://2825b206-549d-43c0-96c8-10a6a196d679"
 }
 ```
 
-1. `Domain` can be found on the `Overview` page (Microsoft Entra ID) by copying the `Primary domain`.
+1. `Domain` can be found in `Microsoft Entra ID` on its `Overview` page by copying the `Primary domain`.
 2. `Instance` can be found by clicking on `Endpoints` in `App registrations`. Copy the `domain part` from the `OAuth 2.0 authorization endpoint (v2)` URI, i.e., `https://login.microsoftonline.com`.
 3. Retrieve `ClientId` and `TenantId` from `HostApi`'s `Overview` page.
-4. `Audience` can be specified like this `api://<ClientId>` (where `ClientId` is the `HostApi` Client Id).
+4. `Audience` is the `Application ID URI` from the `HostApi`'s `Expose an API` page.
 
 #### Obtain an Access Token for Testing
 
-Perform an HTTP call to obtain the access token for testing via Swagger UI:
+For obtaining an Access Token, use tools like [Postman](https://www.postman.com/downloads), [Insomnia](https://insomnia.rest/download) or [Bruno](https://www.usebruno.com/downloads) (they will have an `Auth` section). Below is an example HTTP message to request an Access Token.
 
 ```http
 POST https://login.microsoftonline.com/19f43eb9-a915-45a5-9f1f-71091e8c8f1b/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials
-&client_id=a3f89381-bdcc-4e05-8ef8-c30b174ec7f8
-&client_secret=kFG8Q~_TutR_YCYTfrGhjBr7ZeXazMDNXSrM8bLN
-&scope=api://325fbbd0-77e7-40f0-a25f-3857263fb265/.default
+&client_id=d348ba62-a064-476a-bac4-41af07d60d5a
+&client_secret=Fay8Q~1MQUg4ZWcBM_5HEOQq9oJVvWbfmruJTaZy
+&scope=api://2825b206-549d-43c0-96c8-10a6a196d679/.default
 ```
 
-The URI can be found by accessing the `Endpoints` page from `HostApi`'s `Overview` page and copying the `OAuth 2.0 authorization endpoint (v2)` URI.
-Use the `client_id` and `client_secret` from your `Client` application. The `scope` should be the `Audience` from the `HostAPI` having the suffix of `/.default`.
+The URI can be found by accessing the `Endpoints` page from `HostApi`'s `Overview` page and copying the `OAuth 2.0 token endpoint (v2)` URI.
+The `client_id` is your `Client` application's Application Client ID and `client_secret` will be the secret you copied earlier. 
+The `scope` should be the `Audience` from the `HostAPI` having the suffix of `/.default`.
 
-You can then paste the resulting `access_token` into the Swagger UI under `Authorize`.
+Now you can test your token authorization by pasting the resulting `access_token` into the Swagger UI under `Authorize` (if you're using Swagger).
 
 ### AD B2C Authorization Code Flow
 
-This setup is used for requests initiated by a user from an SPA, Mobile app, or web page and processed by an externally exposed API.
+This setup is used for requests initiated by a user from an SPA, Mobile app, or web page and processed by an externally exposed API (`ConsumerAPI`).
 
-#### Registering the ConsumerFacingAPI Application
+#### Registering the ConsumerAPI Application
 
-1. Sign into the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Azure AD B2C** > **App registrations**.
 3. Click **New registration**.
-4. Enter a **Name** for the application (e.g., "ConsumerFacingAPI").
+4. Enter a **Name** for the application (e.g., "ConsumerAPI").
 5. Select `Accounts in any identity provider or organizational directory (for authenticating users with user flows)` for **Supported account types**.
 6. In `Redirect URI`, choose `Web` and specify your application's URL and port, e.g., `http://localhost:8080`.
 7. Ensure `Grant admin consent to openid and offline_access permissions` is checked.
 8. Click **Register** to create the application.
 
-#### Configuring the ConsumerFacingAPI Application
+#### Configuring the ConsumerAPI Application
 
 1. After registering, go to the application's Overview page.
-2. Under `Manage`, navigate to `Certificates & secrets` and create a `Client secret`. Copy the value.
-3. Select `Expose an API` and click on `Add a scope`. Create the `Application ID URI`.
+2. Under `Manage`, navigate to `Certificates & secrets` and create a `Client secret`. **COPY** the `Value` and store it somewhere as it will be obfuscated once you start navigating.
+3. Select `Expose an API` and click on `Add a scope`. Keep the `Application ID URI` as-is and click on `Save and continue` (for tutorial purposes).
 4. Provide a Scope name, e.g., `FrontEnd.Access`.
-5. In the `Owners` section, add your Azure user.
-6. Navigate to `API permissions`, click on `Add a permission`.
-7. Go to `My APIs` and select `ConsumerFacingAPI`.
-8. Click on `Grant admin consent for Default Directory`.
+5. Give it a display name and description.
+6. Click on `Add scope`.
+7. In the `Owners` section, add your Azure user.
+8. Navigate to `API permissions`, click on `Add a permission`.
+9. Go to `My APIs` and select `ConsumerAPI`. Select your `FrontEnd.Access` permission and click on `Add permissions`.
+10. Click on `Grant admin consent for Default Directory`.
 
 #### Setup User Flow
 
@@ -134,7 +139,7 @@ This setup is used for requests initiated by a user from an SPA, Mobile app, or 
 5. Click `Create`.
 6. Name the flow `B2C_1_Consumer`.
 7. Check `Email signup` under `Local accounts`.
-8. Ensure `Display name` is selected under attributes (for collected and returned scenarios).
+8. In the `User attributes and token claims` section, ensure `Display name` is selected under attributes (for collected and returned scenarios).
 9. Click `Create`.
 
 #### Configure `appsettings.json`
@@ -150,17 +155,20 @@ Configure the settings for `AzureAd`.
 }
 ```
 
-Retrieve `Domain`, `Instance`, `ClientId`, and `SignUpSignInPolicyId` from the Azure portal as previously described.
+1. `Domain` can be found in `Azure AD B2C` on its `Overview` page by copying the `Primary domain`.
+2. `Instance` can be found by clicking on `Endpoints` in `App registrations`. Copy the `domain part` from the `OAuth 2.0 authorization endpoint (v2)` URI, i.e., `https://myb2c.b2clogin.com`.
+3. Retrieve `ClientId` and `TenantId` from `ConsumerAPI`'s `Overview` page.
+4. Use the `B2C_1_Consumer` flow created earlier for the `SignUpSignInPolicyId` setting.
 
 #### Obtain an Access Token for Testing
 
 For Authorization Code flow testing, use tools like [Postman](https://www.postman.com/downloads), [Insomnia](https://insomnia.rest/download) or [Bruno](https://www.usebruno.com/downloads) (they will have an `Auth` section) with the following configurations:
 
-- **Callback URL**: `Redirect URI` of the `ConsumerFacingAPI` application.
 - **Authorization URL**: `OAuth 2.0 authorization endpoint (v2)` URL from `Endpoints`, replacing `<policy-name>` with `B2C_1_Consumer`.
 - **Access Token URL**: `OAuth 2.0 token endpoint (v2)` URL from `Endpoints`, replacing `<policy-name>` with `B2C_1_Consumer`.
 - **Client ID**: `Application (client) ID`.
-- **Client Secret**: Secret value from `ConsumerFacingAPI`.
-- **Scope**: Include `offline_access`, `openid`, and your API scope, like: `offline_access openid https://myb2c.onmicrosoft.com/0feacea5-6401-45d0-9503-639bebf6ab73/FrontEnd.Access`.
+- **Client Secret**: Will be the secret you copied earlier.
+- **Callback URL**: `Redirect URI` of the `ConsumerAPI` application.
+- **Scope**: Include `offline_access`, `openid`, and your API scope (inside `Expose an API` you can copy the created scope name), like: `offline_access openid https://myb2c.onmicrosoft.com/0feacea5-6401-45d0-9503-639bebf6ab73/FrontEnd.Access`.
 
 Click `Get Access Token`, sign in, and copy the `access_token` to paste into the `Authorize` field in Swagger UI for testing.
