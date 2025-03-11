@@ -94,7 +94,7 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.FactoryExtensions
                 }
                 else if (field.TypeReference.IsCollection && field.TypeReference.Element.Name != field.Mapping.Element?.TypeReference?.Element.Name)
                 {
-                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src1234 => {mappingExpression}))";
+                    var mapping = $@"{leadingWhitespace}{methodName}(d => d.{field.Name.ToPascalCase()}, opt => opt.MapFrom(src => {mappingExpression}))";
                     AddFieldMapping(statement, field, mapping);
                 }
             }
