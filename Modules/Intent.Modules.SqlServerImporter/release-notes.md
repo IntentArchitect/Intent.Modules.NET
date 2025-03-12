@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Additional in-application support topics added.
+
 ### Version 1.1.1
 
 - Improvement: `Triggers` are now modelled in the designer as part of the import process.
