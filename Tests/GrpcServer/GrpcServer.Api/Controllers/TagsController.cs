@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GrpcServer.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class TagsController : ControllerBase
     {
