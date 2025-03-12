@@ -6,3 +6,4 @@
 - Improvement : Support for `OnSelected` event on `Select`.
 - Improvement : Support for `Radio Button Group`
 - Improvement : Improved `Layout` and `Container` razor generation.
+- Improvement : Support for `Button` _Disabled_ binding

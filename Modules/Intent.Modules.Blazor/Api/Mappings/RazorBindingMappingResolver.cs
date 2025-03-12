@@ -26,6 +26,11 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 
+        if(mappingModel.Mapping?.MappingTypeId == "e4f0c63b-0f00-42bd-a703-00adf44f3364") // Invokable Mapping
+        {
+            return new RazorEventBindingMapping(mappingModel, _template);
+        }
+
         //
         //if (mappingModel.Mapping != null)
         //{

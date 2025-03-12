@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
+using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Types.Api;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -109,7 +111,36 @@ public class ButtonComponentBuilder : IRazorComponentBuilder
             });
         }
 
+        IList<IElementToElementMappedEnd> disabledMappings = _bindingManager.GetMappedEndsFor(model, "Disabled");
+        if (disabledMappings.Count != 0)
+        {
+            _componentTemplate.RazorFile.AfterBuild(file =>
+            {
+                var disabledAttribute = htmlElement.GetAttribute("Disabled");
+                if (disabledAttribute == null)
+                {
+                    htmlElement.AddAttribute("Disabled", BuildDisableStatement(disabledMappings, parentNode));
+                }
+                else
+                {
+                    disabledAttribute.Value = $"{disabledAttribute.Value.Replace("@", "")} || {BuildDisableStatement(disabledMappings, parentNode)}";
+                }
+            });
+        }
+
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
+    }
+
+    private string BuildDisableStatement(IList<IElementToElementMappedEnd> mappings, IRazorFileNode parentNode)
+    {
+        List<string> disableStatements = [];
+
+        foreach (var mapping in mappings)
+        {
+            disableStatements.Add($"{_bindingManager.GetBinding(mapping, parentNode)}");
+        }
+
+        return string.Join(" || ", disableStatements);
     }
 }
