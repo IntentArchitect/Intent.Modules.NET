@@ -604,6 +604,39 @@
           <sources />
         </mappedEnd>
         <mappedEnd>
+          <expression>{IsDeleteDisabled}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="c201116c-c305-415e-9043-f2178e67fe63" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="a8479781-aeb8-4957-8fc6-59568ceee876" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="e7d3e954-a4af-4d35-b3b2-8ad3d3564a8b" name="" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="ed24c22e-8988-4972-b418-15abae858ae5" name="Delete" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="074d990f-d387-4f87-ae53-11543ffb3edf" name="Disabled" type="static-mappable" specialization="Disabled" specializationId="074d990f-d387-4f87-ae53-11543ffb3edf">
+              <typeReference>
+                <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <typePackageName>Intent.Common.Types</typePackageName>
+                <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+            </target>
+          </path>
+          <sources>
+            <source identifier="IsDeleteDisabled" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="77c3c0cd-2535-4b10-88f2-2e06961d6730" name="IsDeleteDisabled" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
           <expression>{AddLineClicked}</expression>
           <path>
             <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
@@ -637,6 +670,37 @@
               <path>
                 <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                 <target id="e1049e66-5b19-4da0-8256-694630f3697a" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{IsSaveDisabled}</expression>
+          <path>
+            <target id="a8f2f920-54cb-472b-8b77-b6d1a0dff5b9" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="b2b816a4-c91b-4cc5-a947-49c62b68423b" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="a74bcfc0-ecaf-4fe9-9171-e4c9ba88f979" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="8a423d31-ea41-4c47-bc81-1b8b8ee24175" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="70faebd7-4d67-4df9-ab39-5133f5d4ab73" name="Save" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="074d990f-d387-4f87-ae53-11543ffb3edf" name="Disabled" type="static-mappable" specialization="Disabled" specializationId="074d990f-d387-4f87-ae53-11543ffb3edf">
+              <typeReference>
+                <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <typePackageName>Intent.Common.Types</typePackageName>
+                <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+            </target>
+          </path>
+          <sources>
+            <source identifier="IsSaveDisabled" mappingType="Invokable Mapping" mappingTypeId="e4f0c63b-0f00-42bd-a703-00adf44f3364">
+              <path>
+                <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="c4d30a06-79b2-43e7-ad41-1ee01a8ec512" name="IsSaveDisabled" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
               </path>
             </source>
           </sources>
@@ -767,6 +831,30 @@
         <isRequired>true</isRequired>
         <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
         <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="77c3c0cd-2535-4b10-88f2-2e06961d6730" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>IsDeleteDisabled</name>
+      <display>IsDeleteDisabled: bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1db21c1d-85de-4974-9b44-e2318de24564">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -1294,6 +1382,30 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="c4d30a06-79b2-43e7-ad41-1ee01a8ec512" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>IsSaveDisabled</name>
+      <display>IsSaveDisabled(): bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c1588c4a-3bd6-442c-8b4f-f5f1d8eaa386">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

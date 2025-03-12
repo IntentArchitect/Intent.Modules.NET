@@ -224,6 +224,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" value="6b10dee8-d1ba-4c69-90cf-6031c148b5d8" isActive="true" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" value="{OnLoginClicked}" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
               </stereotypes>

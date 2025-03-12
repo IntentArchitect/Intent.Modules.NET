@@ -158,6 +158,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" value="" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="https://form.jotform.com/242683172056558" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
@@ -207,6 +208,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="https://intentarchitect.com/#/redirect/?category=clientResource&amp;subCategory=home.needHelp" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
@@ -397,6 +399,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToInvoiceList}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
@@ -587,6 +590,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToCustomerList1}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
@@ -777,6 +781,7 @@
                     <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
                     <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
                     <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToProductList}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
                   </properties>
                 </stereotype>
                 <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">

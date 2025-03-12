@@ -20,6 +20,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         public string HeaderText { get; set; }
         public List<CustomerLookupDto> CustomerOptions { get; set; } = [];
         public List<ProductDto> ProductOptions { get; set; } = [];
+        public bool IsDeleteDisabled { get; set; }
         [Parameter]
         public EventCallback<InvoiceModel> SaveClicked { get; set; }
         [Parameter]
@@ -105,6 +106,12 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
                 return _states.ToList();
 
             return _states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase)).ToList();
+        }
+
+        [IntentIgnore]
+        private bool IsSaveDisabled()
+        {
+            return false;
         }
 
         [IntentIgnore]

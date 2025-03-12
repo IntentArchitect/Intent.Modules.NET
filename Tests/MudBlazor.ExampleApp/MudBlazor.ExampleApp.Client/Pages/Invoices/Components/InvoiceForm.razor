@@ -104,7 +104,8 @@
                                                        Icon="@Icons.Material.Filled.Delete"
                                                        Class="m-0"
                                                        Color="Color.Error"
-                                                       OnClick="() => OnDeleteLineClick(context)" />
+                                                       OnClick="() => OnDeleteLineClick(context)"
+                                                       Disabled="IsDeleteDisabled" />
                                     </MudTd>
                                 </RowTemplate>
                             </MudTable>
@@ -137,7 +138,7 @@
                            Class="my-2 mr-2"
                            Color="Color.Primary"
                            OnClick="() => OnSaveClicked()"
-                           Disabled="@_onSaveClickedProcessing">
+                           Disabled="_onSaveClickedProcessing || IsSaveDisabled()">
                     @if (_onSaveClickedProcessing) 
                     {
                         <MudProgressCircular Class="ms-n1"

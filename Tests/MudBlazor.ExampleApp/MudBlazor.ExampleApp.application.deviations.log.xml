@@ -17,15 +17,12 @@
     <file>
       <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
       <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
-      <count>2</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-02-10T18:45:19.5109519Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-02-10T18:45:19.5109558Z</approvedAt>
-      <deviationsHash>096E428F85DC62CF7E041CB7D8196F73C8D4D1B8F949BD0AEF7CA0ACB95C734C</deviationsHash>
-      <fileHash>5CAA4C0004F68794D6F063990A7DF5BAD04F8630ECDF1C25370FDD8F60D0E8E9</fileHash>
+      <count>3</count>
+      <updatedByAccountName>jp.seini@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>JP Seini</updatedByDisplayName>
+      <updatedAt>2025-03-12T09:09:44.7795088Z</updatedAt>
+      <deviationsHash>B83489FD7E85D28A5E063A441BE0520AA5F90B1DC774D8F9E960B0A3531C0C3E</deviationsHash>
+      <fileHash>F0299CBDD62527B5193B15DE7E98662C2C51438984A2FA29EB113BCEA22874E2</fileHash>
     </file>
   </files>
 </deviationsLog>
