@@ -144,7 +144,8 @@ namespace Intent.Modules.AspNetCore.Cors.Templates.CorsConfiguration
                 {
                     Origins = new[] { "*" },
                     Methods = new[] { "*" },
-                    Headers = new[] { "*" }
+                    Headers = new[] { "*" },
+                    ExposedHeaders = new[] { "*" }
                 }
             }));
 
