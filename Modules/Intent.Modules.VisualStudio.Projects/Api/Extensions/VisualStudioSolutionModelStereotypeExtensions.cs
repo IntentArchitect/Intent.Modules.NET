@@ -53,6 +53,66 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 return _stereotype.GetProperty<bool>("Manage Package Versions Centrally");
             }
 
+            public OutputLocationOptions OutputLocation()
+            {
+                return new OutputLocationOptions(_stereotype.GetProperty<string>("Output Location"));
+            }
+
+            public bool OnlyCheckCurrentGitRepository()
+            {
+                return _stereotype.GetProperty<bool>("Only check current Git repository");
+            }
+
+            public string RelativePath()
+            {
+                return _stereotype.GetProperty<string>("Relative Path");
+            }
+
+            public class OutputLocationOptions
+            {
+                public readonly string Value;
+
+                public OutputLocationOptions(string value)
+                {
+                    Value = value;
+                }
+
+                public OutputLocationOptionsEnum AsEnum()
+                {
+                    switch (Value)
+                    {
+                        case "Same as sln file":
+                            return OutputLocationOptionsEnum.SameAsSlnFile;
+                        case "Check Parent Folders":
+                            return OutputLocationOptionsEnum.CheckParentFolders;
+                        case "Relative Path":
+                            return OutputLocationOptionsEnum.RelativePath;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+                }
+
+                public bool IsSameAsSlnFile()
+                {
+                    return Value == "Same as sln file";
+                }
+                public bool IsCheckParentFolders()
+                {
+                    return Value == "Check Parent Folders";
+                }
+                public bool IsRelativePath()
+                {
+                    return Value == "Relative Path";
+                }
+            }
+
+            public enum OutputLocationOptionsEnum
+            {
+                SameAsSlnFile,
+                CheckParentFolders,
+                RelativePath
+            }
+
         }
 
     }

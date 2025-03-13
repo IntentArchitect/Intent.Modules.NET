@@ -22,6 +22,27 @@ To have Intent Architect automatically create and manage a `Directory.Packages.p
 
 Once enabled, `PackageReference` items `.csproj` files will by default no longer add a `Version` attributes added to them and any existing ones will be removed.
 
+Once `Manage Package Versions Centrally` is enabled, several options become available to control _where_ the `Directory.Packages.props` file is output.
+
+![Visual Studio Solution Options Stereotype](images/cpm-solution-enabled.png)
+
+### Available Output Location Options
+
+- **Same as .sln file** (default):  
+  The `Directory.Packages.props` file will be placed in the same directory as the solution (`.sln`) file.
+
+- **Relative Path**:  
+  The `Directory.Packages.props` file will be placed at the specified _relative path_ field value, which is resolved against the solution (.sln) file location.
+  - **Relative Path** field:  
+    This field is only available when the **Output Location** is set to _Relative Path_. For example, setting the value to `../` will result in the output folder being one folder higher than the solution file location.
+
+- **Check Parent Folders**:  
+  The system will check parent directories (starting from the solution file's location) for an existing `Directory.Packages.props` file. If found, that file will be used; otherwise, a new one will be created in the solution (.sln) file's directory.
+  - **Only Check Current Git Repository** (checkbox):  
+    This option is available when **Check Parent Folders** is selected. If enabled, the search will stop at the root of the current Git repository (i.e., the first directory containing a `.git` folder).
+
+### Managing Project Package Versions
+
 It is also possible to control the behaviour of a single project by setting the _Manage Package Versions_ property on its stereotype:
 
 ![Project .NET Settings stereotype](images/cpm-project-stereotype.png)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Xml;
 using Intent.Engine;
 using Intent.Eventing;
@@ -12,6 +13,7 @@ using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;
+using static Intent.Modules.VisualStudio.Projects.Api.VisualStudioSolutionModelStereotypeExtensions.VisualStudioSolutionOptions;
 
 [assembly: DefaultIntentManaged(Mode.Ignore)]
 [assembly: DefaultIntentManaged(Mode.Ignore, Targets = Targets.Usings)]
@@ -39,11 +41,14 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
         }
 
         // Allow for testability
-        internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate, IFileOperations fileOperations)
+        internal DirectoryPackagesPropsTemplate(IApplication application, VisualStudioSolutionModel model, bool canRunTemplate,
+            IFileOperations fileOperations)
         {
+            var outputLocation = GetOutputLocation(application, model);
+
             _fileOperations = fileOperations;
             _application = application;
-            _fileMetadata = new FileConfig(application.OutputRootDirectory, model.Id, _fileOperations);
+            _fileMetadata = new FileConfig(outputLocation, model.Id, _fileOperations);
             _projectRootElement = CreateProjectRootElement(_fileOperations.FileExists(_fileMetadata.GetFilePath())
                 ? _fileOperations.ReadAllText(_fileMetadata.GetFilePath())
                 : GetInitialContent());
@@ -215,6 +220,58 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             }
         }
 
+        private string GetOutputLocation(IApplication application, VisualStudioSolutionModel model)
+        {
+            if (!model.HasVisualStudioSolutionOptions() ||
+                    string.IsNullOrWhiteSpace(model.GetVisualStudioSolutionOptions().OutputLocation()?.Value))
+            {
+                return application.OutputRootDirectory;
+            }
+
+            var outputLocation = application.OutputRootDirectory;
+            switch (model.GetVisualStudioSolutionOptions().OutputLocation().AsEnum())
+            {
+                case OutputLocationOptionsEnum.CheckParentFolders:
+                    var found = TryScanForPropsFile(new DirectoryInfo(outputLocation).Parent, model.GetVisualStudioSolutionOptions().OnlyCheckCurrentGitRepository(), out var outputPath);
+                    outputLocation = found ? outputPath : outputLocation;
+                    break;
+                case OutputLocationOptionsEnum.RelativePath:
+                    outputLocation = string.IsNullOrEmpty(model.GetVisualStudioSolutionOptions().RelativePath()) ?
+                        application.OutputRootDirectory :
+                        Path.Combine(application.OutputRootDirectory, model.GetVisualStudioSolutionOptions().RelativePath());
+                    break;
+                case OutputLocationOptionsEnum.SameAsSlnFile:
+                default:
+                    outputLocation = application.OutputRootDirectory;
+                    break;
+            }
+
+            return Path.GetFullPath(outputLocation);
+        }
+
+        private bool TryScanForPropsFile(DirectoryInfo currentPath, bool currentRepoOnly, out string outputPath)
+        {
+            if (currentPath == null)
+            {
+                outputPath = string.Empty;
+                return false;
+            }
+
+            if (currentPath.GetFiles().Any(f => f.Name == FileConfig.FullFileName))
+            {
+                outputPath = currentPath.FullName;
+                return true;
+            }
+
+            if (currentRepoOnly && currentPath.GetDirectories().Any(d => d.Name == ".git"))
+            {
+                outputPath = string.Empty;
+                return false;
+            }
+
+            return TryScanForPropsFile(currentPath.Parent, currentRepoOnly, out outputPath);
+        }
+
 
         #region ITemplate implementation
 
@@ -228,26 +285,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
 
             public FileConfig(string fullLocationPath, string modelId, IFileOperations fileOperations)
             {
-                var currentDir = fullLocationPath;
-
-                while (true)
-                {
-                    if (string.IsNullOrWhiteSpace(currentDir))
-                    {
-                        _fullLocationPath = fullLocationPath;
-                        break;
-                    }
-
-                    var pathToCheck = Path.Combine(currentDir, $"{FileName}.{FileExtension}");
-                    if (fileOperations.FileExists(pathToCheck))
-                    {
-                        _fullLocationPath = currentDir;
-                        break;
-                    }
-
-                    currentDir = Directory.GetParent(currentDir)?.FullName;
-                }
-
+                _fullLocationPath = fullLocationPath;
                 CustomMetadata.Add("CorrelationId", $"{TemplateId}#{modelId}");
             }
 
@@ -259,6 +297,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.DirectoryPackagesProps
             public string FileName { get; set; } = "Directory.Packages";
             public string LocationInProject { get; set; } = string.Empty;
             public IDictionary<string, string> CustomMetadata { get; } = new Dictionary<string, string>();
+            public static string FullFileName => "Directory.Packages.props";
         }
 
         #endregion

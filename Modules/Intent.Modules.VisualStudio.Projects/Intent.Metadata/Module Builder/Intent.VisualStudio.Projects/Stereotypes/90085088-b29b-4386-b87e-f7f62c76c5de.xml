@@ -31,5 +31,44 @@
       <valueOptions />
       <lookupTypes />
     </property>
+    <property id="ad4bb70e-9dbd-41ce-95a0-1d319a40b8a9">
+      <hint>The output location for the Directory.Packages.props file.</hint>
+      <name>Output Location</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <defaultValue>Same as sln file</defaultValue>
+      <valueOptions>
+        <option>Same as sln file</option>
+        <option>Check Parent Folders</option>
+        <option>Relative Path</option>
+      </valueOptions>
+      <lookupTypes />
+      <isActiveFunction>return ManagePackageVersionsCentrally;</isActiveFunction>
+    </property>
+    <property id="ca30802f-7cf3-459e-9ea1-aa20d7af7638">
+      <hint>The search will stop at the root of the current Git repository (i.e., the first directory containing a `.git` folder)</hint>
+      <name>Only check current Git repository</name>
+      <type>string</type>
+      <controlType>checkbox</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <defaultValue>true</defaultValue>
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return OutputLocation === `Check Parent Folders` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
+    </property>
+    <property id="eaf8fe0b-2aec-4610-9bc8-608f6967ce55">
+      <hint>Path relative to the sln folder to output the Directory.Packages.props file.</hint>
+      <name>Relative Path</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return OutputLocation === `Relative Path` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
+    </property>
   </properties>
 </stereotypeDefinition>

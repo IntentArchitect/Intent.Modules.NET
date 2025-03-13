@@ -1,3 +1,7 @@
+### Version 3.8.10
+
+- Improvement: The output location of the `Directory.Packages.props` file can now be configured.
+
 ### Version 3.8.9
 
 - Improvement: It is now possible to specify whether a `.csproj` item type was implicitly added, allowing item types to have an `Include` action without a `Remove` action having to also be generated.
