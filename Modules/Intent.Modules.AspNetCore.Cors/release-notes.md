@@ -1,6 +1,7 @@
 ### Version 3.3.14
 
 - Improvement: Made the default `appsetting.json` include "ExposedHeaders" to allow all, inline with how the other setting work. 
+- Fixed: Help topic URL corrected.
 
 ### Version 3.3.13
 

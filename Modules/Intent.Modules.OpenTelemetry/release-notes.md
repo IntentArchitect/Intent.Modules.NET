@@ -1,3 +1,7 @@
+### Version 2.2.5
+
+- Fixed: Help topic URL corrected.
+
 ### Version 2.2.4
 
 - Improvement: Included module help topic.

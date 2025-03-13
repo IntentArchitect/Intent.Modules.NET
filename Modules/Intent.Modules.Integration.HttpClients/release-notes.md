@@ -1,3 +1,7 @@
+### Version 5.3.2
+
+- Fixed: Help topic URL corrected.
+
 ### Version 5.3.1
 
 - Improvement: Included module help topic.
