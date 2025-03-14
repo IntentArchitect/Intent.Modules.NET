@@ -1,3 +1,7 @@
+### Version 6.0.26
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 6.0.25
 
 - Fixed: Resolved error when mapping `Enum collections`

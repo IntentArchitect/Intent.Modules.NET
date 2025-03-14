@@ -1,3 +1,7 @@
+### Version 5.0.18
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 5.0.17
 
 - Fixed: `HasNoKey` will no longer incorrectly be added for owned entities with no primary key

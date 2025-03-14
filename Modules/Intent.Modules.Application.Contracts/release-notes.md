@@ -1,3 +1,7 @@
+### Version 5.0.12
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 5.0.11
 
 - Improvement: Added Model metadata to Application Contract builder elements.

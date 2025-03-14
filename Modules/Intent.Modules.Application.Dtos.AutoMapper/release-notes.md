@@ -1,3 +1,7 @@
+### Version 4.0.13
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 4.0.12
 
 - Improvement: Updated references

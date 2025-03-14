@@ -1,3 +1,7 @@
+### Version 5.2.12
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 5.2.11
 
 - Improvement: Updated module icon

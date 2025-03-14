@@ -1,3 +1,7 @@
+### Version 5.1.12
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 5.1.11
 
 - Improvement: `Column` stereotype applied to Data Contract Attributes will not be honoured in realized code.

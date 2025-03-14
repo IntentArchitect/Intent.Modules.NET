@@ -1,3 +1,7 @@
+### Version 5.0.23
+
+- Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+
 ### Version 5.0.22
 
 - Fixed: Added support for `ToList` mapping.
