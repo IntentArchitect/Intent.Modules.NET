@@ -1,3 +1,7 @@
+### Version 1.2.5
+
+- Fix: Updated dependency on 'Intent.Blazor.FluentValidation' to be a newer version, to fox module dependency issue.
+
 ### Version 1.2.4
 
 - Improvement: Ability to set a a timeout on `Regular Expression` validations
