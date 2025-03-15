@@ -27,8 +27,8 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>MassTransit.RabbitMQ.Services.External</typePackageName>
-      <typePackageId>1e1a7502-8b6c-4a63-ad29-d998fc7e5246</typePackageId>
+      <typePackageName>MassTransit.RabbitMQ.Eventing.Messages</typePackageName>
+      <typePackageId>94e661e3-c275-4bdb-bf9e-cf097adfa1af</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

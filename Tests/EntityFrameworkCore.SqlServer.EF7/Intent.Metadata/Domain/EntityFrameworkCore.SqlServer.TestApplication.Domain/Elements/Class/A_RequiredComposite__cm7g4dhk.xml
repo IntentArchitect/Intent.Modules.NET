@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="87cb5a90-705e-436e-ae61-fa2a1e3092d5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>requiredCompAttr</name>
-      <display>requiredCompAttr: string</display>
+      <name>RequiredCompAttr</name>
+      <display>RequiredCompAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="90a6268b-66dc-4f44-806b-61dd26fe4983">

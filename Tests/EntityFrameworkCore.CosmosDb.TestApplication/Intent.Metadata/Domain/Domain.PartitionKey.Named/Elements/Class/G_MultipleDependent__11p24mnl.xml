@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="dbe7108e-9153-47b7-8b84-385636ef481d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>multipleDepAttr</name>
-      <display>multipleDepAttr: string</display>
+      <name>MultipleDepAttr</name>
+      <display>MultipleDepAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="abd2d757-bb71-492a-9ca0-0abc6640bb04">

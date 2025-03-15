@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="e77787a5-ec5c-4288-8357-bc4dbe119473" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalAggregateAttr</name>
-      <display>optionalAggregateAttr: string</display>
+      <name>OptionalAggregateAttr</name>
+      <display>OptionalAggregateAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0af04167-b900-4646-9243-572f4d2cb188">

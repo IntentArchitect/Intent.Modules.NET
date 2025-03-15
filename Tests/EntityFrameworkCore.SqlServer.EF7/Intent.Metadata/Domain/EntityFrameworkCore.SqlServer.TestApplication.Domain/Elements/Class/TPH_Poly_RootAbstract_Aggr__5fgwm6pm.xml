@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="b7ec3064-d145-4619-8cd5-c3c8ada0e4d7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>aggrField</name>
-      <display>aggrField: string</display>
+      <name>AggrField</name>
+      <display>AggrField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="28d97dcc-0cf1-4dac-9f70-13a6a183f48a">

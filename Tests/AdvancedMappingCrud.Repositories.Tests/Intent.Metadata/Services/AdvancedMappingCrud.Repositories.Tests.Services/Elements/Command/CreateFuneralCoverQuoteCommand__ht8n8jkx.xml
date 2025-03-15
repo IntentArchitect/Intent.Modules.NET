@@ -37,8 +37,8 @@
   <metadata />
   <childElements>
     <childElement id="b7a6cb5b-cc05-4947-932e-8481f4777244" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>refNo</name>
-      <display>refNo: string</display>
+      <name>RefNo</name>
+      <display>RefNo: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="6ac07c0b-4d4b-403e-9ba7-570cf7ec716a">
@@ -87,8 +87,8 @@
       <childElements />
     </childElement>
     <childElement id="10bf56a2-e5fb-482d-b577-e372e6f140e4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>personId</name>
-      <display>personId: guid</display>
+      <name>PersonId</name>
+      <display>PersonId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a5efccdc-8355-478b-9d25-a178e1833cbc">
@@ -137,8 +137,8 @@
       <childElements />
     </childElement>
     <childElement id="c7dd1a18-ba36-4fe2-ac17-2121d11d7462" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>personEmail</name>
-      <display>personEmail: string?</display>
+      <name>PersonEmail</name>
+      <display>PersonEmail: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ef89997b-91fc-45c6-9e6c-3e23311acdda">
@@ -257,15 +257,15 @@
             <mappedEnd>
               <expression>{CreateFuneralCoverQuoteCommand}</expression>
               <path>
-                <target id="150dd6e4-2c3e-427e-9676-2c60a466752a" name="CreateFuneralCoverQuoteCommand" type="element" specialization="Command" />
-                <target id="dcdf7166-c590-44ac-85c6-7c7df761923e" name="funeralCoverQuote" type="association" specialization="Create Entity Action Target End" />
-                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" />
-                <target id="7722a815-ad85-4b20-8a4f-7fbadb0054ae" name="NotifyQuoteCreated" type="element" specialization="Operation" />
+                <target id="150dd6e4-2c3e-427e-9676-2c60a466752a" name="CreateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                <target id="dcdf7166-c590-44ac-85c6-7c7df761923e" name="funeralCoverQuote" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                <target id="298ff82f-f4a3-47d2-a9f3-6967e6cda112" name="base" type="association" specialization="Generalization Target End" specializationId="4686cc1d-b4d8-4b99-b45b-f77bd5496946" />
+                <target id="7722a815-ad85-4b20-8a4f-7fbadb0054ae" name="NotifyQuoteCreated" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
               </path>
               <sources>
                 <source identifier="CreateFuneralCoverQuoteCommand" mappingType="Invocation Mapping" mappingTypeId="19c5ccad-f41f-4613-bd0b-b8e2adba6245">
                   <path>
-                    <target id="150dd6e4-2c3e-427e-9676-2c60a466752a" name="CreateFuneralCoverQuoteCommand" type="element" specialization="Command" />
+                    <target id="150dd6e4-2c3e-427e-9676-2c60a466752a" name="CreateFuneralCoverQuoteCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                   </path>
                 </source>
               </sources>

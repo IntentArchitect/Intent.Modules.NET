@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="87740008-c2c5-4b0a-b373-049899d2d155" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>requiredCompositeAttr</name>
-      <display>requiredCompositeAttr: string</display>
+      <name>RequiredCompositeAttr</name>
+      <display>RequiredCompositeAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1e777aaa-fde2-4060-ad19-96ddc0fd20f6">

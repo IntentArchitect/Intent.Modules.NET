@@ -91,8 +91,8 @@
       <childElements />
     </childElement>
     <childElement id="e749076e-1f02-42cb-8d53-26e907d07512" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>multipleAggrAttr</name>
-      <display>multipleAggrAttr: string</display>
+      <name>MultipleAggrAttr</name>
+      <display>MultipleAggrAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="96591c10-d5d7-4790-9b7d-48bfefb6086f">

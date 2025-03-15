@@ -27,8 +27,8 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>MassTransit.AzureServiceBus.Eventing.Messages</typePackageName>
-      <typePackageId>44a544eb-68c3-4dad-bc59-7440869b230f</typePackageId>
+      <typePackageName>MassTransit.AzureServiceBus.Services.External</typePackageName>
+      <typePackageId>565eb5d8-73d1-4acf-8ad5-56ca95fb8bd8</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

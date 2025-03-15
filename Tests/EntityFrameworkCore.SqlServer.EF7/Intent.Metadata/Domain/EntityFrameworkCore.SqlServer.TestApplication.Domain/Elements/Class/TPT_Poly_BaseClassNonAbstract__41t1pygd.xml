@@ -23,8 +23,8 @@
   <metadata />
   <childElements>
     <childElement id="4cbd6135-3ab7-43a3-8292-f066ce267194" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>baseField</name>
-      <display>baseField: string</display>
+      <name>BaseField</name>
+      <display>BaseField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1b43e949-b050-4e61-8774-cf4a2c18f005">

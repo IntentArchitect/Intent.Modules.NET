@@ -59,8 +59,8 @@
       <childElements />
     </childElement>
     <childElement id="ff6b8272-6b4d-449b-89bf-5531279a7b5c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>compositeField1</name>
-      <display>compositeField1: string</display>
+      <name>CompositeField1</name>
+      <display>CompositeField1: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="9bee39e1-6b1b-419c-8d51-aa8a6f6dbc42">

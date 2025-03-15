@@ -100,8 +100,8 @@
       <childElements />
     </childElement>
     <childElement id="3daa276e-7e4c-43bb-bd89-8672c5d30119" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>baseAssociatedField1</name>
-      <display>baseAssociatedField1: string</display>
+      <name>BaseAssociatedField1</name>
+      <display>BaseAssociatedField1: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0f7c1642-1cad-494d-a1c5-d17442dc1c6b">

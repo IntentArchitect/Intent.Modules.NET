@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>c2da5748-bfe9-4bb3-8abc-2805a19fb50e</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="87892ef1-c976-4169-b2f9-13f5338198f9" name="Invoice" type="element" specialization="Class" />
+      <target id="87892ef1-c976-4169-b2f9-13f5338198f9" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="01e8418f-18db-45c0-952e-5b5d467ac109" name="Id" type="element" specialization="Attribute" />
+          <target id="01e8418f-18db-45c0-952e-5b5d467ac109" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ebf1721f-6415-488b-96a2-22b35601e83e" name="Date" type="element" specialization="Attribute" />
+          <target id="ebf1721f-6415-488b-96a2-22b35601e83e" name="Date" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
@@ -94,7 +94,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageName>Services</typePackageName>
         <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -104,7 +104,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="48c02139-5460-46fe-b3d4-e0d0f5a98000" name="Lines" type="association" specialization="Association" />
+          <target id="48c02139-5460-46fe-b3d4-e0d0f5a98000" name="Lines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>
@@ -125,7 +125,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>Entities.PrivateSetters.EntityFrameworkCore.CosmosDb.TestApplication.Services</typePackageName>
+        <typePackageName>Services</typePackageName>
         <typePackageId>c2d0760a-bf47-44dd-9f9f-f150cafcaa09</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -135,7 +135,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>false</autoSyncTypeReference>
         <mappedPath>
-          <target id="0a58fdbe-ed72-493c-a848-53c84ff72c50" name="Tags" type="association" specialization="Association" />
+          <target id="0a58fdbe-ed72-493c-a848-53c84ff72c50" name="Tags" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>ac1f4582-9d88-4203-9e8c-614d34f99fe7</parentFolderId>

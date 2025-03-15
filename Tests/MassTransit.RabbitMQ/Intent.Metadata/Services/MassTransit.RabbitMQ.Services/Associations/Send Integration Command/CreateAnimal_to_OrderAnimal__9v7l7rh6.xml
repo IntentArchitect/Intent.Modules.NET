@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="50d3788e-6336-4658-975e-5e13bf389d29">
   <sourceEnd id="9d739260-788e-4ca9-9efb-6e02e50cf089" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
-    <display />
+    <display>sent by : AnimalsService.CreateAnimal</display>
     <order>0</order>
     <typeReference id="2660ac88-914f-4d86-9216-6bdbac22b7eb">
       <typeId>f1e383b5-b3bc-4682-803c-24779c3a2ee5</typeId>
@@ -9,6 +9,8 @@
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>
@@ -42,37 +44,37 @@
     </stereotypes>
     <mappings>
       <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
-        <source applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b008053a-08af-49a1-a89c-48a951ed8805" location="[MassTransit.AzureServiceBus].[Services].[CreateAnimal]" />
-        <target applicationId="947683f4-e363-421d-b7dc-387173a9aaea" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="cfefcaa5-cf3b-4306-ba46-adb1144d99d9" location="[MassTransit.AzureServiceBus].[Services].[OrderAnimal]" />
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f1e383b5-b3bc-4682-803c-24779c3a2ee5" location="[MassTransit.RabbitMQ].[Services].[CreateAnimal]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b" location="[MassTransit.RabbitMQ].[Services].[OrderAnimal]" />
         <mappedEnds>
           <mappedEnd>
-            <expression>{dto.name}</expression>
+            <expression>{dto.Name}</expression>
             <path>
-              <target id="4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b" name="OrderAnimal" type="element" specialization="Integration Command" />
-              <target id="743b86f1-7c1b-457d-9a1d-b2fdda371eab" name="name" type="element" specialization="Property" />
+              <target id="4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="743b86f1-7c1b-457d-9a1d-b2fdda371eab" name="name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
             </path>
             <sources>
-              <source identifier="dto.name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
                 <path>
-                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" />
-                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" />
-                  <target id="cdea9191-377e-4b43-9d65-da67c942fc08" name="name" type="element" specialization="DTO-Field" />
+                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="cdea9191-377e-4b43-9d65-da67c942fc08" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{dto.type}</expression>
+            <expression>{dto.Type}</expression>
             <path>
-              <target id="4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b" name="OrderAnimal" type="element" specialization="Integration Command" />
-              <target id="5df02ff2-840b-4b51-81bb-36185140cc6d" name="type" type="element" specialization="Property" />
+              <target id="4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b" name="OrderAnimal" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="5df02ff2-840b-4b51-81bb-36185140cc6d" name="type" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
             </path>
             <sources>
-              <source identifier="dto.type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+              <source identifier="dto.Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
                 <path>
-                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" />
-                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" />
-                  <target id="fc8c25f7-0124-42dd-a205-3146e4b2d279" name="type" type="element" specialization="DTO-Field" />
+                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="fc8c25f7-0124-42dd-a205-3146e4b2d279" name="Type" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

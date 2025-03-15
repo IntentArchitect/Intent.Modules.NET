@@ -91,8 +91,8 @@
       <childElements />
     </childElement>
     <childElement id="59d1ce01-10f6-45ea-9ce5-2c85afb65068" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>selfRefBiNavAttr</name>
-      <display>selfRefBiNavAttr: string</display>
+      <name>SelfRefBiNavAttr</name>
+      <display>SelfRefBiNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="d1dbd76e-849b-4490-893b-f623ca4538ec">
@@ -156,7 +156,7 @@
         </stereotype>
       </stereotypes>
       <metadata>
-        <entry key="fk-original-name" value="MSelfreferencebinavassocationId" />
+        <entry key="fk-original-name" value="MSelfReferenceBiNavAssocationId" />
         <entry key="association" value="19ac9667-37d4-44e2-9a77-da3a75fbc536" />
         <entry key="is-managed-key" value="true" />
       </metadata>

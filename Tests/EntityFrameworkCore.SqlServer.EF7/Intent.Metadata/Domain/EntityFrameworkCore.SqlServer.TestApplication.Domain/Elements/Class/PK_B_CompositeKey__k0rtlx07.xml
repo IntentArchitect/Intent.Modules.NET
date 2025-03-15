@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="c288ec7d-9f54-4bfb-8a9f-342a3cab5a1f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>compositeKeyA</name>
-      <display>compositeKeyA: guid</display>
+      <name>CompositeKeyA</name>
+      <display>CompositeKeyA: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="886779df-73f5-4325-a19b-0181235cd7aa">
@@ -47,8 +47,8 @@
       <childElements />
     </childElement>
     <childElement id="3e4d592d-d25c-4525-8c7a-24975024b81e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>compositeKeyB</name>
-      <display>compositeKeyB: guid</display>
+      <name>CompositeKeyB</name>
+      <display>CompositeKeyB: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="9b9c2869-9b56-4211-bb83-627661888498">

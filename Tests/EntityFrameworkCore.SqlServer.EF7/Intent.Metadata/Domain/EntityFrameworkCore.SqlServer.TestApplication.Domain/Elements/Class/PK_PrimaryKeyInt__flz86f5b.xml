@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="5373ef1b-f114-4610-839b-6cfeccd54433" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>primaryKeyId</name>
-      <display>primaryKeyId: int</display>
+      <name>PrimaryKeyId</name>
+      <display>PrimaryKeyId: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="c77eca8f-bd35-4800-924a-ff3b142e8a76">

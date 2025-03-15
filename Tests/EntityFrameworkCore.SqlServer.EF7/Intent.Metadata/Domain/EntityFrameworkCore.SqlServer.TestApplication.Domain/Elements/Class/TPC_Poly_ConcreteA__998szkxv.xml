@@ -23,8 +23,8 @@
   <metadata />
   <childElements>
     <childElement id="953b9ea4-558f-4550-956c-007e40189c65" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>concreteField</name>
-      <display>concreteField: string</display>
+      <name>ConcreteField</name>
+      <display>ConcreteField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="fa79b556-4e85-481e-b315-3b49e8dfa500">

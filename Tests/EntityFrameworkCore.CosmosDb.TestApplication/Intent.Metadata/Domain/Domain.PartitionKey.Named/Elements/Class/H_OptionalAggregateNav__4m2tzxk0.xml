@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="6e20c806-548c-429e-8e79-f70b9ea54669" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalAggrNavAttr</name>
-      <display>optionalAggrNavAttr: string</display>
+      <name>OptionalAggrNavAttr</name>
+      <display>OptionalAggrNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b1d47c0c-51e7-4b3c-b69e-681f312115fd">

@@ -63,8 +63,8 @@
       <childElements />
     </childElement>
     <childElement id="e6696d63-6ebd-4fa0-96cb-c1752351e6e0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>productId</name>
-      <display>productId: guid</display>
+      <name>ProductId</name>
+      <display>ProductId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="945da6f0-6ef6-44ef-ab68-35cbd31a4d0c">

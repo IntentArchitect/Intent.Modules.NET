@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>71903893-a1ac-4813-b542-56a8a7b93fa8</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="c1e377b0-1bef-4ab9-8530-13773c217194" name="Line" type="element" specialization="Class" />
+      <target id="c1e377b0-1bef-4ab9-8530-13773c217194" name="Line" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>5fab54f8-6d26-479d-8ca5-d7d36d07eeb7</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f5dc7e00-470a-4eaa-ab53-bd5347d0d521" name="Id" type="element" specialization="Attribute" />
+          <target id="f5dc7e00-470a-4eaa-ab53-bd5347d0d521" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7a8c70cb-8f86-4460-8ee5-0b243c164431</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cc00369c-3ce5-45e3-9dd4-399798d65424" name="Description" type="element" specialization="Attribute" />
+          <target id="cc00369c-3ce5-45e3-9dd4-399798d65424" name="Description" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7a8c70cb-8f86-4460-8ee5-0b243c164431</parentFolderId>
@@ -104,7 +104,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="baff21a0-2e36-4427-a923-e0d2dbbf0979" name="Quantity" type="element" specialization="Attribute" />
+          <target id="baff21a0-2e36-4427-a923-e0d2dbbf0979" name="Quantity" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>7a8c70cb-8f86-4460-8ee5-0b243c164431</parentFolderId>

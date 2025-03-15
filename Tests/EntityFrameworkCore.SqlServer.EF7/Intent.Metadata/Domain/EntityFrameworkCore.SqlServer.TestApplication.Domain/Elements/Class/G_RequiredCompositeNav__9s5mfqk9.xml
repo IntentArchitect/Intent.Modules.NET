@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="dcbbe469-0c29-43f4-a1fc-218fb9d98d1c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>reqCompNavAttr</name>
-      <display>reqCompNavAttr: string</display>
+      <name>ReqCompNavAttr</name>
+      <display>ReqCompNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0ac39187-2567-4a09-930f-28dae6b414ee">

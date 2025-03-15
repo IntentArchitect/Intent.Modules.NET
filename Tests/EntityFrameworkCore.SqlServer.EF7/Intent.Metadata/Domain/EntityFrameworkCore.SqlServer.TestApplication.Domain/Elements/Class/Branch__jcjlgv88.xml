@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="092039fc-6a46-42d6-a111-a93994db1652" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>branchAttribute</name>
-      <display>branchAttribute: string</display>
+      <name>BranchAttribute</name>
+      <display>BranchAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="62bc9ad5-d6e7-4914-a672-b1394f6a5c3e">

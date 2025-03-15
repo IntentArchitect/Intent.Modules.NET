@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="ec06bf10-0bb8-4f12-b68c-94732b26e9f5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>internodeAttribute</name>
-      <display>internodeAttribute: string</display>
+      <name>InternodeAttribute</name>
+      <display>InternodeAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="f3f56e63-3f14-489f-bf82-31ae6f8772da">

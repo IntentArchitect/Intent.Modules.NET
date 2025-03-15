@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="911fa053-862f-4be2-aa83-4cb86187fdbd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>topField</name>
-      <display>topField: string</display>
+      <name>TopField</name>
+      <display>TopField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="c5295710-1d36-45a4-9f32-1ab2a509c5b9">

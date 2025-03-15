@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="c8cb2214-906c-4554-bd23-273c2d6071aa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>classBAttr</name>
-      <display>classBAttr: string</display>
+      <name>ClassBAttr</name>
+      <display>ClassBAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="17c26da0-e20f-41ed-a24d-a0d2b136437c">

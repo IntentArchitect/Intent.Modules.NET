@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="ccdd0ff9-c31a-4c54-aba7-11579cab6441" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>requiredCompositeNavAttr</name>
-      <display>requiredCompositeNavAttr: string</display>
+      <name>RequiredCompositeNavAttr</name>
+      <display>RequiredCompositeNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="18610099-72f1-4af6-a528-4582125b5d0d">

@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="ad135b9c-8e1f-4c02-8333-3f533fcafd9f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>secondField</name>
-      <display>secondField: string</display>
+      <name>SecondField</name>
+      <display>SecondField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="cf067f9e-95d3-4761-be38-48bd7e7a6d7f">

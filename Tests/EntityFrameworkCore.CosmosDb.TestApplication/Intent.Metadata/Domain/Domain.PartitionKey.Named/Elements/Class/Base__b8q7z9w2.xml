@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="619ab922-ab69-4ba0-81d3-c4e583265e08" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>baseField1</name>
-      <display>baseField1: string</display>
+      <name>BaseField1</name>
+      <display>BaseField1: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="54dfee89-2cce-4f34-b3b0-8a2d0567ed5a">

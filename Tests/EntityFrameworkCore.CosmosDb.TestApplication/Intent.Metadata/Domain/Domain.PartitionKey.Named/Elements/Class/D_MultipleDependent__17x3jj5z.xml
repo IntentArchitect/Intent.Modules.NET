@@ -50,8 +50,8 @@
       <childElements />
     </childElement>
     <childElement id="a66052d4-6e37-4a1b-9b34-7ac41e92acd4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>multipleDependentAttr</name>
-      <display>multipleDependentAttr: string</display>
+      <name>MultipleDependentAttr</name>
+      <display>MultipleDependentAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="12051696-1393-42fc-827d-db6b8b08d998">

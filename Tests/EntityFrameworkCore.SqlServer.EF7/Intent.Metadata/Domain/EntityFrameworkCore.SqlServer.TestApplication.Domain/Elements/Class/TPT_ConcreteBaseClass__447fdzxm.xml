@@ -59,8 +59,8 @@
       <childElements />
     </childElement>
     <childElement id="c3ed104e-8955-4174-82a6-3e4f961d446f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>baseAttribute</name>
-      <display>baseAttribute: string</display>
+      <name>BaseAttribute</name>
+      <display>BaseAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="2896f422-3020-4695-a17f-ccf2e95e1843">

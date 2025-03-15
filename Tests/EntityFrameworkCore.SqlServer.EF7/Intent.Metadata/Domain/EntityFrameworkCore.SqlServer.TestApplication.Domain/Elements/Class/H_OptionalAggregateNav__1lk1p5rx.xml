@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="b47a1582-9b70-47fb-b374-134bda78d947" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalAggrNavAttr</name>
-      <display>optionalAggrNavAttr: string</display>
+      <name>OptionalAggrNavAttr</name>
+      <display>OptionalAggrNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b56b3313-4d58-48c8-90cd-78b4951497f7">

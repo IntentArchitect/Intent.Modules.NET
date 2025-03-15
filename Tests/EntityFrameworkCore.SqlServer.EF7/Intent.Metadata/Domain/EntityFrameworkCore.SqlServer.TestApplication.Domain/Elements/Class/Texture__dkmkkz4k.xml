@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="6c6d3124-e900-4517-b066-50729f1a01f9" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>textureAttribute</name>
-      <display>textureAttribute: string</display>
+      <name>TextureAttribute</name>
+      <display>TextureAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="2884f442-303a-4289-849d-6205ae8443ef">

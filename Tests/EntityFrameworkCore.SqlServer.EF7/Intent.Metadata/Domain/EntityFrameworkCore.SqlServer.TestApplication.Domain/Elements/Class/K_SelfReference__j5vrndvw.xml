@@ -50,8 +50,8 @@
       <childElements />
     </childElement>
     <childElement id="36f4f25d-20b9-4dc0-b0ee-fbdcc93504b8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>selfRefAttr</name>
-      <display>selfRefAttr: string</display>
+      <name>SelfRefAttr</name>
+      <display>SelfRefAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="31099f1c-7a55-42cc-aa80-1f0dfd4c56da">

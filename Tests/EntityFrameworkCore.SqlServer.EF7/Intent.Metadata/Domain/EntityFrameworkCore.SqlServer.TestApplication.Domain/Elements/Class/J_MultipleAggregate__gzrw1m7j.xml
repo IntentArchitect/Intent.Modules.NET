@@ -50,8 +50,8 @@
       <childElements />
     </childElement>
     <childElement id="8b84e92f-2f9e-4538-a985-8242ac07636d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>multipleAggrAttr</name>
-      <display>multipleAggrAttr: string</display>
+      <name>MultipleAggrAttr</name>
+      <display>MultipleAggrAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="3b796832-4693-4c20-81a9-84a3ae32e3e3">

@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="0ed910fd-6e89-4668-bcc9-358a92444a55" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalDepAttr</name>
-      <display>optionalDepAttr: string</display>
+      <name>OptionalDepAttr</name>
+      <display>OptionalDepAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="bfb5067f-f3fa-4156-91ca-649020c63d12">

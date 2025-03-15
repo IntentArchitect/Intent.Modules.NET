@@ -15,8 +15,8 @@
   </metadata>
   <childElements>
     <childElement id="8000c0d5-4486-4d68-a69e-93443fee198e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>baseAttribute</name>
-      <display>baseAttribute: string</display>
+      <name>BaseAttribute</name>
+      <display>BaseAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="9b99f3e1-bf27-4917-9ab9-da97f91e7d37">

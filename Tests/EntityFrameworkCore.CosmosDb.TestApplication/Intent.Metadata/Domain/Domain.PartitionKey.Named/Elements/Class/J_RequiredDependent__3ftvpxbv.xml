@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="10613a78-48f3-4c78-b8d1-88cff64172aa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>requiredDepAttr</name>
-      <display>requiredDepAttr: string</display>
+      <name>RequiredDepAttr</name>
+      <display>RequiredDepAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="7ecd80b8-1e62-4eca-8c3e-92387b5a118c">

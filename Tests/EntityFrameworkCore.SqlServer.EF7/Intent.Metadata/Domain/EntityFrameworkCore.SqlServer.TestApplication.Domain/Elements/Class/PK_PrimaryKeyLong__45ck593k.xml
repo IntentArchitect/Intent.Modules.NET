@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="98f71dbb-b753-4d6f-9835-702bb6a590cf" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>primaryKeyLong</name>
-      <display>primaryKeyLong: long</display>
+      <name>PrimaryKeyLong</name>
+      <display>PrimaryKeyLong: long</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="cd128255-3309-41b2-89ca-473e88bff6d8">

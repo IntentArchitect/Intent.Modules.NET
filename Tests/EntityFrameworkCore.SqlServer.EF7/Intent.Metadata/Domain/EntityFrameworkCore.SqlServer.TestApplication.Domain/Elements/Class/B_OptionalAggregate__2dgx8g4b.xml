@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="30e1b15f-1b13-4a30-a811-d78e082118a3" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalAggrAttr</name>
-      <display>optionalAggrAttr: string</display>
+      <name>OptionalAggrAttr</name>
+      <display>OptionalAggrAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="fd52d87c-57d2-46c6-ab35-d13746337b2d">

@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="279971fe-1e14-448e-8495-4834c7bdff83" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>optionalDependentAttr</name>
-      <display>optionalDependentAttr: string</display>
+      <name>OptionalDependentAttr</name>
+      <display>OptionalDependentAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="65c24cf4-11f5-4512-b492-a039b7ec1b5c">

@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="647d9f5b-6c15-4065-afbf-a5d51e6cdc5f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>indexField</name>
-      <display>indexField: guid</display>
+      <name>IndexField</name>
+      <display>IndexField: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="bee6f915-1cdc-4137-8feb-966ce686a5b2">
@@ -117,7 +117,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="647d9f5b-6c15-4065-afbf-a5d51e6cdc5f" name="indexField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="647d9f5b-6c15-4065-afbf-a5d51e6cdc5f" name="IndexField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>22de584a-e447-42bc-8652-069df78bea49</parentFolderId>

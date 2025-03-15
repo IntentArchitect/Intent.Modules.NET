@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="5a7a6b43-b8a4-42ec-add8-338c1ae2ee79" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>defaultIndexField</name>
-      <display>defaultIndexField: guid</display>
+      <name>DefaultIndexField</name>
+      <display>DefaultIndexField: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="a417b544-f570-4002-85e8-fe9e2482ffd2">
@@ -85,8 +85,8 @@
       <childElements />
     </childElement>
     <childElement id="5ccd1e07-e2dc-4c16-9e58-004709d16e28" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>customIndexField</name>
-      <display>customIndexField: guid</display>
+      <name>CustomIndexField</name>
+      <display>CustomIndexField: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="cb93a47c-777b-4750-9a19-1f9c22b6ce87">
@@ -121,8 +121,8 @@
       <childElements />
     </childElement>
     <childElement id="fb088f08-14ff-49b7-9c34-32edbda3c628" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>groupedIndexFieldA</name>
-      <display>groupedIndexFieldA: guid</display>
+      <name>GroupedIndexFieldA</name>
+      <display>GroupedIndexFieldA: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1808ef50-6e43-45a0-a740-4b6a30000670">
@@ -157,8 +157,8 @@
       <childElements />
     </childElement>
     <childElement id="50c42a62-b27e-404e-8bb7-f2fb0d8a0288" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>groupedIndexFieldB</name>
-      <display>groupedIndexFieldB: guid</display>
+      <name>GroupedIndexFieldB</name>
+      <display>GroupedIndexFieldB: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="6214f2cf-341a-413f-b91e-e1f3fd8d8a82">

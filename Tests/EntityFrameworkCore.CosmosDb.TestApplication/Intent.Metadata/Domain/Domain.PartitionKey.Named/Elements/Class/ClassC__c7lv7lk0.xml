@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="99b0a332-9b8c-4dcc-aac9-a7a57a10edbe" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>classCAttr</name>
-      <display>classCAttr: string</display>
+      <name>ClassCAttr</name>
+      <display>ClassCAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="4cc43aa2-c922-4a26-9410-569304c43fb1">

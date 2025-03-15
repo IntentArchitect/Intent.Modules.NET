@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="0e3a1cc7-05ed-4c76-bb01-408f283f41be" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>derivedField1</name>
-      <display>derivedField1: string</display>
+      <name>DerivedField1</name>
+      <display>DerivedField1: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="11c24fc8-ebda-4abc-9b60-999cc67c1294">

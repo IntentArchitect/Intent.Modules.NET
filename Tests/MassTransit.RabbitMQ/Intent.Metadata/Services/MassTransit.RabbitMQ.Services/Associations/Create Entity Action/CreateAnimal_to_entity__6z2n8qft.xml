@@ -45,44 +45,44 @@
           <mappedEnd>
             <expression>{CreateAnimal}</expression>
             <path>
-              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" />
+              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateAnimal" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" />
+                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{dto.name}</expression>
+            <expression>{dto.Name}</expression>
             <path>
-              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" />
-              <target id="6f157e27-79c3-4426-bef7-034ff2e2177a" name="Name" type="element" specialization="Attribute" />
+              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="6f157e27-79c3-4426-bef7-034ff2e2177a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
-              <source identifier="dto.name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" />
-                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" />
-                  <target id="cdea9191-377e-4b43-9d65-da67c942fc08" name="name" type="element" specialization="DTO-Field" />
+                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="cdea9191-377e-4b43-9d65-da67c942fc08" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{dto.type}</expression>
+            <expression>{dto.Type}</expression>
             <path>
-              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" />
-              <target id="0e898cf1-ef7d-47eb-9546-52027f34556a" name="Type" type="element" specialization="Attribute" />
+              <target id="d98f67a2-2d52-47cf-b019-17d83244e9ba" name="Animal" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0e898cf1-ef7d-47eb-9546-52027f34556a" name="Type" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
-              <source identifier="dto.type" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+              <source identifier="dto.Type" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" />
-                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" />
-                  <target id="fc8c25f7-0124-42dd-a205-3146e4b2d279" name="type" type="element" specialization="DTO-Field" />
+                  <target id="f1e383b5-b3bc-4682-803c-24779c3a2ee5" name="CreateAnimal" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="25807c98-d4b5-40c8-bd90-2d9536dd7b9e" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="fc8c25f7-0124-42dd-a205-3146e4b2d279" name="Type" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

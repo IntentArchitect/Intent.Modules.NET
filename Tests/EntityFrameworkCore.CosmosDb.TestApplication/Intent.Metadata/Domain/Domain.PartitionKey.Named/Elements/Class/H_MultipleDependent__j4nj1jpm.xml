@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="00a9992c-a7f2-43ef-8256-a92281e5bab5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>multipleDepAttr</name>
-      <display>multipleDepAttr: string</display>
+      <name>MultipleDepAttr</name>
+      <display>MultipleDepAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="2958a610-2ada-4852-9a58-2931d9070110">

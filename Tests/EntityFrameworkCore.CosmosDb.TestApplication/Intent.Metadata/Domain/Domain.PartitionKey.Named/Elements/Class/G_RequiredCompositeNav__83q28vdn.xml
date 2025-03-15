@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="77953a22-5e6d-4c0a-8dae-c1fa9ea8154d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>requiredCompNavAttr</name>
-      <display>requiredCompNavAttr: string</display>
+      <name>RequiredCompNavAttr</name>
+      <display>RequiredCompNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="800d006f-e4f0-4d6a-9070-38328509bf58">

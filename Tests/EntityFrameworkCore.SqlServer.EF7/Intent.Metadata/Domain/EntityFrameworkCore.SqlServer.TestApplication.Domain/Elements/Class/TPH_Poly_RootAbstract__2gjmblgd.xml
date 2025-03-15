@@ -59,8 +59,8 @@
       <childElements />
     </childElement>
     <childElement id="04aa398f-4946-42e6-8826-72a1c3d88798" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>abstractField</name>
-      <display>abstractField: string</display>
+      <name>AbstractField</name>
+      <display>AbstractField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="69d93a9d-fffd-4492-80f5-6c9ccc7bbfb9">

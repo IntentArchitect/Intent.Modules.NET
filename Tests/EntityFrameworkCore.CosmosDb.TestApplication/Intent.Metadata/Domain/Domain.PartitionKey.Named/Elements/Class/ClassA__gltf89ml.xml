@@ -90,8 +90,8 @@
       <childElements />
     </childElement>
     <childElement id="e864fd9f-cfa1-4e23-981f-0e0cc63341c7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>classAAttr</name>
-      <display>classAAttr: string</display>
+      <name>ClassAAttr</name>
+      <display>ClassAAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="1b8fa427-9083-44c3-918a-91b95c0f2c84">

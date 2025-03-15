@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="9778eac6-9594-416a-9895-fdfdab46a4ae" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>name</name>
-      <display>name: string</display>
+      <name>Name</name>
+      <display>Name: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="7b368c70-f82f-4da5-b4aa-e41350b3b372">

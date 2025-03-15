@@ -6,13 +6,13 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>true</isMapped>
-  <mappedClass>
+  <mappedClass isRoot="true">
     <applicationId>fd35607d-60bc-40aa-a91c-c7fad672ee3b</applicationId>
     <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
     <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="5172bd1d-95a7-4911-a75d-2b817bc1e16f" name="Tag" type="element" specialization="Class" />
+      <target id="5172bd1d-95a7-4911-a75d-2b817bc1e16f" name="Tag" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>91314c5a-9257-4a6a-be08-432ccf2940d7</parentFolderId>
@@ -42,7 +42,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5130aba6-670d-4888-aa8b-b6bf006b3032" name="Id" type="element" specialization="Attribute" />
+          <target id="5130aba6-670d-4888-aa8b-b6bf006b3032" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>cf76f417-8b08-48ff-9c23-3ab40150aa36</parentFolderId>
@@ -73,7 +73,7 @@
         <mappingSettingsId>1f747d14-681c-4a20-8c68-34223f41b825</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="06f5b863-5abb-4602-b71b-6a7dfe05813c" name="Name" type="element" specialization="Attribute" />
+          <target id="06f5b863-5abb-4602-b71b-6a7dfe05813c" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>cf76f417-8b08-48ff-9c23-3ab40150aa36</parentFolderId>

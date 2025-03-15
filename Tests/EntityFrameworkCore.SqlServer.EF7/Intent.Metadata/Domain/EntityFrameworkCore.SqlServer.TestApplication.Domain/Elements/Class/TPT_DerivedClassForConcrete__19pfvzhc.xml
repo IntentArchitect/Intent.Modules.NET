@@ -23,8 +23,8 @@
   <metadata />
   <childElements>
     <childElement id="6fa74011-83cd-4196-b34b-aafe21743fa6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>derivedAttribute</name>
-      <display>derivedAttribute: string</display>
+      <name>DerivedAttribute</name>
+      <display>DerivedAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="e3ab9ed8-d42c-4a34-af24-55ada56f1bb9">

@@ -15,8 +15,8 @@
   </metadata>
   <childElements>
     <childElement id="6264ec4e-a11c-4a76-bfe2-f0af1d1a1c0d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>abstractField</name>
-      <display>abstractField: string</display>
+      <name>AbstractField</name>
+      <display>AbstractField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="58e11bfa-8b41-4d29-b152-c796972a39e6">

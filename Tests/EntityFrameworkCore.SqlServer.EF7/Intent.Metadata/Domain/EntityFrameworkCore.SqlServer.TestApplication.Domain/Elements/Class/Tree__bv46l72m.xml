@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="b769bbdb-7c4d-442b-9398-ab0e87b8950d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>treeAttribute</name>
-      <display>treeAttribute: string</display>
+      <name>TreeAttribute</name>
+      <display>TreeAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="6786c77e-f8af-4f7d-94ce-b4c67c8e9ffc">

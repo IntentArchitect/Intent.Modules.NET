@@ -37,8 +37,8 @@
   <metadata />
   <childElements>
     <childElement id="f448d9b9-54d2-4053-a4c5-26b8870a53c5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>refNo</name>
-      <display>refNo: string</display>
+      <name>RefNo</name>
+      <display>RefNo: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="3a55be05-a34b-4544-ac63-667fc84290c7">
@@ -87,8 +87,8 @@
       <childElements />
     </childElement>
     <childElement id="0e8ab94c-8104-491a-a0fb-33550c22fbb2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>personId</name>
-      <display>personId: guid</display>
+      <name>PersonId</name>
+      <display>PersonId: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="8a054960-6db9-4bc2-8ea1-cc0fb55bb875">
@@ -137,8 +137,8 @@
       <childElements />
     </childElement>
     <childElement id="ecf631eb-bfa0-4c2c-b9fb-3b57af54052a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>personEmail</name>
-      <display>personEmail: string?</display>
+      <name>PersonEmail</name>
+      <display>PersonEmail: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="abcbe994-35ad-4dd6-92b2-11c89e227e7a">

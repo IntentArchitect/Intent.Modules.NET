@@ -91,8 +91,8 @@
       <childElements />
     </childElement>
     <childElement id="233fa2f2-ec47-4dfc-8fde-68147b7af9aa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>selfRefAttr</name>
-      <display>selfRefAttr: string</display>
+      <name>SelfRefAttr</name>
+      <display>SelfRefAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="381084e9-28fd-4724-b195-a865b6516878">
@@ -156,7 +156,7 @@
         </stereotype>
       </stereotypes>
       <metadata>
-        <entry key="fk-original-name" value="KSelfreferencesId" />
+        <entry key="fk-original-name" value="KSelfReferencesId" />
         <entry key="association" value="3c648281-dee9-4053-b84a-975fd3b2a5e8" />
         <entry key="is-managed-key" value="true" />
       </metadata>

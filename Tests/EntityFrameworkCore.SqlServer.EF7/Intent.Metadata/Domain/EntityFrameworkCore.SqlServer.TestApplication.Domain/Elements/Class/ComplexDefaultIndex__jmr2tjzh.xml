@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="8b7b038f-f468-4884-baf1-21398b6d7aef" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>fieldA</name>
-      <display>fieldA: guid</display>
+      <name>FieldA</name>
+      <display>FieldA: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="63548514-6aa6-49b8-89f7-20a83bc4b03e">
@@ -73,8 +73,8 @@
       <childElements />
     </childElement>
     <childElement id="bce62719-4d0b-4046-9cea-9314cf4e16fa" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>fieldB</name>
-      <display>fieldB: guid</display>
+      <name>FieldB</name>
+      <display>FieldB: guid</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="2a0cf4e0-30f3-4834-9033-9464f21711f7">
@@ -141,7 +141,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="8b7b038f-f468-4884-baf1-21398b6d7aef" name="fieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="8b7b038f-f468-4884-baf1-21398b6d7aef" name="FieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>def5ab0b-7927-423e-9c3a-eb9d79fa61bd</parentFolderId>
@@ -171,7 +171,7 @@
             <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
             <autoSyncTypeReference>false</autoSyncTypeReference>
             <mappedPath>
-              <target id="bce62719-4d0b-4046-9cea-9314cf4e16fa" name="fieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="bce62719-4d0b-4046-9cea-9314cf4e16fa" name="FieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </mappedPath>
           </mappedClass>
           <parentFolderId>def5ab0b-7927-423e-9c3a-eb9d79fa61bd</parentFolderId>

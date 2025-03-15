@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="bad29e09-4386-49cf-9528-8d3db60d9959" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>derivedAttribute</name>
-      <display>derivedAttribute: string</display>
+      <name>DerivedAttribute</name>
+      <display>DerivedAttribute: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="346fdafe-dcc3-463e-af52-ed93f89225fd">

@@ -50,8 +50,8 @@
       <childElements />
     </childElement>
     <childElement id="80c3ff5f-a3ab-40c3-9379-f43f23a9bbe7" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>selfRefBiNavAttr</name>
-      <display>selfRefBiNavAttr: string</display>
+      <name>SelfRefBiNavAttr</name>
+      <display>SelfRefBiNavAttr: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="54bf8b82-fc57-462e-b91b-2b95e45784bd">

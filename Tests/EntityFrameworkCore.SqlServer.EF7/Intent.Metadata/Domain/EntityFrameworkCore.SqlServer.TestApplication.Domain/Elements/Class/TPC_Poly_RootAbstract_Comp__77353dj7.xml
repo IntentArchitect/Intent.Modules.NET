@@ -49,8 +49,8 @@
       <childElements />
     </childElement>
     <childElement id="5cb38469-4279-49c4-9904-7e4dcbf142c1" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>compField</name>
-      <display>compField: string</display>
+      <name>CompField</name>
+      <display>CompField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="bd92715c-6b88-4085-bef8-b2020ce9f5f6">

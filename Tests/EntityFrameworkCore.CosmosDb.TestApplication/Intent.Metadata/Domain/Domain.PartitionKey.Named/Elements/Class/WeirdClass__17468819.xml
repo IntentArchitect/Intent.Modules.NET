@@ -13,8 +13,8 @@
   <metadata />
   <childElements>
     <childElement id="caba70b7-de0e-42c4-a6bf-c8cd4c7837fe" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>weirdField</name>
-      <display>weirdField: string</display>
+      <name>WeirdField</name>
+      <display>WeirdField: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="fc03b78c-f221-46c3-8181-ffc16febd486">
