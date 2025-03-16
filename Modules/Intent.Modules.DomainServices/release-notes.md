@@ -1,3 +1,7 @@
+### Version 1.1.10
+
+- Improvement: Added support for `Asyncronous` stereotype on Domain Service operations.
+
 ### Version 1.1.9
 
 - Improvement: Updated help topic URL to point to docs website.

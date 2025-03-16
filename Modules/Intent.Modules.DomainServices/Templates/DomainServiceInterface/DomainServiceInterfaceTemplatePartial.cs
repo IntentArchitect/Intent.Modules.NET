@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -37,8 +38,6 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                     @interface.RepresentsModel(Model);
                     foreach (var operation in Model.Operations)
                     {
-                        var isAsync = operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase);
-
                         @interface.AddMethod(operation, method =>
                         {
                             if (operation.GenericTypes.Any())
@@ -50,7 +49,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                             }
                             method.TryAddXmlDocComments(operation.InternalElement);
 
-                            if (isAsync)
+                            if (IsAsync(operation))
                             {
                                 method.Async();
                             }
@@ -61,13 +60,18 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceInterface
                                     param => param.WithDefaultValue(parameter.Value));
                             }
 
-                            if (isAsync)
+                            if (IsAsync(operation))
                             {
                                 method.AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
                         });
                     }
                 });
+        }
+
+        private static bool IsAsync(OperationModel operation)
+        {
+            return operation.HasStereotype("Asynchronous") || operation.Name.EndsWith("Async");
         }
 
         [IntentManaged(Mode.Fully)]

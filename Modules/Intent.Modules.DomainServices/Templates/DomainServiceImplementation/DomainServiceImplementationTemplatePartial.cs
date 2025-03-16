@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.DomainServices.Api;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -70,7 +71,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                                     parm => parm.WithDefaultValue(parameter.Value));
                             }
 
-                            if (operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase))
+                            if (IsAsync(operation))
                             {
                                 AddUsing("System.Threading.Tasks");
                                 method
@@ -83,6 +84,11 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                         });
                     }
                 });
+        }
+
+        private static bool IsAsync(OperationModel operation)
+        {
+            return operation.HasStereotype("Asynchronous") || operation.Name.EndsWith("Async", System.StringComparison.OrdinalIgnoreCase);
         }
 
         [IntentManaged(Mode.Fully)]
