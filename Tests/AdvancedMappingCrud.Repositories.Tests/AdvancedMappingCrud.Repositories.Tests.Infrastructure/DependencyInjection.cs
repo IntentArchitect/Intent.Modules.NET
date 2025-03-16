@@ -7,6 +7,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
@@ -16,6 +17,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.DomainS
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -51,7 +53,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IPersonRepository, PersonRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IQuoteRepository, QuoteRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<Domain.Repositories.IUserRepository, Repositories.UserRepository>();
             services.AddTransient<IWarehouseRepository, WarehouseRepository>();
             services.AddTransient<IParentWithAnemicChildRepository, ParentWithAnemicChildRepository>();
             services.AddTransient<IFarmerRepository, FarmerRepository>();
@@ -63,6 +65,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IConcreteEntityBRepository, ConcreteEntityBRepository>();
             services.AddTransient<IFilteredIndexRepository, FilteredIndexRepository>();
             services.AddTransient<INestingParentRepository, NestingParentRepository>();
+            services.AddTransient<Domain.Repositories.OperationMapping.IUserRepository, Repositories.OperationMapping.UserRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);
             services.AddHttpClients(configuration);

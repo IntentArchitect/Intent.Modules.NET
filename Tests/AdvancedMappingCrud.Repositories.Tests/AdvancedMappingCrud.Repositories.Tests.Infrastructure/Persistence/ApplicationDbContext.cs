@@ -11,6 +11,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainInvoke;
@@ -18,6 +19,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configur
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.OperationMapping;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 
@@ -52,7 +54,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<Person> People { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Quote> Quotes { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Domain.Entities.User> Users { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<ParentWithAnemicChild> ParentWithAnemicChildren { get; set; }
         public DbSet<Farmer> Farmers { get; set; }
@@ -64,6 +66,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<ConcreteEntityB> ConcreteEntityBs { get; set; }
         public DbSet<FilteredIndex> FilteredIndices { get; set; }
         public DbSet<NestingParent> NestingParents { get; set; }
+        public DbSet<Domain.Entities.OperationMapping.User> OperationMappingUsers { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -98,7 +101,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new QuoteConfiguration());
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.UserConfiguration());
             modelBuilder.ApplyConfiguration(new WarehouseConfiguration());
             modelBuilder.ApplyConfiguration(new ParentWithAnemicChildConfiguration());
             modelBuilder.ApplyConfiguration(new FarmerConfiguration());
@@ -110,6 +113,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new ConcreteEntityBConfiguration());
             modelBuilder.ApplyConfiguration(new FilteredIndexConfiguration());
             modelBuilder.ApplyConfiguration(new NestingParentConfiguration());
+            modelBuilder.ApplyConfiguration(new Configurations.OperationMapping.UserConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

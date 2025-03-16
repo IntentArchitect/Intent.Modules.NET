@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d88fc5f5-3234-4658-a832-7858e138d4a1">
+  <sourceEnd id="ae521821-66b9-43f7-9527-19248a9fd46a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TaskItem</name>
+    <display>TaskItem: TaskItem</display>
+    <order>0</order>
+    <typeReference id="95c8f1bb-3f1b-4736-92d2-ac49246b763c">
+      <typeId>d38c38ff-c9f4-4787-8da5-1fde4c34fcc7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d88fc5f5-3234-4658-a832-7858e138d4a1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>SubTasks</name>
+    <display>SubTasks: SubTask[*]</display>
+    <order>3</order>
+    <typeReference id="342ed4a2-e947-4a7d-98a8-cbd7157ff9a3">
+      <typeId>f2539c2c-8b1b-46a7-a267-30bddad4d56f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

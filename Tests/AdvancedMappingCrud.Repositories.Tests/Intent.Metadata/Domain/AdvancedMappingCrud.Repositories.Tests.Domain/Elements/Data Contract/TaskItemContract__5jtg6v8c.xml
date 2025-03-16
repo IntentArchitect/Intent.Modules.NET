@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a96d3250-081e-4ab6-a1d9-3a9915de3fd3" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>TaskItemContract</name>
+  <display>TaskItemContract</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>abad50d5-eb37-48fc-a320-b0d70e041a6d</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a852f3a9-336a-4f91-a241-d25bb0d502ad" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7ccfc07a-7b04-41b0-8a8a-696124de4ca1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a96d3250-081e-4ab6-a1d9-3a9915de3fd3</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="407aca56-40bb-445f-b6fc-8ffde0addc4d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SubTasks</name>
+      <display>SubTasks: SubTaskItemContract[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1bb12b72-b919-467b-aa96-069988543679">
+        <typeId>8b13ae04-055f-41a5-864b-a4b1fe4b3ee9</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+        <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a96d3250-081e-4ab6-a1d9-3a9915de3fd3</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="66edbc69-c760-40a3-96ed-252d1eeb8054">
+  <sourceEnd id="2bfb7573-21b1-420a-95a9-9192efef023a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>User</name>
+    <display>User: User</display>
+    <order>0</order>
+    <typeReference id="064040b7-e16b-48e5-bf7a-3a095c201050">
+      <typeId>bcb3f612-45b6-4661-8519-aa0090d82807</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="66edbc69-c760-40a3-96ed-252d1eeb8054" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TaskLists</name>
+    <display>TaskLists: TaskList[*]</display>
+    <order>4</order>
+    <typeReference id="b9000e3f-076d-4326-8e11-c267856dc514">
+      <typeId>e8b6002d-9366-4435-8eae-c39c8feed1dc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

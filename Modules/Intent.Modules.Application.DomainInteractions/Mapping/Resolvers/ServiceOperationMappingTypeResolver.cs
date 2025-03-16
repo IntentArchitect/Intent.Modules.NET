@@ -22,6 +22,7 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
             {
                 return null;
             }
+            
             if (model.IsGeneralizationTargetEndModel())
             {
                 var mapping = new InheritedChildrenMapping(mappingModel, _template);
@@ -44,9 +45,13 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
                 return new MethodInvocationMapping(mappingModel, _template);
             }
 
-            if (model.SpecializationType == "Parameter" &&
-                model.TypeReference.Element?.SpecializationType is "Class")
-            {                
+            if (model.TypeReference.IsCollection)
+            {
+                return new SelectToListMapping(mappingModel, _template);
+            }
+            
+            if (model.TypeReference.Element?.SpecializationType is "Class")
+            {
                 return new ObjectInitializationMapping(mappingModel, _template);
             }
 

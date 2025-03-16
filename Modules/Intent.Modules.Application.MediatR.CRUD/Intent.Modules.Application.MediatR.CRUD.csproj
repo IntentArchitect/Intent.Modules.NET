@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>6.0.25</Version>
+    <Version>6.0.26-pre.0</Version>
     <PackageProjectUrl>https://intentarchitect.com</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -20,9 +20,9 @@
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.10" />
     <PackageReference Include="Intent.Modules.Common.Types" Version="4.0.0" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.9.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
+    <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.9.3-pre.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="4.2.0" />
-    <PackageReference Include="Intent.Modules.Modelers.Services.DomainInteractions" Version="2.0.2" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.DomainInteractions" Version="2.1.3-pre.0" />
     <PackageReference Include="Intent.Packager" Version="3.5.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

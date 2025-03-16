@@ -108,6 +108,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OperationMapping/UserController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/UserController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#4d7df1d1-0f11-458f-9614-00eac630328b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OperationMappingController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMappingController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#6af6a1b1-7bbf-4e11-89e4-00e08d89e398</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OptionalsController.cs</ApplicationRelativeFilePath>
@@ -2012,6 +2028,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/OperationMapping/UserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/UserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#e331b493-cbf4-4382-bb04-c9cffa09a351</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/PagingTSService.cs</ApplicationRelativeFilePath>
@@ -2208,6 +2232,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IUploadDownloadService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IUploadDownloadService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/OperationMapping/IUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/IUserService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2496,6 +2528,118 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/NestingParents/UpdateNestingParent/UpdateNestingParentCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NestingParents/UpdateNestingParent/UpdateNestingParentCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#267bbec7-8806-4f8a-83bf-1da03715adb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#267bbec7-8806-4f8a-83bf-1da03715adb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#267bbec7-8806-4f8a-83bf-1da03715adb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItem/CreateUserWithTaskItemCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0db433de-006d-4e76-a9f7-aa6e5ed1bcb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemCommandSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemCommandSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0db433de-006d-4e76-a9f7-aa6e5ed1bcb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemCommandSubTasksDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemCommandSubTasksDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9cf00f94-dd61-4d45-9f67-125afbf90217</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9cf00f94-dd61-4d45-9f67-125afbf90217</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9cf00f94-dd61-4d45-9f67-125afbf90217</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContract/CreateUserWithTaskItemContractCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#aa15b2d5-3162-43f0-9ddd-4345e84dbaf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#aa15b2d5-3162-43f0-9ddd-4345e84dbaf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#8c96f755-d09b-43ee-89bf-45d4207f8b7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContractServiceSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContractServiceSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#8c96f755-d09b-43ee-89bf-45d4207f8b7a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemContractServiceSubTasksDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContractServiceSubTasksDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#deb07d7e-c180-4136-a688-ec243313fc9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemServiceSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemServiceSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#deb07d7e-c180-4136-a688-ec243313fc9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/OperationMapping/CreateUserWithTaskItemServiceSubTasksDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemServiceSubTasksDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3507,6 +3651,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>654a06fe-8cad-4e5d-9926-8c05b9693baf</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#8b13ae04-055f-41a5-864b-a4b1fe4b3ee9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/OperationMapping/SubTaskItemContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/SubTaskItemContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>654a06fe-8cad-4e5d-9926-8c05b9693baf</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#a96d3250-081e-4ab6-a1d9-3a9915de3fd3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/OperationMapping/TaskItemContract.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/TaskItemContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>be55778e-4aa9-493e-aa22-9492bdd94674</ProjectId>
       <CorrelationId>Intent.ValueObjects.ValueObject#884ac5c9-4a0d-410e-b6cc-900fc5e044c6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -3696,6 +3856,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/MultiKeyParent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiKeyParent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f2539c2c-8b1b-46a7-a267-30bddad4d56f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OperationMapping/SubTask.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/SubTask.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d38c38ff-c9f4-4787-8da5-1fde4c34fcc7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OperationMapping/TaskItem.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/TaskItem.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#e8b6002d-9366-4435-8eae-c39c8feed1dc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OperationMapping/TaskList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/TaskList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OperationMapping/User.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/User.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4059,6 +4251,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/OperationMapping/IUserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/IUserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7ea1b9a3-5b8c-40c0-9252-888bf4b09fac</ProjectId>
       <CorrelationId>Intent.DomainServices.DomainServiceImplementation#72a486f2-1098-4369-bfd3-3ef22ec1de9a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -4372,6 +4572,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OperationMapping/UserConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/UserConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#25b33f68-88fc-468d-9954-f9d67b53c057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OptionalConfiguration.cs</ApplicationRelativeFilePath>
@@ -4588,6 +4796,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/OperationMapping/UserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/UserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#25b33f68-88fc-468d-9954-f9d67b53c057</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/OptionalRepository.cs</ApplicationRelativeFilePath>
@@ -4792,6 +5008,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/JsonResponse.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>JsonResponse.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#4d7df1d1-0f11-458f-9614-00eac630328b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/OperationMapping/IOperationMappingService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/IOperationMappingService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/OperationMapping/IUserService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/IUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#4d7df1d1-0f11-458f-9614-00eac630328b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/OperationMapping/OperationMappingHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/OperationMappingHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/OperationMapping/UserServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/UserServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5296,6 +5544,46 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/FileUploads/UploadFileCommand.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/FileUploads/UploadFileCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#267bbec7-8806-4f8a-83bf-1da03715adb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/OperationMapping/CreateUserWithTaskItemCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/OperationMapping/CreateUserWithTaskItemCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#0db433de-006d-4e76-a9f7-aa6e5ed1bcb8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/OperationMapping/CreateUserWithTaskItemCommandSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/OperationMapping/CreateUserWithTaskItemCommandSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#9cf00f94-dd61-4d45-9f67-125afbf90217</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/OperationMapping/CreateUserWithTaskItemContractCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/OperationMapping/CreateUserWithTaskItemContractCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#aa15b2d5-3162-43f0-9ddd-4345e84dbaf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/OperationMapping/CreateUserWithTaskItemContractCommandSubTasksDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#deb07d7e-c180-4136-a688-ec243313fc9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/OperationMapping/CreateUserWithTaskItemServiceSubTasksDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/OperationMapping/CreateUserWithTaskItemServiceSubTasksDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5996,6 +6284,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#9cf00f94-dd61-4d45-9f67-125afbf90217</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/CreateUserWithTaskItemContractTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemContractTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#267bbec7-8806-4f8a-83bf-1da03715adb5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/CreateUserWithTaskItemTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OperationMapping/CreateUserWithTaskItemTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#88ee006b-4107-4e77-9f18-913e60d6e2b6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Optionals/CreateOptionalTests.cs</ApplicationRelativeFilePath>
@@ -6312,6 +6616,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Users/UpdateUserTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Users/UpdateUserTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#b6915daf-962d-4aec-ab82-d69c88b97658</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/UserService/CreateUserWithTaskItemServiceTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserService/CreateUserWithTaskItemServiceTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4662901b-9449-4c90-a701-273a1afb9fb7" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Operation Mapping</name>
+  <display>Operation Mapping</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>abad50d5-eb37-48fc-a320-b0d70e041a6d</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <diagram>
+    <targetPackageId>4662901b-9449-4c90-a701-273a1afb9fb7</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

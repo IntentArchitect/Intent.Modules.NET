@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="37fd48c0-660d-4ae0-9edc-6535de53ebdd">
+  <sourceEnd id="024837cd-b038-45eb-972d-e0ccb29af407" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TaskList</name>
+    <display>TaskList: TaskList</display>
+    <order>0</order>
+    <typeReference id="9d33a4e7-d139-4b1f-b376-05ec30f2ff0c">
+      <typeId>e8b6002d-9366-4435-8eae-c39c8feed1dc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="37fd48c0-660d-4ae0-9edc-6535de53ebdd" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TaskItems</name>
+    <display>TaskItems: TaskItem[*]</display>
+    <order>3</order>
+    <typeReference id="d07b5e89-45e7-4beb-8bf6-3f7beb22bd61">
+      <typeId>d38c38ff-c9f4-4787-8da5-1fde4c34fcc7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

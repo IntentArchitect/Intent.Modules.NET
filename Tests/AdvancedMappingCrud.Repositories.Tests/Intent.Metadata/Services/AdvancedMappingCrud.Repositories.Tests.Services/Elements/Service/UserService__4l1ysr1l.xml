@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="70bb4e42-9973-49d0-a7e0-971554cf8c12" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>UserService</name>
+  <display>UserService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4d7df1d1-0f11-458f-9614-00eac630328b</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/user" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b6915daf-962d-4aec-ab82-d69c88b97658" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateUserWithTaskItemService</name>
+      <display>CreateUserWithTaskItemService(userName: string, listName: string, taskName: string, subTasks: CreateUserWithTaskItemServiceSubTasksDto[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="bd138e53-aae3-49b0-94e6-e05c334d6dc7">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>70bb4e42-9973-49d0-a7e0-971554cf8c12</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="with-task-item" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6748eac5-5126-4b90-bb77-18f3ea24ea3f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>userName</name>
+          <display>in : userName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6c58a73b-3334-48c0-ae05-86da2e70bdb0">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b6915daf-962d-4aec-ab82-d69c88b97658</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a6397ebf-fe38-465a-9c65-14526faa954d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>listName</name>
+          <display>in : listName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d2166ef2-4cc6-4e75-b55e-8fa1ec255b70">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b6915daf-962d-4aec-ab82-d69c88b97658</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2e4e278b-ad7c-4de6-87d8-a6ba15731bc0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>taskName</name>
+          <display>in : taskName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a7c2efd7-a2bc-48cd-a716-9c8974e718e8">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b6915daf-962d-4aec-ab82-d69c88b97658</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5466abaf-d478-42b8-9aa0-a008f8f1a14d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>subTasks</name>
+          <display>in : subTasks: CreateUserWithTaskItemServiceSubTasksDto[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="124313c6-e16e-4774-b233-d27d5ad54f64">
+            <typeId>deb07d7e-c180-4136-a688-ec243313fc9a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+            <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b6915daf-962d-4aec-ab82-d69c88b97658</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="47aea17f-a3ba-49e4-9fac-5fad0baf4aec" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateUserWithTaskItemContractService</name>
+      <display>CreateUserWithTaskItemContractService(userName: string, listName: string, taskName: string, subTasks: CreateUserWithTaskItemContractServiceSubTasksDto[*]): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="ef505302-fbbf-42e7-8cc8-c1cce978d63b">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>70bb4e42-9973-49d0-a7e0-971554cf8c12</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="fc3ee086-0996-40de-a3e0-2c3c853ce752" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>userName</name>
+          <display>in : userName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="748f582c-2066-4230-a2a3-25f9c70b7519">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>47aea17f-a3ba-49e4-9fac-5fad0baf4aec</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e3b87f7-6a81-4f91-a0aa-ae74e595e744" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>listName</name>
+          <display>in : listName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ffd15d86-b3a8-4394-bacf-63e332c32551">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>47aea17f-a3ba-49e4-9fac-5fad0baf4aec</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="12007c88-9af5-47e3-8381-607e29910185" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>taskName</name>
+          <display>in : taskName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="18dc3aa2-aabb-454a-bada-21f0d7292ba4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>47aea17f-a3ba-49e4-9fac-5fad0baf4aec</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="19ad4822-f38d-48c3-8a0e-67fece719c4e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>subTasks</name>
+          <display>in : subTasks: CreateUserWithTaskItemContractServiceSubTasksDto[*]</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="eedc7d60-6ed6-44f7-b1f9-22b4faa67c86">
+            <typeId>8c96f755-d09b-43ee-89bf-45d4207f8b7a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>true</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+            <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>47aea17f-a3ba-49e4-9fac-5fad0baf4aec</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

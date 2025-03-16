@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bcb3f612-45b6-4661-8519-aa0090d82807" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>User</name>
+  <display>User</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>abad50d5-eb37-48fc-a320-b0d70e041a6d</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="37ffb5d6-aef6-4422-afc3-19d6ca39f712" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="548769db-450a-4a04-ad1f-a82e81faf307">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bcb3f612-45b6-4661-8519-aa0090d82807</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b52fbad3-f20a-40a2-a910-2b0448fa00f8" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>UserName</name>
+      <display>UserName: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e9a7c3bf-7e1d-41a8-975b-2b591eec15ea">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bcb3f612-45b6-4661-8519-aa0090d82807</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="504d166b-7e52-45bf-8692-9f966767f666" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>AddTask</name>
+      <display>AddTask(listName: string, task: TaskItem): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="98e43c24-46d0-4ee9-9645-afe850b1e7ea">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bcb3f612-45b6-4661-8519-aa0090d82807</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="cf8ebc61-b9dd-43c8-8a07-74583f543e01" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>listName</name>
+          <display>in : listName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e79daaf5-a4e1-4efb-8fb8-b047f60607f4">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>504d166b-7e52-45bf-8692-9f966767f666</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13a8b50b-e002-41ef-a655-ef96070b9ffc" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>task</name>
+          <display>in : task: TaskItem</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="76f5022f-dc43-4c06-8e0d-43c1c7124141">
+            <typeId>d38c38ff-c9f4-4787-8da5-1fde4c34fcc7</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>504d166b-7e52-45bf-8692-9f966767f666</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="81b4afc6-1c8a-4c74-8e9d-6cdeffc762c1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>AddTask</name>
+      <display>AddTask(listName: string, task: TaskItemContract): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4f117ad5-9870-4b37-9a0b-694f011f4cfe">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bcb3f612-45b6-4661-8519-aa0090d82807</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="8e8e624f-3231-4f50-a4c3-2c831c3dc3ca" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>listName</name>
+          <display>in : listName: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5bda2ba3-681d-4195-9f86-843cafc91365">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>81b4afc6-1c8a-4c74-8e9d-6cdeffc762c1</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="856f3333-c69f-40aa-a40c-af1af754c352" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>task</name>
+          <display>in : task: TaskItemContract</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1898e7f5-d774-4fd0-8352-4805d5e5c6ed">
+            <typeId>a96d3250-081e-4ab6-a1d9-3a9915de3fd3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+            <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>81b4afc6-1c8a-4c74-8e9d-6cdeffc762c1</parentFolderId>
+          <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

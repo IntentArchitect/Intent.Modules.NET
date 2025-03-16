@@ -1,6 +1,7 @@
 ### Version 5.0.23
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
+- Fixed: `Call Service Operation` mapping didn't allow mapping a 1 -> * association on an Entity that is supplied to the operation.
 
 ### Version 5.0.22
 
