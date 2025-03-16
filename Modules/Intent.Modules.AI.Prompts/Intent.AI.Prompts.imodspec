@@ -12,6 +12,7 @@
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
+    <dependency id="Intent.AI.ChatDrivenDomain" version="0.0.4" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.8.0" />
@@ -20,6 +21,25 @@
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
+    <file src="$outDir$/Microsoft.SemanticKernel.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.SemanticKernel.Core.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.SemanticKernel.Connectors.OpenAI.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.SemanticKernel.Connectors.Ollama.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.SemanticKernel.Connectors.AzureOpenAI.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.SemanticKernel.Abstractions.dll" inspect="false" />
+    <file src="$outDir$/Azure.Core.dll" inspect="false" />
+    <file src="$outDir$/Azure.AI.OpenAI.dll" inspect="false" />
+    <file src="$outDir$/OllamaSharp.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.DependencyInjection.Abstractions.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.AI.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.DependencyInjection.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.Logging.Abstractions.dll" inspect="false" />
+    <file src="$outDir$/System.ClientModel.dll" inspect="false" />
+    <file src="$outDir$/System.Memory.Data.dll" inspect="false" />
+    <file src="$outDir$/OpenAI.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.AI.Abstractions.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.Logging.dll" inspect="false" />
+    <file src="$outDir$/Microsoft.Extensions.Options.dll" inspect="false" />
   </files>
   <tags />
   <moduleSettingsExtensions />
