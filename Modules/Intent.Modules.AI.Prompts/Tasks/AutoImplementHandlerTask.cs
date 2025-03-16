@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Output;
@@ -130,40 +132,112 @@ public class AutoImplementHandlerTask : IModuleTask
 
                 ;
             files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface")
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Interface", x.FileText)));
+                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Entity Framework implemented Repository Interface containing all the important operations", x.FileText)));
+            
+            // Here is where we will start getting limitations with this approach. Some files will be quite large (and numerous) for the LLM to handle.
+            // We will need to rather move over to a Tool based approach and provide the LLM with a list of filenames to rather go with and then it
+            // can decide if it wants to read the file for itself.
+            // ===
+            // // Requires to load existing Repository files to introduce its own methods in order not to remove existing code.
+            // var repos = outputLogFileMap.Keys.Where(k => k.StartsWith("Intent.EntityFrameworkCore.Repositories.Repository")).ToList();
+            // foreach (var repo in repos)
+            // {
+            //     files.AddRange(CorrelatedFiles(outputLogFileMap, repo)
+            //         .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Entity Framework implemented Repository", x.FileText)));   
+            // }
+
             //files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.RepositoryBase")
             //    .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Base Implementation", x.FileText)));
         }
 
-        var prompt = @$"
-## Background Information
-* You're a senior C# developer. Your job is to implement business logic in an optimal way, following best practices.
-* The architecture is a clean architecture using EF Core and a Repository pattern.
+        var targetFileName = queryHandlerFile.FileName;
+        var useCaseDescription = queryHandlerFile.FileName.RemovePrefix("Get").RemoveSuffix("Query", "Handler").ToSentenceCase();
 
-## Instruction:
-* I'm going to provide you an array of objects which represent C# files. One of the C# classes is called {queryHandlerFile.FileName} which is a handler for a MediatR request. 
-* I want you to implement the Handle method to fetch out the {queryHandlerFile.FileName.RemovePrefix("Get").RemoveSuffix("Query", "Handler").ToSentenceCase()} appropriately using best practices. This is your main objective.
-* You can inject in any entity repository that you may require to complete your job.
-* If you realize that there isn't a performant way to achieve this with the existing repository methods, 
-    you may add new repository methods to the entity repository interface and concrete, but only if necessary. If you do this, you must add an `[IntentIgnore]` attribute over the methods.
+        var prompt = $$$"""
+                        ## Role and Context
+                        You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
 
-## Important information:
-* There is a repository interface and concrete for each
-* Repository interfaces for each entity inherit from IEFRepository.
-* Methods in IEFRepository are already implemented in the RepositoryBase class
+                        ## Primary Objective
+                        Implement the `Handle` method in the {{{targetFileName}}} class to accomplish {{{useCaseDescription}}}.
 
-## Rules to follow:
-* The input files that you receive will have a file path. You must maintain this filepath in the output with exact precision.
-* Inspect each code file and understand how they all fit together.
-* Read the code comments in the input files to help understand what the intention of the code is.
-* You must keep all attributes unchanged on the class and methods.
-* Include entities as part of the repository calls if it will be more performant.
+                        ## Repository Pattern Rules (CRITICAL)
+                        1. **NEVER use Queryable() or access DbContext directly** from handlers - this violates the architecture
+                        2. **ONLY use existing repository methods** defined in the interfaces when possible
+                        3. If you need custom repository functionality:
+                           - Define the method in the appropriate repository interface
+                           - Implement the method in the corresponding concrete repository class
+                           - Apply `[IntentIgnore]` attribute to both declaration and implementation
+                           - Then call this method from your handler
 
-## Input Code Files (JSON):
+                        ## Implementation Process
+                        1. First, analyze the provided repository interfaces to identify available methods
+                        2. Determine if existing repository methods can accomplish the use case
+                        3. If existing methods are insufficient:
+                           - Identify which repository interface needs extension
+                           - Add a properly named method to that interface with appropriate parameters and return type
+                           - Implement the method in the concrete repository class with proper EF Core code
+                           - Mark both with `[IntentIgnore]`
+                        4. Implement the handler's Handle method to use your repository methods
 
-```
-{{{{$prompt}}}}
-```";
+                        ## Code Preservation Requirements (CRITICAL)
+                        1. **NEVER remove or modify existing class members, methods, or properties**
+                        2. **NEVER change existing method signatures or implementations**
+                        3. **ONLY add new members when necessary (repository methods)**
+                        4. **Preserve all existing attributes and code exactly as provided**
+
+                        ## Code File Modifications
+                        1. You may modify ONLY:
+                           - The Handler class implementation (primarily the Handle method)
+                           - Repository interfaces (adding new methods only)
+                           - Repository concrete classes (implementing new methods only)
+                        2. Preserve all existing code, attributes, and file paths exactly
+
+                        ## Example Implementation Flow
+                        If implementing a handler to get products by category:
+                        1. Check if `IProductRepository` has a `GetByCategoryId` method
+                        2. If it doesn't, add:
+                           ```csharp
+                           // To the interface:
+                           [IntentIgnore]
+                           Task<List<Product>> GetByCategoryIdAsync(int categoryId, CancellationToken cancellationToken);
+                           
+                           // To the concrete class:
+                           [IntentIgnore]
+                           public async Task<List<Product>> GetByCategoryIdAsync(int categoryId, CancellationToken cancellationToken)
+                           {
+                               return await _dbContext.Products.Where(p => p.CategoryId == categoryId).ToListAsync(cancellationToken);
+                           }
+                           ```
+                        3. Then use it in the handler:
+                           ```csharp
+                           public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
+                           {
+                               var products = await _productRepository.GetByCategoryIdAsync(request.CategoryId, cancellationToken);
+                               // Process and return results
+                           }
+                           ```
+
+                        ## Input Code Files:
+                        ```json
+                        {{$prompt}}
+                        ```
+
+                        ## Required Output Format
+                        Your response MUST include:
+                        1. The fully implemented handler class with the Handle method
+                        2. Any modified repository interfaces (if you added methods)
+                        3. Any modified repository concrete classes (if you added implementations)
+                        4. All files must maintain their exact original paths
+                        5. All existing code and attributes must be preserved unless explicitly modified
+
+                        ## Important Reminders
+                        - NEVER remove or modify existing class members
+                        - NEVER access DbContext or use Queryable() directly in handlers
+                        - NEVER invoke repository methods that don't exist
+                        - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
+                        - ALL new repository methods must be marked with `[IntentIgnore]`
+                        - Performance and clean architecture are key priorities
+                        """;
         return (prompt, files.ToArray());
     }
     /**
@@ -183,6 +257,8 @@ public class AutoImplementHandlerTask : IModuleTask
         var apiKey = settings.APIKey();
         // Create the Semantic Kernel instance with your LLM service.
         // Replace <your-openai-key> with your actual OpenAI API key and adjust the model name as needed.
+        // This can be done in the ChatDrivenDomainSettings app settings in Intent.
+        // Also if you don't want to check in your API Key, you can set the OPENAI_API_KEY env variable instead.
         var builder = Kernel.CreateBuilder();
         builder.Services.AddLogging(b => b.AddProvider(new SoftwareFactoryLoggingProvider()).SetMinimumLevel(LogLevel.Trace));
 
