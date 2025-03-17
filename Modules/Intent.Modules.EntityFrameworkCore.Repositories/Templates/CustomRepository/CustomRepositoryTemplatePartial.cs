@@ -33,7 +33,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
                     @class.ImplementsInterface(this.GetCustomRepositoryInterfaceName());
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
+                        if (!string.IsNullOrWhiteSpace(DbContextName))
+                        {
+                            ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
+                        }
                     });
 
                     CustomRepositoryHelpers.ApplyImplementationMethods<CustomRepositoryTemplate, RepositoryModel>(
