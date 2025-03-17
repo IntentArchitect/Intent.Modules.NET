@@ -1,23 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Threading;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Output;
+using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.AI.ChatDrivenDomain.Settings;
 using Intent.Modules.AI.Prompts.Utils;
-using Intent.Modules.Common.Templates;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -39,6 +34,7 @@ public class AutoImplementHandlerTask : IModuleTask
     private readonly IMetadataManager _metadataManager;
     private readonly ISolutionConfig _solution;
     private readonly IOutputRegistry _outputRegistry;
+    private IApplicationConfig _applicationConfig;
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -64,6 +60,10 @@ public class AutoImplementHandlerTask : IModuleTask
     [Experimental("SKEXP0010")]
     public string Execute(params string[] args)
     {
+        var applicationId = args[0];
+        var elementId = args[1];
+        _applicationConfig = _solution.GetApplicationConfig(applicationId);
+
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = BuildSemanticKernel();
         var chatResponseFormat = CreateJsonSchemaFormat();
@@ -72,12 +72,15 @@ public class AutoImplementHandlerTask : IModuleTask
             ResponseFormat = chatResponseFormat
         };
 
-        var input = CreatePrompt(args[0], args[1]);
-        var jsonInput = JsonConvert.SerializeObject(input.FileInputs, Formatting.Indented);
-        var requestFunction = kernel.CreateFunctionFromPrompt(input.Prompt, executionSettings);
+        var queryModel = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
+        var promptTemplate = GetPromptTemplate(queryModel);
+        var inputFiles = GetInputFiles(queryModel);
+
+        var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
-            ["prompt"] = jsonInput
+            ["inputFilesJson"] = jsonInput
         }).Result;
 
 
@@ -88,40 +91,75 @@ public class AutoImplementHandlerTask : IModuleTask
         var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
         foreach (var fileChange in fileChangesResult.FileChanges)
         {
-            Logging.Log.Info($"File: {Path.Combine(basePath, fileChange.FilePath)}");
-            Logging.Log.Info($"Updated Code:\n{fileChange.Content}");
-            Logging.Log.Info(new string('-', 50));
             _outputRegistry.Register(Path.Combine(basePath, fileChange.FilePath), fileChange.Content);
         }
 
         return "success";
     }
 
-    private (string Prompt, FileChange[] FileInputs) CreatePrompt(string applicationId, string elementId)
+    private string GetPromptTemplate(IElement queryModel)
     {
-        var applicationConfig = _solution.GetApplicationConfig(applicationId);
-        var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
-        var correlations = MetadataOutputFileCorrelationsPersistable.TryLoad(applicationConfig.FilePath);
-        var outputLog = OutputLogPersistable.TryLoad(Path.Combine(applicationConfig.DirectoryPath, $"{Path.GetFileNameWithoutExtension(applicationConfig.FilePath)}.{OutputLogPersistable.FileExtension}"));
 
-        var queryModel = _metadataManager.Services(applicationId).GetQueryModels().Single(x => x.Id == elementId);
+        var prompt = @$"
+## Background Information
+* You're a senior C# developer. Your job is to implement business logic in an optimal way, following best practices.
+* The architecture is a clean architecture using EF Core and a Repository pattern.
+
+## Instruction:
+* I'm going to provide you an array of objects which represent C# files. One of the C# classes is called {queryModel.Name}Handler which is a handler for a MediatR request. 
+* This is a {queryModel.SpecializationType} and I want you to implement the Handle method appropriately using best practices. This is your main objective.
+* Remove the existing attribute on Handle method and add the [IntentIgnoreBody] attribute as a replacement. It is important that you do this exactly as specified.
+* You can inject in any entity repository that you may require to complete your job.
+* If you realize that there isn't a performant way to achieve this with the existing repository methods, 
+    you may add new repository methods to the entity repository interface and concrete, but only if necessary. If you do this, then you must add an `[IntentIgnore]` attribute over the methods.
+
+## Important information:
+* There is a repository interface and concrete for each
+* Repository interfaces for each entity inherit from IEFRepository.
+* Methods in IEFRepository are already implemented in the RepositoryBase class
+
+## Rules to follow:
+* The input files that you receive will have a file path. You must maintain this filepath in the output with exact precision.
+* Inspect each code file and understand how they all fit together.
+* Read the code comments in the input files to help understand what the intention of the code is.
+* You must keep all attributes unchanged on the class and methods.
+* Include entities as part of the repository calls if it will be more performant.
+
+## Input Code Files (JSON):
+
+```
+{{{{$inputFilesJson}}}}
+```";
+        return prompt;
+    }
+
+    private FileChange[] GetInputFiles(IElement element)
+    {
+        var basePath = Path.GetFullPath(Path.Combine(_applicationConfig.DirectoryPath, _applicationConfig.OutputLocation));
+        var correlations = MetadataOutputFileCorrelationsPersistable.TryLoad(_applicationConfig.FilePath);
+        var outputLog = OutputLogPersistable.TryLoad(Path.Combine(_applicationConfig.DirectoryPath, $"{Path.GetFileNameWithoutExtension(_applicationConfig.FilePath)}.{OutputLogPersistable.FileExtension}"));
 
         var fileMap = correlations!.Files
             .SelectMany(x => x.Models, (file, model) => (File: file, Model: model))
             .GroupBy(x => x.Model.Id)
             .ToDictionary(x => x.Key, x => x.Select(i => Path.Combine(basePath, i.File.RelativePath)).ToList());
 
-        var correlatedFiles = CorrelatedFiles(fileMap, queryModel.Id);
+        var correlatedFiles = CorrelatedFiles(fileMap, element.Id);
 
 
         var files = new List<FileChange>();
         var queryHandlerFile = correlatedFiles.First(x => x.FileName.EndsWith("Handler"));
-        files.Add(new FileChange(Path.GetRelativePath(basePath, queryHandlerFile.Path), "The Query Handler", queryHandlerFile.FileText));
+        files.Add(new FileChange(Path.GetRelativePath(basePath, queryHandlerFile.Path), "The Handler Class", queryHandlerFile.FileText));
         var otherCorrelatedFiles = correlatedFiles.Where(x => !x.FileName.EndsWith("Handler") && Path.GetExtension(x.Path) == ".cs");
-        files.AddRange(otherCorrelatedFiles.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "File supporting the Query Handler", x.FileText)));
-        var returnTypeFile = CorrelatedFiles(fileMap, queryModel.TypeReference.ElementId);
-        files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "The return type for the Query Handler", x.FileText)));
-        files.AddRange(GetRelatedEntities(queryModel).SelectMany(model => CorrelatedFiles(fileMap, model.Id).Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Related entity persistence support file", x.FileText))));
+        files.AddRange(otherCorrelatedFiles.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "File supporting the Handler class", x.FileText)));
+        
+        if (element.TypeReference.ElementId != null)
+        {
+            var returnTypeFile = CorrelatedFiles(fileMap, element.TypeReference.ElementId);
+            files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "The return type for the Handler class", x.FileText)));
+        }
+        
+        files.AddRange(GetRelatedEntities(element).SelectMany(model => CorrelatedFiles(fileMap, model.Id).Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Related entity persistence support file", x.FileText))));
 
         if (outputLog != null)
         {
@@ -132,113 +170,12 @@ public class AutoImplementHandlerTask : IModuleTask
 
                 ;
             files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface")
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Entity Framework implemented Repository Interface containing all the important operations", x.FileText)));
-            
-            // Here is where we will start getting limitations with this approach. Some files will be quite large (and numerous) for the LLM to handle.
-            // We will need to rather move over to a Tool based approach and provide the LLM with a list of filenames to rather go with and then it
-            // can decide if it wants to read the file for itself.
-            // ===
-            // // Requires to load existing Repository files to introduce its own methods in order not to remove existing code.
-            // var repos = outputLogFileMap.Keys.Where(k => k.StartsWith("Intent.EntityFrameworkCore.Repositories.Repository")).ToList();
-            // foreach (var repo in repos)
-            // {
-            //     files.AddRange(CorrelatedFiles(outputLogFileMap, repo)
-            //         .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Entity Framework implemented Repository", x.FileText)));   
-            // }
-
+                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Interface", x.FileText)));
             //files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.RepositoryBase")
             //    .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Base Implementation", x.FileText)));
         }
 
-        var targetFileName = queryHandlerFile.FileName;
-        var useCaseDescription = queryHandlerFile.FileName.RemovePrefix("Get").RemoveSuffix("Query", "Handler").ToSentenceCase();
-
-        var prompt = $$$"""
-                        ## Role and Context
-                        You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
-
-                        ## Primary Objective
-                        Implement the `Handle` method in the {{{targetFileName}}} class to accomplish {{{useCaseDescription}}}.
-
-                        ## Repository Pattern Rules (CRITICAL)
-                        1. **NEVER use Queryable() or access DbContext directly** from handlers - this violates the architecture
-                        2. **ONLY use existing repository methods** defined in the interfaces when possible
-                        3. If you need custom repository functionality:
-                           - Define the method in the appropriate repository interface
-                           - Implement the method in the corresponding concrete repository class
-                           - Apply `[IntentIgnore]` attribute to both declaration and implementation
-                           - Then call this method from your handler
-
-                        ## Implementation Process
-                        1. First, analyze the provided repository interfaces to identify available methods
-                        2. Determine if existing repository methods can accomplish the use case
-                        3. If existing methods are insufficient:
-                           - Identify which repository interface needs extension
-                           - Add a properly named method to that interface with appropriate parameters and return type
-                           - Implement the method in the concrete repository class with proper EF Core code
-                           - Mark both with `[IntentIgnore]`
-                        4. Implement the handler's Handle method to use your repository methods
-
-                        ## Code Preservation Requirements (CRITICAL)
-                        1. **NEVER remove or modify existing class members, methods, or properties**
-                        2. **NEVER change existing method signatures or implementations**
-                        3. **ONLY add new members when necessary (repository methods)**
-                        4. **Preserve all existing attributes and code exactly as provided**
-
-                        ## Code File Modifications
-                        1. You may modify ONLY:
-                           - The Handler class implementation (primarily the Handle method)
-                           - Repository interfaces (adding new methods only)
-                           - Repository concrete classes (implementing new methods only)
-                        2. Preserve all existing code, attributes, and file paths exactly
-
-                        ## Example Implementation Flow
-                        If implementing a handler to get products by category:
-                        1. Check if `IProductRepository` has a `GetByCategoryId` method
-                        2. If it doesn't, add:
-                           ```csharp
-                           // To the interface:
-                           [IntentIgnore]
-                           Task<List<Product>> GetByCategoryIdAsync(int categoryId, CancellationToken cancellationToken);
-                           
-                           // To the concrete class:
-                           [IntentIgnore]
-                           public async Task<List<Product>> GetByCategoryIdAsync(int categoryId, CancellationToken cancellationToken)
-                           {
-                               return await _dbContext.Products.Where(p => p.CategoryId == categoryId).ToListAsync(cancellationToken);
-                           }
-                           ```
-                        3. Then use it in the handler:
-                           ```csharp
-                           public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
-                           {
-                               var products = await _productRepository.GetByCategoryIdAsync(request.CategoryId, cancellationToken);
-                               // Process and return results
-                           }
-                           ```
-
-                        ## Input Code Files:
-                        ```json
-                        {{$prompt}}
-                        ```
-
-                        ## Required Output Format
-                        Your response MUST include:
-                        1. The fully implemented handler class with the Handle method
-                        2. Any modified repository interfaces (if you added methods)
-                        3. Any modified repository concrete classes (if you added implementations)
-                        4. All files must maintain their exact original paths
-                        5. All existing code and attributes must be preserved unless explicitly modified
-
-                        ## Important Reminders
-                        - NEVER remove or modify existing class members
-                        - NEVER access DbContext or use Queryable() directly in handlers
-                        - NEVER invoke repository methods that don't exist
-                        - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
-                        - ALL new repository methods must be marked with `[IntentIgnore]`
-                        - Performance and clean architecture are key priorities
-                        """;
-        return (prompt, files.ToArray());
+        return files.ToArray();
     }
     /**
 ## Adding code to the repository:
@@ -257,8 +194,6 @@ public class AutoImplementHandlerTask : IModuleTask
         var apiKey = settings.APIKey();
         // Create the Semantic Kernel instance with your LLM service.
         // Replace <your-openai-key> with your actual OpenAI API key and adjust the model name as needed.
-        // This can be done in the ChatDrivenDomainSettings app settings in Intent.
-        // Also if you don't want to check in your API Key, you can set the OPENAI_API_KEY env variable instead.
         var builder = Kernel.CreateBuilder();
         builder.Services.AddLogging(b => b.AddProvider(new SoftwareFactoryLoggingProvider()).SetMinimumLevel(LogLevel.Trace));
 
@@ -349,14 +284,14 @@ public class AutoImplementHandlerTask : IModuleTask
         return fileMap[modelId].Select(x => (Path: x, FileName: Path.GetFileNameWithoutExtension(x), FileText: File.ReadAllText(x))).ToList();
     }
 
-    private IEnumerable<ClassModel> GetRelatedEntities(QueryModel queryModel)
+    private IEnumerable<ClassModel> GetRelatedEntities(IElement element)
     {
-        var queriedEntity = queryModel.QueryEntityActions().FirstOrDefault()?.TypeReference.Element.AsClassModel();
+        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
+            ?.TypeReference.Element.AsClassModel();
         if (queriedEntity == null)
         {
             return [];
         }
-        var sb = new StringBuilder();
         var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
         return relatedClasses;
     }
