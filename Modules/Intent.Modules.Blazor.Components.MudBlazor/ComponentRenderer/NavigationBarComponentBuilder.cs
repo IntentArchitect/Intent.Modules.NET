@@ -6,6 +6,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
 
@@ -36,6 +37,12 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
                 {
                     var mappingEnds = _bindingManager.GetMappedEndsFor(menuItemModel, "Link To");
                     navLink.AddAttributeIfNotEmpty("Href", _bindingManager.GetHrefRoute(mappingEnds));
+
+                    var onClickMapping = _bindingManager.GetMappedEndFor(menuItemModel, "On Click");
+                    if (onClickMapping != null)
+                    {
+                        navLink.AddAttribute("OnClick", $"{_bindingManager.GetBinding(onClickMapping, parentNode)!.ToLambda()}");
+                    }
 
                     navLink.AddAttributeIfNotEmpty("Icon", menuItemModel.HasIcon() ? $"@Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}" : null)
                         .AddAttributeIfNotEmpty("IconColor", menuItemModel.GetIcon()?.IconColor() != null ? $"Color.{menuItemModel.GetIcon()?.IconColor().Name}" : null);
