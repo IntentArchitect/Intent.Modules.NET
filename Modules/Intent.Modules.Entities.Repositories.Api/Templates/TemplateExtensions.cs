@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
@@ -71,5 +70,5 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates
         {
             return template.GetTypeName(UnitOfWorkInterfaceTemplate.TemplateId);
         }
-}
+    }
 }
