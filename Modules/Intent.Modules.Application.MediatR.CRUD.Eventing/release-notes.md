@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.
+
 ### Version 5.0.3
 
 - Improvement: Updated module NuGet packages infrastructure.

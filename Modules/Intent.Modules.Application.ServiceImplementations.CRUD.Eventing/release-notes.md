@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.
+
 ### Version 1.0.14
 
 - Improvement: Updated dependency versions.

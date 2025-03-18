@@ -1,3 +1,7 @@
+### Version 4.2.0
+
+- Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.
+
 ### Version 4.1.8
 
 - Improvement: Updated module icon

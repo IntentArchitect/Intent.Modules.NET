@@ -1,3 +1,7 @@
+### Version 5.2.0
+
+- Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.
+
 ### Version 5.1.5
 
 - Fixed: Add ModelRepresents for Integration Events and Integration Commands, this address Casing discrepancies in model.
