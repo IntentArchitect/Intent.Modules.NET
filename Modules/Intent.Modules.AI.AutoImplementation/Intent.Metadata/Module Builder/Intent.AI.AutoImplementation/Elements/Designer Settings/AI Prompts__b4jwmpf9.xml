@@ -8,7 +8,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>1e860a65-dbf7-4157-953f-cacc27b35280</parentFolderId>
   <packageId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</packageId>
-  <packageName>Intent.AI.Prompts</packageName>
+  <packageName>Intent.AI.AutoImplementation</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="81e5637b-05d7-43a4-9619-6ef873be9f47" name="Designer Settings">
       <addedByDefault>true</addedByDefault>

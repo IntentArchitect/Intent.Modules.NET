@@ -19,7 +19,7 @@
   <isMapped>false</isMapped>
   <parentFolderId>fb10d092-104a-414d-935a-4046713b5bcd</parentFolderId>
   <packageId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</packageId>
-  <packageName>Intent.AI.Prompts</packageName>
+  <packageName>Intent.AI.AutoImplementation</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="159cbc8e-a910-40f7-8e45-3edadbb863c2" name="Type Reference Extension Settings">
       <addedByDefault>true</addedByDefault>
@@ -57,7 +57,7 @@
       <isMapped>false</isMapped>
       <parentFolderId>35644d81-d5ca-4fff-a54d-13da36d1b62c</parentFolderId>
       <packageId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</packageId>
-      <packageName>Intent.AI.Prompts</packageName>
+      <packageName>Intent.AI.AutoImplementation</packageName>
       <stereotypes />
       <metadata />
       <childElements>
@@ -80,7 +80,7 @@
           <isMapped>false</isMapped>
           <parentFolderId>25345975-6e4f-499a-b0c9-172e32040e3b</parentFolderId>
           <packageId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</packageId>
-          <packageName>Intent.AI.Prompts</packageName>
+          <packageName>Intent.AI.AutoImplementation</packageName>
           <stereotypes>
             <stereotype stereotypeDefinitionId="56bc0465-c1fe-4bca-9493-2a3ce88a4047" name="Script Settings">
               <addedByDefault>true</addedByDefault>

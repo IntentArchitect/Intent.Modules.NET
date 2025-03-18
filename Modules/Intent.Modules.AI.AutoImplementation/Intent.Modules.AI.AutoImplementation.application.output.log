@@ -12,16 +12,16 @@
       <ProjectId>24ae71ec-7744-4c71-8e08-62185eafbab7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.AI.Prompts.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.AI.Prompts.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.AI.AutoImplementation.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AI.AutoImplementation.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>24ae71ec-7744-4c71-8e08-62185eafbab7</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#24ae71ec-7744-4c71-8e08-62185eafbab7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.AI.Prompts.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AI.Prompts.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.AI.AutoImplementation.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AI.AutoImplementation.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

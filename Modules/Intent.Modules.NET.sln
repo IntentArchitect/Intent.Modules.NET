@@ -332,7 +332,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.G
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ApiGateway.Ocelot", "Intent.Modules.ApiGateway.Ocelot\Intent.Modules.ApiGateway.Ocelot.csproj", "{30B56FBE-EBF5-4094-9962-FE128C1ACC4D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AI.Prompts", "Intent.Modules.AI.Prompts\Intent.Modules.AI.Prompts.csproj", "{24AE71EC-7744-4C71-8E08-62185EAFBAB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AI.AutoImplementation", "Intent.Modules.AI.AutoImplementation\Intent.Modules.AI.AutoImplementation.csproj", "{24AE71EC-7744-4C71-8E08-62185EAFBAB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AI", "AI", "{496D7CE4-4A5B-412F-B3AA-E837E159B974}"
 EndProject
