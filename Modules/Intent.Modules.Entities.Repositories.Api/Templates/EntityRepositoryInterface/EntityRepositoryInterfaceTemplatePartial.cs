@@ -36,7 +36,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                 {
                     @interface.AddMetadata("model", model);
                     @interface.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
-                    @interface.ExtendsInterface($"{RepositoryInterfaceName}<{EntityInterfaceName}, {EntityStateName}>");
+                    @interface.ExtendsInterface($"{RepositoryInterfaceName}<{EntityInterfaceName}>");
                     foreach (var genericType in Model.GenericTypes)
                     {
                         @interface.AddGenericParameter(genericType);

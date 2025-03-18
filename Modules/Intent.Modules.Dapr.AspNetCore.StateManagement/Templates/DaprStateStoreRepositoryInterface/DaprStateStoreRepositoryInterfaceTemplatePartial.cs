@@ -34,8 +34,7 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
                 .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IDaprStateStoreRepository", @interface => @interface
                     .AddGenericParameter("TDomain", out var tDomain)
-                    .AddGenericParameter("TPersistence")
-                    .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
+                    .ImplementsInterfaces($"{this.GetRepositoryInterfaceName()}<{tDomain}>")
                     .AddMethod($"Task<List<{tDomain}>>", "FindAllAsync", method => method
                         .AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"))
                     )

@@ -1,5 +1,9 @@
 ### Version 5.1.3
 
+- Fixed: Removed extraneous 2nd type parameter from `Intent.Entities.Repositories.Api.EntityRepositoryInterface` which would be generated for entities which were in a Domain Package without any particular persistence technology.
+
+### Version 5.1.3
+
 - Fixed: template config issue for `EntityRepositoryInterface`.
 - Improvement: Fixed small reference error in XML documentation
 

@@ -1,3 +1,7 @@
+### Version 1.2.9
+
+- Improvement: Inline with the update to `Intent.Entities.Repositories.Api` version `5.1.4`, removed 2nd type parameter for repository interface.
+
 ### Version 1.2.8
 
 - Improvement: Included module help topic.
