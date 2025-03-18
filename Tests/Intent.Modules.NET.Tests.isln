@@ -82,9 +82,6 @@
     <application id="200bbefa-5b4e-430e-ac37-9bb7f9b12604" name="Entities.Interfaces.EF" relativePath="Entities.Interfaces.EF/Entities.Interfaces.EF.application.config" />
     <application id="f30a8ca0-4346-4589-a466-22bc302e8f67" name="JavaScriptProject" relativePath="JavaScriptProject/JavaScriptProject.application.config" />
     <application id="082fa5cd-1a81-468f-b7ce-46c47709d532" name="Standard.AspNetCore.ServiceCallHandlers" relativePath="Standard.AspNetCore.ServiceCallHandlers/Standard.AspNetCore.ServiceCallHandlers.application.config" />
-    <application id="824309da-67d5-4e8c-85f5-104428c48205" name="Blazor.Server" relativePath="Blazor.Server/Blazor.Server.application.config" />
-    <application id="c2cb4d37-dc4c-49de-975c-1fa70324449a" name="Blazor.Server.MinimalHosting" relativePath="Blazor.Server.MinimalHosting/Blazor.Server.MinimalHosting.application.config" />
-    <application id="8b37790a-a116-40c4-b166-ca4a2da6df82" name="Blazor.Server.MinimalHosting.TopLevelStatements" relativePath="Blazor.Server.MinimalHosting.TopLevelStatements/Blazor.Server.MinimalHosting.TopLevelStatements.application.config" />
     <application id="d5d7e68e-cf2f-4bb3-9931-b357bf1094a3" name="EntityFrameworkCore.Oracle.TestApplication" relativePath="EntityFrameworkCore.Oracle.TestApplication/EntityFrameworkCore.Oracle.TestApplication.application.config" />
     <application id="2d1629af-eb4d-4434-b187-03ea5c1ca294" name="IntegrationTesting.Tests" relativePath="IntegrationTesting.Tests/IntegrationTesting.Tests.application.config" />
     <application id="eb23fe9b-a294-4fa6-88ea-1f869a01910b" name="Redis.Om.Repositories" relativePath="Redis.Om.Repositories/Redis.Om.Repositories.application.config" />
