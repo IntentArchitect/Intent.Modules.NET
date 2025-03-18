@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.SingleFiles.Domain.Repositories
 {
-    public interface IDaprStateStoreRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface IDaprStateStoreRepository<TDomain> : IRepository<TDomain>
     {
         IDaprStateStoreUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);

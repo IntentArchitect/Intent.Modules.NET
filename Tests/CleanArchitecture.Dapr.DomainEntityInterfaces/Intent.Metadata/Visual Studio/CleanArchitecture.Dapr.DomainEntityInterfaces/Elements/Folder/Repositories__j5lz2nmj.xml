@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="722c20ea-722a-41b4-bac1-6e67b5a4e5f4" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1faabcc7-ce8f-46df-ae73-7a789489497c</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="08743faf-ae6e-43a7-9033-b2fd6e959612" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepository</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>722c20ea-722a-41b4-bac1-6e67b5a4e5f4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a9302609-38fe-4049-940d-8d484a20d1ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepository</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>722c20ea-722a-41b4-bac1-6e67b5a4e5f4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8931cf2d-7d65-4ea4-88ac-9ba4057d269c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase</name>
+      <display>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreRepositoryBase</display>
+      <externalReference>Intent.Dapr.AspNetCore.StateManagement</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>722c20ea-722a-41b4-bac1-6e67b5a4e5f4</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

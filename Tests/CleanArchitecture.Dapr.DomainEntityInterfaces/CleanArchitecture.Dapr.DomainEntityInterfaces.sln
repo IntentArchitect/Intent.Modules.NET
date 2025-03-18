@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{69F35E62-F241-4C0A-A2F1-9486F1BBC112}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{AA24BFCC-87DF-45E5-A3CB-A3943BF1B85D}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\config.yaml = dapr\config.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{945C683C-0B62-4B47-824B-C54F90642A01}"
+	ProjectSection(SolutionItems) = preProject
+		dapr\components\pubsub.yaml = dapr\components\pubsub.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{A24C571F-75BC-40CC-891E-57511C78D3F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.DomainEntityInterfaces.Api", "CleanArchitecture.Dapr.DomainEntityInterfaces.Api\CleanArchitecture.Dapr.DomainEntityInterfaces.Api.csproj", "{F6865DE7-F1D0-4EB2-836C-97CD23AC766F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{9A1003E0-9C97-4767-A304-5296624FEC42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.DomainEntityInterfaces.Application", "CleanArchitecture.Dapr.DomainEntityInterfaces.Application\CleanArchitecture.Dapr.DomainEntityInterfaces.Application.csproj", "{858D06EC-24E3-447C-B9E7-CE56D3AF8902}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{76534FD8-B583-4836-9FB1-F3DFDBD40732}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.DomainEntityInterfaces.Domain", "CleanArchitecture.Dapr.DomainEntityInterfaces.Domain\CleanArchitecture.Dapr.DomainEntityInterfaces.Domain.csproj", "{88BF7B17-055C-4F53-80C2-5766F467842B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{C82B9628-C1B4-425B-AEF6-1A157CBC63B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure", "CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure\CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure.csproj", "{1FAABCC7-CE8F-46DF-AE73-7A789489497C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA24BFCC-87DF-45E5-A3CB-A3943BF1B85D} = {69F35E62-F241-4C0A-A2F1-9486F1BBC112}
+		{945C683C-0B62-4B47-824B-C54F90642A01} = {AA24BFCC-87DF-45E5-A3CB-A3943BF1B85D}
+		{F6865DE7-F1D0-4EB2-836C-97CD23AC766F} = {A24C571F-75BC-40CC-891E-57511C78D3F1}
+		{858D06EC-24E3-447C-B9E7-CE56D3AF8902} = {9A1003E0-9C97-4767-A304-5296624FEC42}
+		{88BF7B17-055C-4F53-80C2-5766F467842B} = {76534FD8-B583-4836-9FB1-F3DFDBD40732}
+		{1FAABCC7-CE8F-46DF-AE73-7A789489497C} = {C82B9628-C1B4-425B-AEF6-1A157CBC63B5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6865DE7-F1D0-4EB2-836C-97CD23AC766F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6865DE7-F1D0-4EB2-836C-97CD23AC766F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6865DE7-F1D0-4EB2-836C-97CD23AC766F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6865DE7-F1D0-4EB2-836C-97CD23AC766F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{858D06EC-24E3-447C-B9E7-CE56D3AF8902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{858D06EC-24E3-447C-B9E7-CE56D3AF8902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{858D06EC-24E3-447C-B9E7-CE56D3AF8902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{858D06EC-24E3-447C-B9E7-CE56D3AF8902}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88BF7B17-055C-4F53-80C2-5766F467842B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88BF7B17-055C-4F53-80C2-5766F467842B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88BF7B17-055C-4F53-80C2-5766F467842B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88BF7B17-055C-4F53-80C2-5766F467842B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FAABCC7-CE8F-46DF-AE73-7A789489497C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FAABCC7-CE8F-46DF-AE73-7A789489497C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FAABCC7-CE8F-46DF-AE73-7A789489497C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FAABCC7-CE8F-46DF-AE73-7A789489497C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -11,7 +11,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.Dapr.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDerivedRepository : IDaprStateStoreRepository<Derived, Derived>
+    public interface IDerivedRepository : IDaprStateStoreRepository<Derived>
     {
         [IntentManaged(Mode.Fully)]
         Task<Derived?> FindByIdAsync(string id, CancellationToken cancellationToken = default);

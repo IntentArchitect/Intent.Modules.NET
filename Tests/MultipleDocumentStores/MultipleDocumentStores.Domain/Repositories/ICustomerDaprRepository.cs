@@ -12,7 +12,7 @@ using MultipleDocumentStores.Domain.Entities;
 namespace MultipleDocumentStores.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface ICustomerDaprRepository : IDaprStateStoreRepository<CustomerDapr, CustomerDapr>
+    public interface ICustomerDaprRepository : IDaprStateStoreRepository<CustomerDapr>
     {
         [IntentManaged(Mode.Fully)]
         Task<CustomerDapr?> FindByIdAsync(string id, CancellationToken cancellationToken = default);

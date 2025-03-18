@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="456bb40f-487a-413b-9652-b18a35ce172d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Contracts</name>
+  <display>Contracts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5455780b-92ea-4a56-843d-def5cbcc14ea</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ce934752-142a-4a76-bf6f-a426f2d35b77" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.Clients.DtoContract</name>
+      <display>Intent.Application.Contracts.Clients.DtoContract</display>
+      <externalReference>Intent.Application.Contracts.Clients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>456bb40f-487a-413b-9652-b18a35ce172d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a59f389d-a435-4fb2-a431-5f65fec4def5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.Clients.EnumContract</name>
+      <display>Intent.Application.Contracts.Clients.EnumContract</display>
+      <externalReference>Intent.Application.Contracts.Clients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>456bb40f-487a-413b-9652-b18a35ce172d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="18ac9bef-1c03-4c56-9110-1d8fd72d539b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Contracts.Clients.PagedResult</name>
+      <display>Intent.Application.Contracts.Clients.PagedResult</display>
+      <externalReference>Intent.Application.Contracts.Clients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>456bb40f-487a-413b-9652-b18a35ce172d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

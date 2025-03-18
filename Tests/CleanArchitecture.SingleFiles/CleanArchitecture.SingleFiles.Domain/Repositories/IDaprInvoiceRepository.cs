@@ -12,7 +12,7 @@ using Intent.RoslynWeaver.Attributes;
 namespace CleanArchitecture.SingleFiles.Domain.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public interface IDaprInvoiceRepository : IDaprStateStoreRepository<DaprInvoice, DaprInvoice>
+    public interface IDaprInvoiceRepository : IDaprStateStoreRepository<DaprInvoice>
     {
         [IntentManaged(Mode.Fully)]
         Task<DaprInvoice?> FindByIdAsync(string id, CancellationToken cancellationToken = default);

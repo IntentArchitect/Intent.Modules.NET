@@ -9,7 +9,7 @@ using Publish.CleanArchDapr.TestApplication.Domain.Common.Interfaces;
 
 namespace Publish.CleanArchDapr.TestApplication.Domain.Repositories
 {
-    public interface IDaprStateStoreRepository<TDomain, TPersistence> : IRepository<TDomain>
+    public interface IDaprStateStoreRepository<TDomain> : IRepository<TDomain>
     {
         IDaprStateStoreUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);

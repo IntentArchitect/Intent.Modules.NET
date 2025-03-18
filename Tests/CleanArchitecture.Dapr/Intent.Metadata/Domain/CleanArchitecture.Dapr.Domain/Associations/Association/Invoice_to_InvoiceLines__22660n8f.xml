@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="380df71d-604f-4043-9146-fade2dc1360a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>InvoiceLines</name>
-    <display>InvoiceLines: InvoiceLine[*]   [1 --&gt; *]</display>
+    <display>InvoiceLines: InvoiceLine[*]</display>
     <order>4</order>
     <typeReference id="5c3650a7-ba6d-422d-b097-737790588257">
       <typeId>e5e0e3ee-83d0-4c69-ab6c-58c39dad3587</typeId>

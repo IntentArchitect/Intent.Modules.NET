@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.Dapr.DomainEntityInterfaces.Application\CleanArchitecture.Dapr.DomainEntityInterfaces.Application.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure\CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Dapr.DomainEntityInterfaces.Domain\CleanArchitecture.Dapr.DomainEntityInterfaces.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.14.0" />
+    <PackageReference Include="Man.Dapr.Sidekick.AspNetCore" Version="1.2.2" />
+  </ItemGroup>
+  </Project>

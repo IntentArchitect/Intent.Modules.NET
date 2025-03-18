@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3daf9e77-e3d4-4b76-97e5-748df9379b2b" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationEventHandlers</name>
+  <display>IntegrationEventHandlers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>858d06ec-24e3-447c-b9e7-ce56d3af8902</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b473763b-3d22-4933-9130-a5a23cfbdd66" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.EventHandler</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.EventHandler</display>
+      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3daf9e77-e3d4-4b76-97e5-748df9379b2b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6eeab427-fde5-4369-911c-9c5d9dd585ff" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation</name>
+      <display>Intent.Dapr.AspNetCore.Pubsub.EventHandlerImplementation</display>
+      <externalReference>Intent.Dapr.AspNetCore.Pubsub</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3daf9e77-e3d4-4b76-97e5-748df9379b2b</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
