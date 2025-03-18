@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
@@ -8,7 +9,6 @@ using Intent.Modules.Entities.Repositories.Api.Templates.UnitOfWorkInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
 namespace Intent.Modules.Entities.Repositories.Api.Templates
