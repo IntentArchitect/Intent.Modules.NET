@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1e860a65-dbf7-4157-953f-cacc27b35280" type="Designers Folder" typeId="dbb71aa5-0db2-4a2a-97a9-501950f36f99">
+  <name>designers</name>
+  <display>designers</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</parentFolderId>
+  <packageId>1d81e65d-082b-44a2-8d90-771e3a6c45f8</packageId>
+  <packageName>Intent.AI.AutoImplementation</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
