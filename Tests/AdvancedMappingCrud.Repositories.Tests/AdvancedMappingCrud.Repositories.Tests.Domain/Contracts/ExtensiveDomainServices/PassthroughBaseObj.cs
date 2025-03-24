@@ -12,6 +12,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Contracts.ExtensiveDomai
             BaseAttr = baseAttr;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected PassthroughBaseObj()
+        {
+            BaseAttr = null!;
+        }
+
         public string BaseAttr { get; init; }
     }
 }

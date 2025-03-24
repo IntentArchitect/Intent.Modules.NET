@@ -12,6 +12,15 @@ namespace CleanArchitecture.Comprehensive.Domain.Contracts.DataContracts
             AttributeOnDerived = attributeOnDerived;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected DerivedDataContract()
+        {
+            AttributeOnDerived = null!;
+        }
+
         public string AttributeOnDerived { get; init; }
     }
 }

@@ -16,6 +16,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Contracts
             ProductId = productId;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected OrderItemUpdateDC()
+        {
+        }
+
         public Guid? Id { get; init; }
         public decimal Amount { get; init; }
         public int Quantity { get; init; }

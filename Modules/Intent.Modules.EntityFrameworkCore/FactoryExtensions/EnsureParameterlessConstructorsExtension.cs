@@ -29,6 +29,12 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            InstallParameterlessCtorInEntities(application);
+            InstallParameterlessCtorInDataContracts(application);
+        }
+
+        private static void InstallParameterlessCtorInEntities(IApplication application)
+        {
             var classModels = application.MetadataManager.Domain(application).GetClassModels()
                 .Where(x => x.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
                 .ToArray();
@@ -53,27 +59,47 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     if (stateTemplate is null)
                     {
                         var entityClass = file.Classes.First();
-                        IntroduceConstructor(entityClass, model, entityTemplate);
+                        IntroduceClassConstructor(entityClass, model, entityTemplate);
                     }
                     else
                     {
                         var stateClass = stateTemplate.CSharpFile.Classes.First();
-                        IntroduceConstructor(stateClass, model, stateTemplate);
+                        IntroduceClassConstructor(stateClass, model, stateTemplate);
                     }
                 });
             }
         }
+        
+        private static void InstallParameterlessCtorInDataContracts(IApplication application)
+        {
+            var dataContractModels = application.MetadataManager.Domain(application).GetDataContractModels()
+                .Where(x => x.InternalElement.Package.AsDomainPackageModel()?.HasRelationalDatabase() == true)
+                .ToArray();
+            foreach (var model in dataContractModels)
+            {
+                var dataContractTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DataContract, model.Id);
+                dataContractTemplate?.CSharpFile.OnBuild(file =>
+                {
+                    var record = file.Records.First();
+                    if (record.Constructors.Count == 0 || record.Constructors.Any(p => p.Parameters.Count == 0))
+                    {
+                        return;
+                    }
 
-        private static void IntroduceConstructor(CSharpClass entityClass, ClassModel model, ICSharpFileBuilderTemplate primaryTemplate)
+                    IntroduceRecordConstructor(record, model, dataContractTemplate);
+                });
+            }
+        }
+
+        private static void IntroduceClassConstructor(CSharpClass entityClass, ClassModel model, ICSharpFileBuilderTemplate primaryTemplate)
         {
             entityClass.AddConstructor(ctor =>
             {
-                ctor.WithComments(new[]
-                {
+                ctor.WithComments([
                     "/// <summary>",
                     "/// Required by Entity Framework.",
                     "/// </summary>"
-                });
+                ]);
                 ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
                 ctor.Protected();
                 foreach (var attribute in model.Attributes)
@@ -95,6 +121,33 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                     if (!associationEnd.IsCollection && !associationEnd.IsNullable)
                     {
                         ctor.AddStatement($"{associationEnd.Name.ToPascalCase()} = null!;");
+                    }
+                }
+            });
+        }
+        
+        private static void IntroduceRecordConstructor(CSharpRecord record, DataContractModel model, ICSharpFileBuilderTemplate dataContractTemplate)
+        {
+            record.AddConstructor(ctor =>
+            {
+                ctor.WithComments([
+                    "/// <summary>",
+                    "/// Required by Entity Framework.",
+                    "/// </summary>"
+                ]);
+                ctor.AddAttribute(CSharpIntentManagedAttribute.Fully());
+                ctor.Protected();
+                foreach (var attribute in model.Attributes)
+                {
+                    if (!string.IsNullOrWhiteSpace(attribute.Value))
+                    {
+                        continue;
+                    }
+
+                    var typeInfo = dataContractTemplate.GetTypeInfo(attribute.TypeReference);
+                    if (NeedsNullabilityAssignment(typeInfo))
+                    {
+                        ctor.AddStatement($"{attribute.Name} = null!;");
                     }
                 }
             });

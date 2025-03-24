@@ -14,6 +14,14 @@ namespace RichDomain.Domain.Contracts.Inheritance
             Created = created;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected BaseContract()
+        {
+        }
+
         public int Id { get; init; }
         public DateTime Created { get; init; }
     }

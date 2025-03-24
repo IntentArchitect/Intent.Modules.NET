@@ -14,6 +14,16 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Contracts.OperationMappi
             SubTasks = subTasks;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected TaskItemContract()
+        {
+            Name = null!;
+            SubTasks = null!;
+        }
+
         public string Name { get; init; }
         public IEnumerable<SubTaskItemContract> SubTasks { get; init; }
     }

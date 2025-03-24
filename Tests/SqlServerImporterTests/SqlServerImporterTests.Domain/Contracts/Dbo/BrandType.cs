@@ -13,6 +13,15 @@ namespace SqlServerImporterTests.Domain.Contracts.Dbo
             IsActive = isActive;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected BrandType()
+        {
+            Name = null!;
+        }
+
         public string Name { get; init; }
         public bool IsActive { get; init; }
     }

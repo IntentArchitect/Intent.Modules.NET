@@ -12,6 +12,15 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts
             Data = data;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected SpResult()
+        {
+            Data = null!;
+        }
+
         public string Data { get; init; }
     }
 }

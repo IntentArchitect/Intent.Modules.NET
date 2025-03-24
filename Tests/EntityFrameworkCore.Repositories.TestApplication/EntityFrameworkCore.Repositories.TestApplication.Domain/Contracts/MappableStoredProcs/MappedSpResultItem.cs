@@ -13,6 +13,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts.Mapp
             ComplexProp = complexProp;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected MappedSpResultItem()
+        {
+            SimpleProp = null!;
+            ComplexProp = null!;
+        }
+
         public string SimpleProp { get; init; }
         public MappedSpResultItemProperty ComplexProp { get; init; }
     }

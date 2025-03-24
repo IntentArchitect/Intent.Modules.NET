@@ -39,6 +39,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts
             AttributeString = attributeString;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected SpParameter()
+        {
+            AttributeBinary = null!;
+            AttributeString = null!;
+        }
+
         public byte[] AttributeBinary { get; init; }
         public bool AttributeBool { get; init; }
         public byte AttributeByte { get; init; }

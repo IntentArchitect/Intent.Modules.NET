@@ -12,6 +12,15 @@ namespace CleanArchitecture.Comprehensive.Domain.Contracts.DataContracts
             AttributeOnBase = attributeOnBase;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected BaseDataContract()
+        {
+            AttributeOnBase = null!;
+        }
+
         public string AttributeOnBase { get; init; }
     }
 }

@@ -13,6 +13,15 @@ namespace RichDomain.Domain.Contracts.Inheritance
             Name = name;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected SuperContract()
+        {
+            Name = null!;
+        }
+
         public string Name { get; init; }
     }
 }

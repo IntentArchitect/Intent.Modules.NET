@@ -15,6 +15,15 @@ namespace SqlServerImporterTests.Domain.Contracts.Dbo
             Id = id;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected GetCustomerOrdersResponse()
+        {
+            RefNo = null!;
+        }
+
         public DateTime OrderDate { get; init; }
         public string RefNo { get; init; }
         public Guid Id { get; init; }

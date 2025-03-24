@@ -29,6 +29,18 @@ namespace SqlServerImporterTests.Domain.Contracts.Dbo
             Email = email;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected GetOrderItemDetailsResponse()
+        {
+            RefNo = null!;
+            Name = null!;
+            Surname = null!;
+            Email = null!;
+        }
+
         public Guid Id { get; init; }
         public Guid OrderId { get; init; }
         public int Quantity { get; init; }

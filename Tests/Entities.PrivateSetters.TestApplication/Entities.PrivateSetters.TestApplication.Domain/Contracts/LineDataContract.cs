@@ -13,6 +13,15 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Contracts
             Quantity = quantity;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected LineDataContract()
+        {
+            Description = null!;
+        }
+
         public string Description { get; init; }
         public int Quantity { get; init; }
     }

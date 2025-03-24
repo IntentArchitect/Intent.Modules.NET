@@ -12,6 +12,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Contracts.ExtensiveDomai
             ConcreteAttr = concreteAttr;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected PassthroughObj()
+        {
+            ConcreteAttr = null!;
+        }
+
         public string ConcreteAttr { get; init; }
     }
 }

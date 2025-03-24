@@ -14,6 +14,17 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Contracts
             City = city;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected AddressDC()
+        {
+            Line1 = null!;
+            Line2 = null!;
+            City = null!;
+        }
+
         public string Line1 { get; init; }
         public string Line2 { get; init; }
         public string City { get; init; }

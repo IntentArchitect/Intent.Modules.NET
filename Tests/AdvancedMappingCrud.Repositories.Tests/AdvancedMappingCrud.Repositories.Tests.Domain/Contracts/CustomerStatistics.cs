@@ -13,6 +13,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Contracts
             AverageCartValue = averageCartValue;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected CustomerStatistics()
+        {
+        }
+
         public int NoOfOrders { get; init; }
         public decimal AverageCartValue { get; init; }
     }

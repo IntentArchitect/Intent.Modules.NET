@@ -12,6 +12,15 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts
             Attribute = attribute;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected SpParameterWithName()
+        {
+            Attribute = null!;
+        }
+
         public string Attribute { get; init; }
     }
 }

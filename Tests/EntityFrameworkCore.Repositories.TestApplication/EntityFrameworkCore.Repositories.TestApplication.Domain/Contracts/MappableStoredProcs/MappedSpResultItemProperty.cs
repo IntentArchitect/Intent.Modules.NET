@@ -12,6 +12,15 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts.Mapp
             Prop1 = prop1;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected MappedSpResultItemProperty()
+        {
+            Prop1 = null!;
+        }
+
         public string Prop1 { get; init; }
     }
 }

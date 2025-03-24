@@ -13,6 +13,16 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Contracts.Mapp
             SimpleString = simpleString;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected MappedSpResult()
+        {
+            Result = null!;
+            SimpleString = null!;
+        }
+
         public MappedSpResultItem Result { get; init; }
         public string SimpleString { get; init; }
     }

@@ -12,6 +12,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Contracts.OperationMappi
             Name = name;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected SubTaskItemContract()
+        {
+            Name = null!;
+        }
+
         public string Name { get; init; }
     }
 }

@@ -13,6 +13,16 @@ namespace Solace.Tests.Domain.Contracts
             Surname = surname;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected CustomerCustom()
+        {
+            Name = null!;
+            Surname = null!;
+        }
+
         public string Name { get; init; }
         public string Surname { get; init; }
     }

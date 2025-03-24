@@ -13,6 +13,15 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Contracts
             CustomColumn = customColumn;
         }
 
+        /// <summary>
+        /// Required by Entity Framework.
+        /// </summary>
+        [IntentManaged(Mode.Fully)]
+        protected ColumnDC()
+        {
+            CustomColumn = null!;
+        }
+
         [Column("CUSTOM_COLUMN")]
         public string CustomColumn { get; init; }
     }
