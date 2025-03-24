@@ -28,7 +28,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         int? columnOrder = null)
     {
         var databaseProvider = dbSettings.DatabaseProvider().AsEnum();
-        var field = new EfCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name})", attribute);
+        var field = new EfCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute);
 
 		if (!attribute.Type.IsNullable)
         {
