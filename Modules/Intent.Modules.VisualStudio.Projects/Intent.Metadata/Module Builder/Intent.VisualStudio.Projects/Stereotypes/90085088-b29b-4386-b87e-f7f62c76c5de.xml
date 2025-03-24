@@ -38,7 +38,7 @@
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
       <placeholder />
-      <defaultValue>Same as sln file</defaultValue>
+      <defaultValue>Check Parent Folders</defaultValue>
       <valueOptions>
         <option>Same as sln file</option>
         <option>Check Parent Folders</option>
