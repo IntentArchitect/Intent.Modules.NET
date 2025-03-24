@@ -69,7 +69,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 });
             }
         }
-        
+
         private static void InstallParameterlessCtorInDataContracts(IApplication application)
         {
             var dataContractModels = application.MetadataManager.Domain(application).GetDataContractModels()
@@ -125,7 +125,7 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                 }
             });
         }
-        
+
         private static void IntroduceRecordConstructor(CSharpRecord record, DataContractModel model, ICSharpFileBuilderTemplate dataContractTemplate)
         {
             record.AddConstructor(ctor =>
