@@ -39,7 +39,7 @@ namespace CosmosDB.EntityInterfaces.Application.Implementation.ServiceTesting
             {
                 if (type != null)
                 {
-                    queryable = queryable.Where(x => x.Type == type);
+                    queryable = queryable.Where(x => x.ClientType == type);
                 }
 
                 if (name != null)

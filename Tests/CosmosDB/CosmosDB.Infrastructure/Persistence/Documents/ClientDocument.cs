@@ -32,8 +32,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         }
         string? IItemWithEtag.Etag => _etag;
         public string Identifier { get; set; } = default!;
-        [JsonProperty("@type")]
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
         public string Name { get; set; } = default!;
         public bool IsDeleted { get; set; }
 
@@ -42,7 +41,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
             entity ??= new Client();
 
             entity.Identifier = Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null");
-            entity.Type = Type;
+            entity.ClientType = ClientType;
             entity.Name = Name ?? throw new Exception($"{nameof(entity.Name)} is null");
             entity.IsDeleted = IsDeleted;
 
@@ -52,7 +51,7 @@ namespace CosmosDB.Infrastructure.Persistence.Documents
         public ClientDocument PopulateFromEntity(Client entity, Func<string, string?> getEtag)
         {
             Identifier = entity.Identifier;
-            Type = entity.Type;
+            ClientType = entity.ClientType;
             Name = entity.Name;
             IsDeleted = entity.IsDeleted;
 

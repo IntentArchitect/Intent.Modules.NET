@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings version="3.1.1">
+  <id>38ad535e-2ba2-48b5-a6d5-f1f7cdae3d62</id>
+  <name>Cosmos DB Designer Settings</name>
+  <designerReferences />
+  <packageSettings />
+  <packageExtensions />
+  <elementSettings />
+  <elementExtensions>
+    <elementExtension type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <validateFunctionOverride>function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+}
+
+const DocumentDatabaseStereotype = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+if (!getPackage().hasStereotype(DocumentDatabaseStereotype)) {
+    return "";
+}
+
+if (element.getName().toLocaleLowerCase() === "type" &amp;&amp; isAggregateRoot(element)) {
+    return `Attribute name '${element.getName()}' is reserved by 'IEvangelist.Azure.CosmosRepository' on a document level. Please rename your attribute.`;
+}
+
+return "";</validateFunctionOverride>
+      <mappingSettings />
+    </elementExtension>
+  </elementExtensions>
+  <associationSettings />
+  <associationExtensions />
+  <mappingSettings />
+  <mappableElementPackages />
+  <mappableElementPackageExtensions />
+  <scripts />
+</settings>

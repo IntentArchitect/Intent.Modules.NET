@@ -1,7 +1,11 @@
+### Version 1.2.12
+
+- Fixed: Nuget package `IEvangelist.Azure.CosmosRepository` (known at version `8.1.7`) [reserves the field `type` on a CosmosDB document](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/issues/50) in order to determine the type of document. This fix produces an error in the designer to inform the user to rename the field.
+
 ### Version 1.2.11
 
 - Fixed: Incomplete namespaces being added to the `usings` under certain conditions.
-- Fixed: Correctly qualified entities now used if there are naming naming conflicts.
+- Fixed: Correctly qualified entities now used if there are naming conflicts.
 
 ### Version 1.2.10
 

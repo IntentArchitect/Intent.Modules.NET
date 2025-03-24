@@ -27,8 +27,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
             set => _type = value;
         }
         public string Identifier { get; set; } = default!;
-        [JsonProperty("@type")]
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
         public string Name { get; set; } = default!;
         public bool IsDeleted { get; set; }
 
@@ -37,7 +36,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
             entity ??= new Client();
 
             ReflectionHelper.ForceSetProperty(entity, nameof(Identifier), Identifier ?? throw new Exception($"{nameof(entity.Identifier)} is null"));
-            ReflectionHelper.ForceSetProperty(entity, nameof(Type), Type);
+            ReflectionHelper.ForceSetProperty(entity, nameof(ClientType), ClientType);
             ReflectionHelper.ForceSetProperty(entity, nameof(Name), Name ?? throw new Exception($"{nameof(entity.Name)} is null"));
             ReflectionHelper.ForceSetProperty(entity, nameof(IsDeleted), IsDeleted);
 
@@ -47,7 +46,7 @@ namespace CosmosDB.PrivateSetters.Infrastructure.Persistence.Documents
         public ClientDocument PopulateFromEntity(Client entity)
         {
             Identifier = entity.Identifier;
-            Type = entity.Type;
+            ClientType = entity.ClientType;
             Name = entity.Name;
             IsDeleted = entity.IsDeleted;
 

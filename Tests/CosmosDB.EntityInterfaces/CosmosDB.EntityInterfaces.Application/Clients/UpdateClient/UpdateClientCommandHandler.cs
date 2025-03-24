@@ -33,7 +33,7 @@ namespace CosmosDB.EntityInterfaces.Application.Clients.UpdateClient
             }
 
             existingClient.Identifier = request.Identifier;
-            existingClient.Type = request.Type;
+            existingClient.ClientType = request.Type;
             existingClient.Name = request.Name;
 
             _clientRepository.Update(existingClient);

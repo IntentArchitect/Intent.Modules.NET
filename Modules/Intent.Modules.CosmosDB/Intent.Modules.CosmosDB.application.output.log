@@ -89,6 +89,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>534a954a-ca29-436d-b315-f2efe1d62a12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#38ad535e-2ba2-48b5-a6d5-f1f7cdae3d62</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Cosmos DB Designer Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Cosmos DB Designer Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>83d7e412-cef6-48b5-a194-20172cbc7a5b</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -18,7 +18,7 @@ namespace CosmosDB.Domain.Entities
 
         public Client(ClientType type, string name)
         {
-            Type = type;
+            ClientType = type;
             Name = name;
         }
         public string Identifier
@@ -27,7 +27,7 @@ namespace CosmosDB.Domain.Entities
             set => _identifier = value;
         }
 
-        public ClientType Type { get; set; }
+        public ClientType ClientType { get; set; }
 
         public string Name { get; set; }
 
@@ -42,7 +42,7 @@ namespace CosmosDB.Domain.Entities
 
         public void Update(ClientType type, string name)
         {
-            Type = type;
+            ClientType = type;
             Name = name;
         }
     }

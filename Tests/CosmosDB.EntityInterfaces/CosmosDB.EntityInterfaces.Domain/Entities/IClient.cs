@@ -10,7 +10,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Entities
     {
         string Identifier { get; set; }
 
-        ClientType Type { get; set; }
+        ClientType ClientType { get; set; }
 
         string Name { get; set; }
 

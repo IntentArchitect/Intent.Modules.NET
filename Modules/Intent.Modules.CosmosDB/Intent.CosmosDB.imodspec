@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.CosmosDB</id>
-  <version>1.2.11</version>
+  <version>1.2.12-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</summary>
   <description>Core Cosmos DB Database Provider Repository backed using the Cosmos DB Client.</description>
@@ -237,6 +237,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.CosmosDB/Intent.CosmosDB.pkg.config" externalReference="b52e75f6-d86b-4c53-b4bd-8a8c2c267865" />
+    <install target="Domain" src="modelers/Cosmos DB Designer Settings.designer.settings" externalReference="38ad535e-2ba2-48b5-a6d5-f1f7cdae3d62" />
   </metadata>
   <migrations />
 </package>

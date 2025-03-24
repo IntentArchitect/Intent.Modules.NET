@@ -28,7 +28,7 @@ namespace CosmosDB.Application.Clients.CreateClient
         {
             var newClient = new Client
             {
-                Type = request.Type,
+                ClientType = request.Type,
                 Name = request.Name,
             };
 

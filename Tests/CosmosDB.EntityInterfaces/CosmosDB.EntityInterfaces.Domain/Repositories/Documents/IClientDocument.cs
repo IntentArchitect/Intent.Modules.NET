@@ -9,7 +9,7 @@ namespace CosmosDB.EntityInterfaces.Domain.Repositories.Documents
     public interface IClientDocument : ISoftDeleteReadOnly
     {
         string Identifier { get; }
-        ClientType Type { get; }
+        ClientType ClientType { get; }
         string Name { get; }
     }
 }

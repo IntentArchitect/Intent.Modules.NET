@@ -34,7 +34,7 @@ namespace CosmosDB.PrivateSetters.Application.Clients.GetClientsFiltered
             {
                 if (request.Type != null)
                 {
-                    queryable = queryable.Where(x => x.Type == request.Type);
+                    queryable = queryable.Where(x => x.ClientType == request.Type);
                 }
 
                 if (request.Name != null)
