@@ -29,8 +29,6 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
 
         public void Up()
         {
-            Debugger.Launch();
-
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(ApiMetadataDesignerExtensions.VisualStudioDesignerId);
             var packages = designer.GetPackages();
