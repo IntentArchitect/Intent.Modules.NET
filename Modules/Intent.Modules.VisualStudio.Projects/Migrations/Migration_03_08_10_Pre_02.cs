@@ -49,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
                 var vsOptionsStereotype = package.Stereotypes.First(s => s.DefinitionId == VisualStudioSolutionOptions.DefinitionId);
 
                 var cpmEnabled = GetOrCreateProperty(vsOptionsStereotype, "49e78350-c77b-4f83-88d8-5841e6cb3", "Manage Package Versions Centrally", true, "false");
-                GetOrCreateProperty(vsOptionsStereotype, "ad4bb70e-9dbd-41ce-95a0-1d319a4", "Check Parent Folders", bool.Parse(cpmEnabled?.Value), "true");
+                GetOrCreateProperty(vsOptionsStereotype, "ad4bb70e-9dbd-41ce-95a0-1d319a4", "Output Location", bool.Parse(cpmEnabled?.Value), "Check Parent Folders");
                 GetOrCreateProperty(vsOptionsStereotype, "ca30802f-7cf3-459e-9ea1-aa20d7af763", "Only check current Git repository", bool.Parse(cpmEnabled?.Value), "true");
 
                 package.Save(true);
