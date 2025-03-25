@@ -1,12 +1,12 @@
-using Intent.IArchitect.Agent.Persistence.Model.Common;
+using System.Diagnostics;
+using System.Linq;
+using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Engine;
-using System.Linq;
 using static Intent.Modules.VisualStudio.Projects.Api.VisualStudioSolutionModelStereotypeExtensions;
-using System.Diagnostics;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]
