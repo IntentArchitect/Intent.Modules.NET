@@ -35,18 +35,22 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
 
             foreach (var package in packages)
             {
-                if(!package.Stereotypes.Any(s => s.DefinitionId == VisualStudioSolutionOptions.DefinitionId))
+                StereotypePersistable vsOptionsStereotype = null;
+                if (!package.Stereotypes.Any(s => s.DefinitionId == VisualStudioSolutionOptions.DefinitionId))
                 {
-                    package.Stereotypes.Add(new StereotypePersistable
+                    vsOptionsStereotype = new StereotypePersistable
                     {
                         DefinitionId = VisualStudioSolutionOptions.DefinitionId,
                         Name = "Visual Studio Solution Options",
                         DefinitionPackageName = "Intent.VisualStudio.Projects",
-                        DefinitionPackageId = "a0636ab7-d3a1-430b-9609-11a18aa3cc7f"
-                    });
+                        DefinitionPackageId = "a0636ab7-d3a1-430b-9609-11a18aa3cc7f",
+                        Properties = []
+                    };
+
+                    package.Stereotypes.Add(vsOptionsStereotype);
                 }
 
-                var vsOptionsStereotype = package.Stereotypes.First(s => s.DefinitionId == VisualStudioSolutionOptions.DefinitionId);
+                vsOptionsStereotype ??= package.Stereotypes.First(s => s.DefinitionId == VisualStudioSolutionOptions.DefinitionId);
 
                 var cpmEnabled = GetOrCreateProperty(vsOptionsStereotype, "49e78350-c77b-4f83-88d8-5841e6cb3ab9", "Manage Package Versions Centrally", true, "false");
                 GetOrCreateProperty(vsOptionsStereotype, "ad4bb70e-9dbd-41ce-95a0-1d319a40b8a9", "Output Location", bool.Parse(cpmEnabled?.Value), "Check Parent Folders");
@@ -59,7 +63,7 @@ namespace Intent.Modules.VisualStudio.Projects.Migrations
 
         private static StereotypePropertyPersistable GetOrCreateProperty(StereotypePersistable settings, string id, string name, bool isActive, string value = "")
         {
-            var property = settings.Properties.SingleOrDefault(x => x.Name == name);
+            var property = settings?.Properties.SingleOrDefault(x => x.Name == name);
             if (property == null)
             {
                 property = new StereotypePropertyPersistable
