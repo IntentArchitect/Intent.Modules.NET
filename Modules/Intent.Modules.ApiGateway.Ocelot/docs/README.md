@@ -9,6 +9,8 @@ Ocelot is aimed at people using .NET running a microservices / service-oriented 
 
 # Modeling API Gateway Routes
 
+![Ocelot API Gateway modeling](images/ocelot-modeling.png)
+
 The following steps are performed inside the Services designer:
 
 - First you need to add a reference to a Services package containing all the downstream service endpoints.
