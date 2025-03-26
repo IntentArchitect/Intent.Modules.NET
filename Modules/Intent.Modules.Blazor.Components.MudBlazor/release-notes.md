@@ -8,3 +8,4 @@
 - Improvement : Improved `Layout` and `Container` razor generation.
 - Improvement : Support for `Button` _Disabled_ binding
 - Improvement : Updated `MudDialogInstance` to `IMudDialogInstance`
+- Improvement : Updated MudBlazor NuGet Package to 8.3
