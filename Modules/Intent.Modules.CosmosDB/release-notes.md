@@ -1,3 +1,7 @@
+### Version 1.2.13
+
+- Fixed: Previous version fix will no longer target composite Entities.
+
 ### Version 1.2.12
 
 - Fixed: Nuget package `IEvangelist.Azure.CosmosRepository` (known at version `8.1.7`) [reserves the field `type` on a CosmosDB document](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/issues/50) in order to determine the type of document. This fix produces an error in the designer to inform the user to rename the field.
