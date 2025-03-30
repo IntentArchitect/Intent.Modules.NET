@@ -22,4 +22,8 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="docs\images\" />
+  </ItemGroup>
+
 </Project>

@@ -63,7 +63,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             }
 
             var appearance = model.GetAppearance();
-            if (appearance.Dense() != null)
+            if (appearance.Dense() != null && !string.IsNullOrEmpty(appearance.Striped().Value))
             {
                 mudDataGrid.AddAttribute("Dense", appearance.Dense().Value);
             }
