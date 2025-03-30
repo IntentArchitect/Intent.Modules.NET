@@ -3,6 +3,7 @@
   <name>Documentation</name>
   <display>Documentation</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
@@ -10,5 +11,60 @@
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>
   <stereotypes />
   <metadata />
-  <childElements />
+  <childElements>
+    <childElement id="37c14491-4cc3-4bf8-a8da-97588f1ca3a2" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Customize Your Site Colors and Fonts</name>
+      <display>Customize Your Site Colors and Fonts</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>53e22fdc-9e97-4c58-b7c6-426508127dff</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Customize your Site Colors and Fonts by configuring a MudTheme" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAB1JJREFUaEPtmXtwVOUZxp/v3M9mL9kLuUASsoEQYoQggg4dLA2pQgWdCgLSCmOwSQctUIECUxRTqVoyVtCxFjIgNWNDxRIFG4IKpcwUFFQCTJMQGq4G0k3IZnOS3ez1nM6eEJpANtmwicEO7z87c8473/f83st3OUvwHTfyHdePOwCDncH/3wy0bXlTEprtup4i7I42S2LeEsNgZiFkBpSCfCUcYWRV/qBmccAAFCWfaquurWMUu6mFGfuWOTX/uXAC0lefAQNwnMl/2xD4x+IOQR4q2eGk7s41p678a19F9uQ/IABXqrdYLEpZHas4mK6TE7TSGecUNnmG3rrydH+ADAiAdPpXR3TKl5NCCfRDozjpcR8ZUsc9QchcbyQg/Q5wtXpDtkn+bD+Bv1ddbspqF9O2m3t17MGh3wFc1Xn/EeUzseGI8pIhXn70B3w4vqF8QgJUnb8U1jKabk26Psals3vmD/VtKaYVZ1iampisV02pL/46LOcQTv0GUFFRwRGN9hSjuNIs/hIYAwcAyCG1tVFWuybC8gkOHrqEZs0KKwOkpEQdo7H86Z1OMXuOk5+sihbki4jxvweNXH0ThAIaDm7aDNOIVXsjiX6/ATgOfH+qVji+n1ZaSauQDZvhJfiYRFWbVi5HrK8IrNJ4XWsLNf5Lfdrr90Uqvt8AvHvNLay+UdshSCEC7NocNOqWQiZRoBQvTIFSmP1/QwCCLLE/SDaPXPHNjQBFJ3a+avPUruBpjTTm3rS4LJLV61IWcQm1LbP9Tqw/vAbxN8fTT8ehQb8azZpZarVyig16/xcFQ0YtWd3Zu7i85EG73/bnRn/jkI7nKWLq9gXj5i3qLUsRAwQWlsq0z0N1B9AxuYufBJshH24u/av04Yn3E0LU7i6p+STG0WLbedlTO0VWujY8TwlyImtN+en42Rd7gogYAPNL2sfvJgOdJ1bAwmb6/cz4u5aWBp+/f+rD58+7zuZ7FDcdSmAcm3Di5xOeuue2AHDyU6q1Ew+NLvikcNHMtOk5Tr80ed/VPbgx8p3FEhCkajLmzM/8ccgD4LeSgQDRKbu8v8gprqn5owRJfOF7+YjXDMNJ6WtUuyp6LHMjY5KWTFhs7Ci7G50j3shc53dhrLQOjKUlpJBPndNb8qtcOoomEHQCRhlHY+nYFfArPpRd3Y22gKtHiBGa1E1PZs7r9j4RMUD1+W9AIGNi7FeIaV4PWrZ3ESORJMw4lgi/QiAaRFA0pb7PzXgGmZZ7cNF9Dkcd/+wRQKQ0/lX3L2e7cwoJUAGEtRPz7y5ARUIuRqUkg5YdsEgbYXQVAUpAnW/thfvw93oODM+Cj+KuazALZqyduB4cxeJg4z40+OpDQli42Lpn780dOiAAyc8DihAF+7TNcFqmqHMIvgrEOtbhotONnHIDCCEQo0X1t7M9PPxRPJz8CBw+Oz6zl0JRusZMoMTAUH7Yticz5y3ucw+Em4EgQNA0CUDrkGzY0tfDJyYgoASwvGwhJI8CTsODFW64nAFq9NdOfAlmwYLj0lHUuNrPTcHVJ45LOGlWYn80e8L0ultaRm8FIDiRTIuwWxejNn4RXjj8IuxtDWrth7JgHwT7wSd7sbfhI0QxUfZYPmbh3DGz1f2iN4u4BzpnoGMyDx+LAyk7UO9uwft1W+FDz7fGZ8YsQ7rp7rM2z+XXskZP2tyb6M7vBwRg9ZVRaDA/hAWTnsYZ7wl8UPOXkJo4isPk+Af2/GTknHlWq9XdF/Ht5RbCbrWELrAjMfmQHyzPYtfyjyHwAgqO/xa1rTcdPpGiH2EbYUibtSZ72ZG+Cu/w71cAhdCYWZmEk00KNNEisjKn4rmpq3FWqsGm8gIo11Zmi2DxZpjG/GbdQ2teuVXhvQKEeydO2pZ0fRXa58/Az445QTE0jMPaP5kWPPYGhhuH453KQlQ1VSDJ8wCqP02D3wtQFIFey0KnZbF2ZYrqX3qw/SLUnem1XilvLt/lW2zEO3Hie+kgHicYqxHjPzfA4QV0MTpwYvvGGa8fhk2P/wFHTlzG7jIbmhtYtXB1GhZ6HatCBC0cgKDfykVdN5OIAc6cu4CMy1uxo/YUNp92gBNY6GL/91FbYAWsf3AjXim4qgrlOQrR0Tw4pv1I0WGDBhA8C3llN5YX5UIhMqLjDaBZWt11Y3AXnp2SBxAKb74twaBnESXevKF9KxnYWPgOKBAsy8vpErkgQPHRrThcdRCiXoDGqIGRjYPzaBZa6wVs2DAe0XotCrc1BTlC2oBn4I3C7VBA8Mu8p7qI+Lri3zh9pRLvfr4RMUlxiLr0Q9T/q/1qS9EMioumgWcZvPzaudDqB7MH9n9xHIRQOFh1AJVlIxE8j1EUBZrlQNMMdvwpWxV+2wIcOlaJom2XYG/yAISAYTgwTPtKE7TbHuCxubuvlQsNlhVAri2LHfVy2wPMfuJjMBwHiup+delPAIPO25w7h4/u3EyD+gddj10d5ss7AGEGasDc7mRgwEIb5sD/Bexf5U9+IzJYAAAAAElFTkSuQmCC&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html#customize-your-site-colors-and-fonts" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;f492faed-0665-4513-9853-5a230721786f&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Theme Style MudTheme Color Colour Font" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="568a3d60-f95f-4512-927b-dc8ae91a165c" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Flexible Layouts Using the `Layout` Stereotype</name>
+      <display>Flexible Layouts Using the `Layout` Stereotype</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>53e22fdc-9e97-4c58-b7c6-426508127dff</parentFolderId>
+      <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+      <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to model flexible layouts using the `Layout` Stereotype" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAaJJREFUaEPtmTFOw0AQRWfS4UVwCApaCqhB0MWOOISTA0CDBKIDRJUL2OEMCGKXhBoaWgouQeLQ5aMEIlkodrRrK+uEceudnf/mj73rNdOSX7zk+kkAbDsoDlTegWaUHBPhhMC7xKwWIhhIqMavILQ7dfWYlzO3hfx4eMugs4WIzkoC3ISeusi6nQnwU3m+tyr+NzkTGoGrurO05AAMnolq+9UAoF7gOodaAH436TPzehUAiKgfus6GFkAzGqIi4icyQteZ2S05LbQiAEF9zaoRrfirmAMCUNA/cSDdQm/vH1r13Nnemow3jRvHluqAqRDTOAEYV0BaSJ4BWchWaCuh+zrUWjRSg6frh/XXqADYXonFAXHgz1bCtCWKxJW6Gy0ixDRWAJb+m9jU+rLj/t+5UJWOFhn4DDy1qXe0GA97BDoouxVM5huN6Omu4RxpAfhx0mDwg0nCsmMAeB1PRVoA48HNbnJNzOdlC9KZD4Srjqsus2Lm/uRrRYlHxKcjYG9Rx+0ABgC/MKOdVfkp0FwAnWrZGCsANqqezikOiAMFK/ANMoU0QMIhrIsAAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-components-mudblazor/intent-blazor-components-mudblazor.html#flexible-layouts-using-the-layout-stereotype" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;f492faed-0665-4513-9853-5a230721786f&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="Flex layout xs md MudItem" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
 </class>

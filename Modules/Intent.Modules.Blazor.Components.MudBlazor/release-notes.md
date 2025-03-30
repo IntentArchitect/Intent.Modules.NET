@@ -10,3 +10,4 @@
 - Improvement : Updated `MudDialogInstance` to `IMudDialogInstance`
 - Improvement : Updated MudBlazor NuGet Package to 8.3
 - Improvement : Appearance options for Grids.
+- Improvement : Added docs around Styling.
