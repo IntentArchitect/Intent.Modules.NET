@@ -9,3 +9,4 @@
 - Improvement : Support for `Button` _Disabled_ binding
 - Improvement : Updated `MudDialogInstance` to `IMudDialogInstance`
 - Improvement : Updated MudBlazor NuGet Package to 8.3
+- Improvement : Appearance options for Grids.
