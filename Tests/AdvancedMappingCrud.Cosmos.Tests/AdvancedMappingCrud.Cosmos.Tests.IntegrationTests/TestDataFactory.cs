@@ -3,12 +3,14 @@ using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.BasicOrderBi
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.ExplicitETags;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Orders;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Parents;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.Products;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.HttpClients.SimpleOdata;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.BasicOrderBies;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.ExplicitETags;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Orders;
+using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Parents;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.Products;
 using AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Services.SimpleOdata;
 using AutoFixture;
@@ -104,6 +106,16 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
             var orderItemId = await client.CreateOrderOrderItemAsync(command);
             _idTracker["OrderItemId"] = orderItemId;
             return (orderId, orderItemId);
+        }
+
+        public async Task<string> CreateParent()
+        {
+            var client = new ParentsHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateParentCommand>();
+            var parentId = await client.CreateParentAsync(command);
+            _idTracker["ParentId"] = parentId;
+            return parentId;
         }
 
         public async Task<string> CreateProduct()

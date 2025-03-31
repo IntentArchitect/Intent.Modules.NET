@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5a4fc4f5-0a2c-4a43-9a66-d558e961863c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Child</name>
+  <display>Child</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3598535c-7008-4c5a-8d70-4ec48535c07d</parentFolderId>
+  <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
+  <childElements>
+    <childElement id="bf13a5e3-5511-4fe6-a447-e9bf949c61a0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8059d5e1-1535-40f0-ada2-6e12816ed1cc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5a4fc4f5-0a2c-4a43-9a66-d558e961863c</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="managed" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6ad765ff-bd83-4bcd-9c9d-8da047749b8e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="136a6670-f48f-4cd2-87e3-649877cce773">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5a4fc4f5-0a2c-4a43-9a66-d558e961863c</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="661c9362-d2ba-4607-84d8-fc8a28956654" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Age</name>
+      <display>Age: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7699b4ef-bf95-4fc4-9ccc-f63fd16dfba9">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5a4fc4f5-0a2c-4a43-9a66-d558e961863c</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

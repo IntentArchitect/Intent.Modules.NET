@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a2c524c4-6b6a-413c-ab51-6b18ee1d9fbd" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ParentSubDetails</name>
+  <display>ParentSubDetails</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3598535c-7008-4c5a-8d70-4ec48535c07d</parentFolderId>
+  <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata>
+    <entry key="currentPartitionKey" value="" />
+  </metadata>
+  <childElements>
+    <childElement id="9526cde2-21a5-42e4-b4a6-c3a7f4c7b3cb" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SubDetailsLine1</name>
+      <display>SubDetailsLine1: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="09b66ecc-cd5d-4512-a8d1-cd625c124dd0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a2c524c4-6b6a-413c-ab51-6b18ee1d9fbd</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="533ca6c5-58b9-454a-86a7-66fb2ca48712" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SubDetailsLine2</name>
+      <display>SubDetailsLine2: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a679e392-1933-4c29-ad48-4c5d806baadc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a2c524c4-6b6a-413c-ab51-6b18ee1d9fbd</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
