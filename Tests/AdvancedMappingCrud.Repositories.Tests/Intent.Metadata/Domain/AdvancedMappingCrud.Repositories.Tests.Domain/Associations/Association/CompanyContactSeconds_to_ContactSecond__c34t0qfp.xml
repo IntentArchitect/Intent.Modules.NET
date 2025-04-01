@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1">
+  <sourceEnd id="c08f90a3-7dc9-47f8-a839-47bed723a7f1" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>CompanyContactSeconds</name>
+    <display>CompanyContactSeconds: CompanyContactSecond[*]</display>
+    <order>0</order>
+    <typeReference id="14352fd2-f632-4ddd-8957-4f0a965dbf35">
+      <typeId>3020282d-1252-4281-9b1e-1e6a02669e85</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ContactSecond</name>
+    <display>ContactSecond: ContactSecond</display>
+    <order>2</order>
+    <typeReference id="dc2447f9-fc11-41ea-89c9-38316040ab71">
+      <typeId>69abcdcb-8b72-49fe-b594-7dfedeae738b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

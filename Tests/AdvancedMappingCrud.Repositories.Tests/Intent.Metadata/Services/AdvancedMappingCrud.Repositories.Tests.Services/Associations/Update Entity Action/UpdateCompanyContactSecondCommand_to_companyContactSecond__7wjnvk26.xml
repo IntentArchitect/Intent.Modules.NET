@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ce1f2372-1547-47d3-9707-b3709bfb1ac0">
+  <sourceEnd id="968dcb58-2192-476c-b701-8086bec9ddb7" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : CompanyContactSeconds.UpdateCompanyContactSecondCommand</display>
+    <order>0</order>
+    <typeReference id="d9fc6098-bb4c-4fc9-ae11-fea8dda1ff9d">
+      <typeId>42aa2530-4c20-4d8e-b2aa-bd37af4b5f56</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ce1f2372-1547-47d3-9707-b3709bfb1ac0" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>companyContactSecond</name>
+    <display>[update] companyContactSecond: CompanyContactSecond</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7bb5d51b-4ec2-49bb-872c-37ecc4f0af60">
+      <typeId>3020282d-1252-4281-9b1e-1e6a02669e85</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCompanyContactSecondCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3020282d-1252-4281-9b1e-1e6a02669e85" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CompanyContactSecond]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4d0c5420-2739-4aad-a3fc-55fd8f7082cc" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="14451820-7766-44b5-b57d-18f6e47b86b5" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateCompanyContactSecondCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3020282d-1252-4281-9b1e-1e6a02669e85" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CompanyContactSecond]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ContactSecondId}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bcc6e51b-58f5-40e8-b3c9-0091ca31d0b1" name="ContactSecondId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ContactSecondId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7fbd2043-d7c6-426a-a211-5fb08200de4d" name="ContactSecondId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContactName}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1" name="ContactSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a5f1f6d8-c36e-4331-b5f4-5924d4b6e2bc" name="ContactName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ContactName" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f50c221c-25b0-4328-8ef0-52a1e84190ea" name="ContactName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3b1aa2a0-005d-4c1a-ab81-c29077bbf1c1" name="ContactSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="72992f69-5c7b-4de3-9ba6-6a96bbbd9d2d" name="ContactDetailsSecond" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="5dd90077-0105-405e-8711-7351709fa50a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="42aa2530-4c20-4d8e-b2aa-bd37af4b5f56" name="UpdateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8764c1ba-ea79-4d39-b97d-2326624cb9aa" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

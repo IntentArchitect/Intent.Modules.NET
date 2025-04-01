@@ -40,6 +40,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IBasicRepository, BasicRepository>();
+            services.AddTransient<ICompanyContactRepository, CompanyContactRepository>();
+            services.AddTransient<ICompanyContactSecondRepository, CompanyContactSecondRepository>();
+            services.AddTransient<IContactRepository, ContactRepository>();
+            services.AddTransient<IContactSecondRepository, ContactSecondRepository>();
             services.AddTransient<IContractRepository, ContractRepository>();
             services.AddTransient<ICorporateFuneralCoverQuoteRepository, CorporateFuneralCoverQuoteRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
