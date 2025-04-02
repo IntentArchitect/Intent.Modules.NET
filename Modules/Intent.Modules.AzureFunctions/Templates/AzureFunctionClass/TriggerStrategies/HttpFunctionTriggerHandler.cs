@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Intent.AzureFunctions.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -41,6 +42,12 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 var route = !string.IsNullOrWhiteSpace(_endpointModel?.Route)
                     ? $@"""{_endpointModel.Route}"""
                     : @"""""";
+
+                if (route.Contains("{"))
+                {
+                    //Asp.Net Core is happy with it all lowercase but Azure functions need the correct casing for parameters
+                    route = FixParamters(GetRouteParams().Select(p => p.Name.ToParameterName()), route);
+                }
                 
                 var authorizationLevel = AzureFunctionsHelper.GetAzureFunctionsProcessType(_template.OutputTarget) == 
                                          AzureFunctionsHelper.AzureFunctionsProcessType.InProcess
@@ -75,6 +82,17 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
         method.AddParameter(_template.UseType("System.Threading.CancellationToken"), "cancellationToken");
     }
 
+    private static readonly Regex RouteParameterRegex = new(@"\{(\w+)\}", RegexOptions.Compiled);
+    private string FixParamters(IEnumerable<string> parameterNames, string route)
+    {
+        return RouteParameterRegex.Replace(route, match =>
+        {
+            string paramNameLower = match.Groups[1].Value;
+            string correctParam = parameterNames.FirstOrDefault(p => p.Equals(paramNameLower, StringComparison.OrdinalIgnoreCase));
+            return correctParam != null ? $"{{{correctParam}}}" : match.Value;
+        });
+    }
+
     private string NullableSymbol => _template.OutputTarget.GetProject().NullableEnabled ? "?" : string.Empty;
 
     public void ApplyMethodStatements(CSharpClassMethod method)
@@ -105,8 +123,10 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
                 tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
                 tryBlock.AddStatement(
                     $@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody, new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
+                method.AddCatchBlock("JsonException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
             }
-        }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ Message = exception.Message }});"); });
+        }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
+
     }
 
     private void ConvertParamToLocalVariable(CSharpTryBlock tryBlock, IHttpEndpointInputModel param, string paramType)

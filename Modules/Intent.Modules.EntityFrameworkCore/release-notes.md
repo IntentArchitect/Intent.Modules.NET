@@ -1,4 +1,8 @@
 ### Version 5.0.18
+- Improvement: "MIGRATION_README.txt" now aware of `DesignTimeDbContextFactory` and removes `Package Manager Console` commands when it is being used.
+
+
+### Version 5.0.18
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
 - Fixed: Added protected parameterless constructors to Data Contract records to resolve EF Core proxy instantiation errors when executing stored procedures that returns Data Contracts.

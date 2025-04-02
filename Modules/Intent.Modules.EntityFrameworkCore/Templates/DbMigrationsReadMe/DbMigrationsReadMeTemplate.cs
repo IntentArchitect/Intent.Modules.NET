@@ -31,9 +31,11 @@ migrations using EF Core. You can perform these commands in the Visual Studio ID
 Package Manager Console (View > Other Windows > Package Manager Console) or using the dotnet
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
+
+NOTE: When working with DesignTimeDbContextFactory you have to using the CLI. Visual Studio Package Manager Console does not support this feature.
 ");
             
-            #line 9 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 11 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraComments()));
             
             #line default
@@ -42,57 +44,71 @@ migration name when executing these commands.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Add-Migration -Name {ChangeName} ");
+");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 15 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nAdd-Migration -Name {ChangeName}" +
+                    " ");
+            
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 14 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef migrations add {ChangeName} ");
+            this.Write("\r\n\r\n");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 19 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef migrations add {ChangeName} ");
+            
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 17 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -102,57 +118,70 @@ Add-Migration -Name {ChangeName} ");
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Remove-Migration ");
+");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nRemove-Migration ");
+            
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 28 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef migrations remove ");
+            this.Write("\r\n\r\n");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef migrations remove ");
+            
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 26 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -162,57 +191,70 @@ Remove-Migration ");
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Update-Database ");
+");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 37 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nUpdate-Database ");
+            
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 39 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef database update ");
+            this.Write("\r\n\r\n");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef database update ");
+            
+            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 43 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -222,57 +264,71 @@ Update-Database ");
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Update-Database -Migration {Target} ");
+");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 48 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nUpdate-Database -Migration {Targ" +
+                    "et} ");
+            
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 41 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef database update {Target} ");
+            this.Write("\r\n\r\n");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 52 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef database update {Target} ");
+            
+            #line 54 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 54 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 54 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 44 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 54 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -282,57 +338,70 @@ Update-Database -Migration {Target} ");
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Script-Migration -Idempotent ");
+");
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nScript-Migration -Idempotent ");
+            
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 50 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 61 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef migrations script --idempotent ");
+            this.Write("\r\n\r\n");
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 63 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef migrations script --idempotent ");
+            
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 53 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 65 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -342,57 +411,71 @@ Script-Migration -Idempotent ");
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
-From the Visual Studio Package Manager Console:
-Script-Migration {Source} {Target} ");
+");
             
-            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 70 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+ if(PackageManagerConsoleSupported) {
+            
+            #line default
+            #line hidden
+            this.Write("From the Visual Studio Package Manager Console:\r\nScript-Migration {Source} {Targe" +
+                    "t} ");
+            
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("-Project \"");
             
-            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetVsDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 59 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 72 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
             #line hidden
-            this.Write("\r\n\r\nCLI:\r\ndotnet ef migrations script {Source} {Target} ");
+            this.Write("\r\n\r\n");
             
-            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 74 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+}
+            
+            #line default
+            #line hidden
+            this.Write("CLI:\r\ndotnet ef migrations script {Source} {Target} ");
+            
+            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliStartupProjectArgument()));
             
             #line default
             #line hidden
             this.Write("--project \"");
             
-            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MigrationProject));
             
             #line default
             #line hidden
             this.Write("\"");
             
-            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetCliDbContextArgument()));
             
             #line default
             #line hidden
             
-            #line 62 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 76 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetExtraArguments()));
             
             #line default
@@ -404,7 +487,7 @@ Drop all tables in schema:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 DECLARE @SCHEMA AS varchar(max) = '");
             
-            #line 67 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
+            #line 81 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(BoundedContextName));
             
             #line default
