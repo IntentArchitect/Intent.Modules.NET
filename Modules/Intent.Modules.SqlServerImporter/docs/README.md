@@ -47,6 +47,7 @@ Specify a JSON file path **(that may be relative file path to the Package file b
   "schemas": [
     "dbo"
   ],
+  "include_dependant_tables": true,
   "include_tables": [
     {
       "name": "ExistingTableName",
@@ -87,6 +88,7 @@ Specify a JSON file path **(that may be relative file path to the Package file b
 | JSON Field                | Description                                                                                                           |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | schemas                   | Database Schema names to import (rest is filtered out).                                                               |
+| include_dependant_tables  | Determines whether foreign key dependant tables of included tables are automatically included (default: `false`). <br> All dependant tables will be included, unless explicitly excluded by `exclude_tables`.                                                                                                                                 |
 | include_tables            | Database Tables to import (rest is filtered out).                                                                     |
 | include_views             | Database Views to import (rest is filtered out).                                                                      |
 | include_stored_procedures | Database Stored Procedures to import (rest is filtered out).                                                          |
