@@ -1,3 +1,7 @@
+### Version 5.0.24
+
+- Improvement: Added validations for Paging with missing parameters.
+
 ### Version 5.0.23
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.

@@ -1049,9 +1049,29 @@ public class DomainInteractionsManager
         var returnsPagedResult = IsResultPaginated(handler.TypeReference);
 
         var pageIndexVar = handler.ChildElements.SingleOrDefault(IsPageIndexParam)?.Name;
+        var pageNoVar = handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name;
+        var pageSizeVar = handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name;
         var accessVariable = mappingManager.GetFromReplacement(handler);
-        pageNo = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name ?? $"{pageIndexVar} + 1"}";
-        pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name}";
+
+        if (!returnsPagedResult)
+        {
+            pageNo = "";
+            pageSize = "";
+            orderBy = null;
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(pageNoVar) && string.IsNullOrEmpty(pageIndexVar))
+        {
+            throw new ElementException(handler, "Paged endpoints require a 'PageNo' or 'PageIndex' property");
+        }
+        if (string.IsNullOrEmpty(pageSizeVar))
+        {
+            throw new ElementException(handler, "Paged endpoints require a 'PageSize' property");
+        }
+
+        pageNo = $"{(accessVariable != null ? $"{accessVariable}." : "")}{pageNoVar ?? $"{pageIndexVar} + 1"}";
+        pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{pageSizeVar}";
 
         var orderByVar = handler.ChildElements.SingleOrDefault(IsOrderByParam);
         if (orderByVar == null)
