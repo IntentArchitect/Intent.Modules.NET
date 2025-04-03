@@ -46,12 +46,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                 .AddStatement(
                                     $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
 
-                            var sendCommands = ExecutionContext.MetadataManager
-                                .GetExplicitlySentIntegrationCommandModels(outputTarget.Application)
-                                .ToArray();
-                            var publishMessages = ExecutionContext.MetadataManager
-                                .GetExplicitlyPublishedMessageModels(outputTarget.Application)
-                                .ToArray();
+                            var sendCommands = GetCommandsBeingSent();
+                            var publishMessages = GetMessagesBeingPublished();
                             if (publishMessages.Length != 0 || sendCommands.Length != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetPublisherOptionsName()}>", inv => inv
@@ -59,25 +55,17 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                     {
                                         foreach (var sendCommand in sendCommands)
                                         {
-                                            arg.AddStatement($"""options.Add<{this.GetIntegrationCommandName(sendCommand)}>(configuration["AzureServiceBus:{sendCommand.GetCommandQueueOrTopicConfigurationName()}"]);""");
+                                            arg.AddStatement($"""options.Add<{this.GetIntegrationCommandName(sendCommand)}>(configuration["AzureServiceBus:{sendCommand.GetCommandQueueOrTopicConfigurationName()}"]!);""");
                                         }
                                         foreach (var publishMessage in publishMessages)
                                         {
-                                            arg.AddStatement($"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["AzureServiceBus:{publishMessage.GetMessageQueueOrTopicConfigurationName()}"]);""");
+                                            arg.AddStatement($"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["AzureServiceBus:{publishMessage.GetMessageQueueOrTopicConfigurationName()}"]!);""");
                                         }
                                     }));
                             }
 
-                            var eventHandlers = ExecutionContext.MetadataManager
-                                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-                                .SelectMany(x => x.IntegrationEventSubscriptions())
-                                .ToArray();
-
-                            var commandHandlers = ExecutionContext.MetadataManager
-                                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-                                .SelectMany(x => x.IntegrationCommandSubscriptions())
-                                .ToArray();
-
+                            var eventHandlers = GetEventMessagesBeingSubscribed();
+                            var commandHandlers = GetCommandMessagesBeingSubscribed();
                             if (eventHandlers.Length != 0 || commandHandlers.Length != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetSubscriptionOptionsName()}>", inv => inv
@@ -102,6 +90,33 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 });
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            foreach (var commandModel in GetCommandsBeingSent())
+            {
+                this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}", commandModel.GetCommandQueueOrTopicName());
+            }
+
+            foreach (var messageModel in GetMessagesBeingPublished())
+            {
+                this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageQueueOrTopicConfigurationName()}", messageModel.GetMessageQueueOrTopicName());
+            }
+
+            foreach (var commandModel in GetCommandMessagesBeingSubscribed()
+                         .Select(x => x.Element.AsIntegrationCommandModel())
+                         .Where(x => x?.HasCommandSubscription() == true))
+            {
+                this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}", "");
+            }
+            
+            foreach (var messageModel in GetEventMessagesBeingSubscribed()
+                         .Select(x => x.Element.AsMessageModel())
+                         .Where(x => x?.HasMessageSubscription() == true))
+            {
+                this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}", "");
+            }
+        }
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 
@@ -115,6 +130,36 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        private SubscribeIntegrationCommandTargetEndModel[] GetCommandMessagesBeingSubscribed()
+        {
+            return ExecutionContext.MetadataManager
+                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+                .SelectMany(x => x.IntegrationCommandSubscriptions())
+                .ToArray();
+        }
+
+        private SubscribeIntegrationEventTargetEndModel[] GetEventMessagesBeingSubscribed()
+        {
+            return ExecutionContext.MetadataManager
+                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
+                .SelectMany(x => x.IntegrationEventSubscriptions())
+                .ToArray();
+        }
+
+        private MessageModel[] GetMessagesBeingPublished()
+        {
+            return ExecutionContext.MetadataManager
+                .GetExplicitlyPublishedMessageModels(OutputTarget.Application)
+                .ToArray();
+        }
+
+        private IntegrationCommandModel[] GetCommandsBeingSent()
+        {
+            return ExecutionContext.MetadataManager
+                .GetExplicitlySentIntegrationCommandModels(OutputTarget.Application)
+                .ToArray();
         }
     }
 }

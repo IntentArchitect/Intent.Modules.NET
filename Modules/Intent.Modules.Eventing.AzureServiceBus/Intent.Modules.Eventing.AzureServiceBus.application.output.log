@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8d82a6c1-9680-4812-84ec-5a9c114d6aa8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/EventBusInterfaceExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventBusInterfaceExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ea54e3e6-234d-4eb9-b691-39c833b6ecaf</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ea54e3e6-234d-4eb9-b691-39c833b6ecaf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

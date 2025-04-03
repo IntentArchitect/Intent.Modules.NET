@@ -66,7 +66,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Modules.Eventing.AzureServiceBus.EventBusInterfaceExtension" externalReference="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />

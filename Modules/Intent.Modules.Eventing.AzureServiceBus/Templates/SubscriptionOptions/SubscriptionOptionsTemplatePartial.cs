@@ -20,6 +20,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AzureMessagingServiceBus(OutputTarget));
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
