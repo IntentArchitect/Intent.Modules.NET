@@ -44,11 +44,11 @@ namespace AzureFunctions.NET6.Api.SampleDomainsService
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (FormatException exception)
             {
-                return new BadRequestObjectResult(new { Message = exception.Message });
+                return new BadRequestObjectResult(new { exception.Message });
             }
         }
     }

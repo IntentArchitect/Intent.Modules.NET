@@ -6,8 +6,10 @@ migrations using EF Core. You can perform these commands in the Visual Studio ID
 Package Manager Console (View > Other Windows > Package Manager Console) or using the dotnet
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
+<# if(!PackageManagerConsoleSupported) {#>
 
 NOTE: When working with DesignTimeDbContextFactory you have to using the CLI. Visual Studio Package Manager Console does not support this feature.
+<#}#>
 <#= GetExtraComments() #>
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:

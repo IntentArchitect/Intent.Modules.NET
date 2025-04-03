@@ -1,3 +1,7 @@
+### Version 5.0.1
+
+- Improvement: Removed code warning.
+
 ### Version 5.0.0
 
 - Improvement: Updated code and dependencies in line with the Isolated Process upgrade.

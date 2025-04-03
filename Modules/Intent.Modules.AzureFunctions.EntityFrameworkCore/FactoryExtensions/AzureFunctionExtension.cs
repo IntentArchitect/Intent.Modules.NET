@@ -38,7 +38,7 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
                     runMethod.FindStatement<CSharpTryBlock>(x => true)
                         ?.InsertBelow(new CSharpCatchBlock(template.GetTypeName("Domain.NotFoundException"),
                                 "exception")
-                            .AddStatement("return new NotFoundObjectResult(new { Message = exception.Message });"));
+                            .AddStatement("return new NotFoundObjectResult(new { exception.Message });"));
                 });
 
                 if (HttpEndpointModelFactory.GetEndpoint(template.Model.InternalElement)?.Verb == HttpVerb.Get)
