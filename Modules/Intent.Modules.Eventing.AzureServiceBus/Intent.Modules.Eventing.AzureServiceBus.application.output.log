@@ -9,6 +9,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>a9bc0775-a74b-4ec0-a57d-9ed49074fa11</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#7f01ca8e-0e3c-4735-ae23-a45169f71625</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/IntegrationCommandModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IntegrationCommandModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a9bc0775-a74b-4ec0-a57d-9ed49074fa11</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/MessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MessageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ea54e3e6-234d-4eb9-b691-39c833b6ecaf</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ea54e3e6-234d-4eb9-b691-39c833b6ecaf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

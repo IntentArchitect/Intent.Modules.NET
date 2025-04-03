@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="1f60bd15-005b-4184-8c12-c44c20158001" version="3.1.0">
+  <name>Azure Service Bus</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="7f01ca8e-0e3c-4735-ae23-a45169f71625">Integration Command</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAqCAYAAAAkqNwKAAAAAXNSR0IArs4c6QAABAxJREFUaEPtm09sFFUcx79vZv+3ZWvrwm7XWhDTkOCheiBiOHnk1ArRkwm3mYZirJEQD5JIOIs2bewOTTThghGlGsT4t/bQ+gcLCQqBKhbSsq1goVJpKZ15PzPVJbvbXbs7b7LTZmZuu/u+3/f7feb3Zt68N8sgePT09LQQ0RCAiKBVReVEpPt8vm3t7e3nRDpmImJT293d/TKAI6I+Duk7Ozo63hLp2wPoARSpH3gVKIQPqwBgKpUqdA08Njc3d0AwOVvlkUhkP4DOPNNORVGcvQYWAZhSFEW1lYCgWSqVOgTgdQ+gRZCuBNiWpucgIXAyzo5b5PZA5iqAL05R1SzhExCeXSLA8B3uYWf/JjZjFaSmaW8Q0cFVN4Q1TdsFoCM7MM75XlVVL1pJti1NOwB8SUAoW88YFk2gJxswBDAq17uvr+9xzvnRvDh7VFU9Ua5XTlwiYju1e8Yo9FcIn1Km6oqYE8P5gI6nP2hk83b2b9VL+EnEasfZutYJaoGEsp5JJQnbP4qz7+3oX8TDcYCtk/QuCHusJUEf9jdIu61p7VE5BrD1BrXAwGkQEiKpEDDll7HrxAY2LOJjVesIwLY0vU3AS1aDLqgjdPcn2T5bPUswqyjA7cPj4fVNDTcYk6pLiK3sJsT53ZHhH2ITzz9TsRtMRQG2DIzVSsRv1yfWoypqL8Pb45MYHRxB0K8/dLWzzfJ8sdyz5ghAM8h1dVHU1EUh+3zlxpzTfnF+AVOXfkf6wpWl710DMEMhvjGJQChoCeL8zCzOnxrM0boOoJl9qCqMWDIOJpU2ILhh4NfBnzCTvrkMvCsBmhQYY0huboS0wpAmw8CZ9z8HcV6wal0LMEPDHwwgsTFpEl0GyByu5rD9v8P1AJfgMIZYcgPC1f/ulN75YxqjAz/C0I0Vr5UewCxEwVAQs9cmMT0+tSK4TAMP4H8kZsZu4uq3l5c+1TbVILjOXxJE1wMk3cDlj89ibvpu7vSkOoDYljoYRW4eXgUS4c7ELfx26iyAYuulDHXN9QhGc9ZavXkgv6/jl/e+gb6wWNIw9fllxJ5qBArMG103hKd/HsO1L84BVOYqPQNqmxMIJ2rdW4EX3+nHvVt/l1R1xRr5q4J4eMfWBz+vuQrs7e3dLUnS3uwEOeeHVVX9Oj/pzGrM9dND+HNkFMbCfSF4GbHklxFpiqPmiceKLiZomtYMIJUXp/ObSkXeTPhMUZSd+XQeeXM4zNOXDqUHzBuF/Ud066OoqfcdnDjyyrL1wFW7rVkOQPuRle641jbWC1Zg6ena39IDKMh0rQH8SpblFwRztlWu6/prjLFX80ydf73Ne0da8Dx7AD2Azr6h6lWgYAV2dXU9KUnSGQCyoFWl5bosy8J/tPkH9BkLSRylVvsAAAAASUVORK5CYII=" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return false;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>069f5444-bd8d-48ad-a624-53212d578483</parentFolderId>
+  <order>0</order>
+  <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+  <packageName>Intent.Modules.Eventing.AzureServiceBus</packageName>
+  <properties>
+    <property id="91f8b478-1c31-4a70-ba88-0d93fd1be8c5">
+      <name>Type</name>
+      <type>string</type>
+      <controlType>select</controlType>
+      <optionsSource>options</optionsSource>
+      <placeholder />
+      <valueOptions>
+        <option>Queue</option>
+        <option>Topic</option>
+      </valueOptions>
+      <lookupTypes />
+    </property>
+    <property id="a3aa298d-8e4b-46af-bd4e-acb81b2109f2">
+      <name>Queue Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Type == "Queue";</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+    <property id="a13da2f1-841d-4290-9dc3-4d15983bfad3">
+      <name>Topic Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+      <isActiveFunction>return Type == "Topic";</isActiveFunction>
+      <isRequiredFunction>return true;</isRequiredFunction>
+    </property>
+  </properties>
+</stereotypeDefinition>
