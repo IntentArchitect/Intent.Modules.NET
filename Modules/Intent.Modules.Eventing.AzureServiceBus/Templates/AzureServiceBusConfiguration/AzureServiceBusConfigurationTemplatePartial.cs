@@ -108,7 +108,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
             {
                 this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}", "");
             }
-            
+
             foreach (var messageModel in GetEventMessagesBeingSubscribed()
                          .Select(x => x.Element.AsMessageModel())
                          .Where(x => x?.HasMessageSubscription() == true))

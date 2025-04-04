@@ -152,5 +152,6 @@
     <application id="448c309a-5654-40dd-b5db-73571713819f" name="Intent.Modules.ApiGateway.Ocelot" relativePath="Intent.Modules.ApiGateway.Ocelot/Intent.Modules.ApiGateway.Ocelot.application.config" />
     <application id="7ed2377c-0074-4ac5-9cfe-aebce1bab761" name="Intent.Modules.AI.AutoImplementation" solutionFolder="AI" relativePath="Intent.Modules.AI.AutoImplementation/Intent.Modules.AI.AutoImplementation.application.config" />
     <application id="d8c0b55c-b3ec-495b-968b-2d3876ee79e9" name="Intent.Modules.Eventing.AzureServiceBus" relativePath="Intent.Modules.Eventing.AzureServiceBus/Intent.Modules.Eventing.AzureServiceBus.application.config" />
+    <application id="10957a81-94fa-4cfe-a4e9-8df13d59a03b" name="Intent.Modules.AzureFunctions.AzureServiceBus" relativePath="Intent.Modules.AzureFunctions.AzureServiceBus/Intent.Modules.AzureFunctions.AzureServiceBus.application.config" />
   </applications>
 </solution>

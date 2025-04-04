@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6e3612c8-58ed-467a-898e-605b9d11b9c1" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de732e1b-6c3a-487e-8d0c-06da65383731</parentFolderId>
+  <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
+  <packageName>Intent.Modules.AzureFunctions.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
