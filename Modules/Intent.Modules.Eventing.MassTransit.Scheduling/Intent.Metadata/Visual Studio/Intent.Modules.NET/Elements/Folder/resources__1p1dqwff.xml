@@ -3,10 +3,22 @@
   <name>resources</name>
   <display>resources</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>a857f453-ca82-42c6-bd97-a865ab4cd190</parentFolderId>
-  <stereotypes />
+  <packageId>25af97b9-365f-4f8e-9033-f1a3d5c46a07</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="a2166f13-8d1a-4c73-9bf1-401bd9a0ad9c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e4c44a18-f1fc-4c1d-a2e9-c069cbdc3c4c</parentFolderId>
+      <packageId>25af97b9-365f-4f8e-9033-f1a3d5c46a07</packageId>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
