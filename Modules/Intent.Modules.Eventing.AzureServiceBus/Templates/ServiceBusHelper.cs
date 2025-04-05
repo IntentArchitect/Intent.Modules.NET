@@ -104,7 +104,7 @@ public static class ServiceBusHelper
 
     public static bool HasMessageSubscription(this MessageModel message)
     {
-        return message.GetAzureServiceBus()?.Type().IsQueue() != false;
+        return message.GetAzureServiceBus()?.Type().IsTopic() != false;
     }
 
     public static string? GetMessageSubscriptionConfigurationName(this MessageModel message)

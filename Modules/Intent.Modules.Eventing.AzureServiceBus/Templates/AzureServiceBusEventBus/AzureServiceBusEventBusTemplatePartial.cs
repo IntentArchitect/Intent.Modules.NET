@@ -38,7 +38,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
                     @class.AddField("IConfiguration", "_configuration", field => field.PrivateReadOnly());
-                    @class.AddField("List<object>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("new()")));
+                    @class.AddField("List<object>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, string>", "_lookup", field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
