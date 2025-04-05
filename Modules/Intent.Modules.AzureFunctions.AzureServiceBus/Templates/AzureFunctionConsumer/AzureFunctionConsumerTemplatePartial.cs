@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Eventing.AzureServiceBus.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -42,6 +43,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                     {
                         ctor.AddParameter(this.GetAzureServiceBusMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("Task", "Run", method =>
@@ -62,14 +64,17 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                             });
                         });
                         method.AddParameter("CancellationToken", "cancellationToken");
-                        var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
-                            .AddArgument("message")
-                            .AddArgument("cancellationToken"));
-                        dispatch.AddMetadata("service-dispatch-statement", true);
 
                         method.AddTryBlock(block =>
                         {
+                            var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
+                                .AddArgument("message")
+                                .AddArgument("cancellationToken"));
+                            dispatch.AddMetadata("service-dispatch-statement", true);
+                            
                             block.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), dispatch);
+                            
+                            block.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
                         });
                         method.AddCatchBlock(UseType("System.Exception"), "ex", block =>
                         {
