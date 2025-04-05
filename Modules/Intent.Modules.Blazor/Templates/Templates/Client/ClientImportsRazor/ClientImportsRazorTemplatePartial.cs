@@ -37,9 +37,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor
                 file.AddUsing("Microsoft.AspNetCore.Components.Forms");
                 file.AddUsing("Microsoft.AspNetCore.Components.Routing");
                 file.AddUsing("Microsoft.AspNetCore.Components.Web");
-                file.AddUsing("static Microsoft.AspNetCore.Components.Web.RenderMode");
                 file.AddUsing("Microsoft.AspNetCore.Components.Web.Virtualization");
                 file.AddUsing("Microsoft.JSInterop");
+                file.AddUsing("static Microsoft.AspNetCore.Components.Web.RenderMode");
             });
         }
 
