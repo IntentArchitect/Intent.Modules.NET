@@ -1,13 +1,19 @@
 using System;
-using System.Threading;
+using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Eventing.AzureServiceBus.Api;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Eventing.AzureServiceBus.Templates;
 
 public static class ServiceBusHelper
 {
+    public enum ChannelType
+    {
+        Queue,
+        Topic
+    }
+    
     public static string GetCommandQueueOrTopicName(this IntegrationCommandModel command)
     {
         if (command.HasAzureServiceBus())
@@ -94,7 +100,7 @@ public static class ServiceBusHelper
 
     public static bool HasCommandSubscription(this IntegrationCommandModel command)
     {
-        return command.GetAzureServiceBus()?.Type().IsTopic() == true;
+        return command.GetCommandChannelType() == ChannelType.Topic;
     }
 
     public static string? GetCommandSubscriptionConfigurationName(this IntegrationCommandModel command)
@@ -104,11 +110,51 @@ public static class ServiceBusHelper
 
     public static bool HasMessageSubscription(this MessageModel message)
     {
-        return message.GetAzureServiceBus()?.Type().IsTopic() != false;
+        return message.GetMessageChannelType() == ChannelType.Topic;
     }
 
     public static string? GetMessageSubscriptionConfigurationName(this MessageModel message)
     {
         return message.HasMessageSubscription() ? message.GetMessageQueueOrTopicConfigurationName() + "Subscription" : null;
+    }
+
+    public static string GetCommandInfrastructureRegistrationEventName(this IntegrationCommandModel command)
+    {
+        return command.GetCommandChannelType() switch
+        {
+            ChannelType.Queue => Infrastructure.AzureServiceBus.QueueType,
+            ChannelType.Topic => Infrastructure.AzureServiceBus.TopicType,
+            _ => throw new ArgumentOutOfRangeException($"The Type {command.GetCommandChannelType()} is not supported.")
+        };
+    }
+
+    public static string GetMessageInfrastructureRegistrationEventName(this MessageModel message)
+    {
+        return message.GetMessageChannelType() switch
+        {
+            ChannelType.Queue => Infrastructure.AzureServiceBus.QueueType,
+            ChannelType.Topic => Infrastructure.AzureServiceBus.TopicType,
+            _ => throw new ArgumentOutOfRangeException($"The Type {message.GetMessageChannelType()} is not supported.")
+        };
+    }
+    
+    public static ChannelType GetCommandChannelType(this IntegrationCommandModel command)
+    {
+        return command.GetAzureServiceBus()?.Type().IsTopic() switch
+        {
+            true => ChannelType.Topic,
+            false => ChannelType.Queue,
+            _ => ChannelType.Queue
+        };
+    }
+
+    public static ChannelType GetMessageChannelType(this MessageModel message)
+    {
+        return message.GetAzureServiceBus()?.Type().IsTopic() switch
+        {
+            true => ChannelType.Topic,
+            false => ChannelType.Queue,
+            _ => ChannelType.Topic
+        };
     }
 }

@@ -34,18 +34,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>ea54e3e6-234d-4eb9-b691-39c833b6ecaf</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ea54e3e6-234d-4eb9-b691-39c833b6ecaf</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Eventing.AzureServiceBus.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Eventing.AzureServiceBus.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ea54e3e6-234d-4eb9-b691-39c833b6ecaf</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#ea54e3e6-234d-4eb9-b691-39c833b6ecaf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.Eventing.AzureServiceBus.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

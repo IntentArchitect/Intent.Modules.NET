@@ -15,7 +15,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.PublisherOptions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class PublisherOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.PublisherOptions";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.PublisherOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

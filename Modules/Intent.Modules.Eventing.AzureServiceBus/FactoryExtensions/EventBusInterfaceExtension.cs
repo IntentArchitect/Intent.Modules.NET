@@ -15,7 +15,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.FactoryExtensions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class EventBusInterfaceExtension : FactoryExtensionBase
     {
-        public override string Id => "Intent.Modules.Eventing.AzureServiceBus.EventBusInterfaceExtension";
+        public override string Id => "Intent.Eventing.AzureServiceBus.EventBusInterfaceExtension";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

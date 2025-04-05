@@ -16,7 +16,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class AzureServiceBusMessageDispatcherInterfaceTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusMessageDispatcherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

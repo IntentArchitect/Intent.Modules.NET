@@ -15,7 +15,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     partial class SubscriptionOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.SubscriptionOptions";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.SubscriptionOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public SubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EventBusInterfaceExtension</name>
+  <display>EventBusInterfaceExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</parentFolderId>
+  <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+  <packageName>Intent.Eventing.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -10,18 +10,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>04491902-fe7a-4907-8646-2c522c7ed621</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#04491902-fe7a-4907-8646-2c522c7ed621</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.csproj</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.AzureFunctions.AzureServiceBus.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AzureFunctions.AzureServiceBus.imodspec</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>04491902-fe7a-4907-8646-2c522c7ed621</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#04491902-fe7a-4907-8646-2c522c7ed621</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.imodspec</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.imodspec</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AzureFunctions.AzureServiceBus.csproj</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

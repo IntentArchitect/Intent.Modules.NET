@@ -9,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureServiceBus.Api
+namespace Intent.Eventing.AzureServiceBus.Api
 {
     public static class MessageModelStereotypeExtensions
     {

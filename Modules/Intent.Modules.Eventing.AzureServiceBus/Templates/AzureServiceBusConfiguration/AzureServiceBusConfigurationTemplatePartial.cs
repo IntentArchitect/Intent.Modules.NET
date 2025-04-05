@@ -8,8 +8,10 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
@@ -23,7 +25,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.AzureServiceBusConfiguration";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -48,25 +50,28 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
 
                             var sendCommands = GetCommandsBeingSent();
                             var publishMessages = GetMessagesBeingPublished();
-                            if (publishMessages.Length != 0 || sendCommands.Length != 0)
+                            if (publishMessages.Count != 0 || sendCommands.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetPublisherOptionsName()}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
                                     {
                                         foreach (var sendCommand in sendCommands)
                                         {
-                                            arg.AddStatement($"""options.Add<{this.GetIntegrationCommandName(sendCommand)}>(configuration["AzureServiceBus:{sendCommand.GetCommandQueueOrTopicConfigurationName()}"]!);""");
+                                            arg.AddStatement(
+                                                $"""options.Add<{this.GetIntegrationCommandName(sendCommand)}>(configuration["AzureServiceBus:{sendCommand.GetCommandQueueOrTopicConfigurationName()}"]!);""");
                                         }
+
                                         foreach (var publishMessage in publishMessages)
                                         {
-                                            arg.AddStatement($"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["AzureServiceBus:{publishMessage.GetMessageQueueOrTopicConfigurationName()}"]!);""");
+                                            arg.AddStatement(
+                                                $"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["AzureServiceBus:{publishMessage.GetMessageQueueOrTopicConfigurationName()}"]!);""");
                                         }
                                     }));
                             }
 
                             var eventHandlers = GetEventMessagesBeingSubscribed();
                             var commandHandlers = GetCommandMessagesBeingSubscribed();
-                            if (eventHandlers.Length != 0 || commandHandlers.Length != 0)
+                            if (eventHandlers.Count != 0 || commandHandlers.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetSubscriptionOptionsName()}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
@@ -77,6 +82,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                             var commandName = this.GetIntegrationCommandName(commandHandler.Element.AsIntegrationCommandModel());
                                             arg.AddStatement($"""options.Add<{commandName}, {this.GetIntegrationEventHandlerInterfaceName()}<{commandName}>>();""");
                                         }
+
                                         foreach (var eventHandler in eventHandlers)
                                         {
                                             if (!eventHandler.Element.IsMessageModel()) continue;
@@ -85,6 +91,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                         }
                                     }));
                             }
+
                             method.AddStatement("return services;");
                         });
                 });
@@ -92,33 +99,54 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
 
         public override void BeforeTemplateExecution()
         {
-            foreach (var commandModel in GetCommandsBeingSent())
+            foreach (var commandModel in GetCommandsBeingSent().DistinctBy(k => k.GetCommandQueueOrTopicConfigurationName()))
             {
                 this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}", commandModel.GetCommandQueueOrTopicName());
+
+                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
+                        commandModel.GetCommandInfrastructureRegistrationEventName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}")
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.External,
+                        (commandModel.InternalElement.Application.Id != ExecutionContext.GetApplicationConfig().Id).ToString().ToLower()));
             }
 
-            foreach (var messageModel in GetMessagesBeingPublished())
+            foreach (var messageModel in GetMessagesBeingPublished().DistinctBy(k => k.GetMessageQueueOrTopicConfigurationName()))
             {
                 this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageQueueOrTopicConfigurationName()}", messageModel.GetMessageQueueOrTopicName());
+
+                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
+                        messageModel.GetMessageInfrastructureRegistrationEventName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{messageModel.GetMessageQueueOrTopicConfigurationName()}")
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.External,
+                        (messageModel.InternalElement.Application.Id != ExecutionContext.GetApplicationConfig().Id).ToString().ToLower()));
             }
 
             foreach (var commandModel in GetCommandMessagesBeingSubscribed()
                          .Select(x => x.Element.AsIntegrationCommandModel())
-                         .Where(x => x?.HasCommandSubscription() == true))
+                         .Where(x => x?.HasCommandSubscription() == true)
+                         .DistinctBy(k => k.GetCommandSubscriptionConfigurationName()))
             {
                 this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}", "");
+
+                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName()));
             }
 
             foreach (var messageModel in GetEventMessagesBeingSubscribed()
                          .Select(x => x.Element.AsMessageModel())
-                         .Where(x => x?.HasMessageSubscription() == true))
+                         .Where(x => x?.HasMessageSubscription() == true)
+                         .DistinctBy(k => k.GetMessageSubscriptionConfigurationName()))
             {
                 this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}", "");
+
+                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName()));
             }
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -132,7 +160,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
             return CSharpFile.ToString();
         }
 
-        private SubscribeIntegrationCommandTargetEndModel[] GetCommandMessagesBeingSubscribed()
+        private IReadOnlyList<SubscribeIntegrationCommandTargetEndModel> GetCommandMessagesBeingSubscribed()
         {
             return ExecutionContext.MetadataManager
                 .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
@@ -140,7 +168,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .ToArray();
         }
 
-        private SubscribeIntegrationEventTargetEndModel[] GetEventMessagesBeingSubscribed()
+        private IReadOnlyList<SubscribeIntegrationEventTargetEndModel> GetEventMessagesBeingSubscribed()
         {
             return ExecutionContext.MetadataManager
                 .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
@@ -148,14 +176,14 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .ToArray();
         }
 
-        private MessageModel[] GetMessagesBeingPublished()
+        private IReadOnlyList<MessageModel> GetMessagesBeingPublished()
         {
             return ExecutionContext.MetadataManager
                 .GetExplicitlyPublishedMessageModels(OutputTarget.Application)
                 .ToArray();
         }
 
-        private IntegrationCommandModel[] GetCommandsBeingSent()
+        private IReadOnlyList<IntegrationCommandModel> GetCommandsBeingSent()
         {
             return ExecutionContext.MetadataManager
                 .GetExplicitlySentIntegrationCommandModels(OutputTarget.Application)

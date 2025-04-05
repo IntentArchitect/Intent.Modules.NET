@@ -24,7 +24,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class AzureFunctionConsumerTemplate : CSharpTemplateBase<AzureFunctionSubscriptionModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.AzureFunctions.AzureServiceBus.AzureFunctionConsumer";
+        public const string TemplateId = "Intent.AzureFunctions.AzureServiceBus.AzureFunctionConsumer";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureFunctionConsumerTemplate(IOutputTarget outputTarget, AzureFunctionSubscriptionModel model) : base(TemplateId, outputTarget, model)
@@ -71,9 +71,9 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                                 .AddArgument("message")
                                 .AddArgument("cancellationToken"));
                             dispatch.AddMetadata("service-dispatch-statement", true);
-                            
+
                             block.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), dispatch);
-                            
+
                             block.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
                         });
                         method.AddCatchBlock(UseType("System.Exception"), "ex", block =>

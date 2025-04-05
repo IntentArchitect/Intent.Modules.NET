@@ -19,7 +19,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.IntegrationEventHand
     public partial class IntegrationEventHandlerTemplate : IntegrationEventHandlerTemplateBase
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.IntegrationEventHandler";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.IntegrationEventHandler";
 
         public IntegrationEventHandlerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
             : base(

@@ -17,7 +17,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class AzureServiceBusEventBusTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Modules.Eventing.AzureServiceBus.AzureServiceBusEventBus";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
