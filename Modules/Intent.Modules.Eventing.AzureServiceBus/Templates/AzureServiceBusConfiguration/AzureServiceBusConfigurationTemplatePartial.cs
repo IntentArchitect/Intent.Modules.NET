@@ -131,7 +131,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}", "");
 
                 ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName()));
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}"));
             }
 
             foreach (var messageModel in GetEventMessagesBeingSubscribed()
@@ -142,7 +143,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}", "");
 
                 ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName()));
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName())
+                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}"));
             }
         }
 
