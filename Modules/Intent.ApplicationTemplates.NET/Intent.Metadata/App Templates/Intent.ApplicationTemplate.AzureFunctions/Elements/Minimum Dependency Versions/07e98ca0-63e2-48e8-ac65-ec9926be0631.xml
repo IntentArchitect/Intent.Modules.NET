@@ -113,9 +113,9 @@
     </childElement>
     <childElement id="1ab8992e-6883-4c99-beed-57b71b7196a9" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AzureFunctions.Dispatch.Services</name>
-      <display>Intent.AzureFunctions.Dispatch.Services 5.0.0</display>
+      <display>Intent.AzureFunctions.Dispatch.Services 5.0.1-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>5.0.0</value>
+      <value>5.0.1-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -141,9 +141,9 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.11</display>
+      <display>Intent.Common.CSharp 3.8.12-pre.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.11</value>
+      <value>3.8.12-pre.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -214,20 +214,6 @@
       <display>Intent.EntityFrameworkCore.Interop.DomainEvents 4.1.3</display>
       <isAbstract>false</isAbstract>
       <value>4.1.3</value>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
-      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
-      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="53b3389c-517c-4384-91fb-8b3d37b93b34" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
-      <name>Intent.Eventing.MassTransit.EntityFrameworkCore</name>
-      <display>Intent.Eventing.MassTransit.EntityFrameworkCore 5.2.4</display>
-      <isAbstract>false</isAbstract>
-      <value>5.2.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -435,9 +421,9 @@
     </childElement>
     <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.4</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.5-pre.2</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.4</value>
+      <value>4.9.5-pre.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>

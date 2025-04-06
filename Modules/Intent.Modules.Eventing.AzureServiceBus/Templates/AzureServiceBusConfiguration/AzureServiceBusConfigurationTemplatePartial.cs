@@ -9,6 +9,7 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -99,6 +100,11 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
 
         public override void BeforeTemplateExecution()
         {
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
+                .ToRegister("ConfigureAzureServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
+                .HasDependency(this)
+                .ForConcern("Infrastructure"));
+            
             foreach (var commandModel in GetCommandsBeingSent().DistinctBy(k => k.GetCommandQueueOrTopicConfigurationName()))
             {
                 this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}", commandModel.GetCommandQueueOrTopicName());

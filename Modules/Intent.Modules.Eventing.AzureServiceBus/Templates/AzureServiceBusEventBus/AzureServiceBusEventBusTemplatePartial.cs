@@ -74,8 +74,13 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                     {
                         method.Async();
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-                        method.AddStatement("using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);");
 
+                        method.AddIfStatement("!_messageQueue.Any()", fi =>
+                        {
+                            fi.AddStatement("return;");
+                        });
+                        
+                        method.AddStatement("using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);");
                         method.AddStatement("""var connectionString = _configuration["AzureServiceBus:ConnectionString"];""");
                         method.AddStatement("await using var serviceBusClient = new ServiceBusClient(connectionString);");
 

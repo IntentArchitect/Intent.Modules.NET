@@ -45,6 +45,10 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Eventing
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
+            if (!_messageQueue.Any())
+            {
+                return;
+            }
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
             var connectionString = _configuration["AzureServiceBus:ConnectionString"];
             await using var serviceBusClient = new ServiceBusClient(connectionString);

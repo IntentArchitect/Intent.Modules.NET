@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AzureFunctions</id>
-  <version>5.1.12-pre.1</version>
+  <version>5.1.12-pre.2</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Azure Functions</displayName>
   <shortDescription>Create Azure Functions for the Azure Cloud with a clean separation of concerns using .NET.</shortDescription>
@@ -27,7 +27,7 @@
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
-            <module id="Intent.AzureFunctions" version="5.0.3-pre.1">
+            <module id="Intent.AzureFunctions" version="5.0.3-pre.2">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
@@ -288,7 +288,7 @@
           <description>Integrate applications using a Pub/Sub pattern with Azure Service Bus directly.</description>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAqCAYAAAAkqNwKAAAAAXNSR0IArs4c6QAABAxJREFUaEPtm09sFFUcx79vZv+3ZWvrwm7XWhDTkOCheiBiOHnk1ArRkwm3mYZirJEQD5JIOIs2bewOTTThghGlGsT4t/bQ+gcLCQqBKhbSsq1goVJpKZ15PzPVJbvbXbs7b7LTZmZuu/u+3/f7feb3Zt68N8sgePT09LQQ0RCAiKBVReVEpPt8vm3t7e3nRDpmImJT293d/TKAI6I+Duk7Ozo63hLp2wPoARSpH3gVKIQPqwBgKpUqdA08Njc3d0AwOVvlkUhkP4DOPNNORVGcvQYWAZhSFEW1lYCgWSqVOgTgdQ+gRZCuBNiWpucgIXAyzo5b5PZA5iqAL05R1SzhExCeXSLA8B3uYWf/JjZjFaSmaW8Q0cFVN4Q1TdsFoCM7MM75XlVVL1pJti1NOwB8SUAoW88YFk2gJxswBDAq17uvr+9xzvnRvDh7VFU9Ua5XTlwiYju1e8Yo9FcIn1Km6oqYE8P5gI6nP2hk83b2b9VL+EnEasfZutYJaoGEsp5JJQnbP4qz7+3oX8TDcYCtk/QuCHusJUEf9jdIu61p7VE5BrD1BrXAwGkQEiKpEDDll7HrxAY2LOJjVesIwLY0vU3AS1aDLqgjdPcn2T5bPUswqyjA7cPj4fVNDTcYk6pLiK3sJsT53ZHhH2ITzz9TsRtMRQG2DIzVSsRv1yfWoypqL8Pb45MYHRxB0K8/dLWzzfJ8sdyz5ghAM8h1dVHU1EUh+3zlxpzTfnF+AVOXfkf6wpWl710DMEMhvjGJQChoCeL8zCzOnxrM0boOoJl9qCqMWDIOJpU2ILhh4NfBnzCTvrkMvCsBmhQYY0huboS0wpAmw8CZ9z8HcV6wal0LMEPDHwwgsTFpEl0GyByu5rD9v8P1AJfgMIZYcgPC1f/ulN75YxqjAz/C0I0Vr5UewCxEwVAQs9cmMT0+tSK4TAMP4H8kZsZu4uq3l5c+1TbVILjOXxJE1wMk3cDlj89ibvpu7vSkOoDYljoYRW4eXgUS4c7ELfx26iyAYuulDHXN9QhGc9ZavXkgv6/jl/e+gb6wWNIw9fllxJ5qBArMG103hKd/HsO1L84BVOYqPQNqmxMIJ2rdW4EX3+nHvVt/l1R1xRr5q4J4eMfWBz+vuQrs7e3dLUnS3uwEOeeHVVX9Oj/pzGrM9dND+HNkFMbCfSF4GbHklxFpiqPmiceKLiZomtYMIJUXp/ObSkXeTPhMUZSd+XQeeXM4zNOXDqUHzBuF/Ud066OoqfcdnDjyyrL1wFW7rVkOQPuRle641jbWC1Zg6ena39IDKMh0rQH8SpblFwRztlWu6/prjLFX80ydf73Ne0da8Dx7AD2Azr6h6lWgYAV2dXU9KUnSGQCyoFWl5bosy8J/tPkH9BkLSRylVvsAAAAASUVORK5CYII=" />
           <modules>
-            <module id="Intent.Eventing.AzureServiceBus" version="1.0.0-pre.0">
+            <module id="Intent.Eventing.AzureServiceBus" version="1.0.0-pre.1">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
@@ -347,15 +347,14 @@
     <module id="Intent.Application.Identity" version="3.5.6" />
     <module id="Intent.Application.MediatR.FluentValidation" version="4.8.3" />
     <module id="Intent.AzureFunctions.Dispatch.MediatR" version="2.0.0" />
-    <module id="Intent.AzureFunctions.Dispatch.Services" version="5.0.0" />
+    <module id="Intent.AzureFunctions.Dispatch.Services" version="5.0.1-pre.0" />
     <module id="Intent.Common" version="3.7.6" />
-    <module id="Intent.Common.CSharp" version="3.8.11" />
+    <module id="Intent.Common.CSharp" version="3.8.12-pre.3" />
     <module id="Intent.Common.Types" version="4.1.1" />
     <module id="Intent.DocumentDB.Dtos.AutoMapper" version="1.0.3" />
     <module id="Intent.Entities.Repositories.Api" version="5.1.4" />
     <module id="Intent.EntityFrameworkCore.DesignTimeDbContextFactory" version="4.2.5" />
     <module id="Intent.EntityFrameworkCore.Interop.DomainEvents" version="4.1.3" />
-    <module id="Intent.Eventing.MassTransit.EntityFrameworkCore" version="5.2.4" />
     <module id="Intent.Metadata.DocumentDB" version="1.3.0" />
     <module id="Intent.Metadata.RDBMS" version="3.7.1" />
     <module id="Intent.Metadata.Security" version="1.0.2" />
@@ -370,6 +369,6 @@
     <module id="Intent.Modelers.Services.DomainInteractions" version="2.1.3" />
     <module id="Intent.Modelers.Types.ServiceProxies" version="5.4.2" />
     <module id="Intent.Modules.Modelers.Domain.StoredProcedures" version="1.1.4" />
-    <module id="Intent.OutputManager.RoslynWeaver" version="4.9.4" />
+    <module id="Intent.OutputManager.RoslynWeaver" version="4.9.5-pre.2" />
   </minimumDependencyVersions>
 </applicationTemplate>

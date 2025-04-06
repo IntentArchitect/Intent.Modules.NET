@@ -1,5 +1,6 @@
 using AzureFunctions.AzureServiceBus.Application.Common.Interfaces;
 using AzureFunctions.AzureServiceBus.Domain.Common.Interfaces;
+using AzureFunctions.AzureServiceBus.Infrastructure.Configuration;
 using AzureFunctions.AzureServiceBus.Infrastructure.Persistence;
 using AzureFunctions.AzureServiceBus.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -23,6 +24,7 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IDomainEventService, DomainEventService>();
+            services.ConfigureAzureServiceBus(configuration);
             return services;
         }
     }
