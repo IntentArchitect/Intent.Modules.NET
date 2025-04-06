@@ -115,23 +115,28 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
             var result = httpTriggersView?.Verb switch
             {
                 HttpVerb.Get => template.Model.ReturnType == null
-                    ? $"new NoContentResult();"
-                    : $"new OkObjectResult({GetResultExpression(template)});",
+                    ? $"new NoContentResult()"
+                    : $"new OkObjectResult({GetResultExpression(template)})",
                 HttpVerb.Post => template.Model.ReturnType == null
-                    ? $"new CreatedResult(string.Empty, null);"
-                    : $"new CreatedResult(string.Empty, {GetResultExpression(template)});",
+                    ? $"new CreatedResult(string.Empty, null)"
+                    : $"new CreatedResult(string.Empty, {GetResultExpression(template)})",
                 HttpVerb.Put or HttpVerb.Patch => template.Model.ReturnType == null
-                    ? $"new NoContentResult();"
-                    : $"new OkObjectResult({GetResultExpression(template)});",
+                    ? $"new NoContentResult()"
+                    : $"new OkObjectResult({GetResultExpression(template)})",
                 HttpVerb.Delete => template.Model.ReturnType == null
-                    ? $"new OkResult();"
-                    : $"new OkObjectResult({GetResultExpression(template)});",
+                    ? $"new OkResult()"
+                    : $"new OkObjectResult({GetResultExpression(template)})",
                 null => template.Model.ReturnType == null
                     ? string.Empty
-                    : $"result;",
+                    : $"result",
                 _ => throw new ArgumentOutOfRangeException()
             };
 
+            if (string.IsNullOrEmpty(result))
+            {
+                return new CSharpStatement().AddMetadata("return", true);
+            }
+            
             return new CSharpReturnStatement(result)
                 .AddMetadata("return", true);
         }
