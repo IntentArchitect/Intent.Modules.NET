@@ -70,6 +70,13 @@
     <factoryExtension id="Intent.Eventing.AzureServiceBus.EventBusInterfaceExtension" externalReference="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.AzureFunctions">
+      <install>
+        <package id="Intent.AzureFunctions.AzureServiceBus" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
