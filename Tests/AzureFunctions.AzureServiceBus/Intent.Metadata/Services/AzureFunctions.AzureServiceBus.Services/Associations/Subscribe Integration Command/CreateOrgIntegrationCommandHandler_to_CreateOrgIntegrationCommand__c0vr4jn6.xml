@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7b34909f-47be-4bb5-88b8-e19ff55b3014">
+  <sourceEnd id="1af51b30-032f-4df5-b47d-ba40ab2df912" type="Subscribe Integration Command Source End" typeId="cdc0ae0a-1199-4450-8e21-2da80e03bc26">
+    <display>handled by: AzureFunctions.AzureServiceBus.Services.CreateOrgIntegrationCommandHandler</display>
+    <order>0</order>
+    <typeReference id="d39c9bee-a7c5-4a93-8d79-434d11240d8d">
+      <typeId>f5120547-565a-4e57-b0d7-fe13320fd839</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.Services</typePackageName>
+      <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7b34909f-47be-4bb5-88b8-e19ff55b3014" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
+    <display>handles: CreateOrgIntegrationCommand</display>
+    <order>0</order>
+    <typeReference id="464eaf28-1ffa-41f9-b124-26c2c985ebe3">
+      <typeId>c61289e8-ea3a-4dba-bc4f-c67efb4393c0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Command</associationType>
+  <associationTypeId>f485e4aa-a032-4b9a-aa85-5d2c62d75799</associationTypeId>
+  <stereotypes />
+</association>

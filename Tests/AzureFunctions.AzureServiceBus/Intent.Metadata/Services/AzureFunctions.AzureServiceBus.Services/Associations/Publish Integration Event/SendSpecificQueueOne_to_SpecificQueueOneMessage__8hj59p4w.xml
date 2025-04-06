@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7272ff7a-b111-493a-a778-48b53640b18d">
+  <sourceEnd id="7670ce39-20bd-46ca-a349-40524d58466b" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : SpecificChannelService.SendSpecificQueueOne</display>
+    <order>0</order>
+    <typeReference id="2c47af04-7628-4242-9e51-764a06a32fec">
+      <typeId>12c0be34-6014-4b0b-a374-a0e5412b76fa</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.Services</typePackageName>
+      <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7272ff7a-b111-493a-a778-48b53640b18d" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] SpecificQueueOneMessage</display>
+    <order>1</order>
+    <typeReference id="8effed73-81ba-4e8b-899f-f71a5e13c957">
+      <typeId>2323ea94-d92c-40cc-89dc-65dc53ec2b52</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="12c0be34-6014-4b0b-a374-a0e5412b76fa" location="[AzureFunctions.AzureServiceBus].[Services].[SendSpecificQueueOne]" />
+        <target applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2323ea94-d92c-40cc-89dc-65dc53ec2b52" location="[AzureFunctions.AzureServiceBus].[Services].[SpecificQueueOneMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Data}</expression>
+            <path>
+              <target id="2323ea94-d92c-40cc-89dc-65dc53ec2b52" name="SpecificQueueOneMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="73d82b93-9bc7-41a8-8a55-0c70605a3637" name="FieldA" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Data" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="12c0be34-6014-4b0b-a374-a0e5412b76fa" name="SendSpecificQueueOne" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="31b71ba2-9ccd-43a5-b96e-91c09c7d465c" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="6eae1108-7f29-49a6-9f9e-8e3e37fab98c" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

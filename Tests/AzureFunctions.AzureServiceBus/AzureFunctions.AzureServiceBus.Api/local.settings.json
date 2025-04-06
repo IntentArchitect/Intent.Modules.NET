@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AzureServiceBus:CreateOrg": "create-org",
+    "AzureServiceBus:SpecificTopic": "specific-topic",
+    "AzureServiceBus:SpecificQueue": "specific-queue",
+    "AzureServiceBus:ClientCreated": "client-created",
+    "AzureServiceBus:ClientCreatedSubscription": "",
+    "AzureServiceBus:SpecificTopicSubscription": ""
+  }
+}

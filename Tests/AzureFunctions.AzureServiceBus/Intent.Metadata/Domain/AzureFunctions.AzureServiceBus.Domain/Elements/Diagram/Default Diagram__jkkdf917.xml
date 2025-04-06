@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="27f8b3ef-f91a-463e-8db6-b71ff19cacb6" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</parentFolderId>
+  <packageId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.Domain</packageName>
+  <diagram>
+    <targetPackageId>27f8b3ef-f91a-463e-8db6-b71ff19cacb6</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
