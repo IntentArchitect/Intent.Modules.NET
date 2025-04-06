@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
@@ -22,7 +24,8 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
 
         private bool _hasAzureServiceBus;
 
-        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.IaC.Bicep.AzureFunctionsAppBicepTemplate";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.IaC.Bicep.AzureFunctionsAppBicepTemplate";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureFunctionsAppBicepTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -35,8 +38,8 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
         {
             _infrastructureEvents.Add(@event);
 
-            if (@event.InfrastructureComponent is Infrastructure.AzureServiceBus.QueueType or 
-                Infrastructure.AzureServiceBus.TopicType or 
+            if (@event.InfrastructureComponent is Infrastructure.AzureServiceBus.QueueType or
+                Infrastructure.AzureServiceBus.TopicType or
                 Infrastructure.AzureServiceBus.SubscriptionType)
             {
                 _hasAzureServiceBus = true;
@@ -63,12 +66,12 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
         }
 
         private bool HasAzureServiceBus() => _hasAzureServiceBus;
-        
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
             var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.ToKebabCase();
-            
+
             var sb = new StringBuilder(128);
             sb.AppendLine($"param functionAppName string = '{sanitizedAppName}-${{uniqueString(resourceGroup().id)}}'");
             if (HasAzureServiceBus())
@@ -120,7 +123,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
             }
 
             Dictionary<string, string> configVarMappings = new Dictionary<string, string>();
-            
+
             foreach (var @event in _infrastructureEvents)
             {
                 if (@event.InfrastructureComponent == Infrastructure.AzureServiceBus.QueueType)
@@ -130,7 +133,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Set("parent", "serviceBusNamespace")
                         .Set("name", $"'{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}'")
                         .Build());
-                    
+
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = varName;
                 }
@@ -141,7 +144,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Set("parent", "serviceBusNamespace")
                         .Set("name", $"'{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}'")
                         .Build());
-                    
+
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = varName;
                 }
@@ -152,7 +155,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Set("parent", $"{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}Topic".ToPascalCase().ToCamelCase())
                         .Set("name", $"'{varName.ToKebabCase()}'")
                         .Build());
-                    
+
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = varName;
                 }
