@@ -20,6 +20,11 @@ namespace Intent.Modules.Constants
                 public const string Program = "App.Program";
                 public const string MultiTenancyConfiguration = "Configuration.MultiTenancy";
             }
+
+            public static class AzureFunctions
+            {
+                public const string AzureFunctionEndpoint = "Azure.Api.AzureFunction";
+            }
         }
         public static class Domain
         {

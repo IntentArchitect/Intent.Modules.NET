@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Eventing.AzureServiceBus</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</summary>
+  <description>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAqCAYAAAAkqNwKAAAAAXNSR0IArs4c6QAABAxJREFUaEPtm09sFFUcx79vZv+3ZWvrwm7XWhDTkOCheiBiOHnk1ArRkwm3mYZirJEQD5JIOIs2bewOTTThghGlGsT4t/bQ+gcLCQqBKhbSsq1goVJpKZ15PzPVJbvbXbs7b7LTZmZuu/u+3/f7feb3Zt68N8sgePT09LQQ0RCAiKBVReVEpPt8vm3t7e3nRDpmImJT293d/TKAI6I+Duk7Ozo63hLp2wPoARSpH3gVKIQPqwBgKpUqdA08Njc3d0AwOVvlkUhkP4DOPNNORVGcvQYWAZhSFEW1lYCgWSqVOgTgdQ+gRZCuBNiWpucgIXAyzo5b5PZA5iqAL05R1SzhExCeXSLA8B3uYWf/JjZjFaSmaW8Q0cFVN4Q1TdsFoCM7MM75XlVVL1pJti1NOwB8SUAoW88YFk2gJxswBDAq17uvr+9xzvnRvDh7VFU9Ua5XTlwiYju1e8Yo9FcIn1Km6oqYE8P5gI6nP2hk83b2b9VL+EnEasfZutYJaoGEsp5JJQnbP4qz7+3oX8TDcYCtk/QuCHusJUEf9jdIu61p7VE5BrD1BrXAwGkQEiKpEDDll7HrxAY2LOJjVesIwLY0vU3AS1aDLqgjdPcn2T5bPUswqyjA7cPj4fVNDTcYk6pLiK3sJsT53ZHhH2ITzz9TsRtMRQG2DIzVSsRv1yfWoypqL8Pb45MYHRxB0K8/dLWzzfJ8sdyz5ghAM8h1dVHU1EUh+3zlxpzTfnF+AVOXfkf6wpWl710DMEMhvjGJQChoCeL8zCzOnxrM0boOoJl9qCqMWDIOJpU2ILhh4NfBnzCTvrkMvCsBmhQYY0huboS0wpAmw8CZ9z8HcV6wal0LMEPDHwwgsTFpEl0GyByu5rD9v8P1AJfgMIZYcgPC1f/ulN75YxqjAz/C0I0Vr5UewCxEwVAQs9cmMT0+tSK4TAMP4H8kZsZu4uq3l5c+1TbVILjOXxJE1wMk3cDlj89ibvpu7vSkOoDYljoYRW4eXgUS4c7ELfx26iyAYuulDHXN9QhGc9ZavXkgv6/jl/e+gb6wWNIw9fllxJ5qBArMG103hKd/HsO1L84BVOYqPQNqmxMIJ2rdW4EX3+nHvVt/l1R1xRr5q4J4eMfWBz+vuQrs7e3dLUnS3uwEOeeHVVX9Oj/pzGrM9dND+HNkFMbCfSF4GbHklxFpiqPmiceKLiZomtYMIJUXp/ObSkXeTPhMUZSd+XQeeXM4zNOXDqUHzBuF/Ud066OoqfcdnDjyyrL1wFW7rVkOQPuRle641jbWC1Zg6ena39IDKMh0rQH8SpblFwRztlWu6/prjLFX80ydf73Ne0da8Dx7AD2Azr6h6lWgYAV2dXU9KUnSGQCyoFWl5bosy8J/tPkH9BkLSRylVvsAAAAASUVORK5CYII=</iconUrl>
+  <templates>
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration" externalReference="8e1e66fa-9235-442f-80e2-8f5646d05541">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.AzureServiceBus</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus" externalReference="a5e88f9d-0280-4d8d-b32f-fa3900c350de">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureServiceBusEventBus</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher" externalReference="3e66bb6c-0744-460a-9144-620e960acee9">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureServiceBusMessageDispatcher</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface" externalReference="886bab18-4f6d-4ebb-bcf1-3e7f41f72f8c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureServiceBusMessageDispatcherInterface</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.IntegrationEventHandler" externalReference="6b82e377-cab9-4814-845c-02e4e5b3fe66">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEvents/EventHandlers</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.PublisherOptions" externalReference="5aa7b10e-023d-4845-9516-ec42a2246598">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.PublishOptions</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.SubscriptionOptions" externalReference="c6b62a06-5353-4688-a2dd-36d2a92bc8b7">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.SubscriptionOptions</role>
+      <location>Configuration</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureServiceBus.EventBusInterfaceExtension" externalReference="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.AzureFunctions">
+      <install>
+        <package id="Intent.AzureFunctions.AzureServiceBus" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Eventing.Contracts" version="5.0.3" />
+    <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
+    <dependency id="Intent.Modelers.Services" version="3.9.3" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>azure service bus eventing</tags>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.AzureServiceBus/Intent.Eventing.AzureServiceBus.pkg.config" externalReference="ad9b936a-7d65-470f-8e61-2d504b6fc67e" />
+  </metadata>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <migrations />
+</package>

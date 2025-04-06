@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="38a52614-cc6a-4b35-bac5-cb858b5b8525" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>3 - Domain</name>
+  <display>3 - Domain</display>
+  <externalReference>85f2cf72-fa85-488f-8e75-8dc579b2bb2f</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</parentFolderId>
+  <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+  <packageName>AzureFunctions.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

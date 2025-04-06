@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="45312d6f-faea-408b-ba8f-c4de943c6796" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>433b1a34-b38f-4936-868f-a37be4d9944d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</parentFolderId>
+  <packageId>f9da845b-890d-4e2b-ac46-70d3ca12fd5c</packageId>
+  <packageName>AzureFunctions.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

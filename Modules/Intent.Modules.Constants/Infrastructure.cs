@@ -94,4 +94,19 @@ public static class Infrastructure
             public const string KafkaSchemaRegistryUrl = nameof(KafkaSchemaRegistryUrl);
         }
     }
+
+    public static class AzureServiceBus
+    {
+        private const string Name = nameof(AzureServiceBus);
+        public const string TopicType = $"{Name}.Topic";
+        public const string QueueType = $"{Name}.Queue";
+        public const string SubscriptionType = $"{Name}.Subscription";
+
+        public static class Property
+        {
+            public const string QueueOrTopicName = nameof(QueueOrTopicName);
+            public const string ConfigurationName = nameof(ConfigurationName);
+            public const string External = nameof(External);
+        }
+    }
 }

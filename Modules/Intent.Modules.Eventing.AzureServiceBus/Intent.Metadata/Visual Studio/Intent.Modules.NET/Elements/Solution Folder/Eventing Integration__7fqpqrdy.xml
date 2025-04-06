@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="408ab16b-0f81-405e-a39a-a052297cef9c" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Eventing Integration</name>
+  <display>Eventing Integration</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>45e6e8b8-0676-4bdf-b834-f5ddc781a0c7</parentFolderId>
+  <packageId>45e6e8b8-0676-4bdf-b834-f5ddc781a0c7</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

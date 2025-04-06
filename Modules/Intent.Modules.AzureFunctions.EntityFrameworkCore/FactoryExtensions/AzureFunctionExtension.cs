@@ -58,6 +58,7 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
 
                     if (dispatchStatement is null) return;
                     var returnStatement = runMethod.FindStatement(x => x.HasMetadata("return"));
+                    var eventBusStatement = runMethod.FindStatement(x => x.HasMetadata("eventBus"));
 
                     var transactionScope = new CSharpUsingBlock($@"var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions() {{ IsolationLevel = IsolationLevel.ReadCommitted }}, TransactionScopeAsyncFlowOption.Enabled)")
@@ -68,6 +69,11 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
                     dispatchStatement.Remove();
 
                     transactionScope.InsertStatement(0, dispatchStatement);
+                    if (eventBusStatement is not null)
+                    {
+                        eventBusStatement.Remove();
+                        transactionScope.InsertStatement(transactionScope.Statements.Count, eventBusStatement);
+                    }
                     if (returnStatement is not null)
                     {
                         returnStatement.Remove();

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+    <targetDesignerId>0701433c-36c0-4569-b1f4-9204986b587d</targetDesignerId>
+    <createPackages>
+        <package id="90bc6e6b-9aeb-4058-a643-537e55e2fc56" typeId="07e7b690-a59d-4b72-8440-4308a121d32c" type="Visual Studio Solution">
+            <name>${application.name}</name>
+            <stereotypes>
+                <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
+                    <addedByDefault>true</addedByDefault>
+                    <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                    <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                    <properties>
+                        <property name="49e78350-c77b-4f83-88d8-5841e6cb3ab9" display="Manage Package Versions Centrally" value="false" isActive="true" />
+                    </properties>
+                </stereotype>
+            </stereotypes>
+            <childElements>
+                <element id="5e6bc279-5c82-4586-bd77-f7dee14f7d89" typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
+                    <name>0 - Solution Items</name>
+                    <genericTypes />
+                    <metadata />
+                    <stereotypes />
+                    <childElements>
+                        <element id="46171ac3-799b-4014-9c17-648e5e001e73" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
+                            <name>IaC</name>
+                            <genericTypes />
+                            <metadata />
+                            <stereotypes />
+                            <childElements />
+                            <isMapped>false</isMapped>
+                            <isAbstract>false</isAbstract>
+                            <display>IaC</display>
+                        </element>
+                    </childElements>
+                    <isMapped>false</isMapped>
+                    <isAbstract>false</isAbstract>
+                    <display>0 - Solution Items</display>
+                </element>
+            </childElements>
+            <associations />
+            <references />
+        </package>
+    </createPackages>
+</settings>
