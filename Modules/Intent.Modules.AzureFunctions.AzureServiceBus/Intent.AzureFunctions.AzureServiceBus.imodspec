@@ -27,7 +27,7 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.AzureServiceBus" version="1.0.0-pre.0" />
     <dependency id="Intent.Modelers.Services" version="3.9.3" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.0.4" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

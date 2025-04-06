@@ -64,23 +64,12 @@
   <interoperability>
     <detect id="Intent.Application.Contracts">
       <install>
-        <package id="Intent.AzureFunctions.Dispatch.Services" version="5.0.0" />
+        <package id="Intent.AzureFunctions.Dispatch.Services" version="5.0.1-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.MediatR">
       <install>
         <package id="Intent.AzureFunctions.Dispatch.MediatR" version="2.0.0" />
-      </install>
-    </detect>
-    <!-- Remove after 1/1/2025 -->
-    <detect id="Intent.AzureFunctions.Interop.Contracts">
-      <install>
-        <package id="Intent.AzureFunctions.Interop.Contracts" version="5.0.0" />
-      </install>
-    </detect>
-    <detect id="Intent.AzureFunctions.Interop.EntityFrameworkCore">
-      <install>
-        <package id="Intent.AzureFunctions.Interop.EntityFrameworkCore" version="5.0.0" />
       </install>
     </detect>
     <detect id="Intent.AzureFunctions.OpenApi">
@@ -93,7 +82,6 @@
         <package id="Intent.VisualStudio.Projects" version="3.8.3" />
       </install>
     </detect>
-    <!-- Remove after 1/1/2025 -->
   </interoperability>
   <factoryExtensions></factoryExtensions>
   <moduleSettings>

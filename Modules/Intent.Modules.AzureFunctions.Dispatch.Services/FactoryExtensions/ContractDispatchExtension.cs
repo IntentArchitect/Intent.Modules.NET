@@ -80,7 +80,7 @@ namespace Intent.Modules.AzureFunctions.Dispatch.Services.FactoryExtensions
                     if (ShouldInstallMessageBus(application))
                     {
                         @class.Constructors.First().AddParameter(template.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus", param => param.IntroduceReadonlyField());
-                        invocationStatement.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);");
+                        invocationStatement.AddStatement($@"await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventBus", true));
                     }
                     invocationStatement.AddStatement(GetReturnStatement(template));
                 });
