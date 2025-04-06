@@ -191,6 +191,12 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                                 arr.Object(obj => obj
                                     .Set("name", "'AzureWebJobsStorage'")
                                     .Set("value", "storageConnectionString"));
+                                if (HasAzureServiceBus())
+                                {
+                                    arr.Object(obj => obj
+                                        .Set("name", "'AzureServiceBus:ConnectionString'")
+                                        .Set("value", "serviceBusConnectionString"));
+                                }
                                 foreach (var request in _appSettingsRequests)
                                 {
                                     if (configVarMappings.TryGetValue(request.Key, out var varName))
