@@ -8,7 +8,7 @@ Command Line Interface (CLI) instructions. Substitute the {Keywords} below with 
 migration name when executing these commands.
 <# if(!PackageManagerConsoleSupported) {#>
 
-NOTE: When working with DesignTimeDbContextFactory you have to using the CLI. Visual Studio Package Manager Console does not support this feature.
+NOTE: When using DesignTimeDbContextFactory, it is recommended to use the dotnet ef CLI tool. The Visual Studio Package Manager Console (PMC) may encounter issues in this scenario.
 <#}#>
 <#= GetExtraComments() #>
 -------------------------------------------------------------------------------------------------------------------------------------------------------

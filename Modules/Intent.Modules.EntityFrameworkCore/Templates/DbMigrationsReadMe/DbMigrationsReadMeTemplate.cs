@@ -38,8 +38,9 @@ migration name when executing these commands.
             
             #line default
             #line hidden
-            this.Write("\r\nNOTE: When working with DesignTimeDbContextFactory you have to using the CLI. V" +
-                    "isual Studio Package Manager Console does not support this feature.\r\n");
+            this.Write("\r\nNOTE: When using DesignTimeDbContextFactory, it is recommended to use the dotne" +
+                    "t ef CLI tool. The Visual Studio Package Manager Console (PMC) may encounter iss" +
+                    "ues in this scenario.\r\n");
             
             #line 12 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.EntityFrameworkCore\Templates\DbMigrationsReadMe\DbMigrationsReadMeTemplate.tt"
 }
