@@ -1,6 +1,7 @@
 using System.Net;
 using AzureFunctions.NET8.Application.Params.GetByIdsHeadersTest;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
+using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;

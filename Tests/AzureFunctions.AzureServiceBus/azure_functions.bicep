@@ -58,9 +58,19 @@ resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-p
   name: 'client-created'
 }
 
+resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+  parent: serviceBusNamespace
+  name: 'client-created'
+}
+
 resource clientCreatedSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
   parent: clientCreatedTopic
   name: 'client-created-subscription'
+}
+
+resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+  parent: serviceBusNamespace
+  name: 'specific-topic'
 }
 
 resource specificTopicSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
@@ -118,8 +128,16 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: clientCreatedTopic.name
         }
         {
+          name: 'AzureServiceBus:ClientCreated'
+          value: clientCreatedTopic.name
+        }
+        {
           name: 'AzureServiceBus:ClientCreatedSubscription'
           value: clientCreatedSubscription.name
+        }
+        {
+          name: 'AzureServiceBus:SpecificTopic'
+          value: specificTopicTopic.name
         }
         {
           name: 'AzureServiceBus:SpecificTopicSubscription'

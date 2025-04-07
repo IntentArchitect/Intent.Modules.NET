@@ -53,7 +53,8 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
 
         public override bool CanRunTemplate()
         {
-            return ExecutionContext.FindTemplateInstances<ITemplate>(TemplateRoles.Distribution.AzureFunctions.AzureFunctionEndpoint).Any();
+            return ExecutionContext.FindTemplateInstances<ITemplate>(TemplateRoles.Distribution.AzureFunctions.AzureFunctionEndpoint).Any()
+                || ExecutionContext.FindTemplateInstances<ITemplate>(TemplateRoles.Distribution.AzureFunctions.AzureFunctionConsumer).Any();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -74,15 +75,17 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
 
             var sb = new StringBuilder(128);
             sb.AppendLine($"param functionAppName string = '{sanitizedAppName}-${{uniqueString(resourceGroup().id)}}'");
+            sb.AppendLine($"param appInsightsName string = 'app-insights-${{uniqueString(resourceGroup().id)}}'");
+            sb.AppendLine($"param storageName string = 'storage${{uniqueString(resourceGroup().id)}}'");
             if (HasAzureServiceBus())
             {
-                sb.AppendLine($"param serviceBusNamespaceName string = '{sanitizedAppName}'");
+                sb.AppendLine($"param serviceBusNamespaceName string = 'service-bus-${{uniqueString(resourceGroup().id)}}'");
             }
 
             sb.AppendLine();
 
             sb.AppendLine(new BicepResource("appInsights", "'Microsoft.Insights/components@2020-02-02'")
-                .Set("name", "'app-insights-${functionAppName}'")
+                .Set("name", "appInsightsName")
                 .Set("location", "resourceGroup().location")
                 .Set("kind", "'web'")
                 .Block("properties", props =>
@@ -103,7 +106,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 .Build());
 
             sb.AppendLine(new BicepResource("storageAccount", "'Microsoft.Storage/storageAccounts@2021-02-01'")
-                .Set("name", "'storage${uniqueString(resourceGroup().id)}'")
+                .Set("name", "storageName")
                 .Set("location", "resourceGroup().location")
                 .Set("kind", "'StorageV2'")
                 .Block("sku", sku => { sku.Set("name", "'Standard_LRS'"); })
@@ -130,6 +133,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 {
                     var varName = $"{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}Queue".ToPascalCase().ToCamelCase();
                     sb.AppendLine(new BicepResource(varName, "'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview'")
+                        .WithExisting(@event.Properties[Infrastructure.AzureServiceBus.Property.External] == "true")
                         .Set("parent", "serviceBusNamespace")
                         .Set("name", $"'{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}'")
                         .Build());
@@ -141,6 +145,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 {
                     var varName = $"{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}Topic".ToPascalCase().ToCamelCase();
                     sb.AppendLine(new BicepResource(varName, "'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview'")
+                        .WithExisting(@event.Properties[Infrastructure.AzureServiceBus.Property.External] == "true")
                         .Set("parent", "serviceBusNamespace")
                         .Set("name", $"'{@event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName]}'")
                         .Build());

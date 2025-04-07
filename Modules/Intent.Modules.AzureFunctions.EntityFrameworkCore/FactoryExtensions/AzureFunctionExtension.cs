@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -23,11 +24,19 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)] public override int Order => 0;
 
+        private static readonly TemplateDiscoveryOptions TemplateDiscoveryOptions = new() { TrackDependency = false, ThrowIfNotFound = false };
+        
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));
             foreach (var template in templates)
             {
+                if (template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) == null ||
+                    GetUnitOfWork(template) is null)
+                {
+                    continue;
+                }
+                
                 template.AddTypeSource("Domain.NotFoundException");
 
                 template.CSharpFile.OnBuild(file =>
@@ -83,7 +92,7 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
             }
         }
 
-        private static string GetUnitOfWork(AzureFunctionClassTemplate template)
+        private static string? GetUnitOfWork(AzureFunctionClassTemplate template)
         {
             if (template.TryGetTypeName(TemplateRoles.Domain.UnitOfWork, out var unitOfWork) ||
                 template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out unitOfWork) ||
@@ -92,8 +101,7 @@ namespace Intent.Modules.AzureFunctions.EntityFrameworkCore.FactoryExtensions
                 return unitOfWork;
             }
 
-            throw new Exception(
-                $"A unit of work interface could not be resolved. Please ensure an interface with the role [{TemplateRoles.Domain.UnitOfWork}] exists.");
+            return null;
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Net;
 using AzureFunctions.NET8.Application.Interfaces;
 using AzureFunctions.NET8.Application.SampleDomains;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
+using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

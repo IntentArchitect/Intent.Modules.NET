@@ -104,58 +104,115 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .ToRegister("ConfigureAzureServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this)
                 .ForConcern("Infrastructure"));
-            
+
+            // Process commands being sent
             foreach (var commandModel in GetCommandsBeingSent().DistinctBy(k => k.GetCommandQueueOrTopicConfigurationName()))
             {
-                this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}", commandModel.GetCommandQueueOrTopicName());
-
-                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
-                        commandModel.GetCommandInfrastructureRegistrationEventName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{commandModel.GetCommandQueueOrTopicConfigurationName()}")
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.External,
-                        (commandModel.InternalElement.Application.Id != ExecutionContext.GetApplicationConfig().Id).ToString().ToLower()));
+                RegisterInfrastructureForModel(
+                    commandModel.GetCommandQueueOrTopicConfigurationName(),
+                    commandModel.GetCommandQueueOrTopicName(),
+                    commandModel.GetCommandInfrastructureRegistrationEventName(),
+                    commandModel.InternalElement.Package.ApplicationId
+                );
             }
 
+            // Process messages being published
             foreach (var messageModel in GetMessagesBeingPublished().DistinctBy(k => k.GetMessageQueueOrTopicConfigurationName()))
             {
-                this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageQueueOrTopicConfigurationName()}", messageModel.GetMessageQueueOrTopicName());
-
-                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
-                        messageModel.GetMessageInfrastructureRegistrationEventName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{messageModel.GetMessageQueueOrTopicConfigurationName()}")
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.External,
-                        (messageModel.InternalElement.Application.Id != ExecutionContext.GetApplicationConfig().Id).ToString().ToLower()));
+                RegisterInfrastructureForModel(
+                    messageModel.GetMessageQueueOrTopicConfigurationName(),
+                    messageModel.GetMessageQueueOrTopicName(),
+                    messageModel.GetMessageInfrastructureRegistrationEventName(),
+                    messageModel.InternalElement.Package.ApplicationId
+                );
             }
 
+            // Process command subscriptions
             foreach (var commandModel in GetCommandMessagesBeingSubscribed()
                          .Select(x => x.Element.AsIntegrationCommandModel())
                          .Where(x => x?.HasCommandSubscription() == true)
                          .DistinctBy(k => k.GetCommandSubscriptionConfigurationName()))
             {
-                this.ApplyAppSetting($"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}", "");
-
-                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, commandModel.GetCommandQueueOrTopicName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{commandModel.GetCommandSubscriptionConfigurationName()}"));
+                RegisterSubscription(
+                    commandModel.GetCommandSubscriptionConfigurationName()!,
+                    commandModel.GetCommandQueueOrTopicName(),
+                    commandModel.GetCommandQueueOrTopicConfigurationName(),
+                    commandModel.GetCommandInfrastructureRegistrationEventName(),
+                    commandModel.InternalElement.Package.ApplicationId
+                );
             }
 
+            // Process event subscriptions
             foreach (var messageModel in GetEventMessagesBeingSubscribed()
                          .Select(x => x.Element.AsMessageModel())
                          .Where(x => x?.HasMessageSubscription() == true)
                          .DistinctBy(k => k.GetMessageSubscriptionConfigurationName()))
             {
-                this.ApplyAppSetting($"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}", "");
-
-                ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, messageModel.GetMessageQueueOrTopicName())
-                    .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, $"AzureServiceBus:{messageModel.GetMessageSubscriptionConfigurationName()}"));
+                RegisterSubscription(
+                    messageModel.GetMessageSubscriptionConfigurationName()!,
+                    messageModel.GetMessageQueueOrTopicName(),
+                    messageModel.GetMessageQueueOrTopicConfigurationName(),
+                    messageModel.GetMessageInfrastructureRegistrationEventName(),
+                    messageModel.InternalElement.Package.ApplicationId
+                );
             }
         }
 
-        [IntentManaged(Mode.Fully)]
-        public CSharpFile CSharpFile { get; }
+        private void RegisterInfrastructureForModel(
+            string configurationName,
+            string queueOrTopicName,
+            string registrationEventName,
+            string modelApplicationId)
+        {
+            var fullConfigName = $"AzureServiceBus:{configurationName}";
+            this.ApplyAppSetting(fullConfigName, queueOrTopicName);
+
+            PublishInfrastructureRegisteredEvent(
+                registrationEventName,
+                queueOrTopicName,
+                fullConfigName,
+                modelApplicationId);
+        }
+
+        private void RegisterSubscription(
+            string subscriptionConfigName,
+            string queueOrTopicName,
+            string queueOrTopicConfigName,
+            string registrationEventName,
+            string modelApplicationId)
+        {
+            var fullSubscriptionConfigName = $"AzureServiceBus:{subscriptionConfigName}";
+            var fullQueueConfigName = $"AzureServiceBus:{queueOrTopicConfigName}";
+
+            this.ApplyAppSetting(fullQueueConfigName, queueOrTopicName);
+            this.ApplyAppSetting(fullSubscriptionConfigName, "");
+
+            PublishInfrastructureRegisteredEvent(
+                registrationEventName,
+                queueOrTopicName,
+                fullQueueConfigName,
+                modelApplicationId);
+
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
+                .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, queueOrTopicName)
+                .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, fullSubscriptionConfigName));
+        }
+
+        private void PublishInfrastructureRegisteredEvent(
+            string registrationEventName,
+            string queueOrTopicName,
+            string configurationName,
+            string modelApplicationId)
+        {
+            var isExternal = modelApplicationId != ExecutionContext.GetApplicationConfig().Id;
+
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(registrationEventName)
+                .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, queueOrTopicName)
+                .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, configurationName)
+                .WithProperty(Infrastructure.AzureServiceBus.Property.External, isExternal.ToString().ToLower()));
+        }
+
+        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

@@ -6,6 +6,7 @@ internal class BicepResource : BicepObject
 {
     private readonly string _name;
     private readonly string _type;
+    private bool _existing;
 
     public BicepResource(string name, string type)
     {
@@ -13,14 +14,22 @@ internal class BicepResource : BicepObject
         _type = type;
     }
 
+    public BicepResource WithExisting(bool existing)
+    {
+        _existing = existing;
+        return this;
+    }
+
     public override string Build(int indentLevel = 0)
     {
         var sb = new StringBuilder(128);
         var indent = new string(' ', indentLevel * 2);
+
+        var existing = _existing ? "existing " : string.Empty;
         
         // Fix any double quotes issue
         var fixedType = _type.Replace("''", "'");
-        sb.AppendLine($"resource {_name} {fixedType} = {{");
+        sb.AppendLine($"resource {_name} {fixedType} {existing}= {{");
         
         FormatProperties(sb, indentLevel + 1);
         

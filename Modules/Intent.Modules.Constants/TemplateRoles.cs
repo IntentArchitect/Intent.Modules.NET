@@ -24,6 +24,7 @@ namespace Intent.Modules.Constants
             public static class AzureFunctions
             {
                 public const string AzureFunctionEndpoint = "Azure.Api.AzureFunction";
+                public const string AzureFunctionConsumer = "Azure.Api.AzureFunction.AzureFunctionConsumer";
             }
         }
         public static class Domain

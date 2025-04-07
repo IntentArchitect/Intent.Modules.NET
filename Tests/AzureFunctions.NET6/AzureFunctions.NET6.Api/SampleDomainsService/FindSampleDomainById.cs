@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.NET6.Application.Interfaces;
 using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
+using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

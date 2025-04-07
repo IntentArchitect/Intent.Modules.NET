@@ -8,6 +8,7 @@ using AzureFunctions.NET6.Application.Common.Pagination;
 using AzureFunctions.NET6.Application.Customers;
 using AzureFunctions.NET6.Application.Customers.GetPagedWithParameters;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
+using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
