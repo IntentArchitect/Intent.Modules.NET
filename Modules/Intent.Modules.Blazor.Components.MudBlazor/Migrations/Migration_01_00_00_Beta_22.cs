@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
@@ -5,7 +6,6 @@ using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Modelers.UI.Api;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration", Version = "1.0")]
@@ -51,7 +51,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.Migrations
                             DefinitionPackageId = "47e5f8d0-3892-4408-b6f9-88bf8591af2d",
                             Properties = new System.Collections.Generic.List<StereotypePropertyPersistable>{ new StereotypePropertyPersistable
                                 {
-                                
+
                                     DefinitionId = "696f0b1c-bcfb-43c1-a490-3d76451ade04",
                                     Name = "Hover",
                                     Value = "true",
