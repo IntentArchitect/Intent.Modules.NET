@@ -7,6 +7,6 @@ namespace Intent.Modules.Application.DomainInteractions
 {
     public class SharedNuGetPackages
     {
-        public static INugetPackageInfo SystemLinqDynamicCore = new NugetPackageInfo("System.Linq.Dynamic.Core", "1.4.3");
+        public static INugetPackageInfo SystemLinqDynamicCore = new NugetPackageInfo("System.Linq.Dynamic.Core", "1.6.0");
     }
 }

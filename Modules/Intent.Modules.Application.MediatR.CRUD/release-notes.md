@@ -1,6 +1,7 @@
 ### Version 6.0.27
 
 - Improvement: Added validations for Paging with missing parameters.
+- Improvement: Updated `System.Linq.Dynamic.Core` to version without vulnerability.
 
 ### Version 6.0.26
 
