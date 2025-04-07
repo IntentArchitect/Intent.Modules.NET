@@ -71,7 +71,7 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             {
                 mudDataGrid.AddAttribute("Elevation", appearance.Elevation().Value.ToString());
             }
-            mudDataGrid.AddAttribute("Hover", appearance.Hover() != null ? appearance.Hover().Value : "true");
+            mudDataGrid.AddAttribute("Hover", !string.IsNullOrEmpty( appearance.Hover()?.Value)? appearance.Hover().Value : "true");
             if (appearance.Striped() != null && appearance.Striped().IsTrue())
             {
                 mudDataGrid.AddAttribute("Striped");
