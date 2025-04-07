@@ -4,7 +4,7 @@ Package Manager Console (View > Other Windows > Package Manager Console) or usin
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
 
-NOTE: When working with DesignTimeDbContextFactory you have to using the CLI. Visual Studio Package Manager Console does not support this feature.
+NOTE: When using DesignTimeDbContextFactory, it is recommended to use the dotnet ef CLI tool. The Visual Studio Package Manager Console (PMC) may encounter issues in this scenario.
 
 A separate "appsettings.json" file is used in this project for managing connection strings.
 
