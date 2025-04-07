@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="83a63a06-cdc8-4556-a713-43a2db3f10e7" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>NET Standard</name>
-  <display>NET Standard</display>
+  <name>Application</name>
+  <display>Application</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

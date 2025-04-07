@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="083c0595-8208-4078-abd9-e1f1e41ab3b6" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>NET Core</name>
-  <display>NET Core</display>
+  <name>API Frameworks</name>
+  <display>API Frameworks</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
