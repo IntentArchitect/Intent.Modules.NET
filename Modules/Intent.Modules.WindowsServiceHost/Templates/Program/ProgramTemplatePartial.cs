@@ -89,7 +89,11 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
             {{
                 options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
             }});");
-                hasStatements.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
+
+                hasStatements.AddIfStatement("OperatingSystem.IsWindows()", ifs => 
+                {
+                    ifs.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");
+                });
 
                 var addHostedServiceStatement = new CSharpStatement("builder.Services.AddHostedService<WindowsBackgroundService>();");
                 hasStatements.AddStatement(addHostedServiceStatement);

@@ -1,5 +1,9 @@
 ### Version 1.0.5
 
+- Improvement: Added OS Check to `LoggerProviderOptions.RegisterProviderOptions`.
+
+### Version 1.0.5
+
 - Improvement: When Top level Statements are enabled, the Program class can be exposed for Type reference purposes.
 
 ### Version 1.0.4
