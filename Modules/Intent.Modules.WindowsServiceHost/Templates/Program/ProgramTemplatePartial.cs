@@ -90,6 +90,7 @@ namespace Intent.Modules.WindowsServiceHost.Templates.Program
                 options.ServiceName = ""{ExecutionContext.GetApplicationConfig().Name}"";
             }});");
 
+                AddUsing("System");
                 hasStatements.AddIfStatement("OperatingSystem.IsWindows()", ifs => 
                 {
                     ifs.AddStatement("LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);");

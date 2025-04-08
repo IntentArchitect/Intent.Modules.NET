@@ -1,3 +1,4 @@
+using System;
 using BugSnagTest.ServiceHost.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
