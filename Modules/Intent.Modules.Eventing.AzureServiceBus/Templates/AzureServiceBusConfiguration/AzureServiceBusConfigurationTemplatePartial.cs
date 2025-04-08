@@ -212,7 +212,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .WithProperty(Infrastructure.AzureServiceBus.Property.External, isExternal.ToString().ToLower()));
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()
