@@ -115,7 +115,7 @@
       <name>Intent.AzureFunctions.Dispatch.Services</name>
       <display>Intent.AzureFunctions.Dispatch.Services 5.0.1-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>5.0.1-pre.0</value>
+      <value>5.0.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -143,7 +143,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.12-pre.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.12-pre.3</value>
+      <value>3.8.12</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.5</value>
+      <value>4.7.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -381,7 +381,7 @@
       <name>Intent.Modelers.Services.DomainInteractions</name>
       <display>Intent.Modelers.Services.DomainInteractions 2.1.3</display>
       <isAbstract>false</isAbstract>
-      <value>2.1.3</value>
+      <value>2.1.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -423,7 +423,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.5-pre.2</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.5-pre.2</value>
+      <value>4.9.5</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
