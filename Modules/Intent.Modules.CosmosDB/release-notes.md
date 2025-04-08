@@ -1,3 +1,7 @@
+### Version 1.2.14
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.2.13
 
 - Fixed: Previous version fix will no longer target composite Entities.

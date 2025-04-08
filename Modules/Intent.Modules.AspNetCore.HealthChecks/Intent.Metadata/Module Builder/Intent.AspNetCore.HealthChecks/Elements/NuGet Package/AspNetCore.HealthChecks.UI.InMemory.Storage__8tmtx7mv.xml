@@ -101,7 +101,7 @@
       <childElements />
     </childElement>
     <childElement id="63f7e610-1984-4745-81d0-539fcc76454f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
+      <name>9.0.0</name>
       <display>8.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -121,7 +121,30 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="058e8fe9-359e-4e49-ba70-aa634f6f3357" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>AspNetCore.HealthChecks.UI.Data</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>63f7e610-1984-4745-81d0-539fcc76454f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f1cdc698-e9ae-47a0-888b-ae8f67a31034" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.InMemory</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.11</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>63f7e610-1984-4745-81d0-539fcc76454f</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

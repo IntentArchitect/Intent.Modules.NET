@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="18fdfa51-7d5a-4471-afcd-6dbc411684f8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.0</name>
+      <name>9.0.2</name>
       <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,58 +47,46 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dc4c7761-dbc1-49c8-a3d9-2c1cc2b294fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4468857b-9619-4977-b3f4-3c6a6e8aaf53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>18fdfa51-7d5a-4471-afcd-6dbc411684f8</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4e5e0b16-ef42-4f90-956d-9b4d10162ac1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6294a15b-0e7b-4dde-9bc5-e2578a067ee7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>18fdfa51-7d5a-4471-afcd-6dbc411684f8</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2a349e72-2996-4b64-a666-494d9ab9cf34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3eb1daae-b7b3-4288-8695-bd7516bdcc1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>18fdfa51-7d5a-4471-afcd-6dbc411684f8</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b09ea68b-5da5-4085-9af9-4f355830c398" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="44c74a05-abaf-4118-bad4-d63d9526a613" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
-          <display>StackExchange.Redis (2.7.27)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>18fdfa51-7d5a-4471-afcd-6dbc411684f8</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -106,7 +94,7 @@
       </childElements>
     </childElement>
     <childElement id="b46b7ab4-b05e-4827-95ed-87a4e0eaa684" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.0</name>
+      <name>9.0.2</name>
       <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -128,58 +116,46 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fbfda623-83c9-4c53-9910-9a6ee8aa9949" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="094ce55c-df54-4e04-b2f8-51f35bd1095d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b46b7ab4-b05e-4827-95ed-87a4e0eaa684</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6dc68cb7-4798-47b0-a17c-a48629f19f48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a0102da9-fcd7-4b72-b7a0-e126a240f227" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b46b7ab4-b05e-4827-95ed-87a4e0eaa684</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0fd6bbf8-42a9-4b2f-8103-9b1de35ee23d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="81fce762-6dd3-4636-b593-1bf2db229fcf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b46b7ab4-b05e-4827-95ed-87a4e0eaa684</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7893d03b-5ab5-468f-b831-8ec4bc49b7d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ae19199-69ac-4a63-bd7c-09e474027ba1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
-          <display>StackExchange.Redis (2.7.27)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b46b7ab4-b05e-4827-95ed-87a4e0eaa684</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -187,7 +163,7 @@
       </childElements>
     </childElement>
     <childElement id="ab53f670-7fae-4bca-b056-a8b586431892" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.0</name>
+      <name>9.0.2</name>
       <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -209,58 +185,46 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="105eb8aa-54f8-4848-a0a1-60adae21cf5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="17354b2f-7999-4eaa-9b20-2a5c535130eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab53f670-7fae-4bca-b056-a8b586431892</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f4eb5fa3-c6b4-48ca-adf3-d26e37598f9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7758b8ed-55c9-4f46-91e6-a22fa355d3be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab53f670-7fae-4bca-b056-a8b586431892</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89f99b6f-0ad6-4d0f-937e-cb9288c10b14" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f211c20a-c50d-41bc-b61c-7046216d045f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab53f670-7fae-4bca-b056-a8b586431892</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4f2cd805-de8c-4d47-a7c2-48b77a8ed05a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6ff7490b-aacf-4787-99b6-7477c8f2ba92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
-          <display>StackExchange.Redis (2.7.27)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab53f670-7fae-4bca-b056-a8b586431892</parentFolderId>
-          <packageId>d8ebd780-6e1c-46c7-8041-695663ee223b</packageId>
-          <packageName>Intent.AspNetCore.DistributedCaching</packageName>
           <stereotypes />
           <metadata />
           <childElements />

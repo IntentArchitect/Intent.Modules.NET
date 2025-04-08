@@ -1,3 +1,7 @@
+### Version 2.2.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.5
 
 - Fixed: Help topic URL corrected.

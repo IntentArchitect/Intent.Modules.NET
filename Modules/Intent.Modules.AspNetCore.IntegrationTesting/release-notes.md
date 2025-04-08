@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.0
 
 - Fixed: Integration Tests wouldn't run when Minimal Hosting Model was enabled with the use of Serilog. See this [GitHub issue](https://github.com/serilog/serilog-aspnetcore/issues/289). This will update the Program.cs file to adjust the Serilog bootstrap configuration.

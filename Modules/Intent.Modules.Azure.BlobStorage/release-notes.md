@@ -1,3 +1,7 @@
+### Version 3.4.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 3.4.5
 
 - Improvement: Included module help topic.

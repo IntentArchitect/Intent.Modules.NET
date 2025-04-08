@@ -1,3 +1,7 @@
+### Version 2.2.16
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.15
 
 - Improvement: Only required Nuget packages are installed.

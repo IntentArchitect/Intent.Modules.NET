@@ -1,3 +1,7 @@
+### Version 1.0.20
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.19
 
 - Improvement: Included module help topic.

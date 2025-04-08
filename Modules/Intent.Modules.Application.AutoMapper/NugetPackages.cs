@@ -18,6 +18,8 @@ namespace Intent.Modules.Application.AutoMapper
             NugetRegistry.Register(AutoMapperPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 8, 0) => new PackageVersion("14.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
                         ( >= 6, 0) => new PackageVersion("13.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "6.0.0"),
                         ( >= 2, 1) => new PackageVersion("12.0.1")

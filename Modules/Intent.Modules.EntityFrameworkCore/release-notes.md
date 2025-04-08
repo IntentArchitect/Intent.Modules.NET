@@ -1,3 +1,7 @@
+### Version 5.0.20
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.19
 
 - Improvement: "MIGRATION_README.txt" now aware of `DesignTimeDbContextFactory` and removes `Package Manager Console` commands when it is being used.

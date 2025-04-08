@@ -22,31 +22,8 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="4b7215df-434a-467a-b946-506dbca89cab" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.1.35</name>
-      <display>2.1.35 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>1142015a-5f62-4700-abee-8787b5350ca8</parentFolderId>
-      <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
-      <packageName>Intent.Dapper</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="413855bb-73cc-46b1-a1fd-2c5c331e926c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.1.35</name>
+      <name>2.1.66</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -64,7 +41,18 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="60f7f9f2-b46b-49a1-acdc-19890af92811" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c8fa1778-d5a3-45e6-939e-76f905dad9b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>413855bb-73cc-46b1-a1fd-2c5c331e926c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2877e656-b54c-4a0c-afb6-5acc0ba857b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit.Lightweight</name>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
@@ -76,6 +64,26 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="a0fe7cad-8b7a-4952-b5cd-e2d8fa98afe6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>2.1.66</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1142015a-5f62-4700-abee-8787b5350ca8</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

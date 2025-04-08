@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="2a0be597-fd6c-4deb-a398-410d7a3007f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.11</name>
+      <name>8.0.14</name>
       <display>8.0.11 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="83ca9514-c782-49fa-8634-5c0e73ce440c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="388a68b9-6019-487e-b2a4-13312283d7f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (8.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.2</value>
+          <value>8.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a0be597-fd6c-4deb-a398-410d7a3007f5</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="74411c9e-8329-4ec5-8d84-6810e5429c6f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f08a188f-4297-4379-9026-d2b95194c670" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (8.0.2)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a0be597-fd6c-4deb-a398-410d7a3007f5</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="70c0b046-45a6-46c8-84a1-678c9ee9a609" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a144855c-d7dc-400e-953f-2cbe9e76c8f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
-          <display>StackExchange.Redis (2.7.27)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2a0be597-fd6c-4deb-a398-410d7a3007f5</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="f5fa5821-4e76-46a8-af8e-924ead160a5a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.0</name>
+      <name>9.0.3</name>
       <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,44 +105,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="375af257-5d6b-4ec7-91f9-7ec2cfaf49f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="72b9a4b9-beb6-42ad-b94f-b59bf885d57a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5fa5821-4e76-46a8-af8e-924ead160a5a</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="244720cc-a47c-430a-a6c0-bcf88d65b4a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8626dc51-39fc-48ec-86af-49407ad94011" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5fa5821-4e76-46a8-af8e-924ead160a5a</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="524eb2c0-9c0a-42aa-b5b8-41a7ee356193" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="51dd0468-8cdb-4262-baa0-146d7f94ce7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>StackExchange.Redis</name>
-          <display>StackExchange.Redis (2.7.27)</display>
           <isAbstract>false</isAbstract>
           <value>2.7.27</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5fa5821-4e76-46a8-af8e-924ead160a5a</parentFolderId>
-          <packageId>bf2555fa-08da-4a33-b203-c29cd6302ffc</packageId>
-          <packageName>Intent.AspNetCore.OutputCaching.Redis</packageName>
           <stereotypes />
           <metadata />
           <childElements />

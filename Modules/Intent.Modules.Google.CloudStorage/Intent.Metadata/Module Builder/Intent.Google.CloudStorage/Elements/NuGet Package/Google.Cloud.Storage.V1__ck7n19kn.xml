@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.10.0</name>
+      <name>4.11.0</name>
       <display>4.10.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="49dbd709-3855-48c0-b3fd-469382ec499f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b0fc0e4e-22ed-4dac-a682-f1615f382403" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.Gax.Rest</name>
-          <display>Google.Api.Gax.Rest (4.8.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.8.0</value>
+          <value>4.9.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
-          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-          <packageName>Intent.Google.CloudStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7b256f2b-118e-4050-95f5-a73ee3717033" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ba66b65e-d135-41e5-8540-751644782024" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Apis.Storage.v1</name>
-          <display>Google.Apis.Storage.v1 (1.67.0.3365)</display>
           <isAbstract>false</isAbstract>
-          <value>1.67.0.3365</value>
+          <value>1.68.0.3604</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f8c3fc97-1382-4a74-9e0c-ef3bf4237d3d</parentFolderId>
-          <packageId>1cd103d0-3bec-4144-8795-b5d6066ca528</packageId>
-          <packageName>Intent.Google.CloudStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

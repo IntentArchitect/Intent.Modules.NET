@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="7db21026-e9bd-403c-a02f-01f9ad7dd8cc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.2.0</name>
+      <name>3.3.0</name>
       <display>3.2.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="403455ab-1b79-46b7-96b3-70da803eb56b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Azure.Functions.Worker.Core</name>
-          <display>Microsoft.Azure.Functions.Worker.Core (1.18.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.18.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7db21026-e9bd-403c-a02f-01f9ad7dd8cc</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="48ca3cda-93db-4344-bcc8-7db67cfc460e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1ec7eee3-fb09-4d26-85a5-3394746f2224" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
-          <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7db21026-e9bd-403c-a02f-01f9ad7dd8cc</parentFolderId>
-          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
-          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="89d0ee11-241e-4c3a-8ef6-1a4627b3b4e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <isAbstract>false</isAbstract>
+          <value>1.19.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7db21026-e9bd-403c-a02f-01f9ad7dd8cc</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

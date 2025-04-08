@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="c35cf383-e624-4067-98ca-952abed9bdcf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.7.406.2</name>
+      <name>3.7.416.5</name>
       <display>3.7.406.2 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1313a584-1e1f-4062-afc5-c4423aedab41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="86b88dbc-55b2-45eb-ae61-7887af8e61b2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
-          <display>AWSSDK.Core (3.7.400.53)</display>
           <isAbstract>false</isAbstract>
-          <value>3.7.400.53</value>
+          <value>3.7.402.35</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c35cf383-e624-4067-98ca-952abed9bdcf</parentFolderId>
-          <packageId>582e71a9-49c5-4208-a326-3dd3fa9bd950</packageId>
-          <packageName>Intent.AmazonS3.ObjectStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

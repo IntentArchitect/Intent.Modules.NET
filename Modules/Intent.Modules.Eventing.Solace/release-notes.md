@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.0
 
 - Updated dependency version of the `Intent.Modelers.Eventing` module from 5.0.2 to 6.0.1.

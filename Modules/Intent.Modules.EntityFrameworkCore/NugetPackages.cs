@@ -317,9 +317,9 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(OracleEntityFrameworkCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.23.60")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.3")
-                            .WithNugetDependency("Oracle.ManagedDataAccess.Core", "23.6.0"),
+                        ( >= 8, 0) => new PackageVersion("9.23.80")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
+                            .WithNugetDependency("Oracle.ManagedDataAccess.Core", "23.8.0"),
                         ( >= 6, 0) => new PackageVersion("7.21.13"),
                         ( >= 2, 1) => new PackageVersion("5.21.90")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17")
@@ -333,7 +333,9 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(PomeloEntityFrameworkCoreMySqlPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.2"),
+                        ( >= 8, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.13")
+                            .WithNugetDependency("MySqlConnector", "2.3.5"),
                         ( >= 7, 0) => new PackageVersion("7.0.0"),
                         ( >= 6, 0) => new PackageVersion("7.0.0"),
                         ( >= 2, 1) => new PackageVersion("5.0.4")
@@ -350,7 +352,12 @@ namespace Intent.Modules.EntityFrameworkCore
             NugetRegistry.Register(PomeloEntityFrameworkCoreMySqlNetTopologySuitePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.2"),
+                        ( >= 8, 0) => new PackageVersion("8.0.3")
+                            .WithNugetDependency("Pomelo.EntityFrameworkCore.MySql", "8.0.3")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.13")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
+                            .WithNugetDependency("MySqlConnector", "2.3.5")
+                            .WithNugetDependency("NetTopologySuite", "2.5.0"),
                         ( >= 7, 0) => new PackageVersion("7.0.0"),
                         ( >= 6, 0) => new PackageVersion("7.0.0"),
                         ( >= 2, 1) => new PackageVersion("5.0.4")

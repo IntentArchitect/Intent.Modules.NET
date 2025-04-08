@@ -18,7 +18,20 @@ namespace Intent.Modules.Bugsnag
             NugetRegistry.Register(BugsnagAspNetCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("3.1.0"),
+                        ( >= 6, 0) => new PackageVersion("4.0.0")
+                            .WithNugetDependency("Bugsnag", "4.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
+                        ( >= 2, 0) => new PackageVersion("4.0.0")
+                            .WithNugetDependency("Bugsnag", "4.0.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Diagnostics.Abstractions", "2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Hosting.Abstractions", "2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http", "2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
+                            .WithNugetDependency("Microsoft.AspNetCore.Http.Extensions", "2.3.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.2")
+                            .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32")
+                            .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "8.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{BugsnagAspNetCorePackageName}'"),
                     }
                 );

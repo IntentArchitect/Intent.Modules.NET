@@ -18,8 +18,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DapperHybrid
             NugetRegistry.Register(DapperPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("2.1.35"),
-                        ( >= 2, 0) => new PackageVersion("2.1.35")
+                        ( >= 8, 0) => new PackageVersion("2.1.66"),
+                        ( >= 2, 0) => new PackageVersion("2.1.66")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.1")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DapperPackageName}'"),
                     }

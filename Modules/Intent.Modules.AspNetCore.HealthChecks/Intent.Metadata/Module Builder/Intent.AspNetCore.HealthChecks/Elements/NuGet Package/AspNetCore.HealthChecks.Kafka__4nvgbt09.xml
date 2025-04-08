@@ -24,31 +24,8 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="b586199a-41db-467d-b279-bc62e2e3e310" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
-      <display>8.0.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>66259c43-e3a0-42c8-8814-a8e6a2aebe78</parentFolderId>
-      <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
-      <packageName>Intent.AspNetCore.HealthChecks</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="0edb7982-b86a-4427-9eae-f43b83161112" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.1</name>
+      <name>9.0.0</name>
       <display>8.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -70,30 +47,67 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="baadf0fd-e01a-4ad7-9947-8b90fa166e84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0798002-6eb3-434f-b9d8-de1f59c98d9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.Kafka</name>
-          <display>Confluent.Kafka (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0edb7982-b86a-4427-9eae-f43b83161112</parentFolderId>
-          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
-          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b2b4f29a-bb9b-4f72-9025-df3766ba4611" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="79320228-d757-4539-a499-4ce463f80a13" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
-          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0edb7982-b86a-4427-9eae-f43b83161112</parentFolderId>
-          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
-          <packageName>Intent.AspNetCore.HealthChecks</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="bbb6770b-a25b-43b5-9c9a-edc615a47d5b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>66259c43-e3a0-42c8-8814-a8e6a2aebe78</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="19e479fe-fbbd-49ae-b468-d796e782f1eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Confluent.Kafka</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bbb6770b-a25b-43b5-9c9a-edc615a47d5b</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="48b2a4a6-360c-4863-9057-f4ac0876ef0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.11</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>bbb6770b-a25b-43b5-9c9a-edc615a47d5b</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

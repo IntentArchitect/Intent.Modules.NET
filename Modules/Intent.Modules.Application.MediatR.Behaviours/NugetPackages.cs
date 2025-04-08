@@ -19,10 +19,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("12.4.1")
+                        ( >= 6, 0) => new PackageVersion("12.5.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("12.4.1")
+                        ( >= 2, 0) => new PackageVersion("12.5.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
@@ -32,25 +32,25 @@ namespace Intent.Modules.Application.MediatR.Behaviours
             NugetRegistry.Register(MicrosoftExtensionsLoggingPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 2, 1) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0")
-                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "9.0.0"),
-                        ( >= 2, 0) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0")
-                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "9.0.0"),
+                        ( >= 9, 0) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.3"),
+                        ( >= 8, 0) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.3"),
+                        ( >= 2, 1) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.3")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "9.0.3"),
+                        ( >= 2, 0) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.3")
+                            .WithNugetDependency("System.Diagnostics.DiagnosticSource", "9.0.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsLoggingPackageName}'"),
                     }
                 );

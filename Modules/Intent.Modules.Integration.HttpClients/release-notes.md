@@ -1,3 +1,7 @@
+### Version 5.3.3
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.3.2
 
 - Fixed: Help topic URL corrected.

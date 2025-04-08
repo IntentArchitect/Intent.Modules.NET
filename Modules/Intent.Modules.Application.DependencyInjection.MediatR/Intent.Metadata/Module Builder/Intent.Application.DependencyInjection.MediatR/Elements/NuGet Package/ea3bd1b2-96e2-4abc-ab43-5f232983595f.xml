@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="5b422d5b-e00b-4621-b2f5-02485b98f5f9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.4.1</name>
+      <name>12.5.0</name>
       <display>12.4.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,7 +44,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d48b8dea-a308-4b34-87fc-c2f4f24402a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f872eec2-93b2-4f23-a737-a72fc47b61b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <isAbstract>false</isAbstract>
           <value>2.0.1</value>
@@ -55,7 +55,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="088bede5-e732-4d04-b5b0-ba317b6e10bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="326397cd-9883-4075-9aa0-d330d7a85595" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -69,7 +69,7 @@
       </childElements>
     </childElement>
     <childElement id="66d2e522-7c10-4041-94bc-a62e5525bd86" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.4.1</name>
+      <name>12.5.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -87,7 +87,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2ac8580b-11b2-4019-a8b7-6af0835abeec" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a205bd18-83ca-456f-8221-8753148cf8f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MediatR.Contracts</name>
           <isAbstract>false</isAbstract>
           <value>2.0.1</value>
@@ -98,7 +98,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6f9707da-b8fe-4b2b-9058-c9e4b5eb15e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7f04c349-2b26-4b8e-b2eb-0d65fdb870f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
@@ -109,7 +109,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4919ebb6-e6e6-4ebd-beb2-4a55ec0d8067" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5f41d019-65e0-4a04-b9c9-11a8136a1104" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>

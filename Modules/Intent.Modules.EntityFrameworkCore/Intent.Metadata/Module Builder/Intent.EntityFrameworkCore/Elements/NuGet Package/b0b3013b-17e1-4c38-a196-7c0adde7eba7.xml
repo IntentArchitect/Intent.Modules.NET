@@ -154,7 +154,7 @@
       <childElements />
     </childElement>
     <childElement id="331bbd63-0848-4a58-8290-32c40e642c0d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.23.60</name>
+      <name>9.23.80</name>
       <display>8.23.60 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -176,30 +176,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7a488617-e66a-42c3-9b34-c262f57df4a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77580c59-e0da-4f65-9773-da721acd70d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (8.0.3)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.3</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>331bbd63-0848-4a58-8290-32c40e642c0d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="22e24637-f483-4d3b-ac15-68fa09ad22f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4300344d-24fd-46b3-bc3f-f07c886357aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Oracle.ManagedDataAccess.Core</name>
-          <display>Oracle.ManagedDataAccess.Core (23.6.0)</display>
           <isAbstract>false</isAbstract>
-          <value>23.6.0</value>
+          <value>23.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>331bbd63-0848-4a58-8290-32c40e642c0d</parentFolderId>
-          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
-          <packageName>Intent.EntityFrameworkCore</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,3 +1,7 @@
+### Version 4.0.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.0.5
 
 - Fixed: `Create` method on `DtoContracts` will now used the default values from the original `Command/Query`.

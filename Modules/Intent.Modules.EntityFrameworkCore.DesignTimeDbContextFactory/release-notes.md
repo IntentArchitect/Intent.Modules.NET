@@ -1,3 +1,7 @@
+### Version 4.2.6
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.5
 
 - Fixed: Increase the execution order of the `AfterBuild` of `DesignTimeDbContextFactoryTemplatePartial` so that the context parameters sync correctly.

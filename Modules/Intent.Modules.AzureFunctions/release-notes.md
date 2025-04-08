@@ -1,3 +1,7 @@
+### Version 5.0.4
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.3
 
 - Improvement: Added "catch JsonException" in controllers to better report malformed messages.

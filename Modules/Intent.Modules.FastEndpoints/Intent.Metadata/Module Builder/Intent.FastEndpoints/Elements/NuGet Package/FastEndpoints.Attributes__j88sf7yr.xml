@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="cc974001-b1dd-4bd0-9cef-4ff2cc0a7f7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.31.0</name>
+      <name>5.35.0</name>
       <display>5.31.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -45,7 +45,19 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="2b16f5f9-0fb5-4d50-b7fb-a3451c4f5dce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Primitives</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cc974001-b1dd-4bd0-9cef-4ff2cc0a7f7e</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

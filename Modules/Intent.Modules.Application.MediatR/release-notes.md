@@ -1,4 +1,8 @@
-﻿### Version 4.3.2
+### Version 4.3.3
+
+- Improvement: Updated NuGet package versions.
+
+### Version 4.3.2
 
 - Improvement: `Roles` and `Policies` will now used constants instead of strings, if they are available.
 

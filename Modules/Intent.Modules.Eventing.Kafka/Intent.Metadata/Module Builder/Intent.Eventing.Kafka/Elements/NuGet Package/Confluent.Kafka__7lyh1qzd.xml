@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="111b0262-baae-4a24-99f0-7056541ab352" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.6.1</name>
+      <name>2.9.0</name>
       <display>2.6.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="70ff0526-3791-4288-ae50-d3095a9f467c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="56fcc5e3-5878-4306-99a5-c474ae7bc7a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>librdkafka.redist</name>
-          <display>librdkafka.redist (2.6.1)</display>
           <isAbstract>false</isAbstract>
-          <value>2.6.1</value>
+          <value>2.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>111b0262-baae-4a24-99f0-7056541ab352</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -64,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="fd000077-befb-49c3-a176-09a1fc3b0724" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.6.1</name>
+      <name>2.9.0</name>
       <display>2.6.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -86,30 +83,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4dcf640c-0628-48f9-9512-69f60c0f1a00" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>librdkafka.redist</name>
-          <display>librdkafka.redist (2.6.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>2.6.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fd000077-befb-49c3-a176-09a1fc3b0724</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="e7acb1e6-c2b3-4766-9e1b-9f6f488ff47a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="29dfcf09-0498-45d5-96aa-b923d1a1a34e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
-          <display>System.Memory (4.5.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fd000077-befb-49c3-a176-09a1fc3b0724</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="149cf665-2208-485a-b348-70e1bd2a80b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>librdkafka.redist</name>
+          <isAbstract>false</isAbstract>
+          <value>2.8.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fd000077-befb-49c3-a176-09a1fc3b0724</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -117,7 +108,7 @@
       </childElements>
     </childElement>
     <childElement id="422d483b-63dc-4d8e-9341-26fbc8516c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.6.1</name>
+      <name>2.9.0</name>
       <display>2.6.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -139,16 +130,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7f84e852-67fd-4c87-aa4e-93cdeaefe1e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1fdaf108-70c7-4ef6-85ce-2f4ad01a353d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>librdkafka.redist</name>
-          <display>librdkafka.redist (2.6.1)</display>
           <isAbstract>false</isAbstract>
-          <value>2.6.1</value>
+          <value>2.8.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>422d483b-63dc-4d8e-9341-26fbc8516c69</parentFolderId>
-          <packageId>a586f55c-9eca-44ef-8409-e110d1644c0b</packageId>
-          <packageName>Intent.Eventing.Kafka</packageName>
           <stereotypes />
           <metadata />
           <childElements />

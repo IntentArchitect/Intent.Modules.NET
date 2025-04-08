@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="a8328902-35f9-4434-a498-866137ddc8ab" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.0</name>
+      <name>4.0.0</name>
       <display>3.1.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -43,7 +43,161 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e86f04c6-6489-48ab-beb2-98031afe3490" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Bugsnag</name>
+          <isAbstract>false</isAbstract>
+          <value>4.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="af32b39d-f540-4c4f-a633-1e540c342f1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Diagnostics.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d45845c5-c9d0-4687-b5a3-56a9a8a51b1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Hosting.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="58e33c64-9f38-4932-9d54-88d34ac67886" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="67263cd3-c0d6-4a94-a6b0-e7c76a81944b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6cd5565d-c484-438a-a6e8-17c3205aae64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http.Extensions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="54f4bcde-cbb2-4304-bae6-9c82bf92597e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9190390f-24c3-4db4-8029-672b50c3e252" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DiagnosticAdapter</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.32</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="847e7fd4-579e-4f6e-90fa-6f002de2471f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="587c769d-85db-4ad8-8b76-0420e1ee05b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Diagnostics.DiagnosticSource</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a8328902-35f9-4434-a498-866137ddc8ab</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="cbc8a0a1-ac3a-48da-9efa-2a6e3600588c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>4.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f98df73a-ba0e-4e53-9382-ae42be733b8c</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="3d01b098-5ef7-4547-9d4c-c4a1c2fc81ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Bugsnag</name>
+          <isAbstract>false</isAbstract>
+          <value>4.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cbc8a0a1-ac3a-48da-9efa-2a6e3600588c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="389708a8-7d83-4669-be35-80af0c480363" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DiagnosticAdapter</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.32</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cbc8a0a1-ac3a-48da-9efa-2a6e3600588c</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

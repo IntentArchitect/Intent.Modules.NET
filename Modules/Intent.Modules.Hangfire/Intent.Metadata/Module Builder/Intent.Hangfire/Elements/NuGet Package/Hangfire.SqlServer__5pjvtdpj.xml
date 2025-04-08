@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="af3df0a8-004f-4ffc-88af-9ac43b5918ad" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.8.15</name>
+      <name>1.8.18</name>
       <display>1.8.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8a45de75-25aa-4930-8466-9be41814a199" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="227e24e7-ea8c-4ebd-8af8-b6ce5334d516" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Hangfire.Core</name>
-          <display>Hangfire.Core (1.8.15)</display>
           <isAbstract>false</isAbstract>
-          <value>1.8.15</value>
+          <value>1.8.18</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>af3df0a8-004f-4ffc-88af-9ac43b5918ad</parentFolderId>
-          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
-          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />

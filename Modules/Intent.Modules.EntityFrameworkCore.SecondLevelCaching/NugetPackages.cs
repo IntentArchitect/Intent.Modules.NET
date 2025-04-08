@@ -19,44 +19,32 @@ namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
             NugetRegistry.Register(EFCoreSecondLevelCacheInterceptorPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 9, 0) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
                             .WithNugetDependency("System.IO.Hashing", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 8, 0) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "8.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("System.IO.Hashing", "8.0.0"),
-                        ( >= 7, 0) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 7, 0) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "7.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.0"),
-                        ( >= 6, 0) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 6, 0) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "6.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "6.0.2"),
-                        ( >= 2, 1) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 2, 1) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.0"),
-                        ( >= 2, 0) => new PackageVersion("4.8.8")
-                            .WithNugetDependency("AsyncKeyedLock", "7.1.3")
-                            .WithNugetDependency("CacheManager.Core", "1.2.0")
-                            .WithNugetDependency("EasyCaching.Core", "1.9.2")
+                        ( >= 2, 0) => new PackageVersion("5.2.2")
+                            .WithNugetDependency("AsyncKeyedLock", "7.1.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{EFCoreSecondLevelCacheInterceptorPackageName}'"),
@@ -65,14 +53,25 @@ namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
             NugetRegistry.Register(MessagePackPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("2.5.192")
-                            .WithNugetDependency("MessagePack.Annotations", "2.5.192")
-                            .WithNugetDependency("Microsoft.NET.StringTools", "17.6.3"),
-                        ( >= 2, 0) => new PackageVersion("2.5.192")
-                            .WithNugetDependency("MessagePack.Annotations", "2.5.192")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "6.0.0")
-                            .WithNugetDependency("Microsoft.NET.StringTools", "17.6.3")
-                            .WithNugetDependency("System.Collections.Immutable", "6.0.0")
+                        ( >= 9, 0) => new PackageVersion("3.1.3")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                            .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4"),
+                        ( >= 8, 0) => new PackageVersion("3.1.3")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                            .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4"),
+                        ( >= 2, 1) => new PackageVersion("3.1.3")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                            .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4")
+                            .WithNugetDependency("System.Collections.Immutable", "8.0.0"),
+                        ( >= 2, 0) => new PackageVersion("3.1.3")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
+                            .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4")
+                            .WithNugetDependency("System.Collections.Immutable", "8.0.0")
                             .WithNugetDependency("System.Reflection.Emit", "4.7.0")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4")

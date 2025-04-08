@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.0.0
 
 - Improvement: Migrated to using new `Intent.Metadata.Security` package.

@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.2.0
 
 - Improvement: Due to a limitation between Minimal Hosting Model being enabled, Serilog's Bootstrap Logger stored in the `Log.Logger` and the `WebApplicationFactory` (used for integration testing) creating multiple instances of the Program class, an improvement was made to move away from `Log.Logger` to favor a local variable instead. See this [GitHub issue](https://github.com/serilog/serilog-aspnetcore/issues/289).

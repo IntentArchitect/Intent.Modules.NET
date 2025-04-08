@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.1
 
 - Improvement: `Roles` and `Policies` will now used constants instead of strings, if they are available.

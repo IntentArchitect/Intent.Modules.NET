@@ -205,7 +205,7 @@
       <childElements />
     </childElement>
     <childElement id="857c959d-7098-4f5b-b18e-b9f0a24a06d5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.2</name>
+      <name>8.0.3</name>
       <display>8.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -225,7 +225,30 @@
         </stereotype>
       </stereotypes>
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="f2110916-f641-48ad-8ad3-b5d60d3bb50b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.13</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>857c959d-7098-4f5b-b18e-b9f0a24a06d5</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4685a28f-1e46-4316-a002-1462c4c68b5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MySqlConnector</name>
+          <isAbstract>false</isAbstract>
+          <value>2.3.5</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>857c959d-7098-4f5b-b18e-b9f0a24a06d5</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

@@ -23,7 +23,7 @@
   <metadata />
   <childElements>
     <childElement id="58617640-7ed2-4919-8a5f-ce989bbef7ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.1.0</name>
+      <name>14.3.0</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -44,10 +44,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cb0db51c-783e-49cc-9a20-57704f384555" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="30a24620-0ed9-4234-a16a-77f92d9edb4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
           <isAbstract>false</isAbstract>
-          <value>14.1.0</value>
+          <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>58617640-7ed2-4919-8a5f-ce989bbef7ce</parentFolderId>
@@ -58,7 +58,7 @@
       </childElements>
     </childElement>
     <childElement id="dfe53960-b240-46ce-ac55-3d60f535fc1d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.1.0</name>
+      <name>14.3.0</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -79,10 +79,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="adc0a9af-b222-4d15-a34d-7d14dfa46425" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a6fdce41-c9a7-469b-a90d-a1a0af84f7f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
           <isAbstract>false</isAbstract>
-          <value>14.1.0</value>
+          <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>dfe53960-b240-46ce-ac55-3d60f535fc1d</parentFolderId>
@@ -93,7 +93,7 @@
       </childElements>
     </childElement>
     <childElement id="2e396ec4-f91f-4ae4-b15c-420d7f5ec4dc" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>14.1.0</name>
+      <name>15.1.3</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -114,10 +114,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b58dce3e-de34-4dad-ba13-b5d4d21b176a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de959cc3-f9aa-407e-ac54-c95c164560a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
           <isAbstract>false</isAbstract>
-          <value>14.1.0</value>
+          <value>15.1.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2e396ec4-f91f-4ae4-b15c-420d7f5ec4dc</parentFolderId>
@@ -175,6 +175,38 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>513204e8-b04c-4869-aa76-3f35d10a66e0</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="129d0c43-8416-4e3e-bf15-ca91e7a60816" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>15.1.3</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7301934c-94e4-4089-8e90-836dfe193123</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="14fbc32c-886d-4a64-b3d0-33a17a5c7a2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>HotChocolate</name>
+          <isAbstract>false</isAbstract>
+          <value>15.1.3</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>129d0c43-8416-4e3e-bf15-ca91e7a60816</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

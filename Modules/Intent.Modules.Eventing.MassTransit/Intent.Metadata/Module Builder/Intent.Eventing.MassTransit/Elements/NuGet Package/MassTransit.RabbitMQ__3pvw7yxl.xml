@@ -24,61 +24,8 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="3de10f40-fb47-4cea-9fbb-005b023d5f70" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.3.1</name>
-      <display>8.3.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>19239d35-196c-4473-9104-4c57f2087d2a</parentFolderId>
-      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-      <packageName>Intent.Eventing.MassTransit</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="0844e20f-a993-4202-a15f-baa676cbc8fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
-          <display>MassTransit (8.3.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3de10f40-fb47-4cea-9fbb-005b023d5f70</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="d115b6ee-6ca0-41a9-9167-9350b4dc191a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (6.8.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.8.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3de10f40-fb47-4cea-9fbb-005b023d5f70</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="9b920605-e766-4106-9d29-1d50bf909d84" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.3.1</name>
+      <name>8.4.0</name>
       <display>8.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="4b8dee3b-ae7a-4219-8c80-90cdbff1605a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3f3fc66-846c-48d8-a117-e8899f834c83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
-          <display>MassTransit (8.3.1)</display>
           <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
+          <value>8.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9b920605-e766-4106-9d29-1d50bf909d84</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="59edd0b7-e68d-458f-bb64-59a40959e544" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d4847e1f-1bd3-40ed-b2c1-88fd874caac3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (6.8.1)</display>
           <isAbstract>false</isAbstract>
-          <value>6.8.1</value>
+          <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9b920605-e766-4106-9d29-1d50bf909d84</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="12c2967d-7fd3-4dee-bf78-9a841a66599b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.3.1</name>
+      <name>8.4.0</name>
       <display>8.3.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +94,67 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8f31c656-8749-4cf6-bcf2-68705901924f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1495c4bb-658e-4a71-9697-6114a175f081" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
-          <display>MassTransit (8.3.1)</display>
           <isAbstract>false</isAbstract>
-          <value>8.3.1</value>
+          <value>8.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>12c2967d-7fd3-4dee-bf78-9a841a66599b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ec2ab31f-0c63-4ab7-89ca-725ef4a07f9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="40821a07-3d7d-4036-9a5c-14ae01ee1be3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (6.8.1)</display>
           <isAbstract>false</isAbstract>
-          <value>6.8.1</value>
+          <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>12c2967d-7fd3-4dee-bf78-9a841a66599b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="07358c40-8983-46f3-8563-986110d7b54b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.4.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>19239d35-196c-4473-9104-4c57f2087d2a</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="8968647b-a6d3-4d9c-803e-fefc1cb126f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <isAbstract>false</isAbstract>
+          <value>8.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>07358c40-8983-46f3-8563-986110d7b54b</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9738d196-4b24-40af-85e7-fddc0147f14b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>RabbitMQ.Client</name>
+          <isAbstract>false</isAbstract>
+          <value>7.1.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>07358c40-8983-46f3-8563-986110d7b54b</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
