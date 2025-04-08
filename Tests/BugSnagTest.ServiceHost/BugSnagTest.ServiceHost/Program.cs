@@ -24,7 +24,11 @@ namespace BugSnagTest.ServiceHost
             {
                 options.ServiceName = "BugSnagTest.ServiceHost";
             });
-            LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);
+
+            if (OperatingSystem.IsWindows())
+            {
+                LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(builder.Services);
+            }
             builder.Services.AddHostedService<WindowsBackgroundService>();
 
             // Add services to the container.
