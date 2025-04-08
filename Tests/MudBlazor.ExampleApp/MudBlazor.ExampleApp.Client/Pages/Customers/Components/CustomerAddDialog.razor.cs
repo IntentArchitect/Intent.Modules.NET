@@ -18,7 +18,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         [CascadingParameter]
-        public MudDialogInstance Dialog { get; set; }
+        public IMudDialogInstance Dialog { get; set; }
 
         private async Task OnSaveClicked()
         {

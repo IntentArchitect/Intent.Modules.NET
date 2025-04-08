@@ -26,7 +26,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
         [Inject]
         public IDummyService DummyService { get; set; } = default!;
         [CascadingParameter]
-        public MudDialogInstance Dialog { get; set; }
+        public IMudDialogInstance Dialog { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

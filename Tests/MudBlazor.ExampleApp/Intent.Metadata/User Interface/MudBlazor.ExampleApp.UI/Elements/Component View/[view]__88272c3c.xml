@@ -36,6 +36,17 @@
             <property name="0e69d7ce-a9aa-4c8f-8940-6b9964dfa894" display="On Row Click" value="{OnRowClick}" isActive="true" />
           </properties>
         </stereotype>
+        <stereotype stereotypeDefinitionId="d523028b-4077-441e-a70f-50af42c9e91f" name="Appearance">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+          <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+          <properties>
+            <property name="3c87930d-09ac-4f32-96da-ae5f5ac20f7e" display="Dense" isActive="true" />
+            <property name="2eb4bcd7-71dd-4b25-b236-c9e1e47c1333" display="Elevation" isActive="true" />
+            <property name="696f0b1c-bcfb-43c1-a490-3d76451ade04" display="Hover" value="true" isActive="true" />
+            <property name="80c4105a-06ca-42f9-b2ac-5fc1c090bacd" display="Striped" isActive="true" />
+          </properties>
+        </stereotype>
       </stereotypes>
       <metadata />
       <childElements>

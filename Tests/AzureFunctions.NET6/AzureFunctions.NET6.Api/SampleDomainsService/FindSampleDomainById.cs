@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.NET6.Application.Interfaces;
 using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
+using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,11 +47,11 @@ namespace AzureFunctions.NET6.Api.SampleDomainsService
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (FormatException exception)
             {
-                return new BadRequestObjectResult(new { Message = exception.Message });
+                return new BadRequestObjectResult(new { exception.Message });
             }
         }
     }

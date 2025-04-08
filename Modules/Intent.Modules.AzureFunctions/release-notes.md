@@ -1,3 +1,9 @@
+### Version 5.0.3
+
+- Improvement: Added "catch JsonException" in controllers to better report malformed messages.
+- Fixed: Moving `Isolated Process Program Template` into a folder caused it to break.
+- Fixed: For Isolated Processes, Application Insights logging on "Information" log level doesn't take place.
+
 ### Version 5.0.2
 
 - Improvement: Included module help topic.

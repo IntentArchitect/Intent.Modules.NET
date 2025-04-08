@@ -23,7 +23,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         [Inject]
         public IDialogService DialogService { get; set; } = default!;
         [CascadingParameter]
-        public MudDialogInstance Dialog { get; set; }
+        public IMudDialogInstance Dialog { get; set; }
 
         protected override async Task OnInitializedAsync()
         {

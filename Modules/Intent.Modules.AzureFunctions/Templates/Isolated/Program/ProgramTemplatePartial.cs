@@ -52,6 +52,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddUsing("Microsoft.Extensions.Hosting")
                 .AddUsing("System.Configuration")
+                .AddUsing("System.Linq")
                 .AddTopLevelStatements(tls =>
                 {
                     var hostConfigStatement = new CSharpStatement("new HostBuilder()")
@@ -62,6 +63,21 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                                 .AddStatement("var configuration = ctx.Configuration;")
                                 .AddStatement("services.AddApplicationInsightsTelemetryWorkerService();")
                                 .AddStatement("services.ConfigureFunctionsApplicationInsights();")
+                                .AddInvocationStatement($"services.Configure<{UseType("Microsoft.Extensions.Logging.LoggerFilterOptions")}>", conf => conf
+                                    .AddArgument(new CSharpLambdaBlock("options"), arg =>
+                                    {
+                                        arg.AddStatement(
+                                            "// The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.");
+                                        arg.AddStatement(
+                                            "// Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/en-us/azure/azure-monitor/app/worker-service#ilogger-logs");
+                                        arg.AddStatement(
+                                            """const string applicationInsightsLoggerProvider = "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider";""");
+                                        arg.AddStatement("var toRemove = options.Rules.FirstOrDefault(rule => rule.ProviderName == applicationInsightsLoggerProvider);");
+                                        arg.AddIfStatement("toRemove is not null", fi =>
+                                        {
+                                            fi.AddStatement("options.Rules.Remove(toRemove);");
+                                        });
+                                    }))
                             )
                         )
                         .AddInvocation("Build", i => i.OnNewLine());
@@ -109,7 +125,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
 
         public override void BeforeTemplateExecution()
         {
-            OutputTarget.AddFrameworkDependency("Microsoft.AspNetCore.App");
+            OutputTarget.GetProject().AddFrameworkDependency("Microsoft.AspNetCore.App");
         }
 
         private void HandleServiceConfigurationRequest(ServiceConfigurationRequest request)

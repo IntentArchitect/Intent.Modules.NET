@@ -15,7 +15,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         [Parameter]
         public Color Color { get; set; }
         [CascadingParameter]
-        public MudDialogInstance Dialog { get; set; }
+        public IMudDialogInstance Dialog { get; set; }
 
         private void Cancel()
         {

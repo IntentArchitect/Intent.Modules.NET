@@ -6,58 +6,74 @@ migrations using EF Core. You can perform these commands in the Visual Studio ID
 Package Manager Console (View > Other Windows > Package Manager Console) or using the dotnet
 Command Line Interface (CLI) instructions. Substitute the {Keywords} below with the appropriate
 migration name when executing these commands.
+<# if(!PackageManagerConsoleSupported) {#>
+
+NOTE: When using DesignTimeDbContextFactory, it is recommended to use the dotnet ef CLI tool. The Visual Studio Package Manager Console (PMC) may encounter issues in this scenario.
+<#}#>
 <#= GetExtraComments() #>
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Create a new migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Add-Migration -Name {ChangeName} <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject#>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef migrations add {ChangeName} <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject#>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Remove last migration:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Remove-Migration <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject #>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef migrations remove <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject #>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Update schema to the latest version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Update-Database <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject #>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef database update <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject #>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Upgrade/downgrade schema to specific version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Update-Database -Migration {Target} <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject #>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef database update {Target} <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject #>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which detects the current database schema version and updates it to the latest:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Script-Migration -Idempotent <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject #>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef migrations script --idempotent <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject #>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 Generate a script which upgrades from and to a specific schema version:
 -------------------------------------------------------------------------------------------------------------------------------------------------------
+<# if(PackageManagerConsoleSupported) {#>
 From the Visual Studio Package Manager Console:
 Script-Migration {Source} {Target} <#= GetVsStartupProjectArgument() #>-Project "<#= MigrationProject #>"<#= GetVsDbContextArgument() #><#= GetExtraArguments() #>
 
+<#}#>
 CLI:
 dotnet ef migrations script {Source} {Target} <#= GetCliStartupProjectArgument() #>--project "<#= MigrationProject #>"<#= GetCliDbContextArgument() #><#= GetExtraArguments() #>
 

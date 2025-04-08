@@ -1,6 +1,7 @@
 using System.Net;
 using AzureFunctions.NET8.Application.Ignores.QueryWithIgnoreInApi;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
+using AzureFunctions.NET8.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -39,11 +40,11 @@ namespace AzureFunctions.NET8.Api.Ignores
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (FormatException exception)
             {
-                return new BadRequestObjectResult(new { Message = exception.Message });
+                return new BadRequestObjectResult(new { exception.Message });
             }
         }
     }

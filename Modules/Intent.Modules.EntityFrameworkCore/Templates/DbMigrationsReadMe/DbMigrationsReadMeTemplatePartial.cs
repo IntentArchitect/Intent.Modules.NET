@@ -30,6 +30,14 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbMigrationsReadMe
             IncludeDbContextArguments = DbContextManager.GetDbContexts(ExecutionContext.GetApplicationConfig().Id, ExecutionContext.MetadataManager).Count > 1;
         }
 
+        public override void AfterTemplateRegistration()
+        {
+            base.AfterTemplateRegistration();
+            //If we have DesignTimeDbContextFactory installed you need to use the CLI
+            PackageManagerConsoleSupported = !this.TryGetTypeName("Intent.EntityFrameworkCore.DesignTimeDbContextFactory.DesignTimeDbContextFactory", out var _);
+        }
+
+        public bool PackageManagerConsoleSupported { get; set; } = true;
         public bool IncludeStartupProjectArguments { get; set; } = true;
         public bool IncludeDbContextArguments { get; set; }
         public List<string> ExtraArguments { get; } = new();

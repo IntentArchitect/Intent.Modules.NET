@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="29edc27c-0ae0-4407-a3e3-2d6888d0f256">
+  <sourceEnd id="29272492-3eea-4c6a-be11-2da4f704c93a" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : CompanyContactSeconds.CreateCompanyContactSecondCommand</display>
+    <order>0</order>
+    <typeReference id="1f275e71-1f42-4f4a-bc22-bf0c006e56c8">
+      <typeId>bb92e805-f800-46b1-b772-02783399d7fc</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="29edc27c-0ae0-4407-a3e3-2d6888d0f256" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>companyContactSecond</name>
+    <display>[create] companyContactSecond: CompanyContactSecond</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="07ac2d8d-5dfd-4b54-9da0-d3899a182511">
+      <typeId>3020282d-1252-4281-9b1e-1e6a02669e85</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bb92e805-f800-46b1-b772-02783399d7fc" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateCompanyContactSecondCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="3020282d-1252-4281-9b1e-1e6a02669e85" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CompanyContactSecond]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCompanyContactSecondCommand}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateCompanyContactSecondCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="bb92e805-f800-46b1-b772-02783399d7fc" name="CreateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContactSecondId}</expression>
+            <path>
+              <target id="3020282d-1252-4281-9b1e-1e6a02669e85" name="CompanyContactSecond" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bcc6e51b-58f5-40e8-b3c9-0091ca31d0b1" name="ContactSecondId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="ContactSecondId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="bb92e805-f800-46b1-b772-02783399d7fc" name="CreateCompanyContactSecondCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="4696b9e2-8724-41c4-b357-c614ffd032a7" name="ContactSecondId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="eedde1f2-e4f8-43fc-acc4-4b983a367c12" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>NET Core</name>
-  <display>NET Core</display>
+  <name>Dependency Injection</name>
+  <display>Dependency Injection</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

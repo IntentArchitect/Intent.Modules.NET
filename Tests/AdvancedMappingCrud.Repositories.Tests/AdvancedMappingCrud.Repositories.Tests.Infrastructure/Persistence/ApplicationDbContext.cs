@@ -38,6 +38,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         }
 
         public DbSet<Basic> Basics { get; set; }
+        public DbSet<CompanyContact> CompanyContacts { get; set; }
+        public DbSet<CompanyContactSecond> CompanyContactSeconds { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<ContactSecond> ContactSeconds { get; set; }
 
         public DbSet<Contract> Contracts { get; set; }
 
@@ -88,6 +92,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
 
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new BasicConfiguration());
+            modelBuilder.ApplyConfiguration(new CompanyContactConfiguration());
+            modelBuilder.ApplyConfiguration(new CompanyContactSecondConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactSecondConfiguration());
             modelBuilder.ApplyConfiguration(new ContractConfiguration());
             modelBuilder.ApplyConfiguration(new CorporateFuneralCoverQuoteConfiguration());
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());

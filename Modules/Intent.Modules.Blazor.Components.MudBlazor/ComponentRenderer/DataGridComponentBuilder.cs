@@ -62,7 +62,20 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
                 mudDataGrid.AddAttribute("Items", $"@{_bindingManager.GetElementBinding(model)}");
             }
 
-            mudDataGrid.AddAttribute("Hover", "true");
+            var appearance = model.GetAppearance();
+            if (appearance.Dense() != null && !string.IsNullOrEmpty(appearance.Striped().Value))
+            {
+                mudDataGrid.AddAttribute("Dense", appearance.Dense().Value);
+            }
+            if (appearance.Elevation() != null)
+            {
+                mudDataGrid.AddAttribute("Elevation", appearance.Elevation().Value.ToString());
+            }
+            mudDataGrid.AddAttribute("Hover", !string.IsNullOrEmpty( appearance.Hover()?.Value)? appearance.Hover().Value : "true");
+            if (appearance.Striped() != null && appearance.Striped().IsTrue())
+            {
+                mudDataGrid.AddAttribute("Striped");
+            }
 
             if (!string.IsNullOrWhiteSpace(model.GetInteraction()?.OnRowClick()))
             {

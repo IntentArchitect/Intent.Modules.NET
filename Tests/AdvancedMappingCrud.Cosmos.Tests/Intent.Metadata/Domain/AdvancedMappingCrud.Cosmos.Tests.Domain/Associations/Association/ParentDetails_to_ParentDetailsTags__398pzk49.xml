@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a841bd2f-7340-4ef4-b770-2344a2a370e6">
+  <sourceEnd id="7244aa27-ffb4-4cd1-90ef-20eb34a9e98f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ParentDetails</name>
+    <display>ParentDetails: ParentDetails</display>
+    <order>0</order>
+    <typeReference id="ed6ddf58-a51b-43a2-ad89-c1b4ce70486d">
+      <typeId>038f0b5f-2733-4bc5-b2ab-eb773282091f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a841bd2f-7340-4ef4-b770-2344a2a370e6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ParentDetailsTags</name>
+    <display>ParentDetailsTags: ParentDetailsTags[*]?</display>
+    <order>3</order>
+    <typeReference id="70434817-fe3d-4a42-ae1d-6fd024793800">
+      <typeId>1838eb36-d150-47f0-8113-fd32b17bb70b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

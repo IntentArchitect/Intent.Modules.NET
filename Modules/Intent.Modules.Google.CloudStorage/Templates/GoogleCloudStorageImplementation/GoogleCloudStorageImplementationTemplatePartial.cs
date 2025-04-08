@@ -106,7 +106,7 @@ namespace Intent.Modules.Google.CloudStorage.Templates.GoogleCloudStorageImpleme
                                 cancelTokenParam.WithDefaultValue("default");
                             });
 
-                        method.AddObjectInitStatement("var returnStream", $"new {UseType("System.IO.MemoryStream();")}");
+                        method.AddObjectInitStatement("var returnStream", $"new {UseType("System.IO.MemoryStream")}();");
                         method.AddInvocationStatement("_ = await _client.DownloadObjectAsync", downloadInvoc =>
                         {
                             downloadInvoc.AddArgument("bucketName");

@@ -5,7 +5,7 @@
     <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#67bbd2be-4fe1-4309-a20b-8a9ad4720cd1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.Net.sln</ApplicationRelativeFilePath>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

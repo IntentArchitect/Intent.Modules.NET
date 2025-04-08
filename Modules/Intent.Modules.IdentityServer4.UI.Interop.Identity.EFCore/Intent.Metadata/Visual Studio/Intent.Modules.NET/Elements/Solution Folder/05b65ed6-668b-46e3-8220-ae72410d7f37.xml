@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="05b65ed6-668b-46e3-8220-ae72410d7f37" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>NET Core</name>
-  <display>NET Core</display>
+  <name>Obsolete</name>
+  <display>Obsolete</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

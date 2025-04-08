@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d24da73-c008-41cf-82a5-2fde5bd16654" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</parentFolderId>
+  <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+  <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

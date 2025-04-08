@@ -1,3 +1,9 @@
+### Version 1.1.3
+
+- Improvement: Option to now automatically import dependant tables from the list of tables supplied using the `include_dependant_tables` configuration
+- Improvement: Better schema validation for the filter file
+- Improvement: `Intent.EntityFrameworkCore.Repositories` reference only added when required
+
 ### Version 1.1.2
 
 - Improvement: Additional in-application support topics added.

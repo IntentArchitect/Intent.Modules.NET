@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a68dd160-4855-4604-b1e1-28dc0779cacd" type="Eventing DTO" typeId="544f1d57-27ce-4985-a4ec-cc01568d72b0">
+  <name>OrgDepartmentDto</name>
+  <display>OrgDepartmentDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4f999ce2-cab3-4fc5-933f-67cd41301cff</parentFolderId>
+  <packageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6908bd2c-82a9-4466-97c9-ef5c1ed6f604" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4de5d387-c003-4663-9500-d8621d240775">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a68dd160-4855-4604-b1e1-28dc0779cacd</parentFolderId>
+      <packageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a5a7f20a-d07f-49f7-af1f-0677a9b7997f" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Code</name>
+      <display>Code: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a55b6671-e6d3-401e-9b11-d8a6518efce0">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a68dd160-4855-4604-b1e1-28dc0779cacd</parentFolderId>
+      <packageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="3dfde118-d1d5-48b8-b589-d42b6543b865" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="de48bc2e-5468-48e0-b7bf-190d06f07220">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a68dd160-4855-4604-b1e1-28dc0779cacd</parentFolderId>
+      <packageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

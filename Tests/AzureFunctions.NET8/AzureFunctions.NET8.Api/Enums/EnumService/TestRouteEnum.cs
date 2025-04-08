@@ -32,7 +32,7 @@ namespace AzureFunctions.NET8.Api.Enums.EnumService
         [OpenApiParameter(name: "testEnum", In = ParameterLocation.Path, Required = true, Type = typeof(Company))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "route-enum/{testenum}/test-route-enum")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "route-enum/{testEnum}/test-route-enum")] HttpRequest req,
             string testEnum,
             CancellationToken cancellationToken)
         {
@@ -51,11 +51,11 @@ namespace AzureFunctions.NET8.Api.Enums.EnumService
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (FormatException exception)
             {
-                return new BadRequestObjectResult(new { Message = exception.Message });
+                return new BadRequestObjectResult(new { exception.Message });
             }
         }
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b142d75d-46bd-40bd-8700-b73152b53cc0" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>SpecificQueueMessageHandler</name>
+  <display>SpecificQueueMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ff9ca47-8693-4c62-9979-5205e19f177f</parentFolderId>
+  <packageId>5ff9ca47-8693-4c62-9979-5205e19f177f</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

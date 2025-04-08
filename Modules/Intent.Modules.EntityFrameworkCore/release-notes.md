@@ -1,3 +1,7 @@
+### Version 5.0.19
+
+- Improvement: "MIGRATION_README.txt" now aware of `DesignTimeDbContextFactory` and removes `Package Manager Console` commands when it is being used.
+
 ### Version 5.0.18
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.

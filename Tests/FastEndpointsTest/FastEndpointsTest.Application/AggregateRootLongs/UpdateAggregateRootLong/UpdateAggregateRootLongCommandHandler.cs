@@ -33,8 +33,11 @@ namespace FastEndpointsTest.Application.AggregateRootLongs.UpdateAggregateRootLo
             }
 
             aggregateRootLong.Attribute = request.Attribute;
-            aggregateRootLong.CompositeOfAggrLong ??= new CompositeOfAggrLong();
-            aggregateRootLong.CompositeOfAggrLong.Attribute = request.CompositeOfAggrLong.Attribute;
+            if (request.CompositeOfAggrLong != null)
+            {
+                aggregateRootLong.CompositeOfAggrLong ??= new CompositeOfAggrLong();
+                aggregateRootLong.CompositeOfAggrLong.Attribute = request.CompositeOfAggrLong.Attribute;
+            }
         }
     }
 }

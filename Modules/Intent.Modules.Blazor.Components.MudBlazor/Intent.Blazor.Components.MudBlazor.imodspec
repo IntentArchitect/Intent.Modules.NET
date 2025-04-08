@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>1.0.0-beta.18</version>
+  <version>1.0.0-beta.22</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
@@ -52,4 +52,7 @@
     <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Components.MudBlazor/Intent.Blazor.Components.MudBlazor.pkg.config" externalReference="47e5f8d0-3892-4408-b6f9-88bf8591af2d" />
     <install target="User Interface" src="modelers/MudBlazor Core Components.designer.settings" externalReference="a490ca93-d5f0-448e-94ef-0f53e729c284" />
   </metadata>
+  <migrations>
+    <migration version="1.0.0-beta.22" />
+  </migrations>
 </package>

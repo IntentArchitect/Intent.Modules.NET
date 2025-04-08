@@ -1,42 +1,24 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "schemas": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "uniqueItems": true
     },
     "include_tables": {
       "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": { "type": "string" },
-          "exclude_columns": {
-            "type": "array",
-            "items": { "type": "string" }
-          }
-        },
-        "required": [ "name" ]
-      }
+      "items": { "$ref": "#/definitions/ImportFilterTable" }
+    },
+    "include_dependant_tables": {
+      "type": "boolean",
+      "default": false
     },
     "include_views": {
       "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": { "type": "string" },
-          "exclude_columns": {
-            "type": "array",
-            "items": { "type": "string" }
-          }
-        },
-        "required": [ "name" ]
-      }
-    },
-    "include_stored_procedures": {
-      "type": "array",
-      "items": { "type": "string" }
+      "items": { "$ref": "#/definitions/ImportFilterTable" }
     },
     "exclude_tables": {
       "type": "array",
@@ -46,17 +28,39 @@
       "type": "array",
       "items": { "type": "string" }
     },
+    "include_stored_procedures": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "exclude_stored_procedures": {
       "type": "array",
       "items": { "type": "string" }
     },
     "exclude_table_columns": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "uniqueItems": true
     },
     "exclude_view_columns": {
       "type": "array",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "uniqueItems": true
     }
-  }
+  },
+  "definitions": {
+    "ImportFilterTable": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "exclude_columns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        }
+      },
+      "required": [ "name" ]
+    }
+  },
+  "required": []
 }

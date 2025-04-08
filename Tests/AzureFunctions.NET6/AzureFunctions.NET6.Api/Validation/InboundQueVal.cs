@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AzureFunctions.NET6.Application.Validation;
 using AzureFunctions.NET6.Application.Validation.InboundQueVal;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
+using AzureFunctions.NET6.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -75,11 +76,11 @@ namespace AzureFunctions.NET6.Api.Validation
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (FormatException exception)
             {
-                return new BadRequestObjectResult(new { Message = exception.Message });
+                return new BadRequestObjectResult(new { exception.Message });
             }
         }
     }
