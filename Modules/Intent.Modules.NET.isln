@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.12" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.13" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Common" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -154,5 +154,6 @@
     <application id="d8c0b55c-b3ec-495b-968b-2d3876ee79e9" name="Intent.Modules.Eventing.AzureServiceBus" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureServiceBus/Intent.Modules.Eventing.AzureServiceBus.application.config" />
     <application id="10957a81-94fa-4cfe-a4e9-8df13d59a03b" name="Intent.Modules.AzureFunctions.AzureServiceBus" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureServiceBus/Intent.Modules.AzureFunctions.AzureServiceBus.application.config" />
     <application id="e0fa5012-1b29-4159-8860-6b2b5e4fc0d5" name="Intent.Modules.IaC.Bicep" solutionFolder="Continuous Integration" relativePath="Intent.Modules.IaC.Bicep/Intent.Modules.IaC.Bicep.application.config" />
+    <application id="d7160580-fd34-48ed-89c5-a7ddb1224f69" name="Intent.Modules.Eventing.AzureEventGrid" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureEventGrid/Intent.Modules.Eventing.AzureEventGrid.application.config" />
   </applications>
 </solution>
