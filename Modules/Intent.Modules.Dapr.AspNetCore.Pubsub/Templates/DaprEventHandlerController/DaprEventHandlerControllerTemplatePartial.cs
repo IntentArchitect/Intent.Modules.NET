@@ -12,9 +12,11 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler;
 using Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementation;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -33,6 +35,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
         {
             AddNugetDependency(NugetPackages.DaprAspNetCore(outputTarget));
             AddNugetDependency(NugetPackages.MediatR(outputTarget));
+            var shouldInstallUnitOfWork = new Lazy<bool>(this.SystemUsesPersistenceUnitOfWork);
+            var shouldInstallMessageBus = new Lazy<bool>(() => OutputTarget.FindTemplateInstance<IClassProvider>(TemplateRoles.Application.Eventing.EventBusInterface) != null);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
@@ -49,10 +53,18 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                         .AddAttribute("[Route(\"api/v1/[controller]/[action]\")]")
                         .AddAttribute("[ApiController]")
                         .WithBaseType("ControllerBase")
-                        .AddConstructor(constructor => constructor
-                            .AddParameter("ISender", "mediatr", p => p.IntroduceReadonlyField())
-                            .AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField())
-                        );
+                        .AddConstructor(ctor =>
+                        {
+                            ctor.AddParameter("ISender", "mediatr", p => p.IntroduceReadonlyField());
+                            ctor.AddParameter("IServiceProvider", "serviceProvider", p => p.IntroduceReadonlyField());
+
+                            if (shouldInstallMessageBus.Value)
+                            {
+                                ctor.AddParameter(
+                                    GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface), "eventBus",
+                                    p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
+                            }
+                        });
 
                     //Eventing Designer
                     var eventHandlerTemplates = ExecutionContext.FindTemplateInstances<EventHandlerImplementationTemplate>(TemplateDependency.OfType<EventHandlerImplementationTemplate>())
@@ -89,14 +101,35 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.DaprEventHandlerContro
                             var eventType = GetMessageName(subscription);
                             @class.AddMethod("Task", $"Handle{eventType}", method =>
                             {
-                                method
-                                    .AddAttribute("[HttpPost]")
-                                    .AddAttribute($"[Topic({eventType}.PubsubName, {eventType}.TopicName)]")
-                                    .Async()
-                                    .AddParameter(eventType, "@event")
-                                    .AddParameter("CancellationToken", "cancellationToken")
-                                    .AddStatement($"var handler = _serviceProvider.GetRequiredService<{this.GetIntegrationEventHandlerInterfaceName()}<{eventType}>>();")
-                                    .AddStatement("await handler.HandleAsync(@event, cancellationToken);");
+                                method.AddAttribute("[HttpPost]");
+                                method.AddAttribute($"[Topic({eventType}.PubsubName, {eventType}.TopicName)]");
+                                method.Async();
+                                method.AddParameter(eventType, "@event");
+                                method.AddParameter("CancellationToken", "cancellationToken");
+                                method.AddStatement($"var handler = _serviceProvider.GetRequiredService<{this.GetIntegrationEventHandlerInterfaceName()}<{eventType}>>();");
+
+                                var invocationStatement = "await handler.HandleAsync(@event, cancellationToken);";
+
+                                if (shouldInstallUnitOfWork.Value)
+                                {
+                                    method.ApplyUnitOfWorkImplementations(
+                                        template: this,
+                                        constructor: @class.Constructors.First(),
+                                        invocationStatement: invocationStatement,
+                                        returnType: null,
+                                        resultVariableName: "result",
+                                        fieldSuffix: "unitOfWork",
+                                        includeComments: false);
+                                }
+                                else
+                                {
+                                    method.AddStatement(invocationStatement);
+                                }
+
+                                if (shouldInstallMessageBus.Value)
+                                {
+                                    method.AddStatement("await _eventBus.FlushAllAsync(cancellationToken);", stmt => stmt.AddMetadata("eventbus-flush", true));
+                                }
                             });
                         }
                     }

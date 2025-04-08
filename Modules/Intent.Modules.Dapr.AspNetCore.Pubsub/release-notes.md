@@ -1,4 +1,8 @@
-﻿### Version 3.0.0
+﻿### Version 3.0.1
+
+- Fixed: The Dapr controllers for receiving PubSub events did not perform saving persistence changes or flush event bus events.
+
+### Version 3.0.0
 
 - Updated dependency version of the `Intent.Modelers.Eventing` module from 5.0.2 to 6.0.1.
 
