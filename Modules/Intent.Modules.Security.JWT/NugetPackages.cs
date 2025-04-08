@@ -19,6 +19,9 @@ namespace Intent.Modules.Security.JWT
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 7, 0) => new PackageVersion("7.0.0"),
+                        ( >= 2, 0) => new PackageVersion("7.0.0")
+                            .WithNugetDependency("System.Text.Json", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelPackageName}'"),
                     }
                 );
@@ -40,8 +43,8 @@ namespace Intent.Modules.Security.JWT
                 );
         }
 
-        public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationJwtBearer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName, outputTarget.GetMaxNetAppVersion());
-
         public static NugetPackageInfo IdentityModel(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationJwtBearer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

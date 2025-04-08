@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="c7f1d4a0-21f3-4ed6-a9f9-4fd90ef33a18" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+<class id="214d5289-d92f-4864-9ae3-b33725c1032e" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>IdentityModel.AspNetCore</name>
   <display>IdentityModel.AspNetCore</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>3b53a755-d712-4a45-b9fe-a92b07cd61b3</parentFolderId>
-  <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-  <packageName>Intent.Integration.HttpClients</packageName>
+  <parentFolderId>31bd0aba-eb1c-4e59-b5f6-d7429b81db0e</parentFolderId>
+  <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+  <packageName>Intent.Blazor.HttpClients</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
       <addedByDefault>true</addedByDefault>
@@ -17,22 +17,22 @@
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
         <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
-        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
-        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" value="[]" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" value="[]" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="8cb4a802-1c12-4691-ab99-703d00ce5914" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="bfc88d92-a652-42ba-af66-072f8cd96713" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.0.0</name>
       <display>2.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>c7f1d4a0-21f3-4ed6-a9f9-4fd90ef33a18</parentFolderId>
-      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-      <packageName>Intent.Integration.HttpClients</packageName>
+      <parentFolderId>214d5289-d92f-4864-9ae3-b33725c1032e</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>
@@ -47,15 +47,15 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="8954f13b-e15e-40fa-9976-c5c4063675f5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="ae90cf20-0fb8-4b77-9235-d4d990c9b745" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>4.3.0</name>
       <display>4.3.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>c7f1d4a0-21f3-4ed6-a9f9-4fd90ef33a18</parentFolderId>
-      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
-      <packageName>Intent.Integration.HttpClients</packageName>
+      <parentFolderId>214d5289-d92f-4864-9ae3-b33725c1032e</parentFolderId>
+      <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
+      <packageName>Intent.Blazor.HttpClients</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>true</addedByDefault>

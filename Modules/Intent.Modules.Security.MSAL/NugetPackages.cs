@@ -23,6 +23,9 @@ namespace Intent.Modules.Security.MSAL
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 7, 0) => new PackageVersion("7.0.0"),
+                        ( >= 2, 0) => new PackageVersion("7.0.0")
+                            .WithNugetDependency("System.Text.Json", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelPackageName}'"),
                     }
                 );
@@ -156,6 +159,8 @@ namespace Intent.Modules.Security.MSAL
                 );
         }
 
+        public static NugetPackageInfo IdentityModel(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelPackageName, outputTarget.GetMaxNetAppVersion());
+
         public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationOpenIdConnect(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreAuthenticationOpenIdConnectPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftAspNetCoreAuthenticationJwtBearer(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName, outputTarget.GetMaxNetAppVersion());
@@ -165,7 +170,5 @@ namespace Intent.Modules.Security.MSAL
         public static NugetPackageInfo MicrosoftIdentityWebMicrosoftGraph(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftIdentityWebMicrosoftGraphPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftIdentityWebUI(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftIdentityWebUIPackageName, outputTarget.GetMaxNetAppVersion());
-
-        public static NugetPackageInfo IdentityModel(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

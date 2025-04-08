@@ -21,6 +21,8 @@ namespace Intent.Modules.Blazor.HttpClients
             NugetRegistry.Register(IdentityModelAspNetCorePackageName,
                 (framework) => framework switch
                     {
+                        ( >= 6, 0) => new PackageVersion("4.3.0"),
+                        ( >= 2, 0) => new PackageVersion("2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
