@@ -1,6 +1,7 @@
 ### Version 1.1.1
 
 - Improvement: Updated NuGet package versions.
+- Improvement: Updated Test Fixture to work with new TestContainer connection string.
 
 ### Version 1.1.0
 

@@ -21,7 +21,7 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
 
         public void ConfigureTestServices(IServiceCollection services)
         {
-            string connectionString = _dbContainer.GetConnectionString() + "IntegrationTestDb?authSource=admin";
+            string connectionString = GetTestConnectionString(_dbContainer.GetConnectionString());
             services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(connectionString));
         }
 
@@ -37,6 +37,18 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
         public async Task DisposeAsync()
         {
             await _dbContainer.StopAsync();
+        }
+
+        private string GetTestConnectionString(string containerConnectionString)
+        {
+            if (!containerConnectionString.Contains("?"))
+            {
+                return containerConnectionString + "IntegrationTestDb?";
+            }
+            else
+            {
+                return containerConnectionString.Replace("?", "IntegrationTestDb?") + "&authSource=admin";
+            }
         }
     }
 }

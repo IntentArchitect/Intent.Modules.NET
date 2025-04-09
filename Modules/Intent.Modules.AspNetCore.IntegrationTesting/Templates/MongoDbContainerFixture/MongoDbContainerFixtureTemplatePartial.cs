@@ -42,7 +42,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
                     {
                         method.AddParameter("IServiceCollection", "services");
                         string databaseName = "IntegrationTestDb";
-                        method.AddStatement($"string connectionString = _dbContainer.GetConnectionString() + \"{databaseName}?authSource=admin\";");
+                        method.AddStatement($"string connectionString = GetTestConnectionString(_dbContainer.GetConnectionString());");
                         method.AddStatement("services.AddSingleton<IMongoDbConnection>((c) => MongoDbConnection.FromConnectionString(connectionString));");
 
                         @class.AddMethod("void", "OnHostCreation", method =>
@@ -64,6 +64,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.MongoDbContaine
                                 .Async()
                                 .AddStatement("await _dbContainer.StopAsync();");
                         });
+                    });
+
+                    @class.AddMethod("string", "GetTestConnectionString", method =>
+                    {
+                        method.Private().AddParameter("string", "containerConnectionString");
+
+                        method.AddIfStatement("!containerConnectionString.Contains(\"?\")", ifs => ifs.AddStatement("return containerConnectionString + \"IntegrationTestDb?\";"));
+                        method.AddElseStatement(e => e.AddStatement("return containerConnectionString.Replace(\"?\", \"IntegrationTestDb?\") + \"&authSource=admin\";"));
                     });
                 });
         }
