@@ -39,8 +39,7 @@ namespace AzureFunctions.NET8.Api.Params
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var ids = JsonSerializer.Deserialize<List<int>>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var ids = await AzureFunctionHelper.DeserializeJsonContentAsync<List<int>>(req.Body, cancellationToken);
                 await _mediator.Send(new FromBodyTestCommand(ids: ids), cancellationToken);
                 return new CreatedResult(string.Empty, null);
             }

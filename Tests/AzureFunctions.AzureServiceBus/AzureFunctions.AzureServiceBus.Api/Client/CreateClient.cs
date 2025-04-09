@@ -44,8 +44,7 @@ namespace AzureFunctions.AzureServiceBus.Api.Client
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<CreateClientCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateClientCommand>(req.Body, cancellationToken);
                 await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, null);
             }

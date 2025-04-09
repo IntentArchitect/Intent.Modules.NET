@@ -1,6 +1,8 @@
 ### Version 5.0.4
 
 - Improvement: Updated NuGet package versions.
+- Improvement: HTTP Trigger Azure Functions will defer to using `AzureFunctionHelper.DeserializeJsonContentAsync` to centralize the setup and configuration of `System.Text.Json`. This will simplify the use of swapping out Serializers if necessary.
+- Improvement: `ConfigureFunctionsWebApplication` has been expanded to make it easier for developers to add middleware components with `//IntentIgnore` indicators.
 
 ### Version 5.0.3
 

@@ -47,8 +47,7 @@ namespace AzureFunctions.NET6.Api.Customers
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<UpdateCustomerCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<UpdateCustomerCommand>(req.Body, cancellationToken);
                 if (id != command.Id)
                 {
                     return new BadRequestObjectResult(new { Message = "Supplied 'id' does not match 'Id' from body." });

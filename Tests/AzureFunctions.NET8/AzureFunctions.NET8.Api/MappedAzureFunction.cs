@@ -43,8 +43,7 @@ namespace AzureFunctions.NET8.Api
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonSerializer.Deserialize<SampleMappedRequest>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var request = await AzureFunctionHelper.DeserializeJsonContentAsync<SampleMappedRequest>(req.Body, cancellationToken);
                 await _validator.Handle(request, cancellationToken);
 
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,

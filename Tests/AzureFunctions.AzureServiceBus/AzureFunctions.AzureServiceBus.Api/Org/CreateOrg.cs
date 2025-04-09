@@ -44,8 +44,7 @@ namespace AzureFunctions.AzureServiceBus.Api.Org
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<CreateOrgCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateOrgCommand>(req.Body, cancellationToken);
                 await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, null);
             }

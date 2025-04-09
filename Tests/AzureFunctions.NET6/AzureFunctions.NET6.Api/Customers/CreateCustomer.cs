@@ -46,8 +46,7 @@ namespace AzureFunctions.NET6.Api.Customers
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<CreateCustomerCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<CreateCustomerCommand>(req.Body, cancellationToken);
                 var result = await _mediator.Send(command, cancellationToken);
                 return new CreatedResult(string.Empty, result);
             }

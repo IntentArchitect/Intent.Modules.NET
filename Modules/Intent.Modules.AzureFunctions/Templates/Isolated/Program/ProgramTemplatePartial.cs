@@ -56,7 +56,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 .AddTopLevelStatements(tls =>
                 {
                     var hostConfigStatement = new CSharpStatement("new HostBuilder()")
-                        .AddInvocation("ConfigureFunctionsWebApplication", i => i.OnNewLine())
+                        .AddInvocation("ConfigureFunctionsWebApplication", i => i.OnNewLine().AddArgument(new CSharpLambdaBlock("(ctx, builder)")))
                         .AddInvocation("ConfigureServices", cs => cs
                             .OnNewLine()
                             .AddArgument(configStatements

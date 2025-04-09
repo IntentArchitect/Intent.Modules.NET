@@ -41,8 +41,7 @@ namespace AzureFunctions.NET6.Api
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var request = JsonSerializer.Deserialize<SampleDomainDto>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var request = await AzureFunctionHelper.DeserializeJsonContentAsync<SampleDomainDto>(req.Body, cancellationToken);
                 //IntentIgnore
                 return new NoContentResult();
             }

@@ -53,8 +53,7 @@ namespace AzureFunctions.AzureServiceBus.Api.SpecificChannelService
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonSerializer.Deserialize<PayloadDto>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var dto = await AzureFunctionHelper.DeserializeJsonContentAsync<PayloadDto>(req.Body, cancellationToken);
                 await _validator.Handle(dto, cancellationToken);
 
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,

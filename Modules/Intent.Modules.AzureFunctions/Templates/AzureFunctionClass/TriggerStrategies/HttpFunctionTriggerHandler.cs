@@ -120,10 +120,14 @@ internal class HttpFunctionTriggerHandler : IFunctionTriggerHandler
 
             if (!string.IsNullOrWhiteSpace(GetRequestDtoType()))
             {
-                tryBlock.AddStatement($@"var requestBody = await new StreamReader(req.Body).ReadToEndAsync();");
-                tryBlock.AddStatement(
-                    $@"var {GetRequestInput().Name} = {_template.UseType("System.Text.Json.JsonSerializer")}.Deserialize<{GetRequestDtoType()}>(requestBody, new JsonSerializerOptions {{PropertyNameCaseInsensitive = true}})!;");
-                method.AddCatchBlock("JsonException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
+                tryBlock.AddInvocationStatement(
+                    $"var {GetRequestInput().Name} = await {_template.GetAzureFunctionClassHelperName()}.DeserializeJsonContentAsync<{GetRequestDtoType()}>", inv => inv
+                        .AddArgument("req.Body")
+                        .AddArgument("cancellationToken"));
+                method.AddCatchBlock(_template.UseType("System.Text.Json.JsonException"), "exception", catchBlock =>
+                {
+                    catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});");
+                });
             }
         }).AddCatchBlock("FormatException", "exception", catchBlock => { catchBlock.AddStatement($"return new BadRequestObjectResult(new {{ exception.Message }});"); });
 

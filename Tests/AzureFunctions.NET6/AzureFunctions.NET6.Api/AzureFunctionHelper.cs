@@ -11,6 +11,12 @@ namespace AzureFunctions.NET6.Api
 {
     static class AzureFunctionHelper
     {
+        private static readonly System.Text.Json.JsonSerializerOptions SerializationSettings = new() { PropertyNameCaseInsensitive = true };
+
+        public static async Task<T> DeserializeJsonContentAsync<T>(Stream jsonContentStream, CancellationToken cancellationToken)
+        {
+            return await System.Text.Json.JsonSerializer.DeserializeAsync<T>(jsonContentStream, SerializationSettings, cancellationToken) ?? throw new FormatException("Unable to deserialize JSON content.");
+        }
         public static T GetQueryParam<T>(string paramName, IQueryCollection query, ParseDelegate<T> parse)
             where T : struct
         {

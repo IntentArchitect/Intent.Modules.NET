@@ -13,7 +13,9 @@ using Microsoft.Extensions.Logging;
 [assembly: IntentTemplate("Intent.AzureFunctions.Isolated.Program", Version = "1.0")]
 
 var host = new HostBuilder()
-    .ConfigureFunctionsWebApplication()
+    .ConfigureFunctionsWebApplication((ctx, builder) =>
+    {
+    })
     .ConfigureServices((ctx, services) =>
     {
         var configuration = ctx.Configuration;

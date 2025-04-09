@@ -50,8 +50,7 @@ namespace AzureFunctions.NET6.Api.SampleDomainsService
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var dto = JsonSerializer.Deserialize<SampleDomainUpdateDto>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var dto = await AzureFunctionHelper.DeserializeJsonContentAsync<SampleDomainUpdateDto>(req.Body, cancellationToken);
                 await _validator.Handle(dto, cancellationToken);
 
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,

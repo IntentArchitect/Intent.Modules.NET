@@ -45,8 +45,7 @@ namespace AzureFunctions.NET6.Api.Validation
         {
             try
             {
-                var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                var command = JsonSerializer.Deserialize<InboundComValCommand>(requestBody, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })!;
+                var command = await AzureFunctionHelper.DeserializeJsonContentAsync<InboundComValCommand>(req.Body, cancellationToken);
                 await _mediator.Send(command, cancellationToken);
                 return new NoContentResult();
             }
