@@ -1,3 +1,8 @@
+### Version 1.3.10
+
+- Improvement: Updated for MediatR contract change.
+- Improvement: Tests respect MediatR 12.5 contract change on `RequestHandlerDelegate<T>`
+
 ### Version 1.3.9
 
 - Improvement: Included module help topics.

@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="09171640-fcf3-4cb7-b33d-b2e3bc9fd606" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.3</name>
-      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="9a3292a0-6e42-4aa8-bafb-eb68fd145703" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>09171640-fcf3-4cb7-b33d-b2e3bc9fd606</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -62,7 +65,7 @@
     </childElement>
     <childElement id="800dacb2-63f5-4100-847d-5ba55267d427" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.3</name>
-      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -85,11 +88,14 @@
       <childElements>
         <childElement id="6c08e6e8-c6d4-4a37-9565-e511d4ec2ca5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>800dacb2-63f5-4100-847d-5ba55267d427</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -98,7 +104,7 @@
     </childElement>
     <childElement id="560736e3-7398-412a-8b5c-8f5004e292f7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.3</name>
-      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <display>9.0.3 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -121,11 +127,14 @@
       <childElements>
         <childElement id="0c729399-753a-464f-b4f4-8fc55238cd12" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>560736e3-7398-412a-8b5c-8f5004e292f7</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,7 +143,7 @@
     </childElement>
     <childElement id="4d39440b-ee95-4f3d-9c2e-a1f486e0d082" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.3</name>
-      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -157,33 +166,42 @@
       <childElements>
         <childElement id="831cc02b-2068-4f20-8269-d618bf06628c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (9.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4d39440b-ee95-4f3d-9c2e-a1f486e0d082</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d110bf47-89c2-48e3-859b-1c86ad403205" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4d39440b-ee95-4f3d-9c2e-a1f486e0d082</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fd9c439a-b1ca-4634-b2b8-fd99c4437cb9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
+          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4d39440b-ee95-4f3d-9c2e-a1f486e0d082</parentFolderId>
+          <packageId>33084118-5d41-4965-a200-54aa73ba9021</packageId>
+          <packageName>Intent.Application.DependencyInjection</packageName>
           <stereotypes />
           <metadata />
           <childElements />

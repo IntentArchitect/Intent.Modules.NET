@@ -1,6 +1,7 @@
 ### Version 1.0.2
 
 - Improvement: Updated NuGet package versions.
+- Improvement: Changed `FromQueryParams` to `FromQuery` in-line with NuGet package changes.
 
 ### Version 1.0.1
 

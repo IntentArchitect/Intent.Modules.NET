@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="4a0c2a59-0b2b-4a21-bf76-554a7f6d47bd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="f08de3e8-ab75-4a9d-a2c6-5f25caa9977e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4a0c2a59-0b2b-4a21-bf76-554a7f6d47bd</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="0cec5d69-3c05-4a63-8b24-590f05dae8e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MySqlConnector</name>
+          <display>MySqlConnector (2.3.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4a0c2a59-0b2b-4a21-bf76-554a7f6d47bd</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,10 +79,14 @@
     </childElement>
     <childElement id="954e88d1-1fce-4c13-ab4f-21dc053754a1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b3e324a8-10cc-4ea3-a0ae-7ce1c427bd3c</parentFolderId>
+      <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+      <packageName>Intent.AspNetCore.HealthChecks</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -92,22 +102,28 @@
       <childElements>
         <childElement id="fb4ba1ea-d3a3-4d3e-90fb-c6c4928fcf7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>954e88d1-1fce-4c13-ab4f-21dc053754a1</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a3da7449-4dfb-48a7-b4cc-93f63901211e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MySqlConnector</name>
+          <display>MySqlConnector (2.3.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>954e88d1-1fce-4c13-ab4f-21dc053754a1</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

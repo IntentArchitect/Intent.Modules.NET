@@ -35,7 +35,7 @@ namespace CleanArchitecture.Comprehensive.Application.Tests.Inheritance.Concrete
             var validator = GetValidationBehaviour();
             var expectedId = new Fixture().Create<System.Guid>();
             // Act
-            var result = await validator.Handle(testCommand, () => Task.FromResult(expectedId), CancellationToken.None);
+            var result = await validator.Handle(testCommand, (c) => Task.FromResult(expectedId), CancellationToken.None);
 
             // Assert
             result.Should().Be(expectedId);
@@ -65,7 +65,7 @@ namespace CleanArchitecture.Comprehensive.Application.Tests.Inheritance.Concrete
             var validator = GetValidationBehaviour();
             var expectedId = new Fixture().Create<System.Guid>();
             // Act
-            var act = async () => await validator.Handle(testCommand, () => Task.FromResult(expectedId), CancellationToken.None);
+            var act = async () => await validator.Handle(testCommand, (c) => Task.FromResult(expectedId), CancellationToken.None);
 
             // Assert
             act.Should().ThrowAsync<ValidationException>().Result

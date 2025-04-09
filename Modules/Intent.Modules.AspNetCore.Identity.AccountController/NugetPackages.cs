@@ -19,8 +19,8 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("7.0.0"),
-                        ( >= 2, 0) => new PackageVersion("7.0.0")
+                        ( >= 7, 0) => new PackageVersion("7.0.0", locked: true),
+                        ( >= 2, 0) => new PackageVersion("7.0.0", locked: true)
                             .WithNugetDependency("System.Text.Json", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelPackageName}'"),
                     }

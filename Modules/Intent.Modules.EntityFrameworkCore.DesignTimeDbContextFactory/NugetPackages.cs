@@ -21,15 +21,15 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
             NugetRegistry.Register(MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.3"),
-                        ( >= 8, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.3"),
-                        ( >= 2, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.3"),
+                        ( >= 9, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0"),
+                        ( >= 8, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0"),
+                        ( >= 2, 0) => new PackageVersion("9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName}'"),
                     }
                 );

@@ -54,13 +54,7 @@ namespace Intent.Modules.AspNetCore.HealthChecks
             NugetRegistry.Register(AspNetCoreHealthChecksMongoDbPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.11")
-                            .WithNugetDependency("MongoDB.Driver", "3.0.0"),
-                        ( >= 2, 1) => new PackageVersion("9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.11")
-                            .WithNugetDependency("MongoDB.Driver", "3.0.0"),
-                        ( >= 2, 0) => new PackageVersion("8.1.0")
+                        ( >= 2, 0) => new PackageVersion("8.1.0", locked: true)
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
                             .WithNugetDependency("MongoDB.Driver", "2.28.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AspNetCoreHealthChecksMongoDbPackageName}'"),

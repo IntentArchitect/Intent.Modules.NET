@@ -1,6 +1,6 @@
-### Version 5.1.8
+### Version 5.2.0
 
-- Improvement: Updated NuGet package versions.
+- Improvement: Updated NuGet package version, AutoMapper -> 14.0.
 
 ### Version 5.1.7
 

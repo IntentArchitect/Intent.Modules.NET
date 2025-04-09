@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d9da82ce-1864-4f69-b7e9-300b8537adfe" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="17a997ed-119b-4de9-a1f4-ba49088a7750" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d9da82ce-1864-4f69-b7e9-300b8537adfe</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="711be7df-5f2f-4253-8f12-5010be806e1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Npgsql</name>
+          <display>Npgsql (8.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d9da82ce-1864-4f69-b7e9-300b8537adfe</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +79,7 @@
     </childElement>
     <childElement id="688203fc-3c61-4136-94ca-35b8126ff0dd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -96,22 +102,28 @@
       <childElements>
         <childElement id="a9ef89a3-5ce4-458c-85bf-9d1e4b9f278c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>688203fc-3c61-4136-94ca-35b8126ff0dd</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="d42b2f59-d71d-4589-b03a-2f1b3d8222e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Npgsql</name>
+          <display>Npgsql (8.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>688203fc-3c61-4136-94ca-35b8126ff0dd</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -59,7 +59,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
     public class Mutation2RequestModel
     {
-        [FromQueryParams]
+        [FromQuery]
         public string Param { get; set; }
     }
 }

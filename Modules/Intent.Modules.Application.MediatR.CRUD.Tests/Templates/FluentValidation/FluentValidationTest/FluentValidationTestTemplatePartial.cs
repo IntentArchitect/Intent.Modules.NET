@@ -49,10 +49,15 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
         AddTypeSource(CommandModelsTemplate.TemplateId);
         AddTypeSource(TemplateRoles.Application.Contracts.Dto);
 
+        
+
         CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
             .AddClass($"{Model.Name}ValidatorTests")
             .OnBuild(file =>
             {
+
+                bool needsCancellationToken = DoesMediatRNeedCancellation(outputTarget);
+
                 file.AddUsing("System");
                 file.AddUsing("System.Collections.Generic");
                 file.AddUsing("System.Linq");
@@ -97,7 +102,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                     method.AddStatements($@"
         // Act
-        var result = await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
+        var result = await validator.Handle(testCommand, ({(needsCancellationToken ? "c" : "")}) => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
 
         // Assert
         result.Should().Be({(isCommandWithReturnId ? "expectedId" : "Unit.Value")});");
@@ -127,7 +132,7 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
 
                     method.AddStatements($@"
         // Act
-        var act = async () => await validator.Handle(testCommand, () => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
+        var act = async () => await validator.Handle(testCommand, ({(needsCancellationToken ? "c" : "")}) => Task.FromResult({(isCommandWithReturnId ? "expectedId" : "Unit.Value")}), CancellationToken.None);
 
         // Assert
         act.Should().ThrowAsync<ValidationException>().Result
@@ -198,6 +203,19 @@ public partial class FluentValidationTestTemplate : CSharpTemplateBase<CommandMo
                             $@"return new {this.GetValidationBehaviourName()}<{GetTypeName(Model.InternalElement)}, {(isCommandWithReturnId ? domainIdAttr.Type : "Unit")}>(new[] {{ {mainValidatorInstantiation} }});");
                     });
             });
+    }
+
+    private bool DoesMediatRNeedCancellation(IOutputTarget outputTarget)
+    {
+        var textVersion = NugetPackages.MediatR(outputTarget).Version;
+        if (Version.TryParse(textVersion, out var version))
+        {
+            if (version.Major > 12 || (version.Major == 12 && version.Minor >= 5))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private bool MainValidatorHasValidatorProviderRequirement()

@@ -200,8 +200,9 @@
     </childElement>
     <childElement id="ab5659d2-ce61-49d0-8cdc-484e766f0644" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b76aa869-3f67-483c-af44-12512a70a2eb</parentFolderId>
@@ -222,44 +223,56 @@
       <childElements>
         <childElement id="484a8f0e-dede-4d49-bae9-c99b339dbd49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AspNetCore.HealthChecks.UI.Data</name>
+          <display>AspNetCore.HealthChecks.UI.Data (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab5659d2-ce61-49d0-8cdc-484e766f0644</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c891ff84-7086-4637-af39-271049784c97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>KubernetesClient</name>
+          <display>KubernetesClient (15.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>15.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab5659d2-ce61-49d0-8cdc-484e766f0644</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="4710a7f9-96c9-471d-a457-7349f018d1ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Design</name>
+          <display>Microsoft.EntityFrameworkCore.Design (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab5659d2-ce61-49d0-8cdc-484e766f0644</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a35cbd52-347b-4695-b1b8-ed912fba50a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab5659d2-ce61-49d0-8cdc-484e766f0644</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

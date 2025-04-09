@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="0edb7982-b86a-4427-9eae-f43b83161112" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="d0798002-6eb3-434f-b9d8-de1f59c98d9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.Kafka</name>
+          <display>Confluent.Kafka (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0edb7982-b86a-4427-9eae-f43b83161112</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="79320228-d757-4539-a499-4ce463f80a13" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0edb7982-b86a-4427-9eae-f43b83161112</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,10 +79,14 @@
     </childElement>
     <childElement id="bbb6770b-a25b-43b5-9c9a-edc615a47d5b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>66259c43-e3a0-42c8-8814-a8e6a2aebe78</parentFolderId>
+      <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+      <packageName>Intent.AspNetCore.HealthChecks</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -92,22 +102,28 @@
       <childElements>
         <childElement id="19e479fe-fbbd-49ae-b468-d796e782f1eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Confluent.Kafka</name>
+          <display>Confluent.Kafka (2.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bbb6770b-a25b-43b5-9c9a-edc615a47d5b</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="48b2a4a6-360c-4863-9057-f4ac0876ef0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bbb6770b-a25b-43b5-9c9a-edc615a47d5b</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

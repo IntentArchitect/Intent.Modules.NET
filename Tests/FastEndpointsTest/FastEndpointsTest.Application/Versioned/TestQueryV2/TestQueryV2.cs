@@ -15,7 +15,7 @@ namespace FastEndpointsTest.Application.Versioned.TestQueryV2
             Value = value;
         }
 
-        [FromQueryParams]
+        [FromQuery]
         public string Value { get; set; }
     }
 }

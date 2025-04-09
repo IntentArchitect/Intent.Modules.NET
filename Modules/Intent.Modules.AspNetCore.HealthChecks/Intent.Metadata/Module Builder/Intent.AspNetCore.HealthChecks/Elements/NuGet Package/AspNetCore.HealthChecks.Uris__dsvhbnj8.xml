@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="64f2904e-4a4a-4f42-9498-5a22096e4f74" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="a8f8ca23-942f-4ac5-9a36-c3f0a3985344" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>64f2904e-4a4a-4f42-9498-5a22096e4f74</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a03029ac-22ab-4426-bb84-5ad096eaf6d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>64f2904e-4a4a-4f42-9498-5a22096e4f74</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,10 +79,14 @@
     </childElement>
     <childElement id="f27cdcd1-2616-497f-8f5f-1984f4091a2d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>f3063bb9-abd8-4cc0-b882-496703fca132</parentFolderId>
+      <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+      <packageName>Intent.AspNetCore.HealthChecks</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -92,22 +102,28 @@
       <childElements>
         <childElement id="4a4b08b8-486a-47db-b23d-256950b921bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics.HealthChecks</name>
+          <display>Microsoft.Extensions.Diagnostics.HealthChecks (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f27cdcd1-2616-497f-8f5f-1984f4091a2d</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3a40da99-dec7-4d2a-86e9-402b8e411111" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f27cdcd1-2616-497f-8f5f-1984f4091a2d</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

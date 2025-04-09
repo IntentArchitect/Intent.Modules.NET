@@ -49,7 +49,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
     public class QueryNoImpl4RequestModel
     {
-        [FromQueryParams]
+        [FromQuery]
         public string Param { get; set; }
     }
 }

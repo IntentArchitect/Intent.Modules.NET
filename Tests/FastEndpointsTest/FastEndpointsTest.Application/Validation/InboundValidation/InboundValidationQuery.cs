@@ -43,35 +43,35 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
             RegexField = regexField;
         }
 
-        [FromQueryParams]
+        [FromQuery]
         public string RangeStr { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string MinStr { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string MaxStr { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public int RangeInt { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public int MinInt { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public int MaxInt { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string IsRequired { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string IsRequiredEmpty { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public decimal DecimalRange { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public decimal DecimalMin { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public decimal DecimalMax { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string? StringOption { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string? StringOptionNonEmpty { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public EnumDescriptions MyEnum { get; set; }
-        [FromQueryParams]
+        [FromQuery]
         public string RegexField { get; set; }
     }
 }

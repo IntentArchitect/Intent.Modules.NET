@@ -102,8 +102,9 @@
     </childElement>
     <childElement id="63f7e610-1984-4745-81d0-539fcc76454f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.0</name>
-      <display>8.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>5d71b87f-6527-477b-963d-d7aae0185ef7</parentFolderId>
@@ -124,22 +125,28 @@
       <childElements>
         <childElement id="058e8fe9-359e-4e49-ba70-aa634f6f3357" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AspNetCore.HealthChecks.UI.Data</name>
+          <display>AspNetCore.HealthChecks.UI.Data (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63f7e610-1984-4745-81d0-539fcc76454f</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f1cdc698-e9ae-47a0-888b-ae8f67a31034" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.InMemory</name>
+          <display>Microsoft.EntityFrameworkCore.InMemory (8.0.11)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.11</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>63f7e610-1984-4745-81d0-539fcc76454f</parentFolderId>
+          <packageId>e6221ccc-a1bd-4be6-b4d0-e0b8f7e3004c</packageId>
+          <packageName>Intent.AspNetCore.HealthChecks</packageName>
           <stereotypes />
           <metadata />
           <childElements />

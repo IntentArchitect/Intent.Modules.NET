@@ -1,8 +1,10 @@
 param functionAppName string = 'azure-functions.azure-service-bus-${uniqueString(resourceGroup().id)}'
-param serviceBusNamespaceName string = 'azure-functions.azure-service-bus'
+param appInsightsName string = 'app-insights-${uniqueString(resourceGroup().id)}'
+param storageName string = 'storage${uniqueString(resourceGroup().id)}'
+param serviceBusNamespaceName string = 'service-bus-${uniqueString(resourceGroup().id)}'
 
 resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: 'app-insights-${functionAppName}'
+  name: appInsightsName
   location: resourceGroup().location
   kind: 'web'
   properties: {
@@ -21,7 +23,7 @@ resource functionAppHostingPlan 'Microsoft.Web/serverfarms@2021-02-01' = {
 }
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
-  name: 'storage${uniqueString(resourceGroup().id)}'
+  name: storageName
   location: resourceGroup().location
   kind: 'StorageV2'
   sku: {

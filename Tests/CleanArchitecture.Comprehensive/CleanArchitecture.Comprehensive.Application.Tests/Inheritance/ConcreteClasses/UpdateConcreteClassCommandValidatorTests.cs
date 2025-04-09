@@ -34,7 +34,7 @@ namespace CleanArchitecture.Comprehensive.Application.Tests.Inheritance.Concrete
             // Arrange
             var validator = GetValidationBehaviour();
             // Act
-            var result = await validator.Handle(testCommand, () => Task.FromResult(Unit.Value), CancellationToken.None);
+            var result = await validator.Handle(testCommand, (c) => Task.FromResult(Unit.Value), CancellationToken.None);
 
             // Assert
             result.Should().Be(Unit.Value);
@@ -63,7 +63,7 @@ namespace CleanArchitecture.Comprehensive.Application.Tests.Inheritance.Concrete
             // Arrange
             var validator = GetValidationBehaviour();
             // Act
-            var act = async () => await validator.Handle(testCommand, () => Task.FromResult(Unit.Value), CancellationToken.None);
+            var act = async () => await validator.Handle(testCommand, (c) => Task.FromResult(Unit.Value), CancellationToken.None);
 
             // Assert
             act.Should().ThrowAsync<ValidationException>().Result
