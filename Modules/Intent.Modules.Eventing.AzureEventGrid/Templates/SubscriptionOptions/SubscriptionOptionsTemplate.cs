@@ -16,7 +16,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
                      using System.Collections.Generic;
                      using System.Threading;
                      using System.Threading.Tasks;
-                     using Azure.Messaging.ServiceBus;
+                     using Azure.Messaging.EventGrid;
                      
                      [assembly: DefaultIntentManaged(Mode.Fully)]
                      
@@ -36,7 +36,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
                              }
                          }
                          
-                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
+                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, EventGridEvent message, CancellationToken cancellationToken);
                          
                          public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync);
                      }

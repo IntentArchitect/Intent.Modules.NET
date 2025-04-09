@@ -52,7 +52,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                                         foreach (var publishMessage in publishMessages)
                                         {
                                             arg.AddStatement(
-                                                $"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["EventGrid:Topics:{publishMessage.GetTopicName()}:Key"]!, configuration["EventGrid:Topics:{publishMessage.GetTopicName()}:Endpoint"]!);""");
+                                                $"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["EventGrid:Topics:{publishMessage.GetTopicConfigurationName()}:Key"]!, configuration["EventGrid:Topics:{publishMessage.GetTopicConfigurationName()}:Endpoint"]!);""");
                                         }
                                     }));
                             }
@@ -87,7 +87,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
             foreach (var messageModel in GetMessagesBeingPublished().DistinctBy(k => k.GetTopicName()))
             {
                 RegisterEventGridTopic(
-                    messageModel.GetTopicName(),
+                    messageModel.GetTopicConfigurationName(),
                     messageModel.InternalElement.Package.ApplicationId
                 );
             }

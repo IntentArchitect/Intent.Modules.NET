@@ -22,6 +22,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureEventGridEventBusTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -36,17 +37,14 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddClass($"AzureEventGridEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
-                    @class.AddField("IConfiguration", "_configuration", field => field.PrivateReadOnly());
                     @class.AddField("List<object>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
-                    @class.AddField("Dictionary<string, string>", "_lookup", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IConfiguration", "configuration");
                         ctor.AddParameter($"IOptions<{this.GetPublisherOptionsName()}>", "options");
 
-                        ctor.AddStatement("_configuration = configuration;");
-                        ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);");
+                        ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);");
                     });
 
                     @class.AddMethod("void", "Publish", method =>
@@ -88,13 +86,13 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         });
                     });
 
-                    @class.AddMethod("ServiceBusMessage", "CreateEventGridEvent", method =>
+                    @class.AddMethod("EventGridEvent", "CreateEventGridEvent", method =>
                     {
                         method.Private().Static();
                         method.AddParameter("object", "message");
 
                         method.AddAssignmentStatement("var eventGridEvent", new CSharpInvocationStatement("new EventGridEvent")
-                            .AddArgument("subject", "Event")
+                            .AddArgument("subject", @"""Event""")
                             .AddArgument("eventType", "message.GetType().FullName")
                             .AddArgument("dataVersion", @"""1.0""")
                             .AddArgument("data", "message"));

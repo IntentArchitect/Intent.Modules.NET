@@ -22,6 +22,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureEventGridMessageDispatcherTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
@@ -49,10 +50,10 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
 
                     @class.AddMethod("async Task", "DispatchAsync", method =>
                     {
-                        method.AddParameter("ServiceBusReceivedMessage", "message");
+                        method.AddParameter("EventGridEvent", "message");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        method.AddStatement("""var messageTypeName = message.ApplicationProperties["MessageType"].ToString()!;""");
+                        method.AddStatement("""var messageTypeName = message.EventType;""");
                         method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)",
                             block => { block.AddStatement("await handlerAsync(_serviceProvider, message, cancellationToken);"); });
                     });
