@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,14 +23,54 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
         public AzureEventGridMessageDispatcherTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Azure.Messaging.EventGrid")
+                .AddUsing("Microsoft.Extensions.Options")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AzureEventGridMessageDispatcher", @class =>
                 {
+                    @class.AddField("IServiceProvider", "_serviceProvider", field => field.PrivateReadOnly());
+                    @class.AddField("Dictionary<string, DispatchHandler>", "_handlers", field => field.PrivateReadOnly());
+
+                    @class.ImplementsInterface(this.GetAzureEventGridMessageDispatcherInterfaceName());
+
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("string", "exampleParam", param =>
-                        {
-                            param.IntroduceReadonlyField();
-                        });
+                        ctor.AddParameter("IServiceProvider", "serviceProvider")
+                            .AddParameter($"IOptions<{this.GetSubscriptionOptionsName()}>", "options");
+
+                        ctor.AddStatement("_serviceProvider = serviceProvider;")
+                            .AddStatement("_handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);");
+                    });
+
+                    @class.AddMethod("async Task", "DispatchAsync", method =>
+                    {
+                        method.AddParameter("ServiceBusReceivedMessage", "message");
+                        method.AddParameter("CancellationToken", "cancellationToken");
+
+                        method.AddStatement("""var messageTypeName = message.ApplicationProperties["MessageType"].ToString()!;""");
+                        method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)",
+                            block => { block.AddStatement("await handlerAsync(_serviceProvider, message, cancellationToken);"); });
+                    });
+
+                    @class.AddMethod("Task", "InvokeDispatchHandler", method =>
+                    {
+                        method.Async().Static();
+                        method.AddGenericParameter("TMessage", out var tMessage);
+                        method.AddGenericParameter("THandler", out var tHandler);
+                        method.AddParameter("IServiceProvider", "serviceProvider");
+                        method.AddParameter("EventGridEvent", "message");
+                        method.AddParameter("CancellationToken", "cancellationToken");
+                        method.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
+                        method.AddGenericTypeConstraint(tHandler, c => c.AddType($"{this.GetIntegrationEventHandlerInterfaceName()}<{tMessage}>"));
+
+                        method.AddStatement($"var messageObj = message.Data.ToObjectFromJson<TMessage>()!;");
+                        method.AddStatement($"var handler = serviceProvider.GetRequiredService<{tHandler}>();");
+                        method.AddStatement("await handler.HandleAsync(messageObj, cancellationToken);");
                     });
                 });
         }

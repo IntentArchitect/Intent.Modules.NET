@@ -22,11 +22,16 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
         public AzureEventGridMessageDispatcherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("Azure.Messaging.EventGrid")
                 .AddInterface($"IAzureEventGridMessageDispatcher", @interface =>
                 {
-                    @interface.AddMethod("bool", "ExampleMethod", method =>
+                    @interface.AddMethod("Task", "DispatchAsync", method =>
                     {
-                        method.AddParameter("string", "exampleParam");
+                        method.Async();
+                        method.AddParameter("EventGridEvent", "message");
+                        method.AddParameter("CancellationToken", "cancellationToken");
                     });
                 });
         }
