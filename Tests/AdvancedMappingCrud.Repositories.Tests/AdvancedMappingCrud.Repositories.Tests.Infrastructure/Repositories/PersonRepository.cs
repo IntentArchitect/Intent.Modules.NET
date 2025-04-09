@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Contracts;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
@@ -19,6 +20,27 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
     {
         public PersonRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public PersonDC GetPersonByName(string name)
+        {
+            // TODO: Implement GetPersonByName (PersonRepository) functionality
+            throw new NotImplementedException("Your implementation here...");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public List<PersonDC> GetPersonsBySurname(string surname)
+        {
+            // TODO: Implement GetPersonsBySurname (PersonRepository) functionality
+            throw new NotImplementedException("Your implementation here...");
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public List<Guid> SetPersons(IEnumerable<PersonDC> people)
+        {
+            // TODO: Implement SetPersons (PersonRepository) functionality
+            throw new NotImplementedException("Your implementation here...");
         }
 
         public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(

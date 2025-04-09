@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d8c46d83-5d77-4cef-acc3-b3ebceb48c4a" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>PersonService</name>
+  <display>PersonService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>767d2f86-de29-4abb-8816-180c4b6005b6</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="0b4e2149-fc56-4e31-8569-64a046955c90" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetPersonsBySurname</name>
+      <display>GetPersonsBySurname(surname: string): GetPersonsBySurnamePersonDCDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4f66a5ba-f0a8-44f9-a018-20a48f9bf5df">
+        <typeId>21007dc3-6a8d-4b84-a398-d2677cc42575</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+        <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d8c46d83-5d77-4cef-acc3-b3ebceb48c4a</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="0232f55e-4cdf-4278-886c-f6fe7d613a39" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>surname</name>
+          <display>in : surname: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="1f879b72-ae26-4e1c-af79-3ebb3ed4fa60">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0b4e2149-fc56-4e31-8569-64a046955c90</parentFolderId>
+          <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+          <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

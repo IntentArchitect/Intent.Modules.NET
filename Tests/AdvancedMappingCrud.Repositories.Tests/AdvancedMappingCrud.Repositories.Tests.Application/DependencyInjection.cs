@@ -50,9 +50,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddTransient<IExtensiveDomainService, ExtensiveDomainService>();
             services.AddTransient<IClassicDomainServiceTestsService, ClassicDomainServiceTestsService>();
             services.AddTransient<IPagingTSService, PagingTSService>();
+            services.AddTransient<Interfaces.IPersonService, Implementation.PersonService>();
             services.AddTransient<IProductsService, ProductsService>();
             services.AddTransient<IUploadDownloadService, UploadDownloadService>();
-            services.AddTransient<IPersonService, PersonService>();
+            services.AddTransient<Interfaces.Customers.IPersonService, Implementation.Customers.PersonService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IIntegrationEventHandler<QuoteCreatedIntegrationEvent>, QuoteCreatedIntegrationEventHandler>();
             services.AddTransient<IIntegrationEventHandler<EnumSampleEvent>, EnumSampleHandler>();

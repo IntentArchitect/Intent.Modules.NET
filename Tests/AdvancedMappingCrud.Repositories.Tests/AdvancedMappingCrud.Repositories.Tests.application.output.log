@@ -2252,6 +2252,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d8c46d83-5d77-4cef-acc3-b3ebceb48c4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/PersonService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#731bd71b-a25c-47e6-89a8-46d5d82bcdc8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ProductsService.cs</ApplicationRelativeFilePath>
@@ -2424,6 +2432,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IPagingTSService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagingTSService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#d8c46d83-5d77-4cef-acc3-b3ebceb48c4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IPersonService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPersonService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3308,6 +3324,102 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#1b147d2a-5c6a-41c9-bdcd-efeaea00a3c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonByName/GetPersonByNameQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByName/GetPersonByNameQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#1b147d2a-5c6a-41c9-bdcd-efeaea00a3c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonByName/GetPersonByNameQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByName/GetPersonByNameQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#1b147d2a-5c6a-41c9-bdcd-efeaea00a3c1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonByName/GetPersonByNameQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByName/GetPersonByNameQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e94893bd-5c14-418c-85c4-518be356602d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonByNamePersonDCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByNamePersonDCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e94893bd-5c14-418c-85c4-518be356602d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonByNamePersonDCDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonByNamePersonDCDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#21007dc3-6a8d-4b84-a398-d2677cc42575</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonsBySurnamePersonDCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonsBySurnamePersonDCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#21007dc3-6a8d-4b84-a398-d2677cc42575</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/GetPersonsBySurnamePersonDCDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/GetPersonsBySurnamePersonDCDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#0a9c7dae-b034-4019-b907-6906bd1cac74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/PersonDCDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonDCDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#0a9c7dae-b034-4019-b907-6906bd1cac74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/PersonDCDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/PersonDCDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/SetPersons/SetPersonsCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/SetPersons/SetPersonsCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/SetPersons/SetPersonsCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/SetPersons/SetPersonsCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/People/SetPersons/SetPersonsCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>People/SetPersons/SetPersonsCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#f6adb1fa-5d30-4f23-befd-ed96b13094c2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Products/CreateProductTagDto.cs</ApplicationRelativeFilePath>
@@ -3872,6 +3984,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/OperationMapping/TaskItemContract.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OperationMapping/TaskItemContract.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>654a06fe-8cad-4e5d-9926-8c05b9693baf</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#952d04f5-a637-4a9a-ad5e-bcd04e43cd49</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/PersonDC.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PersonDC.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
