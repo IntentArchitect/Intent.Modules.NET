@@ -192,3 +192,45 @@ To migrate your Azure Functions applications from the .NET 6 In-Process model to
 7. **Change the Output Type**: In the Output Type, select `Console` to make the application an EXE.
 8. **Upgrade C# Projects**: Confirm that all other C# projects in the solution are also upgraded from .NET 6 to .NET 8.
 9. **Run the Software Factory**: Execute the Software Factory process. As a result, your `Startup.cs` file will be removed, and a new `Program.cs` will be created. Additionally, all Azure Functions within your project will be updated to align with the Isolated Process model.
+
+## How-to topics
+
+### How to use `Newtonsoft.Json` instead of `System.Text.Json` for `HttpTriggers`
+
+The `Http Trigger` Functions will be using the `AzureFunctionHelper` class to delegate the responsibility of deserializing the HTTP Payload to an incoming DTO.
+To configure your Azure Functions to use `Newtonsoft.Json` follow these steps:
+
+1. Add the following package references to your `API` project:
+    ```xml
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    </ItemGroup>
+    ```
+2. Inside the `AzureFunctionHelper` class replace the `SerializationSettings` and `DeserializeJsonContentAsync` members:
+    ```c#
+    [IntentIgnore]
+    private static readonly Newtonsoft.Json.JsonSerializerSettings SerializationSettings = new() { ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver() };
+    
+    [IntentIgnore]
+    public static async Task<T> DeserializeJsonContentAsync<T>(Stream jsonContentStream, CancellationToken cancellationToken)
+    {
+        var requestBody = await new StreamReader(jsonContentStream).ReadToEndAsync(cancellationToken);
+    
+        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(requestBody) ?? throw new FormatException("Unable to deserialize JSON content.");
+    }
+    ```
+3. Update the `ConfigureFunctionsWebApplication` in your `Program.cs` file to configure the outbound JSON serialization:
+   ```c#
+   var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication((ctx, builder) =>
+    {
+        //IntentIgnore
+        builder.Services.AddControllers()
+            .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            });
+    })
+    ...
+   ```
