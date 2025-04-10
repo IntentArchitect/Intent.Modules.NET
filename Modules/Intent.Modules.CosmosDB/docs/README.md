@@ -116,6 +116,37 @@ In this scenario you can explicitly model an `ETag` attribute of type nullable `
 
 Now you are in full control of how you want to use the `ETag`. Typically making sure you set the `ETag` for updates to the document to be the version you read.
 
+## JSON Serialization Considerations
+
+### System.Text.Json and Newtonsoft.Json Conflict
+
+When working with Cosmos DB in an API context, you may encounter serialization conflicts when working with dynamic objects. This occurs because:
+
+- API services typically use **System.Text.Json** for request/response serialization
+- The Cosmos DB SDK (**Microsoft.Azure.Cosmos.Client**) uses **Newtonsoft.Json** for database operations
+
+This conflict can cause issues particularly with complex types like `Dictionary<string, object>` where the two serializers handle dynamic content differently.
+
+### Handling dynamic object Properties
+
+When storing dynamic data (for example using `Dictionary<string, object>`) in Cosmos DB through an API layer, consider these approaches:
+
+#### Option 1: Store as string
+- Change properties from `Dictionary<string, object>` to `string` in your domain models (and optionally in API DTOs)
+- If keeping Dictionary in the API layer, manual conversion will be needed in your service layer
+- Best when your API doesn't need to query or process this dynamic data
+- Simple implementation, but sacrifices the ability to query into the dynamic content
+
+#### Option 2: Standardize on Newtonsoft.Json
+- Configure your API layer to use Newtonsoft.Json instead of System.Text.Json
+- Ensures consistent serialization behavior across the application
+- No need to transform data between layers
+- Purely infrastructural change with no impact on your domain model or API contracts
+
+This is not an exhaustive list but provides some options for you to consider.
+
+For API frameworks like ASP.NET Core or Azure Functions, you can configure the serialization options to use Newtonsoft.Json instead of the default System.Text.Json.
+
 ## Related Modules
 
 ### Intent.Metadata.DocumentDB
