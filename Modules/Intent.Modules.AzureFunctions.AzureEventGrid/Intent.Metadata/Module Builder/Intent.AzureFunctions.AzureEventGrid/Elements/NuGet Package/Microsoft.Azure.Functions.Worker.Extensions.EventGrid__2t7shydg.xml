@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d568b928-5402-4b47-8e7b-e7e323b1a2c4" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.Azure.Functions.Worker.Extensions.EventGrid</name>
+  <display>Microsoft.Azure.Functions.Worker.Extensions.EventGrid</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f119a8b1-9029-4566-86ab-873baee34432</parentFolderId>
+  <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+  <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d9f80920-5e90-4980-8364-31710a92465b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.5.0</name>
+      <display>3.5.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d568b928-5402-4b47-8e7b-e7e323b1a2c4</parentFolderId>
+      <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+      <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETStandard,Version=v2.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="fb83824e-5e81-43aa-9166-5efc57ca5e06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Messaging.EventGrid</name>
+          <display>Azure.Messaging.EventGrid (4.29.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>4.29.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4ccc7455-850f-4289-8690-ce746cde34cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Core</name>
+          <display>Microsoft.Azure.Functions.Worker.Core (1.20.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.20.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="27999751-0962-487b-94e0-ff09e14a70cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
+          <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>1.3.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d9f80920-5e90-4980-8364-31710a92465b</parentFolderId>
+          <packageId>0e7abe02-deab-48dc-a46f-4c54dcce6418</packageId>
+          <packageName>Intent.AzureFunctions.AzureEventGrid</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>
