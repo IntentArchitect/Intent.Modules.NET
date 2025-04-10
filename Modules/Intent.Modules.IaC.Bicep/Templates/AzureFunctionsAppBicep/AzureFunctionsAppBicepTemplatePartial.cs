@@ -125,7 +125,12 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 .Build());
             }
 
-            Dictionary<string, string> configVarMappings = new Dictionary<string, string>();
+            var configVarMappings = new Dictionary<string, string>();
+            
+            if (HasAzureServiceBus())
+            {
+                configVarMappings["AzureServiceBus:ConnectionString"] = "serviceBusConnectionString";
+            }
 
             foreach (var @event in _infrastructureEvents)
             {
@@ -139,7 +144,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Build());
 
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
-                    configVarMappings[configName] = varName;
+                    configVarMappings[configName] = varName + ".name";
                 }
                 else if (@event.InfrastructureComponent == Infrastructure.AzureServiceBus.TopicType)
                 {
@@ -151,7 +156,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Build());
 
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
-                    configVarMappings[configName] = varName;
+                    configVarMappings[configName] = varName + ".name";
                 }
                 else if (@event.InfrastructureComponent == Infrastructure.AzureServiceBus.SubscriptionType)
                 {
@@ -162,7 +167,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                         .Build());
 
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
-                    configVarMappings[configName] = varName;
+                    configVarMappings[configName] = varName + ".name";
                 }
             }
 
@@ -199,12 +204,6 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                                 arr.Object(obj => obj
                                     .Set("name", "'AzureWebJobsStorage'")
                                     .Set("value", "storageConnectionString"));
-                                if (HasAzureServiceBus())
-                                {
-                                    arr.Object(obj => obj
-                                        .Set("name", "'AzureServiceBus:ConnectionString'")
-                                        .Set("value", "serviceBusConnectionString"));
-                                }
                                 foreach (var request in _appSettingsRequests)
                                 {
                                     if (configVarMappings.TryGetValue(request.Key, out var varName))
@@ -212,7 +211,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                                         // Use the mapped variable name for this app setting
                                         arr.Object(obj => obj
                                             .Set("name", $"'{request.Key}'")
-                                            .Set("value", varName + ".name"));
+                                            .Set("value", varName));
                                     }
                                     else
                                     {

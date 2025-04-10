@@ -106,10 +106,6 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: storageConnectionString
         }
         {
-          name: 'AzureServiceBus:ConnectionString'
-          value: serviceBusConnectionString
-        }
-        {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'dotnet-isolated'
         }
@@ -144,6 +140,10 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'AzureServiceBus:SpecificTopicSubscription'
           value: specificTopicSubscription.name
+        }
+        {
+          name: 'AzureServiceBus:ConnectionString'
+          value: serviceBusConnectionString
         }
       ]
     }

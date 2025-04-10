@@ -118,6 +118,11 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                 });
         }
 
+        public override void BeforeTemplateExecution()
+        {
+            this.ApplyAppSetting("AzureServiceBus:ConnectionString", "");
+        }
+
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
 

@@ -185,7 +185,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
             var fullQueueConfigName = $"AzureServiceBus:{queueOrTopicConfigName}";
 
             this.ApplyAppSetting(fullQueueConfigName, queueOrTopicName);
-            this.ApplyAppSetting(fullSubscriptionConfigName, "");
+            this.ApplyAppSetting(fullSubscriptionConfigName, $"{queueOrTopicName}-subscription");
 
             PublishInfrastructureRegisteredEvent(
                 registrationEventName,
