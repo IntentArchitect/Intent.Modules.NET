@@ -68,6 +68,13 @@
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
   <moduleSettings></moduleSettings>
+  <interoperability>
+    <detect id="Intent.AzureFunctions">
+      <install>
+        <package id="Intent.AzureFunctions.AzureEventGrid" version="1.0.0-pre.0" />
+      </install>
+    </detect>
+  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
@@ -87,6 +94,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Services" src="Intent.Metadata/Module Builder/Intent.Eventing.AzureEventGrid/Intent.Eventing.AzureEventGrid.pkg.config" externalReference="484120b4-6231-4c94-aa60-61efe5c783a7" />
+    <install target="Services" src="modelers/Azure Event Grid Settings.designer.settings" externalReference="7e39f655-35a0-45a4-9c00-e92bef2f9196" />
   </metadata>
   <migrations />
 </package>

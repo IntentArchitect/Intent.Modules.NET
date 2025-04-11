@@ -33,6 +33,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Transactions")
+                .AddUsing("Azure")
                 .AddUsing("Azure.Messaging.EventGrid")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Microsoft.Extensions.Configuration")
@@ -83,7 +84,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         method.Async();
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                        method.AddIfStatement("!_messageQueue.Any()", fi =>
+                        method.AddIfStatement("_messageQueue.Count == 0", fi =>
                         {
                             fi.AddStatement("return;");
                         });

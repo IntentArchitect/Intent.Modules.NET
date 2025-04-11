@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>SpecificTopicOneMessage</name>
+  <display>SpecificTopicOneMessage</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>011dfbe1-3225-40d2-bc8d-d769b7120037</parentFolderId>
+  <packageId>011dfbe1-3225-40d2-bc8d-d769b7120037</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.Eventing.Messages</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" name="Azure Event Grid">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.AzureEventGrid</definitionPackageName>
+      <definitionPackageId>484120b4-6231-4c94-aa60-61efe5c783a7</definitionPackageId>
+      <properties>
+        <property name="5f7b74d7-5fea-4618-b30d-5a3ee30e15e8" display="Topic Name" value="specific-topic" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="c8de2d5e-f6c7-4a15-b43d-63438ffe7ce1" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>FieldA</name>
+      <display>FieldA: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="8b3b28a2-dcbe-4f0a-9d47-1512c46e5a8e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee</parentFolderId>
+      <packageId>011dfbe1-3225-40d2-bc8d-d769b7120037</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,57 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{B02D7FD4-01AC-40BC-BF8A-A94628B2F66C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureEventGrid.Api", "AzureFunctions.AzureEventGrid.Api\AzureFunctions.AzureEventGrid.Api.csproj", "{123230FB-082F-488B-8A13-63F10CE34188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{F5D89D0C-E666-4412-8326-80ADFA5A3FD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureEventGrid.Application", "AzureFunctions.AzureEventGrid.Application\AzureFunctions.AzureEventGrid.Application.csproj", "{5A484FC2-EB94-438E-9FC8-8323B2723E13}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{9B828EAD-7B7B-49B6-8A68-CB028A55F23B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureEventGrid.Domain", "AzureFunctions.AzureEventGrid.Domain\AzureFunctions.AzureEventGrid.Domain.csproj", "{33432848-8A33-4D90-83DB-6E32DB54B454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{A1EBDE22-A6C3-4028-95FA-6178AB127668}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureEventGrid.Infrastructure", "AzureFunctions.AzureEventGrid.Infrastructure\AzureFunctions.AzureEventGrid.Infrastructure.csproj", "{53DDAA35-C94D-4F45-A584-723BE91D5EA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{2D49073F-1E89-47A4-99ED-5DEDD9DFD866}"
+	ProjectSection(SolutionItems) = preProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{123230FB-082F-488B-8A13-63F10CE34188} = {B02D7FD4-01AC-40BC-BF8A-A94628B2F66C}
+		{5A484FC2-EB94-438E-9FC8-8323B2723E13} = {F5D89D0C-E666-4412-8326-80ADFA5A3FD6}
+		{33432848-8A33-4D90-83DB-6E32DB54B454} = {9B828EAD-7B7B-49B6-8A68-CB028A55F23B}
+		{53DDAA35-C94D-4F45-A584-723BE91D5EA6} = {A1EBDE22-A6C3-4028-95FA-6178AB127668}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{123230FB-082F-488B-8A13-63F10CE34188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123230FB-082F-488B-8A13-63F10CE34188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123230FB-082F-488B-8A13-63F10CE34188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123230FB-082F-488B-8A13-63F10CE34188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A484FC2-EB94-438E-9FC8-8323B2723E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A484FC2-EB94-438E-9FC8-8323B2723E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A484FC2-EB94-438E-9FC8-8323B2723E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A484FC2-EB94-438E-9FC8-8323B2723E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33432848-8A33-4D90-83DB-6E32DB54B454}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33432848-8A33-4D90-83DB-6E32DB54B454}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33432848-8A33-4D90-83DB-6E32DB54B454}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33432848-8A33-4D90-83DB-6E32DB54B454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53DDAA35-C94D-4F45-A584-723BE91D5EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53DDAA35-C94D-4F45-A584-723BE91D5EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53DDAA35-C94D-4F45-A584-723BE91D5EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53DDAA35-C94D-4F45-A584-723BE91D5EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

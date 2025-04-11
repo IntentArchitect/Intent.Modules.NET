@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f2148016-efbc-439d-8687-89b32fdc1366</correlationId>
+      <path>Intent.Modules.Eventing.AzureEventGrid/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-04-11T13:55:41.6195568Z</updatedAt>
+      <deviationsHash>4EEFE1D7FE9BDCF8E90A4B84D40386F366093C99F30DD64CACB7BD742AABF3CE</deviationsHash>
+      <fileHash>7565A1CF1A709141D81292DB45AB778C1A807294EFDEB72B803DFE76845E8F12</fileHash>
+    </file>
+  </files>
 </deviationsLog>

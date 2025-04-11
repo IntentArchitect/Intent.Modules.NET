@@ -45,7 +45,7 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Eventing
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
         {
-            if (!_messageQueue.Any())
+            if (_messageQueue.Count == 0)
             {
                 return;
             }

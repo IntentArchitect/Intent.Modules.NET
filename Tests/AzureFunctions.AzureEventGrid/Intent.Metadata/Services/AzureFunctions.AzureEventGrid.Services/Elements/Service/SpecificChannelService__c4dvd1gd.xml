@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="409838a1-2efe-42b7-a90d-da50dd544f56" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>SpecificChannelService</name>
+  <display>SpecificChannelService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6433daa4-2629-48a7-bbd6-fe222f161a68</parentFolderId>
+  <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="adc44efb-d772-4409-b0f5-5441093b40f3" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificTopicOne</name>
+      <display>SendSpecificTopicOne(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="d880ebfa-3da6-4b86-a7f5-d74925a591d4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>409838a1-2efe-42b7-a90d-da50dd544f56</parentFolderId>
+      <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="eeb3a66b-4616-4569-88a6-3a154bb9b76f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c33739bb-a65e-4ff6-a676-2b240ddfb990">
+            <typeId>c32af656-e7e2-4b42-831e-dfefb7f83857</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureEventGrid.Services</typePackageName>
+            <typePackageId>6433daa4-2629-48a7-bbd6-fe222f161a68</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>adc44efb-d772-4409-b0f5-5441093b40f3</parentFolderId>
+          <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+          <packageName>AzureFunctions.AzureEventGrid.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="3797a17c-60bf-4d0c-8393-eb0900aab588" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificTopicTwo</name>
+      <display>SendSpecificTopicTwo(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="383188c8-790f-4f12-afdb-b383b28c51a4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>409838a1-2efe-42b7-a90d-da50dd544f56</parentFolderId>
+      <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c59e4fe2-ff27-4bd3-a38a-d6c032bc8c28" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="15255b28-9670-4ce7-b962-4b2c2260bc7d">
+            <typeId>c32af656-e7e2-4b42-831e-dfefb7f83857</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureEventGrid.Services</typePackageName>
+            <typePackageId>6433daa4-2629-48a7-bbd6-fe222f161a68</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3797a17c-60bf-4d0c-8393-eb0900aab588</parentFolderId>
+          <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+          <packageName>AzureFunctions.AzureEventGrid.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

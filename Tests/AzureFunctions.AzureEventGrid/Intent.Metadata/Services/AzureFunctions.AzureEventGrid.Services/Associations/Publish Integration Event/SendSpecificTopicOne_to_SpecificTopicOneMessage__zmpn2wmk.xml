@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="278a4c0e-fb89-47db-af07-145aa767ed2a">
+  <sourceEnd id="f238dfe8-cc17-4a75-9127-baf20d767869" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : SpecificChannelService.SendSpecificTopicOne</display>
+    <order>0</order>
+    <typeReference id="bd2ffaa9-ea31-4cd5-b5ec-8216afeb67ef">
+      <typeId>adc44efb-d772-4409-b0f5-5441093b40f3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.Services</typePackageName>
+      <typePackageId>6433daa4-2629-48a7-bbd6-fe222f161a68</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="278a4c0e-fb89-47db-af07-145aa767ed2a" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] SpecificTopicOneMessage</display>
+    <order>1</order>
+    <typeReference id="c29ae13d-9da6-422c-a120-34f1b0fb45eb">
+      <typeId>0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.Eventing.Messages</typePackageName>
+      <typePackageId>011dfbe1-3225-40d2-bc8d-d769b7120037</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="4a338751-91d2-4c13-b0ad-bb2979c82f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="adc44efb-d772-4409-b0f5-5441093b40f3" location="[AzureFunctions.AzureEventGrid].[Services].[SendSpecificTopicOne]" />
+        <target applicationId="4a338751-91d2-4c13-b0ad-bb2979c82f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee" location="[AzureFunctions.AzureEventGrid].[Services].[SpecificTopicOneMessage]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Data}</expression>
+            <path>
+              <target id="0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee" name="SpecificTopicOneMessage" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="c8de2d5e-f6c7-4a15-b43d-63438ffe7ce1" name="FieldA" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="dto.Data" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="adc44efb-d772-4409-b0f5-5441093b40f3" name="SendSpecificTopicOne" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="eeb3a66b-4616-4569-88a6-3a154bb9b76f" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="ef69cbe6-9982-4ade-be79-46bb3adb79ba" name="Data" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

@@ -29,6 +29,8 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
         public AzureEventGridConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"AzureEventGridConfiguration", @class =>
                 {
                     @class.Static()
@@ -125,7 +127,8 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                 .ToArray();
         }
 
-        [IntentManaged(Mode.Fully)] public CSharpFile CSharpFile { get; }
+        [IntentManaged(Mode.Fully)]
+        public CSharpFile CSharpFile { get; }
 
         [IntentManaged(Mode.Fully)]
         protected override CSharpFileConfig DefineFileConfig()

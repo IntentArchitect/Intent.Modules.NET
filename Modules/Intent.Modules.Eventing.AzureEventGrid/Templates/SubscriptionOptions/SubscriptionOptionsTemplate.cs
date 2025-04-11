@@ -3,6 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly:IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate",Version= "1.0")]
+
 namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]

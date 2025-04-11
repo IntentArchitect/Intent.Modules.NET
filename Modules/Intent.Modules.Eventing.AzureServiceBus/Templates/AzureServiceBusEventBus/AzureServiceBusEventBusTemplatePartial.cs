@@ -75,7 +75,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                         method.Async();
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
 
-                        method.AddIfStatement("!_messageQueue.Any()", fi =>
+                        method.AddIfStatement("_messageQueue.Count == 0", fi =>
                         {
                             fi.AddStatement("return;");
                         });

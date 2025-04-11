@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AzureFunctions.AzureEventGrid.Application\AzureFunctions.AzureEventGrid.Application.csproj" />
+    <ProjectReference Include="..\AzureFunctions.AzureEventGrid.Infrastructure\AzureFunctions.AzureEventGrid.Infrastructure.csproj" />
+    <ProjectReference Include="..\AzureFunctions.AzureEventGrid.Domain\AzureFunctions.AzureEventGrid.Domain.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+    <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.0.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.EventGrid" Version="3.5.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.5.1" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.0" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+    </ItemGroup>
+
+</Project>

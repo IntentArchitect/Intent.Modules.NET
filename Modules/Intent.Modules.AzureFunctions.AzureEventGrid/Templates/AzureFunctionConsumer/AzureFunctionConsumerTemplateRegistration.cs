@@ -5,6 +5,7 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Eventing.AzureEventGrid.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -34,7 +35,6 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<AzureFunctionSubscriptionModel> GetModels(IApplication application)
         {
-            //return _metadataManager.Services(application);
             var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
             var results = new List<AzureFunctionSubscriptionModel>();
             foreach (var handlerModel in handlerModels)
@@ -43,10 +43,10 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                     .Select(sub => sub.Element?.AsMessageModel())
                     .Where(p => p is not null)
                     .Cast<MessageModel>()
-                    .Select(message => new AzureFunctionSubscriptionModel(HandlerModel: handlerModel)));
+                    .Select(message => new AzureFunctionSubscriptionModel(HandlerModel: handlerModel, TopicName: message.GetTopicConfigurationName())));
             }
             
-            //results = results.DistinctBy(k => k.).ToList();
+            results = results.DistinctBy(k => k.TopicName).ToList();
 
             return results;
         }

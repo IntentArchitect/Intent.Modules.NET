@@ -33,6 +33,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>d40b4c30-d92d-472e-a2da-42d2acce0922</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#7e39f655-35a0-45a4-9c00-e92bef2f9196</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/Azure Event Grid Settings.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Event Grid Settings.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>96691ef8-4f20-4068-bced-92460c90ee07</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
