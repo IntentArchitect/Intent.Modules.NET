@@ -24,7 +24,7 @@ resource eventGridSub 'Microsoft.EventGrid/eventSubscriptions@2021-12-01' = {
       }
       filter: {
         includedEventTypes: [
-          'AzureFunctionsWithEventGrid.Eventing.Messages.ClientCreatedEvent'
+          'AzureFunctions.AzureEventGrid.Eventing.Messages.ClientCreatedEvent'
         ]
       }
     }
@@ -37,12 +37,13 @@ resource eventGridTopicSpecificSub 'Microsoft.EventGrid/eventSubscriptions@2021-
       destination: {
         endpointType: 'AzureFunction'
         properties: {
-            resourceId: '${functionAppAzureFunctionEventGrid.id}/functions/ClientCreatedEventConsumer'
+            resourceId: '${functionAppAzureFunctionEventGrid.id}/functions/SpecificTopicMessageConsumer'
         }
       }
       filter: {
         includedEventTypes: [
-          'AzureFunctionsWithEventGrid.Eventing.Messages.ClientCreatedEvent'
+          'AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicOneMessageEvent'
+          'AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicTwoMessageEvent'
         ]
       }
     }

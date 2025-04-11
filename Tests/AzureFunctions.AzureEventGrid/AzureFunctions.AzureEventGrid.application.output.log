@@ -50,6 +50,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4af9acd7-dd01-4c7e-8390-4257615af688</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/CreateClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#123230fb-082f-488b-8a13-63f10ce34188</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/host.json</ApplicationRelativeFilePath>
@@ -86,6 +94,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#adc44efb-d772-4409-b0f5-5441093b40f3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificChannelService/SendSpecificTopicOne.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpecificChannelService/SendSpecificTopicOne.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3797a17c-60bf-4d0c-8393-eb0900aab588</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificChannelService/SendSpecificTopicTwo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpecificChannelService/SendSpecificTopicTwo.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
