@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -45,7 +48,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                     .Cast<MessageModel>()
                     .Select(message => new AzureFunctionSubscriptionModel(HandlerModel: handlerModel, TopicName: message.GetTopicConfigurationName())));
             }
-            
+
             results = results.DistinctBy(k => k.TopicName).ToList();
 
             return results;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionConsumer;
 using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
