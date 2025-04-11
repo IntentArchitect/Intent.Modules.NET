@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureEventGr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{2D49073F-1E89-47A4-99ED-5DEDD9DFD866}"
 	ProjectSection(SolutionItems) = preProject
+		az_functions.bicep = az_functions.bicep
+		az_subscriptions.bicep = az_subscriptions.bicep
 	EndProjectSection
 EndProject
 Global
