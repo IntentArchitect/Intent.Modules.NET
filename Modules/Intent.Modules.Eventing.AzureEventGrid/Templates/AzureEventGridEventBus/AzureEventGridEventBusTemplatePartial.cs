@@ -39,10 +39,10 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddClass($"AzureEventGridEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
-                    @class.AddField("List<MessageEvent>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
+                    @class.AddField("List<MessageEntry>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, PublisherEntry>", "_lookup", field => field.PrivateReadOnly());
 
-                    @class.NestedClasses.Add(new CSharpRecord("MessageEvent", CSharpFile)
+                    @class.NestedClasses.Add(new CSharpRecord("MessageEntry", CSharpFile)
                         .Private()
                         .AddPrimaryConstructor(ctor =>
                         {
@@ -64,7 +64,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         method.AddParameter(T, "message");
 
                         method.AddStatement("ValidateMessage(message);");
-                        method.AddStatement("_messageQueue.Add(new MessageEvent(message, null));");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, null));");
                     });
                     
                     @class.AddMethod("void", "Publish", method =>
@@ -75,7 +75,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         method.AddParameter("string", "subject");
 
                         method.AddStatement("ValidateMessage(message);");
-                        method.AddStatement("_messageQueue.Add(new MessageEvent(message, subject));");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, subject));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -88,11 +88,11 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                             fi.AddStatement("return;");
                         });
 
-                        method.AddForEachStatement("message", "_messageQueue", fe =>
+                        method.AddForEachStatement("entry", "_messageQueue", fe =>
                         {
-                            fe.AddStatement("var publisherEntry = _lookup[message.GetType().FullName!];");
+                            fe.AddStatement("var publisherEntry = _lookup[entry.Message.GetType().FullName!];");
                             fe.AddStatement("var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));");
-                            fe.AddStatement("var eventGridEvent = CreateEventGridEvent(message, message.Subject);");
+                            fe.AddStatement("var eventGridEvent = CreateEventGridEvent(entry.Message, entry.Subject);");
                             fe.AddStatement("await client.SendEventAsync(eventGridEvent, cancellationToken);");
                         });
                     });
@@ -114,7 +114,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         method.AddParameter(outputTarget.GetProject().NullableEnabled ? "string?" : "string", "subject");
 
                         method.AddAssignmentStatement("var eventGridEvent", new CSharpInvocationStatement("new EventGridEvent")
-                            .AddArgument("subject", @"subject ?? """"")
+                            .AddArgument("subject", @"subject ?? ""Event""")
                             .AddArgument("eventType", "message.GetType().FullName")
                             .AddArgument("dataVersion", @"""1.0""")
                             .AddArgument("data", "message"));
