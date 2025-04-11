@@ -62,9 +62,9 @@ namespace AzureFunctions.AzureEventGrid.Api.SpecificChannelService
                     await _appService.SendSpecificTopicOne(dto, cancellationToken);
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
                     transaction.Complete();
+                    await _eventBus.FlushAllAsync(cancellationToken);
                     return new CreatedResult(string.Empty, null);
                 }
-                await _eventBus.FlushAllAsync(cancellationToken);
             }
             catch (ValidationException exception)
             {
@@ -72,7 +72,7 @@ namespace AzureFunctions.AzureEventGrid.Api.SpecificChannelService
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (JsonException exception)
             {

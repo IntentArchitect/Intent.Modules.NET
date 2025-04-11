@@ -54,7 +54,7 @@ namespace AzureFunctions.AzureEventGrid.Api
             }
             catch (NotFoundException exception)
             {
-                return new NotFoundObjectResult(new { Message = exception.Message });
+                return new NotFoundObjectResult(new { exception.Message });
             }
             catch (JsonException exception)
             {

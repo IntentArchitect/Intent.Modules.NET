@@ -37,6 +37,8 @@ namespace AzureFunctions.AzureEventGrid.Api
         [Function("SpecificTopicMessageConsumer")]
         public async Task Run([EventGridTrigger] EventGridEvent message, CancellationToken cancellationToken)
         {
+            //IntentIgnore
+            _logger.LogInformation("Processing SpecificTopicMessageConsumer");
             try
             {
                 // The execution is wrapped in a transaction scope to ensure that if any other
