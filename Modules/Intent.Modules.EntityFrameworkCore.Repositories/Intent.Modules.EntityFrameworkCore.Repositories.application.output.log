@@ -106,38 +106,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fd326fd3-172e-4ac9-be6d-5128e4f785cf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CustomRepository/CustomRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomRepository/CustomRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#fd326fd3-172e-4ac9-be6d-5128e4f785cf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CustomRepository/CustomRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomRepository/CustomRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9b97d975-2d5b-4183-a3a2-9843b814cfc3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#9b97d975-2d5b-4183-a3a2-9843b814cfc3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d1adde7e-cf09-420d-814c-ae0f202fde68</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d500e538-e02c-4c72-844a-887ed913529a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/DataContractExtensionMethods/DataContractExtensionMethodsTemplatePartial.cs</ApplicationRelativeFilePath>

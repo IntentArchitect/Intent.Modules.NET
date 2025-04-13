@@ -31,6 +31,8 @@ namespace Intent.Modules.Dapr.AspNetCore.StateManagement.Templates.DaprStateStor
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DaprStateStoreRepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Repository.Implementation.Entity);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")

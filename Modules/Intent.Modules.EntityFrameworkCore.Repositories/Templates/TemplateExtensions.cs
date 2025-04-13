@@ -1,9 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
-using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository;
-using Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractExtensionMethods;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
@@ -18,25 +15,6 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetCustomRepositoryName<T>(this IIntentTemplate<T> template) where T : RepositoryModel
-        {
-            return template.GetTypeName(CustomRepositoryTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetCustomRepositoryName(this IIntentTemplate template, RepositoryModel model)
-        {
-            return template.GetTypeName(CustomRepositoryTemplate.TemplateId, model);
-        }
-
-        public static string GetCustomRepositoryInterfaceName<T>(this IIntentTemplate<T> template) where T : RepositoryModel
-        {
-            return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetCustomRepositoryInterfaceName(this IIntentTemplate template, RepositoryModel model)
-        {
-            return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, model);
-        }
 
         public static string GetDataContractExtensionMethodsName<T>(this IIntentTemplate<T> template) where T : DataContractModel
         {

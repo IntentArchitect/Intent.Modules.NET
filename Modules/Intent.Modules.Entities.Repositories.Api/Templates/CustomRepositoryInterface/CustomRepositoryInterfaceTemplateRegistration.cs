@@ -13,24 +13,24 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.Dapper.Templates.CustomRepository
+namespace Intent.Modules.Entities.Repositories.Api.Templates.CustomRepositoryInterface
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class CustomRepositoryTemplateRegistration : FilePerModelTemplateRegistration<RepositoryModel>
+    public class CustomRepositoryInterfaceTemplateRegistration : FilePerModelTemplateRegistration<RepositoryModel>
     {
         private readonly IMetadataManager _metadataManager;
 
-        public CustomRepositoryTemplateRegistration(IMetadataManager metadataManager)
+        public CustomRepositoryInterfaceTemplateRegistration(IMetadataManager metadataManager)
         {
             _metadataManager = metadataManager;
         }
 
-        public override string TemplateId => CustomRepositoryTemplate.TemplateId;
+        public override string TemplateId => CustomRepositoryInterfaceTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, RepositoryModel model)
         {
-            return new CustomRepositoryTemplate(outputTarget, model);
+            return new CustomRepositoryInterfaceTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]

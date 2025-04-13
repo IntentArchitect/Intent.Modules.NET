@@ -39,7 +39,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepository
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
             string nullableChar = OutputTarget.GetProject().NullableEnabled ? "?" : "";
 
-            //AddTypeSource(TemplateRoles.Domain.Entity.Primary);
+            FulfillsRole(TemplateRoles.Repository.Implementation.Entity);
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Azure.CosmosRepository.Options")

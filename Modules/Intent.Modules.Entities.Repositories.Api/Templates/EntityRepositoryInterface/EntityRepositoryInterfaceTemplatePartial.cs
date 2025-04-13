@@ -27,6 +27,8 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
         public EntityRepositoryInterfaceTemplate(IOutputTarget outputTarget, ClassModel model)
             : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Repository.Interface.Entity);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Threading")

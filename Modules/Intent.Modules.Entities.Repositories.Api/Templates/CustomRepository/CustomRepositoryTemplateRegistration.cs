@@ -13,7 +13,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.FilePerModel", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepository
+namespace Intent.Modules.Entities.Repositories.Api.Templates.CustomRepository
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class CustomRepositoryTemplateRegistration : FilePerModelTemplateRegistration<RepositoryModel>
@@ -37,7 +37,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomReposi
         public override IEnumerable<RepositoryModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application).GetRepositoryModels()
-                .Where(x => x.TypeReference.Element == null);
+                 .Where(x => x.TypeReference.Element == null);
         }
     }
 }

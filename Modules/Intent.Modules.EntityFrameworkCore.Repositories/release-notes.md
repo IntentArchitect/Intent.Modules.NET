@@ -1,3 +1,7 @@
+### Version 4.7.8
+
+- Improvement: Moved custom repository creation out of this module into a centeral module so it can be used by any database provider.
+
 ### Version 4.7.7
 
 - Fixed: A Software Factory exception would occur when a Repository element was created in a Domain package which did not have a "Relational Database" stereotype applied.

@@ -12,23 +12,23 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.CustomRepositoryInterface
+namespace Intent.Modules.Entities.Repositories.Api.Templates.CustomRepositoryInterface
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CustomRepositoryInterfaceTemplate : CSharpTemplateBase<RepositoryModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface";
+        public const string TemplateId = "Intent.Entities.Repositories.Api.CustomRepositoryInterface";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CustomRepositoryInterfaceTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", @interface =>
-                {
-                    @interface.TryAddXmlDocComments(Model.InternalElement);
+               .AddInterface($"I{Model.Name.EnsureSuffixedWith("Repository")}", @interface =>
+               {
+                   @interface.TryAddXmlDocComments(Model.InternalElement);
 
-                    CustomRepositoryHelpers.ApplyInterfaceMethods<CustomRepositoryInterfaceTemplate, RepositoryModel>(this, Model);
-                });
+                   CustomRepositoryHelper.ApplyInterfaceMethods<CustomRepositoryInterfaceTemplate, RepositoryModel>(this, Model);
+               });
         }
 
         [IntentManaged(Mode.Fully)]

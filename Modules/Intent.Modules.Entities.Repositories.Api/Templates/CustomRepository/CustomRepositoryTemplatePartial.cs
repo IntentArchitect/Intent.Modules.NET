@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
@@ -8,45 +7,32 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Dapper.Templates.CustomRepositoryInterface;
+using Intent.Modules.Entities.Repositories.Api.Templates.CustomRepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Dapper.Templates.CustomRepository
+namespace Intent.Modules.Entities.Repositories.Api.Templates.CustomRepository
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public partial class CustomRepositoryTemplate : CSharpTemplateBase<RepositoryModel>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.Dapper.CustomRepository";
+        public const string TemplateId = "Intent.Entities.Repositories.Api.CustomRepository";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CustomRepositoryTemplate(IOutputTarget outputTarget, RepositoryModel model) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddClass($"{Model.Name.EnsureSuffixedWith("Repository")}", @class =>
-                {
-                    @class.ImplementsInterface(this.GetCustomRepositoryInterfaceName());
-                    @class.AddConstructor(ctor =>
-                    {
-                        //ctor.AddParameter(DbContextName, "dbContext", p => p.IntroduceReadonlyField());
-                    });
-                    RepositoryOperationHelper.ApplyMethods(this, @class, model);
-                })
-                .AfterBuild(file =>
-                {
-                    var @class = file.Classes.First();
-                    foreach (var method in @class.Methods)
-                    {
-                        if (!method.Statements.Any())
-                        {
-                            method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
-                            method.AddStatement($"""throw new {UseType("System.NotImplementedException")}("Your implementation here...");""");
-                        }
-                    }
-                }, 1000);
+               .AddClass($"{Model.Name.EnsureSuffixedWith("Repository")}", @class =>
+               {
+                   @class.ImplementsInterface(this.GetCustomRepositoryInterfaceName());
+
+                   CustomRepositoryHelper.ApplyImplementationMethods<CustomRepositoryTemplate, RepositoryModel>(
+                       template: this,
+                       repositoryModel: Model);
+               });
         }
 
         public override void BeforeTemplateExecution()

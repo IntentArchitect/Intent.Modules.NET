@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3c9c0772-c6d6-4cd1-8527-819d61753fc8" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+<class id="9ba9dcc5-196e-428a-b918-e8f51b7c02b5" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
   <name>CustomRepositoryInterface</name>
   <display>CustomRepositoryInterface: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="9fcbc5c0-f28c-4d40-a53e-5e77c5fbd5d8">
+  <typeReference id="8fad6dd3-8838-468c-a0f6-858a00d768ed">
     <typeId>99cb461f-ec82-4dde-a804-e3393a5e2a8d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</parentFolderId>
-  <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
-  <packageName>Intent.Dapper</packageName>
+  <parentFolderId>a059d995-a36f-4647-9c98-18ce340297eb</parentFolderId>
+  <packageId>a059d995-a36f-4647-9c98-18ce340297eb</packageId>
+  <packageName>Intent.Entities.Repositories.Api</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

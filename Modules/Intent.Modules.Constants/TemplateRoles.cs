@@ -65,6 +65,11 @@ namespace Intent.Modules.Constants
                 public const string PagedResult = "Repository.Interface.PagedResult";
                 public const string PagedList = "Repository.Interface.PagedList";
             }
+
+            public static class Implementation
+            {
+                public const string Entity = "Repository.Implementation.Entity";
+            }
         }
 
         public static class Application

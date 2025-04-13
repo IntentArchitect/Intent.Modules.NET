@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.CustomRepository;
+using Intent.Modules.Entities.Repositories.Api.Templates.CustomRepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.PagedListInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.RepositoryInterface;
@@ -15,6 +18,24 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCustomRepositoryName<T>(this IIntentTemplate<T> template) where T : RepositoryModel
+        {
+            return template.GetTypeName(CustomRepositoryTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetCustomRepositoryName(this IIntentTemplate template, RepositoryModel model)
+        {
+            return template.GetTypeName(CustomRepositoryTemplate.TemplateId, model);
+        }
+        public static string GetCustomRepositoryInterfaceName<T>(this IIntentTemplate<T> template) where T : RepositoryModel
+        {
+            return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetCustomRepositoryInterfaceName(this IIntentTemplate template, RepositoryModel model)
+        {
+            return template.GetTypeName(CustomRepositoryInterfaceTemplate.TemplateId, model);
+        }
         public static string GetEntityRepositoryInterfaceName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, template.Model);

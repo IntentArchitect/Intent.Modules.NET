@@ -22,17 +22,19 @@ using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
+using static Intent.Modules.Constants.TemplateRoles.Repository;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
-internal static class CustomRepositoryHelpers
+internal static class EntityFrameworkRepositoryHelpers
 {
-    public static void ApplyInterfaceMethods<TTemplate, TModel>(
+    public static void ApplyEFInterfaceMethods<TTemplate, TModel>(
         TTemplate template,
         RepositoryModel repositoryModel)
-        where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
+        where TTemplate : ICSharpFileBuilderTemplate
     {
         template.AddTypeSource(TemplateRoles.Domain.Enum);
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
@@ -48,36 +50,23 @@ internal static class CustomRepositoryHelpers
                     var operationModel = OperationModelExtensions.AsOperationModel(childElement);
                     if (operationModel != null)
                     {
-                        var returnType = operationModel.ReturnType is null ? "void" : template.GetTypeName(operationModel.ReturnType, "System.Collections.Generic.List<{0}>");
-                        @interface.AddMethod(returnType, operationModel.Name.ToPascalCase(), method =>
+                        var interfaceMethod = @interface.Methods.First(m => m.Name == operationModel.Name.ToPascalCase());
+
+                        var hasStoredProcStereotype = false;
+                        if (operationModel.TryGetStoredProcedure(out var stereotype))
                         {
-                            method.TryAddXmlDocComments(childElement);
-                            method.AddMetadata("model", operationModel);
-                            method.RepresentsModel(operationModel);
+                            interfaceMethod.WithReturnType(GetStoredProcedureReturnType(template, new GeneralizedStoredProcedure(operationModel, stereotype)));
+                            hasStoredProcStereotype = true;
+                        }
 
-                            foreach (var parameterModel in operationModel.Parameters)
-                            {
-                                method.AddParameter(template.GetTypeName(parameterModel.TypeReference), parameterModel.Name);
-                            }
-
-                            var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
-                            if (operationModel.TryGetStoredProcedure(out var stereotype))
-                            {
-                                method.WithReturnType(GetStoredProcedureReturnType(template, new GeneralizedStoredProcedure(operationModel, stereotype)));
-                                isAsync = true;
-                            }
-
-                            if (isAsync ||
-                                operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true))
-                            {
-                                template.CSharpFile.AddUsing("System.Threading");
-                                template.CSharpFile.AddUsing("System.Threading.Tasks");
-                                method.Async();
-                                method.AddOptionalCancellationTokenParameter();
-                            }
-                        });
-
-                        continue;
+                        if (interfaceMethod != null && (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true) 
+                            || hasStoredProcStereotype))
+                        {
+                            template.CSharpFile.AddUsing("System.Threading");
+                            template.CSharpFile.AddUsing("System.Threading.Tasks");
+                            interfaceMethod.Async();
+                            interfaceMethod.AddOptionalCancellationTokenParameter();
+                        }
                     }
 
                     var storedProcedureModel = childElement.AsStoredProcedureModel();
@@ -106,21 +95,23 @@ internal static class CustomRepositoryHelpers
                         });
                     }
                 }
-            });
+            }, 5);
     }
 
     /// <summary>
     /// Apply any custom repository methods to the first class of the provided <paramref name="template"/>.
     /// </summary>
-    public static void ApplyImplementationMethods<TTemplate, TModel>(
+    public static void ApplyEFImplementationMethods<TTemplate, TModel>(
         TTemplate template,
-        RepositoryModel repositoryModel,
-        DbContextInstance dbContextInstance)
-        where TTemplate : CSharpTemplateBase<TModel>, ICSharpFileBuilderTemplate
+        RepositoryModel repositoryModel)
+       where TTemplate : ICSharpFileBuilderTemplate
     {
         template.AddTypeSource(TemplateRoles.Domain.Enum);
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
+
+        var dbContextInstance = new DbContextInstance(repositoryModel.InternalElement.Package.AsDomainPackageModel());
+        var dbcontextName = dbContextInstance.GetTypeName(template);
 
         // The .Value of this must only be called from AfterBuild when the DbContext file has been built
         var dbSetPropertiesByModelId = new Lazy<Dictionary<string, CSharpProperty>>(() =>
@@ -138,32 +129,40 @@ internal static class CustomRepositoryHelpers
 
         var @class = template.CSharpFile.Classes.First();
 
+        // if its a non-entity repository, then add the constructor
+        if (repositoryModel.TypeReference.Element == null)
+        {
+            @class.AddConstructor(ctor =>
+            {
+                if (!string.IsNullOrWhiteSpace(dbcontextName))
+                {
+                    ctor.AddParameter(dbcontextName, "dbContext", p => p.IntroduceReadonlyField());
+                }
+            });
+        }
+
         foreach (var childElement in repositoryModel.InternalElement.ChildElements)
         {
             var operationModel = OperationModelExtensions.AsOperationModel(childElement);
             if (operationModel != null)
             {
-                var returnType = operationModel.ReturnType is null ? "void" : template.GetTypeName(operationModel.ReturnType, "System.Collections.Generic.List<{0}>");
-                @class.AddMethod(returnType, operationModel.Name.ToPascalCase(), method =>
+                template.CSharpFile.OnBuild(file =>
                 {
-                    method.AddMetadata("model", operationModel);
-                    method.RepresentsModel(operationModel);
+                    var method = @class.Methods.First(m => m.Name == operationModel.Name.ToPascalCase());
 
-                    foreach (var parameterModel in operationModel.Parameters)
-                    {
-                        method.AddParameter(template.GetTypeName(parameterModel.TypeReference), parameterModel.Name);
-                    }
-
-                    var isAsync = operationModel.Name.EndsWith("Async") || operationModel.HasStereotype("Asynchronous");
+                    var returnType = operationModel.ReturnType is null ? "void" : template.GetTypeName(operationModel.ReturnType, "System.Collections.Generic.List<{0}>");
+                    var hasStoredProcStereotype = false;
                     if (operationModel.TryGetStoredProcedure(out var stereotype))
                     {
                         method.WithReturnType(GetStoredProcedureReturnType(template, new GeneralizedStoredProcedure(operationModel, stereotype)));
-                        isAsync = true;
+                        hasStoredProcStereotype = true;
                     }
 
-                    if (isAsync ||
-                        operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true))
+                    if (method != null && (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true)
+                        || hasStoredProcStereotype))
                     {
+                        template.CSharpFile.AddUsing("System.Threading");
+                        template.CSharpFile.AddUsing("System.Threading.Tasks");
                         method.Async();
                         method.AddOptionalCancellationTokenParameter();
                     }
@@ -204,6 +203,19 @@ internal static class CustomRepositoryHelpers
                                 mappingManager.SetFromReplacement(type, expression);
                             }
 
+                            var removeStatements = method.Statements.Where(s => s.Text.StartsWith("// TODO: Implement ") || s.Text.StartsWith("throw new NotImplementedException")).ToList();
+                            foreach (var removeStatement in removeStatements)
+                            {
+                                method.Statements.Remove(removeStatement);
+                            }
+
+                            // we not longer want to ignore the method
+                            var ignoreAttributes = method.Attributes.Where(a => a.Statements.Any(s => s.Text.Contains("Body = Mode.Ignore"))).ToList();
+                            foreach (var ignoreAttribute in ignoreAttributes)
+                            {
+                                method.Attributes.Remove(ignoreAttribute);
+                            }
+
                             var generateTargetStatementForMapping = mappingManager.GenerateCreationStatement(resultMapping);
                             method.AddStatement(new CSharpReturnStatement(generateTargetStatementForMapping), s => s.SeparatedFromPrevious());
                         }
@@ -228,13 +240,7 @@ internal static class CustomRepositoryHelpers
 
                         return;
                     }
-
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
-                    method.AddStatement($"// TODO: Implement {method.Name} ({template.CSharpFile.Classes.First().Name}) functionality");
-                    method.AddStatement($"""throw new {template.UseType("System.NotImplementedException")}("Your implementation here...");""");
-                });
-
-                continue;
+                }, 2);
             }
 
             var storedProcedureModel = childElement.AsStoredProcedureModel();
@@ -420,7 +426,7 @@ internal static class CustomRepositoryHelpers
                                                  $"https://github.com/IntentArchitect/Support should you need support added.")
         };
 
-        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
+        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails != null &&  x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
         {
             method.AddStatement($"throw new {template.UseType("System.NotSupportedException")}(\"" +
                                 $"One or more parameters have a direction of both which is not presently supported, " +

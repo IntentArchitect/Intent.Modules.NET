@@ -1,8 +1,5 @@
 using System.Linq;
-using System.Reflection;
-using System.Threading;
 using Intent.Engine;
-using Intent.Metadata.DocumentDB.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -12,11 +9,9 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.Modelers.Domain.Settings;
 using Intent.Modules.MongoDb.Repositories.Templates;
-using Intent.Modules.MongoDb.Repositories.Templates.MongoRepositoryInterface;
 using Intent.Modules.MongoDb.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
