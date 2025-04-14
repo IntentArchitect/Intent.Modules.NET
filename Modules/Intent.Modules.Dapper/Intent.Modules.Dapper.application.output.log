@@ -58,7 +58,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa89c943-f9e2-431b-9846-51b8bc2e46f3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#918bf4b7-1a03-4cfa-bcf6-4fe2798faabf</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b6a408b-8659-4b1e-afcf-a2a312a0a509</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CustomRepository/CustomRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepository/CustomRepositoryTemplatePartial.cs</ProjectRelativeFilePath>
@@ -66,7 +66,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa89c943-f9e2-431b-9846-51b8bc2e46f3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#918bf4b7-1a03-4cfa-bcf6-4fe2798faabf</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#6b6a408b-8659-4b1e-afcf-a2a312a0a509</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CustomRepository/CustomRepositoryTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepository/CustomRepositoryTemplateRegistration.cs</ProjectRelativeFilePath>
@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa89c943-f9e2-431b-9846-51b8bc2e46f3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3c9c0772-c6d6-4cd1-8527-819d61753fc8</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#7e4a1053-bee2-4cbb-aa46-ffc9b3fc5590</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepositoryInterface/CustomRepositoryInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
@@ -82,7 +82,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>aa89c943-f9e2-431b-9846-51b8bc2e46f3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#3c9c0772-c6d6-4cd1-8527-819d61753fc8</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#7e4a1053-bee2-4cbb-aa46-ffc9b3fc5590</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepositoryInterface/CustomRepositoryInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
