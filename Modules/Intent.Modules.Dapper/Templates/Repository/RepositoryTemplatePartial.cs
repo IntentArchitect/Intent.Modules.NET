@@ -15,6 +15,8 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Dapper.Templates.EntityRepositoryInterface;
+using Intent.Modules.Dapper.Templates.RepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
@@ -33,8 +35,6 @@ namespace Intent.Modules.Dapper.Templates.Repository
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public RepositoryTemplate(IOutputTarget outputTarget, ClassModel model) : base(TemplateId, outputTarget, model)
         {
-            FulfillsRole(TemplateRoles.Repository.Implementation.Entity);
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
                 .AddUsing("System.Linq")
@@ -48,7 +48,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
                     @class.AddMetadata("model", model);
                     @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
                     @class.WithBaseType($"RepositoryBase<{EntityName}>");
-                    @class.ImplementsInterface(GetEntityRepositoryInterfaceName());
+                    @class.ImplementsInterface(this.GetEntityRepositoryInterfaceName());
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration");
@@ -224,7 +224,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
 
         public override void BeforeTemplateExecution()
         {
-            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(TemplateRoles.Repository.Interface.Entity, Model);
+            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(EntityRepositoryInterfaceTemplate.TemplateId, Model);
             if (contractTemplate == null)
             {
                 return;
@@ -233,12 +233,6 @@ namespace Intent.Modules.Dapper.Templates.Repository
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
                 .ForConcern("Infrastructure")
                 .ForInterface(contractTemplate));
-        }
-
-        public string GetEntityRepositoryInterfaceName()
-        {
-            var contractTemplate = Project.FindTemplateInstance<IClassProvider>(TemplateRoles.Repository.Interface.Entity, Model);
-            return this.GetTypeName(contractTemplate);
         }
 
         public string EntityName => GetTypeName("Domain.Entity", Model);

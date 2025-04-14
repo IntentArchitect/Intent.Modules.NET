@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="48c48427-91cb-4e34-9898-d0e7db6c5ffe" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>EntityRepositoryOperationExtension</name>
+  <display>EntityRepositoryOperationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</parentFolderId>
+  <packageId>6eb3f92d-a569-4d84-973a-6ff217c8cde5</packageId>
+  <packageName>Intent.Dapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
