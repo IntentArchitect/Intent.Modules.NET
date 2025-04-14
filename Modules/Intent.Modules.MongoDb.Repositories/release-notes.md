@@ -1,3 +1,7 @@
+### Version 1.2.4
+
+- Improvement: Added support for extending an entity repository as well as generating custom entity-less repositories.
+
 ### Version 1.2.3
 
 - Improvement: Module version bumps from MongoDb Module Dependency.

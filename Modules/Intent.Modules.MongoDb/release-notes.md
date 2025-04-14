@@ -1,7 +1,3 @@
-### Version 1.0.21
-
-- Improvement: Added support for extending an entity repository as well as generating custom entity-less repositories.
-
 ### Version 1.0.20
 
 - Improvement: Updated NuGet package versions.
