@@ -79,6 +79,22 @@ public static class CustomRepositoryHelper
 
         var @class = template.CSharpFile.Classes.First();
 
+        // at the end, on all empty methods
+        template.CSharpFile.AfterBuild(file =>
+        {
+            var @class = template.CSharpFile.Classes.First();
+
+            foreach (var method in @class.Methods)
+            {
+                if (!method.Statements.Any())
+                {
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                    method.AddStatement($"// TODO: Implement {method.Name} ({template.CSharpFile.Classes.First().Name}) functionality");
+                    method.AddStatement($"""throw new {template.UseType("System.NotImplementedException")}("Your implementation here...");""");
+                }
+            }
+        }, 1000);
+
         foreach (var childElement in repositoryModel.InternalElement.ChildElements)
         {
             var operationModel = OperationModelExtensions.AsOperationModel(childElement);
@@ -102,10 +118,6 @@ public static class CustomRepositoryHelper
                         method.Async();
                         method.AddOptionalCancellationTokenParameter();
                     }
-
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
-                    method.AddStatement($"// TODO: Implement {method.Name} ({template.CSharpFile.Classes.First().Name}) functionality");
-                    method.AddStatement($"""throw new {template.UseType("System.NotImplementedException")}("Your implementation here...");""");
                 });
 
                 continue;

@@ -203,19 +203,6 @@ internal static class EntityFrameworkRepositoryHelpers
                                 mappingManager.SetFromReplacement(type, expression);
                             }
 
-                            var removeStatements = method.Statements.Where(s => s.Text.StartsWith("// TODO: Implement ") || s.Text.StartsWith("throw new NotImplementedException")).ToList();
-                            foreach (var removeStatement in removeStatements)
-                            {
-                                method.Statements.Remove(removeStatement);
-                            }
-
-                            // we not longer want to ignore the method
-                            var ignoreAttributes = method.Attributes.Where(a => a.Statements.Any(s => s.Text.Contains("Body = Mode.Ignore"))).ToList();
-                            foreach (var ignoreAttribute in ignoreAttributes)
-                            {
-                                method.Attributes.Remove(ignoreAttribute);
-                            }
-
                             var generateTargetStatementForMapping = mappingManager.GenerateCreationStatement(resultMapping);
                             method.AddStatement(new CSharpReturnStatement(generateTargetStatementForMapping), s => s.SeparatedFromPrevious());
                         }
