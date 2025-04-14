@@ -1,3 +1,7 @@
+### Version 5.1.5
+
+- Improvement: Moved custom repository creation to this module leveraged by any database provider.
+
 ### Version 5.1.4
 
 - Fixed: Removed extraneous 2nd type parameter from `Intent.Entities.Repositories.Api.EntityRepositoryInterface` which would be generated for entities which were in a Domain Package without any particular persistence technology.
