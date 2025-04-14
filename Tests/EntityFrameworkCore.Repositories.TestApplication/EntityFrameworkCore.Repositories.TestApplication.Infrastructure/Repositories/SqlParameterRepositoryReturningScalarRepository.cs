@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.Data.SqlClient;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.CustomRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.CustomRepository", Version = "1.0")]
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories
 {

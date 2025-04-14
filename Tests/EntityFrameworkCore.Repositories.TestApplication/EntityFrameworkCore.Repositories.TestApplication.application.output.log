@@ -2556,7 +2556,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IAsyncRepositoryTestRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAsyncRepositoryTestRepository.cs</ProjectRelativeFilePath>
@@ -2564,7 +2564,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ICustomRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomRepository.cs</ProjectRelativeFilePath>
@@ -2604,7 +2604,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#959cf536-de8f-4d28-9a5b-6bb377f2f4d0</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#959cf536-de8f-4d28-9a5b-6bb377f2f4d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ISqlOutParameterRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISqlOutParameterRepository.cs</ProjectRelativeFilePath>
@@ -2612,7 +2612,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#88c07f87-a573-4490-bc15-0a4e0312546b</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#88c07f87-a573-4490-bc15-0a4e0312546b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ISqlParameterRepositoryReturningScalarRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISqlParameterRepositoryReturningScalarRepository.cs</ProjectRelativeFilePath>
@@ -2620,7 +2620,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#1f1d84f5-487c-4be7-8b0a-6091f672a2e0</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#1f1d84f5-487c-4be7-8b0a-6091f672a2e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ISqlParameterRepositoryWithNameRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISqlParameterRepositoryWithNameRepository.cs</ProjectRelativeFilePath>
@@ -2628,7 +2628,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#79feedd1-5039-4724-b9dd-c0f001e1430d</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#79feedd1-5039-4724-b9dd-c0f001e1430d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/ISqlParameterRepositoryWithoutNameRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISqlParameterRepositoryWithoutNameRepository.cs</ProjectRelativeFilePath>
@@ -2636,7 +2636,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#a5130ebe-8193-4498-be4f-83ae4a19f8f8</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#a5130ebe-8193-4498-be4f-83ae4a19f8f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/IStoredProcOperationsRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IStoredProcOperationsRepository.cs</ProjectRelativeFilePath>
@@ -2644,7 +2644,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>a78255f8-a7d1-49f7-a1bb-ab1ff20e7bb8</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Repositories/MappableStoredProcs/IMappableStoredProcRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappableStoredProcs/IMappableStoredProcRepository.cs</ProjectRelativeFilePath>
@@ -3036,7 +3036,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#32216cce-7ef2-48b2-a8aa-f7d7c29e103b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/AsyncRepositoryTestRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AsyncRepositoryTestRepository.cs</ProjectRelativeFilePath>
@@ -3060,7 +3060,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#fd0ee61c-23fc-46a0-9831-796371efc3ec</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/CustomRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomRepository.cs</ProjectRelativeFilePath>
@@ -3100,7 +3100,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#3391b7d1-e5ee-4518-a1e1-713572f5f04a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/MappableStoredProcs/MappableStoredProcRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappableStoredProcs/MappableStoredProcRepository.cs</ProjectRelativeFilePath>
@@ -3188,7 +3188,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#959cf536-de8f-4d28-9a5b-6bb377f2f4d0</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#959cf536-de8f-4d28-9a5b-6bb377f2f4d0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/SqlOutParameterRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SqlOutParameterRepository.cs</ProjectRelativeFilePath>
@@ -3196,7 +3196,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#88c07f87-a573-4490-bc15-0a4e0312546b</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#88c07f87-a573-4490-bc15-0a4e0312546b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/SqlParameterRepositoryReturningScalarRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SqlParameterRepositoryReturningScalarRepository.cs</ProjectRelativeFilePath>
@@ -3204,7 +3204,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#1f1d84f5-487c-4be7-8b0a-6091f672a2e0</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#1f1d84f5-487c-4be7-8b0a-6091f672a2e0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/SqlParameterRepositoryWithNameRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SqlParameterRepositoryWithNameRepository.cs</ProjectRelativeFilePath>
@@ -3212,7 +3212,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#79feedd1-5039-4724-b9dd-c0f001e1430d</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#79feedd1-5039-4724-b9dd-c0f001e1430d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/SqlParameterRepositoryWithoutNameRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SqlParameterRepositoryWithoutNameRepository.cs</ProjectRelativeFilePath>
@@ -3220,7 +3220,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7d4af5f9-2a30-4530-b610-3928716ca2a4</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#a5130ebe-8193-4498-be4f-83ae4a19f8f8</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#a5130ebe-8193-4498-be4f-83ae4a19f8f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Repositories/StoredProcOperationsRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>StoredProcOperationsRepository.cs</ProjectRelativeFilePath>

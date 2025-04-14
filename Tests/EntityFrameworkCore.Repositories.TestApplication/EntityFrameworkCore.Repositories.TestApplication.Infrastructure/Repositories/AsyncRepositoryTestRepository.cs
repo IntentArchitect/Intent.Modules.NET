@@ -6,7 +6,7 @@ using EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistenc
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.CustomRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.CustomRepository", Version = "1.0")]
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Repositories
 {
