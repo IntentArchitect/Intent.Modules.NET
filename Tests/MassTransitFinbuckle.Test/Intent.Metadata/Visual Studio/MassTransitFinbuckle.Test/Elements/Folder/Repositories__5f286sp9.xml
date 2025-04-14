@@ -69,9 +69,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="2b1e2536-cf75-4740-b01e-593dfa2dc4bb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+    <childElement id="947cf6a5-add1-407c-9363-be705789f892" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -85,16 +85,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="947cf6a5-add1-407c-9363-be705789f892" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="f3917973-4eea-4aa1-8dab-b9918be6b7b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>a991724e-fcf8-4308-ba65-42e5556f154f</parentFolderId>
-      <packageId>11d71a8d-e02a-4bfc-9a15-ba1756f154cc</packageId>
-      <packageName>MassTransitFinbuckle.Test</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

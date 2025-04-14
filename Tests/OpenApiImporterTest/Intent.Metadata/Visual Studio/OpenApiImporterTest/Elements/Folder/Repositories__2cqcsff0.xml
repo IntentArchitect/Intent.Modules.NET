@@ -51,9 +51,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="65f53b72-24b2-4c9d-86b8-9743f3a2d067" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+    <childElement id="5c0f15b4-2eaa-443d-921c-5709da9bd3d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -65,10 +65,10 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5c0f15b4-2eaa-443d-921c-5709da9bd3d4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="6a7888e3-b3d3-483b-9997-64dbe6ee89f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

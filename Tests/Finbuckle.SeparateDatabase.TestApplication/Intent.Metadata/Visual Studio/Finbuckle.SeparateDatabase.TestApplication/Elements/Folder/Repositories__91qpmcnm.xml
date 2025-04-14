@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="55c14e23-5562-4fbe-93f1-53b51d13d62a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>12e20783-c5f6-4be9-aa32-efde9d7dccdc</parentFolderId>
-      <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
-      <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="a4bd5c6f-e084-4891-a903-b421438541f1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
@@ -63,6 +47,20 @@
       <parentFolderId>12e20783-c5f6-4be9-aa32-efde9d7dccdc</parentFolderId>
       <packageId>b68aedb2-d547-4520-aa0f-90f84365f5a7</packageId>
       <packageName>Finbuckle.SeparateDatabase.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0763bc1f-ff88-4e2d-84ce-cde8184bf254" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>12e20783-c5f6-4be9-aa32-efde9d7dccdc</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

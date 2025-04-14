@@ -12,7 +12,7 @@ using SqlServerImporterTests.Infrastructure.Persistence;
 using SqlServerImporterTests.Infrastructure.Repositories.ExtensionMethods.Dbo;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.CustomRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.CustomRepository", Version = "1.0")]
 
 namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
 {

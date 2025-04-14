@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="ceddc97f-7b8c-46fb-830e-5aac2d389780" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>b89025a2-c7c0-4a89-bc4b-3f54d5d09cd9</parentFolderId>
-      <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
-      <packageName>MassTransit.AzureServiceBus</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="d053eec9-2968-4432-b9d9-ab91eba27148" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
@@ -63,6 +47,20 @@
       <parentFolderId>b89025a2-c7c0-4a89-bc4b-3f54d5d09cd9</parentFolderId>
       <packageId>ace25762-8d03-4a07-860f-0391c331ba2a</packageId>
       <packageName>MassTransit.AzureServiceBus</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="628dabea-a103-4158-bbd9-4b794a2e4a02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>b89025a2-c7c0-4a89-bc4b-3f54d5d09cd9</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -2180,6 +2180,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#d79899c9-6cea-44e6-b44d-7f5db5b74548</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/ICustomRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICustomRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d3e7d09-19c9-4357-8c73-751f590384f8</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#70f0a999-14c1-4507-af61-899454a66c1c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Domain/Repositories/IExplicitETagRepository.cs</ApplicationRelativeFilePath>
@@ -2472,6 +2480,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/CustomerCosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomerCosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2af958ea-bd83-48d7-b454-cec064683968</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#d79899c9-6cea-44e6-b44d-7f5db5b74548</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Infrastructure/Repositories/CustomRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

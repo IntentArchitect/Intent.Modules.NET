@@ -69,9 +69,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9cfe6555-d6ec-4ec4-a88c-61add2e672e3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+    <childElement id="05c4b5ae-e29a-4c3d-becf-05484195ca2f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -85,16 +85,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="05c4b5ae-e29a-4c3d-becf-05484195ca2f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="2a8b37cc-e986-4c89-9f43-aa163ce101a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>b546e1dd-a359-41e7-ade5-68f3b80762a4</parentFolderId>
-      <packageId>0869b96e-b1a4-43f4-892a-c68e14a898a5</packageId>
-      <packageName>SignalR</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -29,6 +29,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure
             services.AddScoped<IStockDocumentRepository, StockDocumentCosmosDBRepository>();
             services.AddScoped<CosmosDBUnitOfWork>();
             services.AddScoped<ICosmosDBUnitOfWork>(provider => provider.GetRequiredService<CosmosDBUnitOfWork>());
+            services.AddTransient<ICustomRepository, CustomRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;
         }

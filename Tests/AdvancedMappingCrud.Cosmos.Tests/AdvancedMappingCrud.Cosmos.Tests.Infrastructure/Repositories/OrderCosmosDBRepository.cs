@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Cosmos.Tests.Domain.Entities;
@@ -25,6 +26,13 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
             IOptionsMonitor<RepositoryOptions> optionsMonitor,
             IMapper mapper) : base(unitOfWork, cosmosRepository, "id", containerProvider, optionsMonitor, mapper)
         {
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public Guid ExtendedSaveOrderOperation()
+        {
+            // TODO: Implement ExtendedSaveOrderOperation (OrderCosmosDBRepository) functionality
+            throw new NotImplementedException("Your implementation here...");
         }
 
         public async Task<Order?> FindByIdAsync(string id, CancellationToken cancellationToken = default) => await base.FindByIdAsync(id: id, cancellationToken: cancellationToken);

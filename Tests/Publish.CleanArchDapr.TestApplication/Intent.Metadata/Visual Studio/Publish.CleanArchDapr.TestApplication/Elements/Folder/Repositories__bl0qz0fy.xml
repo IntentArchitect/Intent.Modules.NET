@@ -69,22 +69,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="3d689b3c-e35b-49aa-9c53-977d3983363e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>97a21a99-14e9-4754-bd28-a54383d0c7e2</parentFolderId>
-      <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
-      <packageName>Publish.CleanArchDapr.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="11b015c8-7824-4a48-9dff-81093d11e199" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
@@ -111,6 +95,20 @@
       <parentFolderId>97a21a99-14e9-4754-bd28-a54383d0c7e2</parentFolderId>
       <packageId>48870279-6a6e-44cf-b876-5d7bc32b1816</packageId>
       <packageName>Publish.CleanArchDapr.TestApplication</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f55f10d1-c537-4c44-b39c-f6dccf7f6412" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>97a21a99-14e9-4754-bd28-a54383d0c7e2</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

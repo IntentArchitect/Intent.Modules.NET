@@ -51,20 +51,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5113d4df-7b7a-44f5-af91-5d1053eed2ef" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="f77d6cb4-f617-4fb6-9c44-ddd0808647c7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
       <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
@@ -83,6 +69,20 @@
       <name>Intent.CosmosDB.CosmosDBRepositoryInterface</name>
       <display>Intent.CosmosDB.CosmosDBRepositoryInterface</display>
       <externalReference>Intent.CosmosDB</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="98e54ac3-fa43-4d32-b3e8-1406e648fdce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

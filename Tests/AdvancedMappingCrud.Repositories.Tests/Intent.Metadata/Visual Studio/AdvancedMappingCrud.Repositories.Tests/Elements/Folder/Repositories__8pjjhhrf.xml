@@ -69,9 +69,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1947fe0a-4679-483e-a044-4741a101f3f9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+    <childElement id="549626af-8701-4ab6-a4d2-6d0e46076ca3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -85,16 +85,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="549626af-8701-4ab6-a4d2-6d0e46076ca3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="79d02ad5-1e82-4a39-b26c-f5ffe04e5bae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</parentFolderId>
-      <packageId>e8c23427-3443-420a-b219-bac8e6a8f88b</packageId>
-      <packageName>AdvancedMappingCrud.Repositories.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

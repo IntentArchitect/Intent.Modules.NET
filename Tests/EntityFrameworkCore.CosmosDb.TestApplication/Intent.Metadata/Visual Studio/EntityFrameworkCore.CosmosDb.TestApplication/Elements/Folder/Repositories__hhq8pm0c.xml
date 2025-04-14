@@ -53,22 +53,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="b33723ef-1f2d-4ae7-b793-7606448f655b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</parentFolderId>
-      <packageId>56d31717-e6fb-4f75-a58a-879b4d0daef9</packageId>
-      <packageName>EntityFrameworkCore.CosmosDb.TestApplication</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="5b1006ed-4775-485d-87b6-00dad5ee37fe" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
       <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
@@ -88,6 +72,20 @@
     <childElement id="5372113d-98e9-4b33-947e-f60c568ec3cf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.Repositories.Api.PagedListInterface</name>
       <display>Intent.Entities.Repositories.Api.PagedListInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>bfb35fe0-e725-4b49-9ed5-6ff29dbb0454</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a7a3e3c2-fd10-4f8b-9ad1-4c9263b47ba3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
       <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

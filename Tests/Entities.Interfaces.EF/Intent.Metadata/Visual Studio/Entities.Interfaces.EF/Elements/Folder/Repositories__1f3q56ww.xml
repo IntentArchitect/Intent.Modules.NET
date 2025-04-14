@@ -69,9 +69,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1a627c18-8c58-47b4-8d45-ac522f40a390" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface</display>
+    <childElement id="f663c3dd-67ef-4f4a-afb9-f0b8b2144849" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
+      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
       <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -85,16 +85,14 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="f663c3dd-67ef-4f4a-afb9-f0b8b2144849" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</name>
-      <display>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+    <childElement id="4d268db0-21d6-4e81-9acc-f66773650053" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepositoryInterface</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepositoryInterface</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e0c09714-c5d0-48c9-8227-7d11309a40fb</parentFolderId>
-      <packageId>137f5938-aeca-428f-8bf9-326c432e2192</packageId>
-      <packageName>Entities.Interfaces.EF</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

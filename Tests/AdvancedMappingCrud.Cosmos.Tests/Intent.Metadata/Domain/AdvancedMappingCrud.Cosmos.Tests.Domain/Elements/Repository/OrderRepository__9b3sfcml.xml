@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d661f286-51ac-45d5-bbf0-628ac6a77834" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>OrderRepository</name>
+  <display>OrderRepository&lt;Order&gt;</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="3e14414b-61ff-4a58-871d-ec17365402aa">
+    <typeId>40a608b5-7171-4e71-99b3-6bce641aa33b</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+    <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>3598535c-7008-4c5a-8d70-4ec48535c07d</parentFolderId>
+  <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="a0bc6ddb-2625-49cf-9a76-38eb5e35e6b1" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>ExtendedSaveOrderOperation</name>
+      <display>ExtendedSaveOrderOperation(): guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e8a519c3-9c8c-439a-bd53-d2e034e6d748">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d661f286-51ac-45d5-bbf0-628ac6a77834</parentFolderId>
+      <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
+      <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

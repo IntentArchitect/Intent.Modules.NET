@@ -828,7 +828,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IOperationRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/IOperationRepository.cs</ProjectRelativeFilePath>
@@ -876,7 +876,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c412f4e0-426c-48cf-be73-c820d289893c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Domain/Repositories/Dbo/IStoredProcedureRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/IStoredProcedureRepository.cs</ProjectRelativeFilePath>
@@ -1252,7 +1252,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#eb2a6581-3bf2-474a-8474-303c0a03610e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/OperationRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/OperationRepository.cs</ProjectRelativeFilePath>
@@ -1300,7 +1300,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>7eb46063-2368-4d9b-b30d-95971eb730b0</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#6c5c1a9f-f4a2-40fe-8bd8-13ee7e3c11bf</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Repositories/Dbo/StoredProcedureRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Dbo/StoredProcedureRepository.cs</ProjectRelativeFilePath>

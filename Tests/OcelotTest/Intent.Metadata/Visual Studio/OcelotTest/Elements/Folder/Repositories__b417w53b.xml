@@ -21,22 +21,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="5f5bad7b-9d5e-4c19-9ed4-c48421e0b8d2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.Repositories.CustomRepository</name>
-      <display>Intent.EntityFrameworkCore.Repositories.CustomRepository</display>
-      <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>11cb9392-8622-4567-aa81-bbb2c894c323</parentFolderId>
-      <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
-      <packageName>OcelotTest</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="a35e7101-36c7-4b69-b021-2c69d9c2295d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
       <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
@@ -63,6 +47,20 @@
       <parentFolderId>11cb9392-8622-4567-aa81-bbb2c894c323</parentFolderId>
       <packageId>62529060-9af2-4e23-8b08-da066f8c4400</packageId>
       <packageName>OcelotTest</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3f302cc3-e8f9-4a8f-9df5-3ba71ce40754" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>Intent.Entities.Repositories.Api</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>11cb9392-8622-4567-aa81-bbb2c894c323</parentFolderId>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

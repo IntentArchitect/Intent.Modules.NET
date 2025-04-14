@@ -279,6 +279,20 @@
               </metadata>
               <childElements />
             </childElement>
+            <childElement id="706cb5d8-ab5a-407c-a4c7-b10ed7fda2ca" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+              <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+              <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+              <externalReference>Intent.Entities.Repositories.Api</externalReference>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>cb876e82-3814-49aa-8056-1552b440ac67</parentFolderId>
+              <stereotypes />
+              <metadata>
+                <entry key="status" value="assigned" />
+              </metadata>
+              <childElements />
+            </childElement>
           </childElements>
         </childElement>
         <childElement id="070f4a59-2afa-4659-a69c-79311badea14" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
