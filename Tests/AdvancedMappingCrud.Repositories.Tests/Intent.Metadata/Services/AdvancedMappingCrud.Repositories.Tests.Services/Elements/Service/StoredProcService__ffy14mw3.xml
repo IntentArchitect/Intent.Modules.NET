@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="76919ac2-9296-4781-9370-afcc14c721d2" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>StoredProcService</name>
+  <display>StoredProcService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2e38d179-8c72-4197-b338-52cf5cd12176</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3cc519c0-c9fe-4925-b7e8-9fb234a43cf2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetData</name>
+      <display>GetData(): GetDataEntryDto[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6700b481-7412-4e13-b164-ccd06b381fb9">
+        <typeId>e72840b5-475d-4c22-b866-dd7c4e39567a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+        <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>76919ac2-9296-4781-9370-afcc14c721d2</parentFolderId>
+      <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

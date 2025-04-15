@@ -8,6 +8,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDomain
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OperationMapping;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ServiceToServiceInvocations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
@@ -18,6 +19,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Extensi
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OperationMapping;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ServiceToServiceInvocations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +41,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IServiceStoredProcRepository, ServiceStoredProcRepository>();
             services.AddTransient<IBasicRepository, BasicRepository>();
             services.AddTransient<ICompanyContactRepository, CompanyContactRepository>();
             services.AddTransient<ICompanyContactSecondRepository, CompanyContactSecondRepository>();

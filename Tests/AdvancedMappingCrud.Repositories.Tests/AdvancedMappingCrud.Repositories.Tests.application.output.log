@@ -172,6 +172,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#f7ba6d31-5600-405a-bc65-a9ec29d117ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/ServiceToServiceInvocation/ExposedStoredProcController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/ExposedStoredProcController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/UploadDownloadController.cs</ApplicationRelativeFilePath>
@@ -2268,6 +2276,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#f7ba6d31-5600-405a-bc65-a9ec29d117ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ServiceToServiceInvocation/ExposedStoredProcService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/ExposedStoredProcService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#76919ac2-9296-4781-9370-afcc14c721d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/ServiceToServiceInvocation/StoredProcService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/StoredProcService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#d05c0654-f4d8-43a4-a732-735ffbd27724</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/UploadDownloadService.cs</ApplicationRelativeFilePath>
@@ -2464,6 +2488,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/OperationMapping/IUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OperationMapping/IUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#f7ba6d31-5600-405a-bc65-a9ec29d117ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/ServiceToServiceInvocation/IExposedStoredProcService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/IExposedStoredProcService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#76919ac2-9296-4781-9370-afcc14c721d2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/ServiceToServiceInvocation/IStoredProcService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/IStoredProcService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3516,6 +3556,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e72840b5-475d-4c22-b866-dd7c4e39567a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ServiceToServiceInvocation/GetDataEntryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/GetDataEntryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#e72840b5-475d-4c22-b866-dd7c4e39567a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/ServiceToServiceInvocation/GetDataEntryDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/GetDataEntryDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#5ae7c6a7-97fc-4f1a-b278-e549d6335bd2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Users/CreateUser/CreateUserCommand.cs</ApplicationRelativeFilePath>
@@ -3992,6 +4048,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/PersonDC.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PersonDC.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>654a06fe-8cad-4e5d-9926-8c05b9693baf</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#5e02851c-2b6f-4f40-a36d-a5ed6fefccbf</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Contracts/ServiceToServiceInvocations/GetDataEntry.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocations/GetDataEntry.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4656,6 +4720,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/OperationMapping/IUserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OperationMapping/IUserRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#127d2586-bd01-4657-ad8f-bd22137921d3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ServiceToServiceInvocations/IServiceStoredProcRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocations/IServiceStoredProcRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5324,6 +5396,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#127d2586-bd01-4657-ad8f-bd22137921d3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/ServiceToServiceInvocations/ServiceStoredProcRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocations/ServiceStoredProcRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a7b77563-def1-45b2-889c-91fa833ba330</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/UserRepository.cs</ApplicationRelativeFilePath>
@@ -5576,6 +5656,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ProductsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ProductsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#f7ba6d31-5600-405a-bc65-a9ec29d117ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ServiceToServiceInvocation/ExposedStoredProcServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/ExposedStoredProcServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#f7ba6d31-5600-405a-bc65-a9ec29d117ba</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ServiceToServiceInvocation/IExposedStoredProcService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceToServiceInvocation/IExposedStoredProcService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6316,6 +6412,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#e72840b5-475d-4c22-b866-dd7c4e39567a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/ServiceToServiceInvocation/GetDataEntryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/ServiceToServiceInvocation/GetDataEntryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#234e858c-4321-472b-bd71-517e8947785d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Users/CreateUserAddressCommand.cs</ApplicationRelativeFilePath>
@@ -6600,6 +6704,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Customers/UpdateCustomerTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Customers/UpdateCustomerTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c4e95f51-539f-42df-b672-8e5bd34857db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/ExposedStoredProcService/GetDataTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExposedStoredProcService/GetDataTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

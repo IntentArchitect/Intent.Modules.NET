@@ -1,3 +1,7 @@
+### Version 5.0.25
+
+- Fixed: Invoking Service Operations from other Service Operations with the same DTO type caused an exception.
+
 ### Version 5.0.24
 
 - Improvement: Added validations for Paging with missing parameters.

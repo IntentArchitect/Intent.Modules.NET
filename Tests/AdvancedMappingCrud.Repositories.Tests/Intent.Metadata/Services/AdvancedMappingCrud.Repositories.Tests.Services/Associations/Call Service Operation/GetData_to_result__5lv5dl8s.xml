@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3a292451-02eb-460c-a072-dee311746525">
+  <sourceEnd id="6c5ee673-7189-458f-964f-2035c97ae0ec" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : StoredProcService.GetData</display>
+    <order>0</order>
+    <typeReference id="afff366b-8db4-43d6-93a0-aac8ec750c48">
+      <typeId>3cc519c0-c9fe-4925-b7e8-9fb234a43cf2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3a292451-02eb-460c-a072-dee311746525" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetData(...): GetDataEntry[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="013d9bce-6d44-47eb-b3bb-ee76c24f5f7b">
+      <typeId>daa673a6-6ed0-44d0-84a9-52cf8bf50977</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3cc519c0-c9fe-4925-b7e8-9fb234a43cf2" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetData]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="daa673a6-6ed0-44d0-84a9-52cf8bf50977" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetData]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetData}</expression>
+            <path>
+              <target id="daa673a6-6ed0-44d0-84a9-52cf8bf50977" name="GetData" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="GetData" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="3cc519c0-c9fe-4925-b7e8-9fb234a43cf2" name="GetData" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

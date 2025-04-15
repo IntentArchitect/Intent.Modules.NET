@@ -1,3 +1,7 @@
+### Version 6.0.28
+
+- Fixed: Invoking Service Operations from other Service Operations with the same DTO type caused an exception.
+
 ### Version 6.0.27
 
 - Improvement: Added validations for Paging with missing parameters.
@@ -29,7 +33,7 @@
 ### Version 6.0.22
 
 - Improvement: Added support for ProjectTo query implementations for DBContext implementation CRUD Scenarios.
-- Improvement: Comparison expressions with `bool` will generate a simplifed expression (e.g. `x.IsActive` instead `x.IsActive == true`)
+- Improvement: Comparison expressions with `bool` will generate a simplified expression (e.g. `x.IsActive` instead `x.IsActive == true`)
 
 ### Version 6.0.21
 

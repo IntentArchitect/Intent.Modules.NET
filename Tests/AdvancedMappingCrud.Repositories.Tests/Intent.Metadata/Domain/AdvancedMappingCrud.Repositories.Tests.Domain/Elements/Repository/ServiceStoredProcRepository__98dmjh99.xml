@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="127d2586-bd01-4657-ad8f-bd22137921d3" type="Repository" typeId="96ffceb2-a70a-4b69-869b-0df436c470c3">
+  <name>ServiceStoredProcRepository</name>
+  <display>ServiceStoredProcRepository</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <typeReference id="6a360cd7-5b95-4225-ad42-78b371e77c29">
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>false</isCollection>
+    <isRequired>true</isRequired>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>ddd3f423-8dec-4701-9d9a-b6c47c0b091c</parentFolderId>
+  <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="daa673a6-6ed0-44d0-84a9-52cf8bf50977" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>GetData</name>
+      <display>GetData(): GetDataEntry[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2fad2c46-c2d7-4d1b-b5c8-2e877b2626f2">
+        <typeId>5e02851c-2b6f-4f40-a36d-a5ed6fefccbf</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+        <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>127d2586-bd01-4657-ad8f-bd22137921d3</parentFolderId>
+      <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
+      <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

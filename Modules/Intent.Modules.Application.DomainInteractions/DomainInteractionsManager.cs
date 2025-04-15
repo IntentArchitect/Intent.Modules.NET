@@ -382,11 +382,11 @@ public class DomainInteractionsManager
             }
 		}
 
-		if (TrackedEntities.Any() && returnType.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
-		{
-			var mappedElementId = returnType.Element.AsDTOModel().Mapping.ElementId;
-			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel?.Id == mappedElementId);
-
+        if (returnType.Element.AsDTOModel()?.IsMapped == true &&
+            TrackedEntities.Values.Any(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId) &&
+            _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
+        {
+            var entityDetails = TrackedEntities.Values.First(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
             {
                 statements.Add($"return {entityDetails.VariableName};");
@@ -397,8 +397,11 @@ public class DomainInteractionsManager
                 string nullable = returnType.IsNullable ? "?" : "";
                 statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
             }
-		}
-		else if (TrackedEntities.Any() && IsResultPaginated(returnType) && returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true && _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
+        }
+        else if (IsResultPaginated(returnType) && 
+                 returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
+                 TrackedEntities.Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
+                 _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
@@ -417,7 +420,7 @@ public class DomainInteractionsManager
 			var entity = entityDetails.ElementModel.AsClassModel();
 			statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name ?? "Id"};");
 		}
-		else if (TrackedEntities.Any() && TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
+		else if (TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
 		{
 			var entityDetails = TrackedEntities.Values.First(x => returnType.Element.Id == x.ElementModel.Id);
 			statements.Add($"return {entityDetails.VariableName};");
