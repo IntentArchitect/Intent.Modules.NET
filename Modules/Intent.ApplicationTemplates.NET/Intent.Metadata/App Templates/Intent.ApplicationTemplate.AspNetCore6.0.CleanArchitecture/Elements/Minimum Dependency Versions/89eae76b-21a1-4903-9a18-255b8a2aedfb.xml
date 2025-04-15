@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="e12102a4-a113-47b8-ada5-9f676f5d7c46" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.11</display>
+      <display>Intent.Common.CSharp 3.8.12</display>
       <isAbstract>false</isAbstract>
       <value>3.8.12</value>
       <genericTypes />
@@ -421,7 +421,7 @@
     </childElement>
     <childElement id="c4481412-fb2b-48ff-8654-a1f23c8b3292" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.5</display>
+      <display>Intent.Metadata.WebApi 4.7.6</display>
       <isAbstract>false</isAbstract>
       <value>4.7.6</value>
       <genericTypes />
@@ -561,7 +561,7 @@
     </childElement>
     <childElement id="14106d6d-8c5b-4dd4-9857-84e54e82194e" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.DomainInteractions</name>
-      <display>Intent.Modelers.Services.DomainInteractions 2.1.3</display>
+      <display>Intent.Modelers.Services.DomainInteractions 2.1.4</display>
       <isAbstract>false</isAbstract>
       <value>2.1.4</value>
       <genericTypes />
@@ -631,7 +631,7 @@
     </childElement>
     <childElement id="1237e5cd-bc35-4e10-b6eb-885ddfed48b2" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.4</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.5</display>
       <isAbstract>false</isAbstract>
       <value>4.9.5</value>
       <genericTypes />
