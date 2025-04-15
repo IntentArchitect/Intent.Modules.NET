@@ -20,7 +20,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Ser
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public List<Domain.Contracts.ServiceToServiceInvocations.GetDataEntry> GetData()
+        public List<GetDataEntry> GetData()
         {
             // TODO: Implement GetData (ServiceStoredProcRepository) functionality
             throw new NotImplementedException("Your implementation here...");
