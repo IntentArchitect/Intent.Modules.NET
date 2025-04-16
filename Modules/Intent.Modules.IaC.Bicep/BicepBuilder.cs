@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 internal class BicepResource : BicepObject
@@ -26,13 +27,13 @@ internal class BicepResource : BicepObject
         var indent = new string(' ', indentLevel * 2);
 
         var existing = _existing ? "existing " : string.Empty;
-        
+
         // Fix any double quotes issue
         var fixedType = _type.Replace("''", "'");
         sb.AppendLine($"resource {_name} {fixedType} {existing}= {{");
-        
+
         FormatProperties(sb, indentLevel + 1);
-        
+
         sb.AppendLine(indent + "}");
         return sb.ToString();
     }
@@ -80,23 +81,23 @@ internal class BicepObject
         foreach (var property in _properties)
         {
             count++;
-            
+
             sb.Append(indent + property.Key + ": ");
-            
+
             switch (property.Value)
             {
                 case BicepObject obj:
-                {
-                    var objContent = obj.Build(indentLevel);
-                    sb.AppendLine(objContent);
-                    break;
-                }
+                    {
+                        var objContent = obj.Build(indentLevel);
+                        sb.AppendLine(objContent);
+                        break;
+                    }
                 case BicepArray array:
-                {
-                    var arrayContent = array.Build(indentLevel);
-                    sb.AppendLine(arrayContent);
-                    break;
-                }
+                    {
+                        var arrayContent = array.Build(indentLevel);
+                        sb.AppendLine(arrayContent);
+                        break;
+                    }
                 default:
                     sb.AppendLine(property.Value.ToString());
                     break;
@@ -116,30 +117,45 @@ internal class BicepArray
         _items.Add(obj);
         return this;
     }
-    
+
+    public BicepArray ScalarValue(object scalarValue)
+    {
+        _items.Add(scalarValue);
+        return this;
+    }
+
     public string Build(int indentLevel)
     {
         var sb = new StringBuilder(64);
         var baseIndent = new string(' ', indentLevel * 2);
         var itemIndent = new string(' ', (indentLevel + 1) * 2);
-        
+
         sb.AppendLine("[");
-        
+
         for (var i = 0; i < _items.Count; i++)
         {
-            if (_items[i] is not BicepObject obj)
+            switch (_items[i])
             {
-                continue;
+                case BicepObject bicepObject:
+                {
+                    var objStr = bicepObject.Build(indentLevel + 1);
+                    sb.Append(itemIndent + objStr);
+                    break;
+                }
+                case string @string:
+                    sb.Append($"{itemIndent}'{@string}'");
+                    break;
+                case int @int:
+                    sb.Append(@int.ToString(CultureInfo.InvariantCulture));
+                    break;
             }
-            
-            var objStr = obj.Build(indentLevel + 1);
-            sb.Append(itemIndent + objStr);
+
             if (i < _items.Count - 1)
             {
                 sb.AppendLine();
             }
         }
-        
+
         sb.AppendLine();
         sb.Append(baseIndent + "]");
         return sb.ToString();

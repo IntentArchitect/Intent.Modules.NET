@@ -71,7 +71,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.ToKebabCase();
+            var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace('.', '-').ToKebabCase();
 
             var sb = new StringBuilder(128);
             sb.AppendLine($"param functionAppName string = '{sanitizedAppName}-${{uniqueString(resourceGroup().id)}}'");
@@ -105,7 +105,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 })
                 .Build());
 
-            sb.AppendLine(new BicepResource("storageAccount", "'Microsoft.Storage/storageAccounts@2021-02-01'")
+            sb.AppendLine(new BicepResource("storageAccount", "'Microsoft.Storage/storageAccounts@2022-09-01'")
                 .Set("name", "storageName")
                 .Set("location", "resourceGroup().location")
                 .Set("kind", "'StorageV2'")
@@ -132,7 +132,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 configVarMappings["AzureServiceBus:ConnectionString"] = "serviceBusConnectionString";
             }
 
-            foreach (var @event in _infrastructureEvents)
+            foreach (var @event in _infrastructureEvents.OrderBy(x => x.InfrastructureComponent).ThenBy(x => string.Join(',', x.Properties.Select(x => $"{x.Key}:{x.Value}"))))
             {
                 if (@event.InfrastructureComponent == Infrastructure.AzureServiceBus.QueueType)
                 {
@@ -169,6 +169,22 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = varName + ".name";
                 }
+                else if (@event.InfrastructureComponent == Infrastructure.AzureEventGrid.TopicRegistered)
+                {
+                    var topicName = @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName];
+                    var keyConfigName = @event.Properties[Infrastructure.AzureEventGrid.Property.KeyConfig];
+                    var endpointConfigName = @event.Properties[Infrastructure.AzureEventGrid.Property.EndpointConfig];
+                    var varName = $"eventGridTopic{topicName}".ToPascalCase().ToCamelCase();
+
+                    sb.AppendLine(new BicepResource(varName, "'Microsoft.EventGrid/topics@2021-12-01'")
+                        .Set("name", $"'{topicName.ToKebabCase()}'")
+                        .Set("location", "resourceGroup().location")
+                        .Set("properties", "{}")
+                        .Build());
+
+                    configVarMappings[keyConfigName] = $"{varName}.listKeys().key1";
+                    configVarMappings[endpointConfigName] = $"{varName}.properties.endpoint";
+                }
             }
 
             sb.AppendLine("var storageAccountKey = storageAccount.listKeys().keys[0].value");
@@ -204,7 +220,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                                 arr.Object(obj => obj
                                     .Set("name", "'AzureWebJobsStorage'")
                                     .Set("value", "storageConnectionString"));
-                                foreach (var request in _appSettingsRequests)
+                                foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
                                 {
                                     if (configVarMappings.TryGetValue(request.Key, out var varName))
                                     {

@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>9b0711b0-2f24-4bba-b0c5-4ca5ad8e5a64</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#f9361d93-c22f-4c25-8933-c6b3e84ba127</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureEventGridSubscriptionsBicep/AzureEventGridSubscriptionsBicepTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridSubscriptionsBicep/AzureEventGridSubscriptionsBicepTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b0711b0-2f24-4bba-b0c5-4ca5ad8e5a64</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f9361d93-c22f-4c25-8933-c6b3e84ba127</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureEventGridSubscriptionsBicep/AzureEventGridSubscriptionsBicepTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridSubscriptionsBicep/AzureEventGridSubscriptionsBicepTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9b0711b0-2f24-4bba-b0c5-4ca5ad8e5a64</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#94994b94-bfff-48b3-a387-66f583e68b3e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzureFunctionsAppBicep/AzureFunctionsAppBicepTemplatePartial.cs</ApplicationRelativeFilePath>

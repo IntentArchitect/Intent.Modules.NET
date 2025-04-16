@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -105,11 +106,11 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
 
             var isExternal = modelApplicationId != ExecutionContext.GetApplicationConfig().Id;
 
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent("EventGridTopicRegistered")
-                .WithProperty("TopicName", topicName)
-                .WithProperty("KeyConfig", keyConfigName)
-                .WithProperty("EndpointConfig", endpointConfigName)
-                .WithProperty("External", isExternal.ToString().ToLower()));
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureEventGrid.TopicRegistered)
+                .WithProperty(Infrastructure.AzureEventGrid.Property.TopicName, topicName)
+                .WithProperty(Infrastructure.AzureEventGrid.Property.KeyConfig, keyConfigName)
+                .WithProperty(Infrastructure.AzureEventGrid.Property.EndpointConfig, endpointConfigName)
+                .WithProperty(Infrastructure.AzureEventGrid.Property.External, isExternal.ToString().ToLower()));
         }
 
         private IReadOnlyList<SubscribeIntegrationEventTargetEndModel> GetEventMessagesBeingSubscribed()

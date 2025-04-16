@@ -39,17 +39,21 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
         public override IEnumerable<AzureFunctionSubscriptionModel> GetModels(IApplication application)
         {
             var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
-            var results = new List<AzureFunctionSubscriptionModel>();
-            foreach (var handlerModel in handlerModels)
-            {
-                results.AddRange(handlerModel.IntegrationEventSubscriptions()
-                    .Select(sub => sub.Element?.AsMessageModel())
-                    .Where(p => p is not null)
-                    .Cast<MessageModel>()
-                    .Select(message => new AzureFunctionSubscriptionModel(HandlerModel: handlerModel, TopicName: message.GetTopicConfigurationName())));
-            }
 
-            results = results.DistinctBy(k => k.TopicName).ToList();
+            var results = handlerModels
+                .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
+                {
+                    Handler = handlerModel,
+                    MessageModel = subscription.Element?.AsMessageModel()!
+                })
+                .Where(p => p.MessageModel is not null)
+                .GroupBy(x => x.MessageModel.GetTopicConfigurationName())
+                .Select(grouping => new AzureFunctionSubscriptionModel(
+                    HandlerModel: grouping.First().Handler,
+                    MessageModels: grouping.Select(x => x.MessageModel).ToArray(),
+                    TopicName: grouping.Key))
+                .OrderBy(x => x.TopicName)
+                .ToArray();
 
             return results;
         }

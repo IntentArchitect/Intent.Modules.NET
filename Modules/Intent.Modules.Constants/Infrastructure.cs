@@ -109,4 +109,20 @@ public static class Infrastructure
             public const string External = nameof(External);
         }
     }
+
+    public static class AzureEventGrid
+    {
+        public const string Subscription = $"{nameof(AzureEventGrid)}Subscription";
+        public const string TopicRegistered = $"{nameof(AzureEventGrid)}TopicRegistered";
+
+        public static class Property
+        {
+            public const string MessageNames = nameof(MessageNames);
+            public const string HandlerFunctionName = nameof(HandlerFunctionName);
+            public const string TopicName = nameof(TopicName);
+            public const string KeyConfig = nameof(KeyConfig);
+            public const string EndpointConfig = nameof(EndpointConfig);
+            public const string External = nameof(External);
+        }
+    }
 }

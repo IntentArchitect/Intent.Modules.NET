@@ -7,9 +7,11 @@ using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
@@ -74,6 +76,27 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         });
                     });
                 });
+        }
+
+        public override void AfterTemplateRegistration()
+        {
+            var messageNames = Model.MessageModels
+                .Select(x => GetFullyQualifiedTypeName(GetTemplate<IClassProvider>(
+                    templateId: "Application.Eventing.Message",
+                    modelId: x.Id,
+                    options: new TemplateDiscoveryOptions { TrackDependency = false })))
+                .ToArray();
+
+            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
+                infrastructureComponent: Infrastructure.AzureEventGrid.Subscription,
+                properties: new Dictionary<string, string>
+                {
+                    [Infrastructure.AzureEventGrid.Property.MessageNames] = string.Join(";", messageNames),
+                    [Infrastructure.AzureEventGrid.Property.HandlerFunctionName] = GetFunctionName(),
+                    [Infrastructure.AzureEventGrid.Property.TopicName] = Model.TopicName
+                }));
+
+            base.AfterTemplateRegistration();
         }
 
         private string GetFunctionName()
