@@ -368,6 +368,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Azu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AzureFunctions.AzureEventGrid", "Intent.Modules.AzureFunctions.AzureEventGrid\Intent.Modules.AzureFunctions.AzureEventGrid.csproj", "{1A4E3F23-7491-4DA8-AC3A-55451B3ABE23}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SqlDatabaseProject", "Intent.Modules.SqlDatabaseProject\Intent.Modules.SqlDatabaseProject.csproj", "{2D819CEA-400F-45BD-9A4A-86D74A20F02A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -970,6 +972,10 @@ Global
 		{1A4E3F23-7491-4DA8-AC3A-55451B3ABE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A4E3F23-7491-4DA8-AC3A-55451B3ABE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A4E3F23-7491-4DA8-AC3A-55451B3ABE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D819CEA-400F-45BD-9A4A-86D74A20F02A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D819CEA-400F-45BD-9A4A-86D74A20F02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D819CEA-400F-45BD-9A4A-86D74A20F02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D819CEA-400F-45BD-9A4A-86D74A20F02A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1136,6 +1142,7 @@ Global
 		{5E0C3960-C670-4088-9F9F-CCD46205D2BF} = {62C19C80-6648-4440-ACB4-ACE861B273B8}
 		{96691EF8-4F20-4068-BCED-92460C90EE07} = {408AB16B-0F81-405E-A39A-A052297CEF9C}
 		{1A4E3F23-7491-4DA8-AC3A-55451B3ABE23} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
+		{2D819CEA-400F-45BD-9A4A-86D74A20F02A} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
