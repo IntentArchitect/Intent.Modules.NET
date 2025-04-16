@@ -1145,6 +1145,7 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{04ce09b0-68c2-4c8b-921f-65eea14d3d58}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{0adb36a1-6e3e-4f12-a296-6cb695acce17}*SharedItemsImports = 13
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{0ece1fc5-4ac8-4a07-bf27-b756e8809992}*SharedItemsImports = 5
+		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{1a4e3f23-7491-4da8-ac3a-55451b3abe23}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.projitems*{27fde92a-fe7d-4e94-a888-4758ebe227a6}*SharedItemsImports = 13
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{3b8eab4d-55ba-4ad0-9ec0-3e379ece02cb}*SharedItemsImports = 5
@@ -1171,6 +1172,7 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{8857d329-9cb0-449a-9c01-94eb3dfb73e0}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{8de7db33-7d69-403f-ad45-3b3d753705f2}*SharedItemsImports = 5
+		Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems*{96691ef8-4f20-4068-bced-92460c90ee07}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Http.Shared\Intent.Modules.Contracts.Clients.Http.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
