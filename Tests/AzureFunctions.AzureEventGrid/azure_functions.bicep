@@ -1,4 +1,4 @@
-param functionAppName string = 'azure-function-event-grid-${uniqueString(resourceGroup().id)}'
+param functionAppName string = 'azure-functions-azure-event-grid-${uniqueString(resourceGroup().id)}'
 param appInsightsName string = 'app-insights-${uniqueString(resourceGroup().id)}'
 param storageName string = 'storage${uniqueString(resourceGroup().id)}'
 
@@ -8,11 +8,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   kind: 'web'
   properties: {
     Application_Type: 'web'
-    DisableIpMasking: false
-    Flow_Type: 'Bluefield'
     Request_Source: 'rest'
-    publicNetworkAccessForIngestion: 'Enabled'
-    publicNetworkAccessForQuery: 'Enabled'
   }
 }
 
@@ -23,7 +19,6 @@ resource functionAppHostingPlan 'Microsoft.Web/serverfarms@2021-02-01' = {
     name: 'Y1'
     tier: 'Dynamic'
   }
-  kind: 'functionapp'
 }
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
@@ -35,13 +30,13 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
-resource eventGridTopicClient 'Microsoft.EventGrid/topics@2021-12-01' = {
+resource eventGridTopicClientCreatedEvent 'Microsoft.EventGrid/topics@2021-12-01' = {
   name: 'client-created-event'
   location: resourceGroup().location
   properties: {}
 }
 
-resource eventGridTopicSpecific 'Microsoft.EventGrid/topics@2021-12-01' = {
+resource eventGridTopicSpecificTopic 'Microsoft.EventGrid/topics@2021-12-01' = {
   name: 'specific-topic'
   location: resourceGroup().location
   properties: {}
@@ -68,19 +63,19 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         }
         {
           name: 'EventGrid:Topics:ClientCreatedEvent:Endpoint'
-          value: eventGridTopicClient.properties.endpoint
+          value: eventGridTopicClientCreatedEvent.properties.endpoint
         }
         {
           name: 'EventGrid:Topics:ClientCreatedEvent:Key'
-          value: eventGridTopicClient.listKeys().key1
+          value: eventGridTopicClientCreatedEvent.listKeys().key1
         }
         {
           name: 'EventGrid:Topics:SpecificTopic:Endpoint'
-          value: eventGridTopicSpecific.properties.endpoint
+          value: eventGridTopicSpecificTopic.properties.endpoint
         }
         {
           name: 'EventGrid:Topics:SpecificTopic:Key'
-          value: eventGridTopicSpecific.listKeys().key1
+          value: eventGridTopicSpecificTopic.listKeys().key1
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
@@ -90,3 +85,4 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
     }
   }
 }
+

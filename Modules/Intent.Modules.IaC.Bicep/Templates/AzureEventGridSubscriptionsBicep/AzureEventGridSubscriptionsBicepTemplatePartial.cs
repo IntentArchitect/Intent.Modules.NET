@@ -99,7 +99,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureEventGridSubscriptionsBicep
             foreach (var sub in subscriptions)
             {
                 sb.AppendLine(new BicepResource(sub.SubscriptionResourceName, "'Microsoft.EventGrid/eventSubscriptions@2021-12-01'")
-                    .Set("name", $"'${{{functionAppParam}}}-{sub.TopicName}-sub'")
+                    .Set("name", $"'{sub.TopicName}-eg-sub'")
                     .Set("scope", sub.TopicResourceName)
                     .Block("properties", props =>
                     {

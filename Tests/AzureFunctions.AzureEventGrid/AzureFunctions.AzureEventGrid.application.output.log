@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2d49073f-1e89-47a4-99ed-5dedd9dfd866</ProjectId>
+      <CorrelationId>Intent.IaC.Bicep.AzureFunctionsAppBicepTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>azure_functions.bicep</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>azure_functions.bicep</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -644,6 +652,14 @@
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#60a22b78-005c-44d9-9a7c-286afa665554</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2d49073f-1e89-47a4-99ed-5dedd9dfd866</ProjectId>
+      <CorrelationId>Intent.IaC.Bicep.AzureEventGridSubscriptionsBicepTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>event_grid_subscriptions.bicep</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>event_grid_subscriptions.bicep</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
