@@ -57,7 +57,7 @@
     </childElement>
     <childElement id="edb1c6e8-59c3-4ff8-a79a-c85154d9821d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.11</display>
+      <display>Intent.Common.CSharp 3.8.12</display>
       <isAbstract>false</isAbstract>
       <value>3.8.12</value>
       <genericTypes />
@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="cad638f4-4296-416c-bc1e-7997c44ed952" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.5</display>
+      <display>Intent.Metadata.WebApi 4.7.6</display>
       <isAbstract>false</isAbstract>
       <value>4.7.6</value>
       <genericTypes />
@@ -225,7 +225,7 @@
     </childElement>
     <childElement id="e2f3659b-22e5-4ad3-85cf-41df722f822a" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.4</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.5</display>
       <isAbstract>false</isAbstract>
       <value>4.9.5</value>
       <genericTypes />
