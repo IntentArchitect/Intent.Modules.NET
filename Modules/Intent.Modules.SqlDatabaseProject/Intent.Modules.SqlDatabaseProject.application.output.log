@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e97916c8-6c0c-45ee-b111-ab120bac4f4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Schema/SchemaTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Schema/SchemaTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#e97916c8-6c0c-45ee-b111-ab120bac4f4a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Schema/SchemaTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Schema/SchemaTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#ce49cbf2-35e9-4242-ad6f-39520ebda23f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Table/TableTemplatePartial.cs</ApplicationRelativeFilePath>
