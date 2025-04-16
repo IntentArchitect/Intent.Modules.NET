@@ -20,6 +20,9 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class TableTemplate : IntentTemplateBase<ClassModel>
     {
+        private const string DefaultSchema = "dbo";
+        private const string TablesFolder = "Tables";
+
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.SqlDatabaseProject.TableTemplate";
 
@@ -40,12 +43,48 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
         private string GetLocation()
         {
-            var schema = Model.GetSchema()?.Name() ?? "dbo";
-            return Path.Combine(schema, "Tables");
+            var schema = GetSchemaName();
+            return Path.Combine(schema, TablesFolder);
+        }
+
+        private string GetSchemaName()
+        {
+            return Model.GetSchema()?.Name() ?? DefaultSchema;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
+        {
+            var tableName = GetTableName();
+            var fullTableName = GetFullTableName(tableName);
+            
+            var columnsDefinition = GenerateColumnsDefinition();
+            var primaryKeyConstraint = GeneratePrimaryKeyConstraint(tableName);
+            var foreignKeyConstraints = GenerateForeignKeyConstraints(tableName);
+            var checkConstraintClause = GenerateCheckConstraint();
+
+            return $"""
+                    CREATE TABLE {fullTableName}
+                    (
+                        {columnsDefinition}{primaryKeyConstraint}{foreignKeyConstraints}{checkConstraintClause}
+                    );
+                    """;
+        }
+
+        private string GetTableName()
+        {
+            return Model.GetTable()?.Name() ?? Model.Name;
+        }
+
+        private string GetFullTableName(string tableName)
+        {
+            var schema = GetSchemaName();
+            return string.IsNullOrEmpty(schema) 
+                ? $"[{tableName}]" 
+                : $"[{schema}].[{tableName}]";
+        }
+
+        private string GenerateColumnsDefinition()
         {
             var columns = Model.Attributes.Select(attribute =>
             {
@@ -54,48 +93,63 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
                 return $"[{attribute.Name}] {sqlType} {constraints}";
             }).ToList();
 
-            var tableName = Model.GetTable()?.Name() ?? Model.Name;
-            var schema = Model.GetSchema()?.Name();
-            var fullTableName = string.IsNullOrEmpty(schema) ? $"[{tableName}]" : $"[{schema}].[{tableName}]";
+            return string.Join(",\n    ", columns);
+        }
 
+        private string GeneratePrimaryKeyConstraint(string tableName)
+        {
             var primaryKeyAttributes = Model.Attributes.Where(attr => attr.HasPrimaryKey()).ToList();
-            var primaryKeyConstraint = primaryKeyAttributes.Any()
-                ? $",\n    CONSTRAINT [PK_{tableName}] PRIMARY KEY CLUSTERED ({string.Join(", ", primaryKeyAttributes.Select(attr => $"[{attr.Name}] ASC"))})"
-                : "";
+            if (!primaryKeyAttributes.Any())
+            {
+                return string.Empty;
+            }
 
+            var primaryKeyColumns = string.Join(", ", primaryKeyAttributes.Select(attr => $"[{attr.Name}] ASC"));
+            return $",\n    CONSTRAINT [PK_{tableName}] PRIMARY KEY CLUSTERED ({primaryKeyColumns})";
+        }
+
+        private string GenerateForeignKeyConstraints(string tableName)
+        {
             var foreignKeyConstraints = Model.Attributes
                 .Where(p => p.HasForeignKey())
-                .Select(attr =>
-                {
-                    var foreignKey = attr.GetForeignKey();
-                    var otherClass = foreignKey.Association().TypeReference.Element.AsClassModel();
-                    var referencedTable = otherClass.Name;
-                    var referencedSchema = otherClass.GetSchema()?.Name() ?? "dbo";
-                    var fkColumnName = otherClass.GetExplicitPrimaryKey().First().Name;
-                    return $",\n    CONSTRAINT [FK_{tableName}_{referencedTable}] FOREIGN KEY ([{attr.Name}]) REFERENCES [{referencedSchema}].[{referencedTable}] ([{fkColumnName}])";
-                })
+                .Select(attr => GenerateForeignKeyConstraint(attr, tableName))
                 .ToList();
 
-            var checkConstraints = Model.GetCheckConstraint()?.SQL();
-            var checkConstraintClause = string.IsNullOrEmpty(checkConstraints) ? "" : $",\n    CHECK ({checkConstraints})";
+            return string.Join("", foreignKeyConstraints);
+        }
 
-            return $"""
-                    CREATE TABLE {fullTableName}
-                    (
-                        {string.Join(",\n    ", columns)}{primaryKeyConstraint}{string.Join("", foreignKeyConstraints)}{checkConstraintClause}
-                    );
-                    """;
+        private string GenerateForeignKeyConstraint(AttributeModel attribute, string tableName)
+        {
+            var foreignKey = attribute.GetForeignKey();
+            var otherClass = foreignKey.Association().TypeReference.Element.AsClassModel();
+            var referencedTable = otherClass.Name;
+            var referencedSchema = otherClass.GetSchema()?.Name() ?? DefaultSchema;
+            var fkColumnName = otherClass.GetExplicitPrimaryKey().First().Name;
+            
+            return $",\n    CONSTRAINT [FK_{tableName}_{referencedTable}] FOREIGN KEY ([{attribute.Name}]) " +
+                   $"REFERENCES [{referencedSchema}].[{referencedTable}] ([{fkColumnName}])";
+        }
+
+        private string GenerateCheckConstraint()
+        {
+            var checkConstraints = Model.GetCheckConstraint()?.SQL();
+            return string.IsNullOrEmpty(checkConstraints) 
+                ? string.Empty 
+                : $",\n    CHECK ({checkConstraints})";
         }
 
         private static string ConvertToSqlType(AttributeModel attribute)
         {
+            // If explicit column type is specified, use it
             var column = attribute.GetColumn();
             if (column != null && !string.IsNullOrWhiteSpace(column.Type()))
             {
                 return column.Type();
             }
-            var sb = new StringBuilder();
 
+            var sb = new StringBuilder();
+            
+            // Map C# types to SQL Server types
             if (attribute.TypeReference.HasStringType())
                 sb.Append("NVARCHAR");
             else if (attribute.TypeReference.HasIntType())
@@ -113,7 +167,19 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
             else if (attribute.TypeReference.HasDateType())
                 sb.Append("DATE");
 
+            // Handle string length constraints
+            ApplyTextConstraints(attribute, sb);
 
+            if (sb.Length == 0)
+            {
+                throw new NotSupportedException($"Could not convert attribute type '{attribute.TypeReference.Element?.Name}' to SQL Type");
+            }
+
+            return sb.ToString();
+        }
+
+        private static void ApplyTextConstraints(AttributeModel attribute, StringBuilder sb)
+        {
             var textConstraints = attribute.GetTextConstraints();
             if (textConstraints != null)
             {
@@ -126,41 +192,45 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
                     sb.Append("(MAX)");
                 }
             }
-
-            if (sb.Length == 0)
-            {
-                throw new NotSupportedException("Could not convert attribute type to SQL Type");
-            }
-
-            return sb.ToString();
         }
 
         private static string GetColumnConstraints(AttributeModel attribute)
         {
             var constraints = new List<string>();
+            
+            // Add identity constraint for auto-incrementing primary keys
+            AddIdentityConstraint(attribute, constraints);
+            
+            // Add nullability constraint
+            AddNullabilityConstraint(attribute, constraints);
+            
+            // Add default value constraint
+            AddDefaultValueConstraint(attribute, constraints);
+
+            return string.Join(" ", constraints);
+        }
+
+        private static void AddIdentityConstraint(AttributeModel attribute, List<string> constraints)
+        {
             var primaryKey = attribute.GetPrimaryKey();
             if (primaryKey != null && primaryKey.Identity())
             {
                 constraints.Add("IDENTITY (1,1)");
             }
+        }
 
-            if (attribute.TypeReference.IsNullable)
-            {
-                constraints.Add("NULL");
-            }
-            else
-            {
-                constraints.Add("NOT NULL");
-            }
+        private static void AddNullabilityConstraint(AttributeModel attribute, List<string> constraints)
+        {
+            constraints.Add(attribute.TypeReference.IsNullable ? "NULL" : "NOT NULL");
+        }
 
+        private static void AddDefaultValueConstraint(AttributeModel attribute, List<string> constraints)
+        {
             var defaultConstraint = attribute.GetDefaultConstraint();
             if (defaultConstraint != null)
             {
                 constraints.Add($"DEFAULT {defaultConstraint.Value()}");
             }
-
-            // Add more constraints as needed
-            return string.Join(" ", constraints);
         }
     }
 }
