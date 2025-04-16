@@ -87,8 +87,13 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
                     """;
         }
 
-        private string ConvertToSqlType(AttributeModel attribute)
+        private static string ConvertToSqlType(AttributeModel attribute)
         {
+            var column = attribute.GetColumn();
+            if (column != null && !string.IsNullOrWhiteSpace(column.Type()))
+            {
+                return column.Type();
+            }
             var sb = new StringBuilder();
 
             if (attribute.TypeReference.HasStringType())
@@ -101,6 +106,12 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
                 sb.Append("DATETIME");
             else if (attribute.TypeReference.HasGuidType())
                 sb.Append("UNIQUEIDENTIFIER");
+            else if (attribute.TypeReference.HasBoolType())
+                sb.Append("BIT");
+            else if (attribute.TypeReference.HasDecimalType())
+                sb.Append("DECIMAL");
+            else if (attribute.TypeReference.HasDateType())
+                sb.Append("DATE");
 
 
             var textConstraints = attribute.GetTextConstraints();
@@ -124,10 +135,20 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
             return sb.ToString();
         }
 
-        private string GetColumnConstraints(AttributeModel attribute)
+        private static string GetColumnConstraints(AttributeModel attribute)
         {
             var constraints = new List<string>();
-            if (!attribute.TypeReference.IsNullable)
+            var primaryKey = attribute.GetPrimaryKey();
+            if (primaryKey != null && primaryKey.Identity())
+            {
+                constraints.Add("IDENTITY (1,1)");
+            }
+
+            if (attribute.TypeReference.IsNullable)
+            {
+                constraints.Add("NULL");
+            }
+            else
             {
                 constraints.Add("NOT NULL");
             }
