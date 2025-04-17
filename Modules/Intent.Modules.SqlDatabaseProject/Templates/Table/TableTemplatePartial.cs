@@ -21,7 +21,6 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
     partial class TableTemplate : IntentTemplateBase<ClassModel>
     {
         private const string DefaultSchema = "dbo";
-        private const string TablesFolder = "Tables";
 
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.SqlDatabaseProject.TableTemplate";
@@ -44,7 +43,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
         private string GetLocation()
         {
             var schema = GetSchemaName();
-            return Path.Combine(schema, TablesFolder);
+            return Path.Combine(schema, "Tables");
         }
 
         private string GetSchemaName()
@@ -140,7 +139,6 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
         private static string ConvertToSqlType(AttributeModel attribute)
         {
-            // If explicit column type is specified, use it
             var column = attribute.GetColumn();
             if (column != null && !string.IsNullOrWhiteSpace(column.Type()))
             {
@@ -149,7 +147,6 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
             var sb = new StringBuilder();
             
-            // Map C# types to SQL Server types
             if (attribute.TypeReference.HasStringType())
                 sb.Append("NVARCHAR");
             else if (attribute.TypeReference.HasIntType())
@@ -167,7 +164,6 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
             else if (attribute.TypeReference.HasDateType())
                 sb.Append("DATE");
 
-            // Handle string length constraints
             ApplyTextConstraints(attribute, sb);
 
             if (sb.Length == 0)
