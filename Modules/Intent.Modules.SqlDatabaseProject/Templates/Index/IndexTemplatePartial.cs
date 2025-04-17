@@ -81,7 +81,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
             sb.Append(']');
             sb.AppendLine();
             
-            sb.Append(" ON ");
+            sb.Append("ON ");
             sb.Append(fullTableName);
             sb.Append('(');
             sb.Append(string.Join(", ", Model.Index.KeyColumns.Select(x => x.Name)));
