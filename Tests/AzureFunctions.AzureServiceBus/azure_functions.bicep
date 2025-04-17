@@ -1,4 +1,4 @@
-param functionAppName string = 'azure-functions.azure-service-bus-${uniqueString(resourceGroup().id)}'
+param functionAppName string = 'azure-functions-azure-service-bus-${uniqueString(resourceGroup().id)}'
 param appInsightsName string = 'app-insights-${uniqueString(resourceGroup().id)}'
 param storageName string = 'storage${uniqueString(resourceGroup().id)}'
 param serviceBusNamespaceName string = 'service-bus-${uniqueString(resourceGroup().id)}'
@@ -22,7 +22,7 @@ resource functionAppHostingPlan 'Microsoft.Web/serverfarms@2021-02-01' = {
   }
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageName
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -45,24 +45,9 @@ resource createOrgQueue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-previ
   name: 'create-org'
 }
 
-resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'specific-topic'
-}
-
 resource specificQueueQueue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview' = {
   parent: serviceBusNamespace
   name: 'specific-queue'
-}
-
-resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'client-created'
-}
-
-resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'client-created'
 }
 
 resource clientCreatedSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
@@ -70,14 +55,29 @@ resource clientCreatedSubscription 'Microsoft.ServiceBus/namespaces/topics/subsc
   name: 'client-created-subscription'
 }
 
+resource specificTopicSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
+  parent: specificTopicTopic
+  name: 'specific-topic-subscription'
+}
+
+resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+  parent: serviceBusNamespace
+  name: 'client-created'
+}
+
+resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+  parent: serviceBusNamespace
+  name: 'client-created'
+}
+
 resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
   parent: serviceBusNamespace
   name: 'specific-topic'
 }
 
-resource specificTopicSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
-  parent: specificTopicTopic
-  name: 'specific-topic-subscription'
+resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+  parent: serviceBusNamespace
+  name: 'specific-topic'
 }
 
 var storageAccountKey = storageAccount.listKeys().keys[0].value
@@ -106,22 +106,6 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: storageConnectionString
         }
         {
-          name: 'FUNCTIONS_WORKER_RUNTIME'
-          value: 'dotnet-isolated'
-        }
-        {
-          name: 'AzureServiceBus:CreateOrg'
-          value: createOrgQueue.name
-        }
-        {
-          name: 'AzureServiceBus:SpecificTopic'
-          value: specificTopicTopic.name
-        }
-        {
-          name: 'AzureServiceBus:SpecificQueue'
-          value: specificQueueQueue.name
-        }
-        {
           name: 'AzureServiceBus:ClientCreated'
           value: clientCreatedTopic.name
         }
@@ -134,6 +118,22 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: clientCreatedSubscription.name
         }
         {
+          name: 'AzureServiceBus:ConnectionString'
+          value: serviceBusConnectionString
+        }
+        {
+          name: 'AzureServiceBus:CreateOrg'
+          value: createOrgQueue.name
+        }
+        {
+          name: 'AzureServiceBus:SpecificQueue'
+          value: specificQueueQueue.name
+        }
+        {
+          name: 'AzureServiceBus:SpecificTopic'
+          value: specificTopicTopic.name
+        }
+        {
           name: 'AzureServiceBus:SpecificTopic'
           value: specificTopicTopic.name
         }
@@ -142,8 +142,8 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: specificTopicSubscription.name
         }
         {
-          name: 'AzureServiceBus:ConnectionString'
-          value: serviceBusConnectionString
+          name: 'FUNCTIONS_WORKER_RUNTIME'
+          value: 'dotnet-isolated'
         }
       ]
     }
