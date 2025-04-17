@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#dca8adfb-61f8-44d5-a157-b7dcbed4dea2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Index/IndexTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Index/IndexTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#dca8adfb-61f8-44d5-a157-b7dcbed4dea2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Index/IndexTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Index/IndexTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a38cc86d-605b-47ca-b379-80c17247c061</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e97916c8-6c0c-45ee-b111-ab120bac4f4a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Schema/SchemaTemplatePartial.cs</ApplicationRelativeFilePath>

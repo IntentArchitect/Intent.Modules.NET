@@ -1,3 +1,8 @@
-namespace Intent.Modules.SqlDatabaseProject.Templates.Schema;
+using Intent.Metadata.Models;
 
-public record SchemaModel(string Name);
+namespace Intent.SqlDatabaseProject.Api;
+
+public record SchemaModel(string Name) : IMetadataModel
+{
+    public string Id => Name;
+}
