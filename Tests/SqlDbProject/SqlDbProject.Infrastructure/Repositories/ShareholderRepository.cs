@@ -5,7 +5,7 @@ using SqlDbProject.Domain.Repositories;
 using SqlDbProject.Infrastructure.Persistence;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.CustomRepository", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Entities.Repositories.Api.CustomRepository", Version = "1.0")]
 
 namespace SqlDbProject.Infrastructure.Repositories
 {

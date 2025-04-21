@@ -46,7 +46,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Parents.UpdateParent
                     parent.ParentDetails.ParentSubDetails.SubDetailsLine1 = request.ParentDetails.ParentSubDetails.SubDetailsLine1;
                     parent.ParentDetails.ParentSubDetails.SubDetailsLine2 = request.ParentDetails.ParentSubDetails.SubDetailsLine2;
                 }
-                parent.ParentDetails.ParentDetailsTags = UpdateHelper.CreateOrUpdateCollection(parent.ParentDetails.ParentDetailsTags, request.ParentDetails.ParentDetailsTags, (e, d) => true, CreateOrUpdateParentDetailsTags);
+                parent.ParentDetails.ParentDetailsTags = UpdateHelper.CreateOrUpdateCollection(parent.ParentDetails.ParentDetailsTags, request.ParentDetails.ParentDetailsTags, (e, d) => false, CreateOrUpdateParentDetailsTags);
             }
 
             _parentRepository.Update(parent);

@@ -522,7 +522,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepositoryInterface#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/IShareholderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IShareholderRepository.cs</ProjectRelativeFilePath>
@@ -714,7 +714,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>1275ee7b-1c9b-459a-9407-bdc490442211</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.CustomRepository#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Repositories/ShareholderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ShareholderRepository.cs</ProjectRelativeFilePath>
