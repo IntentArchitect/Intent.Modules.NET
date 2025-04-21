@@ -83,11 +83,6 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.StoredProcedure
 
         private static string ConvertToSqlType(StoredProcedureParameterModel parameter)
         {
-            if (!string.IsNullOrWhiteSpace(parameter.GetStoredProcedureParameterSettings()?.SQLDataType()))
-            {
-                return parameter.GetStoredProcedureParameterSettings().SQLDataType();
-            }
-
             if (!parameter.TypeReference.HasStringType() && SqlHelper.TryGetSqlType(parameter.TypeReference, out var sqlType))
             {
                 return sqlType!;

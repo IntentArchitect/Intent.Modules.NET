@@ -48,7 +48,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
 
         private string GetSchemaName()
         {
-            return Model.GetSchema()?.Name() ?? DefaultSchema;
+            return Model.InternalElement.FindSchema() ?? DefaultSchema;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -131,7 +131,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
             var foreignKey = attribute.GetForeignKey();
             var otherClass = foreignKey.Association().TypeReference.Element.AsClassModel();
             var referencedTable = otherClass.Name;
-            var referencedSchema = otherClass.GetSchema()?.Name() ?? DefaultSchema;
+            var referencedSchema = otherClass.InternalElement.FindSchema() ?? DefaultSchema;
             var fkColumnName = otherClass.GetExplicitPrimaryKey().First().Name;
             
             return $",\n    CONSTRAINT [FK_{tableName}_{referencedTable}] FOREIGN KEY ([{attribute.Name}]) " +

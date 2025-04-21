@@ -1,4 +1,5 @@
 using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 
 namespace Intent.Modules.SqlDatabaseProject.Templates;
@@ -51,5 +52,36 @@ public static class SqlHelper
 
         sqlType = null;
         return false;
+    }
+    
+    public static string? FindSchema(this IHasStereotypes targetElement)
+    {
+        IHasStereotypes currentElement = targetElement;
+
+        if (currentElement.HasStereotype("Table") && !string.IsNullOrEmpty(currentElement.GetStereotypeProperty<string>("Table", "Schema")?.Trim()))
+        {
+            return currentElement.GetStereotypeProperty<string>("Table", "Schema")?.Trim();
+        }
+
+        if (currentElement.HasStereotype("View") && !string.IsNullOrEmpty(currentElement.GetStereotypeProperty<string>("View", "Schema")?.Trim()))
+        {
+            return currentElement.GetStereotypeProperty<string>("View", "Schema")?.Trim();
+        }
+
+        while (currentElement != null)
+        {
+            if (currentElement.HasStereotype("Schema"))
+            {
+                return currentElement.GetStereotypeProperty<string>("Schema", "Name")?.Trim();
+            }
+
+            if (currentElement is not IElement element)
+            {
+                break;
+            }
+
+            currentElement = element.ParentElement ?? (IHasStereotypes)element.Package;
+        }
+        return null;
     }
 }

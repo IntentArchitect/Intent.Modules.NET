@@ -42,6 +42,8 @@
   <tags>sql database persistence project stored procedure proc table</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.SqlDatabaseProject/Intent.SqlDatabaseProject.pkg.config" externalReference="5c5d56a2-fb6d-4614-b7cc-60097653b89c" />
+  </metadata>
   <migrations />
 </package>

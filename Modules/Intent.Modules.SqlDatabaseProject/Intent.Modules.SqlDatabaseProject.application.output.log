@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3d84e7ed-ffea-42e8-8b04-13e7eb319f9b</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#5823b192-eb03-47c8-90d8-5501c922e9a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/StoredProcedureParameterModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StoredProcedureParameterModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>2d819cea-400f-45bd-9a4a-86d74a20f02a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2d819cea-400f-45bd-9a4a-86d74a20f02a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

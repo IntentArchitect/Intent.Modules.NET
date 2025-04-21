@@ -38,8 +38,12 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Schema
         public override IEnumerable<SchemaModel> GetModels(IApplication application)
         {
             return _metadataManager.Domain(application)
-                .GetClassModels()
-                .Select(s => new SchemaModel(s.GetSchema()?.Name() ?? "dbo"))
+                .Elements
+                .Select(s =>
+                {
+                    var schema = s.FindSchema();
+                    return schema is null ? new SchemaModel("dbo") : new SchemaModel(schema);
+                })
                 .Where(p => p.Name != "dbo")
                 .DistinctBy(x => x.Name)
                 .ToArray();

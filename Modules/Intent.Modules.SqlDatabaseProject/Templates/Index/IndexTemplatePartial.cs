@@ -47,7 +47,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
 
         private string GetSchemaName()
         {
-            return Model.ClassModel.GetSchema()?.Name() ?? "dbo";
+            return Model.ClassModel.InternalElement.FindSchema() ?? "dbo";
         }
 
         private string GetTableName()
