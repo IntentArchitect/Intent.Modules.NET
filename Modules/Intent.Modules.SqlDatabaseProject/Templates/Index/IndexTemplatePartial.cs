@@ -9,6 +9,7 @@ using Intent.Metadata.RDBMS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using Intent.SqlDatabaseProject.Api;
 using Intent.Templates;
 using IndexModel = Intent.SqlDatabaseProject.Api.IndexModel;
 
@@ -20,7 +21,8 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class IndexTemplate : IntentTemplateBase<IndexModel>
     {
-        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.SqlDatabaseProject.IndexTemplate";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.SqlDatabaseProject.IndexTemplate";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public IndexTemplate(IOutputTarget outputTarget, IndexModel model) : base(TemplateId, outputTarget, model)
@@ -69,7 +71,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
 
             var sb = new StringBuilder();
             sb.Append("CREATE ");
-            
+
             if (Model.Index.IsUnique)
             {
                 sb.Append("UNIQUE ");
@@ -80,8 +82,8 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
             sb.Append(Model.Index.Name);
             sb.Append(']');
             sb.AppendLine();
-            
-            sb.Append(" ON ");
+
+            sb.Append("ON ");
             sb.Append(fullTableName);
             sb.Append('(');
             sb.Append(string.Join(", ", Model.Index.KeyColumns.Select(x => x.Name)));
@@ -94,7 +96,7 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Index
                 sb.Append(string.Join(", ", Model.Index.IncludedColumns.Select(x => x.Name)));
                 sb.Append(')');
             }
-            
+
             return sb.ToString();
         }
     }

@@ -87,9 +87,18 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
         {
             var columns = Model.Attributes.Select(attribute =>
             {
-                var sqlType = ConvertToSqlType(attribute);
-                var constraints = GetColumnConstraints(attribute);
-                return $"[{attribute.Name}] {sqlType} {constraints}";
+                var computed = attribute.GetComputedValue();
+                if (computed != null)
+                {
+                    var persist = computed.Stored() ? " PERSISTED" : "";
+                    return $"[{attribute.Name}] AS ({computed.SQL()}){persist}";
+                }
+                else
+                {
+                    var sqlType = ConvertToSqlType(attribute);
+                    var constraints = GetColumnConstraints(attribute);
+                    return $"[{attribute.Name}] {sqlType} {constraints}";
+                }
             }).ToList();
 
             return string.Join(",\n    ", columns);
@@ -146,27 +155,16 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
             }
 
             var sb = new StringBuilder();
-            
-            if (attribute.TypeReference.HasStringType())
-                sb.Append("NVARCHAR");
-            else if (attribute.TypeReference.HasIntType())
-                sb.Append("INT");
-            else if (attribute.TypeReference.HasLongType())
-                sb.Append("BIGINT");
-            else if (attribute.TypeReference.HasDateTimeType())
-                sb.Append("DATETIME");
-            else if (attribute.TypeReference.HasGuidType())
-                sb.Append("UNIQUEIDENTIFIER");
-            else if (attribute.TypeReference.HasBoolType())
-                sb.Append("BIT");
-            else if (attribute.TypeReference.HasDecimalType())
-                sb.Append("DECIMAL");
-            else if (attribute.TypeReference.HasDateType())
-                sb.Append("DATE");
 
-            ApplyTextConstraints(attribute, sb);
-
-            if (sb.Length == 0)
+            if (!attribute.TypeReference.HasStringType() && SqlHelper.TryGetSqlType(attribute.TypeReference, out var sqlType))
+            {
+                sb.Append(sqlType);
+            }
+            else if (attribute.TypeReference.HasStringType())
+            {
+                ApplyTextConstraints(attribute, sb);
+            }
+            else
             {
                 throw new NotSupportedException($"Could not convert attribute type '{attribute.TypeReference.Element?.Name}' to SQL Type");
             }
@@ -177,16 +175,27 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.Table
         private static void ApplyTextConstraints(AttributeModel attribute, StringBuilder sb)
         {
             var textConstraints = attribute.GetTextConstraints();
-            if (textConstraints != null)
+            if (textConstraints == null)
             {
-                if (textConstraints.MaxLength().HasValue)
-                {
-                    sb.Append($"({textConstraints.MaxLength()})");
-                }
-                else
-                {
-                    sb.Append("(MAX)");
-                }
+                return;
+            }
+
+            sb.Append(textConstraints.SQLDataType().AsEnum() switch
+            {
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.DEFAULT => $"NVARCHAR({GetConstraintLength()})",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NTEXT => "NTEXT",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.NVARCHAR => $"NVARCHAR({GetConstraintLength()})",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.TEXT => "TEXT",
+                AttributeModelStereotypeExtensions.TextConstraints.SQLDataTypeOptionsEnum.VARCHAR => $"VARCHAR({GetConstraintLength()})",
+                var dt => throw new ArgumentOutOfRangeException($"Unsupported SQL Data Type: {dt}")
+            });
+
+            return;
+            string GetConstraintLength()
+            {
+                return textConstraints.MaxLength().HasValue 
+                    ? textConstraints.MaxLength()!.Value.ToString() 
+                    : "MAX";
             }
         }
 

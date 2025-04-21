@@ -16,6 +16,10 @@
       <role>SqlDatabaseProject.Schema</role>
       <location></location>
     </template>
+    <template id="Intent.SqlDatabaseProject.StoredProcedureTemplate" externalReference="9e28f9a9-d5f9-4119-84b9-c204c8b5112c">
+      <role>SqlDatabaseProject.StoredProcedure</role>
+      <location></location>
+    </template>
     <template id="Intent.SqlDatabaseProject.TableTemplate" externalReference="ce49cbf2-35e9-4242-ad6f-39520ebda23f">
       <role>SqlDatabaseProject.Table</role>
       <location></location>
@@ -29,6 +33,7 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.RDBMS" version="3.6.2" />
     <dependency id="Intent.Modelers.Domain" version="3.12.2" />
+    <dependency id="Intent.Modules.Modelers.Domain.StoredProcedures" version="1.1.4" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
