@@ -34,7 +34,8 @@ namespace Intent.Modules.SqlDatabaseProject.Templates.StoredProcedure
             return new TemplateFileConfig(
                 fileName: $"{Model.StoredProcedureModel.Name}",
                 fileExtension: "sql",
-                relativeLocation: GetLocation()
+                relativeLocation: GetLocation(),
+                OverwriteBehaviour.OverwriteDisabled
             );
         }
 
