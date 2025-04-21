@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<settings>
+    <targetDesignerId>0701433c-36c0-4569-b1f4-9204986b587d</targetDesignerId>
+    <createPackages>
+        <package id="40f2efb7-3f7f-4349-9468-f5937ac5cf3a" typeId="07e7b690-a59d-4b72-8440-4308a121d32c" type="Visual Studio Solution">
+            <name>${application.name}</name>
+            <stereotypes>
+                <stereotype stereotypeDefinitionId="90085088-b29b-4386-b87e-f7f62c76c5de" name="Visual Studio Solution Options">
+                    <addedByDefault>true</addedByDefault>
+                    <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                    <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                    <properties>
+                        <property name="49e78350-c77b-4f83-88d8-5841e6cb3ab9" display="Manage Package Versions Centrally" value="false" isActive="true" />
+                        <property name="ad4bb70e-9dbd-41ce-95a0-1d319a40b8a9" display="Output Location" value="Check Parent Folders" isActive="false" />
+                        <property name="ca30802f-7cf3-459e-9ea1-aa20d7af7638" display="Only check current Git repository" value="true" isActive="false" />
+                        <property name="eaf8fe0b-2aec-4610-9bc8-608f6967ce55" display="Relative Path" isActive="false" />
+                    </properties>
+                </stereotype>
+            </stereotypes>
+            <childElements>
+                <element id="4251a733-07fc-4fca-b4cc-0d6ddcfae43b" typeId="0dc2b846-c968-49eb-99b7-8776919313a8" type="Solution Folder">
+                    <name>4 - Infrastructure</name>
+                    <genericTypes />
+                    <metadata />
+                    <stereotypes />
+                    <childElements>
+                        <element id="6dfad5d2-a4d8-4900-8e57-a34125cd1700" typeId="00D1A9C2-B5F0-4AF3-8072-F6C62B433612" type="SQL Server Database Project">
+                            <name>${application.name}.SqlDatabaseProject</name>
+                            <genericTypes />
+                            <metadata />
+                            <stereotypes />
+                            <childElements>
+                                <element id="7925ef08-c278-466e-8501-301c9194187e" typeId="3407a825-1331-4f3f-89a4-901903ed97ce" type="Folder">
+                                    <name>Schemas</name>
+                                    <genericTypes />
+                                    <metadata />
+                                    <stereotypes>
+                                        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+                                            <addedByDefault>true</addedByDefault>
+                                            <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+                                            <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+                                            <properties>
+                                                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+                                            </properties>
+                                        </stereotype>
+                                    </stereotypes>
+                                    <childElements>
+                                        <element id="667ba29f-10f1-4f68-a492-6bb20a2586c6" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
+                                            <name>SqlDatabaseProject.Schema</name>
+                                            <genericTypes />
+                                            <metadata />
+                                            <stereotypes />
+                                            <childElements />
+                                            <isMapped>false</isMapped>
+                                            <isAbstract>false</isAbstract>
+                                            <display>SqlDatabaseProject.Schema</display>
+                                        </element>
+                                    </childElements>
+                                    <isMapped>false</isMapped>
+                                    <isAbstract>false</isAbstract>
+                                    <display>Schemas</display>
+                                </element>
+                                <element id="3d6a3c2c-7608-4184-b7e5-76b6b993440e" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da" type="Role">
+                                    <name>SqlDatabaseProject</name>
+                                    <genericTypes />
+                                    <metadata />
+                                    <stereotypes />
+                                    <childElements />
+                                    <isMapped>false</isMapped>
+                                    <isAbstract>false</isAbstract>
+                                    <display>SqlDatabaseProject</display>
+                                </element>
+                            </childElements>
+                            <isMapped>false</isMapped>
+                            <isAbstract>false</isAbstract>
+                            <display>${application.name}.SqlDatabaseProject</display>
+                        </element>
+                    </childElements>
+                    <isMapped>false</isMapped>
+                    <isAbstract>false</isAbstract>
+                    <display>4 - Infrastructure</display>
+                </element>
+            </childElements>
+            <associations />
+            <references />
+        </package>
+    </createPackages>
+</settings>

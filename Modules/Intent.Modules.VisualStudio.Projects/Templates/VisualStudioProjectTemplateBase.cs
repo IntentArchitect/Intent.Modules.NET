@@ -156,7 +156,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
     {
         if (doc.ResolveProjectScheme() != VisualStudioProjectScheme.Sdk)
         {
-            return false;
+            return SyncNetFrameworkVersions(doc);
         }
 
         var hasChange = false;
@@ -177,10 +177,10 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             hasChange |= SyncManageableBooleanProperty(doc, "GenerateDocumentationFile", netCoreSettings.GenerateDocumentationFile().Value);
         }
 
-        if (project is CSharpProjectNETModel model &&
-            model.HasNETSettings())
+        if (project is CSharpProjectNETModel csharpProjectModel &&
+            csharpProjectModel.HasNETSettings())
         {
-            var netSettings = model.GetNETSettings();
+            var netSettings = csharpProjectModel.GetNETSettings();
 
             if (doc.Root!.Attribute("Sdk")!.Value != netSettings.SDK().Value)
             {
@@ -214,7 +214,7 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
                 hasChange |= SyncProperty(doc, "NoWarn", netSettings.SuppressWarnings());
             }
 
-            hasChange |= SyncUsings(doc, model);
+            hasChange |= SyncUsings(doc, csharpProjectModel);
         }
 
         var projectOptions = project.GetCSharpProjectOptions();
@@ -424,6 +424,36 @@ public abstract class VisualStudioProjectTemplateBase<TModel> : IntentFileTempla
             : "TargetFrameworks";
 
         element.ReplaceWith(XElement.Parse($"<{elementName}>{elementValue}</{elementName}>"));
+
+        return true;
+    }
+
+    private bool SyncNetFrameworkVersions(XDocument doc)
+    {
+        var targetFrameworks = GetTargetFrameworks().ToArray();
+        if (targetFrameworks.Length == 1 && targetFrameworks[0] == "unspecified")
+        {
+            // User has chosen "(unspecified)" in the Visual Studio designer, useful for
+            // scenarios like when a "Directory.Build.props" is being used to set the
+            // value.
+            return false;
+        }
+
+        var element = GetPropertyGroupElement(doc, "TargetFrameworkVersion");
+        if (element == null)
+        {
+            return false;
+        }
+
+        var elementValue = string.Join(";", targetFrameworks.OrderBy(x => x));
+        if (element.Value == elementValue)
+        {
+            return false;
+        }
+
+        var elementName = "TargetFrameworkVersion";
+
+        element.Value = elementValue;
 
         return true;
     }

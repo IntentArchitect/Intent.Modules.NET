@@ -49,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.SqlServerDatabase.SqlPr
         /// <summary>
         /// SQL projects should never have NuGet packages.
         /// </summary>
-        public override IEnumerable<INugetPackageInfo> RequestedNugetPackages() => Enumerable.Empty<INugetPackageInfo>();
+        public override IEnumerable<INugetPackageInfo> RequestedNugetPackages() => [];
 
         private void ApplySqlCmdVariables(ProjectFileXml xml)
         {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6dfad5d2-a4d8-4900-8e57-a34125cd1700" type="SQL Server Database Project" typeId="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">
+  <name>${application.name}.SqlDatabaseProject</name>
+  <display>${application.name}.SqlDatabaseProject</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4251a733-07fc-4fca-b4cc-0d6ddcfae43b</parentFolderId>
+  <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3d6a3c2c-7608-4184-b7e5-76b6b993440e" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>SqlDatabaseProject</name>
+      <display>SqlDatabaseProject</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6dfad5d2-a4d8-4900-8e57-a34125cd1700</parentFolderId>
+      <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

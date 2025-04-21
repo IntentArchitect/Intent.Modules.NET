@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.0.12" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.EmptyVisualStudioSolution" version="4.0.13" />
   <applications>
     <application id="7decc3ee-90dc-439b-b1f1-a6652711ee7b" name="Intent.ApplicationTemplates.NET" relativePath="Intent.ApplicationTemplates.NET/Intent.ApplicationTemplates.NET.application.config" />
     <application id="3f2f8c1e-0bbc-4270-88b3-666aec19564a" name="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi" relativePath="Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi/Intent.ApplicationTemplates.NET.Metadata.FullStackWebApi.application.config" />
@@ -24,5 +24,6 @@
     <application id="98d63ad2-cfd2-4691-a283-5e479d4219a5" name="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone" relativePath="Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone/Intent.ApplicationTemplates.NET.Metadata.Blazor.Standalone.application.config" />
     <application id="b31abe4e-9ae5-42fd-bfc7-c477ae199977" name="Intent.SharedKernel.Metadata" relativePath="Intent.SharedKernel.Metadata/Intent.SharedKernel.Metadata.application.config" />
     <application id="b1c76612-7d4a-495a-a590-bf4862693583" name="Intent.Modules.IaC.Bicep.Metadata" relativePath="Intent.Modules.IaC.Bicep.Metadata/Intent.Modules.IaC.Bicep.Metadata.application.config" />
+    <application id="863b4eb3-d4db-44d0-9fea-12bda69d4181" name="Intent.Modules.SqlDatabaseProject.Metadata" relativePath="Intent.Modules.SqlDatabaseProject.Metadata/Intent.Modules.SqlDatabaseProject.Metadata.application.config" />
   </applications>
 </solution>

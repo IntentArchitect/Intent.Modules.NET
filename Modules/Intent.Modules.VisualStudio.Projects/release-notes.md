@@ -1,3 +1,7 @@
+### Version 3.8.11
+
+- Improvement: Added `.NET Framework 4.8.1` and added ability to set `.NET Framework` version on `SQL Database Projects`.
+
 ### Version 3.8.10
 
 - Improvement: The output location of the `Directory.Packages.props` file can now be configured.

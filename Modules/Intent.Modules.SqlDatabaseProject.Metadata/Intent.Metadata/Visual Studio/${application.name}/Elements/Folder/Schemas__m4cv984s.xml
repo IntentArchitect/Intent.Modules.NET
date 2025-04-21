@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7925ef08-c278-466e-8501-301c9194187e" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Schemas</name>
+  <display>Schemas</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6dfad5d2-a4d8-4900-8e57-a34125cd1700</parentFolderId>
+  <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+  <packageName>${application.name}</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="667ba29f-10f1-4f68-a492-6bb20a2586c6" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>SqlDatabaseProject.Schema</name>
+      <display>SqlDatabaseProject.Schema</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7925ef08-c278-466e-8501-301c9194187e</parentFolderId>
+      <packageId>40f2efb7-3f7f-4349-9468-f5937ac5cf3a</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

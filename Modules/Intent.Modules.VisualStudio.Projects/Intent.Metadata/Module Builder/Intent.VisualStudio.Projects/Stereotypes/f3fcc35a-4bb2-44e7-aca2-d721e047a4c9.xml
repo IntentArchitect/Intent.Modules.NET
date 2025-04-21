@@ -7,6 +7,7 @@
     <type id="0FEBBF41-7C8E-4F98-85A5-F8B5236CFD7D">Class Library (.NET Framework)</type>
     <type id="673AAE96-C9B1-4B7E-9A52-ADE5F9218CFC">Console App (.NET Framework)</type>
     <type id="3CDFF513-03D8-4BAB-9435-160108A086A3">WCF Service Application</type>
+    <type id="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">SQL Server Database Project</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>

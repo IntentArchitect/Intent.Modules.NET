@@ -49,7 +49,7 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
         public IEnumerable<string> TargetFrameworkVersion()
         {
-            return new string[0];
+            return [this.GetNETFrameworkSettings()?.TargetFramework().AsNETFrameworkVersionModel()?.GetNETFrameworkVersionSettings()?.LegacyVersionIdentifier() ?? "v4.5"];
         }
 
         public string Id => _element.Id;
