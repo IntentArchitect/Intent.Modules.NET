@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="de34318c-166e-4e8f-b791-ec40b234db13" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79e09ed8-63e8-4f9e-b981-5de86029d61b</parentFolderId>
+  <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+  <packageName>SqlDbProject.Domain</packageName>
+  <diagram>
+    <targetPackageId>de34318c-166e-4e8f-b791-ec40b234db13</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

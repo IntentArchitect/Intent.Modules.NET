@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="eb2f9146-f9ab-4e6a-b10a-cafc116d23a9">
+  <sourceEnd id="d70f8458-6713-4a38-9d5a-57e379640403" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="199e9de5-9561-4eec-b5a3-8e79fdfc743d">
+      <typeId>3fbfee56-530b-4c82-9911-437bc53dc412</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="eb2f9146-f9ab-4e6a-b10a-cafc116d23a9" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Country</name>
+    <display>Country: Country</display>
+    <order>7</order>
+    <typeReference id="0c1885e1-90da-4120-897c-d8f8fb12dc6c">
+      <typeId>ac611390-3907-4a61-8469-8e62488f599f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="529ab6e2-603a-49fb-81a7-ab2cbd2f4630" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>Policy</name>
+  <display>Policy</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79e09ed8-63e8-4f9e-b981-5de86029d61b</parentFolderId>
+  <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+  <packageName>SqlDbProject.Domain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c0f17219-ada3-47ac-80c6-7a5750cbd322" name="Schema">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+      <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+      <properties>
+        <property name="981470a5-f1b3-4781-a709-ea7500975ff5" display="Name" value="policy" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="9a30957e-d033-4e1b-87c2-82a30acbe926" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PolicyId</name>
+      <display>PolicyId: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="63b5396d-38c0-4cd9-812f-964f942ca100">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="440c271e-ce78-4774-9489-4a9a45dae22f" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PolicyStatusId</name>
+      <display>PolicyStatusId: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="f1b1627c-d530-4a05-ae33-8769d4c0b124">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="3f80cbdc-174a-46e9-89bc-d5287238a575" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="bbe43b90-c20d-4fdb-8a55-9037a5f6bd0b" name="Index">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" value="IX_Policy_Stakeholder" isActive="true" />
+            <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" value="0" isActive="true" />
+            <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="PolicyStatusPolicyStatusId" />
+        <entry key="association" value="3f80cbdc-174a-46e9-89bc-d5287238a575" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bc0fa592-7c96-4aeb-8d9e-4d2142ae86c5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>StakeholderId</name>
+      <display>StakeholderId: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="0a5ac410-22e7-4992-9c1e-b41f87818a51">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="b04821cd-4052-4851-a834-3dd9d076a6d1" isActive="true" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="bbe43b90-c20d-4fdb-8a55-9037a5f6bd0b" name="Index">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="3427ad7b-e1a6-4d36-9e12-c5ada14a414b" display="UniqueKey" value="IX_Policy_Stakeholder" isActive="true" />
+            <property name="a8f903d5-e8b6-4d15-aedb-08c6b290b733" display="Order" value="1" isActive="true" />
+            <property name="90002464-b824-40e2-9f73-32f306868897" display="IsUnique" value="false" isActive="true" />
+            <property name="ab0cf6c6-9589-44cb-98fb-507e554c2d9b" display="Sort Direction" value="Ascending" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="StakeholderStakeholderId" />
+        <entry key="association" value="b04821cd-4052-4851-a834-3dd9d076a6d1" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b0b64156-7af8-4674-bb0c-8d65b1bfa833" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ProductId</name>
+      <display>ProductId: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="162e49ed-df60-4633-8f3a-68aac9059142">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="793a5128-57a1-440b-a206-af5722b752a6" name="Foreign Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="42e4f9b5-f834-4e5f-86aa-d3a35c505076" display="Association" value="1674c9e3-579d-4ba6-883f-c64d40fc3600" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="fk-original-name" value="ProductProductId" />
+        <entry key="association" value="1674c9e3-579d-4ba6-883f-c64d40fc3600" />
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="789a787c-4a02-4cf4-b37a-e5f80fb3293a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PolicyNumber</name>
+      <display>PolicyNumber: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="86c9fff3-f700-472d-9391-46a2d086912b">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e5444ce0-8f90-4c77-af63-e8274fc4ad5c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>OriginalInceptionDate</name>
+      <display>OriginalInceptionDate: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4917f11c-e5a3-47e8-97f9-1b3ff99258bf">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="823309a1-ea11-47a8-a439-282c716922d2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>StartDate</name>
+      <display>StartDate: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="6b25a041-ebf2-439c-8053-8b769c28f525">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9e7b1e08-c71f-4ace-ae16-db965fc17fee" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ReviewDate</name>
+      <display>ReviewDate: datetime?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="80e5a8df-dfac-4ff1-8570-a4c00dc0b2ca">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="147a3493-181b-42fd-8a03-38ff18fb16f5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ExpiryDate</name>
+      <display>ExpiryDate: datetime?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a786d4fb-7a1e-4ed5-b711-6555e5e12b68">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="83ddb837-6ac9-4cee-9520-38a820905e70" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>ExternalSystemReference</name>
+      <display>ExternalSystemReference: string?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="42747258-01bf-48a0-b040-08da5bb25249">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="9f7b992e-ffa2-4b3e-b2a4-f1ec13fc210b" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>IsDeleted</name>
+      <display>IsDeleted: bool</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b646a7df-d848-49a5-8835-4a8ae191cbb8">
+        <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="f21339bf-9ce6-4584-828f-de82089e3b72" name="Default Constraint">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="0b03f735-394c-4c12-8f10-bd14f9ab2dd0" display="Value" value="0" isActive="true" />
+            <property name="c213fe57-1d8c-4e3b-9714-21237e526e24" display="Treat as SQL Expression" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fb48a95d-e760-4dc3-9eb8-7fc7ce7c9dfa" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
+      <name>IX_PolicyItem_PolicyId</name>
+      <display>IX_PolicyItem_PolicyId</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>f97f76c5-d333-40f4-920b-425934a7711e</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="529ab6e2-603a-49fb-81a7-ab2cbd2f4630" name="Policy" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="18a8e9e7-b8db-41ec-976b-2b6ba0cc4e4d" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="0d83cdc2-7dc3-4693-9767-4c742ebb3188" display="Use Default Name" value="false" isActive="true" />
+            <property name="7cb9624c-677e-4e71-b674-7a109c674d49" display="Unique" value="false" isActive="true" />
+            <property name="b591c208-51fa-4507-bd7c-337a738772e0" display="Filter" value="Default" isActive="true" />
+            <property name="aef6b276-e7fd-4e16-8b30-f7d74a0b402b" display="Filter Custom Value" isActive="false" />
+            <property name="4e876d68-8bde-4b31-bd25-81e2bd935e76" display="Fill Factor" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="68f2ac1b-5048-4947-b97e-00b74eeb8d16" type="Index Column" typeId="c5ba925d-5c08-4809-a848-585a0cd4ddd3">
+          <name>PolicyId</name>
+          <display>PolicyId</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>30f4278f-1d74-4e7e-bfdb-39c8e120f24c</mappingSettingsId>
+            <autoSyncTypeReference>false</autoSyncTypeReference>
+            <mappedPath>
+              <target id="9a30957e-d033-4e1b-87c2-82a30acbe926" name="PolicyId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>fb48a95d-e760-4dc3-9eb8-7fc7ce7c9dfa</parentFolderId>
+          <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+          <packageName>SqlDbProject.Domain</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="1c39a537-7016-4774-a874-23248040c07e" name="Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+              <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+              <properties>
+                <property name="9c37afb1-b837-49a6-b7fb-3c25c8aab1d5" display="Type" value="Key" isActive="true" />
+                <property name="f80ed9e2-b90b-4fff-a551-98f0461b3f86" display="Sort Direction" value="Ascending" isActive="true" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

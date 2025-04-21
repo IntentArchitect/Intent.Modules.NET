@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="773c3773-74bf-49a7-bfc6-1185e6f7cc77" type="SQL Server Database Project" typeId="00D1A9C2-B5F0-4AF3-8072-F6C62B433612">
+  <name>SqlDbProject.SqlDatabaseProject</name>
+  <display>SqlDbProject.SqlDatabaseProject</display>
+  <externalReference>6dfad5d2-a4d8-4900-8e57-a34125cd1700</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d82e194d-adcd-4724-9336-9cbea46c7582</parentFolderId>
+  <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+  <packageName>SqlDbProject</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" name=".NET Framework Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="117cf9ee-04da-4f1c-915a-b62c61e2c558" display="Target Framework" value="e836b701-8f17-424b-9255-f7bc9a80b114" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="d1d9e35e-9fa0-4e3a-a115-79b889497f15" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.SqlDatabaseProject.IndexTemplate</name>
+      <display>Intent.SqlDatabaseProject.IndexTemplate</display>
+      <externalReference>Intent.SqlDatabaseProject</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</parentFolderId>
+      <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+      <packageName>SqlDbProject</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8cd1f04f-bc37-4866-8512-c5f787771117" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.SqlDatabaseProject.StoredProcedureTemplate</name>
+      <display>Intent.SqlDatabaseProject.StoredProcedureTemplate</display>
+      <externalReference>Intent.SqlDatabaseProject</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</parentFolderId>
+      <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+      <packageName>SqlDbProject</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="18ba40d5-5a51-4357-917c-1c0c34789633" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.SqlDatabaseProject.TableTemplate</name>
+      <display>Intent.SqlDatabaseProject.TableTemplate</display>
+      <externalReference>Intent.SqlDatabaseProject</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</parentFolderId>
+      <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+      <packageName>SqlDbProject</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="98104505-ed7d-4d85-9eb1-e339cc8ffe39" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>SqlDatabaseProject</name>
+      <display>SqlDatabaseProject</display>
+      <externalReference>3d6a3c2c-7608-4184-b7e5-76b6b993440e</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</parentFolderId>
+      <packageId>2bff1c43-96f9-4edd-9b34-6a2089f58582</packageId>
+      <packageName>SqlDbProject</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

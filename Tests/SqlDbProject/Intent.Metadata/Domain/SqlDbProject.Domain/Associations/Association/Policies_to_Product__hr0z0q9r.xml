@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1674c9e3-579d-4ba6-883f-c64d40fc3600">
+  <sourceEnd id="f82e1360-2bdc-4b5d-830f-3391abea79ec" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Policies</name>
+    <display>Policies: Policy[*]</display>
+    <order>0</order>
+    <typeReference id="78275038-de26-46dd-aa7f-a950eb7d2252">
+      <typeId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1674c9e3-579d-4ba6-883f-c64d40fc3600" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Product</name>
+    <display>Product: Product</display>
+    <order>13</order>
+    <typeReference id="4ef30d0d-f1cf-43e6-9393-12ad2ff4e699">
+      <typeId>3fbfee56-530b-4c82-9911-437bc53dc412</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>SqlDbProject.Domain</typePackageName>
+      <typePackageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

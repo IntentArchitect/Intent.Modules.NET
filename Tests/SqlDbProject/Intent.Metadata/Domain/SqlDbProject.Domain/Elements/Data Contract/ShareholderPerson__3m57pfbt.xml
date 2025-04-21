@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="87c95a34-fdd6-4946-b8fe-13f00400e4ee" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>ShareholderPerson</name>
+  <display>ShareholderPerson</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>79e09ed8-63e8-4f9e-b981-5de86029d61b</parentFolderId>
+  <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+  <packageName>SqlDbProject.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="2b435a3a-56cc-4d47-bca9-54ae3c597517" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>StakeholderId</name>
+      <display>StakeholderId: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="3bb3ec8f-e2ce-49fd-ab33-e87559a9cd1d">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>87c95a34-fdd6-4946-b8fe-13f00400e4ee</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="eabdbf39-e07c-43f3-9f4b-d41721d2a7e5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Birthdate</name>
+      <display>Birthdate: datetime</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="43eb0dfd-973b-4de0-9879-f73eab118fe9">
+        <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>87c95a34-fdd6-4946-b8fe-13f00400e4ee</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a9a278b1-afb1-432b-a40d-e40bf7f71563" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SexTypeId</name>
+      <display>SexTypeId: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a979bd37-ca84-4f83-aeb5-0b6efc197787">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>87c95a34-fdd6-4946-b8fe-13f00400e4ee</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="53772119-8d1a-4ac2-96d8-8936a3c8a1db" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Description</name>
+      <display>Description: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="419d14c2-88d6-480b-b331-e41a1fc6ea04">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>87c95a34-fdd6-4946-b8fe-13f00400e4ee</parentFolderId>
+      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
+      <packageName>SqlDbProject.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
