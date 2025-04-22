@@ -72,7 +72,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
                         @class.Properties.Remove(usersProperty);
                     }
                 }
-            });
+            }, 1);
         }
 
         private static void UpdateEntityTemplate(IApplication application, ClassModel identityModel)
