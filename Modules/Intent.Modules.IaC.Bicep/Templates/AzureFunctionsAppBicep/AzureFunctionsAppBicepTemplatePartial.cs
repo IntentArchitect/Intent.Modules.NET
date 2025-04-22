@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
