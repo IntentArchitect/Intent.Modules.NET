@@ -16,6 +16,9 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations.Accounts
 
             builder.HasKey(x => x.CurrencyIso);
 
+            builder.Property(x => x.CurrencyIso)
+                .ValueGeneratedNever();
+
             builder.Property(x => x.Country)
                 .IsRequired()
                 .HasMaxLength(255);

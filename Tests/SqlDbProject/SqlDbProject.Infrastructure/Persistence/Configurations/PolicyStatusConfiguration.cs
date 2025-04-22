@@ -16,6 +16,9 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
 
             builder.HasKey(x => x.PolicyStatusId);
 
+            builder.Property(x => x.PolicyStatusId)
+                .ValueGeneratedNever();
+
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasMaxLength(255);

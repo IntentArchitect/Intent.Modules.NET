@@ -16,6 +16,9 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
 
             builder.HasKey(x => x.StakeholderId);
 
+            builder.Property(x => x.StakeholderId)
+                .ValueGeneratedNever();
+
             builder.Property(x => x.Name)
                 .IsRequired()
                 .HasMaxLength(255);

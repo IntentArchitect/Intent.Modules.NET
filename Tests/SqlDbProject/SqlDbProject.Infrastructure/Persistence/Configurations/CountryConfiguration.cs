@@ -15,7 +15,8 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
             builder.HasKey(x => x.CountryIso);
 
             builder.Property(x => x.CountryIso)
-                .HasColumnType("CHAR(2)");
+                .HasColumnType("CHAR(2)")
+                .ValueGeneratedNever();
 
             builder.Property(x => x.Description)
                 .IsRequired()

@@ -1,6 +1,7 @@
 ### Version 5.0.20
 
 - Improvement: Updated NuGet package versions.
+- Improvement: `Primary Key` stereotype uses `Data Source` to determine whether a `PK` column should have the `Identity` specification or not.
 
 ### Version 5.0.19
 

@@ -37,7 +37,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 
         if (databaseProvider != DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos)
         {
-            field.AddStatements(field.AddRdbmsMappingStatements(attribute, dbSettings, columnOrder));
+            field.AddStatements(AddRdbmsMappingStatements(attribute, dbSettings, columnOrder));
         }
 
         return field;
@@ -98,14 +98,9 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
     ", Statements.Select(x => x.GetText(indentation)))}" : string.Empty)};";
     }
 
-    private List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings, int? implicitColumnOrder)
+    private static List<CSharpStatement> AddRdbmsMappingStatements(AttributeModel attribute, DatabaseSettings dbSettings, int? implicitColumnOrder)
     {
         var statements = new List<CSharpStatement>();
-
-        if (attribute.GetPrimaryKey()?.Identity() == true)
-        {
-            statements.Add(".UseSqlServerIdentityColumn()");
-        }
 
         if (attribute.HasDefaultConstraint())
         {
