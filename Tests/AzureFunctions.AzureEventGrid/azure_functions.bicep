@@ -82,6 +82,12 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: 'dotnet-isolated'
         }
       ]
+      cors: {
+        allowedOrigins: [
+          'https://portal.azure.com'
+        ]
+      }
+      netFrameworkVersion: 'v8.0'
     }
   }
 }

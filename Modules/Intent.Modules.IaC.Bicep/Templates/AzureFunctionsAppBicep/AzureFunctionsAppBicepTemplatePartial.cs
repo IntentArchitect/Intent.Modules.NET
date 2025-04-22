@@ -1,11 +1,11 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -126,7 +126,7 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
             }
 
             var configVarMappings = new Dictionary<string, string>();
-            
+
             if (HasAzureServiceBus())
             {
                 configVarMappings["AzureServiceBus:ConnectionString"] = "serviceBusConnectionString";
@@ -238,6 +238,20 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                                     }
                                 }
                             });
+
+                            config.Block("cors", cors =>
+                            {
+                                cors.Array("allowedOrigins", allowedOrigins =>
+                                {
+                                    allowedOrigins.ScalarValue("https://portal.azure.com");
+                                });
+                            });
+
+                            var template = GetTemplate<ICSharpTemplate>("Intent.AzureFunctions.Isolated.Program", new TemplateDiscoveryOptions { TrackDependency = false, ThrowIfNotFound = false });
+                            if (template != null && template.Project.GetProject().TryGetMaxNetAppVersion(out var version))
+                            {
+                                config.Set("netFrameworkVersion", $"'v{version.Major}.{version.Minor}'");
+                            }
                         });
                 })
                 .Build());
