@@ -31,7 +31,7 @@
       <name>Intent.Blazor</name>
       <display>Intent.Blazor 1.0.0-beta.11</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.11</value>
+      <value>1.0.0-beta.12</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -45,7 +45,7 @@
       <name>Intent.Blazor.Components.MudBlazor</name>
       <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.22</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.22</value>
+      <value>1.0.0-beta.23</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -73,7 +73,7 @@
       <name>Intent.Blazor.HttpClients</name>
       <display>Intent.Blazor.HttpClients 4.0.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.5</value>
+      <value>4.0.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -101,7 +101,7 @@
       <name>Intent.Code.Weaving.Razor</name>
       <display>Intent.Code.Weaving.Razor 1.0.6</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.6</value>
+      <value>1.0.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -115,7 +115,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.6</value>
+      <value>3.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.12</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.12</value>
+      <value>3.8.13</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -171,7 +171,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.6</value>
+      <value>4.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.5</value>
+      <value>4.9.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -283,7 +283,7 @@
       <name>Intent.VisualStudio.Projects</name>
       <display>Intent.VisualStudio.Projects 3.8.10</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.10</value>
+      <value>3.8.11</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.SqlDatabaseProject</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Generate SQL Database Project objects through models being designed in the Domain designer.</summary>
   <description>Generate SQL Database Project objects through models being designed in the Domain designer.</description>
@@ -31,10 +31,10 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Metadata.RDBMS" version="3.7.2-pre.1" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.7.2" />
     <dependency id="Intent.Modelers.Domain" version="3.12.2" />
     <dependency id="Intent.Modules.Modelers.Domain.StoredProcedures" version="1.1.4" />
-    <dependency id="Intent.VisualStudio.Projects" version="3.8.11-pre.0" />
+    <dependency id="Intent.VisualStudio.Projects" version="3.8.11" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

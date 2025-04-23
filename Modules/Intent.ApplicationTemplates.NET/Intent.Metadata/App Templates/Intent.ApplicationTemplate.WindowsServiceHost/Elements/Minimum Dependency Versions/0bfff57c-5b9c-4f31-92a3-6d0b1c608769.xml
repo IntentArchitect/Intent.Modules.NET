@@ -31,7 +31,7 @@
       <name>Intent.Application.DependencyInjection.MediatR</name>
       <display>Intent.Application.DependencyInjection.MediatR 3.5.15</display>
       <isAbstract>false</isAbstract>
-      <value>3.5.15</value>
+      <value>3.5.16</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -45,7 +45,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.6</value>
+      <value>3.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -59,7 +59,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.12</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.12</value>
+      <value>3.8.13</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -87,7 +87,7 @@
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
       <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.5</value>
+      <value>4.2.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.6</value>
+      <value>4.7.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -227,7 +227,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.5</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.5</value>
+      <value>4.9.6</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
