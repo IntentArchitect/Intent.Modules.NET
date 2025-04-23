@@ -28,13 +28,13 @@ namespace SqlDbProject.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
-            services.AddTransient<IShareholderRepository, ShareholderRepository>();
+            services.AddTransient<Domain.Repositories.IAccountRepository, Repositories.AccountRepository>();
+            services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<IPolicyRepository, PolicyRepository>();
             services.AddTransient<IPolicyStatusRepository, PolicyStatusRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<IStakeholderRepository, StakeholderRepository>();
-            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddTransient<Domain.Repositories.Accounts.IAccountRepository, Repositories.Accounts.AccountRepository>();
             services.AddTransient<IAccountTypeRepository, AccountTypeRepository>();
             services.AddTransient<ICurrencyRepository, CurrencyRepository>();
             services.AddTransient<IPeriodRepository, PeriodRepository>();

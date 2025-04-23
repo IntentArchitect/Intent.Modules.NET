@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +9,8 @@
     <ProjectGuid>{773c3773-74bf-49a7-bfc6-1185e6f7cc77}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath></RootPath>
+    <RootPath>
+    </RootPath>
     <RootNamespace>SqlDbProject.SqlDatabaseProject</RootNamespace>
     <AssemblyName>SqlDbProject.SqlDatabaseProject</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -54,22 +56,33 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="policy\" />
+    <Folder Include="policy\Indexes\" />
+    <Folder Include="finance\" />
+    <Folder Include="finance\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="policy\Tables\" />
+    <Folder Include="Schemas\" />
+    <Folder Include="accountholder\" />
+    <Folder Include="accountholder\Stored Procedures\" />
+    <Folder Include="accountholder\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="policy\Indexes\IX_PolicyItem_PolicyId.sql" />
     <Build Include="policy\Indexes\IX_Policy_Stakeholder.sql" />
-    <Build Include="stakeholder\Stored Procedures\GetStakeholderPerson.sql" />
     <Build Include="finance\Tables\Account.sql" />
     <Build Include="finance\Tables\AccountType.sql" />
     <Build Include="dbo\Tables\Country.sql" />
     <Build Include="finance\Tables\Currency.sql" />
     <Build Include="finance\Tables\Period.sql" />
     <Build Include="policy\Tables\Policy.sql" />
-    <Build Include="stakeholder\Tables\PolicyStatus.sql" />
     <Build Include="policy\Tables\Product.sql" />
-    <Build Include="stakeholder\Tables\Stakeholder.sql" />
     <Build Include="Schemas\finance.sql" />
     <Build Include="Schemas\policy.sql" />
-    <Build Include="Schemas\stakeholder.sql" />
+    <Build Include="accountholder\Stored Procedures\GetAccountHolderPerson.sql" />
+    <Build Include="accountholder\Tables\AccountHolder.sql" />
+    <Build Include="accountholder\Tables\PolicyStatus.sql" />
+    <Build Include="Schemas\accountholder.sql" />
   </ItemGroup>
 </Project>

@@ -6,8 +6,8 @@ using SqlDbProject.Domain.Contracts;
 
 namespace SqlDbProject.Domain.Repositories
 {
-    public interface IShareholderRepository
+    public interface IAccountRepository
     {
-        Task<ShareholderPerson> GetStakeholderPerson(long stakeholderId, CancellationToken cancellationToken = default);
+        Task<AccountHolderPerson> GetAccountHolderPerson(long stakeholderId, CancellationToken cancellationToken = default);
     }
 }

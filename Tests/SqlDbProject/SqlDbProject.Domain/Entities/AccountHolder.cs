@@ -5,14 +5,14 @@ using SqlDbProject.Domain.Common;
 
 namespace SqlDbProject.Domain.Entities
 {
-    public class Stakeholder : IHasDomainEvent
+    public class AccountHolder : IHasDomainEvent
     {
-        public Stakeholder()
+        public AccountHolder()
         {
             Name = null!;
         }
 
-        public long StakeholderId { get; set; }
+        public long AccountHolderId { get; set; }
 
         public string Name { get; set; }
 

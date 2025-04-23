@@ -10,31 +10,33 @@ using SqlDbProject.Infrastructure.Persistence;
 namespace SqlDbProject.Infrastructure.Repositories
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class StakeholderRepository : RepositoryBase<Stakeholder, Stakeholder, ApplicationDbContext>, IStakeholderRepository
+    public class AccountHolderRepository : RepositoryBase<AccountHolder, AccountHolder, ApplicationDbContext>, IAccountHolderRepository
     {
-        public StakeholderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
+        public AccountHolderRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
         }
 
         public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
-            long stakeholderId,
+            long accountHolderId,
             CancellationToken cancellationToken = default)
         {
-            return await FindProjectToAsync<TProjection>(x => x.StakeholderId == stakeholderId, cancellationToken);
+            return await FindProjectToAsync<TProjection>(x => x.AccountHolderId == accountHolderId, cancellationToken);
         }
 
-        public async Task<Stakeholder?> FindByIdAsync(long stakeholderId, CancellationToken cancellationToken = default)
+        public async Task<AccountHolder?> FindByIdAsync(
+            long accountHolderId,
+            CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.StakeholderId == stakeholderId, cancellationToken);
+            return await FindAsync(x => x.AccountHolderId == accountHolderId, cancellationToken);
         }
 
-        public async Task<List<Stakeholder>> FindByIdsAsync(
-            long[] stakeholderIds,
+        public async Task<List<AccountHolder>> FindByIdsAsync(
+            long[] accountHolderIds,
             CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
-            var idList = stakeholderIds.ToList();
-            return await FindAllAsync(x => idList.Contains(x.StakeholderId), cancellationToken);
+            var idList = accountHolderIds.ToList();
+            return await FindAllAsync(x => idList.Contains(x.AccountHolderId), cancellationToken);
         }
     }
 }

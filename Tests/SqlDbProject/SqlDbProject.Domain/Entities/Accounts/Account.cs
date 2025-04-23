@@ -26,11 +26,11 @@ namespace SqlDbProject.Domain.Entities.Accounts
 
         public int AccountTypeId { get; set; }
 
-        public long StakeholderId { get; set; }
+        public long AccountHolderId { get; set; }
 
         public virtual AccountType AccountType { get; set; }
 
-        public virtual Stakeholder Stakeholder { get; set; }
+        public virtual AccountHolder Stakeholder { get; set; }
 
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }

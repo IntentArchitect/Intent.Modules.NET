@@ -8,15 +8,15 @@ using SqlDbProject.Domain.Entities;
 
 namespace SqlDbProject.Infrastructure.Persistence.Configurations
 {
-    public class StakeholderConfiguration : IEntityTypeConfiguration<Stakeholder>
+    public class AccountHolderConfiguration : IEntityTypeConfiguration<AccountHolder>
     {
-        public void Configure(EntityTypeBuilder<Stakeholder> builder)
+        public void Configure(EntityTypeBuilder<AccountHolder> builder)
         {
-            builder.ToTable("Stakeholders", "stakeholder");
+            builder.ToTable("AccountHolders", "accountholder");
 
-            builder.HasKey(x => x.StakeholderId);
+            builder.HasKey(x => x.AccountHolderId);
 
-            builder.Property(x => x.StakeholderId)
+            builder.Property(x => x.AccountHolderId)
                 .ValueGeneratedNever();
 
             builder.Property(x => x.Name)

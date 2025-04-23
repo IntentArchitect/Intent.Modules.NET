@@ -20,9 +20,9 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="b04821cd-4052-4851-a834-3dd9d076a6d1" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
-    <name>Stakeholder</name>
-    <display>Stakeholder: Stakeholder</display>
-    <order>12</order>
+    <name>AccountHolder</name>
+    <display>AccountHolder: AccountHolder</display>
+    <order>11</order>
     <typeReference id="d47144a2-d4fc-4073-9333-2e5379f72f4a">
       <typeId>02e146b6-a7ab-4d79-a446-1f134d7f27a5</typeId>
       <isNavigable>true</isNavigable>

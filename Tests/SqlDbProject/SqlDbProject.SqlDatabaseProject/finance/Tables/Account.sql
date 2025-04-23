@@ -5,8 +5,8 @@ CREATE TABLE [finance].[Account]
     [AccountNumber] NVARCHAR(64) NOT NULL,
     [ExternalReference] NVARCHAR(255) NOT NULL,
     [AccountTypeId] INT NOT NULL,
-    [StakeholderId] BIGINT NOT NULL,
+    [AccountHolderId] BIGINT NOT NULL,
     CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED ([AccountId] ASC),
     CONSTRAINT [FK_Account_AccountType] FOREIGN KEY ([AccountTypeId]) REFERENCES [finance].[AccountType] ([AccountTypeId]),
-    CONSTRAINT [FK_Account_Stakeholder] FOREIGN KEY ([StakeholderId]) REFERENCES [stakeholder].[Stakeholder] ([StakeholderId])
+    CONSTRAINT [FK_Account_AccountHolder] FOREIGN KEY ([AccountHolderId]) REFERENCES [accountholder].[AccountHolder] ([AccountHolderId])
 );

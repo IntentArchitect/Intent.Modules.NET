@@ -105,8 +105,8 @@
       <childElements />
     </childElement>
     <childElement id="bc0fa592-7c96-4aeb-8d9e-4d2142ae86c5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>StakeholderId</name>
-      <display>StakeholderId: long</display>
+      <name>AccountHolderId</name>
+      <display>AccountHolderId: long</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="0a5ac410-22e7-4992-9c1e-b41f87818a51">
@@ -317,41 +317,6 @@
       <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
       <packageName>SqlDbProject.Domain</packageName>
       <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="83ddb837-6ac9-4cee-9520-38a820905e70" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
-      <name>ExternalSystemReference</name>
-      <display>ExternalSystemReference: string?</display>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <typeReference id="42747258-01bf-48a0-b040-08da5bb25249">
-        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
-        <isNavigable>true</isNavigable>
-        <isNullable>true</isNullable>
-        <isCollection>false</isCollection>
-        <isRequired>true</isRequired>
-        <typePackageName>Intent.Common.Types</typePackageName>
-        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
-        <stereotypes />
-        <genericTypeParameters />
-      </typeReference>
-      <isMapped>false</isMapped>
-      <parentFolderId>529ab6e2-603a-49fb-81a7-ab2cbd2f4630</parentFolderId>
-      <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
-      <packageName>SqlDbProject.Domain</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
-          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
-          <properties>
-            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
-            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
-            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
       <metadata />
       <childElements />
     </childElement>

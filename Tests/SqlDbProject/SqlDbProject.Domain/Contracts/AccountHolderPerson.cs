@@ -5,9 +5,9 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace SqlDbProject.Domain.Contracts
 {
-    public record ShareholderPerson
+    public record AccountHolderPerson
     {
-        public ShareholderPerson(long stakeholderId, DateTime birthdate, int sexTypeId, string description)
+        public AccountHolderPerson(long stakeholderId, DateTime birthdate, int sexTypeId, string description)
         {
             StakeholderId = stakeholderId;
             Birthdate = birthdate;
@@ -19,7 +19,7 @@ namespace SqlDbProject.Domain.Contracts
         /// Required by Entity Framework.
         /// </summary>
         [IntentManaged(Mode.Fully)]
-        protected ShareholderPerson()
+        protected AccountHolderPerson()
         {
             Description = null!;
         }

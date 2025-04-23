@@ -22,7 +22,7 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
             builder.Property(x => x.PolicyStatusId)
                 .IsRequired();
 
-            builder.Property(x => x.StakeholderId)
+            builder.Property(x => x.AccountHolderId)
                 .IsRequired();
 
             builder.Property(x => x.ProductId)
@@ -41,8 +41,6 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.ExpiryDate);
 
-            builder.Property(x => x.ExternalSystemReference);
-
             builder.Property(x => x.IsDeleted)
                 .IsRequired()
                 .HasDefaultValue(0);
@@ -50,7 +48,7 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
             builder.HasIndex(x => x.PolicyId)
                 .HasDatabaseName("IX_PolicyItem_PolicyId");
 
-            builder.HasIndex(x => new { x.PolicyStatusId, x.StakeholderId })
+            builder.HasIndex(x => new { x.PolicyStatusId, x.AccountHolderId })
                 .HasDatabaseName("IX_Policy_Stakeholder");
 
             builder.HasOne(x => x.PolicyStatus)
@@ -58,9 +56,9 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
                 .HasForeignKey(x => x.PolicyStatusId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(x => x.Stakeholder)
+            builder.HasOne(x => x.AccountHolder)
                 .WithMany()
-                .HasForeignKey(x => x.StakeholderId)
+                .HasForeignKey(x => x.AccountHolderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Product)

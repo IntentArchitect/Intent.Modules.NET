@@ -12,7 +12,7 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<PolicyStatus> builder)
         {
-            builder.ToTable("PolicyStatuses", "stakeholder");
+            builder.ToTable("PolicyStatuses", "accountholder");
 
             builder.HasKey(x => x.PolicyStatusId);
 

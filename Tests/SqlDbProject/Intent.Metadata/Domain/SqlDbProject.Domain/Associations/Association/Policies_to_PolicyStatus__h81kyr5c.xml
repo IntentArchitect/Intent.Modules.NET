@@ -22,7 +22,7 @@
   <targetEnd id="3f80cbdc-174a-46e9-89bc-d5287238a575" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>PolicyStatus</name>
     <display>PolicyStatus: PolicyStatus</display>
-    <order>11</order>
+    <order>10</order>
     <typeReference id="10597f4f-b3a7-40e1-9294-093e57243de3">
       <typeId>a79dc8ac-8913-42ff-aaa8-a003e2b2825f</typeId>
       <isNavigable>true</isNavigable>

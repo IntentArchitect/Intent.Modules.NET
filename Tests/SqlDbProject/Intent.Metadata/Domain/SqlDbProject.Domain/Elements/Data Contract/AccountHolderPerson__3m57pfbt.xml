@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="87c95a34-fdd6-4946-b8fe-13f00400e4ee" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
-  <name>ShareholderPerson</name>
-  <display>ShareholderPerson</display>
+  <name>AccountHolderPerson</name>
+  <display>AccountHolderPerson</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />

@@ -356,8 +356,16 @@
       <ProjectId>55afacd9-6d2e-4785-b921-ed097ccba22c</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#87c95a34-fdd6-4946-b8fe-13f00400e4ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Domain/Contracts/ShareholderPerson.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ShareholderPerson.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>SqlDbProject.Domain/Contracts/AccountHolderPerson.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolderPerson.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0e94a235-3c3a-4cb1-996a-2623c41abd77</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Domain/Entities/AccountHolder.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolder.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -425,14 +433,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>0e94a235-3c3a-4cb1-996a-2623c41abd77</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Domain/Entities/Stakeholder.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Stakeholder.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d4d15ea7-27c0-4504-ba0f-162c167fa550</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -462,6 +462,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/Accounts/IPeriodRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Accounts/IPeriodRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/IAccountHolderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAccountHolderRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/IAccountRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAccountRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -521,22 +537,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/IShareholderRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IShareholderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cc2b4188-4cae-4903-b194-5b8a0adf016b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Domain/Repositories/IStakeholderRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IStakeholderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c44cf870-610f-47af-a542-85472771a223</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c44cf870-610f-47af-a542-85472771a223</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -558,6 +558,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7238eec3-453b-43c8-8e49-e70df840b03c</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/Configurations/AccountHolderConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolderConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -625,19 +633,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>7238eec3-453b-43c8-8e49-e70df840b03c</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/Configurations/StakeholderConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StakeholderConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>505d6c7e-16ca-4702-baa0-885d5e372c4e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1275ee7b-1c9b-459a-9407-bdc490442211</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Repositories/AccountHolderRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolderRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1275ee7b-1c9b-459a-9407-bdc490442211</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Repositories/AccountRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -713,22 +729,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>1275ee7b-1c9b-459a-9407-bdc490442211</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#4a0b23fa-e332-49d9-8f8d-811d48081823</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Repositories/ShareholderRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ShareholderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>1275ee7b-1c9b-459a-9407-bdc490442211</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Repositories/StakeholderRepository.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>StakeholderRepository.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>ea8f1629-dbab-4719-8925-5deed6a7e047</ProjectId>
       <CorrelationId>Intent.MediatR.DomainEvents.DomainEventService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -748,6 +748,30 @@
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#2bff1c43-96f9-4edd-9b34-6a2089f58582</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
+      <CorrelationId>Intent.SqlDatabaseProject.StoredProcedureTemplate#96c46870-30f4-4be3-8b71-5b996a672e47</CorrelationId>
+      <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/accountholder/Stored Procedures/GetAccountHolderPerson.sql</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>accountholder/Stored Procedures/GetAccountHolderPerson.sql</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
+      <CorrelationId>Intent.SqlDatabaseProject.TableTemplate#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/accountholder/Tables/AccountHolder.sql</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>accountholder/Tables/AccountHolder.sql</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
+      <CorrelationId>Intent.SqlDatabaseProject.TableTemplate#a79dc8ac-8913-42ff-aaa8-a003e2b2825f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/accountholder/Tables/PolicyStatus.sql</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>accountholder/Tables/PolicyStatus.sql</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -824,6 +848,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>faf84b80-ea6f-45af-9cbf-4307d620f75b</ProjectId>
+      <CorrelationId>Intent.SqlDatabaseProject.SchemaTemplate#accountholder</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/Schemas/accountholder.sql</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>accountholder.sql</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>faf84b80-ea6f-45af-9cbf-4307d620f75b</ProjectId>
       <CorrelationId>Intent.SqlDatabaseProject.SchemaTemplate#finance</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/Schemas/finance.sql</ApplicationRelativeFilePath>
@@ -839,43 +871,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>faf84b80-ea6f-45af-9cbf-4307d620f75b</ProjectId>
-      <CorrelationId>Intent.SqlDatabaseProject.SchemaTemplate#stakeholder</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/Schemas/stakeholder.sql</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>stakeholder.sql</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.SqlServerDatabase.SqlProject#773c3773-74bf-49a7-bfc6-1185e6f7cc77</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/SqlDbProject.SqlDatabaseProject.sqlproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SqlDbProject.SqlDatabaseProject.sqlproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
-      <CorrelationId>Intent.SqlDatabaseProject.StoredProcedureTemplate#96c46870-30f4-4be3-8b71-5b996a672e47</CorrelationId>
-      <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/stakeholder/Stored Procedures/GetStakeholderPerson.sql</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>stakeholder/Stored Procedures/GetStakeholderPerson.sql</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
-      <CorrelationId>Intent.SqlDatabaseProject.TableTemplate#a79dc8ac-8913-42ff-aaa8-a003e2b2825f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/stakeholder/Tables/PolicyStatus.sql</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>stakeholder/Tables/PolicyStatus.sql</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>773c3773-74bf-49a7-bfc6-1185e6f7cc77</ProjectId>
-      <CorrelationId>Intent.SqlDatabaseProject.TableTemplate#02e146b6-a7ab-4d79-a446-1f134d7f27a5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SqlDbProject.SqlDatabaseProject/stakeholder/Tables/Stakeholder.sql</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>stakeholder/Tables/Stakeholder.sql</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

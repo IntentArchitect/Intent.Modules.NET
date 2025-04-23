@@ -1,4 +1,4 @@
-CREATE TABLE [stakeholder].[PolicyStatus]
+CREATE TABLE [accountholder].[PolicyStatus]
 (
     [PolicyStatusId] UNIQUEIDENTIFIER NOT NULL,
     [Description] NVARCHAR(255) NOT NULL,

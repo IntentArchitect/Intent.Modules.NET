@@ -9,21 +9,21 @@ using SqlDbProject.Infrastructure.Persistence;
 
 namespace SqlDbProject.Infrastructure.Repositories
 {
-    public class ShareholderRepository : IShareholderRepository
+    public class AccountRepository : IAccountRepository
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public ShareholderRepository(ApplicationDbContext dbContext)
+        public AccountRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task<ShareholderPerson> GetStakeholderPerson(
+        public async Task<AccountHolderPerson> GetAccountHolderPerson(
             long stakeholderId,
             CancellationToken cancellationToken = default)
         {
-            var result = (await _dbContext.ShareholderPeople
-                .FromSqlInterpolated($"EXECUTE GetStakeholderPerson {stakeholderId}")
+            var result = (await _dbContext.AccountHolderPeople
+                .FromSqlInterpolated($"EXECUTE GetAccountHolderPerson {stakeholderId}")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
                 .Single();
