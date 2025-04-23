@@ -282,7 +282,7 @@
       </components>
     </group>
     <group name="Integration">
-      <selectionMode>allow-single-only</selectionMode>
+      <selectionMode>allow-multiple</selectionMode>
       <components>
         <component id="932966e8-0a18-411a-bbb9-bc89c363681e" name="Azure Service Bus" included="false" required="false">
           <description>Integrate applications using a Pub/Sub pattern with Azure Service Bus directly.</description>
