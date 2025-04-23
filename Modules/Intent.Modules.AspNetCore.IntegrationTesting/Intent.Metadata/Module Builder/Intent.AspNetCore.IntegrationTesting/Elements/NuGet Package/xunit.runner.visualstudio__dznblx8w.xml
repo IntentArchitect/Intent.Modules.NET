@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="a76c4c12-1d4f-409d-8529-c947bfba200e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.0.2</name>
-      <display>3.0.2 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>2.8.2</name>
+      <display>2.8.2 ( &gt;= .NETCoreApp,Version=v6.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -40,7 +40,7 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

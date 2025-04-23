@@ -235,7 +235,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 6, 0) => new PackageVersion("3.0.2"),
+                        ( >= 6, 0) => new PackageVersion("2.8.2", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }
                 );
