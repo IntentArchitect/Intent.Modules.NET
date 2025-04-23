@@ -10,11 +10,14 @@ For more information on Azure Event Grid, check out their [official docs](https:
 
 ## Modeling Integration Events
 
-Modeling Integration Events can be achieved from within the Services designer. This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. For details on modeling integration events and commands, refer to its [README](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md).
+Modeling Integration Events can be achieved from within the Services designer. 
+This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands. 
+For details on modeling integration events and commands, refer to its [README](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html).
 
 ## Specifying Topic Names
 
-Working with Azure Event Grid requires that Messages be assigned to an Event Grid Topic. Since Topics need to be created in advance, unless you are using Infrastructure as Code to maintain this for you, you will need to specify the Topic Name when creating a new Message. 
+Working with Azure Event Grid requires that Messages be assigned to an Event Grid Topic. 
+Since Topics need to be created in advance, unless you are using Infrastructure as Code to maintain this for you, you will need to specify the Topic Name when creating a new Message. 
 
 This module will automatically be assigned a Topic Name when you create a new Message and you can alter it by capturing the `Topic Name` property on the selected Message.
 
@@ -70,7 +73,7 @@ When you're publishing an Event Grid Message, you will need to configure it in y
     "Topics": {
       "ClientCreatedEvent":{
         "Key": "4L6y6Nk8LFHXm0KnbK7gYpLtD0OL6Ear9VnY5ihQio8DhtljnGAdJQQJ99BDACrIdLPXJ3w3AAABAZEGvWZM",
-        "Endpoint": "https://client-created-event.southafricanorth-1.eventgrid.azure.net/api/events"
+        "Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events"
       }
     }
   }
@@ -85,4 +88,4 @@ This module handles the consumer code for Azure Event Grid when Azure Functions 
 
 > [!NOTE]
 > 
-> Not seeing the hosting technology you're looking for? Please reach out to us on [GitHub](https://github.com/IntentArchitect/Support) or email us at [support@intentarchitect.com,](mailto://support@intentarchitect.com) and we'll be happy to help. 
+> Not seeing the hosting technology you're looking for? Please reach out to us on [GitHub](https://github.com/IntentArchitect/Support) or email us at [support@intentarchitect.com](mailto://support@intentarchitect.com), and we'll be happy to help. 
