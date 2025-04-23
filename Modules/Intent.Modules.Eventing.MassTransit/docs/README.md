@@ -82,7 +82,7 @@ For more information on these options check out the MassTransit [documentation](
 
 ## MassTransit Message Broker Implementation
 
-Provider a MassTransit specific implementation of the `IEventBus` interface.
+Provides a MassTransit specific implementation of the `IEventBus` interface for dispatching messages.
 
 ## Message Publishing
 
@@ -90,7 +90,7 @@ Message publishing can be done through the `IEventBus` interface using the `Publ
 
 ## Message Consumption
 
-For every message subscribed to in the `Eventing Designer`, this module will register up an Infrastructural handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer integration message handler, which implements `IIntegrationEventHandler`.
+For every message subscribed to in the `Services Designer`, this module will register up an Infrastructural handler (`WrapperConsumer`)  which will deal with all the technical concerns around how the message is processed and delegate the business logic processing to an Application layer integration message handler, which implements `IIntegrationEventHandler`.
 
 An example of the technical message handler registration:
 
