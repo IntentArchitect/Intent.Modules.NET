@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Added documentation.
+
 ### Version 1.0.1
 
 - Fixed: Did not emit the `AzureServiceBus:ConnectionString` configuration section.
