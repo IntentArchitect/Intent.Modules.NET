@@ -26,7 +26,7 @@ After configuring the temporal table, you will need to create an Entity Framewor
 
 ## Access Temporal Information
 
-By default, Intent Architect generates a new method called `FindHistoryAsync` on the repository for a specific entity, enabling the retrieval of historical data.
+By default, Intent Architect will generate new methods called `FindHistoryAsync` on the repository for a specific entity, enabling the retrieval of historical data.
 
 This method accepts a `TemporalHistoryQueryOptions` instance as a parameter, which defines how the temporal data should be queried.
 
@@ -49,5 +49,3 @@ The `QueryType` field can be set to one of the following five options, which int
 - **ContainedIn**: Returns all rows that started and ended being active between the two given UTC times, `DateFrom` and `DateTo`.
 
 For additional context on these query types, refer to the [Entity Framework Core documentation](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/temporal-tables#querying-historical-data).
-
-

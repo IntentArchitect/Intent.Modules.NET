@@ -7,8 +7,10 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.VisualBasic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -25,6 +27,27 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            var entities = application
+                .FindTemplateInstances<IIntentTemplate<ClassModel>>(TemplateDependency.OnTemplate("Intent.Entities.DomainEntity"))
+                .Where(p => p.Model.HasTemporalTable() || (p.Model.ParentClass is not null && p.Model.ParentClass.HasTemporalTable()))
+                .Cast<ICSharpFileBuilderTemplate>()
+               .ToArray();
+
+            foreach (var entity in entities)
+            {
+                entity.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = entity.CSharpFile.Classes.FirstOrDefault();
+
+                    if (@class is null)
+                    {
+                        return;
+                    }
+
+                    @class.ImplementsInterface(entity.GetTypeName(TemporalInterfaceTemplate.TemplateId));
+                });
+            }
+
             var entityConfig = application
                .FindTemplateInstances<IIntentTemplate<ClassModel>>(
                    TemplateDependency.OnTemplate("Infrastructure.Data.EntityTypeConfiguration"))
