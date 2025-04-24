@@ -188,6 +188,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c0294342-3cca-465f-b282-9b9d9194f1ec</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.TemporalTables.TemporalInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Common/ITemporal.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ITemporal.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c0294342-3cca-465f-b282-9b9d9194f1ec</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.TemporalTables.TemporalHistory</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SqlServer.EF8.Domain/Common/TemporalHistory.cs</ApplicationRelativeFilePath>

@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Application.Common.Pagination;
+using EntityFrameworkCore.SqlServer.EF8.Domain.Common;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Common.Interfaces;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
@@ -215,6 +216,73 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories
         protected virtual DbSet<TPersistence> GetSet()
         {
             return _dbContext.Set<TPersistence>();
+        }
+
+        protected async Task<List<TemporalHistory<TDomain>>> FindHistoryAsync<TTemporalPersistence>(
+            TemporalHistoryQueryOptions historyOptions,
+            string validFromColumnName = "PeriodStart",
+            string validToColumnName = "PeriodEnd",
+            CancellationToken cancellationToken = default)
+            where TTemporalPersistence : class, TDomain, TPersistence, ITemporal
+        {
+            return await FindHistoryAsync<TTemporalPersistence>(historyOptions, null, null, validFromColumnName, validToColumnName, cancellationToken);
+        }
+
+        protected async Task<List<TemporalHistory<TDomain>>> FindHistoryAsync<TTemporalPersistence>(
+            TemporalHistoryQueryOptions historyOptions,
+            Expression<Func<TTemporalPersistence, bool>> filterExpression,
+            string validFromColumnName = "PeriodStart",
+            string validToColumnName = "PeriodEnd",
+            CancellationToken cancellationToken = default)
+            where TTemporalPersistence : class, TDomain, TPersistence, ITemporal
+        {
+            return await FindHistoryAsync<TTemporalPersistence>(historyOptions, filterExpression, null, validFromColumnName, validToColumnName, cancellationToken);
+        }
+
+        protected async Task<List<TemporalHistory<TDomain>>> FindHistoryAsync<TTemporalPersistence>(
+            TemporalHistoryQueryOptions historyOptions,
+            Expression<Func<TTemporalPersistence, bool>> filterExpression,
+            Func<IQueryable<TTemporalPersistence>, IQueryable<TTemporalPersistence>> queryOptions,
+            string validFromColumnName = "PeriodStart",
+            string validToColumnName = "PeriodEnd",
+            CancellationToken cancellationToken = default)
+            where TTemporalPersistence : class, TDomain, TPersistence, ITemporal
+        {
+            var internalDateFrom = (historyOptions is null || historyOptions.DateFrom == null || historyOptions.DateFrom == DateTime.MinValue) ? DateTime.MinValue : historyOptions!.DateFrom.Value;
+            var internalDateTo = (historyOptions is null || historyOptions.DateTo == null || historyOptions.DateTo == DateTime.MinValue) ? DateTime.MinValue : historyOptions!.DateTo.Value;
+            var queryType = (historyOptions is null || historyOptions?.QueryType == null) ? TemporalHistoryQueryType.All : historyOptions.QueryType.Value;
+            var dbSet = GetSet();
+            var queryable = GetEntityQueryable(queryType);
+
+            if (filterExpression != null)
+            {
+                queryable = queryable.Where(filterExpression);
+            }
+
+            if (queryOptions != null)
+            {
+                queryable = queryOptions(queryable);
+            }
+            return await queryable.Select(entity => new TemporalHistory<TDomain>(entity, EF.Property<DateTime>(entity, validFromColumnName), EF.Property<DateTime>(entity, validToColumnName))).ToListAsync(cancellationToken);
+
+            IQueryable<TTemporalPersistence> GetEntityQueryable(TemporalHistoryQueryType queryType)
+            {
+                switch (queryType)
+                {
+                    case TemporalHistoryQueryType.All:
+                        return dbSet.TemporalAll().Cast<TTemporalPersistence>();
+                    case TemporalHistoryQueryType.AsOf:
+                        return dbSet.TemporalAsOf(internalDateFrom).Cast<TTemporalPersistence>();
+                    case TemporalHistoryQueryType.Between:
+                        return dbSet.TemporalBetween(internalDateFrom, internalDateTo).Cast<TTemporalPersistence>();
+                    case TemporalHistoryQueryType.ContainedIn:
+                        return dbSet.TemporalContainedIn(internalDateFrom, internalDateTo).Cast<TTemporalPersistence>();
+                    case TemporalHistoryQueryType.FromTo:
+                        return dbSet.TemporalFromTo(internalDateFrom, internalDateTo).Cast<TTemporalPersistence>();
+                    default:
+                        return dbSet.TemporalBetween(internalDateFrom, internalDateTo).Cast<TTemporalPersistence>();
+                }
+            }
         }
 
         private static async Task<IPagedList<T>> ToPagedListAsync<T>(

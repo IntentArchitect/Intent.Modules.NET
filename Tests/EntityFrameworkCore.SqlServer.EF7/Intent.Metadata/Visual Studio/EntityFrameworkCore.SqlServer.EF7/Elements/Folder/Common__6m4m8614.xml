@@ -67,5 +67,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="6a6dcca4-307c-46b6-bd64-f205b2509fce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.TemporalTables.TemporalInterface</name>
+      <display>Intent.EntityFrameworkCore.TemporalTables.TemporalInterface</display>
+      <externalReference>Intent.EntityFrameworkCore.TemporalTables</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cfacc05f-82b5-4878-93ae-36f34fd89ed1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
