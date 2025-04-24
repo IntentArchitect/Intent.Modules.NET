@@ -9,7 +9,6 @@ using EntityFrameworkCore.SqlServer.EF8.Domain.Entities;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Repositories;
 using EntityFrameworkCore.SqlServer.EF8.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.EntityFrameworkCore;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.Repositories.Repository", Version = "1.0")]
