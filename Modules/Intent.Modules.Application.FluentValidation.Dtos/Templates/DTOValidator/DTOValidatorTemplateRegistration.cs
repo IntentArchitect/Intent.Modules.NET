@@ -39,7 +39,8 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             var commandElements = _metadataManager.Services(applicationManager).GetElementsOfType(CommandTypeId);
             var queryElements = _metadataManager.Services(applicationManager).GetElementsOfType(QueryTypeId);
             var dtoFields = commandElements.Union(queryElements)
-                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId));
+                .SelectMany(s => s.ChildElements.Where(p => p.SpecializationTypeId == DTOFieldModel.SpecializationTypeId))
+                .ToArray();
 
             var operations = _metadataManager.Services(applicationManager).GetServiceModels()
                 .SelectMany(x => x.Operations.Select(o => o.InternalElement));
@@ -51,27 +52,26 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
 
             // this gets all the models which are referenced directly
             var models = _metadataManager.Services(applicationManager).GetDTOModels()
-                .Where(x =>
+                .Where(dtoModel =>
                 {
-                    IElement advancedMappingSource = GetAdvancedMappings(dtoFields, x);
-
-                    return referencedElementIds.Contains(x.Id) &&
-                    ValidationRulesExtensions.HasValidationRules(
-                        dtoModel: x,
-                        dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
-                        dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
-                        uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
-                        customValidationEnabled: true,
-                        associationedElements: advancedMappingSource?.AssociatedElements);
+                    var advancedMappingSource = GetElementWithAdvancedMappings(dtoFields, dtoModel);
+                    return referencedElementIds.Contains(dtoModel.Id) &&
+                           ValidationRulesExtensions.HasValidationRules(
+                               dtoModel: dtoModel,
+                               dtoTemplateId: TemplateRoles.Application.Contracts.Dto,
+                               dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
+                               uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
+                               customValidationEnabled: true,
+                               sourceElementAdvancedMappings: advancedMappingSource?.AssociatedElements);
                 })
                 .ToList();
 
-            DTOModel[] hierarchyModels = GetHieracrchyModels(applicationManager, models);
+            var hierarchyModels = GetHierarchyModels(applicationManager, models);
             models = models.Union(hierarchyModels).ToList();
 
             foreach (var model in models)
             {
-                IElement advancedMappingSource = GetAdvancedMappings(dtoFields, model);
+                var advancedMappingSource = GetElementWithAdvancedMappings(dtoFields, model);
 
                 registry.RegisterTemplate(TemplateId,
                     project => new DTOValidatorTemplate(
@@ -81,17 +81,17 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             }
         }
 
-        // This method is to get the DTOs which are included in a hierachy of inheritence, but which themselves do not
+        // This method is to get the DTOs which are included in a hierarchy of inheritance, but which themselves do not
         // have a validator (as there is nothing on the DTO to validate), but which do have a parent which requires validation
         // In this case, the validator should be generated, as it needs to be called by the child and call into its parent
-        private DTOModel[] GetHieracrchyModels(IApplication applicationManager, List<DTOModel> models)
+        private DTOModel[] GetHierarchyModels(IApplication applicationManager, List<DTOModel> models)
         {
-            var modelIds = models.Select(m => m.Id);
+            var modelIds = models.Select(m => m.Id).ToList();
 
             var hierarchyModels = _metadataManager.Services(applicationManager).GetDTOModels()
                 .Where(x =>
                 {
-                    HashSet<string> inheritenceIds = [];
+                    HashSet<string> inheritanceIds = [];
                     var currentDto = x;
                     var @continue = true;
 
@@ -100,16 +100,16 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                     while (currentDto.ParentDto != null && @continue)
                     {
                         currentDto = currentDto.ParentDto;
-                        inheritenceIds.Add(currentDto.Id);
+                        inheritanceIds.Add(currentDto.Id);
                         if (modelIds.Contains(currentDto.Id))
                         {
                             @continue = false;
                         }
                     }
 
-                    // If any in the hierachy have already been flagged for inclusions
+                    // If any in the hierachy have already been flagged for inclusions,
                     // then the current DTO should be included
-                    if (modelIds.Intersect(inheritenceIds).Any())
+                    if (modelIds.Intersect(inheritanceIds).Any())
                     {
                         return true;
                     }
@@ -120,9 +120,9 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
             return hierarchyModels;
         }
 
-        private static IElement GetAdvancedMappings(IEnumerable<IElement> dtoFields, IMetadataModel model)
+        private static IElement GetElementWithAdvancedMappings(IEnumerable<IElement> dtoFields, IMetadataModel model)
         {
-            // check to see if parent has advanced mapping
+            // check to see if a parent has advanced mapping
             var matchingReferenceFields = dtoFields.Where(f => f.TypeReference?.Element.Id == model.Id);
 
             var commandsOrQueries = matchingReferenceFields
@@ -145,7 +145,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
         /// <see href="https://github.com/IntentArchitect/Intent.Modules/blob/150ac6a4535d4d28fa2ca384c4e7866f613da51a/Modules/Intent.Modules.Modelers.Types.ServiceProxies/ExtensionMethods.cs#L62">this</see>.
         /// with some additional functionality added for parent DTOs
         /// </remarks>
-        private static IEnumerable<IElement> DeepGetDistinctReferencedElements(IEnumerable<IElement> elements)
+        private static HashSet<IElement> DeepGetDistinctReferencedElements(IEnumerable<IElement> elements)
         {
             var referencedElements = new HashSet<IElement>();
             var parentElements = new HashSet<IElement>();

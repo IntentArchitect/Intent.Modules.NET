@@ -1,14 +1,18 @@
+### Version 3.11.3
+
+- Fixed: Unique constraint enabled wrongfully enhances DTO validation on DTO representing a composite Entity that doesn't even have a unique index applied.
+
 ### Version 3.11.2
 
-- Improvement: Ability to set a a timeout on `Regular Expression` validations
+- Improvement: Ability to set a timeout on `Regular Expression` validations
 
 ### Version 3.11.1
 
-- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+- Improvement: Ability to set a custom message on `Regular Expression` and `Must` validations
 
 ### Version 3.11.0
 
-- Improvement: Help topics added to documention
+- Improvement: Help topics added to documentation.
 
 ### Version 3.10.3
 
@@ -21,12 +25,12 @@
 
 ### Version 3.10.1
 
-- Fixed: Stackoverflow occuring in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.
+- Fixed: Stackoverflow occurs in rare circumstances where Advanced Mappings and Basic Mappings are interconnected.
 - Fixed: Validator now generated for a base DTO, with the child DTO validator calling the base validator
  
 ### Version 3.10.0
 
-- Fixed: Domain constraints not being propagated into validators when the data graph is more than two levels deep.
+- Fixed: Domain constraints are not being propagated into validators when the data graph is more than two levels deep.
 - Fixed: Validations not being applied when mapping to constructor parameters.
 
 ### Version 3.9.3
@@ -46,7 +50,7 @@
 
 - Improvement: Added Regular Expressions for Validation.
 - Improvement: Module project updated to .NET 8.
-- Fix: Fixed issue where DTO's for compositional entities does not include validation rules.
+- Fix: Fixed the issue where DTO's for compositional entities does not include validation rules.
 
 ### Version 3.8.2
 

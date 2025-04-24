@@ -30,7 +30,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements,
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings,
         params string[] additionalFolders)
         : this(
             templateId: templateId,
@@ -46,7 +46,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             repositoryInjectionEnabled: repositoryInjectionEnabled,
             customValidationEnabled: customValidationEnabled,
-            associationedElements: associationedElements,
+            sourceElementAdvancedMappings: sourceElementAdvancedMappings,
             additionalFolders: additionalFolders)
     {
     }
@@ -65,7 +65,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements)
+        IEnumerable<IAssociationEnd> sourceElementAdvancedMappings)
         : this(
             templateId: templateId,
             outputTarget: outputTarget,
@@ -80,8 +80,8 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             repositoryInjectionEnabled: repositoryInjectionEnabled,
             customValidationEnabled: customValidationEnabled,
-            associationedElements: associationedElements,
-            additionalFolders: Array.Empty<string>())
+            sourceElementAdvancedMappings: sourceElementAdvancedMappings,
+            additionalFolders: [])
     {
     }
 
@@ -99,7 +99,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements,
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings,
         params string[] additionalFolders)
         : base(templateId, outputTarget, dtoModel)
     {
@@ -119,7 +119,7 @@ public abstract class DtoValidatorTemplateBase : CSharpTemplateBase<DTOModel>, I
             uniqueConstraintValidationEnabled: uniqueConstraintValidationEnabled,
             repositoryInjectionEnabled: repositoryInjectionEnabled,
             customValidationEnabled: customValidationEnabled,
-            associationedElements: associationedElements);
+            associationedElements: sourceElementAdvancedMappings);
     }
 
     [IntentManaged(Mode.Fully)]

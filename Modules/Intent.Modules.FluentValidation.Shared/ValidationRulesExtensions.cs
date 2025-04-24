@@ -20,6 +20,8 @@ using Intent.Utils;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
+#nullable enable
+
 namespace Intent.Modules.FluentValidation.Shared;
 
 public static class ValidationRulesExtensions
@@ -30,18 +32,18 @@ public static class ValidationRulesExtensions
         string dtoValidatorTemplateId,
         bool uniqueConstraintValidationEnabled,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements)
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
     {
-        var indexFields = GetUniqueConstraintFields(dtoModel, associationedElements, uniqueConstraintValidationEnabled);
+        var indexFields = GetUniqueConstraintFields(dtoModel, sourceElementAdvancedMappings, uniqueConstraintValidationEnabled);
 
         return GetValidationRulesStatements<object>(
-            template: default,
+            template: null,
             dtoModel: dtoModel,
             dtoTemplateId: dtoTemplateId,
             dtoValidatorTemplateId: dtoValidatorTemplateId,
             indexFields: indexFields,
             customValidationEnabled: customValidationEnabled,
-            associationedElements: associationedElements).Any();
+            sourceElementAdvancedMappings: sourceElementAdvancedMappings).Any();
     }
 
     public static void ConfigureForValidation<TModel>(
@@ -55,7 +57,7 @@ public static class ValidationRulesExtensions
         bool uniqueConstraintValidationEnabled,
         bool repositoryInjectionEnabled,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements)
+        IEnumerable<IAssociationEnd>? associationedElements)
     {
         ((ICSharpFileBuilderTemplate)template).CSharpFile
             .AddUsing("FluentValidation")
@@ -87,7 +89,7 @@ public static class ValidationRulesExtensions
                             dtoValidatorTemplateId: dtoValidatorTemplateId,
                             indexFields: indexFields,
                             customValidationEnabled: customValidationEnabled,
-                            associationedElements: associationedElements);
+                            sourceElementAdvancedMappings: associationedElements);
                     foreach (var propertyStatement in validationRuleStatements)
                     {
                         method.AddStatement(propertyStatement);
@@ -276,15 +278,15 @@ public static class ValidationRulesExtensions
         return sb.ToString();
     }
 
-    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel> template,
+    private static IEnumerable<CSharpMethodChainStatement> GetValidationRulesStatements<TModel>(this CSharpTemplateBase<TModel>? template,
         DTOModel dtoModel,
         string dtoTemplateId,
         string dtoValidatorTemplateId,
         IReadOnlyCollection<ConstraintField> indexFields,
         bool customValidationEnabled,
-        IEnumerable<IAssociationEnd> associationedElements)
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
     {
-        // If no template is present we still need a way to determine what
+        // If no template is present, we still need a way to determine what
         // type is primitive.
         var resolvedTypeInfo = template is null
             ? new CSharpTypeResolver(
@@ -322,7 +324,7 @@ public static class ValidationRulesExtensions
                 AddValidatorsFromFluentValidationStereotype(field, validationRuleChain, customValidationEnabled, template);
             }
 
-            AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields, associationedElements);
+            AddValidatorsFromMappedDomain(validationRuleChain, dtoModel, field, indexFields, sourceElementAdvancedMappings);
 
             AddValidatorsBasedOnTypeReference(template, dtoTemplateId, dtoValidatorTemplateId, field, validationRuleChain);
 
@@ -614,7 +616,7 @@ public static class ValidationRulesExtensions
         out string repositoryFieldName)
     {
         if (!statement.Statements.Any(x => x.TryGetMetadata("requires-repository", out bool requiresRepository) && requiresRepository) ||
-            (!TryGetMappedClass(dtoModel, out var classModel) && !TryGetAdvancedMappedClass(associationedElements, out classModel)) ||
+            (!TryGetMappedClass(dtoModel, out var classModel) && !TryGetAdvancedMappedClass(dtoModel, associationedElements, out classModel)) ||
             !template.TryGetTemplate<IClassProvider>(TemplateRoles.Repository.Interface.Entity, classModel, out var repositoryInterface))
         {
             repositoryFieldName = null;
@@ -657,7 +659,7 @@ public static class ValidationRulesExtensions
 
     private static IReadOnlyCollection<ConstraintField> GetUniqueConstraintFields(
         DTOModel dtoModel,
-        IEnumerable<IAssociationEnd> associationedElements,
+        IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings,
         bool enabled)
     {
         if (!enabled || (!IsCreateDto(dtoModel) && !IsUpdateDto(dtoModel)))
@@ -665,7 +667,7 @@ public static class ValidationRulesExtensions
             return ArraySegment<ConstraintField>.Empty;
         }
 
-        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass) || TryGetAdvancedMappedClass(associationedElements, out mappedClass);
+        var hasMappedClass = TryGetMappedClass(dtoModel, out var mappedClass) || TryGetAdvancedMappedClass(dtoModel, sourceElementAdvancedMappings, out mappedClass);
         if (!hasMappedClass)
         {
             return ArraySegment<ConstraintField>.Empty;
@@ -746,7 +748,7 @@ public static class ValidationRulesExtensions
         return false;
     }
 
-    private static bool TryGetAdvancedMappedClass(IEnumerable<IAssociationEnd> associationedElements, out ClassModel classModel)
+    private static bool TryGetAdvancedMappedClass(DTOModel dtoModel, IEnumerable<IAssociationEnd>? associationedElements, out ClassModel? classModel)
     {
         if (associationedElements is null)
         {
@@ -758,7 +760,11 @@ public static class ValidationRulesExtensions
         {
             foreach (var mapping in associationEnd.Mappings)
             {
-                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p => p.MappingType == "Data Mapping");
+                var mappedEnd = mapping.MappedEnds.FirstOrDefault(p =>
+                {
+                    var possibleDto = (p.SourceElement as IElement)?.ParentElement;
+                    return p.MappingType == "Data Mapping" && possibleDto is not null && possibleDto.Id == dtoModel.Id;
+                });
                 if (mappedEnd is null)
                 {
                     continue;

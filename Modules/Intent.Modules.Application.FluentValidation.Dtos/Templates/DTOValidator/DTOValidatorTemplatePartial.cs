@@ -19,7 +19,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
     {
         public const string TemplateId = "Intent.Application.FluentValidation.Dtos.DTOValidator";
 
-        public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model, IEnumerable<IAssociationEnd> associationedElements)
+        public DTOValidatorTemplate(IOutputTarget outputTarget, DTOModel model, IEnumerable<IAssociationEnd>? sourceElementAdvancedMappings)
             : base(
                 templateId: TemplateId,
                 outputTarget: outputTarget,
@@ -31,7 +31,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.DTOValidato
                 validatorProviderInterfaceTemplateId: "Application.Common.ValidatorProviderInterface",
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
-                associationedElements: associationedElements,
+                sourceElementAdvancedMappings: sourceElementAdvancedMappings,
                 customValidationEnabled: true)
         {
         }
