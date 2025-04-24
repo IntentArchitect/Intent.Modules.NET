@@ -51,6 +51,10 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
 
                     @class.AddConstructor();
                     var ctor = @class.Constructors.First();
+
+                    // get the last property which has no value. All items occuring before this cannot have a default value set in the constructor
+                    var lastNonNullable = Model.Properties.LastOrDefault(p => string.IsNullOrEmpty(p.Value))?.InternalElement.Order ?? 0;
+
                     foreach (var property in Model.Properties)
                     {
                         ctor.AddParameter(GetTypeName(property), property.Name.ToParameterName(), param =>
@@ -66,7 +70,15 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                                     prop.WithComments(xmlComments: $"/// <example>{property.GetStereotype("OpenAPI Settings").GetProperty("Example Value")?.Value}</example>");
                                 }
                             });
+
+                            // only parameters with a value AFTER the last parameter with a value get the value specified
+                            if (property.InternalElement.Order >= lastNonNullable && !string.IsNullOrEmpty(property.Value))
+                            {
+                                param.WithDefaultValue(property.Value);
+                            }
                         });
+
+
                     }
                 });
 
