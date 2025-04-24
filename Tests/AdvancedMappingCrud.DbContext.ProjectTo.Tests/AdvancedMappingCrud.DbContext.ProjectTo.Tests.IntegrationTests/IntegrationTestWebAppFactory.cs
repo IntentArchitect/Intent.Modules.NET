@@ -18,12 +18,13 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.IntegrationTests
         {
         }
 
-        public async Task InitializeAsync()
+        public async ValueTask InitializeAsync()
         {
         }
 
-        async Task IAsyncLifetime.DisposeAsync()
+        public override async ValueTask DisposeAsync()
         {
+            await base.DisposeAsync();
         }
 
         protected override IHost CreateHost(IHostBuilder builder)

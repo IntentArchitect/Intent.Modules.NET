@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="f355068d-7d6c-49f6-b65b-696388b94ae1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>4.4.0</name>
+      <display>4.4.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="818c8d3e-9a64-4aa8-9a15-2e7fd5f7b9fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dcb72874-18ed-45c3-b170-2e0d57964b3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.3.0)</display>
+          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
+          <value>4.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f355068d-7d6c-49f6-b65b-696388b94ae1</parentFolderId>
@@ -64,8 +64,8 @@
       </childElements>
     </childElement>
     <childElement id="636a028e-cb82-4d08-b55d-826fc11f1ace" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>4.4.0</name>
+      <display>4.4.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -86,11 +86,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e21b2753-c39d-4476-9347-eff611c1ad47" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0f9b7b2d-1f61-4a98-8592-d956853802d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.3.0)</display>
+          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
+          <value>4.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>636a028e-cb82-4d08-b55d-826fc11f1ace</parentFolderId>
@@ -103,8 +103,8 @@
       </childElements>
     </childElement>
     <childElement id="16035733-b31f-4d64-a27b-48eef3cfb966" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <name>4.4.0</name>
+      <display>4.4.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -125,11 +125,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c0a2413a-a65b-47ac-aff6-f2e4afcb58ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0baba00-220c-4f28-9cd8-9ea0c187e9cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.3.0)</display>
+          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
+          <value>4.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>16035733-b31f-4d64-a27b-48eef3cfb966</parentFolderId>
@@ -142,8 +142,8 @@
       </childElements>
     </childElement>
     <childElement id="7fcf27f1-c6e7-4763-a0f4-611dffce13ee" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.3.0</name>
-      <display>4.3.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>4.4.0</name>
+      <display>4.4.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -164,11 +164,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="86672f3a-2ee6-4825-99a1-8dcd14388c77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5f20bc2e-a7d6-4b65-9c14-bb724060e8a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.3.0)</display>
+          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.3.0</value>
+          <value>4.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7fcf27f1-c6e7-4763-a0f4-611dffce13ee</parentFolderId>

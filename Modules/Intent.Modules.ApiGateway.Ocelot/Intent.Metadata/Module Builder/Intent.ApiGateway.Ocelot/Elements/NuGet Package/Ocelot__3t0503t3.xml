@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="b758d0fb-25c5-4980-bc5e-6186857a5b34" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>23.4.3</name>
+      <name>24.0.0</name>
       <display>23.4.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,72 +47,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6592a5a2-25dc-46c9-8e69-c94bf3662dc6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0c8c88dc-329c-4f24-b23e-d69c488e4aff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
-          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
           <value>11.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b758d0fb-25c5-4980-bc5e-6186857a5b34</parentFolderId>
-          <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
-          <packageName>Intent.ApiGateway.Ocelot</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e8bdf7be-3d5c-4f07-a001-714cb16ea1a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d4714a10-2244-47f6-976c-b5e2f553853e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>IPAddressRange</name>
-          <display>IPAddressRange (6.1.0)</display>
           <isAbstract>false</isAbstract>
-          <value>6.1.0</value>
+          <value>6.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b758d0fb-25c5-4980-bc5e-6186857a5b34</parentFolderId>
-          <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
-          <packageName>Intent.ApiGateway.Ocelot</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8c0124c3-af60-456a-bda2-6fce84ad5469" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1ebd2f7c-6c60-40bc-ba42-5a336ce95a18" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.MiddlewareAnalysis</name>
-          <display>Microsoft.AspNetCore.MiddlewareAnalysis (8.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.12</value>
+          <value>8.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b758d0fb-25c5-4980-bc5e-6186857a5b34</parentFolderId>
-          <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
-          <packageName>Intent.ApiGateway.Ocelot</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c4c1e2e8-94dc-44f7-867a-1c88c62f2afe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="58ecaf9c-4e0a-4d06-8626-35b69369def4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Mvc.NewtonsoftJson</name>
-          <display>Microsoft.AspNetCore.Mvc.NewtonsoftJson (8.0.12)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.12</value>
+          <value>8.0.15</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b758d0fb-25c5-4980-bc5e-6186857a5b34</parentFolderId>
-          <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
-          <packageName>Intent.ApiGateway.Ocelot</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3deda900-b995-4f0b-a461-76ae55555cd1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="156b4f9c-9b4e-42d1-81fc-1d4d70e1aead" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DiagnosticAdapter</name>
-          <display>Microsoft.Extensions.DiagnosticAdapter (3.1.32)</display>
           <isAbstract>false</isAbstract>
           <value>3.1.32</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b758d0fb-25c5-4980-bc5e-6186857a5b34</parentFolderId>
-          <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
-          <packageName>Intent.ApiGateway.Ocelot</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -303,6 +288,82 @@
           <parentFolderId>993207ae-388c-409a-9c29-df79a2271c8c</parentFolderId>
           <packageId>36dd5f32-5b8a-4ef6-a6d6-3a927e4aee12</packageId>
           <packageName>Intent.ApiGateway.Ocelot</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="458a9d13-a8b7-471a-b9ca-bf81a9ffa005" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>24.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>901a1437-0ea1-413d-aeb8-b8188083a631</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="48282569-c943-4923-99aa-dedfbab98522" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FluentValidation</name>
+          <isAbstract>false</isAbstract>
+          <value>11.11.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>458a9d13-a8b7-471a-b9ca-bf81a9ffa005</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4f8a062b-7005-47cc-9e15-5d8527cb38bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>IPAddressRange</name>
+          <isAbstract>false</isAbstract>
+          <value>6.2.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>458a9d13-a8b7-471a-b9ca-bf81a9ffa005</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="5f00af87-c79a-415a-8333-7580e74b1fee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.MiddlewareAnalysis</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>458a9d13-a8b7-471a-b9ca-bf81a9ffa005</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9a1f6bbf-35e1-4bbf-a593-b0bbf36600b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Mvc.NewtonsoftJson</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>458a9d13-a8b7-471a-b9ca-bf81a9ffa005</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1839f9d6-1173-4d36-9051-2aedc1a866ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DiagnosticAdapter</name>
+          <isAbstract>false</isAbstract>
+          <value>3.1.32</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>458a9d13-a8b7-471a-b9ca-bf81a9ffa005</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

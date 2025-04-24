@@ -21,14 +21,15 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests
 
         public MongoDbContainerFixture MongoDbFixture { get; }
 
-        public async Task InitializeAsync()
+        public async ValueTask InitializeAsync()
         {
             await MongoDbFixture.InitializeAsync();
         }
 
-        async Task IAsyncLifetime.DisposeAsync()
+        public override async ValueTask DisposeAsync()
         {
             await MongoDbFixture.DisposeAsync();
+            await base.DisposeAsync();
         }
 
         protected override IHost CreateHost(IHostBuilder builder)

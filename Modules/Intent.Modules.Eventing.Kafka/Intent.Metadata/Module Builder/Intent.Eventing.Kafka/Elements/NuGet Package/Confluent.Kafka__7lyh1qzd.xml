@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="111b0262-baae-4a24-99f0-7056541ab352" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.9.0</name>
+      <name>2.10.0</name>
       <display>2.6.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="56fcc5e3-5878-4306-99a5-c474ae7bc7a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e44fee69-4015-4675-a9dd-2c5827164e83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>librdkafka.redist</name>
           <isAbstract>false</isAbstract>
-          <value>2.8.0</value>
+          <value>2.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>111b0262-baae-4a24-99f0-7056541ab352</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="fd000077-befb-49c3-a176-09a1fc3b0724" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.9.0</name>
+      <name>2.10.0</name>
       <display>2.6.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,7 +83,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="29dfcf09-0498-45d5-96aa-b923d1a1a34e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b16ff6d5-647b-4ec5-a7f2-5aac6a14aa82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
           <isAbstract>false</isAbstract>
           <value>4.5.0</value>
@@ -94,10 +94,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="149cf665-2208-485a-b348-70e1bd2a80b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d1008eef-3812-467e-9ac0-9bce4fc211b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>librdkafka.redist</name>
           <isAbstract>false</isAbstract>
-          <value>2.8.0</value>
+          <value>2.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fd000077-befb-49c3-a176-09a1fc3b0724</parentFolderId>
@@ -108,7 +108,7 @@
       </childElements>
     </childElement>
     <childElement id="422d483b-63dc-4d8e-9341-26fbc8516c69" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.9.0</name>
+      <name>2.10.0</name>
       <display>2.6.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -130,10 +130,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1fdaf108-70c7-4ef6-85ce-2f4ad01a353d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="04e8259e-130f-4e94-9978-9811741a4b2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>librdkafka.redist</name>
           <isAbstract>false</isAbstract>
-          <value>2.8.0</value>
+          <value>2.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>422d483b-63dc-4d8e-9341-26fbc8516c69</parentFolderId>

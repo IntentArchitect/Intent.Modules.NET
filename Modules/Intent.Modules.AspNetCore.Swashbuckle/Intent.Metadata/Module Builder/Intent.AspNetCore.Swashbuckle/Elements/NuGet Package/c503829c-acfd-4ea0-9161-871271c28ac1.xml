@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="4a6fabde-8257-4450-bc75-6880d718d3fa" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.1.0</name>
+      <name>8.1.1</name>
       <display>7.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="66ea0d57-742c-4cd2-b673-c7ca7c247708" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ed4043a9-ebbc-4e07-b9e8-c27994628562" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
           <isAbstract>false</isAbstract>
-          <value>8.1.0</value>
+          <value>8.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ce0f8edf-3ef7-4f37-9904-98520e2e4f2d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e7b18f60-9984-4028-8bc9-ae8945e4b9a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
           <isAbstract>false</isAbstract>
-          <value>8.1.0</value>
+          <value>8.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5621a2be-0ef3-40d5-b586-d4ab4232ff22" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1de38eb6-5bc0-4f62-b731-21999773c693" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
           <isAbstract>false</isAbstract>
-          <value>8.1.0</value>
+          <value>8.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4a6fabde-8257-4450-bc75-6880d718d3fa</parentFolderId>
@@ -80,7 +80,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4ed49dda-a8c6-428d-9678-fee454875314" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6c6eab7c-91b6-4b68-961b-4016c09327f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ApiDescription.Server</name>
           <isAbstract>false</isAbstract>
           <value>6.0.5</value>

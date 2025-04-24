@@ -32,7 +32,8 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
 
             var command = dataFactory.CreateCommand<UpdateParentCommand>();
             command.Id = parentId;
-
+            // [IntentIgnore]
+            command.Children.Clear();
             // Act
             await client.UpdateParentAsync(parentId, command);
 

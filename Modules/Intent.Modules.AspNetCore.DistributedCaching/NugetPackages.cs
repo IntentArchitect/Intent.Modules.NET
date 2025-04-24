@@ -19,12 +19,12 @@ namespace Intent.Modules.AspNetCore.DistributedCaching
             NugetRegistry.Register(MicrosoftExtensionsCachingAbstractionsPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.3"),
-                        ( >= 8, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.3"),
-                        ( >= 2, 0) => new PackageVersion("9.0.3")
-                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.3")
+                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.4"),
+                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.4"),
+                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                            .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.4")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsCachingAbstractionsPackageName}'"),
                     }

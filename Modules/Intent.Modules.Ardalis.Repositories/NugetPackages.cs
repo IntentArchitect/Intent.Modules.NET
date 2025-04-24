@@ -19,9 +19,9 @@ namespace Intent.Modules.Ardalis.Repositories
             NugetRegistry.Register(ArdalisSpecificationPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.1"),
-                        ( >= 8, 0) => new PackageVersion("9.0.1"),
-                        ( >= 2, 0) => new PackageVersion("9.0.1")
+                        ( >= 9, 0) => new PackageVersion("9.1.0"),
+                        ( >= 8, 0) => new PackageVersion("9.1.0"),
+                        ( >= 2, 0) => new PackageVersion("9.1.0")
                             .WithNugetDependency("System.Buffers", "4.6.0")
                             .WithNugetDependency("System.Memory", "4.6.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ArdalisSpecificationPackageName}'"),
@@ -30,12 +30,12 @@ namespace Intent.Modules.Ardalis.Repositories
             NugetRegistry.Register(ArdalisSpecificationEntityFrameworkCorePackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.1")
-                            .WithNugetDependency("Ardalis.Specification", "9.0.1")
+                        ( >= 9, 0) => new PackageVersion("9.1.0")
+                            .WithNugetDependency("Ardalis.Specification", "9.1.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.2")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.2"),
-                        ( >= 8, 0) => new PackageVersion("9.0.1")
-                            .WithNugetDependency("Ardalis.Specification", "9.0.1")
+                        ( >= 8, 0) => new PackageVersion("9.1.0")
+                            .WithNugetDependency("Ardalis.Specification", "9.1.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "8.0.13")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.13"),
                         ( >= 7, 0) => new PackageVersion("8.0.0"),

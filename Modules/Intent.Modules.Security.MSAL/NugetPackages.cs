@@ -32,9 +32,9 @@ namespace Intent.Modules.Security.MSAL
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.3")
+                        ( >= 9, 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, 0) => new PackageVersion("8.0.14")
+                        ( >= 8, 0) => new PackageVersion("8.0.15")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.36")
@@ -48,9 +48,9 @@ namespace Intent.Modules.Security.MSAL
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationOpenIdConnectPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.3")
+                        ( >= 9, 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, 0) => new PackageVersion("8.0.14")
+                        ( >= 8, 0) => new PackageVersion("8.0.15")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
                         ( >= 7, 0) => new PackageVersion("7.0.20"),
                         ( >= 6, 0) => new PackageVersion("6.0.36")

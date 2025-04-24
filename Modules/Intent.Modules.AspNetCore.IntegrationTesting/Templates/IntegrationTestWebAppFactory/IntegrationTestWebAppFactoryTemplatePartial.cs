@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -23,9 +24,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IntegrationTestWebAppFactoryTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent("xunit", OutputTarget));// Remove the V2 NuGet Package
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreMvcTesting(OutputTarget));
             AddNugetDependency(NugetPackages.MicrosoftNETTestSdk(outputTarget));
-            AddNugetDependency(NugetPackages.Xunit(outputTarget));
+            AddNugetDependency(NugetPackages.XunitV3(outputTarget));
             AddNugetDependency(NugetPackages.XunitRunnerVisualstudio(outputTarget));
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddAssemblyAttribute("CollectionBehavior", a => a.AddArgument("DisableTestParallelization = true"))
@@ -54,24 +56,25 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.IntegrationTest
                     }
 
 
-                    @class.AddMethod("Task", "InitializeAsync", method =>
+                    @class.AddMethod("void", "InitializeAsync", method =>
                     {
                         method
-                            .Async();
+                            .Async(true);
                         foreach (var container in containers)
                         {
                             method.AddStatement($"await {container.PropertyName}.InitializeAsync();");
                         }
                     });
-                    @class.AddMethod("Task", "DisposeAsync", method =>
+                    @class.AddMethod("void", "DisposeAsync", method =>
                     {
                         method
-                            .Async()
-                            .IsExplicitImplementationFor("IAsyncLifetime");
+                            .Async(true)
+                            .Override();
                         foreach (var container in containers)
                         {
                             method.AddStatement($"await {container.PropertyName}.DisposeAsync();");
                         }
+                        method.AddStatement("await base.DisposeAsync();");
                     });
                     @class.AddMethod("IHost", "CreateHost", method =>
                     {

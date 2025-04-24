@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="1293cc18-0f2d-460d-9abc-359d5fab354a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0a1f3324-dbcb-4393-b517-0bda3149042b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ddc337d1-a781-422b-a42a-0e8414f4e6d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="05277ac2-3614-4659-b0ba-89242f75e969" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a2470d2b-9b72-447a-87a2-5bcc04efe4a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d2079917-3c6a-4346-a288-770cbb1461af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d9962abb-f561-4d70-b640-dbf5da281eaa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1293cc18-0f2d-460d-9abc-359d5fab354a</parentFolderId>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="cbd0b274-8284-4dda-9147-7248331831f8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,10 +105,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0b99e136-a9cb-445f-911a-93a64e183db3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="97917c24-8bf2-4fa0-8d27-ec4f3c763a1e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
@@ -116,10 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="66ee76eb-7954-4b9e-b3c4-29d67833ac7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="62d1ce35-b7cc-49be-81c2-cc7abe1d2c20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
@@ -127,10 +127,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2c9e7937-7333-44fb-b5cd-60c2ac64379d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="26db3497-8775-4afa-add1-5cbd345712b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cbd0b274-8284-4dda-9147-7248331831f8</parentFolderId>
@@ -141,7 +141,7 @@
       </childElements>
     </childElement>
     <childElement id="e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -163,10 +163,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="20a9e4f7-73bd-4758-8d57-52b3feb33027" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d89fbb73-50e2-4121-aaca-b6b91caffb8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
@@ -174,10 +174,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="235632b7-84c2-4dd5-87f9-064b24621a51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e38bc1a7-6d75-4c66-be61-dd0056b3987c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
@@ -185,10 +185,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="969c55b7-d13f-493c-80b6-3df8b90741f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="07796ef0-7063-4b12-945e-bdc0f2473f00" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e85b09cb-cd85-4efa-ae5d-1d7b1e86a1be</parentFolderId>
@@ -199,7 +199,7 @@
       </childElements>
     </childElement>
     <childElement id="aad10ca1-657b-4854-8b9e-b358f648f9df" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -221,10 +221,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6f3e3c5b-5a51-41f7-aac5-cd303478c359" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b5af442-78ce-421b-8a45-7cb52cb30565" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
@@ -232,10 +232,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2ca2096a-12eb-48cf-83a8-b20f10a83003" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6f9a2291-f05a-4f01-9642-5b667c0da9d6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
@@ -243,10 +243,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c9d5dcf1-0055-4ea7-afbd-491ae03490fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ff4ca06d-6c1c-45aa-8295-d15e79d035c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.ServiceProcess.ServiceController</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.3</value>
+          <value>9.0.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>aad10ca1-657b-4854-8b9e-b358f648f9df</parentFolderId>
