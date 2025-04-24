@@ -55,7 +55,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer
             htmlElement.AddAttributeIfNotEmpty("@bind-Value", _bindingManager.GetBinding(valueMapping, parentNode)?.ToString());
             htmlElement.AddAttribute("Label", model.TryGetLabelAddon(out var label) ? label.Label() : model.Name);
             htmlElement.AddAttributeIfNotEmpty("@bind-Value:after", onSelectedBinding?.ToLambda());
-            htmlElement.AddAttributeIfNotEmpty("SearchFunc", searchFuncBinding?.ToLambda("value, token").Replace("(value)", "(value, token)"));
+            htmlElement.AddAttributeIfNotEmpty("SearchFunc", searchFuncBinding?.ToLambda("value, token")?.Replace("(value)", "(value, token)"));
 
             parentNode.AddChildNode(htmlElement);
 
