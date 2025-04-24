@@ -156,17 +156,18 @@ public class DataGridComponentBuilder : IRazorComponentBuilder
             {
                 _componentTemplate.RazorFile.AfterBuild(file =>
                 {
-
                     var codeBlock = _componentTemplate.GetCodeBehind();
+                    codeBlock.Template.AddUsing("MudBlazor");
+
                     (codeBlock.GetReferenceForModel(pageRequestMapping.SourceElement) as CSharpClassMethod)?.Async();
                     var pageRequestBinding = _bindingManager.GetBinding(pageRequestMapping);
 
-                    var returnType = $"GridData<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
+                    var returnType = $"{codeBlock.Template.UseType("MudBlazor.GridData")}<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>";
                     codeBlock.AddMethod(returnType, $"Load{model.Name.ToCSharpIdentifier()}Data", method =>
                     {
                         codeBlock.Template.AddUsing("System.Linq");
                         method.Private().Async();
-                        method.AddParameter($"GridState<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>", "state");
+                        method.AddParameter($"{codeBlock.Template.UseType("MudBlazor.GridState")}<{_componentTemplate.GetTypeName(mappedSourceType.AsTypeReference())}>", "state");
                         method.AddStatement("var pageNo = state.Page + 1;");
                         method.AddStatement("var pageSize = state.PageSize;");
                         method.AddStatement("var sorting = string.Join(\", \", state.SortDefinitions.Select(x => $\"{x.SortBy} {(x.Descending ? \"desc\" : \"asc\")}\"));");
