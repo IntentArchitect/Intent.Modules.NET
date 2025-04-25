@@ -34,7 +34,23 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
                 .IsUnique()
                 .HasDatabaseName("IX_Stereotype_CompUniqueField");
 
+            builder.OwnsMany(x => x.UniqueConstraintIndexCompositeEntityForStereotypes, ConfigureUniqueConstraintIndexCompositeEntityForStereotypes);
+
             builder.Ignore(e => e.DomainEvents);
+        }
+
+        public static void ConfigureUniqueConstraintIndexCompositeEntityForStereotypes(OwnedNavigationBuilder<AggregateWithUniqueConstraintIndexStereotype, UniqueConstraintIndexCompositeEntityForStereotype> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.AggregateWithUniqueConstraintIndexStereotypeId);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Field)
+                .IsRequired();
+
+            builder.Property(x => x.AggregateWithUniqueConstraintIndexStereotypeId)
+                .IsRequired();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -12,12 +13,12 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
     public class CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommand>
     {
         [IntentManaged(Mode.Fully)]
-        public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator()
+        public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IValidatorProvider provider)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
@@ -30,6 +31,10 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             RuleFor(v => v.CompUniqueFieldB)
                 .NotNull()
                 .MaximumLength(256);
+
+            RuleFor(v => v.UniqueConstraintIndexCompositeEntityForElements)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()!));
         }
     }
 }

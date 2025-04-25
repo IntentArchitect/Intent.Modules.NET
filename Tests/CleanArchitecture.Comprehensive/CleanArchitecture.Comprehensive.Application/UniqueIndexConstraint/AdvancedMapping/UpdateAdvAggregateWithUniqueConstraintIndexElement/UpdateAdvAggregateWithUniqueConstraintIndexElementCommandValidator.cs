@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstraint;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -14,13 +15,13 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
     {
         private readonly IAggregateWithUniqueConstraintIndexElementRepository _aggregateWithUniqueConstraintIndexElementRepository;
         [IntentManaged(Mode.Merge)]
-        public UpdateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository)
+        public UpdateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IValidatorProvider provider, IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
             _aggregateWithUniqueConstraintIndexElementRepository = aggregateWithUniqueConstraintIndexElementRepository;
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
@@ -35,6 +36,10 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             RuleFor(v => v.CompUniqueFieldB)
                 .NotNull()
                 .MaximumLength(256);
+
+            RuleFor(v => v.UniqueConstraintIndexCompositeEntityForElements)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto>()!));
 
             RuleFor(v => v)
                 .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)

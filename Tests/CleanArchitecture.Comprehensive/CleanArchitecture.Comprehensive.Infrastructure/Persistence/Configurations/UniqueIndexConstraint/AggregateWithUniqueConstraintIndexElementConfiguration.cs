@@ -32,7 +32,23 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Persistence.Configurati
             builder.HasIndex(x => new { x.CompUniqueFieldA, x.CompUniqueFieldB })
                 .IsUnique();
 
+            builder.OwnsMany(x => x.UniqueConstraintIndexCompositeEntityForElements, ConfigureUniqueConstraintIndexCompositeEntityForElements);
+
             builder.Ignore(e => e.DomainEvents);
+        }
+
+        public static void ConfigureUniqueConstraintIndexCompositeEntityForElements(OwnedNavigationBuilder<AggregateWithUniqueConstraintIndexElement, UniqueConstraintIndexCompositeEntityForElement> builder)
+        {
+            builder.WithOwner()
+                .HasForeignKey(x => x.AggregateWithUniqueConstraintIndexElementId);
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Field)
+                .IsRequired();
+
+            builder.Property(x => x.AggregateWithUniqueConstraintIndexElementId)
+                .IsRequired();
         }
     }
 }

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="81c041b9-5578-476c-9e2f-99058de5a060">
+  <sourceEnd id="f5bd308b-3154-40d5-8e42-98764f12acfb" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateWithUniqueConstraintIndexStereotype</name>
+    <display>AggregateWithUniqueConstraintIndexStereotype: AggregateWithUniqueConstraintIndexStereotype</display>
+    <order>0</order>
+    <typeReference id="81825423-dfc9-45d1-aaf3-04aac693e623">
+      <typeId>b438b509-8039-4070-9e3e-4305a333028a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="81c041b9-5578-476c-9e2f-99058de5a060" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>UniqueConstraintIndexCompositeEntityForStereotypes</name>
+    <display>UniqueConstraintIndexCompositeEntityForStereotypes: UniqueConstraintIndexCompositeEntityForStereotype[*]</display>
+    <order>4</order>
+    <typeReference id="75266f22-0016-4ff4-9b3f-e621a1b366a7">
+      <typeId>8e936038-6a4d-4605-9737-8c20f823cf4f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Domain</typePackageName>
+      <typePackageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

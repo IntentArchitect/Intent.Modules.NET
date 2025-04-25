@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
@@ -30,7 +31,15 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             var aggregateWithUniqueConstraintIndexElement = new AggregateWithUniqueConstraintIndexElement(
                 singleUniqueField: request.SingleUniqueField,
                 compUniqueFieldA: request.CompUniqueFieldA,
-                compUniqueFieldB: request.CompUniqueFieldB);
+                compUniqueFieldB: request.CompUniqueFieldB)
+            {
+                UniqueConstraintIndexCompositeEntityForElements = request.UniqueConstraintIndexCompositeEntityForElements
+                    .Select(ucicefe => new UniqueConstraintIndexCompositeEntityForElement
+                    {
+                        Field = ucicefe.Field
+                    })
+                    .ToList()
+            };
 
             _aggregateWithUniqueConstraintIndexElementRepository.Add(aggregateWithUniqueConstraintIndexElement);
             await _aggregateWithUniqueConstraintIndexElementRepository.UnitOfWork.SaveChangesAsync(cancellationToken);

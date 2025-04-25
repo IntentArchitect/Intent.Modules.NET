@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -13,17 +14,20 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
         public UpdateAdvAggregateWithUniqueConstraintIndexElementCommand(Guid id,
             string singleUniqueField,
             string compUniqueFieldA,
-            string compUniqueFieldB)
+            string compUniqueFieldB,
+            List<UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto> uniqueConstraintIndexCompositeEntityForElements)
         {
             Id = id;
             SingleUniqueField = singleUniqueField;
             CompUniqueFieldA = compUniqueFieldA;
             CompUniqueFieldB = compUniqueFieldB;
+            UniqueConstraintIndexCompositeEntityForElements = uniqueConstraintIndexCompositeEntityForElements;
         }
 
         public Guid Id { get; set; }
         public string SingleUniqueField { get; set; }
         public string CompUniqueFieldA { get; set; }
         public string CompUniqueFieldB { get; set; }
+        public List<UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto> UniqueConstraintIndexCompositeEntityForElements { get; set; }
     }
 }

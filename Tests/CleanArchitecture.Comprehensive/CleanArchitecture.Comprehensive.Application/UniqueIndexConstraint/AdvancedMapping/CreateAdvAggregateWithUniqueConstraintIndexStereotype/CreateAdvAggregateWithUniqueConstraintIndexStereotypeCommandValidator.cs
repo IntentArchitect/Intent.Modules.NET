@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstraint;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -14,13 +15,13 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
     {
         private readonly IAggregateWithUniqueConstraintIndexStereotypeRepository _aggregateWithUniqueConstraintIndexStereotypeRepository;
         [IntentManaged(Mode.Merge)]
-        public CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator(IAggregateWithUniqueConstraintIndexStereotypeRepository aggregateWithUniqueConstraintIndexStereotypeRepository)
+        public CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator(IValidatorProvider provider, IAggregateWithUniqueConstraintIndexStereotypeRepository aggregateWithUniqueConstraintIndexStereotypeRepository)
         {
-            ConfigureValidationRules();
+            ConfigureValidationRules(provider);
             _aggregateWithUniqueConstraintIndexStereotypeRepository = aggregateWithUniqueConstraintIndexStereotypeRepository;
         }
 
-        private void ConfigureValidationRules()
+        private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SingleUniqueField)
                 .NotNull()
@@ -35,6 +36,10 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             RuleFor(v => v.CompUniqueFieldB)
                 .NotNull()
                 .MaximumLength(256);
+
+            RuleFor(v => v.UniqueConstraintIndexCompositeEntityForStereotypes)
+                .NotNull()
+                .ForEach(x => x.SetValidator(provider.GetValidator<CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto>()!));
 
             RuleFor(v => v)
                 .MustAsync(CheckUniqueConstraint_CompUniqueFieldA_CompUniqueFieldB)
