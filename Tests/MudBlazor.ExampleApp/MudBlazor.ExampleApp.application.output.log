@@ -1516,6 +1516,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#325f72d3-e7ad-44d0-a25c-b045b443a424</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/BindablePageComponent.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#325f72d3-e7ad-44d0-a25c-b045b443a424</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindablePageComponent.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/BindablePageComponent.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#e66fa296-90a5-4bd4-837a-d635bb5359a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindingPageHost.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/BindingPageHost.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#e66fa296-90a5-4bd4-837a-d635bb5359a8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/BindingPageHost.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/BindingPageHost.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.ModelDefinitionTemplate#d01a5eb9-7607-4c9f-be89-533ff7ead177</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModel.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/TestModel.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
+      <CorrelationId>Intent.Blazor.FluentValidation.ModelDefinitionValidator#d01a5eb9-7607-4c9f-be89-533ff7ead177</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/BindingPagesTest/TestModelValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/BindingPagesTest/TestModelValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>034e5ad7-94f5-45b1-a010-3d60bd78514a</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#78b7ece8-81d0-425b-8d33-0d91586289f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/Pages/ContainerTests/BugCrash.razor</ApplicationRelativeFilePath>

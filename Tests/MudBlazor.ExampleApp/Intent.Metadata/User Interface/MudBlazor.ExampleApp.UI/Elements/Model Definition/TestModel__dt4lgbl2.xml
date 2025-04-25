@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d01a5eb9-7607-4c9f-be89-533ff7ead177" type="Model Definition" typeId="bd3941b5-e3b3-4a40-96e6-b9c87cea0101">
+  <name>TestModel</name>
+  <display>TestModel</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1d446ece-edb2-49c2-bc05-2b048e4c14fa</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
