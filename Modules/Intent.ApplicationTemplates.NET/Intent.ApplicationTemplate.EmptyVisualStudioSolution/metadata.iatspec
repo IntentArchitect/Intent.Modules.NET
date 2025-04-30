@@ -4,6 +4,7 @@
   <version>4.0.15-pre.0</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Empty Visual Studio Solution</displayName>
+  <additionalImages />
   <shortDescription>Empty Visual Studio Solution for creating customized project structures.</shortDescription>
   <authors>Intent Architect</authors>
   <priority>1002</priority>

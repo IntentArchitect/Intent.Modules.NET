@@ -29,7 +29,7 @@
     </childElement>
     <childElement id="617e88b3-08e6-4c7b-b371-a1fbd826e6b8" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor</name>
-      <display>Intent.Blazor 1.0.0-beta.11</display>
+      <display>Intent.Blazor 1.0.0-beta.12</display>
       <isAbstract>false</isAbstract>
       <value>1.0.0-beta.12</value>
       <genericTypes />
@@ -43,7 +43,7 @@
     </childElement>
     <childElement id="c0b216ae-2b8d-445e-907f-c9fa0fda762b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor.Components.MudBlazor</name>
-      <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.22</display>
+      <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.23</display>
       <isAbstract>false</isAbstract>
       <value>1.0.0-beta.23</value>
       <genericTypes />
@@ -71,7 +71,7 @@
     </childElement>
     <childElement id="0830efbc-8dc3-4058-9f94-939ea993750b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor.HttpClients</name>
-      <display>Intent.Blazor.HttpClients 4.0.5</display>
+      <display>Intent.Blazor.HttpClients 4.0.6</display>
       <isAbstract>false</isAbstract>
       <value>4.0.6</value>
       <genericTypes />
@@ -99,7 +99,7 @@
     </childElement>
     <childElement id="130c0bc7-09fb-48df-8713-421fad2faa6b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Code.Weaving.Razor</name>
-      <display>Intent.Code.Weaving.Razor 1.0.6</display>
+      <display>Intent.Code.Weaving.Razor 1.0.7</display>
       <isAbstract>false</isAbstract>
       <value>1.0.7</value>
       <genericTypes />
@@ -113,7 +113,7 @@
     </childElement>
     <childElement id="2e2e2e54-a94a-498a-98b6-5f0c70b83465" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common</name>
-      <display>Intent.Common 3.7.6</display>
+      <display>Intent.Common 3.7.7</display>
       <isAbstract>false</isAbstract>
       <value>3.7.7</value>
       <genericTypes />
@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="817d6b21-5833-41bd-b476-e7d1c6b951e2" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.12</display>
+      <display>Intent.Common.CSharp 3.8.13</display>
       <isAbstract>false</isAbstract>
       <value>3.8.13</value>
       <genericTypes />
@@ -169,7 +169,7 @@
     </childElement>
     <childElement id="733af0b2-3664-47af-9425-7c551f3f7aa0" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.WebApi</name>
-      <display>Intent.Metadata.WebApi 4.7.6</display>
+      <display>Intent.Metadata.WebApi 4.7.7</display>
       <isAbstract>false</isAbstract>
       <value>4.7.7</value>
       <genericTypes />
@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="422325ee-c865-4749-a7f2-83db5752bf85" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.5</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.6</display>
       <isAbstract>false</isAbstract>
       <value>4.9.6</value>
       <genericTypes />
@@ -281,7 +281,7 @@
     </childElement>
     <childElement id="b256a7fb-0f6c-465b-a1ea-b492eb95bc32" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.VisualStudio.Projects</name>
-      <display>Intent.VisualStudio.Projects 3.8.10</display>
+      <display>Intent.VisualStudio.Projects 3.8.11</display>
       <isAbstract>false</isAbstract>
       <value>3.8.11</value>
       <genericTypes />
