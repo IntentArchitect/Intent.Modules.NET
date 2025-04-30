@@ -29,7 +29,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
-public class AutoImplementHandlerTask : IModuleTask
+public class GenerateUnitTestsWithAITask : IModuleTask
 {
     private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
     private readonly IMetadataManager _metadataManager;
@@ -42,7 +42,7 @@ public class AutoImplementHandlerTask : IModuleTask
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
 
-    public AutoImplementHandlerTask(
+    public GenerateUnitTestsWithAITask(
         IApplicationConfigurationProvider applicationConfigurationProvider,
         IMetadataManager metadataManager,
         ISolutionConfig solution,
@@ -118,6 +118,7 @@ Write me a set of unit tests that comprehensively test the `Handle` method using
 ## Code File Modifications
 1. You may only create the test file
 2. Preserve all existing code, attributes, and file paths exactly
+3. Add using clauses for code files that you use
 
 ## Input Code Files:
 ```json
@@ -128,7 +129,7 @@ Write me a set of unit tests that comprehensively test the `Handle` method using
 ## Required Output Format
 Your response MUST include:
 1. Your test file as pure code (no markdown).
-2. The file must have an appropriate path in the appropriate Tests project. Mirror the relative path of the class that is being tested.
+2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and mirror the relative path of the class that is being tested.
 
 ## Important things to understand
 - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
@@ -194,7 +195,13 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
             var returnTypeFile = CorrelatedFiles(fileMap, element.TypeReference.ElementId);
             files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "The return type for the Handler class", x.FileText)));
         }
-        
+
+
+        foreach(var field in element.ChildElements) {
+            var returnTypeFile = CorrelatedFiles(fileMap, field.TypeReference.ElementId);
+            files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Data Transfer Objects for request object", x.FileText)));
+        }
+
         files.AddRange(GetRelatedEntities(element)
             .SelectMany(model => CorrelatedFiles(fileMap, model.Id)
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Related entity persistence support file", x.FileText))));
@@ -210,6 +217,8 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Interface", x.FileText)));
             files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.RepositoryBase")
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Base Implementation", x.FileText)));
+            files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.Entities.NotFoundException")
+                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "NotFoundException", x.FileText)));
             foreach (var package in _metadataManager.VisualStudio(_applicationConfig.Id).Packages)
             {
                 files.AddRange(CorrelatedFiles(outputLogFileMap, $"Intent.VisualStudio.Projects.VisualStudioSolution#{package.Id}")
