@@ -1009,37 +1009,6 @@ public class DomainInteractionsManager
         return TryGetFindAggregateStatements(handlerClass, null, requestElement, foundEntity, out statements);
     }
 
-    private List<AssociationEndModel> GetAssociationsToAggregateRoot(ClassModel foundEntity)
-    {
-        var compositionalAssociations = foundEntity.AssociatedClasses
-            .Where(p => p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
-            .Distinct()
-            .ToList();
-
-        //var associationsToAggregateRoot = compositionalAssociations.Where(x => x.TypeReference?.Element?.AsClassModel().IsAggregateRoot() == true).ToList();
-
-        //if (associationsToAggregateRoot.Count == 1)
-        //{
-        //    return associationsToAggregateRoot.Single().Class;
-        //}
-        if (compositionalAssociations.Count == 1)
-        {
-            if (compositionalAssociations.Single().Class.IsAggregateRoot())
-            {
-                return compositionalAssociations;
-            }
-
-            var list = GetAssociationsToAggregateRoot(compositionalAssociations.Single().Class);
-            list.AddRange(compositionalAssociations);
-            return list;
-        }
-        if (compositionalAssociations.Count > 1)
-        {
-            Logging.Log.Warning($"{foundEntity.Name} has multiple owning relationships.");
-        }
-        return null;
-    }
-
     private bool TryGetFindAggregateStatements(CSharpClass handlerClass, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
         statements = new List<CSharpStatement>();
@@ -1060,37 +1029,64 @@ public class DomainInteractionsManager
             variable: aggregateVariableName,
             message: $"Could not find {aggregateEntity.Name} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
 
-        // Traverse from aggregate root to target collection:
+        // Traverse from aggregate root to target entity collection:
         var currentVariable = aggregateVariableName;
         foreach (var associationEndModel in GetAssociationsToAggregateRoot(foundEntity).SkipLast(1))
         {
-            var primaryKeys = associationEndModel.OtherEnd().Class.Attributes.Where(x => x.IsPrimaryKey());
+            var targetEntity = associationEndModel.OtherEnd().Class;
+            var primaryKeys = targetEntity.Attributes.Where(x => x.IsPrimaryKey());
             var requestProperties = primaryKeys.Select(x => (
                 Property: x.Name,
-                ValueExpression: new CSharpStatement($"request.{associationEndModel.OtherEnd().Class.Name}{x.Name}")
+                ValueExpression: new CSharpStatement($"request.{targetEntity.Name}{x.Name}")
             )).ToList();
 
-            string expression;
-            if (requestProperties.Count == 1)
-            {
-                expression = $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}";
-            }
-            else
-            {
-                expression = $"x => {string.Join(" && ", requestProperties.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
-            }
-            statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(associationEndModel.OtherEnd().Class.Name.ToLocalVariableName()),
+            var expression = requestProperties.Count == 1 
+                ? $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}" 
+                : $"x => {string.Join(" && ", requestProperties.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
+            
+            statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(targetEntity.Name.ToLocalVariableName()),
                 $"{currentVariable}.{associationEndModel.OtherEnd().Name.ToPropertyName()}.SingleOrDefault({expression})").WithSemicolon().SeparatedFromPrevious());
             
-            currentVariable = associationEndModel.OtherEnd().Class.Name.ToLocalVariableName();
+            currentVariable = targetEntity.Name.ToLocalVariableName();
 
             statements.Add(CreateIfNullThrowNotFoundStatement(
                 template: _template,
                 variable: currentVariable,
-                message: $"Could not find {associationEndModel.OtherEnd().Class.Name} '{{{requestProperties.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'").SeparatedFromNext());
+                message: $"Could not find {targetEntity.Name} '{{{requestProperties.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'").SeparatedFromNext());
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// Returns the list of association ends that traverse from the provided <paramref name="entity"/> to its aggregate root.
+    /// The association ends are the "Source" ends (i.e. the ends connected to the owning entity)
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    private static List<AssociationEndModel> GetAssociationsToAggregateRoot(ClassModel entity)
+    {
+        var compositionalAssociations = entity.AssociatedClasses
+            .Where(p => p.IsSourceEnd() && p is { IsCollection: false, IsNullable: false })
+            .Distinct()
+            .ToList();
+
+        if (compositionalAssociations.Count == 1)
+        {
+            if (compositionalAssociations.Single().Class.IsAggregateRoot())
+            {
+                return compositionalAssociations;
+            }
+
+            var list = GetAssociationsToAggregateRoot(compositionalAssociations.Single().Class);
+            list.AddRange(compositionalAssociations);
+            return list;
+        }
+        if (compositionalAssociations.Count > 1)
+        {
+            Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
+        }
+        return [];
     }
 
     private bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
