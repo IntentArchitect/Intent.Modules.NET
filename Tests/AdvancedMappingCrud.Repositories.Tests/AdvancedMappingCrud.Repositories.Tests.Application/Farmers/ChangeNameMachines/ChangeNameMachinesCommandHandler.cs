@@ -29,7 +29,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Farmers.ChangeNameM
             var farmer = await _farmerRepository.FindByIdAsync(request.FarmerId, cancellationToken);
             if (farmer is null)
             {
-                throw new NotFoundException($"Could not find Machines '{request.FarmerId}'");
+                throw new NotFoundException($"Could not find Farmer '{request.FarmerId}'");
             }
 
             var machines = farmer.Machines.FirstOrDefault(x => x.Id == request.Id);

@@ -34,7 +34,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.GetOrderOrde
             var order = await _orderRepository.FindByIdAsync(request.OrderId, cancellationToken);
             if (order is null)
             {
-                throw new NotFoundException($"Could not find OrderItem '{request.OrderId}'");
+                throw new NotFoundException($"Could not find Order '{request.OrderId}'");
             }
 
             var orderItem = order.OrderItems.FirstOrDefault(x => x.OrderId == request.OrderId && x.Id == request.Id);
