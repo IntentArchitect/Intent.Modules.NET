@@ -11,9 +11,9 @@ using Intent.IArchitect.Agent.Persistence.Output;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.AI.ChatDrivenDomain.Settings;
-using Intent.Modules.AI.Prompts.Utils;
+using Intent.Modules.AI.ChatDrivenDomain.Utils;
+using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -29,7 +29,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
-public class AutoImplementHandlerTask : IModuleTask
+public class GenerateUnitTestsWithAITask : IModuleTask
 {
     private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
     private readonly IMetadataManager _metadataManager;
@@ -42,7 +42,7 @@ public class AutoImplementHandlerTask : IModuleTask
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
 
-    public AutoImplementHandlerTask(
+    public GenerateUnitTestsWithAITask(
         IApplicationConfigurationProvider applicationConfigurationProvider,
         IMetadataManager metadataManager,
         ISolutionConfig solution,
@@ -54,7 +54,7 @@ public class AutoImplementHandlerTask : IModuleTask
         _outputRegistry = outputRegistry;
     }
 
-    public string TaskTypeId => "Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt";
+    public string TaskTypeId => "Intent.Modules.AI.UnitTests.Generate";
     public string TaskTypeName => "Create Prompt for Handler";
     public int Order => 0;
 
@@ -74,7 +74,7 @@ public class AutoImplementHandlerTask : IModuleTask
         };
 
         var queryModel = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
-        var promptTemplate = GetPromptTemplate(queryModel);
+        var promptTemplate = GetTestPromptTemplate(queryModel);
         var inputFiles = GetInputFiles(queryModel);
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
@@ -99,7 +99,7 @@ public class AutoImplementHandlerTask : IModuleTask
     }
 
 
-    private string GetPromptTemplate(IElement model)
+    private string GetTestPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
         var prompt = @$"
@@ -107,30 +107,7 @@ public class AutoImplementHandlerTask : IModuleTask
 You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
 
 ## Primary Objective
-Implement the `Handle` method in the {targetFileName} class following the implementation process below exactly.
-
-## Repository Pattern Rules (CRITICAL)
-1. **NEVER use Queryable() or access DbContext directly** from handlers - this violates the architecture
-2. **ONLY use existing repository methods** defined in the interfaces when possible
-3. Don't add a new repository method for filtering purposes where the standard available methods could be used instead.
-4. If you need custom repository functionality:
-   - Define the method in the appropriate repository interface
-   - Implement the method in the corresponding concrete repository class
-   - Apply `[IntentIgnore]` attribute to both declaration and implementation
-   - Then call this method from your handler
-5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
-
-## Implementation Process
-1. First, analyze all code files provided and understand how the fit together.
-2. Next, analyze which repository interface to use and which methods could be appropriate to complete the implementation.
-3. If an existing repository method can accomplish the use case efficiently, skip step 4 and go straight to step 5 implementation (IMPORTANT).
-4. If the response contains aggregated data (e.g. Count, Sum, Average, etc.):
-   - Identify which repository interface needs extension
-   - Add a properly named method to that interface with appropriate parameters and return type
-   - Implement the method in the concrete repository class with proper EF Core code
-   - Mark both with `[IntentIgnore]`
-   - Use this method in implementing the handler's Handle method (IMPORTANT).
-5. Implement the handler's Handle method using the appropriate repository methods.
+Write me a set of unit tests that comprehensively test the `Handle` method using xUnit and Moq in the {targetFileName} class.
 
 ## Code Preservation Requirements (CRITICAL)
 1. **NEVER remove or modify existing class members, methods, or properties**
@@ -139,32 +116,56 @@ Implement the `Handle` method in the {targetFileName} class following the implem
 4. **Preserve all existing attributes and code exactly as provided**
 
 ## Code File Modifications
-1. You may modify ONLY:
-   - The Handler class implementation (primarily the Handle method)
-   - Repository interfaces (adding new methods only)
-   - Repository concrete classes (implementing new methods only)
+1. You may only create the test file
 2. Preserve all existing code, attributes, and file paths exactly
+3. Add using clauses for code files that you use
 
 ## Input Code Files:
 ```json
 {{{{$inputFilesJson}}}}
 ```
 
+
 ## Required Output Format
 Your response MUST include:
-1. The fully implemented handler class with the Handle method
-2. Any modified repository interfaces (if you added methods)
-3. Any modified repository concrete classes (if you added implementations)
-4. All files must maintain their exact original paths
-5. All existing code and attributes must be preserved unless explicitly modified
+1. Your test file as pure code (no markdown).
+2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and mirror the relative path of the class that is being tested.
 
-## Important Reminders
-- NEVER remove or modify existing class members
-- NEVER access DbContext or use Queryable() directly in handlers
-- NEVER invoke repository methods that don't exist
-- IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
-- ALL new repository methods must be marked with `[IntentIgnore]`
-- Performance and clean architecture are key priorities
+## Important things to understand
+- Repositories will assign an Id to entities when `SaveChangesAsync` is called.
+- Collections on entities cannot be treated like arrays.
+
+## Examples
+1. Here's an example of a creation handler:
+```
+public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
+{{
+    // Arrange
+    var command = new CreateBuyerCommand(""John"", ""Doe"", ""john.doe@example.com"", true);
+    Buyer buyer = null;
+    var buyerId = Guid.NewGuid();
+
+    _buyerRepositoryMock
+        .Setup(repo => repo.Add(It.IsAny<Buyer>()))
+        .Callback<Buyer>(b => buyer = b);
+    _buyerRepositoryMock
+        .Setup(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()))
+        .Callback(() => buyer!.Id = buyerId)
+        .ReturnsAsync(1);
+
+    // Act
+    var result = await _handler.Handle(command, CancellationToken.None);
+
+    // Assert
+    _buyerRepositoryMock.Verify(repo => repo.Add(It.IsAny<Buyer>()), Times.Once);
+    _buyerRepositoryMock.Verify(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+    Assert.NotEqual(Guid.Empty, result);
+    Assert.NotNull(buyer);
+    Assert.Equal(command.Name, buyer.Name);
+    Assert.Equal(command.Surname, buyer.Surname);
+    Assert.Equal(command.Email, buyer.Email);
+}}
+```
 ";
         return prompt;
     }
@@ -194,7 +195,13 @@ Your response MUST include:
             var returnTypeFile = CorrelatedFiles(fileMap, element.TypeReference.ElementId);
             files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "The return type for the Handler class", x.FileText)));
         }
-        
+
+
+        foreach(var field in element.ChildElements) {
+            var returnTypeFile = CorrelatedFiles(fileMap, field.TypeReference.ElementId);
+            files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Data Transfer Objects for request object", x.FileText)));
+        }
+
         files.AddRange(GetRelatedEntities(element)
             .SelectMany(model => CorrelatedFiles(fileMap, model.Id)
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Related entity persistence support file", x.FileText))));
@@ -210,9 +217,13 @@ Your response MUST include:
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Interface", x.FileText)));
             files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.RepositoryBase")
                 .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Base Implementation", x.FileText)));
-            //_metadataManager.GetDesigner(_applicationConfig.Id, ) TODO!!
-            files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.VisualStudio.Projects.VisualStudioSolution#6590cdf1-6690-4a7f-ae15-c958174eb2b9")
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Visual Studio Solution File", x.FileText)));
+            files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.Entities.NotFoundException")
+                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "NotFoundException", x.FileText)));
+            foreach (var package in _metadataManager.VisualStudio(_applicationConfig.Id).Packages)
+            {
+                files.AddRange(CorrelatedFiles(outputLogFileMap, $"Intent.VisualStudio.Projects.VisualStudioSolution#{package.Id}")
+                    .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Visual Studio Solution File", x.FileText)));
+            }
         }
 
         return files.ToArray();
