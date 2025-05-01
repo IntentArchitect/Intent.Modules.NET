@@ -1019,7 +1019,7 @@ public class DomainInteractionsManager
         var idFields = GetAggregatePKFindCriteria(requestElement, aggregateEntity, foundEntity);
         if (!idFields.Any())
         {
-            Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}.");
+            Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}. Try adding a '{aggregateEntity.Name}Id' property to your request.");
         }
 
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(aggregateVariableName), aggregateDataAccess.FindByIdAsync(idFields)));
