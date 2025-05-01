@@ -34,7 +34,7 @@ namespace IntegrationTesting.Tests.Application.CheckNewCompChildCruds.GetCNCCChi
             var checkNewCompChildCrud = await _checkNewCompChildCrudRepository.FindByIdAsync(request.CheckNewCompChildCrudId, cancellationToken);
             if (checkNewCompChildCrud is null)
             {
-                throw new NotFoundException($"Could not find CNCCChild '{request.CheckNewCompChildCrudId}'");
+                throw new NotFoundException($"Could not find CheckNewCompChildCrud '{request.CheckNewCompChildCrudId}'");
             }
 
             var cNCCChildren = checkNewCompChildCrud.CNCCChildren.Where(x => x.CheckNewCompChildCrudId == request.CheckNewCompChildCrudId);

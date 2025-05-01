@@ -482,6 +482,7 @@ public class DomainInteractionsManager
             {
                 if (!TryGetFindAggregateStatements(handlerClass, mapping.SourceElement as IElement, entity, out statements))
                 {
+                    Logging.Log.Warning($"Unable to implement creation logic for handler '{handlerClass.Name}'. See earlier warnings for more information.");
                     return new List<CSharpStatement>();
                 }
             }

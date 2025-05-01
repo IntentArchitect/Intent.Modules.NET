@@ -30,7 +30,7 @@ namespace IntegrationTesting.Tests.Application.CheckNewCompChildCruds.CreateCNCC
             var checkNewCompChildCrud = await _checkNewCompChildCrudRepository.FindByIdAsync(request.CheckNewCompChildCrudId, cancellationToken);
             if (checkNewCompChildCrud is null)
             {
-                throw new NotFoundException($"Could not find CNCCChild '{request.CheckNewCompChildCrudId}'");
+                throw new NotFoundException($"Could not find CheckNewCompChildCrud '{request.CheckNewCompChildCrudId}'");
             }
             var cNCCChild = new CNCCChild
             {

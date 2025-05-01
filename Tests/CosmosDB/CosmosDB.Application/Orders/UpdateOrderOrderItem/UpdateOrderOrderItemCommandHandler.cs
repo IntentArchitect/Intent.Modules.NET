@@ -30,7 +30,7 @@ namespace CosmosDB.Application.Orders.UpdateOrderOrderItem
             var order = await _orderRepository.FindByIdAsync((request.OrderId, request.WarehouseId), cancellationToken);
             if (order is null)
             {
-                throw new NotFoundException($"Could not find OrderItem '{(request.OrderId, request.WarehouseId)}'");
+                throw new NotFoundException($"Could not find Order '{(request.OrderId, request.WarehouseId)}'");
             }
 
             var orderItem = order.OrderItems.FirstOrDefault(x => x.Id == request.Id);

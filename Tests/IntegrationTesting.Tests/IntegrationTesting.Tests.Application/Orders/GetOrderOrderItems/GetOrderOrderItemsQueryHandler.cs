@@ -35,7 +35,7 @@ namespace IntegrationTesting.Tests.Application.Orders.GetOrderOrderItems
             var order = await _orderRepository.FindByIdAsync(request.OrderId, cancellationToken);
             if (order is null)
             {
-                throw new NotFoundException($"Could not find OrderItem '{request.OrderId}'");
+                throw new NotFoundException($"Could not find Order '{request.OrderId}'");
             }
 
             var orderItems = order.OrderItems.Where(x => x.OrderId == request.OrderId);

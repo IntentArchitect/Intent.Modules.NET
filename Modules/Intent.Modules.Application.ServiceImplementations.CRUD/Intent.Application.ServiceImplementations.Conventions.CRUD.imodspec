@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.ServiceImplementations.Conventions.CRUD</id>
-  <version>5.0.25</version>
+  <version>5.0.26-pre.0</version>
   <supportedClientVersions>[4.1.3-pre.2, 5.0.0-a)</supportedClientVersions>
   <summary>CRUD conventions for standard Services</summary>
   <description>CRUD conventions for standard Services</description>
@@ -29,6 +29,7 @@
   <moduleSettings />
   <metadata />
   <moduleSettingsExtensions />
+  <migrations />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.ServiceImplementations.Conventions.CRUD.CrudServiceFactoryExtension" externalReference="2d628d87-8a8b-4804-aecf-5d63a480462b" />
   </factoryExtensions>
