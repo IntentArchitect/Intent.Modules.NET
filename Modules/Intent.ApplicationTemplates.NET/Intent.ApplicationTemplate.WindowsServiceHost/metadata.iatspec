@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<applicationTemplate>
+<applicationTemplate type="application-template">
   <id>Intent.ApplicationTemplate.WindowsServiceHost</id>
   <version>2.0.16-pre.0</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
