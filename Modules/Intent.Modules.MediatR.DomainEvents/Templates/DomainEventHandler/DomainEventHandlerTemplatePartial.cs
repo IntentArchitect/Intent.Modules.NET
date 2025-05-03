@@ -74,6 +74,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(this));
+                        csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(this));
                         var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
 
                         csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");

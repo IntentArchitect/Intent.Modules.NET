@@ -28,6 +28,7 @@ using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 namespace Intent.Modules.Application.DomainInteractions;
 // Disambiguation
 using Intent.Modelers.Domain.Api;
+using System.ComponentModel.Design;
 using System.Drawing;
 
 public static class DomainInteractionExtensions
@@ -39,6 +40,7 @@ public static class DomainInteractionExtensions
                || model.QueryEntityActions().Any()
                || model.UpdateEntityActions().Any()
                || model.DeleteEntityActions().Any()
+               || model.ServiceInvocationActions().Any()
                || model.CallServiceOperationActions().Any();
     }
 }
@@ -97,9 +99,15 @@ public class DomainInteractionsManager
                 statements.AddRange(domainInteractionManager.UpdateEntity(handlerClass, updateAction));
             }
 
+            foreach (var callAction in model.ServiceInvocationActions())
+            {
+                statements.AddRange(domainInteractionManager.InvokeService(handlerClass, callAction.InternalAssociationEnd));
+            }
+
+
             foreach (var callAction in model.CallServiceOperationActions())
             {
-                statements.AddRange(domainInteractionManager.CallServiceOperation(handlerClass, callAction));
+                statements.AddRange(domainInteractionManager.CallServiceOperation(handlerClass, callAction.InternalAssociationEnd));
             }
 
             foreach (var deleteAction in model.DeleteEntityActions())
@@ -299,32 +307,32 @@ public class DomainInteractionsManager
             var aggregateAssociations = GetAssociationsToAggregateRoot(foundEntity);
             var aggregateEntity = aggregateAssociations.First().Class;
 
-                if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
-                {
-                    bool requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(aggregateEntity);
-                    var repositoryName = InjectService(repositoryInterface, handlerClass);
-                    dataAccessProvider = new CompositeDataAccessProvider(
-                        saveChangesAccessor: $"{repositoryName}.UnitOfWork",
-                        accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
-                        explicitUpdateStatement: requiresExplicitUpdate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null,
-                        template: _template,
-                        mappingManager: _csharpMapping
-                        );
+            if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
+            {
+                bool requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(aggregateEntity);
+                var repositoryName = InjectService(repositoryInterface, handlerClass);
+                dataAccessProvider = new CompositeDataAccessProvider(
+                    saveChangesAccessor: $"{repositoryName}.UnitOfWork",
+                    accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                    explicitUpdateStatement: requiresExplicitUpdate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null,
+                    template: _template,
+                    mappingManager: _csharpMapping
+                    );
 
-                    return true;
-                }
-                else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
-                    SettingGenerateDbContextInterface())
-                {
-                    var dbContextField = InjectService(dbContextInterface, handlerClass, "dbContext");
-                    dataAccessProvider = new CompositeDataAccessProvider(
-                        saveChangesAccessor: dbContextField,
-                        accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
-                        explicitUpdateStatement: null,
-                        template: _template,
-                        mappingManager: _csharpMapping);
-                    return true;
-                }
+                return true;
+            }
+            else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
+                SettingGenerateDbContextInterface())
+            {
+                var dbContextField = InjectService(dbContextInterface, handlerClass, "dbContext");
+                dataAccessProvider = new CompositeDataAccessProvider(
+                    saveChangesAccessor: dbContextField,
+                    accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                    explicitUpdateStatement: null,
+                    template: _template,
+                    mappingManager: _csharpMapping);
+                return true;
+            }
         }
         dataAccessProvider = null;
         return false;
@@ -627,7 +635,49 @@ public class DomainInteractionsManager
         }
     }
 
-    public IEnumerable<CSharpStatement> CallServiceOperation(CSharpClass handlerClass, CallServiceOperationTargetEndModel callServiceOperation)
+    public IEnumerable<CSharpStatement> InvokeService(CSharpClass handlerClass, IAssociationEnd invocation)
+    {
+        switch (invocation.TypeReference.Element.SpecializationType)
+        {
+            case Intent.Modelers.Services.Api.OperationModel.SpecializationType:
+                return CallServiceOperation(handlerClass, invocation);
+            case CommandModel.SpecializationType:
+            case QueryModel.SpecializationType:
+                return MediatorSend(handlerClass, invocation);
+        }
+
+        return [];
+    }
+
+    public IEnumerable<CSharpStatement> MediatorSend(CSharpClass handlerClass, IAssociationEnd callServiceOperation)
+    {
+        var @class = handlerClass;
+        var ctor = @class.Constructors.First();
+        var template = handlerClass.File.Template;
+        if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
+        {
+            ctor.AddParameter(template.UseType("MediatR.ISender"), "mediator", param =>
+            {
+                param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
+            });
+        }
+
+        var requestName = callServiceOperation.TypeReference.Element.Name.ToLocalVariableName();
+        var statements = new List<CSharpStatement>();
+        statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(requestName), _csharpMapping.GenerateCreationStatement(callServiceOperation.Mappings.Single())).WithSemicolon().SeparatedFromPrevious());
+        var response = callServiceOperation.TypeReference.Element?.TypeReference?.Element;
+        if (response != null)
+        {
+            statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken")));
+        }
+        else
+        {
+            statements.Add(new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken"));
+        }
+        return statements;
+    }
+
+    public IEnumerable<CSharpStatement> CallServiceOperation(CSharpClass handlerClass, IAssociationEnd callServiceOperation)
     {
         try
         {
@@ -650,7 +700,7 @@ public class DomainInteractionsManager
                 serviceField = TrackedEntities.LastOrDefault().Value?.VariableName;
                 if (serviceField is null)
                 {
-                    throw new ElementException(callServiceOperation.InternalElement, @"Call Service Operation performed without a prior call to ""Create"" or ""Query"" an Entity.");
+                    throw new ElementException(callServiceOperation, @"Call Service Operation performed without a prior call to ""Create"" or ""Query"" an Entity.");
                 }
             }
 
@@ -664,7 +714,7 @@ public class DomainInteractionsManager
                 invoke = new CSharpAwaitExpression(invoke);
             }
 
-            var operationModel = (IElement)callServiceOperation.Element;
+            var operationModel = (IElement)callServiceOperation.TypeReference.Element;
             if (operationModel.TypeReference.Element != null)
             {
                 var variableName = callServiceOperation.Name.ToLocalVariableName();
@@ -694,12 +744,12 @@ public class DomainInteractionsManager
         }
         catch (Exception ex)
         {
-            throw new ElementException(callServiceOperation.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
+            throw new ElementException(callServiceOperation, "An error occurred while generating the domain interactions logic", ex);
         }
 
-        bool HasServiceDependency(CallServiceOperationTargetEndModel callServiceOperation, out (ICSharpFileBuilderTemplate ServiceInterfaceTemplate, bool Injectable) dependencyInfo)
+        bool HasServiceDependency(IAssociationEnd callServiceOperation, out (ICSharpFileBuilderTemplate ServiceInterfaceTemplate, bool Injectable) dependencyInfo)
         {
-            var serviceModel = ((IElement)callServiceOperation.Element).ParentElement;
+            var serviceModel = ((IElement)callServiceOperation.TypeReference.Element).ParentElement;
             switch (serviceModel.SpecializationTypeId)
             {
                 case DomainServiceSpecializationId when _template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.DomainServices.Interface, serviceModel, out var domainServiceTemplate):
@@ -871,9 +921,9 @@ public class DomainInteractionsManager
         }
     }
 
-    private void WireupDomainServicesForOperations(CSharpClass handlerClass, CallServiceOperationTargetEndModel callServiceOperation, List<CSharpStatement> statements)
+    private void WireupDomainServicesForOperations(CSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
     {
-        var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.Element);
+        var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.TypeReference.Element);
         if (operation == null)
         {
             return;
@@ -1041,13 +1091,13 @@ public class DomainInteractionsManager
                 ValueExpression: new CSharpStatement($"request.{targetEntity.Name}{x.Name}")
             )).ToList();
 
-            var expression = requestProperties.Count == 1 
-                ? $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}" 
+            var expression = requestProperties.Count == 1
+                ? $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}"
                 : $"x => {string.Join(" && ", requestProperties.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
-            
+
             statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(targetEntity.Name.ToLocalVariableName()),
                 $"{currentVariable}.{associationEndModel.OtherEnd().Name.ToPropertyName()}.SingleOrDefault({expression})").WithSemicolon().SeparatedFromPrevious());
-            
+
             currentVariable = targetEntity.Name.ToLocalVariableName();
 
             statements.Add(CreateIfNullThrowNotFoundStatement(

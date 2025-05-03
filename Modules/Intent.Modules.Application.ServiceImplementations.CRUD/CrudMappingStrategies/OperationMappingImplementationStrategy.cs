@@ -80,6 +80,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
