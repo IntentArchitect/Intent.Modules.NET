@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a86f5d5f-ab54-440f-93aa-b84842dc3b7e" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>InvokedFromEventHandlerService</name>
+  <display>InvokedFromEventHandlerService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>00e3c548-ee83-4dbd-857d-6c142318f600</parentFolderId>
+  <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+  <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="85780bf4-a424-4949-95c3-8f4608eef3af" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Operation</name>
+      <display>Operation(message: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="1f775ec5-2a8b-4d41-80b5-4e1d874c867a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a86f5d5f-ab54-440f-93aa-b84842dc3b7e</parentFolderId>
+      <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+      <packageName>MassTransit.RabbitMQ.Services</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="0f8dffb6-18d8-4e10-82de-fb947f90e938" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>message</name>
+          <display>in : message: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="98de8604-c51c-4d8f-9405-94812cc5fbba">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>85780bf4-a424-4949-95c3-8f4608eef3af</parentFolderId>
+          <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
+          <packageName>MassTransit.RabbitMQ.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

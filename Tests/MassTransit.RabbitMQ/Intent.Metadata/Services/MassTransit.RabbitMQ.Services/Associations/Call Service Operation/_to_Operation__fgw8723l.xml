@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="013a0bc3-3ac2-4ef7-8929-c3a673543c99">
+  <sourceEnd id="6d357afe-d3bd-417b-8922-bf64e4d0af0c" type="Call Service Operation Source End" typeId="01693f59-b89f-4e03-934a-dfcb4cbd90df">
+    <display>called by : StandardMessageCustomSubscribeHandler.</display>
+    <order>0</order>
+    <typeReference id="173fe7e3-14ac-45e8-95d0-20d015560809">
+      <typeId>ee73928d-57e2-43b2-8b23-d217884a0d4b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="013a0bc3-3ac2-4ef7-8929-c3a673543c99" type="Call Service Operation Target End" typeId="752c289a-5961-4172-9017-0eca6fa09fd9">
+    <display>call: Operation</display>
+    <order>0</order>
+    <typeReference id="360b7016-caa4-4ee4-a50e-16e330de4703">
+      <typeId>85780bf4-a424-4949-95c3-8f4608eef3af</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MassTransit.RabbitMQ.Services</typePackageName>
+      <typePackageId>9808e5b7-a317-4040-a20c-195f8a8bda20</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Integration Event Handler Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="21a5aeab-394d-4678-b56c-54ed6389acde" location="[MassTransit.RabbitMQ].[Services].[OverrideMessageStandardSubscribe]" />
+        <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="85780bf4-a424-4949-95c3-8f4608eef3af" location="[MassTransit.RabbitMQ].[Services].[Operation]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Message}</expression>
+            <path>
+              <target id="85780bf4-a424-4949-95c3-8f4608eef3af" name="Operation" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              <target id="0f8dffb6-18d8-4e10-82de-fb947f90e938" name="message" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+            </path>
+            <sources>
+              <source identifier="Message" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="21a5aeab-394d-4678-b56c-54ed6389acde" name="OverrideMessageStandardSubscribe" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+                  <target id="ec6f6d2b-f7fb-43c3-9d72-cd11c58f8486" name="Message" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>9510ff76-fba3-4eca-a5dd-0cfefc8f5bb6</associationTypeId>
+  <stereotypes />
+</association>
