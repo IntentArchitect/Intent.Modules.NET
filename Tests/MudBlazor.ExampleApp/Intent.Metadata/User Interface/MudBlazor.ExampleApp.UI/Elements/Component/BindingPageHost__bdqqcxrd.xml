@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e66fa296-90a5-4bd4-837a-d635bb5359a8" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>BindingPageHost</name>
+  <display>BindingPageHost</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1d446ece-edb2-49c2-bc05-2b048e4c14fa</parentFolderId>
+  <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+  <packageName>MudBlazor.ExampleApp.UI</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="ea4adc09-8978-4ede-ba5f-265debb2b60c" name="Page">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+      <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+      <properties>
+        <property name="9dff9df1-a993-4bf6-9aa7-c16811142228" display="Route" value="/binding-pages-test/binding-page-host" isActive="true" />
+        <property name="0a8627ba-ec45-4023-9c36-b0999f43e982" display="Title" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="e66fa296-90a5-4bd4-837a-d635bb5359a8" location="[MudBlazor.ExampleApp].[User Interface].[BindingPageHost]" />
+      <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="1e205da1-14b1-454d-b696-785f3022df0e" location="[MudBlazor.ExampleApp].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{StringValue}</expression>
+          <path>
+            <target id="1e205da1-14b1-454d-b696-785f3022df0e" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c2ca25b6-c3b8-45ad-9fb1-966d513a8a7f" name="BindablePageComponent" type="element" specialization="Display Component" specializationId="866a90f7-4044-43b9-bb05-7270c7889796" />
+            <target id="ac652ae6-78f0-4f76-bf30-f672f4445e6a" name="StringParam" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+          </path>
+          <sources>
+            <source identifier="StringValue" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="e66fa296-90a5-4bd4-837a-d635bb5359a8" name="BindingPageHost" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="95f105d2-3933-4cb9-a2ba-97dd15cafa2f" name="StringValue" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{IntValue}</expression>
+          <path>
+            <target id="1e205da1-14b1-454d-b696-785f3022df0e" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c2ca25b6-c3b8-45ad-9fb1-966d513a8a7f" name="BindablePageComponent" type="element" specialization="Display Component" specializationId="866a90f7-4044-43b9-bb05-7270c7889796" />
+            <target id="85da83d9-ce5c-4f1b-bb49-141775fe4872" name="IntParam" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+          </path>
+          <sources>
+            <source identifier="IntValue" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="e66fa296-90a5-4bd4-837a-d635bb5359a8" name="BindingPageHost" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="e7714222-c637-46b0-b53f-96dda6b5e5dd" name="IntValue" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{ModelValue}</expression>
+          <path>
+            <target id="1e205da1-14b1-454d-b696-785f3022df0e" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="c2ca25b6-c3b8-45ad-9fb1-966d513a8a7f" name="BindablePageComponent" type="element" specialization="Display Component" specializationId="866a90f7-4044-43b9-bb05-7270c7889796" />
+            <target id="da841c28-6124-4b18-8a21-02ca229f4489" name="ModelParam" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+          </path>
+          <sources>
+            <source identifier="ModelValue" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="e66fa296-90a5-4bd4-837a-d635bb5359a8" name="BindingPageHost" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="de1f892b-d71f-438c-9d59-aea4f7fe0525" name="ModelValue" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="95f105d2-3933-4cb9-a2ba-97dd15cafa2f" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>StringValue</name>
+      <display>StringValue: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="796e7a12-aa23-48ed-82bf-9d576902fdfc">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e66fa296-90a5-4bd4-837a-d635bb5359a8</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e7714222-c637-46b0-b53f-96dda6b5e5dd" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>IntValue</name>
+      <display>IntValue: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c8ddf279-d2ef-4d7c-9337-c2cac496762f">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e66fa296-90a5-4bd4-837a-d635bb5359a8</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="de1f892b-d71f-438c-9d59-aea4f7fe0525" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>ModelValue</name>
+      <display>ModelValue: TestModel</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="fc3e0900-d4e4-47bb-b372-413b0c37d75b">
+        <typeId>d01a5eb9-7607-4c9f-be89-533ff7ead177</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
+        <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e66fa296-90a5-4bd4-837a-d635bb5359a8</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="41ae1f5a-6451-4a2f-8353-9995bff68692" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="e7d7bd5a-2f9a-4d94-bf8f-957d2fd5ec43">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>e66fa296-90a5-4bd4-837a-d635bb5359a8</parentFolderId>
+      <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+      <packageName>MudBlazor.ExampleApp.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

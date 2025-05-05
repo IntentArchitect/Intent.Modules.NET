@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="e8f10244-6880-445a-8771-ae10cdb8cf54" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.2.7</name>
+      <name>8.3.0</name>
       <display>8.2.6 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,7 +105,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3312b327-34fb-4a34-92e2-b4d6f8e9c4b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ce81506b-a7e0-44be-aec1-2da24780d078" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.ModelBuilder</name>
           <isAbstract>false</isAbstract>
           <value>1.0.9</value>
@@ -116,7 +116,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="72129627-c55d-404f-b79e-19c706e7a7f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0eb3ace1-f9c1-47a1-a0c2-ec17ee7d85b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Core</name>
           <isAbstract>false</isAbstract>
           <value>7.21.6</value>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="573b1b6e-e921-40c7-a844-6e7efdc64fe8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="462f86af-2647-4073-8a89-9c666ce873f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Edm</name>
           <isAbstract>false</isAbstract>
           <value>7.21.6</value>
@@ -138,7 +138,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7afa1447-6dbc-4a6f-bc61-38b1f1d35ba3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bd7a877a-2071-42e1-ab0e-29ef34152ffa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Spatial</name>
           <isAbstract>false</isAbstract>
           <value>7.21.6</value>
@@ -152,7 +152,7 @@
       </childElements>
     </childElement>
     <childElement id="3cdd177f-f05a-4dc8-8db0-8dd3c1b3082f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.2.1</name>
+      <name>9.3.0</name>
       <display>9.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -174,7 +174,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d3fdadc6-11c0-49e6-9970-0887b71ba1d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="04d3bfb6-acc0-4327-9e02-637633453b9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.ModelBuilder</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -185,7 +185,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e2c17ce6-376e-4ea2-8c1a-838864aec882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7b67e890-334d-41ae-aadb-2761e1901ab5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Core</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>
@@ -196,7 +196,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="81a4bb1f-d2a1-47fd-81ad-939397313274" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="14ee0af9-b891-41d7-a8e8-e0cdf0e22533" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.OData.Edm</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>
@@ -207,7 +207,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="00aabc7d-102f-40d1-bdea-82e5405ce5c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9e17000d-0085-4550-b5f4-de185e5970a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Spatial</name>
           <isAbstract>false</isAbstract>
           <value>8.2.3</value>

@@ -16,6 +16,9 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations.Accounts
 
             builder.HasKey(x => x.AccountTypeId);
 
+            builder.Property(x => x.AccountTypeId)
+                .ValueGeneratedNever();
+
             builder.Property(x => x.Description)
                 .IsRequired()
                 .HasMaxLength(255);

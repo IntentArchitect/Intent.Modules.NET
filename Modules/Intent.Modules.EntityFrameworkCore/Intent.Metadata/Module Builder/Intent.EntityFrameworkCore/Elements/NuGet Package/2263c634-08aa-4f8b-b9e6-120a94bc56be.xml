@@ -180,8 +180,8 @@
     <childElement id="fefaa080-aac3-4a66-98de-ac4c30646f9a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.
 Created this entry so .net9 gets 9.0.0</comment>
-      <name>9.0.3</name>
-      <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
+      <name>9.0.4</name>
+      <display>9.0.4 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

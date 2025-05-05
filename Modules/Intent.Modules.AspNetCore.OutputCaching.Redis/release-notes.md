@@ -1,3 +1,7 @@
+### Version 1.1.5
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.4
 
 - Improvement: Updated NuGet package versions.

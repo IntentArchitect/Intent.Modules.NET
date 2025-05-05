@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="432a1beb-5cfc-48d3-8071-857ba9163066" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>CompKeyUserSuppliedDataSourceEntity</name>
+  <display>CompKeyUserSuppliedDataSourceEntity</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bee74259-0490-41ec-aeea-fdac2caa3d6a</parentFolderId>
+  <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+  <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ac0ec567-7a82-4fa2-93c4-1f0e754464ef" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id1</name>
+      <display>Id1: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="25755bca-fa6f-4eb0-aa67-6e53f69c6277">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>432a1beb-5cfc-48d3-8071-857ba9163066</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="aebd71b0-fba0-46c7-83c7-e1b9cef0dba5" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id2</name>
+      <display>Id2: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2e577ffa-0e92-43cb-a73f-614e4879a660">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>432a1beb-5cfc-48d3-8071-857ba9163066</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e1d8ffa6-5166-478f-b0bf-449257f94144" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>FieldValue</name>
+      <display>FieldValue: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="785116f3-17c8-4175-99db-32f648eaf3ba">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>432a1beb-5cfc-48d3-8071-857ba9163066</parentFolderId>
+      <packageId>8ca37b32-c4a3-4856-919f-e2190fa2d337</packageId>
+      <packageName>EntityFrameworkCore.SqlServer.TestApplication.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+          <properties>
+            <property name="1288cfcd-ee51-437e-9713-73b80118f026" display="SQL Data Type" value="DEFAULT" isActive="true" />
+            <property name="A04CC24D-81FB-4EA2-A34A-B3C58E04DCFD" display="MaxLength" isActive="true" />
+            <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

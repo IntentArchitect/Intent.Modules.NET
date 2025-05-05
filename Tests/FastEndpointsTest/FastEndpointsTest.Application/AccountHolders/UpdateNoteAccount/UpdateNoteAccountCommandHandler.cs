@@ -29,7 +29,7 @@ namespace FastEndpointsTest.Application.AccountHolders.UpdateNoteAccount
             var accountHolder = await _accountHolderRepository.FindByIdAsync(request.AccountHolderId, cancellationToken);
             if (accountHolder is null)
             {
-                throw new NotFoundException($"Could not find Account '{request.AccountHolderId}'");
+                throw new NotFoundException($"Could not find AccountHolder '{request.AccountHolderId}'");
             }
 
             var account = accountHolder.Accounts.FirstOrDefault(x => x.Id == request.Id);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Contracts.OperationMapping;
 using Intent.RoslynWeaver.Attributes;
@@ -25,9 +26,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OperationMappin
 
         public void AddTask(string listName, TaskItem task)
         {
-            // [IntentFully]
-            // TODO: Implement AddTask (User) functionality
-            throw new NotImplementedException("Replace with your implementation...");
+            var taskList = TaskLists.SingleOrDefault(x => x.Name == listName);
+            if (taskList == null)
+            {
+                taskList = new TaskList() { Name = listName, TaskItems = [] };
+                TaskLists.Add(taskList);
+            }
+            taskList.TaskItems.Add(task);
         }
 
         public void AddTask(string listName, TaskItemContract task)

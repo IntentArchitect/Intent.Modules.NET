@@ -29,7 +29,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.DeleteAggregateRootCompos
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot is null)
             {
-                throw new NotFoundException($"Could not find CompositeManyB '{request.AggregateRootId}'");
+                throw new NotFoundException($"Could not find AggregateRoot '{request.AggregateRootId}'");
             }
 
             var compositeManyB = aggregateRoot.Composites.FirstOrDefault(x => x.Id == request.Id);

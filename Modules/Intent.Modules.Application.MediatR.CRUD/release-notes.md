@@ -1,3 +1,8 @@
+### Version 6.0.29
+
+- Improvement: Supports deeper traversal of composite entities for CRUD implementations (previously could only support to the first level).
+- Fixed: Not found exception message incorrect for composite entities.
+
 ### Version 6.0.28
 
 - Fixed: Invoking Service Operations from other Service Operations with the same DTO type caused an exception.

@@ -88,8 +88,8 @@
     </childElement>
     <childElement id="c819695a-343e-4ac5-abee-23a0d8dd645d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
-      <name>8.0.14</name>
-      <display>8.0.14 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
+      <name>8.0.15</name>
+      <display>8.0.15 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>

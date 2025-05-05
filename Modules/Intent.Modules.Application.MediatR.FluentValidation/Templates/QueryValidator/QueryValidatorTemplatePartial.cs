@@ -39,7 +39,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.QueryVal
                 uniqueConstraintValidationEnabled: outputTarget.ExecutionContext.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                 repositoryInjectionEnabled: true,
                 customValidationEnabled: true,
-                associationedElements: associationedElements,
+                sourceElementAdvancedMappings: associationedElements,
                 additionalFolders: outputTarget.ExecutionContext.Settings.GetCQRSSettings().ConsolidateCommandQueryAssociatedFilesIntoSingleFile()
                     ? Array.Empty<string>()
                     : new[] { model.GetConceptName() })

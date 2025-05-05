@@ -22,7 +22,7 @@
   <targetEnd id="1674c9e3-579d-4ba6-883f-c64d40fc3600" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Product</name>
     <display>Product: Product</display>
-    <order>13</order>
+    <order>12</order>
     <typeReference id="4ef30d0d-f1cf-43e6-9393-12ad2ff4e699">
       <typeId>3fbfee56-530b-4c82-9911-437bc53dc412</typeId>
       <isNavigable>true</isNavigable>

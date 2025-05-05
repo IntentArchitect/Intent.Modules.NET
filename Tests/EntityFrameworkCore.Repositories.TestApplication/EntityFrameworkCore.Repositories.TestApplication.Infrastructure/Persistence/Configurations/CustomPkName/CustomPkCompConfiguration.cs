@@ -12,10 +12,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
     {
         public void Configure(EntityTypeBuilder<CustomPkComp> builder)
         {
-            builder.HasKey(x => x.MyId);
+            builder.HasKey(x => new { x.MyId, x.MyId2 });
+
+            builder.Property(x => x.MyId)
+                .ValueGeneratedNever();
 
             builder.Property(x => x.MyId2)
-                .IsRequired();
+                .ValueGeneratedNever();
 
             builder.Property(x => x.Name)
                 .IsRequired();

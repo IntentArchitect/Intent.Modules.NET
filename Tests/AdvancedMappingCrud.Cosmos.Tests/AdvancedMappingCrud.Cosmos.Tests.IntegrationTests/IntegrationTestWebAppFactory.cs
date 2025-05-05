@@ -21,14 +21,15 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests
 
         public CosmosContainerFixture CosmosContainerFixture { get; }
 
-        public async Task InitializeAsync()
+        public async ValueTask InitializeAsync()
         {
             await CosmosContainerFixture.InitializeAsync();
         }
 
-        async Task IAsyncLifetime.DisposeAsync()
+        public override async ValueTask DisposeAsync()
         {
             await CosmosContainerFixture.DisposeAsync();
+            await base.DisposeAsync();
         }
 
         protected override IHost CreateHost(IHostBuilder builder)

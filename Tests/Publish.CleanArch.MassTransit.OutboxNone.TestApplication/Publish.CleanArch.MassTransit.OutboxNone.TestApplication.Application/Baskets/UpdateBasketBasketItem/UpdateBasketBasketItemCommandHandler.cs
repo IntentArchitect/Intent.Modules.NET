@@ -34,7 +34,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
             var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
             if (basket is null)
             {
-                throw new NotFoundException($"Could not find BasketItem '{request.BasketId}'");
+                throw new NotFoundException($"Could not find Basket '{request.BasketId}'");
             }
 
             var basketItem = basket.BasketItems.FirstOrDefault(x => x.Id == request.Id);

@@ -32,7 +32,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.CreateAggregateRootCompos
             var aggregateRoot = await _aggregateRootRepository.FindByIdAsync(request.AggregateRootId, cancellationToken);
             if (aggregateRoot is null)
             {
-                throw new NotFoundException($"Could not find CompositeManyB '{request.AggregateRootId}'");
+                throw new NotFoundException($"Could not find AggregateRoot '{request.AggregateRootId}'");
             }
             var compositeManyB = new CompositeManyB
             {

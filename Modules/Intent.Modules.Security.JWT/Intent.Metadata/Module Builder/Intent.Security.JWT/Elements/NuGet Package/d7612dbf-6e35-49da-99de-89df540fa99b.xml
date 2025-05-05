@@ -140,7 +140,7 @@
       <childElements />
     </childElement>
     <childElement id="2d2c3928-fa82-48f6-8b1f-0b9c6418a617" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.14</name>
+      <name>8.0.15</name>
       <display>8.0.14 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -162,16 +162,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2ed2fd75-fc13-4b03-b874-24eca5c6de1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bbecd0af-45cf-48e8-b61e-400499959aa2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2d2c3928-fa82-48f6-8b1f-0b9c6418a617</parentFolderId>
-          <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
-          <packageName>Intent.Security.JWT</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -179,7 +176,7 @@
       </childElements>
     </childElement>
     <childElement id="50d99d52-f71b-4969-aa90-583e0434f2ae" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -201,16 +198,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="60c9de0e-67b0-4860-8bbf-7abe3abe1e5e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f3bcfd7-0f83-44b8-9904-5d43919ec4d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>50d99d52-f71b-4969-aa90-583e0434f2ae</parentFolderId>
-          <packageId>dc5bde69-a694-4347-9683-d746710568e7</packageId>
-          <packageName>Intent.Security.JWT</packageName>
           <stereotypes />
           <metadata />
           <childElements />

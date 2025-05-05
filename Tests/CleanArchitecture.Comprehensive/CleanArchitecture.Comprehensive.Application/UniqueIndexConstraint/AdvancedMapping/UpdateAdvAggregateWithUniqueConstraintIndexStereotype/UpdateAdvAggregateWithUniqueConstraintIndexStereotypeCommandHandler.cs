@@ -1,7 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Comprehensive.Domain.Common;
 using CleanArchitecture.Comprehensive.Domain.Common.Exceptions;
+using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstraint;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -36,6 +38,18 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             aggregateWithUniqueConstraintIndexStereotype.SingleUniqueField = request.SingleUniqueField;
             aggregateWithUniqueConstraintIndexStereotype.CompUniqueFieldA = request.CompUniqueFieldA;
             aggregateWithUniqueConstraintIndexStereotype.CompUniqueFieldB = request.CompUniqueFieldB;
+            aggregateWithUniqueConstraintIndexStereotype.UniqueConstraintIndexCompositeEntityForStereotypes = UpdateHelper.CreateOrUpdateCollection(aggregateWithUniqueConstraintIndexStereotype.UniqueConstraintIndexCompositeEntityForStereotypes, request.UniqueConstraintIndexCompositeEntityForStereotypes, (e, d) => e.Id == d.Id, CreateOrUpdateUniqueConstraintIndexCompositeEntityForStereotype);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static UniqueConstraintIndexCompositeEntityForStereotype CreateOrUpdateUniqueConstraintIndexCompositeEntityForStereotype(
+            UniqueConstraintIndexCompositeEntityForStereotype? entity,
+            UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto dto)
+        {
+            entity ??= new UniqueConstraintIndexCompositeEntityForStereotype();
+            entity.Id = dto.Id;
+            entity.Field = dto.Field;
+            return entity;
         }
     }
 }

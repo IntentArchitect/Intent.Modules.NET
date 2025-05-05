@@ -54,7 +54,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.CommandV
                         dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                         uniqueConstraintValidationEnabled: applicationManager.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                         customValidationEnabled: true,
-                        associationedElements: advancedMappingSource?.AssociatedElements);
+                        sourceElementAdvancedMappings: advancedMappingSource?.AssociatedElements);
                 }).ToList();
             }
 

@@ -11,7 +11,7 @@ using SqlDbProject.Infrastructure.Persistence;
 namespace SqlDbProject.Infrastructure.Repositories.Accounts
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class AccountRepository : RepositoryBase<Account, Account, ApplicationDbContext>, IAccountRepository
+    public class AccountRepository : RepositoryBase<Account, Account, ApplicationDbContext>, Domain.Repositories.Accounts.IAccountRepository
     {
         public AccountRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {

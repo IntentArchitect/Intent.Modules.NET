@@ -1,6 +1,10 @@
+### Version 4.8.4
+
+- Fixed: Unique constraint enabled wrongfully enhances DTO validation on DTO representing a composite Entity that doesn't even have a unique index applied.
+
 ### Version 4.8.3
 
-- Improvement: Ability to set a a timeout on `Regular Expression` validations
+- Improvement: Ability to set a timeout on `Regular Expression` validations
 
 ### Version 4.8.2
 
@@ -8,11 +12,11 @@
 
 ### Version 4.8.1
 
-- Improvement: Abililty to set a custom message on `Regular Expression` and `Must` validations
+- Improvement: Ability to set a custom message on `Regular Expression` and `Must` validations
 
 ### Version 4.8.0
 
-- Improvement: Help topics added to documention
+- Improvement: Help topics added to documentation.
 
 ### Version 4.7.3
 
@@ -32,7 +36,7 @@
 
 ### Version 4.7.0
 
-- Fixed: Domain constraints not being propagated into validators when the data graph is more than two levels deep.
+- Fixed: Domain constraints are not being propagated into validators when the data graph is more than two levels deep.
 - Fixed: Validations not being applied when mapping to constructor parameters.
 
 ### Version 4.6.4
@@ -56,7 +60,7 @@
 
 - Improvement: Added Regular Expressions for Validation.
 - Improvement: Module project updated to .NET 8.
-- Fix: Fixed issue where DTO's for compositional entities does not include validation rules.
+- Fix: Fixed the issue where DTO's for compositional entities does not include validation rules.
 
 ### Version 4.5.3
 
@@ -111,7 +115,7 @@
 
 ### Version 4.1.2
 
-- Upgrade: `CommandValidatorTemplate` moved to the the `CSharpFileBuilder` paradigm.
+- Upgrade: `CommandValidatorTemplate` moved to the `CSharpFileBuilder` paradigm.
 
 ### Version 4.1.1
 

@@ -23,6 +23,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint
 
         public string CompUniqueFieldB { get; set; }
 
+        public virtual ICollection<UniqueConstraintIndexCompositeEntityForStereotype> UniqueConstraintIndexCompositeEntityForStereotypes { get; set; } = [];
+
         public List<DomainEvent> DomainEvents { get; set; } = [];
     }
 }

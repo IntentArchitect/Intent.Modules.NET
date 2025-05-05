@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalHistory;
+using Intent.Modules.EntityFrameworkCore.TemporalTables.Templates.TemporalInterface;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -14,6 +15,11 @@ namespace Intent.Modules.EntityFrameworkCore.TemporalTables.Templates
         public static string GetTemporalHistoryName(this IIntentTemplate template)
         {
             return template.GetTypeName(TemporalHistoryTemplate.TemplateId);
+        }
+
+        public static string GetTemporalInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(TemporalInterfaceTemplate.TemplateId);
         }
 
     }

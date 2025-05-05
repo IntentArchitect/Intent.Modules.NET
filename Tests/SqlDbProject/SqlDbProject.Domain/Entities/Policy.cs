@@ -11,7 +11,7 @@ namespace SqlDbProject.Domain.Entities
         {
             PolicyNumber = null!;
             PolicyStatus = null!;
-            Stakeholder = null!;
+            AccountHolder = null!;
             Product = null!;
         }
 
@@ -19,7 +19,7 @@ namespace SqlDbProject.Domain.Entities
 
         public Guid PolicyStatusId { get; set; }
 
-        public long StakeholderId { get; set; }
+        public long AccountHolderId { get; set; }
 
         public int ProductId { get; set; }
 
@@ -33,13 +33,11 @@ namespace SqlDbProject.Domain.Entities
 
         public DateTime? ExpiryDate { get; set; }
 
-        public string? ExternalSystemReference { get; set; }
-
         public bool IsDeleted { get; set; }
 
         public virtual PolicyStatus PolicyStatus { get; set; }
 
-        public virtual Stakeholder Stakeholder { get; set; }
+        public virtual AccountHolder AccountHolder { get; set; }
 
         public virtual Product Product { get; set; }
 

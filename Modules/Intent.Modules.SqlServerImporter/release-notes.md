@@ -1,3 +1,7 @@
+### Version 1.1.4
+
+- Fixed: Importing tables with the same name under different schemas would result in an error.
+
 ### Version 1.1.3
 
 - Improvement: Option to now automatically import dependant tables from the list of tables supplied using the `include_dependant_tables` configuration

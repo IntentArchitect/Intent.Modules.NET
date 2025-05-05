@@ -7684,6 +7684,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#707948fc-e522-48ea-83d1-30e3e409cc2a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#707948fc-e522-48ea-83d1-30e3e409cc2a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#a7cfad80-3fb1-473d-894f-c8a90f68bc3e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
@@ -7704,6 +7720,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotype/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e2059f2d-2968-4009-9afc-52afb99adda4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e2059f2d-2968-4009-9afc-52afb99adda4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/CreateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -7732,6 +7764,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#12a8ba28-f618-44af-8b6c-ef82ca8c1990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#12a8ba28-f618-44af-8b6c-ef82ca8c1990</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#5f8bc792-8daa-4b46-a5b8-9e1cc25b9084</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand.cs</ApplicationRelativeFilePath>
@@ -7752,6 +7800,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotype/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#e2eb2816-ac20-4095-9fab-576e6268c94d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#e2eb2816-ac20-4095-9fab-576e6268c94d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/AdvancedMapping/UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommandUniqueConstraintIndexCompositeEntityForStereotypesDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -9928,6 +9992,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotype.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UniqueIndexConstraint/AggregateWithUniqueConstraintIndexStereotype.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#28b0fb06-2b04-4e75-94e7-fd1ceab319e5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/UniqueIndexConstraint/UniqueConstraintIndexCompositeEntityForElement.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/UniqueConstraintIndexCompositeEntityForElement.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e7238e7-4de3-4350-81a6-a74abb117da1</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#8e936038-6a4d-4605-9737-8c20f823cf4f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Domain/Entities/UniqueIndexConstraint/UniqueConstraintIndexCompositeEntityForStereotype.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UniqueIndexConstraint/UniqueConstraintIndexCompositeEntityForStereotype.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

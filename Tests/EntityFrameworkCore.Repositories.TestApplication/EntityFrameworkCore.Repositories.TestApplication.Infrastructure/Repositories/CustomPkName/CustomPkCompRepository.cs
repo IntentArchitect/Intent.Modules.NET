@@ -29,16 +29,11 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return await FindProjectToAsync<TProjection>(x => x.MyId == id.MyId && x.MyId2 == id.MyId2, cancellationToken);
         }
 
-        public async Task<CustomPkComp?> FindByIdAsync(Guid myId, CancellationToken cancellationToken = default)
+        public async Task<CustomPkComp?> FindByIdAsync(
+            (Guid MyId, string MyId2) id,
+            CancellationToken cancellationToken = default)
         {
-            return await FindAsync(x => x.MyId == myId, cancellationToken);
-        }
-
-        public async Task<List<CustomPkComp>> FindByIdsAsync(Guid[] myIds, CancellationToken cancellationToken = default)
-        {
-            // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"
-            var idList = myIds.ToList();
-            return await FindAllAsync(x => idList.Contains(x.MyId), cancellationToken);
+            return await FindAsync(x => x.MyId == id.MyId && x.MyId2 == id.MyId2, cancellationToken);
         }
     }
 }

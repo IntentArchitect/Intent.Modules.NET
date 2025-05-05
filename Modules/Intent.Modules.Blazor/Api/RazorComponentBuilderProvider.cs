@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -98,7 +99,10 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement(_componentTemplate.GetTypeName((IElement)component.TypeReference.Element), _componentTemplate.RazorFile);
         foreach (var property in model.Properties.Where(x => x.HasBindable()))
         {
-            htmlElement.AddAttributeIfNotEmpty(property.Name, _bindingManager.GetElementBinding(property, parentNode)?.ToString());
+            var bindingProperty = _bindingManager.GetElementBinding(property, parentNode);
+            var prefix = ShouldIncludeAtSign(property) ? "@" : string.Empty;
+            var propertyBindingExpression = prefix + bindingProperty;
+            htmlElement.AddAttributeIfNotEmpty(property.Name, propertyBindingExpression);
         }
         foreach (var property in model.EventEmitters.Where(x => x.HasBindable()))
         {
@@ -115,11 +119,38 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         parentNode.AddChildNode(htmlElement);
         return [htmlElement];
     }
+
+    private bool ShouldIncludeAtSign(PropertyModel property)
+    {
+        if (!IsBindingExpression(property))
+        {
+            return false;
+        }
+        
+        // Rules: https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-9.0#component-parameters
+        // If the component parameter is of type string, then the attribute value is instead treated as a C# string literal.
+        // If you want to specify a C# expression instead, then use the @ prefix.
+        if (property.TypeReference.HasStringType() && !property.TypeReference.IsCollection)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool IsBindingExpression(PropertyModel property)
+    {
+        // I'm wondering if we can have some metadata returned through the GetElementBinding call
+        // so that we don't need to make a separate call like this.
+        var mappedEnd = _bindingManager.GetMappedEndFor(property);
+        var expression = mappedEnd?.MappingExpression?.Trim();
+        return expression is not null && expression.StartsWith('{') && expression.EndsWith('}');
+    }
 }
 
 public static class EventBindingHelper
 {
-    public static string ToLambda(this ICSharpExpression invocation, string parameter = null)
+    public static string? ToLambda(this ICSharpExpression? invocation, string? parameter = null)
     {
         if (invocation == null)
         {

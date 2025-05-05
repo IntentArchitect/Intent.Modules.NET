@@ -1,7 +1,9 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using CleanArchitecture.Comprehensive.Domain.Common;
 using CleanArchitecture.Comprehensive.Domain.Common.Exceptions;
+using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
 using CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstraint;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -36,6 +38,18 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
             aggregateWithUniqueConstraintIndexElement.SingleUniqueField = request.SingleUniqueField;
             aggregateWithUniqueConstraintIndexElement.CompUniqueFieldA = request.CompUniqueFieldA;
             aggregateWithUniqueConstraintIndexElement.CompUniqueFieldB = request.CompUniqueFieldB;
+            aggregateWithUniqueConstraintIndexElement.UniqueConstraintIndexCompositeEntityForElements = UpdateHelper.CreateOrUpdateCollection(aggregateWithUniqueConstraintIndexElement.UniqueConstraintIndexCompositeEntityForElements, request.UniqueConstraintIndexCompositeEntityForElements, (e, d) => e.Id == d.Id, CreateOrUpdateUniqueConstraintIndexCompositeEntityForElement);
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static UniqueConstraintIndexCompositeEntityForElement CreateOrUpdateUniqueConstraintIndexCompositeEntityForElement(
+            UniqueConstraintIndexCompositeEntityForElement? entity,
+            UpdateAdvAggregateWithUniqueConstraintIndexElementCommandUniqueConstraintIndexCompositeEntityForElementsDto dto)
+        {
+            entity ??= new UniqueConstraintIndexCompositeEntityForElement();
+            entity.Id = dto.Id;
+            entity.Field = dto.Field;
+            return entity;
         }
     }
 }

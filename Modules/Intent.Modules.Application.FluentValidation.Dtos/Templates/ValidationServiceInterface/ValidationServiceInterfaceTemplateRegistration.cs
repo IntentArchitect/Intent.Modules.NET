@@ -33,7 +33,7 @@ namespace Intent.Modules.Application.FluentValidation.Dtos.Templates.ValidationS
                         dtoValidatorTemplateId: TemplateRoles.Application.Validation.Dto,
                         uniqueConstraintValidationEnabled: application.Settings.GetFluentValidationApplicationLayer().UniqueConstraintValidation().IsDefaultEnabled(),
                         customValidationEnabled: true,
-                        associationedElements: x.InternalElement?.AssociatedElements)))
+                        sourceElementAdvancedMappings: x.InternalElement?.AssociatedElements)))
             {
                 AbortRegistration(); // Need cleaner, more obvious way, to do this
                 return;

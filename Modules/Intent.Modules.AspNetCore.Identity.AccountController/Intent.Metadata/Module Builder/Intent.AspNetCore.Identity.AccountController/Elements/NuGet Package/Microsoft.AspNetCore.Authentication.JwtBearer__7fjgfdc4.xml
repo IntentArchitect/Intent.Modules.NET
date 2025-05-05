@@ -140,7 +140,7 @@
       <childElements />
     </childElement>
     <childElement id="a036ba62-e96b-414d-983a-04e0ae96212e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.14</name>
+      <name>8.0.15</name>
       <display>8.0.14 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -162,16 +162,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="61b8463a-34e2-4609-b679-3657263126f9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f1ce1286-a959-4c5c-9c8a-c3cfcbf7d7dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a036ba62-e96b-414d-983a-04e0ae96212e</parentFolderId>
-          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
-          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -179,7 +176,7 @@
       </childElements>
     </childElement>
     <childElement id="f4dfa24b-277e-4200-bff6-3d24a70d8e07" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.3</name>
+      <name>9.0.4</name>
       <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -201,16 +198,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e882d261-1c4c-4a43-8e23-0d37e0b1ff6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f5c98621-29a6-4d04-b211-0e22c7526029" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f4dfa24b-277e-4200-bff6-3d24a70d8e07</parentFolderId>
-          <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
-          <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
           <stereotypes />
           <metadata />
           <childElements />

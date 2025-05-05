@@ -36,7 +36,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Orders.GetOrderOrderIt
             var order = await _dbContext.Orders.SingleOrDefaultAsync(x => x.Id == request.OrderId, cancellationToken);
             if (order is null)
             {
-                throw new NotFoundException($"Could not find OrderItem '{request.OrderId}'");
+                throw new NotFoundException($"Could not find Order '{request.OrderId}'");
             }
 
             var orderItems = order.OrderItems.Where(x => x.OrderId == request.OrderId);

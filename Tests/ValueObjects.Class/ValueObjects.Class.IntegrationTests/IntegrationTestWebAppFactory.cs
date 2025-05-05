@@ -21,14 +21,15 @@ namespace ValueObjects.Class.IntegrationTests
 
         public EFContainerFixture RdbmsFixture { get; }
 
-        public async Task InitializeAsync()
+        public async ValueTask InitializeAsync()
         {
             await RdbmsFixture.InitializeAsync();
         }
 
-        async Task IAsyncLifetime.DisposeAsync()
+        public override async ValueTask DisposeAsync()
         {
             await RdbmsFixture.DisposeAsync();
+            await base.DisposeAsync();
         }
 
         protected override IHost CreateHost(IHostBuilder builder)

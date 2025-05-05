@@ -31,7 +31,7 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations.Accounts
             builder.Property(x => x.AccountTypeId)
                 .IsRequired();
 
-            builder.Property(x => x.StakeholderId)
+            builder.Property(x => x.AccountHolderId)
                 .IsRequired();
 
             builder.HasOne(x => x.AccountType)
@@ -41,7 +41,7 @@ namespace SqlDbProject.Infrastructure.Persistence.Configurations.Accounts
 
             builder.HasOne(x => x.Stakeholder)
                 .WithMany()
-                .HasForeignKey(x => x.StakeholderId)
+                .HasForeignKey(x => x.AccountHolderId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Ignore(e => e.DomainEvents);

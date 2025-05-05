@@ -21,7 +21,7 @@
   <targetEnd id="b92610e5-4ba7-48a6-a9f7-92ef2e434572" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
     <name>aggregateWithUniqueConstraintIndexStereotype</name>
     <display>[update] aggregateWithUniqueConstraintIndexStereotype: AggregateWithUniqueConstraintIndexStereotype</display>
-    <order>4</order>
+    <order>5</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -39,20 +39,20 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" location="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b438b509-8039-4070-9e3e-4305a333028a" location="AggregateWithUniqueConstraintIndexStereotype" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" location="[CleanArchitecture.Comprehensive].[Services].[UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b438b509-8039-4070-9e3e-4305a333028a" location="[CleanArchitecture.Comprehensive].[Services].[AggregateWithUniqueConstraintIndexStereotype]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
-              <target id="8d0586b4-90c0-4233-bdbb-d16f189a26b7" name="Id" type="element" specialization="Attribute" />
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8d0586b4-90c0-4233-bdbb-d16f189a26b7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
-                  <target id="49e6e408-69d5-4ca3-bb25-3d60fac54c1a" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="49e6e408-69d5-4ca3-bb25-3d60fac54c1a" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -60,20 +60,20 @@
         </mappedEnds>
       </mapping>
       <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
-        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" location="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b438b509-8039-4070-9e3e-4305a333028a" location="AggregateWithUniqueConstraintIndexStereotype" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" location="[CleanArchitecture.Comprehensive].[Services].[UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b438b509-8039-4070-9e3e-4305a333028a" location="[CleanArchitecture.Comprehensive].[Services].[AggregateWithUniqueConstraintIndexStereotype]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{SingleUniqueField}</expression>
             <path>
-              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
-              <target id="dfbbba80-fe66-407e-a309-5acb7c91c004" name="SingleUniqueField" type="element" specialization="Attribute" />
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="dfbbba80-fe66-407e-a309-5acb7c91c004" name="SingleUniqueField" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="SingleUniqueField" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
-                  <target id="3d0487fd-1ba7-496b-8c4a-a32b94588d71" name="SingleUniqueField" type="element" specialization="DTO-Field" />
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3d0487fd-1ba7-496b-8c4a-a32b94588d71" name="SingleUniqueField" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -81,14 +81,14 @@
           <mappedEnd>
             <expression>{CompUniqueFieldA}</expression>
             <path>
-              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
-              <target id="d48cdfc6-ce98-4b2a-8833-826a240f48aa" name="CompUniqueFieldA" type="element" specialization="Attribute" />
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="d48cdfc6-ce98-4b2a-8833-826a240f48aa" name="CompUniqueFieldA" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="CompUniqueFieldA" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
-                  <target id="fb15cb52-3dff-4f32-ba31-2bd5c5a385f4" name="CompUniqueFieldA" type="element" specialization="DTO-Field" />
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fb15cb52-3dff-4f32-ba31-2bd5c5a385f4" name="CompUniqueFieldA" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -96,14 +96,63 @@
           <mappedEnd>
             <expression>{CompUniqueFieldB}</expression>
             <path>
-              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" />
-              <target id="5be2f948-9152-48e7-b0a2-21d4e707a357" name="CompUniqueFieldB" type="element" specialization="Attribute" />
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5be2f948-9152-48e7-b0a2-21d4e707a357" name="CompUniqueFieldB" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="CompUniqueFieldB" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
-                  <target id="15c169d5-eb63-4ffc-9148-1a48387ae315" name="CompUniqueFieldB" type="element" specialization="DTO-Field" />
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="15c169d5-eb63-4ffc-9148-1a48387ae315" name="CompUniqueFieldB" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UniqueConstraintIndexCompositeEntityForStereotypes}</expression>
+            <path>
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="81c041b9-5578-476c-9e2f-99058de5a060" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="UniqueConstraintIndexCompositeEntityForStereotypes" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="56f61d1d-a4f2-4fbc-abcf-0102639df5d6" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UniqueConstraintIndexCompositeEntityForStereotypes.Id}</expression>
+            <path>
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="81c041b9-5578-476c-9e2f-99058de5a060" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="ec3bf3e7-1cfb-44f6-ac89-cfbd190ccac1" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="UniqueConstraintIndexCompositeEntityForStereotypes.Id" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="56f61d1d-a4f2-4fbc-abcf-0102639df5d6" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="0964ae88-6737-4e34-a825-c35f25e10e5b" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{UniqueConstraintIndexCompositeEntityForStereotypes.Field}</expression>
+            <path>
+              <target id="b438b509-8039-4070-9e3e-4305a333028a" name="AggregateWithUniqueConstraintIndexStereotype" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="81c041b9-5578-476c-9e2f-99058de5a060" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="59434244-241d-4532-be0b-e2d698966c34" name="Field" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="UniqueConstraintIndexCompositeEntityForStereotypes.Field" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="5f8bc792-8daa-4b46-a5b8-9e1cc25b9084" name="UpdateAdvAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="56f61d1d-a4f2-4fbc-abcf-0102639df5d6" name="UniqueConstraintIndexCompositeEntityForStereotypes" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d419a7c6-97f8-4921-8de4-1243057195f2" name="Field" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Settings;
@@ -12,6 +14,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
+using Intent.Modules.Metadata.WebApi.Stereotypes;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -30,8 +33,11 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
             AddNugetDependency(NugetPackages.AutoFixture(outputTarget));
             AddTypeSource(ProxyServiceContractTemplate.TemplateId);
             AddTypeSource(DtoContractTemplate.TemplateId);
+
+            string apiVersions = GetSanitizedApiVersions(model);
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
-                .AddClass($"{Model.Name}Tests", @class =>
+                .AddClass($"{Model.Name}Tests{apiVersions}", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                     if (this.ExecutionContext.Settings.GetIntegrationTestSettings().ContainerIsolation().IsSharedContainer())
@@ -60,6 +66,18 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        private static string GetSanitizedApiVersions(IHttpEndpointModel model)
+        {
+            string apiVersions = string.Empty;
+            if (model.InternalElement.TryGetApiVersion(out var apiVersion))
+            {
+                var invalidChars = Path.GetInvalidFileNameChars().Append('.').Append('_');
+                apiVersions = $"_{string.Join("_", apiVersion.ApplicableVersions.Select(v => new string(v.Version.Where(c => !invalidChars.Contains(c)).ToArray())))}";
+            }
+
+            return apiVersions;
         }
     }
 }

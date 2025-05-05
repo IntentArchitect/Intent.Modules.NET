@@ -1,3 +1,7 @@
+### Version 4.3.4
+
+- Improvement: Default values on Query properties will now be output.
+
 ### Version 4.3.3
 
 - Improvement: Updated NuGet package versions.

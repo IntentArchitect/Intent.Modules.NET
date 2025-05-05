@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="977e4c7b-0b32-4bc5-9467-9a58787b855f" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</parentFolderId>
+  <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+  <packageName>Intent.Eventing.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3c531b26-819d-4bba-9365-9b0caaf12223" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Azure Service Bus Documentation</name>
+      <display>Azure Service Bus Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>977e4c7b-0b32-4bc5-9467-9a58787b855f</parentFolderId>
+      <packageId>ad9b936a-7d65-470f-8e61-2d504b6fc67e</packageId>
+      <packageName>Intent.Eventing.AzureServiceBus</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.Eventing.AzureServiceBus module." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAqCAYAAAAkqNwKAAAAAXNSR0IArs4c6QAABAxJREFUaEPtm09sFFUcx79vZv+3ZWvrwm7XWhDTkOCheiBiOHnk1ArRkwm3mYZirJEQD5JIOIs2bewOTTThghGlGsT4t/bQ+gcLCQqBKhbSsq1goVJpKZ15PzPVJbvbXbs7b7LTZmZuu/u+3/f7feb3Zt68N8sgePT09LQQ0RCAiKBVReVEpPt8vm3t7e3nRDpmImJT293d/TKAI6I+Duk7Ozo63hLp2wPoARSpH3gVKIQPqwBgKpUqdA08Njc3d0AwOVvlkUhkP4DOPNNORVGcvQYWAZhSFEW1lYCgWSqVOgTgdQ+gRZCuBNiWpucgIXAyzo5b5PZA5iqAL05R1SzhExCeXSLA8B3uYWf/JjZjFaSmaW8Q0cFVN4Q1TdsFoCM7MM75XlVVL1pJti1NOwB8SUAoW88YFk2gJxswBDAq17uvr+9xzvnRvDh7VFU9Ua5XTlwiYju1e8Yo9FcIn1Km6oqYE8P5gI6nP2hk83b2b9VL+EnEasfZutYJaoGEsp5JJQnbP4qz7+3oX8TDcYCtk/QuCHusJUEf9jdIu61p7VE5BrD1BrXAwGkQEiKpEDDll7HrxAY2LOJjVesIwLY0vU3AS1aDLqgjdPcn2T5bPUswqyjA7cPj4fVNDTcYk6pLiK3sJsT53ZHhH2ITzz9TsRtMRQG2DIzVSsRv1yfWoypqL8Pb45MYHRxB0K8/dLWzzfJ8sdyz5ghAM8h1dVHU1EUh+3zlxpzTfnF+AVOXfkf6wpWl710DMEMhvjGJQChoCeL8zCzOnxrM0boOoJl9qCqMWDIOJpU2ILhh4NfBnzCTvrkMvCsBmhQYY0huboS0wpAmw8CZ9z8HcV6wal0LMEPDHwwgsTFpEl0GyByu5rD9v8P1AJfgMIZYcgPC1f/ulN75YxqjAz/C0I0Vr5UewCxEwVAQs9cmMT0+tSK4TAMP4H8kZsZu4uq3l5c+1TbVILjOXxJE1wMk3cDlj89ibvpu7vSkOoDYljoYRW4eXgUS4c7ELfx26iyAYuulDHXN9QhGc9ZavXkgv6/jl/e+gb6wWNIw9fllxJ5qBArMG103hKd/HsO1L84BVOYqPQNqmxMIJ2rdW4EX3+nHvVt/l1R1xRr5q4J4eMfWBz+vuQrs7e3dLUnS3uwEOeeHVVX9Oj/pzGrM9dND+HNkFMbCfSF4GbHklxFpiqPmiceKLiZomtYMIJUXp/ObSkXeTPhMUZSd+XQeeXM4zNOXDqUHzBuF/Ud066OoqfcdnDjyyrL1wFW7rVkOQPuRle641jbWC1Zg6ena39IDKMh0rQH8SpblFwRztlWu6/prjLFX80ydf73Ne0da8Dx7AD2Azr6h6lWgYAV2dXU9KUnSGQCyoFWl5bosy8J/tPkH9BkLSRylVvsAAAAASUVORK5CYII=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azureservicebus.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="azure service bus configuration" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

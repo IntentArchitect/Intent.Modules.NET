@@ -1,3 +1,19 @@
+﻿### Version 2.0.0
+
+- Improvement: Upgraded to XUnit v3. 
+
+> ⚠️ **NOTE**
+>
+> This module update may cause a compilation breaks if you are using xUnit v2 features which are not supported on v3.
+> Any generated code will be migrated to be v3 compliant.
+> For details on what the breaking changes are check out the [XUnit documentation on migrating from v2 to v3](https://xunit.net/docs/getting-started/v3/migration).
+
+- Fixed: If the `HTTP endpoint` is versioned, the version number is added to the test class and filename to avoid naming conflicts.
+
+### Version 1.1.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.1.1
 
 - Improvement: Updated NuGet package versions.

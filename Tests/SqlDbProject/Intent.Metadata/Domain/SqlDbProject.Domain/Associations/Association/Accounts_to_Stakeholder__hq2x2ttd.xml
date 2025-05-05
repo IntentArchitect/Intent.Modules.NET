@@ -21,7 +21,7 @@
   </sourceEnd>
   <targetEnd id="5b6f59e3-3d5b-40d3-90bf-1c0d731a4aa7" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>Stakeholder</name>
-    <display>Stakeholder: Stakeholder</display>
+    <display>Stakeholder: AccountHolder</display>
     <order>7</order>
     <typeReference id="c0a5fb8d-4d85-4dc0-87d1-63511ffb1386">
       <typeId>02e146b6-a7ab-4d79-a446-1f134d7f27a5</typeId>

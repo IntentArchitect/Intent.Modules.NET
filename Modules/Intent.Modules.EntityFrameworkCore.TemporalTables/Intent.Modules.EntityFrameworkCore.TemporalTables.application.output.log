@@ -88,5 +88,21 @@
       <ProjectRelativeFilePath>TemporalHistory/TemporalHistoryTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>873a3523-c869-4764-a45e-f3aa8c3312c5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#711d8079-1e21-4237-a327-56c1cd6ba308</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemporalInterface/TemporalInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalInterface/TemporalInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>873a3523-c869-4764-a45e-f3aa8c3312c5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#711d8079-1e21-4237-a327-56c1cd6ba308</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TemporalInterface/TemporalInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TemporalInterface/TemporalInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

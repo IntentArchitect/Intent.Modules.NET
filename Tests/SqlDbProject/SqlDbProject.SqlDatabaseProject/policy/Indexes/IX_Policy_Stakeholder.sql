@@ -1,2 +1,2 @@
 CREATE INDEX [IX_Policy_Stakeholder]
-ON [policy].[Policy](PolicyStatusId, StakeholderId)
+ON [policy].[Policy](PolicyStatusId, AccountHolderId)

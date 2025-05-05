@@ -18,12 +18,12 @@ namespace Intent.Modules.AspNetCore.ODataQuery
             NugetRegistry.Register(MicrosoftAspNetCoreODataPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("9.2.1")
+                        ( >= 8, 0) => new PackageVersion("9.3.0")
                             .WithNugetDependency("Microsoft.OData.Core", "8.2.3")
                             .WithNugetDependency("Microsoft.OData.Edm", "8.2.3")
                             .WithNugetDependency("Microsoft.OData.ModelBuilder", "2.0.0")
                             .WithNugetDependency("Microsoft.Spatial", "8.2.3"),
-                        ( >= 6, 0) => new PackageVersion("8.2.7")
+                        ( >= 6, 0) => new PackageVersion("8.3.0")
                             .WithNugetDependency("Microsoft.OData.Core", "7.21.6")
                             .WithNugetDependency("Microsoft.OData.Edm", "7.21.6")
                             .WithNugetDependency("Microsoft.OData.ModelBuilder", "1.0.9")

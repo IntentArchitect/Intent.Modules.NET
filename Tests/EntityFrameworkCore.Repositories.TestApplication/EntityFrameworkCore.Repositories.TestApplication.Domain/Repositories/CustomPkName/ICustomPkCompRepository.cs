@@ -16,8 +16,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.C
         [IntentManaged(Mode.Fully)]
         Task<TProjection?> FindByIdProjectToAsync<TProjection>((Guid MyId, string MyId2) id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
-        Task<CustomPkComp?> FindByIdAsync(Guid myId, CancellationToken cancellationToken = default);
-        [IntentManaged(Mode.Fully)]
-        Task<List<CustomPkComp>> FindByIdsAsync(Guid[] myIds, CancellationToken cancellationToken = default);
+        Task<CustomPkComp?> FindByIdAsync((Guid MyId, string MyId2) id, CancellationToken cancellationToken = default);
     }
 }

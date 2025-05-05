@@ -23,12 +23,12 @@ namespace SqlDbProject.Infrastructure.Persistence
             _domainEventService = domainEventService;
         }
 
-        public DbSet<ShareholderPerson> ShareholderPeople { get; set; }
+        public DbSet<AccountHolderPerson> AccountHolderPeople { get; set; }
+        public DbSet<AccountHolder> AccountHolders { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Policy> Policies { get; set; }
         public DbSet<PolicyStatus> PolicyStatuses { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Stakeholder> Stakeholders { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountType> AccountTypes { get; set; }
         public DbSet<Currency> Currencies { get; set; }
@@ -53,12 +53,12 @@ namespace SqlDbProject.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<ShareholderPerson>().HasNoKey().ToView(null);
+            modelBuilder.Entity<AccountHolderPerson>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
             modelBuilder.ApplyConfiguration(new PolicyConfiguration());
             modelBuilder.ApplyConfiguration(new PolicyStatusConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new StakeholderConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CurrencyConfiguration());

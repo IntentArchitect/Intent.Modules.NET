@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4cd2d4f6-93e5-4d4c-bf3e-2d2b9171e677">
+  <sourceEnd id="b49a0643-6d3c-45f8-b685-7bdcf135e061" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : OperationMapping.UpdateTaskItemCommand</display>
+    <order>0</order>
+    <typeReference id="414425d3-db87-4805-9d2f-ae24f5c5c3fe">
+      <typeId>1617e51a-0669-4e28-900f-25801939cf9d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4cd2d4f6-93e5-4d4c-bf3e-2d2b9171e677" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>taskItem</name>
+    <display>[update] taskItem: TaskItem</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c40b4634-1b11-4335-99ac-22e4feb11941">
+      <typeId>d38c38ff-c9f4-4787-8da5-1fde4c34fcc7</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1617e51a-0669-4e28-900f-25801939cf9d" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateTaskItemCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d38c38ff-c9f4-4787-8da5-1fde4c34fcc7" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[TaskItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="d38c38ff-c9f4-4787-8da5-1fde4c34fcc7" name="TaskItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="764effdb-04d4-4ab9-b5c8-8180949dd592" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1617e51a-0669-4e28-900f-25801939cf9d" name="UpdateTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="19c7dcf3-a902-4a26-8bcb-07fb8078fe9a" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1617e51a-0669-4e28-900f-25801939cf9d" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateTaskItemCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d38c38ff-c9f4-4787-8da5-1fde4c34fcc7" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[TaskItem]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="d38c38ff-c9f4-4787-8da5-1fde4c34fcc7" name="TaskItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="39e9c03e-b770-439a-a489-c3d05cc4a25d" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="1617e51a-0669-4e28-900f-25801939cf9d" name="UpdateTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="2149a178-ed83-412c-84bc-d3e8f68e837d" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{TaskListId}</expression>
+            <path>
+              <target id="d38c38ff-c9f4-4787-8da5-1fde4c34fcc7" name="TaskItem" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ad4684cc-34ea-49ed-baae-b595be2e8c22" name="TaskListId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="TaskListId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="1617e51a-0669-4e28-900f-25801939cf9d" name="UpdateTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d9a110b6-d52e-44c1-83aa-34874162a0c3" name="TaskListId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

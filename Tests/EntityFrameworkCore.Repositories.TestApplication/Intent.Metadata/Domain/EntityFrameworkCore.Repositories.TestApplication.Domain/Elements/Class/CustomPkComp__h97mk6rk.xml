@@ -38,7 +38,6 @@
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
             <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
           </properties>
         </stereotype>
@@ -79,12 +78,12 @@
             <property name="67EC4CF4-7706-4B39-BC7C-DF539EE2B0AF" display="IsUnicode" value="false" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+        <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
           <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
-          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+          <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="User supplied" isActive="true" />
+            <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="User supplied" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>

@@ -94,7 +94,7 @@
       </childElements>
     </childElement>
     <childElement id="3536777f-043b-4534-8fc0-a5d9445fff84" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.35.0</name>
+      <name>6.0.0</name>
       <display>5.31.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -116,10 +116,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="43060e80-9cce-429f-b4c4-6ed2e72ac502" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e4314281-ff44-4f0b-8993-ff839027d852" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints</name>
           <isAbstract>false</isAbstract>
-          <value>5.35.0</value>
+          <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c5ffce27-0152-450d-82f6-b7183f955290" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7fc713de-416b-4d03-9a4c-1427f7a1061e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Http</name>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
@@ -138,7 +138,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89be63e7-e4b4-46d6-8767-d244c18d0417" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="25f275a5-8d45-4216-aa73-cbc47f8314c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Mvc.ApiExplorer</name>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
@@ -149,10 +149,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d1a0a8b0-d64f-43f9-bb9b-24c63838e716" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e41db103-f239-42c4-948b-e06c2af6df4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NSwag.Generation.AspNetCore</name>
           <isAbstract>false</isAbstract>
-          <value>14.2.0</value>
+          <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
@@ -163,7 +163,7 @@
       </childElements>
     </childElement>
     <childElement id="5ad38632-2580-4c6a-b235-c938ab8cea13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.35.0</name>
+      <name>6.0.0</name>
       <display>5.31.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -185,10 +185,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e0668343-83e0-4820-a9d3-1e777ec47687" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6fd8d822-4ae4-46b2-9306-400bd489fb14" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints</name>
           <isAbstract>false</isAbstract>
-          <value>5.35.0</value>
+          <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
@@ -196,7 +196,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4797e523-cfb2-4712-9aef-ea16ff6e2112" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="abba20e9-67f0-474c-856b-e4f99cea32f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Http</name>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
@@ -207,7 +207,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ee414576-2389-4093-9037-7865d5decf62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="455c1081-a16d-48c7-a062-0f15cb6a1cb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Mvc.ApiExplorer</name>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
@@ -218,10 +218,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="31621913-38cb-4c07-b297-e5ad011ff997" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9952cf70-47d0-49d4-9b2c-e4a1cc87b70e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NSwag.Generation.AspNetCore</name>
           <isAbstract>false</isAbstract>
-          <value>14.2.0</value>
+          <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>

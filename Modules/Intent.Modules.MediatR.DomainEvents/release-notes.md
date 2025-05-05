@@ -1,3 +1,7 @@
+### Version 5.0.26
+
+- Fixed: Not found exception message incorrect for composite entities.
+
 ### Version 5.0.25
 
 - Fixed: Invoking Service Operations from other Service Operations with the same DTO type caused an exception.
