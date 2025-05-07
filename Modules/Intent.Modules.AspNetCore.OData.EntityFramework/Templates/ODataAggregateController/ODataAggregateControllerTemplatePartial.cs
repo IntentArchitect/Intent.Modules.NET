@@ -187,7 +187,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                     configure = null;
                     var primaryKeyType = GetTypeName(primaryKey);
                     method.AddParameter(primaryKeyType, "key", configure);
-                    query += $"{lambdaParameter}.{primaryKey.Name.ToPascalCase()} == key &&";
+                    query += $"{lambdaParameter}.{primaryKey.Name.ToPascalCase()} == key &&"; // Referring to this one specifically.
                 }
                 else
                 {
@@ -198,7 +198,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
             }
 
 
-            return RemoveLastOccurrence(query, " &&");
+            return RemoveLastOccurrence(query, " &&"); // Remove this as redudnant, and move it into the foreach only.
         }
 
         public static string RemoveLastOccurrence(string source, string toRemove)

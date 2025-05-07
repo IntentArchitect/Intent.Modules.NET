@@ -140,7 +140,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                         lambda.AddStatement(".OrderBy()");
                         lambda.AddStatement(".SetMaxTop(100)");
                         lambda.AddStatement(".Count()");
-                        lambda.AddStatement(".AddRouteComponents(\"odata\", odataBuilder.GetEdmModel());");
+                        lambda.AddStatement(""".AddRouteComponents("odata", odataBuilder.GetEdmModel());""");
 
                         addODataStatement.WithSemicolon();
                     });
