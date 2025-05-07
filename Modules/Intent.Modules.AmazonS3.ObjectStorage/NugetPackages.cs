@@ -19,15 +19,24 @@ namespace Intent.Modules.AmazonS3.ObjectStorage
             NugetRegistry.Register(AWSSDKExtensionsNETCoreSetupPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("3.7.7"),
+                        ( >= 8, 0) => new PackageVersion("4.0.0")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
+                        ( >= 2, 0) => new PackageVersion("4.0.0")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "2.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "2.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKExtensionsNETCoreSetupPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AWSSDKS3PackageName,
                 (framework) => framework switch
                     {
-                        ( >= 0, 0) => new PackageVersion("3.7.416.14")
-                            .WithNugetDependency("AWSSDK.Core", "3.7.402.44"),
+                        ( >= 0, 0) => new PackageVersion("4.0.0.2")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKS3PackageName}'"),
                     }
                 );

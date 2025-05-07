@@ -19,7 +19,7 @@ namespace Intent.Modules.Blazor.FluentValidation
             NugetRegistry.Register(FluentValidationPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("11.11.0"),
+                        ( >= 8, 0) => new PackageVersion("12.0.0"),
                         ( >= 7, 0) => new PackageVersion("11.11.0"),
                         ( >= 6, 0) => new PackageVersion("11.11.0"),
                         ( >= 2, 1) => new PackageVersion("11.11.0"),
@@ -31,6 +31,9 @@ namespace Intent.Modules.Blazor.FluentValidation
             NugetRegistry.Register(FluentValidationDependencyInjectionExtensionsPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 8, 0) => new PackageVersion("12.0.0")
+                            .WithNugetDependency("FluentValidation", "12.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Dependencyinjection.Abstractions", "2.1.0"),
                         ( >= 2, 1) => new PackageVersion("11.11.0")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("Microsoft.Extensions.Dependencyinjection.Abstractions", "2.1.0"),

@@ -18,7 +18,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation
             NugetRegistry.Register(FluentValidationPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("11.11.0"),
+                        ( >= 8, 0) => new PackageVersion("12.0.0"),
                         ( >= 7, 0) => new PackageVersion("11.11.0"),
                         ( >= 6, 0) => new PackageVersion("11.11.0"),
                         ( >= 2, 1) => new PackageVersion("11.11.0"),

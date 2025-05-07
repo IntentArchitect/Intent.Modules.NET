@@ -225,6 +225,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(XunitRunnerVisualstudioPackageName,
                 (framework) => framework switch
                     {
+                        ( >= 8, 0) => new PackageVersion("3.1.0"),
                         ( >= 6, 0) => new PackageVersion("3.0.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{XunitRunnerVisualstudioPackageName}'"),
                     }
@@ -232,10 +233,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(XunitV3PackageName,
                 (framework) => framework switch
                     {
-                        ( >= 8, 0) => new PackageVersion("2.0.1")
+                        ( >= 8, 0) => new PackageVersion("2.0.2")
                             .WithNugetDependency("xunit.analyzers", "1.21.0")
-                            .WithNugetDependency("xunit.v3.assert", "2.0.1")
-                            .WithNugetDependency("xunit.v3.core", "2.0.1"),
+                            .WithNugetDependency("xunit.v3.assert", "2.0.2")
+                            .WithNugetDependency("xunit.v3.core", "2.0.2"),
                         ( >= 6, 0) => new PackageVersion("1.1.0")
                             .WithNugetDependency("xunit.analyzers", "1.20.0")
                             .WithNugetDependency("xunit.v3.assert", "1.1.0")
