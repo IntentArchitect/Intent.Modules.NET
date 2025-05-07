@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c1a9d5c7-94b7-4b21-8f61-87c748315715" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>StartupExtension</name>
+  <display>StartupExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f80db930-cd05-493f-a2a6-f487326ec7c5</parentFolderId>
+  <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
+  <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
