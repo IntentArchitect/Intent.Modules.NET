@@ -24,6 +24,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - S
 		event_grid_subscriptions.bicep = event_grid_subscriptions.bicep
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "terraform", "terraform", "{4AEEC661-80E2-4B31-ADCB-A82654C2A848}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-infrastructure", "01-infrastructure", "{B42E8D1A-66DE-4F24-9A8C-20A450939A7E}"
+	ProjectSection(SolutionItems) = preProject
+		terraform\01-infrastructure\main.tf = terraform\01-infrastructure\main.tf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-subscriptions", "02-subscriptions", "{549087C5-30C5-495E-89A3-9387648DC5BD}"
+	ProjectSection(SolutionItems) = preProject
+		terraform\02-subscriptions\main.tf = terraform\02-subscriptions\main.tf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +49,9 @@ Global
 		{5A484FC2-EB94-438E-9FC8-8323B2723E13} = {F5D89D0C-E666-4412-8326-80ADFA5A3FD6}
 		{33432848-8A33-4D90-83DB-6E32DB54B454} = {9B828EAD-7B7B-49B6-8A68-CB028A55F23B}
 		{53DDAA35-C94D-4F45-A584-723BE91D5EA6} = {A1EBDE22-A6C3-4028-95FA-6178AB127668}
+		{4AEEC661-80E2-4B31-ADCB-A82654C2A848} = {2D49073F-1E89-47A4-99ED-5DEDD9DFD866}
+		{B42E8D1A-66DE-4F24-9A8C-20A450939A7E} = {4AEEC661-80E2-4B31-ADCB-A82654C2A848}
+		{549087C5-30C5-495E-89A3-9387648DC5BD} = {4AEEC661-80E2-4B31-ADCB-A82654C2A848}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{123230FB-082F-488B-8A13-63F10CE34188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

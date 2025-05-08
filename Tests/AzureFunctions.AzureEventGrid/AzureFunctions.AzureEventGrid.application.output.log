@@ -662,5 +662,13 @@
       <ProjectRelativeFilePath>event_grid_subscriptions.bicep</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>2d49073f-1e89-47a4-99ed-5dedd9dfd866</ProjectId>
+      <CorrelationId>Intent.IaC.Terraform.InfrastructureTfTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>terraform/01-infrastructure/main.tf</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>terraform/01-infrastructure/main.tf</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>
