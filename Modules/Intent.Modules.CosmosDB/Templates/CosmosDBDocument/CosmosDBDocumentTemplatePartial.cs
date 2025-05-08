@@ -238,6 +238,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     Logging.Log.Failure("ETag attribute must be modeled as a nullable string.");
                 }
 
+                bool interfaceAccessorAdded = false;
                 @class.AddProperty(typeName, entityProperty.Name, property =>
                 {
                     if (entityProperty.Name.ToLower() == "etag" && useOptimisticConcurrency)
@@ -288,6 +289,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     if (classAttribute2.TypeReference?.Element?.SpecializationType == "Value Object")
                     {
                         AddDocumentInterfaceAccessor(@class, classAttribute2.TypeReference, entityProperty.Name);
+                        interfaceAccessorAdded = true;
                     }
                 });
 
@@ -296,7 +298,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     AddDocumentInterfaceAccessor(@class, targetEndModel.TypeReference, entityProperty.Name);
                 }
 
-                if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection)
+                if (metadataModel is AttributeModel classAttribute3 && classAttribute3.TypeReference.IsCollection && !interfaceAccessorAdded)
                 {
                     var nullablePostFix = "";
                     var isNullable = classAttribute3.TypeReference.IsNullable;
