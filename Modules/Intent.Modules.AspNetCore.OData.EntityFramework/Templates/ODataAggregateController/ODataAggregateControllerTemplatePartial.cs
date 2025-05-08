@@ -67,10 +67,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         {
                             @class.AddMethod("IActionResult", "Get", method =>
                             {
+                                method.Async();
                                 method.AddAttribute(new CSharpAttribute("[HttpGet]"));
                                 
                                 var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
-                                method.AddStatement($"var {Model.Name.ToCamelCase()} = _context.{Model.Name.Pluralize().ToPascalCase()}.FirstOrDefault({linqQuery});");
+                                method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.FirstOrDefaultAsync({linqQuery});");
                                 method.AddStatement($"return {Model.Name.ToCamelCase()} == null ? NotFound() : Ok({Model.Name.ToCamelCase()});", statement => statement.SeparatedFromPrevious());
                             });
                         }
@@ -79,14 +80,15 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         {
                             @class.AddMethod($"IActionResult", "Post", method =>
                             {
+                                method.Async();
                                 method.AddAttribute(new CSharpAttribute("[HttpPost]"));
 
                                 method.AddParameter($"{GetTypeName(Model.InternalElement)}", $"{Model.Name.ToCamelCase()}", parameter =>
                                 {
                                     parameter.AddAttribute("[FromBody]");
                                 });
-                                method.AddStatement($"_context.{Model.Name.Pluralize().ToPascalCase()}.Add({Model.Name.ToCamelCase()});");
-                                method.AddStatement($"_context.SaveChanges();");
+                                method.AddStatement($"await _context.{Model.Name.Pluralize().ToPascalCase()}.AddAsync({Model.Name.ToCamelCase()});");
+                                method.AddStatement($"await _context.SaveChangesAsync();");
                                 method.AddStatement($"return Created({Model.Name.ToCamelCase()});", statement => statement.SeparatedFromPrevious());
                             });
                         }
@@ -95,16 +97,17 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         {
                             @class.AddMethod("ActionResult", "Delete", method =>
                             {
+                                method.Async();
                                 method.AddAttribute(new CSharpAttribute("[HttpDelete]"));
 
                                 var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
 
-                                method.AddStatement($"var {Model.Name.ToCamelCase()} = _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefault({linqQuery});");
+                                method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefaultAsync({linqQuery});");
                                 method.AddIfStatement($"{Model.Name.ToCamelCase()} is not null", ifStatement =>
                                 {
                                     ifStatement.AddStatement($"_context.{Model.Name.Pluralize().ToPascalCase()}.Remove({Model.Name.ToCamelCase()});");
                                 });
-                                method.AddStatement("_context.SaveChanges();");
+                                method.AddStatement("await _context.SaveChangesAsync();");
                                 method.AddStatement("return NoContent();", statement => statement.SeparatedFromPrevious());
                             });
                         }
@@ -113,6 +116,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         {
                             @class.AddMethod("ActionResult", "Patch", method =>
                             {
+                                method.Async();
                                 method.AddAttribute(new CSharpAttribute("[HttpPatch]"));
                                 var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
                                 method.AddParameter($"Delta<{GetTypeName(Model.InternalElement)}>", "delta", parameter =>
@@ -120,7 +124,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                                     parameter.AddAttribute("[FromBody]");
                                 });
 
-                                method.AddStatement($"var {Model.Name.ToCamelCase()} = _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefault({linqQuery});");
+                                method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.SingleOrDefaultAsync({linqQuery});");
                                 method.AddIfStatement($"{Model.Name.ToCamelCase()} is null", ifStatement =>
                                 {
                                     ifStatement.AddStatement($"return NotFound();");
@@ -128,7 +132,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
 
                                 method.AddStatement($"delta.Patch({Model.Name.ToCamelCase()});");
 
-                                method.AddStatement("_context.SaveChanges();");
+                                method.AddStatement("await _context.SaveChangesAsync();");
                                 method.AddStatement($"return Updated({Model.Name.ToCamelCase()});", statement => statement.SeparatedFromPrevious());
                             });
                         }
@@ -137,6 +141,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         {
                             @class.AddMethod("ActionResult", "Put", method =>
                             {
+                                method.Async();
                                 method.AddAttribute(new CSharpAttribute("[HttpPut]"));
                                 var linqQuery = GeneratePrimaryKeyParameters(model, method, c => c.AddAttribute("[FromODataUri]"));
                                 method.AddParameter($"{GetTypeName(Model.InternalElement)}", "update", parameter =>
@@ -144,7 +149,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                                     parameter.AddAttribute("[FromBody]");
                                 });
 
-                                method.AddStatement($"var {Model.Name.ToCamelCase()} = _context.{Model.Name.Pluralize().ToPascalCase()}.AsNoTracking().SingleOrDefault({linqQuery});");
+                                method.AddStatement($"var {Model.Name.ToCamelCase()} = await _context.{Model.Name.Pluralize().ToPascalCase()}.AsNoTracking().SingleOrDefaultAsync({linqQuery});");
                                 method.AddIfStatement($"{Model.Name.ToCamelCase()} is null", ifStatement =>
                                 {
                                     ifStatement.AddStatement($"return NotFound();");
@@ -166,7 +171,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                                 // TODO: Make sure about the keys being correct.
                                 method.AddStatement($"_context.Entry(update).State = EntityState.Modified;");
 
-                                method.AddStatement("_context.SaveChanges();");
+                                method.AddStatement("await _context.SaveChangesAsync();");
                                 method.AddStatement($"return Updated({Model.Name.ToCamelCase()});", statement => statement.SeparatedFromPrevious());
                             });
                         }
@@ -176,38 +181,23 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
 
         private string GeneratePrimaryKeyParameters(ClassModel model, CSharpClassMethod method, Action<CSharpParameter> configure = null)
         {
-            var primaryKeys = model.Attributes.Where(att => att.HasStereotype("Primary Key"));
+            var primaryKeys = model.Attributes.Where(att => att.HasStereotype("Primary Key")).ToList();
             var lambdaParameter = "m";
-            var query = $"{lambdaParameter} => ";
+
+            var conditions = new List<string>();
 
             foreach (var primaryKey in primaryKeys)
             {
-                if (primaryKeys.Count() == 1)
-                {
-                    configure = null;
-                    var primaryKeyType = GetTypeName(primaryKey);
-                    method.AddParameter(primaryKeyType, "key", configure);
-                    query += $"{lambdaParameter}.{primaryKey.Name.ToPascalCase()} == key &&"; // Referring to this one specifically.
-                }
-                else
-                {
-                    var primaryKeyType = GetTypeName(primaryKey);
-                    method.AddParameter(primaryKeyType, $"key{primaryKey.Name.ToPascalCase()}", configure);
-                    query += $"{lambdaParameter}.{primaryKey.Name.ToPascalCase()} == key{primaryKey.Name.ToPascalCase()} &&";
-                }
+                var propertyName = primaryKey.Name.ToPascalCase();
+                var paramName = primaryKeys.Count == 1 ? "key" : $"key{propertyName}";
+                var primaryKeyType = GetTypeName(primaryKey);
+
+                method.AddParameter(primaryKeyType, paramName, primaryKeys.Count == 1 ? null : configure);
+                conditions.Add($"{lambdaParameter}.{propertyName} == {paramName}");
             }
 
-
-            return RemoveLastOccurrence(query, " &&"); // Remove this as redudnant, and move it into the foreach only.
-        }
-
-        public static string RemoveLastOccurrence(string source, string toRemove)
-        {
-            int lastIndex = source.LastIndexOf(toRemove);
-            if (lastIndex == -1)
-                return source; // substring not found
-
-            return source.Remove(lastIndex, toRemove.Length);
+            var query = $"{lambdaParameter} => {string.Join(" && ", conditions)}";
+            return query;
         }
 
         [IntentManaged(Mode.Fully)]

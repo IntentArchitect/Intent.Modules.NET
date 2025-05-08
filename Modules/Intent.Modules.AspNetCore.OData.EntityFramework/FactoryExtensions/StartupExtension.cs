@@ -36,7 +36,6 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
         {
             foreach (var association in associations.Where(a => a.Association.AssociationType == AssociationType.Composition))
             {
-                // TODO: Find the association with black triangle, can't remember the name, but yes.
                 var classModel = association.Class;
                 template.TryGetTemplate(TemplateRoles.Domain.Entity.Primary, classModel, out ICSharpFileBuilderTemplate entityTemplate);
                 var entityName = startupTemplate.GetTypeName(entityTemplate);
@@ -134,13 +133,15 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                                 }
                             }
                         }
-                        lambda.AddStatement("options.Select()");
-                        lambda.AddStatement(".Expand()");
-                        lambda.AddStatement(".Filter()");
-                        lambda.AddStatement(".OrderBy()");
-                        lambda.AddStatement(".SetMaxTop(100)");
-                        lambda.AddStatement(".Count()");
-                        lambda.AddStatement(""".AddRouteComponents("odata", odataBuilder.GetEdmModel());""");
+
+                        lambda.AddStatement("options", c => c
+                               .AddInvocation("Select")
+                               .AddInvocation("Expand", c => c.OnNewLine())
+                               .AddInvocation("Filter", c => c.OnNewLine())
+                               .AddInvocation("OrderBy", c => c.OnNewLine())
+                               .AddInvocation("SetMaxTop", c => c.AddArgument("100").OnNewLine())
+                               .AddInvocation("Count", c => c.OnNewLine())
+                               .AddInvocation("AddRouteComponents", c => c.AddArgument("\"odata\", odataBuilder.GetEdmModel()").OnNewLine()));
 
                         addODataStatement.WithSemicolon();
                     });
