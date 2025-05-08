@@ -20,11 +20,11 @@ To leverage the OData Query functionality simply apply the `Expose As OData` ste
 
 The Stereotype must meet the following criteria:
 
-- The `Entity` must be mapped onto a domain `Class` (which has a repository).
+- The `Class` must be part of a repository.
 
 ## Using the Expose As OData `options`
 
-By default all options are enabled. Switching these options will either add a specific `Controller Action` to each `{Entity}Controller`
+By default all options are enabled. Checking any of these options will either add a specific `Controller Action Method` to each `{Entity}Controller`
 
 ![OData EntityFramework Stereotype](images/exposeasodata-stereotype-options.png)
 
