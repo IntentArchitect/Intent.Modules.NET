@@ -1,6 +1,6 @@
 # Intent.AspNetCore.OData.EntityFramework
 
-This module adds OData Query support to your Domain designers specifically `Entity`s.
+This module adds OData Query support to your Domain designers, specifically `Entity`s.
 
 ## What is OData Query?
 
@@ -32,10 +32,10 @@ By default all options are enabled. Switching these options will either add a sp
 
 This module consumes your `Expose As OData` enabled `Entity`s, which you design in the `Domain Designer` and generates the following implementation:-
 
-- Container registrations, registers OData infrastructure, also enables all `OData` options within the container.
-- Will map each `Entity` and any composite `Entity`'s of that entity. 
+- Creates container registrations for OData infrastructure also enabling all `OData` options within the container.
+- Maps each `Entity` and any composite `Entity`'s of that entity.
 - Generates a Controller per `Entity`.
-- Will add Actions to each controller depending on which options have been configured.
-- Swashbuckle swagger integration, updates swagger schema to include OData query parameter options.
+- Adds operations to each controller depending on which options have been configured.
+- Swashbuckle swagger integration, updating swagger schema to include OData query parameter options.
 - Can be safely used with [Intent.AspNetCore.ODataQuery](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-odataquery/intent-aspnetcore-odata-entityframework.html). Please note all `ODataOptions` within your container registration will be enabled.
 
