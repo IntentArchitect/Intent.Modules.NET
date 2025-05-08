@@ -34,6 +34,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                 .AddUsing("Microsoft.AspNetCore.OData.Query")
                 .AddUsing("Microsoft.AspNetCore.OData.Routing.Controllers")
                 .AddUsing("Microsoft.EntityFrameworkCore")
+                .AddUsing("System.Linq")
                 .AddClass($"{Model.Name.RemoveSuffix("Controller", "Service").Pluralize()}Controller", @class =>
                 {
                     @class.WithBaseType("ODataController");

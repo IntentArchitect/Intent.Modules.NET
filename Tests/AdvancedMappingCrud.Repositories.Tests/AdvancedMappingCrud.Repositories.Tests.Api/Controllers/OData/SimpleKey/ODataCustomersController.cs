@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
@@ -30,55 +32,55 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers.OData.SimpleKey
         }
 
         [HttpGet]
-        public IActionResult Get(Guid key)
+        public async Task<IActionResult> Get(Guid key)
         {
-            var oDataCustomer = _context.ODataCustomers.FirstOrDefault(m => m.Id == key);
+            var oDataCustomer = await _context.ODataCustomers.FirstOrDefaultAsync(m => m.Id == key);
 
             return oDataCustomer == null ? NotFound() : Ok(oDataCustomer);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] ODataCustomer oDataCustomer)
+        public async Task<IActionResult> Post([FromBody] ODataCustomer oDataCustomer)
         {
-            _context.ODataCustomers.Add(oDataCustomer);
-            _context.SaveChanges();
+            await _context.ODataCustomers.AddAsync(oDataCustomer);
+            await _context.SaveChangesAsync();
 
             return Created(oDataCustomer);
         }
 
         [HttpDelete]
-        public ActionResult Delete(Guid key)
+        public async Task<ActionResult> Delete(Guid key)
         {
-            var oDataCustomer = _context.ODataCustomers.SingleOrDefault(m => m.Id == key);
+            var oDataCustomer = await _context.ODataCustomers.SingleOrDefaultAsync(m => m.Id == key);
 
             if (oDataCustomer is not null)
             {
                 _context.ODataCustomers.Remove(oDataCustomer);
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
         [HttpPatch]
-        public ActionResult Patch(Guid key, [FromBody] Delta<ODataCustomer> delta)
+        public async Task<ActionResult> Patch(Guid key, [FromBody] Delta<ODataCustomer> delta)
         {
-            var oDataCustomer = _context.ODataCustomers.SingleOrDefault(m => m.Id == key);
+            var oDataCustomer = await _context.ODataCustomers.SingleOrDefaultAsync(m => m.Id == key);
 
             if (oDataCustomer is null)
             {
                 return NotFound();
             }
             delta.Patch(oDataCustomer);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Updated(oDataCustomer);
         }
 
         [HttpPut]
-        public ActionResult Put(Guid key, [FromBody] ODataCustomer update)
+        public async Task<ActionResult> Put(Guid key, [FromBody] ODataCustomer update)
         {
-            var oDataCustomer = _context.ODataCustomers.AsNoTracking().SingleOrDefault(m => m.Id == key);
+            var oDataCustomer = await _context.ODataCustomers.AsNoTracking().SingleOrDefaultAsync(m => m.Id == key);
 
             if (oDataCustomer is null)
             {
@@ -86,7 +88,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers.OData.SimpleKey
             }
             update.Id = key;
             _context.Entry(update).State = EntityState.Modified;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Updated(oDataCustomer);
         }
