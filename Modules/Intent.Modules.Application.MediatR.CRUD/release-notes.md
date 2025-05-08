@@ -1,3 +1,7 @@
+### Version 6.0.30
+
+- Fixed: Mapping code now correctly generated when modeling and mapping a ValueObject collection as an Entity Attribute.
+
 ### Version 6.0.29
 
 - Improvement: Supports deeper traversal of composite entities for CRUD implementations (previously could only support to the first level).
