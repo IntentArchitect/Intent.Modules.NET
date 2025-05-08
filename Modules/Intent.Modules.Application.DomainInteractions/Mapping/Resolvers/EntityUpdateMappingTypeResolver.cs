@@ -38,12 +38,12 @@ public class EntityUpdateMappingTypeResolver : IMappingTypeResolver
             return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
         }
 
-        if (model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection)
+        if (model.TypeReference?.Element?.SpecializationType == "Value Object" && model.TypeReference.IsCollection  && (model.SpecializationType != "Operation" && model.SpecializationType != "Parameter"))
         {
             return new ValueObjectCollectionUpdateMapping(mappingModel, _sourceTemplate);
         }
 
-        if (model.TypeReference?.Element?.SpecializationType == "Data Contract" && model.TypeReference.IsCollection)
+        if ((model.TypeReference?.Element?.SpecializationType == "Value Object" || model.TypeReference?.Element?.SpecializationType == "Data Contract") && model.TypeReference.IsCollection)
 		{
 			return new SelectToListMapping(mappingModel, _sourceTemplate);
 		}
