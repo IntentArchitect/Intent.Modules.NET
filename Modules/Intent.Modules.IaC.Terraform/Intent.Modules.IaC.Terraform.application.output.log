@@ -48,5 +48,21 @@
       <ProjectRelativeFilePath>InfrastructureTf/InfrastructureTfTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a45ea395-15f9-4bed-902b-48a5435f70ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SubscriptionsTf/SubscriptionsTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SubscriptionsTf/SubscriptionsTfTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a45ea395-15f9-4bed-902b-48a5435f70ce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SubscriptionsTf/SubscriptionsTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SubscriptionsTf/SubscriptionsTfTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

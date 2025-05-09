@@ -1,14 +1,16 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Common;
-using Intent.Modules.Common.Templates;
-using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
@@ -18,30 +20,22 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class InfrastructureTfTemplate : IntentTemplateBase<object>
     {
-        [IntentManaged(Mode.Fully)] public const string TemplateId = "Intent.IaC.Terraform.InfrastructureTfTemplate";
+        [IntentManaged(Mode.Fully)]
+        public const string TemplateId = "Intent.IaC.Terraform.InfrastructureTfTemplate";
 
-        private readonly List<InfrastructureRegisteredEvent> _infrastructureEvents = [];
         private readonly List<AppSettingRegistrationRequest> _appSettingsRequests = [];
+        private readonly EventGridTerraformExtender _eventGridTerraformExtender = new();
 
-        private bool _hasAzureServiceBus;
-        
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public InfrastructureTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             ExecutionContext.EventDispatcher.Subscribe<AppSettingRegistrationRequest>(Handle);
             ExecutionContext.EventDispatcher.Subscribe<InfrastructureRegisteredEvent>(Handle);
         }
-        
+
         private void Handle(InfrastructureRegisteredEvent @event)
         {
-            _infrastructureEvents.Add(@event);
-
-            if (@event.InfrastructureComponent is Infrastructure.AzureServiceBus.QueueType or
-                Infrastructure.AzureServiceBus.TopicType or
-                Infrastructure.AzureServiceBus.SubscriptionType)
-            {
-                _hasAzureServiceBus = true;
-            }
+            _eventGridTerraformExtender.ProcessEvent(@event);
         }
 
         private void Handle(AppSettingRegistrationRequest request)
@@ -80,15 +74,15 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                         .AddObject("random", b => b
                             .AddSetting("source", "hashicorp/random")
                             .AddSetting("version", "~> 3.0")))
-                // .AddBackend("azurerm", backend =>
-                // {
-                //     backend
-                //         .AddComment("Store state in Azure Storage")
-                //         .AddSetting("resource_group_name", "terraform-state-rg")
-                //         .AddSetting("storage_account_name", "tfstatestore")
-                //         .AddSetting("container_name", "tfstate")
-                //         .AddSetting("key", "infrastructure.tfstate");
-                // })
+            // .AddBackend("azurerm", backend =>
+            // {
+            //     backend
+            //         .AddComment("Store state in Azure Storage")
+            //         .AddSetting("resource_group_name", "terraform-state-rg")
+            //         .AddSetting("storage_account_name", "tfstatestore")
+            //         .AddSetting("container_name", "tfstate")
+            //         .AddSetting("key", "infrastructure.tfstate");
+            // })
             );
 
             builder.AddProvider("azurerm", provider => { provider.AddBlock("features"); });
@@ -113,7 +107,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddSetting("default", "South Africa North"));
 
             builder.AddComment("Resource Group");
-            
+
             builder.AddResource("azurerm_resource_group", "rg", resource => resource
                 .AddRawSetting("name", "var.input_resource_group_name")
                 .AddRawSetting("location", "var.input_resource_group_location"));
@@ -145,18 +139,9 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddSetting("account_replication_type", "LRS")
                 .AddSetting("account_kind", "StorageV2"));
 
-            // builder.AddComment("Event Grid Topics");
-            //
-            // builder.AddResource("azurerm_eventgrid_topic", "client_created_event", resource => resource
-            //     .AddSetting("name", "client-created-event")
-            //     .AddRawSetting("location", "local.location")
-            //     .AddRawSetting("resource_group_name", "local.resource_group_name"));
-            //
-            // builder.AddResource("azurerm_eventgrid_topic", "specific_topic", resource => resource
-            //     .AddSetting("name", "specific-topic")
-            //     .AddRawSetting("location", "local.location")
-            //     .AddRawSetting("resource_group_name", "local.resource_group_name"));
-            
+            var configVarMappings = new Dictionary<string, string>();
+            _eventGridTerraformExtender.ApplyTopics(builder, configVarMappings);
+
             builder.AddComment("Function App");
 
             builder.AddResource("azurerm_windows_function_app", "function_app", resource => resource
@@ -181,38 +166,36 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 {
                     appSettings
                         .AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", "azurerm_application_insights.app_insights.instrumentation_key")
-                        .AddSetting(@"""AzureWebJobsStorage""",
-                            "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net")
-                        // .AddRawSetting(@"""EventGrid:Topics:ClientCreatedEvent:Endpoint""", "azurerm_eventgrid_topic.client_created_event.endpoint")
-                        // .AddRawSetting(@"""EventGrid:Topics:ClientCreatedEvent:Key""", "azurerm_eventgrid_topic.client_created_event.primary_access_key")
-                        // .AddRawSetting(@"""EventGrid:Topics:SpecificTopic:Endpoint""", "azurerm_eventgrid_topic.specific_topic.endpoint")
-                        // .AddRawSetting(@"""EventGrid:Topics:SpecificTopic:Key""", "azurerm_eventgrid_topic.specific_topic.primary_access_key")
+                        .AddSetting(@"""AzureWebJobsStorage""", "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net")
                         .AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet-isolated");
 
                     foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
                     {
-                        var value = request.Value?.ToString();
-                        appSettings.AddRawSetting($@"""{request.Key}""", value is null ? "null" : value == "" ? @"""""" : value);
+                        if(configVarMappings.TryGetValue(request.Key, out var varName))
+                        {
+                            appSettings.AddRawSetting($@"""{request.Key}""", varName);
+                        }
+                        else
+                        {
+                            var value = request.Value?.ToString();
+                            appSettings.AddRawSetting($@"""{request.Key}""", value is null ? "null" : value == "" ? @"""""" : value);
+                        }
                     }
                 }));
 
             builder.AddComment("Output values needed for the second deployment");
-            
+
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));
 
-            // builder.AddOutput("client_created_event_topic_id", output => output
-            //     .AddRawSetting("value", "azurerm_eventgrid_topic.client_created_event.id"));
-            //
-            // builder.AddOutput("specific_topic_id", output => output
-            //     .AddRawSetting("value", "azurerm_eventgrid_topic.specific_topic.id"));
+            _eventGridTerraformExtender.ApplyOutput(builder);
 
             builder.AddOutput("function_app_name", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.name"));
 
             builder.AddOutput("resource_group_name", output => output
                 .AddRawSetting("value", "azurerm_resource_group.rg.name"));
-            
+
             return builder.Build();
         }
     }

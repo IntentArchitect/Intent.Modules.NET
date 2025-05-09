@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="3031b24a-45a3-46e9-9d45-14b3c48efc4a" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
-  <name>InfrastructureTfTemplate</name>
-  <display>InfrastructureTfTemplate: Single File</display>
+<class id="a45ea395-15f9-4bed-902b-48a5435f70ce" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
+  <name>SubscriptionsTfTemplate</name>
+  <display>SubscriptionsTfTemplate: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="6613ecf1-6f2a-4b8a-bf74-b8bfd653ea6e">
+  <typeReference id="01f617cf-acef-430e-8231-f019508719d1">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -40,7 +40,7 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.Infrastructure" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.Subscriptions" isActive="true" />
         <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="" isActive="true" />
       </properties>
     </stereotype>
