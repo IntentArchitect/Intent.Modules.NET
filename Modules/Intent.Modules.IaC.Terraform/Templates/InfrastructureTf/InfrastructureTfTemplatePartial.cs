@@ -24,7 +24,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
         public const string TemplateId = "Intent.IaC.Terraform.InfrastructureTfTemplate";
 
         private readonly List<AppSettingRegistrationRequest> _appSettingsRequests = [];
-        private readonly EventGridTerraformExtender _eventGridTerraformExtender = new();
+        private readonly EventGridTerraformExtension _eventGridTerraformExtension = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public InfrastructureTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -35,7 +35,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
         private void Handle(InfrastructureRegisteredEvent @event)
         {
-            _eventGridTerraformExtender.ProcessEvent(@event);
+            _eventGridTerraformExtension.ProcessEvent(@event);
         }
 
         private void Handle(AppSettingRegistrationRequest request)
@@ -140,7 +140,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddSetting("account_kind", "StorageV2"));
 
             var configVarMappings = new Dictionary<string, string>();
-            _eventGridTerraformExtender.ApplyTopics(builder, configVarMappings);
+            _eventGridTerraformExtension.ApplyTopics(builder, configVarMappings);
 
             builder.AddComment("Function App");
 
@@ -188,7 +188,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));
 
-            _eventGridTerraformExtender.ApplyOutput(builder);
+            _eventGridTerraformExtension.ApplyOutput(builder);
 
             builder.AddOutput("function_app_name", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.name"));

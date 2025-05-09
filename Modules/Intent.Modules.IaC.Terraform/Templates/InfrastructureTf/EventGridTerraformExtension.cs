@@ -6,13 +6,13 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf;
 
-internal class EventGridTerraformExtender
+internal class EventGridTerraformExtension
 {
     private readonly List<EventGridTopic> _topics = [];
 
     private record EventGridTopic(string TopicName, string KeyConfigName, string EndpointConfigName);
     
-    public EventGridTerraformExtender()
+    public EventGridTerraformExtension()
     {
     }
     
@@ -33,7 +33,7 @@ internal class EventGridTerraformExtender
     {
         foreach (var topic in _topics)
         {
-            var varName = $"eventGridTopic{topic.TopicName}".ToCamelCase().ToSnakeCase();
+            var varName = $"eventGridTopic{topic.TopicName}".ToSnakeCase();
 
             builder.AddResource("azurerm_eventgrid_topic", varName, resource => resource
                 .AddSetting("name", $"'{topic.TopicName.ToKebabCase()}'")
@@ -49,7 +49,7 @@ internal class EventGridTerraformExtender
     {
         foreach (var topic in _topics)
         {
-            var varName = $"eventGridTopic{topic.TopicName}".ToCamelCase().ToSnakeCase();
+            var varName = $"eventGridTopic{topic.TopicName}".ToSnakeCase();
             
             builder.AddOutput($"{varName}_id", output => output
                 .AddRawSetting("value", $"azurerm_eventgrid_topic.{varName}.id"));
