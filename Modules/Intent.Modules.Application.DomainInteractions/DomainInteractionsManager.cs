@@ -364,8 +364,9 @@ public class DomainInteractionsManager
         var statements = new List<CSharpStatement>();
 
         var entitiesReturningPk = GetEntitiesReturningPK(returnType);
+        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(returnType, isUserSupplied: false);
 
-        foreach (var entity in entitiesReturningPk.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
+        foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
         {
             if (entity.ElementModel.IsClassModel())
             {
@@ -413,11 +414,13 @@ public class DomainInteractionsManager
                 statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
         }
-        else if (returnType.Element.IsTypeDefinitionModel() && entitiesReturningPk.Count == 1) // No need for TrackedEntities thus no check for it
+        else if (returnType.Element.IsTypeDefinitionModel() && (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it
         {
-            var entityDetails = entitiesReturningPk.Single();
+            var entityDetails = nonUserSuppliedEntitiesReturningPks.Count == 1
+                ? nonUserSuppliedEntitiesReturningPks[0]
+                : entitiesReturningPk[0];
             var entity = entityDetails.ElementModel.AsClassModel();
-            statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey())?.Name ?? "Id"};");
+            statements.Add($"return {entityDetails.VariableName}.{entity.GetTypesInHierarchy().SelectMany(x => x.Attributes).FirstOrDefault(x => x.IsPrimaryKey(isUserSupplied: false))?.Name ?? "Id"};");
         }
         else if (TrackedEntities.Values.Any(x => returnType.Element.Id == x.ElementModel.Id))
         {
@@ -433,14 +436,14 @@ public class DomainInteractionsManager
         return statements;
     }
 
-    private List<EntityDetails> GetEntitiesReturningPK(ITypeReference returnType)
+    private List<EntityDetails> GetEntitiesReturningPK(ITypeReference returnType, bool? isUserSupplied = null)
     {
         if (returnType.Element.IsDTOModel())
         {
             var dto = returnType.Element.AsDTOModel();
 
             var mappedPks = dto.Fields
-                .Where(x => x.Mapping != null && Intent.Modelers.Domain.Api.AttributeModelExtensions.IsAttributeModel(x.Mapping.Element) && Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).IsPrimaryKey())
+                .Where(x => x.Mapping != null && Intent.Modelers.Domain.Api.AttributeModelExtensions.IsAttributeModel(x.Mapping.Element) && Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).IsPrimaryKey(isUserSupplied))
                 .Select(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).InternalElement.ParentElement.Id)
                 .Distinct()
                 .ToList();
@@ -455,7 +458,7 @@ public class DomainInteractionsManager
         return TrackedEntities.Values
             .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
                 .SelectMany(c => c.Attributes)
-                .Count(a => a.IsPrimaryKey() && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+                .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
     }
 
@@ -1217,9 +1220,24 @@ public record EntityDetails(IElement ElementModel, string VariableName, IDataAcc
 
 internal static class AttributeModelExtensions
 {
-    public static bool IsPrimaryKey(this AttributeModel attribute)
+    public static bool IsPrimaryKey(this AttributeModel attribute, bool? isUserSupplied = null)
     {
-        return attribute.HasStereotype("Primary Key");
+        if (!attribute.HasStereotype("Primary Key"))
+        {
+            return false;
+        }
+
+        if (!isUserSupplied.HasValue)
+        {
+            return true;
+        }
+
+        if (!attribute.GetStereotype("Primary Key").TryGetProperty("Data source", out var property))
+        {
+            return isUserSupplied == false;
+        }
+
+        return property.Value == "User supplied" == isUserSupplied.Value;
     }
 
     public static bool IsForeignKey(this AttributeModel attribute)

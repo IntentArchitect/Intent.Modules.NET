@@ -33,7 +33,8 @@ namespace CosmosDB.PrivateSetters.Application.Clients
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<Client, ClientDto>();
+            profile.CreateMap<Client, ClientDto>()
+                .ForMember(d => d.Type, opt => opt.MapFrom(src => src.ClientType));
         }
     }
 }

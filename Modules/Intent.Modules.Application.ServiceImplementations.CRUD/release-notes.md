@@ -1,5 +1,6 @@
 ### Version 5.0.27
 
+- Improvement: When a create operation is mapped to Cosmos DB document with a partition key which is separate from its primary key, the auto generated primary key can now be returned.
 - Fixed: Mapping code now correctly generated when modeling and mapping a ValueObject collection as an Entity Attribute.
 
 ### Version 5.0.26
