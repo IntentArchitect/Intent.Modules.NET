@@ -90,8 +90,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddRawSetting("location", @"azurerm_resource_group.rg.location"));
 
             builder.AddVariable("input_resource_group_name", v => v
-                .AddRawSetting("type", "string")
-                .AddSetting("default", $"rg-{sanitizedAppName}"));
+                .AddRawSetting("type", "string"));
             builder.AddVariable("input_resource_group_location", v => v
                 .AddRawSetting("type", "string"));
 
