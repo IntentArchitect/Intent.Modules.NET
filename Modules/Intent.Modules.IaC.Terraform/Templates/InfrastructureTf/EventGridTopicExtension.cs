@@ -36,7 +36,7 @@ internal class EventGridTopicExtension
             var varName = $"eventGridTopic{topic.TopicName}".ToSnakeCase();
 
             builder.AddResource("azurerm_eventgrid_topic", varName, resource => resource
-                .AddSetting("name", $"'{topic.TopicName.ToKebabCase()}'")
+                .AddSetting("name", $"{topic.TopicName.ToKebabCase()}")
                 .AddRawSetting("location", "local.location")
                 .AddRawSetting("resource_group_name", "local.resource_group_name"));   
             
