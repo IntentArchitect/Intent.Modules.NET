@@ -33,7 +33,7 @@ variable "event_grid_topic_specific_topic_id" {
 
 # Event Grid Subscriptions
 resource "azurerm_eventgrid_event_subscription" "event_grid_topic_client_created_event_subscription" {
-  name                 = "event_grid_topic_client_created_event_sub"
+  name                 = "event-grid-topic-client-created-event-sub"
   scope                = var.event_grid_topic_client_created_event_id
 
   azure_function_endpoint {
@@ -46,7 +46,7 @@ resource "azurerm_eventgrid_event_subscription" "event_grid_topic_client_created
 }
 
 resource "azurerm_eventgrid_event_subscription" "event_grid_topic_specific_topic_subscription" {
-  name                 = "event_grid_topic_specific_topic_sub"
+  name                 = "event-grid-topic-specific-topic-sub"
   scope                = var.event_grid_topic_specific_topic_id
 
   azure_function_endpoint {

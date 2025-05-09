@@ -53,7 +53,7 @@ internal class EventGridTerraformExtension
         {
             var varName = $"eventGridTopic{subscription.TopicName}".ToSnakeCase();
             builder.AddResource("azurerm_eventgrid_event_subscription", $"{varName}_subscription", resource => resource
-                .AddSetting("name", $"{varName}_sub")
+                .AddSetting("name", $"{varName.ToKebabCase()}-sub")
                 .AddRawSetting("scope", $"var.{varName}_id")
                 .AddBlock("azure_function_endpoint", endpoint => endpoint
                     .AddSetting("function_id", $"${{var.function_app_id}}/functions/{subscription.HandlerFunctionName}")
