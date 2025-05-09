@@ -31,12 +31,21 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataJsonSch
                     {
                         method.AddParameter("OpenApiSchema", "schema");
                         method.AddParameter("SchemaFilterContext ", "context");
-                        method.AddIfStatement("schema?.Properties == null", i =>
+                        method.AddIfStatement("schema?.Properties == null", ifStatement =>
                         {
-                            i.AddStatement("return;");
+                            ifStatement.AddStatement("return;");
+                            ifStatement.SeparatedFromNext();
                         });
-
-                        method.AddStatement("""schema.Properties.Remove("domainEvents");""");
+                        
+                        method.AddStatement("""var hasDomainEvents = schema.Properties.ContainsKey("domainEvents");""");
+                        method.AddIfStatement("hasDomainEvents", ifStatement =>
+                        {
+                            ifStatement.SeparatedFromPrevious();
+                            ifStatement.AddIfStatement("typeof(IHasDomainEvent).IsAssignableFrom(context.Type)", nestedIf =>
+                            {
+                                nestedIf.AddStatement("""schema.Properties.Remove("domainEvents");""");
+                            });
+                        });
                     });
                 });
         }
