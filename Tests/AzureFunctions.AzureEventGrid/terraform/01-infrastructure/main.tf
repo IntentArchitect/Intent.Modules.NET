@@ -117,6 +117,10 @@ resource "azurerm_windows_function_app" "function_app" {
 }
 
 # Output values needed for the second deployment
+output "resource_group_name" {
+  value = azurerm_resource_group.rg.name
+}
+
 output "function_app_id" {
   value = azurerm_windows_function_app.function_app.id
 }
@@ -127,12 +131,4 @@ output "event_grid_topic_specific_topic_id" {
 
 output "event_grid_topic_client_created_event_id" {
   value = azurerm_eventgrid_topic.event_grid_topic_client_created_event.id
-}
-
-output "function_app_name" {
-  value = azurerm_windows_function_app.function_app.name
-}
-
-output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
 }

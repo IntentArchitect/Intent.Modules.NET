@@ -6,13 +6,13 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf;
 
-internal class EventGridTerraformExtension
+internal class EventGridTopicExtension
 {
     private readonly List<EventGridTopic> _topics = [];
 
     private record EventGridTopic(string TopicName, string KeyConfigName, string EndpointConfigName);
     
-    public EventGridTerraformExtension()
+    public EventGridTopicExtension()
     {
     }
     
