@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="2a5530ac-9404-4a63-95e7-1de0913308ea" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <comment>Locking this to 17.13.0. Updating from nuget.org reverts back to 15.5.0.</comment>
   <name>Microsoft.NET.Test.Sdk</name>
-  <display>Microsoft.NET.Test.Sdk</display>
+  <display>Microsoft.NET.Test.Sdk [locked]</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +17,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -25,8 +26,8 @@
   <metadata />
   <childElements>
     <childElement id="541656e4-8376-494f-a8c7-9a3ec1491014" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.5.0</name>
-      <display>15.5.0 ( &gt;= Any,Version=v0.0 )</display>
+      <name>17.13.0</name>
+      <display>17.13.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +48,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="03198480-4664-478f-89f4-da67622ea678" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f6deb305-5de2-48ae-8adb-706444ccf10b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeCoverage</name>
-          <display>Microsoft.CodeCoverage (1.0.3)</display>
+          <display>Microsoft.CodeCoverage (17.13.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.0.3</value>
+          <value>17.13.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>541656e4-8376-494f-a8c7-9a3ec1491014</parentFolderId>
@@ -61,11 +62,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e013241b-096a-4c51-8d9f-e668066cd92d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dc336762-69bd-4bd8-a822-a6bb52ba42f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.TestPlatform.TestHost</name>
-          <display>Microsoft.TestPlatform.TestHost (15.5.0)</display>
+          <display>Microsoft.TestPlatform.TestHost (17.13.0)</display>
           <isAbstract>false</isAbstract>
-          <value>15.5.0</value>
+          <value>17.13.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>541656e4-8376-494f-a8c7-9a3ec1491014</parentFolderId>

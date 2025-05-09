@@ -142,8 +142,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(MicrosoftNETTestSdkPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 0, 0) => new PackageVersion("15.5.0")
-                            .WithNugetDependency("Microsoft.CodeCoverage", "1.0.3")
+                        ( >= 0, 0) => new PackageVersion("17.13.0", locked: true)
+                            .WithNugetDependency("Microsoft.CodeCoverage", "17.13.0")
                             .WithNugetDependency("Microsoft.TestPlatform.TestHost", "15.5.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftNETTestSdkPackageName}'"),
                     }
