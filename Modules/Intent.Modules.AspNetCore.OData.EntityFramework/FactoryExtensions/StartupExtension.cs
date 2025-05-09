@@ -120,6 +120,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                         {
                             continue;
                         }
+
                         var @class = template.CSharpFile.Classes.First();
                         foreach (var property in @class.Properties)
                         {
