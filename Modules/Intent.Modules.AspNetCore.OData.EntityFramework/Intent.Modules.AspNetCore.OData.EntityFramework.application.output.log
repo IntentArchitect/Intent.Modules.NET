@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>705c60ba-ff20-44f1-b7f5-7bfb52ab37ae</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#97ff1bd7-faee-4fd9-83cf-384bebf19a60</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/SwaggerConfigExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SwaggerConfigExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>5bb15e42-2a56-402b-9510-426cae9fdd85</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -78,6 +86,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c0b1a223-433e-4c2d-9079-41669f95f73e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c0b1a223-433e-4c2d-9079-41669f95f73e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

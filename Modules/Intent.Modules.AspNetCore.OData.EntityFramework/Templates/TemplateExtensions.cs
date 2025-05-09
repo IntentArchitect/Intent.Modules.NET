@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggregateController;
+using Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataJsonSchemaSwaggerFilter;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,6 +21,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates
         public static string GetODataAggregateControllerName(this IIntentTemplate template, ClassModel model)
         {
             return template.GetTypeName(ODataAggregateControllerTemplate.TemplateId, model);
+        }
+
+        public static string GetODataJsonSchemaSwaggerFilterName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ODataJsonSchemaSwaggerFilterTemplate.TemplateId);
         }
 
     }

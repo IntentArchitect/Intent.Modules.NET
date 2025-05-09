@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
@@ -109,6 +110,18 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                         foreach (var key in entityName.Value)
                         {
                             lambda.AddStatement($"""odataBuilder.EntitySet<{entityName.Key}>("{entityName.Key.Pluralize()}").EntityType.HasKey(m => m.{key.Name});""");
+                        }
+                    }
+
+                    foreach (var template in templates)
+                    {
+                        var @class = template.CSharpFile.Classes.First();
+                        foreach (var property in @class.Properties)
+                        {
+                            if (property.TryGetMetadata("non-persistent", out bool nonPersistent) && nonPersistent)
+                            {
+                                lambda.AddStatement($"""odataBuilder.EntitySet<{@class.Name}>("{@class.Name.Pluralize()}").EntityType.Ignore(m => m.{property.Name});""");
+                            }
                         }
                     }
 
