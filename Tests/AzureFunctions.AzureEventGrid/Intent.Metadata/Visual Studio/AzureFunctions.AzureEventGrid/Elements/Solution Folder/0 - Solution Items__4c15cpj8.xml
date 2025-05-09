@@ -59,9 +59,23 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="be52421e-192b-4919-9b5b-aaee5f59dc0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="46978532-a7e7-4d0b-8c53-f3da0e59da64" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.IaC.Terraform.InfrastructureTfTemplate</name>
       <display>Intent.IaC.Terraform.InfrastructureTfTemplate</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2d49073f-1e89-47a4-99ed-5dedd9dfd866</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f9de986f-d285-41c8-b211-4058a33c5d65" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.IaC.Terraform.SubscriptionsTfTemplate</name>
+      <display>Intent.IaC.Terraform.SubscriptionsTfTemplate</display>
       <externalReference>Intent.IaC.Terraform</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

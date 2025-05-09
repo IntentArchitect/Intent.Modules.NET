@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
@@ -8,6 +9,8 @@ namespace Intent.Modules.IaC.Terraform;
 internal class TerraformFileBuilder
 {
     private readonly List<TerraformElementBuilder> _elementBuilders = [];
+
+    public IReadOnlyList<TerraformElementBuilder> GetElementBuilders() => new ReadOnlyCollection<TerraformElementBuilder>(_elementBuilders);
 
     public TerraformFileBuilder AddTerraformConfig(Action<TerraformBlockBuilder> configAction)
     {
@@ -98,6 +101,7 @@ internal class TerraformFileBuilder
             {
                 return content + Environment.NewLine;
             }
+
             return content;
         }));
     }
@@ -144,6 +148,7 @@ internal class TerraformCommentBuilder : TerraformElementBuilder
                 {
                     sb.AppendLine();
                 }
+
                 sb.Append($"{(startIndented ? indent : string.Empty)}# {line}");
                 isBeginning = false;
             }
@@ -155,19 +160,22 @@ internal class TerraformCommentBuilder : TerraformElementBuilder
 
 internal class TerraformBlockBuilder : TerraformElementBuilder
 {
-    private readonly string? _blockName;
     private readonly List<string> _arguments = [];
     private readonly List<TerraformElementBuilder> _elements = [];
     private readonly WidthMonitor _widthMonitor = new();
 
     public TerraformBlockBuilder(string blockName)
     {
-        _blockName = blockName;
+        BlockName = blockName;
     }
 
     public TerraformBlockBuilder()
     {
     }
+
+    public string? BlockName { get; }
+    public IReadOnlyList<string> Arguments => new ReadOnlyCollection<string>(_arguments);
+    public IReadOnlyList<TerraformElementBuilder> GetElementBuilders() => new ReadOnlyCollection<TerraformElementBuilder>(_elements);
 
     public TerraformBlockBuilder AddComment(string commentBlock)
     {
@@ -235,8 +243,9 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
         {
             throw new ArgumentNullException(nameof(key));
         }
+
         ArgumentNullException.ThrowIfNull(objectAction);
-        
+
         var builder = new TerraformBlockBuilder();
         objectAction.Invoke(builder);
         _elements.Add(new KeyValueBuilder(key, builder, null));
@@ -253,9 +262,9 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
             sb.Append(indent);
         }
 
-        if (!string.IsNullOrWhiteSpace(_blockName))
+        if (!string.IsNullOrWhiteSpace(BlockName))
         {
-            sb.Append(_blockName);
+            sb.Append(BlockName);
         }
 
         foreach (var argument in _arguments)
@@ -264,7 +273,7 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
             sb.Append($@"""{argument}""");
         }
 
-        if (!string.IsNullOrWhiteSpace(_blockName))
+        if (!string.IsNullOrWhiteSpace(BlockName))
         {
             sb.Append(' ');
         }
@@ -287,6 +296,7 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
             {
                 sb.AppendLine();
             }
+
             sb.AppendLine(element.Build(indentLevel + 1));
             isBeginning = false;
             prevElement = element;
@@ -296,142 +306,145 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
 
         return sb.ToString();
     }
+}
 
-    private record RawValue(string Value);
+internal record RawValue(string Value);
 
-    private class WidthMonitor
+internal class WidthMonitor
+{
+    public int Width { get; private set; }
+
+    public void RecordWidth(int input)
     {
-        public int Width { get; private set; }
-
-        public void RecordWidth(int input)
+        if (input > Width)
         {
-            if (input > Width)
-            {
-                Width = input;
-            }
+            Width = input;
         }
     }
+}
 
-    private class KeyValueBuilder : TerraformElementBuilder
+internal class KeyValueBuilder : TerraformElementBuilder
+{
+    private readonly WidthMonitor? _widthMonitor;
+
+    public KeyValueBuilder(string key, object? value, WidthMonitor? widthMonitor)
     {
-        private readonly string _key;
-        private readonly object? _value;
-        private readonly WidthMonitor? _widthMonitor;
+        Key = key;
+        Value = value;
+        _widthMonitor = widthMonitor;
+        _widthMonitor?.RecordWidth(Key.Length);
+    }
 
-        public KeyValueBuilder(string key, object? value, WidthMonitor? widthMonitor)
+    public string Key { get; }
+
+    public object? Value { get; }
+
+    public override string Build(int indentLevel = 0, bool startIndented = true)
+    {
+        var indent = GetIndentation(indentLevel);
+        var padding = CalculateKeyAlignmentPadding();
+
+        return $"{(startIndented ? indent : string.Empty)}{Key}{padding} = {FormatValue(Value, indentLevel)}";
+    }
+
+    private string CalculateKeyAlignmentPadding()
+    {
+        if (_widthMonitor is null)
         {
-            _key = key;
-            _value = value;
-            _widthMonitor = widthMonitor;
-            _widthMonitor?.RecordWidth(_key.Length);
+            return string.Empty;
         }
 
-        public override string Build(int indentLevel = 0, bool startIndented = true)
-        {
-            var indent = GetIndentation(indentLevel);
-            var padding = CalculateKeyAlignmentPadding();
+        var paddingLength = _widthMonitor.Width - Key.Length;
+        var padding = new string(' ', paddingLength);
+        return padding;
+    }
 
-            return $"{(startIndented ? indent : string.Empty)}{_key}{padding} = {FormatValue(_value, indentLevel)}";
-        }
-
-        private string CalculateKeyAlignmentPadding()
+    private static string? FormatValue(object? value, int indentLevel)
+    {
+        switch (value)
         {
-            if (_widthMonitor is null)
-            {
+            case null:
                 return string.Empty;
-            }
-            var paddingLength = _widthMonitor.Width - _key.Length;
-            var padding = new string(' ', paddingLength);
-            return padding;
-        }
-
-        private static string? FormatValue(object? value, int indentLevel)
-        {
-            switch (value)
+            case RawValue rawValue:
+                return rawValue.Value;
+            case string str:
+                return $"\"{str}\"";
+            case bool boolValue:
+                return boolValue.ToString().ToLower();
+            case TerraformBlockBuilder builder:
+                return builder.Build(indentLevel, false);
+            case IDictionary<string, object> dict:
             {
-                case null:
-                    return string.Empty;
-                case RawValue rawValue:
-                    return rawValue.Value;
-                case string str:
-                    return $"\"{str}\"";
-                case bool boolValue:
-                    return boolValue.ToString().ToLower();
-                case TerraformBlockBuilder builder:
-                    return builder.Build(indentLevel, false);
-                case IDictionary<string, object> dict:
+                var sb = new StringBuilder(32);
+                sb.AppendLine("{");
+
+                var indent = GetIndentation(indentLevel + 1);
+
+                foreach (var item in dict)
                 {
-                    var sb = new StringBuilder(32);
-                    sb.AppendLine("{");
-
-                    var indent = GetIndentation(indentLevel + 1);
-
-                    foreach (var item in dict)
-                    {
-                        sb.AppendLine($"{indent}{item.Key} = {FormatValue(item.Value, indentLevel + 1)}");
-                    }
-
-                    sb.Append($"{indent}}}");
-                    return sb.ToString();
+                    sb.AppendLine($"{indent}{item.Key} = {FormatValue(item.Value, indentLevel + 1)}");
                 }
-                case IReadOnlyList<object> list:
+
+                sb.Append($"{indent}}}");
+                return sb.ToString();
+            }
+            case IReadOnlyList<object> list:
+            {
+                var sb = new StringBuilder(32);
+                sb.Append('[');
+
+                if (list.Count > 0)
                 {
-                    var sb = new StringBuilder(32);
-                    sb.Append('[');
-
-                    if (list.Count > 0)
+                    sb.Append(' ');
+                    for (var i = 0; i < list.Count; i++)
                     {
-                        sb.Append(' ');
-                        for (var i = 0; i < list.Count; i++)
-                        {
-                            sb.Append(FormatValue(list[i], indentLevel));
-                            if (i < list.Count - 1)
-                            {
-                                sb.Append(", ");
-                            }
-                        }
-
-                        sb.Append(' ');
-                    }
-
-                    sb.Append(']');
-                    return sb.ToString();
-                }
-                case IEnumerable<object> enumerable:
-                {
-                    var sb = new StringBuilder(32);
-                    sb.Append('[');
-
-                    var isFirst = true;
-                    var hasElements = false;
-    
-                    foreach (var item in enumerable)
-                    {
-                        if (isFirst)
-                        {
-                            sb.Append(' ');
-                            isFirst = false;
-                        }
-                        else
+                        sb.Append(FormatValue(list[i], indentLevel));
+                        if (i < list.Count - 1)
                         {
                             sb.Append(", ");
                         }
-        
-                        sb.Append(FormatValue(item, indentLevel));
-                        hasElements = true;
                     }
-    
-                    if (hasElements)
+
+                    sb.Append(' ');
+                }
+
+                sb.Append(']');
+                return sb.ToString();
+            }
+            case IEnumerable<object> enumerable:
+            {
+                var sb = new StringBuilder(32);
+                sb.Append('[');
+
+                var isFirst = true;
+                var hasElements = false;
+
+                foreach (var item in enumerable)
+                {
+                    if (isFirst)
                     {
                         sb.Append(' ');
+                        isFirst = false;
                     }
-    
-                    sb.Append(']');
-                    return sb.ToString();
+                    else
+                    {
+                        sb.Append(", ");
+                    }
+
+                    sb.Append(FormatValue(item, indentLevel));
+                    hasElements = true;
                 }
-                default:
-                    return value.ToString();
+
+                if (hasElements)
+                {
+                    sb.Append(' ');
+                }
+
+                sb.Append(']');
+                return sb.ToString();
             }
+            default:
+                return value.ToString();
         }
     }
 }

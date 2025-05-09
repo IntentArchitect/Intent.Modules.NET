@@ -12,6 +12,10 @@
       <role>IaC.Terraform.Infrastructure</role>
       <location></location>
     </template>
+    <template id="Intent.IaC.Terraform.SubscriptionsTfTemplate" externalReference="a45ea395-15f9-4bed-902b-48a5435f70ce">
+      <role>IaC.Terraform.Subscriptions</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions></factoryExtensions>
