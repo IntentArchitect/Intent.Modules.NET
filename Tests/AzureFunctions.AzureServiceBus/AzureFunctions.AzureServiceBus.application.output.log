@@ -798,5 +798,13 @@
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.sln</ApplicationRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>8cb0825a-30b1-4209-8508-f6c1b3d88c1d</ProjectId>
+      <CorrelationId>Intent.IaC.Terraform.InfrastructureTfTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>terraform/01-infrastructure/main.tf</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>terraform/01-infrastructure/main.tf</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>
