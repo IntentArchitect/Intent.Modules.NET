@@ -115,6 +115,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
 
                     foreach (var template in templates)
                     {
+                        if (!template.TryGetModel<ClassModel>(out var templateModel) ||
+                            !templateModel.HasStereotype("Expose As OData"))
+                        {
+                            continue;
+                        }
                         var @class = template.CSharpFile.Classes.First();
                         foreach (var property in @class.Properties)
                         {

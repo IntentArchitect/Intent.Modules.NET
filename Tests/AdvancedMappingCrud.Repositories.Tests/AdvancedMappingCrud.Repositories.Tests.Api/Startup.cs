@@ -49,13 +49,15 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api
                 odataBuilder.EntitySet<ODataOrder>("ODataOrders");
                 odataBuilder.EntitySet<ODataOrderLine>("ODataOrderLines");
                 odataBuilder.EntitySet<ODataProduct>("ODataProducts");
+                odataBuilder.EntitySet<ODataCustomer>("ODataCustomers").EntityType.Ignore(m => m.DomainEvents);
+                odataBuilder.EntitySet<ODataProduct>("ODataProducts").EntityType.Ignore(m => m.DomainEvents);
                 options.Select()
-                .Expand()
-                .Filter()
-                .OrderBy()
-                .SetMaxTop(100)
-                .Count()
-                .AddRouteComponents("odata", odataBuilder.GetEdmModel());
+                    .Expand()
+                    .Filter()
+                    .OrderBy()
+                    .SetMaxTop(100)
+                    .Count()
+                    .AddRouteComponents("odata", odataBuilder.GetEdmModel());
             });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);
