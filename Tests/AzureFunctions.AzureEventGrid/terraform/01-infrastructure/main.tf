@@ -33,12 +33,10 @@ locals {
 
 variable "input_resource_group_name" {
   type    = string
-  default = "rg-azure-function-eventgrid"
 }
 
 variable "input_resource_group_location" {
   type    = string
-  default = "South Africa North"
 }
 
 # Resource Group
@@ -75,13 +73,13 @@ resource "azurerm_storage_account" "storage" {
 }
 
 resource "azurerm_eventgrid_topic" "event_grid_topic_specific_topic" {
-  name                = "'specific-topic'"
+  name                = "specific-topic"
   location            = local.location
   resource_group_name = local.resource_group_name
 }
 
 resource "azurerm_eventgrid_topic" "event_grid_topic_client_created_event" {
-  name                = "'client-created-event'"
+  name                = "client-created-event"
   location            = local.location
   resource_group_name = local.resource_group_name
 }
@@ -107,12 +105,11 @@ resource "azurerm_windows_function_app" "function_app" {
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"               = azurerm_application_insights.app_insights.instrumentation_key
     "AzureWebJobsStorage"                          = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net"
-    "FUNCTIONS_WORKER_RUNTIME"                     = "dotnet-isolated"
     "EventGrid:Topics:ClientCreatedEvent:Endpoint" = azurerm_eventgrid_topic.event_grid_topic_client_created_event.endpoint
     "EventGrid:Topics:ClientCreatedEvent:Key"      = azurerm_eventgrid_topic.event_grid_topic_client_created_event.id
     "EventGrid:Topics:SpecificTopic:Endpoint"      = azurerm_eventgrid_topic.event_grid_topic_specific_topic.endpoint
     "EventGrid:Topics:SpecificTopic:Key"           = azurerm_eventgrid_topic.event_grid_topic_specific_topic.id
-    "FUNCTIONS_WORKER_RUNTIME"                     = dotnet-isolated
+    "FUNCTIONS_WORKER_RUNTIME"                     = "dotnet-isolated"
   }
 }
 

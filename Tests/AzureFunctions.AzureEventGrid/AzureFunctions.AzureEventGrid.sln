@@ -34,6 +34,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-subscriptions", "02-subscriptions", "{549087C5-30C5-495E-89A3-9387648DC5BD}"
 	ProjectSection(SolutionItems) = preProject
 		terraform\02-subscriptions\main.tf = terraform\02-subscriptions\main.tf
+		terraform\02-subscriptions\terraform.tfvars = terraform\02-subscriptions\terraform.tfvars
 	EndProjectSection
 EndProject
 Global

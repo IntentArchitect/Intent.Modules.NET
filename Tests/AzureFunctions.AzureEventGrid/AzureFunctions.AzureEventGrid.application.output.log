@@ -678,5 +678,13 @@
       <ProjectRelativeFilePath>terraform/02-subscriptions/main.tf</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>2d49073f-1e89-47a4-99ed-5dedd9dfd866</ProjectId>
+      <CorrelationId>Intent.IaC.Terraform.SubscriptionsTfVarsTemplate</CorrelationId>
+      <OverwriteBehaviour>overwrite-disabled</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>terraform/02-subscriptions/terraform.tfvars</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>terraform/02-subscriptions/terraform.tfvars</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

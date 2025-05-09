@@ -75,7 +75,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                             .AddSetting("source", "hashicorp/random")
                             .AddSetting("version", "~> 3.0"))));
 
-            builder.AddProvider("azurerm", provider => { provider.AddBlock("features"); });
+            builder.AddProvider("azurerm", provider => provider.AddBlock("features"));
 
             builder.AddResource("random_string", "unique", resource => resource
                 .AddSetting("length", 8)
@@ -91,10 +91,9 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
             builder.AddVariable("input_resource_group_name", v => v
                 .AddRawSetting("type", "string")
-                .AddSetting("default", "rg-azure-function-eventgrid"));
+                .AddSetting("default", $"rg-{sanitizedAppName}"));
             builder.AddVariable("input_resource_group_location", v => v
-                .AddRawSetting("type", "string")
-                .AddSetting("default", "South Africa North"));
+                .AddRawSetting("type", "string"));
 
             builder.AddComment("Resource Group");
 
@@ -156,19 +155,18 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 {
                     appSettings
                         .AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", "azurerm_application_insights.app_insights.instrumentation_key")
-                        .AddSetting(@"""AzureWebJobsStorage""", "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net")
-                        .AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet-isolated");
+                        .AddSetting(@"""AzureWebJobsStorage""", "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net");
 
                     foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
                     {
-                        if(configVarMappings.TryGetValue(request.Key, out var varName))
+                        if (configVarMappings.TryGetValue(request.Key, out var varName))
                         {
                             appSettings.AddRawSetting($@"""{request.Key}""", varName);
                         }
                         else
                         {
                             var value = request.Value?.ToString();
-                            appSettings.AddRawSetting($@"""{request.Key}""", value is null ? "null" : value == "" ? @"""""" : value);
+                            appSettings.AddRawSetting($@"""{request.Key}""", value is null ? "null" : value == "" ? @"""""" : @$"""{value}""");
                         }
                     }
                 }));
@@ -177,7 +175,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
             builder.AddOutput("resource_group_name", output => output
                 .AddRawSetting("value", "azurerm_resource_group.rg.name"));
-            
+
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));
 
