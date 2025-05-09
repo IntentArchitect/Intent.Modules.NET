@@ -42,6 +42,11 @@ namespace Intent.Modules.UnitTesting.Migrations
         private const string TargetFrameworkPropertyId = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
         private const string TargetFrameworkPropertyName = "Target Framework";
 
+        private const string SDKPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
+        private const string SDKPropertyName = "SDK";
+        private const string SDKPropertyValue = "Microsoft.NET.Sdk";
+        
+
         private readonly IApplicationConfigurationProvider _configurationProvider;
 
         public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
@@ -155,12 +160,19 @@ namespace Intent.Modules.UnitTesting.Migrations
                         Properties =
                         [
                             new StereotypePropertyPersistable
-                        {
-                            DefinitionId = TargetFrameworkPropertyId,
-                            Name = TargetFrameworkPropertyName,
-                            Value = applicationProjectSettings.FrameworkVersion,
-                            IsActive = true
-                        }
+                            {
+                                DefinitionId = TargetFrameworkPropertyId,
+                                Name = TargetFrameworkPropertyName,
+                                Value = applicationProjectSettings.FrameworkVersion,
+                                IsActive = true
+                            },
+                            new StereotypePropertyPersistable
+                            {
+                                DefinitionId = SDKPropertyId,
+                                Name = SDKPropertyName,
+                                Value = SDKPropertyValue,
+                                IsActive = true
+                            }
                         ]
                     };
 
