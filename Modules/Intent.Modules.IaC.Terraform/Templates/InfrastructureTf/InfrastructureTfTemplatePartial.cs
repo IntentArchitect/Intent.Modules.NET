@@ -24,7 +24,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
         public const string TemplateId = "Intent.IaC.Terraform.InfrastructureTfTemplate";
 
         private readonly List<AppSettingRegistrationRequest> _appSettingsRequests = [];
-        private readonly EventGridTerraformExtension _eventGridTerraformExtension = new();
+        private readonly EventGridTopicExtension _eventGridTopicExtension = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public InfrastructureTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -35,7 +35,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
         private void Handle(InfrastructureRegisteredEvent @event)
         {
-            _eventGridTerraformExtension.ProcessEvent(@event);
+            _eventGridTopicExtension.ProcessEvent(@event);
         }
 
         private void Handle(AppSettingRegistrationRequest request)
@@ -73,17 +73,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                             .AddSetting("version", "~> 3.0"))
                         .AddObject("random", b => b
                             .AddSetting("source", "hashicorp/random")
-                            .AddSetting("version", "~> 3.0")))
-            // .AddBackend("azurerm", backend =>
-            // {
-            //     backend
-            //         .AddComment("Store state in Azure Storage")
-            //         .AddSetting("resource_group_name", "terraform-state-rg")
-            //         .AddSetting("storage_account_name", "tfstatestore")
-            //         .AddSetting("container_name", "tfstate")
-            //         .AddSetting("key", "infrastructure.tfstate");
-            // })
-            );
+                            .AddSetting("version", "~> 3.0"))));
 
             builder.AddProvider("azurerm", provider => { provider.AddBlock("features"); });
 
@@ -140,7 +130,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddSetting("account_kind", "StorageV2"));
 
             var configVarMappings = new Dictionary<string, string>();
-            _eventGridTerraformExtension.ApplyTopics(builder, configVarMappings);
+            _eventGridTopicExtension.ApplyTopics(builder, configVarMappings);
 
             builder.AddComment("Function App");
 
@@ -185,16 +175,13 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
             builder.AddComment("Output values needed for the second deployment");
 
+            builder.AddOutput("resource_group_name", output => output
+                .AddRawSetting("value", "azurerm_resource_group.rg.name"));
+            
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));
 
-            _eventGridTerraformExtension.ApplyOutput(builder);
-
-            builder.AddOutput("function_app_name", output => output
-                .AddRawSetting("value", "azurerm_windows_function_app.function_app.name"));
-
-            builder.AddOutput("resource_group_name", output => output
-                .AddRawSetting("value", "azurerm_resource_group.rg.name"));
+            _eventGridTopicExtension.ApplyOutput(builder);
 
             return builder.Build();
         }
