@@ -24,19 +24,19 @@ internal class EventGridTopicExtension
         }
 
         _topics.Add(new EventGridTopic(
-            TopicName: @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName].ToPascalCase(),
+            TopicName: @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName],
             KeyConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.KeyConfig],
             EndpointConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.EndpointConfig]));
     }
 
-    public void ApplyTopics(TerraformFileBuilder builder, Dictionary<string, string> configVarMappings)
+    public void ApplyAzureEventGrid(TerraformFileBuilder builder, Dictionary<string, string> configVarMappings)
     {
         foreach (var topic in _topics)
         {
-            var varName = $"eventGridTopic{topic.TopicName}".ToSnakeCase();
+            var varName = $"eventGridTopic{topic.TopicName}".ToPascalCase().ToSnakeCase();
 
             builder.AddResource("azurerm_eventgrid_topic", varName, resource => resource
-                .AddSetting("name", $"{topic.TopicName.ToKebabCase()}")
+                .AddSetting("name", topic.TopicName.ToKebabCase())
                 .AddRawSetting("location", "local.location")
                 .AddRawSetting("resource_group_name", "local.resource_group_name"));   
             
@@ -49,7 +49,7 @@ internal class EventGridTopicExtension
     {
         foreach (var topic in _topics)
         {
-            var varName = $"eventGridTopic{topic.TopicName}".ToSnakeCase();
+            var varName = $"eventGridTopic{topic.TopicName}".ToPascalCase().ToSnakeCase();
             
             builder.AddOutput($"{varName}_id", output => output
                 .AddRawSetting("value", $"azurerm_eventgrid_topic.{varName}.id"));

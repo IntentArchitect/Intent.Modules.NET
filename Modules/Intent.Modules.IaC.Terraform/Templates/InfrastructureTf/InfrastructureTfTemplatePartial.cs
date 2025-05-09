@@ -25,6 +25,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
         private readonly List<AppSettingRegistrationRequest> _appSettingsRequests = [];
         private readonly EventGridTopicExtension _eventGridTopicExtension = new();
+        private readonly AzureServiceBusExtension _azureServiceBusExtension = new();
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public InfrastructureTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -36,6 +37,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
         private void Handle(InfrastructureRegisteredEvent @event)
         {
             _eventGridTopicExtension.ProcessEvent(@event);
+            _azureServiceBusExtension.ProcessEvent(@event);
         }
 
         private void Handle(AppSettingRegistrationRequest request)
@@ -128,7 +130,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddSetting("account_kind", "StorageV2"));
 
             var configVarMappings = new Dictionary<string, string>();
-            _eventGridTopicExtension.ApplyTopics(builder, configVarMappings);
+            _eventGridTopicExtension.ApplyAzureEventGrid(builder, configVarMappings);
+            _azureServiceBusExtension.ApplyAzureServiceBus(builder, configVarMappings);
 
             builder.AddComment("Function App");
 

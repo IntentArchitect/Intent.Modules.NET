@@ -23,6 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.AzureServiceBus.Infrastructure", "AzureFunctions.AzureServiceBus.Infrastructure\AzureFunctions.AzureServiceBus.Infrastructure.csproj", "{B114AE6A-002B-4CD8-8B99-BB73B2EAB228}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "terraform", "terraform", "{A739D290-6054-4ED4-B22D-0FEDC3C32DC0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-infrastructure", "01-infrastructure", "{1B6A7CFF-C7F6-4A15-8965-CCB6B67A9392}"
+	ProjectSection(SolutionItems) = preProject
+		terraform\01-infrastructure\main.tf = terraform\01-infrastructure\main.tf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +43,8 @@ Global
 		{C9E04D7A-4DC4-4735-B69C-AD7B4121B533} = {B00286E5-216B-484B-A5BB-2919DEA4A066}
 		{162CA54A-5B2E-4949-AFC5-3D5F9D307FCA} = {38A52614-CC6A-4B35-BAC5-CB858B5B8525}
 		{B114AE6A-002B-4CD8-8B99-BB73B2EAB228} = {45312D6F-FAEA-408B-BA8F-C4DE943C6796}
+		{A739D290-6054-4ED4-B22D-0FEDC3C32DC0} = {8CB0825A-30B1-4209-8508-F6C1B3D88C1D}
+		{1B6A7CFF-C7F6-4A15-8965-CCB6B67A9392} = {A739D290-6054-4ED4-B22D-0FEDC3C32DC0}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C1D87BB2-D2E7-473A-9FA2-CC5F3049B0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

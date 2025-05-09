@@ -20,6 +20,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
     partial class SubscriptionsTfVarsTemplate : IntentTemplateBase<object>
     {
         private readonly List<InfrastructureRegisteredEvent> _receivedEvents = [];
+        private bool _beforeTemplateExecutionCalled;
 
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.IaC.Terraform.SubscriptionsTfVarsTemplate";
@@ -44,6 +45,18 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
                 relativeLocation: "terraform/02-subscriptions",
                 OverwriteBehaviour.OverwriteDisabled
             );
+        }
+        
+        public override bool CanRunTemplate()
+        {
+            return !_beforeTemplateExecutionCalled ||
+                   _receivedEvents.Any(x => x.InfrastructureComponent is Infrastructure.AzureEventGrid.Subscription);
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            _beforeTemplateExecutionCalled = true;
+            base.BeforeTemplateExecution();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
