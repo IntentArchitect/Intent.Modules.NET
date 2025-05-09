@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using IntegrationTesting.Tests.Application.Brands.DeleteBrand;
 using Intent.RoslynWeaver.Attributes;
 using Moq;
+using Xunit;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.UnitTesting.CommandHandlerTest", Version = "1.0")]
@@ -22,6 +23,7 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
             // _handler = new DeleteBrandCommandHandler(_brandRepositoryMock)
         }
 
+        [Fact]
         [IntentManaged(Mode.Ignore)]
         public async Task Handler_Should_Delete_Brand_Successfully()
         {

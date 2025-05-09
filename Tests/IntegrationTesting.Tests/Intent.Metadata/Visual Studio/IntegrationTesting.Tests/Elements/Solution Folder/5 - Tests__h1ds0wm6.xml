@@ -13,7 +13,7 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="2489078f-48d9-4a3f-85d7-8ee6f7bb8c20" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
+    <childElement id="5902594c-1365-4d6a-8a13-3045c5ef03f7" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
       <name>IntegrationTesting.Tests.Application.UnitTests</name>
       <display>IntegrationTesting.Tests.Application.UnitTests</display>
       <isAbstract>false</isAbstract>
@@ -34,53 +34,53 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="84c374e8-4454-4342-96a7-da056247a1ea" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+        <childElement id="5e517da7-f7f6-4086-b929-22aac81c7d25" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
           <name>UnitTests</name>
           <display>UnitTests</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</parentFolderId>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="194d3a74-3a4e-4fbe-a3df-b3bea0f9134d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+        <childElement id="2553df50-77cd-4cba-a23c-8f816ef3affc" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.UnitTesting.CommandHandlerTest</name>
           <display>Intent.UnitTesting.CommandHandlerTest</display>
           <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</parentFolderId>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="42276c91-a452-497d-833d-58010ab828c0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+        <childElement id="0820121a-6f4b-4f76-a770-a832c1c9e765" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.UnitTesting.OperationHandlerTest</name>
           <display>Intent.UnitTesting.OperationHandlerTest</display>
           <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</parentFolderId>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="88966d70-56b2-430a-909c-fad0ba747264" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+        <childElement id="758082b4-96fe-4f90-a267-05c04e2303b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
           <name>Intent.UnitTesting.QueryHandlerTest</name>
           <display>Intent.UnitTesting.QueryHandlerTest</display>
           <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</parentFolderId>
+          <parentFolderId>5902594c-1365-4d6a-8a13-3045c5ef03f7</parentFolderId>
           <stereotypes />
           <metadata>
             <entry key="status" value="assigned" />

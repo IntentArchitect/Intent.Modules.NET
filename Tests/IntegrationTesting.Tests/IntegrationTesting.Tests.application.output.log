@@ -259,7 +259,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
       <CorrelationId>Intent.UnitTesting.CommandHandlerTest#f09e30c7-857f-4a6b-942a-fbdabec0233c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Brands/CreateBrandCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -267,7 +267,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
       <CorrelationId>Intent.UnitTesting.CommandHandlerTest#1b1daa4c-4b43-4917-994d-28d169c22052</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Brands/DeleteBrandCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -275,7 +275,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
       <CorrelationId>Intent.UnitTesting.QueryHandlerTest#1ac336bd-383f-4252-96f7-c8976719afe6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Brands/GetBrandByIdQueryHandlerTests.cs</ApplicationRelativeFilePath>
@@ -283,7 +283,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
       <CorrelationId>Intent.UnitTesting.QueryHandlerTest#4e37c4f6-136f-4917-a49f-71728789391c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Brands/GetBrandsQueryHandlerTests.cs</ApplicationRelativeFilePath>
@@ -291,7 +291,7 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
       <CorrelationId>Intent.UnitTesting.CommandHandlerTest#bad493a9-cf01-4473-9e1c-325059e7ca74</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Brands/UpdateBrandCommandHandlerTests.cs</ApplicationRelativeFilePath>
@@ -299,8 +299,8 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2489078f-48d9-4a3f-85d7-8ee6f7bb8c20</CorrelationId>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#5902594c-1365-4d6a-8a13-3045c5ef03f7</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/IntegrationTesting.Tests.Application.UnitTests.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests.csproj</ProjectRelativeFilePath>
