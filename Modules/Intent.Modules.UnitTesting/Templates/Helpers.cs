@@ -94,6 +94,7 @@ internal static class Helpers
         {
             @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), $"{(isCQRS ? "Handler" : "Operation")}_Should_{action}_{entityName}_Successfully", method =>
             {
+                method.AddAttribute(template.UseType("Xunit.Fact"));
                 method.AddAttribute(CSharpIntentManagedAttribute.Ignore());
                 method.Async();
 
