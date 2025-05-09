@@ -390,61 +390,65 @@ internal class KeyValueBuilder : TerraformElementBuilder
             }
             case IReadOnlyList<object> list:
             {
-                var sb = new StringBuilder(32);
-                sb.Append('[');
-
-                if (list.Count > 0)
-                {
-                    sb.Append(' ');
-                    for (var i = 0; i < list.Count; i++)
-                    {
-                        sb.Append(FormatValue(list[i], indentLevel));
-                        if (i < list.Count - 1)
-                        {
-                            sb.Append(", ");
-                        }
-                    }
-
-                    sb.Append(' ');
-                }
-
-                sb.Append(']');
-                return sb.ToString();
+                return RenderListFormatValue(list, indentLevel);
             }
             case IEnumerable<object> enumerable:
             {
-                var sb = new StringBuilder(32);
-                sb.Append('[');
-
-                var isFirst = true;
-                var hasElements = false;
-
-                foreach (var item in enumerable)
-                {
-                    if (isFirst)
-                    {
-                        sb.Append(' ');
-                        isFirst = false;
-                    }
-                    else
-                    {
-                        sb.Append(", ");
-                    }
-
-                    sb.Append(FormatValue(item, indentLevel));
-                    hasElements = true;
-                }
-
-                if (hasElements)
-                {
-                    sb.Append(' ');
-                }
-
-                sb.Append(']');
-                return sb.ToString();
+                return RenderListFormatValue(enumerable.ToList(), indentLevel);
             }
             default:
                 return value.ToString();
         }
+    }
+
+    private static string? RenderListFormatValue(IReadOnlyList<object> list, int indentLevel)
+    {
+        var virtualLength = list.Sum(x => FormatValue(x, indentLevel)?.Length ?? 0);
+        var shouldMultiline = virtualLength > 80;
+        var indent = GetIndentation(indentLevel + 1);
+                
+        var sb = new StringBuilder(32);
+        sb.Append('[');
+
+        if (list.Count > 0)
+        {
+            if (shouldMultiline)
+            {
+                sb.AppendLine().Append(indent);
+            }
+            else
+            {
+                sb.Append(' ');
+            }
+
+            for (var i = 0; i < list.Count; i++)
+            {
+                sb.Append(FormatValue(list[i], indentLevel));
+                if (i >= list.Count - 1)
+                {
+                    continue;
+                }
+                if (shouldMultiline)
+                {
+                    sb.AppendLine(",").Append(indent);
+                }
+                else
+                {
+                    sb.Append(", ");
+                }
+            }
+
+            if (shouldMultiline)
+            {
+                sb.AppendLine().Append(GetIndentation(indentLevel));
+            }
+            else
+            {
+                sb.Append(' ');
+            }
+        }
+
+        sb.Append(']');
+        return sb.ToString();
     }
 }

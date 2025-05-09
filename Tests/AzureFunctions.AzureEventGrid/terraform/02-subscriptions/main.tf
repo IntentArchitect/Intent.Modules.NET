@@ -5,20 +5,12 @@ terraform {
       version = "~> 3.0"
     }
   }
-  # Uncomment and configure for remote state storage
-  # backend "azurerm" {
-  #   resource_group_name  = "terraform-state-rg"
-  #   storage_account_name = "tfstateXXXXXXXX" 
-  #   container_name       = "tfstate"
-  #   key                  = "subscriptions.tfstate"
-  # }
 }
 
 provider "azurerm" {
   features {}
 }
 
-# Option 1: Use variables that you'll provide manually
 variable "function_app_id" {
   description = "The ID of the Function App"
   type        = string
@@ -63,31 +55,26 @@ variable "resource_group_name" {
 # Event Grid Subscriptions
 resource "azurerm_eventgrid_event_subscription" "client_created_event_subscription" {
   name                 = "client-created-event-eg-sub"
-  scope                = var.client_created_event_topic_id  # Replace with local.client_created_event_topic_id if using remote state
+  scope                = var.client_created_event_topic_id
 
   azure_function_endpoint {
-    function_id         = "${var.function_app_id}/functions/ClientCreatedEventConsumer"  # Replace with local.function_app_id if using remote state
-    max_events_per_batch = 1
+    function_id                       = "${var.function_app_id}/functions/ClientCreatedEventConsumer"
+    max_events_per_batch              = 1
     preferred_batch_size_in_kilobytes = 64
   }
 
-  included_event_types = [
-    "AzureFunctions.AzureEventGrid.Eventing.Messages.ClientCreatedEvent"
-  ]
+  included_event_types = [ "AzureFunctions.AzureEventGrid.Eventing.Messages.ClientCreatedEvent" ]
 }
 
 resource "azurerm_eventgrid_event_subscription" "specific_topic_subscription" {
   name                 = "specific-topic-eg-sub"
-  scope                = var.specific_topic_id  # Replace with local.specific_topic_id if using remote state
+  scope                = var.specific_topic_id
 
   azure_function_endpoint {
-    function_id         = "${var.function_app_id}/functions/SpecificTopicMessageConsumer"  # Replace with local.function_app_id if using remote state
-    max_events_per_batch = 1
+    function_id                       = "${var.function_app_id}/functions/SpecificTopicMessageConsumer"
+    max_events_per_batch              = 1
     preferred_batch_size_in_kilobytes = 64
   }
 
-  included_event_types = [
-    "AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicOneMessageEvent",
-    "AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicTwoMessageEvent"
-  ]
+  included_event_types = [ "AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicOneMessageEvent", "AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicTwoMessageEvent" ]
 }
