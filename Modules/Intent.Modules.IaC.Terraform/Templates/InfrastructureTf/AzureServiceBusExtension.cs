@@ -37,8 +37,8 @@ internal class AzureServiceBusExtension
         
         builder.AddResource("azurerm_servicebus_namespace", "service_bus", resource => resource
             .AddRawSetting("name", "local.service_bus_namespace_name")
-            .AddRawSetting("location", "azurerm_resource_group.rg.location")
-            .AddRawSetting("resource_group_name", "azurerm_resource_group.rg.name")
+            .AddRawSetting("location", "var.resource_group_location")
+            .AddRawSetting("resource_group_name", "var.resource_group_name")
             .AddSetting("sku", "Standard"));
 
         configVarMappings["AzureServiceBus:ConnectionString"] = "azurerm_servicebus_namespace.service_bus.default_primary_connection_string";
@@ -77,7 +77,8 @@ internal class AzureServiceBusExtension
                     var varName = $"{name}Subscription".ToPascalCase().ToSnakeCase();
                     builder.AddResource("azurerm_servicebus_subscription", varName, resource => resource
                         .AddSetting("name", name)
-                        .AddRawSetting("topic_id", $"azurerm_servicebus_topic.{$"{name}Topic".ToPascalCase().ToSnakeCase()}.id"));
+                        .AddRawSetting("topic_id", $"azurerm_servicebus_topic.{$"{name}Topic".ToPascalCase().ToSnakeCase()}.id")
+                        .AddSetting("max_delivery_count", 3));
                     
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = $"azurerm_servicebus_subscription.{varName}.id";

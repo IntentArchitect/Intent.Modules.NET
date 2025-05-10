@@ -61,8 +61,8 @@ resource "azurerm_storage_account" "storage" {
 
 resource "azurerm_servicebus_namespace" "service_bus" {
   name                = local.service_bus_namespace_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
   sku                 = "Standard"
 }
 
@@ -92,8 +92,9 @@ resource "azurerm_servicebus_topic" "client_created_topic" {
 }
 
 resource "azurerm_servicebus_subscription" "client_created_subscription" {
-  name     = "client-created"
-  topic_id = azurerm_servicebus_topic.client_created_topic.id
+  name               = "client-created"
+  topic_id           = azurerm_servicebus_topic.client_created_topic.id
+  max_delivery_count = 3
 }
 
 resource "azurerm_servicebus_topic" "specific_topic_topic" {
@@ -102,8 +103,9 @@ resource "azurerm_servicebus_topic" "specific_topic_topic" {
 }
 
 resource "azurerm_servicebus_subscription" "specific_topic_subscription" {
-  name     = "specific-topic"
-  topic_id = azurerm_servicebus_topic.specific_topic_topic.id
+  name               = "specific-topic"
+  topic_id           = azurerm_servicebus_topic.specific_topic_topic.id
+  max_delivery_count = 3
 }
 
 # Application Insights
