@@ -42,8 +42,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
             return new TemplateFileConfig(
                 fileName: $"terraform",
                 fileExtension: "tfvars",
-                relativeLocation: "terraform/03-subscriptions",
-                OverwriteBehaviour.OverwriteDisabled
+                relativeLocation: "terraform/03-subscriptions"
             );
         }
         
