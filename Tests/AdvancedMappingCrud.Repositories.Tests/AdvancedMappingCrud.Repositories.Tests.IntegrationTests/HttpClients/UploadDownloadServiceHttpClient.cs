@@ -31,13 +31,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
             var relativeUri = $"api/upload-download/upload";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+            httpRequest.Content = new StreamContent(content);
+            httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType ?? "application/octet-stream");
 
             if (contentLength != null)
             {
-                httpRequest.Headers.Add("Content-Length", contentLength.ToString());
+                httpRequest.Content.Headers.ContentLength = contentLength;
             }
-            httpRequest.Content = new StreamContent(content);
-            httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(contentType ?? "application/octet-stream");
 
             if (filename != null)
             {

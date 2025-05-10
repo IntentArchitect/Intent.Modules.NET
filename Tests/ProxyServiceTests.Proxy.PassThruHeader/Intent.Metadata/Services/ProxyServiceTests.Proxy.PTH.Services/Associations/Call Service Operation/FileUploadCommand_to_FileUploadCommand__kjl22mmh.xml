@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d026b7fd-98cc-440d-9e10-555d15c04644">
+  <sourceEnd id="5c713038-ccc0-4e94-af27-263f84780207" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : File.FileUploadCommand</display>
+    <order>0</order>
+    <typeReference id="0a174666-3ca6-4596-9add-b19bb73e9b58">
+      <typeId>88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.Services</typePackageName>
+      <typePackageId>d4fe4ebd-098a-4912-a4da-c3aa192f7266</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d026b7fd-98cc-440d-9e10-555d15c04644" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : FileUploadCommand(...): void</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5bdb8f6d-7e77-44c9-8caa-b8429b0dc2d1">
+      <typeId>3eaa3ade-1f4f-4fbd-adfe-d73abe538c22</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</typePackageName>
+      <typePackageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+        <source applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" location="[ProxyServiceTests.Proxy.PassThruHeader].[Services].[FileUploadCommand]" />
+        <target applicationId="3e3ebc36-8b69-453a-a151-faad8c1ac9bd" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" location="[ProxyServiceTests.Proxy.PassThruHeader].[Services].[FileUploadCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ContentType}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="9aba194e-57cc-4778-a00d-dbb4245187d1" name="contentType" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="ContentType" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="340f34f6-85df-462a-9e0f-e70e3c72551e" name="ContentType" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContentLength}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="98472366-f30b-4c61-8c23-5fbdf58418c6" name="contentLength" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="ContentLength" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="83363f88-beef-478e-85f9-1aa78ec63838" name="ContentLength" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Content}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="9a2716e8-c73c-437e-861a-e9849ef2bc8c" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="08635993-d935-495d-a6ce-4e14593364ff" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Content" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="add85a90-32d5-4097-86dd-f9989e0f3169" name="Content" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Filename}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="9a2716e8-c73c-437e-861a-e9849ef2bc8c" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="a1caf59d-de05-4519-85ce-51df9c1d5cbd" name="Filename" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Filename" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="88d261ef-30a8-47f4-b439-8ee95f784e35" name="Filename" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContentType}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="9a2716e8-c73c-437e-861a-e9849ef2bc8c" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="aef59158-68b0-4b6f-9b05-86df1f1d9b52" name="ContentType" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="ContentType" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="340f34f6-85df-462a-9e0f-e70e3c72551e" name="ContentType" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ContentLength}</expression>
+            <path>
+              <target id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" name="FileUploadCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="9a2716e8-c73c-437e-861a-e9849ef2bc8c" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="b15c0e68-1056-4516-9d7a-9fd1c6b8ee24" name="ContentLength" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="ContentLength" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="83363f88-beef-478e-85f9-1aa78ec63838" name="ContentLength" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>
