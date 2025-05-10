@@ -39,10 +39,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.ResourceGroupTfVars
         public override string TransformText()
         {
             var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace('.', '-').ToKebabCase();
-            var sb = new StringBuilder(32);
-            sb.AppendLine($@"resource_group_name     = ""rg-{sanitizedAppName}""");
-            sb.AppendLine(@"resource_group_location = ""East US""");
-            return sb.ToString();
+            var keysWithDefaults = new Dictionary<string, string>
+            {
+                { "resource_group_name", $@"""rg-{sanitizedAppName}""" },
+                { "resource_group_location", @"""East US""" }
+            };
+            return this.MergeKeyValuePairs(keysWithDefaults);
         }
     }
 }

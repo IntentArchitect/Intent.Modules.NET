@@ -63,11 +63,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
         public override string TransformText()
         {
             var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace('.', '-').ToKebabCase();
-            var sb = new StringBuilder(32);
-            
-            sb.AppendLine($@"resource_group_name = ""rg-{sanitizedAppName}""");
-            sb.AppendLine($@"function_app_id = """"");
-            
+            var keysWithDefaults = new Dictionary<string, string>
+            {
+                { "resource_group_name", $@"""rg-{sanitizedAppName}""" },
+                { "function_app_id", @"""""" }
+            };
             foreach (var receivedEvent in _receivedEvents)
             {
                 switch (receivedEvent.InfrastructureComponent)
@@ -76,13 +76,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
                     {
                         var topicName = receivedEvent.Properties[Infrastructure.AzureEventGrid.Property.TopicName].ToPascalCase();
                         var varName = $"eventGridTopic{topicName}".ToSnakeCase();
-                        sb.AppendLine($@"{varName}_id = """"");
+                        keysWithDefaults.Add($"{varName}_id", @"""""");
                     }
                         break;
                 }
             }
-            
-            return sb.ToString();
+            return this.MergeKeyValuePairs(keysWithDefaults);
         }
     }
 }
