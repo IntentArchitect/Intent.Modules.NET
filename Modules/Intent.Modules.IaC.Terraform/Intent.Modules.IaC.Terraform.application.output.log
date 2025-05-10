@@ -50,6 +50,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#72da06b3-5a11-40b9-b9e2-ede2a2fe9deb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InfrastructureTfVars/InfrastructureTfVarsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InfrastructureTfVars/InfrastructureTfVarsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#72da06b3-5a11-40b9-b9e2-ede2a2fe9deb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/InfrastructureTfVars/InfrastructureTfVarsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InfrastructureTfVars/InfrastructureTfVarsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#b72d2c24-f3bb-4c12-b3ba-1ecf5993c1db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResourceGroupTf/ResourceGroupTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResourceGroupTf/ResourceGroupTfTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b72d2c24-f3bb-4c12-b3ba-1ecf5993c1db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResourceGroupTf/ResourceGroupTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResourceGroupTf/ResourceGroupTfTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e6db6627-4762-4df4-b1f0-9d113ea84864</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResourceGroupTfVars/ResourceGroupTfVarsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResourceGroupTfVars/ResourceGroupTfVarsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e6db6627-4762-4df4-b1f0-9d113ea84864</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ResourceGroupTfVars/ResourceGroupTfVarsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ResourceGroupTfVars/ResourceGroupTfVarsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a45ea395-15f9-4bed-902b-48a5435f70ce</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SubscriptionsTf/SubscriptionsTfTemplatePartial.cs</ApplicationRelativeFilePath>

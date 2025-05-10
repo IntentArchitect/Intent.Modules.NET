@@ -99,5 +99,47 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="9f2603fb-caab-4b05-b9cb-09fb4522c719" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.IaC.Terraform.InfrastructureTfVarsTemplate</name>
+      <display>Intent.IaC.Terraform.InfrastructureTfVarsTemplate</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8cb0825a-30b1-4209-8508-f6c1b3d88c1d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="31f73023-e8c1-41d9-870c-f4364ce3df80" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.IaC.Terraform.ResourceGroupTfTemplate</name>
+      <display>Intent.IaC.Terraform.ResourceGroupTfTemplate</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8cb0825a-30b1-4209-8508-f6c1b3d88c1d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8665c4b0-80c8-4474-a88f-fbedb7256747" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.IaC.Terraform.ResourceGroupTfVarsTemplate</name>
+      <display>Intent.IaC.Terraform.ResourceGroupTfVarsTemplate</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8cb0825a-30b1-4209-8508-f6c1b3d88c1d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

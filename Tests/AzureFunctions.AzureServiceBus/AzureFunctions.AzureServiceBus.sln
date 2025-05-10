@@ -30,6 +30,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-infrastructure", "01-inf
 		terraform\01-infrastructure\main.tf = terraform\01-infrastructure\main.tf
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-infrastructure", "02-infrastructure", "{A908E30B-55C0-4468-8532-0B5A062CF0E9}"
+	ProjectSection(SolutionItems) = preProject
+		terraform\02-infrastructure\main.tf = terraform\02-infrastructure\main.tf
+		terraform\02-infrastructure\terraform.tfvars = terraform\02-infrastructure\terraform.tfvars
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-resource-group", "01-resource-group", "{A242DB89-E6D6-482B-B6AE-B0EF7284DB22}"
+	ProjectSection(SolutionItems) = preProject
+		terraform\01-resource-group\main.tf = terraform\01-resource-group\main.tf
+		terraform\01-resource-group\terraform.tfvars = terraform\01-resource-group\terraform.tfvars
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +57,8 @@ Global
 		{B114AE6A-002B-4CD8-8B99-BB73B2EAB228} = {45312D6F-FAEA-408B-BA8F-C4DE943C6796}
 		{A739D290-6054-4ED4-B22D-0FEDC3C32DC0} = {8CB0825A-30B1-4209-8508-F6C1B3D88C1D}
 		{1B6A7CFF-C7F6-4A15-8965-CCB6B67A9392} = {A739D290-6054-4ED4-B22D-0FEDC3C32DC0}
+		{A908E30B-55C0-4468-8532-0B5A062CF0E9} = {A739D290-6054-4ED4-B22D-0FEDC3C32DC0}
+		{A242DB89-E6D6-482B-B6AE-B0EF7284DB22} = {A739D290-6054-4ED4-B22D-0FEDC3C32DC0}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C1D87BB2-D2E7-473A-9FA2-CC5F3049B0F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

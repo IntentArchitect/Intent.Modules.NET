@@ -1,6 +1,4 @@
 terraform {
-  # Terraform configuration for example project
-
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -25,40 +23,28 @@ resource "random_string" "unique" {
 
 locals {
   function_app_name          = "azure-functions-azure-service-bus-${random_string.unique.result}"
-  app_insights_name          = "app-insights-${random_string.unique.result}"
   storage_name               = "storage${random_string.unique.result}"
-  resource_group_name        = azurerm_resource_group.rg.name
-  location                   = azurerm_resource_group.rg.location
   service_bus_namespace_name = "service-bus-${random_string.unique.result}"
 }
 
-variable "input_resource_group_name" {
+# Variables
+variable "resource_group_name" {
   type = string
 }
 
-variable "input_resource_group_location" {
+variable "resource_group_location" {
   type = string
 }
 
-# Resource Group
-resource "azurerm_resource_group" "rg" {
-  name     = var.input_resource_group_name
-  location = var.input_resource_group_location
-}
-
-# Application Insights
-resource "azurerm_application_insights" "app_insights" {
-  name                = local.app_insights_name
-  location            = local.location
-  resource_group_name = local.resource_group_name
-  application_type    = "web"
+variable "app_insights_name" {
+  type = string
 }
 
 # Hosting Plan (App Service Plan)
 resource "azurerm_service_plan" "function_plan" {
   name                = "asp-${local.function_app_name}"
-  location            = local.location
-  resource_group_name = local.resource_group_name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
   os_type             = "Windows"
   sku_name            = "Y1"
 }
@@ -66,8 +52,8 @@ resource "azurerm_service_plan" "function_plan" {
 # Storage Account
 resource "azurerm_storage_account" "storage" {
   name                     = local.storage_name
-  location                 = local.location
-  resource_group_name      = local.resource_group_name
+  location                 = var.resource_group_location
+  resource_group_name      = var.resource_group_name
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
@@ -120,11 +106,17 @@ resource "azurerm_servicebus_subscription" "specific_topic_subscription" {
   topic_id = azurerm_servicebus_topic.specific_topic_topic.id
 }
 
+# Application Insights
+data "azurerm_application_insights" "app_insights" {
+  name                = var.app_insights_name
+  resource_group_name = var.resource_group_name
+}
+
 # Function App
 resource "azurerm_windows_function_app" "function_app" {
   name                       = local.function_app_name
-  location                   = local.location
-  resource_group_name        = local.resource_group_name
+  location                   = var.resource_group_location
+  resource_group_name        = var.resource_group_name
   service_plan_id            = azurerm_service_plan.function_plan.id
   storage_account_name       = azurerm_storage_account.storage.name
   storage_account_access_key = azurerm_storage_account.storage.primary_access_key
@@ -139,7 +131,7 @@ resource "azurerm_windows_function_app" "function_app" {
   }
 
   app_settings = {
-    "APPINSIGHTS_INSTRUMENTATIONKEY"            = azurerm_application_insights.app_insights.instrumentation_key
+    "APPINSIGHTS_INSTRUMENTATIONKEY"            = data.azurerm_application_insights.app_insights.instrumentation_key
     "AzureWebJobsStorage"                       = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net"
     "AzureServiceBus:ClientCreated"             = azurerm_servicebus_topic.client_created_topic.id
     "AzureServiceBus:ClientCreated"             = azurerm_servicebus_topic.client_created_topic.id
@@ -156,7 +148,7 @@ resource "azurerm_windows_function_app" "function_app" {
 
 # Output values needed for the second deployment
 output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
+  value = var.resource_group_name
 }
 
 output "function_app_id" {

@@ -35,7 +35,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTf
             return new TemplateFileConfig(
                 fileName: $"main",
                 fileExtension: "tf",
-                relativeLocation: "terraform/02-subscriptions"
+                relativeLocation: "terraform/03-subscriptions"
             );
         }
 

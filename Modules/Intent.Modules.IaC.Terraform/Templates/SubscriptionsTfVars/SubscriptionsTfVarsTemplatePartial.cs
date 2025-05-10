@@ -42,7 +42,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
             return new TemplateFileConfig(
                 fileName: $"terraform",
                 fileExtension: "tfvars",
-                relativeLocation: "terraform/02-subscriptions",
+                relativeLocation: "terraform/03-subscriptions",
                 OverwriteBehaviour.OverwriteDisabled
             );
         }
@@ -63,7 +63,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
         public override string TransformText()
         {
             var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace('.', '-').ToKebabCase();
-            var sb = new StringBuilder(128);
+            var sb = new StringBuilder(32);
             
             sb.AppendLine($@"resource_group_name = ""rg-{sanitizedAppName}""");
             sb.AppendLine($@"function_app_id = """"");

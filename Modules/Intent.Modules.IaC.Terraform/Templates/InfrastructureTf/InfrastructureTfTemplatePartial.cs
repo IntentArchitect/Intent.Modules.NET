@@ -57,7 +57,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             return new TemplateFileConfig(
                 fileName: $"main",
                 fileExtension: "tf",
-                relativeLocation: "terraform/01-infrastructure"
+                relativeLocation: "terraform/02-infrastructure"
             );
         }
 
@@ -68,7 +68,6 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             var builder = new TerraformFileBuilder();
 
             builder.AddTerraformConfig(terraform => terraform
-                    .AddComment("Terraform configuration for example project")
                     .AddBlock("required_providers", block => block
                         .AddObject("azurerm", b => b
                             .AddSetting("source", "hashicorp/azurerm")
@@ -86,36 +85,23 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
             builder.AddLocals(local => local
                 .AddSetting("function_app_name", $@"{sanitizedAppName}-${{random_string.unique.result}}")
-                .AddSetting("app_insights_name", @"app-insights-${random_string.unique.result}")
-                .AddSetting("storage_name", @"storage${random_string.unique.result}")
-                .AddRawSetting("resource_group_name", @"azurerm_resource_group.rg.name")
-                .AddRawSetting("location", @"azurerm_resource_group.rg.location"));
+                .AddSetting("storage_name", @"storage${random_string.unique.result}"));
 
-            builder.AddVariable("input_resource_group_name", v => v
+            builder.AddComment("Variables");
+            
+            builder.AddVariable("resource_group_name", v => v
                 .AddRawSetting("type", "string"));
-            builder.AddVariable("input_resource_group_location", v => v
+            builder.AddVariable("resource_group_location", v => v
                 .AddRawSetting("type", "string"));
-
-            builder.AddComment("Resource Group");
-
-            builder.AddResource("azurerm_resource_group", "rg", resource => resource
-                .AddRawSetting("name", "var.input_resource_group_name")
-                .AddRawSetting("location", "var.input_resource_group_location"));
-
-            builder.AddComment("Application Insights");
-
-            builder.AddResource("azurerm_application_insights", "app_insights", resource => resource
-                .AddRawSetting("name", "local.app_insights_name")
-                .AddRawSetting("location", "local.location")
-                .AddRawSetting("resource_group_name", "local.resource_group_name")
-                .AddSetting("application_type", "web"));
+            builder.AddVariable("app_insights_name", v => v
+                .AddRawSetting("type", "string"));
 
             builder.AddComment("Hosting Plan (App Service Plan)");
 
             builder.AddResource("azurerm_service_plan", "function_plan", resource => resource
                 .AddSetting("name", @"asp-${local.function_app_name}")
-                .AddRawSetting("location", "local.location")
-                .AddRawSetting("resource_group_name", "local.resource_group_name")
+                .AddRawSetting("location", "var.resource_group_location")
+                .AddRawSetting("resource_group_name", "var.resource_group_name")
                 .AddSetting("os_type", "Windows")
                 .AddSetting("sku_name", "Y1"));
 
@@ -123,8 +109,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
 
             builder.AddResource("azurerm_storage_account", "storage", resource => resource
                 .AddRawSetting("name", "local.storage_name")
-                .AddRawSetting("location", "local.location")
-                .AddRawSetting("resource_group_name", "local.resource_group_name")
+                .AddRawSetting("location", "var.resource_group_location")
+                .AddRawSetting("resource_group_name", "var.resource_group_name")
                 .AddSetting("account_tier", "Standard")
                 .AddSetting("account_replication_type", "LRS")
                 .AddSetting("account_kind", "StorageV2"));
@@ -133,12 +119,19 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             _eventGridTopicExtension.ApplyAzureEventGrid(builder, configVarMappings);
             _azureServiceBusExtension.ApplyAzureServiceBus(builder, configVarMappings);
 
+            builder.AddComment("Application Insights");
+
+            builder.AddData("azurerm_application_insights", "app_insights", data => data
+                .AddRawSetting("name", "var.app_insights_name")
+                .AddRawSetting("resource_group_name", "var.resource_group_name")
+            );
+            
             builder.AddComment("Function App");
 
             builder.AddResource("azurerm_windows_function_app", "function_app", resource => resource
                 .AddRawSetting("name", "local.function_app_name")
-                .AddRawSetting("location", "local.location")
-                .AddRawSetting("resource_group_name", "local.resource_group_name")
+                .AddRawSetting("location", "var.resource_group_location")
+                .AddRawSetting("resource_group_name", "var.resource_group_name")
                 .AddRawSetting("service_plan_id", "azurerm_service_plan.function_plan.id")
                 .AddRawSetting("storage_account_name", "azurerm_storage_account.storage.name")
                 .AddRawSetting("storage_account_access_key", "azurerm_storage_account.storage.primary_access_key")
@@ -156,7 +149,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddObject("app_settings", appSettings =>
                 {
                     appSettings
-                        .AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", "azurerm_application_insights.app_insights.instrumentation_key")
+                        .AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", "data.azurerm_application_insights.app_insights.instrumentation_key")
                         .AddSetting(@"""AzureWebJobsStorage""", "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.storage.name};AccountKey=${azurerm_storage_account.storage.primary_access_key};EndpointSuffix=core.windows.net");
 
                     foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
@@ -176,7 +169,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             builder.AddComment("Output values needed for the second deployment");
 
             builder.AddOutput("resource_group_name", output => output
-                .AddRawSetting("value", "azurerm_resource_group.rg.name"));
+                .AddRawSetting("value", "var.resource_group_name"));
 
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));

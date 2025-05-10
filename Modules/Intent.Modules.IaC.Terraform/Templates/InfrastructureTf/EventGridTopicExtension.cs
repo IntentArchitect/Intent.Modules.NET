@@ -37,10 +37,10 @@ internal class EventGridTopicExtension
 
             builder.AddResource("azurerm_eventgrid_topic", varName, resource => resource
                 .AddSetting("name", topic.TopicName.ToKebabCase())
-                .AddRawSetting("location", "local.location")
-                .AddRawSetting("resource_group_name", "local.resource_group_name"));   
+                .AddRawSetting("location", "var.resource_group_location")
+                .AddRawSetting("resource_group_name", "var.resource_group_name"));   
             
-            configVarMappings[topic.KeyConfigName] = $"azurerm_eventgrid_topic.{varName}.id";
+            configVarMappings[topic.KeyConfigName] = $"azurerm_eventgrid_topic.{varName}.primary_access_key";
             configVarMappings[topic.EndpointConfigName] = $"azurerm_eventgrid_topic.{varName}.endpoint";
         }
     }
