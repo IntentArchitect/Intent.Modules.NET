@@ -95,6 +95,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
                 .AddRawSetting("type", "string"));
             builder.AddVariable("app_insights_name", v => v
                 .AddRawSetting("type", "string"));
+            _azureServiceBusExtension.ApplyVariables(builder);
 
             builder.AddComment("Hosting Plan (App Service Plan)");
 

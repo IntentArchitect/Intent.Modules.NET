@@ -25,24 +25,29 @@ internal class AzureServiceBusExtension
         return _events.Count != 0;
     }
 
+    public void ApplyVariables(TerraformFileBuilder builder)
+    {
+        if (!HasAzureServiceBus())
+        {
+            return;
+        }
+        
+        builder.AddVariable("service_bus_namespace_name", v => v.AddRawSetting("type", "string"));
+    }
+    
     public void ApplyAzureServiceBus(TerraformFileBuilder builder, Dictionary<string, string> configVarMappings)
     {
         if (!HasAzureServiceBus())
         {
             return;
         }
-
-        var localBuilder = builder.GetElementBuilders().OfType<TerraformBlockBuilder>().FirstOrDefault(x => x.BlockName == "locals");
-        localBuilder?.AddSetting("service_bus_namespace_name", "service-bus-${random_string.unique.result}");
         
-        builder.AddResource("azurerm_servicebus_namespace", "service_bus", resource => resource
-            .AddRawSetting("name", "local.service_bus_namespace_name")
-            .AddRawSetting("location", "var.resource_group_location")
-            .AddRawSetting("resource_group_name", "var.resource_group_name")
-            .AddSetting("sku", "Standard"));
-
-        configVarMappings["AzureServiceBus:ConnectionString"] = "azurerm_servicebus_namespace.service_bus.default_primary_connection_string";
-
+        builder.AddData("azurerm_servicebus_namespace", "service_bus", data => data
+            .AddRawSetting("name", "var.service_bus_namespace_name")
+            .AddRawSetting("resource_group_name", "var.resource_group_name"));
+        
+        configVarMappings["AzureServiceBus:ConnectionString"] = "data.azurerm_servicebus_namespace.service_bus.default_primary_connection_string";
+        
         var externalTopics = new Dictionary<string, bool>();
         
         foreach (var @event in _events)
@@ -55,7 +60,7 @@ internal class AzureServiceBusExtension
                     var varName = $"{name}Queue".ToPascalCase().ToSnakeCase();
                     builder.AddResource("azurerm_servicebus_queue", varName, resource => resource
                         .AddSetting("name", name)
-                        .AddRawSetting("namespace_id", "azurerm_servicebus_namespace.service_bus.id"));
+                        .AddRawSetting("namespace_id", "data.azurerm_servicebus_namespace.service_bus.id"));
                     
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                     configVarMappings[configName] = $"azurerm_servicebus_queue.{varName}.id";
@@ -70,7 +75,7 @@ internal class AzureServiceBusExtension
                     {
                         builder.AddData("azurerm_servicebus_topic", varName, data => data
                             .AddRawSetting("name", "var.app_insights_name")
-                            .AddRawSetting("namespace_id", $"azurerm_servicebus_namespace.service_bus.id"));
+                            .AddRawSetting("namespace_id", $"data.azurerm_servicebus_namespace.service_bus.id"));
                         
                         var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                         configVarMappings[configName] = $"data.azurerm_servicebus_topic.{varName}.id";
@@ -81,7 +86,7 @@ internal class AzureServiceBusExtension
                     {
                         builder.AddResource("azurerm_servicebus_topic", varName, resource => resource
                             .AddSetting("name", name)
-                            .AddRawSetting("namespace_id", "azurerm_servicebus_namespace.service_bus.id"));
+                            .AddRawSetting("namespace_id", "data.azurerm_servicebus_namespace.service_bus.id"));
                         
                         var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
                         configVarMappings[configName] = $"azurerm_servicebus_topic.{varName}.id";

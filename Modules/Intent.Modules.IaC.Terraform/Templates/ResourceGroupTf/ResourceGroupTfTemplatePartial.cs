@@ -5,7 +5,9 @@ using System.Text;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -19,12 +21,25 @@ namespace Intent.Modules.IaC.Terraform.Templates.ResourceGroupTf
     {
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.IaC.Terraform.ResourceGroupTfTemplate";
+        
+        private bool _hasAzureServiceBus;
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public ResourceGroupTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            ExecutionContext.EventDispatcher.Subscribe<InfrastructureRegisteredEvent>(Handle);
         }
 
+        private void Handle(InfrastructureRegisteredEvent @event)
+        {
+            if (@event.InfrastructureComponent is Infrastructure.AzureServiceBus.QueueType or
+                Infrastructure.AzureServiceBus.TopicType or
+                Infrastructure.AzureServiceBus.SubscriptionType)
+            {
+                _hasAzureServiceBus = true;
+            }
+        }
+        
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override ITemplateFileConfig GetTemplateFileConfig()
         {
@@ -38,7 +53,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.ResourceGroupTf
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            var terraformFile = new TerraformFileBuilder()
+            var builder = new TerraformFileBuilder()
                 .AddTerraformConfig(terraform =>
                 {
                     terraform.AddBlock("required_providers", providers =>
@@ -94,14 +109,32 @@ namespace Intent.Modules.IaC.Terraform.Templates.ResourceGroupTf
                     resource.AddRawSetting("location", "local.location");
                     resource.AddRawSetting("resource_group_name", "var.resource_group_name");
                     resource.AddSetting("application_type", "web");
-                })
+                });
 
-                // Output blocks
-                .AddOutput("resource_group_name", output => { output.AddRawSetting("value", "var.resource_group_name"); })
+            if (_hasAzureServiceBus)
+            {
+                builder.AddComment("Azure Service Bus");
+                var localBuilder = builder.GetElementBuilders().OfType<TerraformBlockBuilder>().FirstOrDefault(x => x.BlockName == "locals");
+                localBuilder?.AddSetting("service_bus_namespace_name", "service-bus-${random_string.unique.result}");
+
+                builder.AddResource("azurerm_servicebus_namespace", "service_bus", resource => resource
+                    .AddRawSetting("name", "local.service_bus_namespace_name")
+                    .AddRawSetting("location", "var.resource_group_location")
+                    .AddRawSetting("resource_group_name", "var.resource_group_name")
+                    .AddSetting("sku", "Standard"));
+            }
+
+            // Output blocks
+            builder.AddOutput("resource_group_name", output => { output.AddRawSetting("value", "var.resource_group_name"); })
                 .AddOutput("resource_group_location", output => { output.AddRawSetting("value", "var.resource_group_location"); })
                 .AddOutput("app_insights_name", output => { output.AddRawSetting("value", "azurerm_application_insights.app_insights.name"); });
 
-            string result = terraformFile.Build();
+            if (_hasAzureServiceBus)
+            {
+                builder.AddOutput("service_bus_namespace_name", output => { output.AddRawSetting("value", "azurerm_servicebus_namespace.service_bus.name"); });
+            }
+
+            string result = builder.Build();
             return result;
         }
     }
