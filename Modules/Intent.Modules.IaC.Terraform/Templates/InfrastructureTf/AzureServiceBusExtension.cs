@@ -43,6 +43,8 @@ internal class AzureServiceBusExtension
 
         configVarMappings["AzureServiceBus:ConnectionString"] = "azurerm_servicebus_namespace.service_bus.default_primary_connection_string";
 
+        var externalTopics = new Dictionary<string, bool>();
+        
         foreach (var @event in _events)
         {
             switch (@event.InfrastructureComponent)
@@ -63,21 +65,39 @@ internal class AzureServiceBusExtension
                 {
                     var name = @event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName];
                     var varName = $"{name}Topic".ToPascalCase().ToSnakeCase();
-                    builder.AddResource("azurerm_servicebus_topic", varName, resource => resource
-                        .AddSetting("name", name)
-                        .AddRawSetting("namespace_id", "azurerm_servicebus_namespace.service_bus.id"));
-                    
-                    var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
-                    configVarMappings[configName] = $"azurerm_servicebus_topic.{varName}.id";
+
+                    if (bool.TryParse(@event.Properties[Infrastructure.AzureServiceBus.Property.External], out var isExternal) && isExternal)
+                    {
+                        builder.AddData("azurerm_servicebus_topic", varName, data => data
+                            .AddRawSetting("name", "var.app_insights_name")
+                            .AddRawSetting("namespace_id", $"azurerm_servicebus_namespace.service_bus.id"));
+                        
+                        var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
+                        configVarMappings[configName] = $"data.azurerm_servicebus_topic.{varName}.id";
+
+                        externalTopics[name] = true;
+                    }
+                    else
+                    {
+                        builder.AddResource("azurerm_servicebus_topic", varName, resource => resource
+                            .AddSetting("name", name)
+                            .AddRawSetting("namespace_id", "azurerm_servicebus_namespace.service_bus.id"));
+                        
+                        var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
+                        configVarMappings[configName] = $"azurerm_servicebus_topic.{varName}.id";
+                        
+                        externalTopics[name] = false;
+                    }
                 }
                     break;
                 case Infrastructure.AzureServiceBus.SubscriptionType:
                 {
                     var name = @event.Properties[Infrastructure.AzureServiceBus.Property.QueueOrTopicName];
+                    var isExternal = externalTopics[name];
                     var varName = $"{name}Subscription".ToPascalCase().ToSnakeCase();
                     builder.AddResource("azurerm_servicebus_subscription", varName, resource => resource
                         .AddSetting("name", name)
-                        .AddRawSetting("topic_id", $"azurerm_servicebus_topic.{$"{name}Topic".ToPascalCase().ToSnakeCase()}.id")
+                        .AddRawSetting("topic_id", $"{(isExternal ? "data." : "")}azurerm_servicebus_topic.{$"{name}Topic".ToPascalCase().ToSnakeCase()}.id")
                         .AddSetting("max_delivery_count", 3));
                     
                     var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
