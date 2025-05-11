@@ -9,6 +9,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf;
 internal class EventGridTopicExtension
 {
     private readonly List<EventGridTopic> _topics = [];
+    private readonly List<string> _subscriptions = [];
 
     private record EventGridTopic(string TopicName, string KeyConfigName, string EndpointConfigName);
     
@@ -18,15 +19,17 @@ internal class EventGridTopicExtension
     
     public void ProcessEvent(InfrastructureRegisteredEvent @event)
     {
-        if (@event.InfrastructureComponent is not Infrastructure.AzureEventGrid.TopicRegistered)
+        if (@event.InfrastructureComponent is Infrastructure.AzureEventGrid.TopicRegistered)
         {
-            return;
+            _topics.Add(new EventGridTopic(
+                TopicName: @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName],
+                KeyConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.KeyConfig],
+                EndpointConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.EndpointConfig]));
         }
-
-        _topics.Add(new EventGridTopic(
-            TopicName: @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName],
-            KeyConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.KeyConfig],
-            EndpointConfigName: @event.Properties[Infrastructure.AzureEventGrid.Property.EndpointConfig]));
+        else if (@event.InfrastructureComponent is Infrastructure.AzureEventGrid.Subscription)
+        {
+            _subscriptions.Add(@event.Properties[Infrastructure.AzureEventGrid.Property.TopicName]);
+        }
     }
 
     public void ApplyAzureEventGrid(TerraformFileBuilder builder, Dictionary<string, string> configVarMappings)
@@ -43,6 +46,15 @@ internal class EventGridTopicExtension
             configVarMappings[topic.KeyConfigName] = $"azurerm_eventgrid_topic.{varName}.primary_access_key";
             configVarMappings[topic.EndpointConfigName] = $"azurerm_eventgrid_topic.{varName}.endpoint";
         }
+
+        foreach (var subscription in _subscriptions)
+        {
+            var varName = $"eventGridTopic{subscription}".ToPascalCase().ToSnakeCase();
+            builder.AddData("azurerm_eventgrid_topic", varName, data => data
+                .AddSetting("name", subscription.ToKebabCase())
+                .AddRawSetting("location", "var.resource_group_location")
+                .AddRawSetting("resource_group_name", "var.resource_group_name"));
+        }
     }
 
     public void ApplyOutput(TerraformFileBuilder builder)
@@ -53,6 +65,13 @@ internal class EventGridTopicExtension
             
             builder.AddOutput($"{varName}_id", output => output
                 .AddRawSetting("value", $"azurerm_eventgrid_topic.{varName}.id"));
+        }
+
+        foreach (var subscription in _subscriptions)
+        {
+            var varName = $"eventGridTopic{subscription}".ToPascalCase().ToSnakeCase();
+            builder.AddOutput($"{varName}_id", output => output
+                .AddRawSetting("value", $"data.azurerm_eventgrid_topic.{varName}.id"));
         }
     }
 }
