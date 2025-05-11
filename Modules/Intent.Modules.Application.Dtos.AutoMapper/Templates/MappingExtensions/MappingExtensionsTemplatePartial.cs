@@ -27,6 +27,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         {
             AddNugetDependency(NugetPackages.AutoMapper(outputTarget));
         }
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileInDto(); 
+        }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()

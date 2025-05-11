@@ -84,7 +84,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
         private void HandleEvent(ContainerRegistrationRequest @event)
         {
-            if (@event.Concern != "Infrastructure")
+            if (@event.Concern != "Infrastructure" || @event.IsHandled)
             {
                 return;
             }
@@ -111,7 +111,7 @@ namespace Intent.Modules.Infrastructure.DependencyInjection.Templates.Dependency
 
         private void HandleEvent(ServiceConfigurationRequest @event)
         {
-            if (@event.Concern != "Infrastructure")
+            if (@event.Concern != "Infrastructure" || @event.IsHandled)
             {
                 return;
             }

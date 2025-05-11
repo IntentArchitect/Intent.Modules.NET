@@ -1,3 +1,8 @@
+### Version 3.8.12
+
+- Improvement: Ability to override the name and location of the Visual Studio solution file name, through the `Visual Studio Solution Options` stereotype.
+- Improvement: Ability to have Solution folder Materialized as actual folder in through the `Folder Options` stereotype.
+
 ### Version 3.8.11
 
 - Improvement: Added `.NET Framework 4.8.1` and added ability to set `.NET Framework` version on `SQL Database Projects`.
