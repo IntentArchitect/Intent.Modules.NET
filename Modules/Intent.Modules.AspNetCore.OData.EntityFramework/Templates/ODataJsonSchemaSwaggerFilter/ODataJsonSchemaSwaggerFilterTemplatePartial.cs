@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -24,6 +25,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataJsonSch
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddUsing("Microsoft.OpenApi.Models")
+                .AddUsing("System.Linq")
                 .AddClass($"ODataJsonSchemaSwaggerFilter", @class =>
                 {
                     @class.ImplementsInterface("ISchemaFilter");
@@ -38,13 +40,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataJsonSch
                         });
                         
                         method.AddStatement("""var hasDomainEvents = schema.Properties.ContainsKey("domainEvents");""");
-                        method.AddIfStatement("hasDomainEvents", ifStatement =>
+                        method.AddIfStatement("""hasDomainEvents && context.Type.GetInterfaces().Any(i => i.Name == "IHasDomainEvent")""", ifStatement =>
                         {
                             ifStatement.SeparatedFromPrevious();
-                            ifStatement.AddIfStatement("typeof(IHasDomainEvent).IsAssignableFrom(context.Type)", nestedIf =>
-                            {
-                                nestedIf.AddStatement("""schema.Properties.Remove("domainEvents");""");
-                            });
+
+                            ifStatement.AddStatement("""schema.Properties.Remove("domainEvents");""");
                         });
                     });
                 });

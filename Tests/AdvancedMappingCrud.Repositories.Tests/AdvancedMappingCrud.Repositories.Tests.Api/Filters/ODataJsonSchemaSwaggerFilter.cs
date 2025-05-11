@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -15,7 +16,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Filters
             {
                 return;
             }
-            schema.Properties.Remove("domainEvents");
+
+            var hasDomainEvents = schema.Properties.ContainsKey("domainEvents");
+
+            if (hasDomainEvents && context.Type.GetInterfaces().Any(i => i.Name == "IHasDomainEvent"))
+            {
+                schema.Properties.Remove("domainEvents");
+            }
         }
     }
 }
