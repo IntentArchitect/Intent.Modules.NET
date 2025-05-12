@@ -74,7 +74,7 @@ internal class AzureServiceBusExtension
                     if (bool.TryParse(@event.Properties[Infrastructure.AzureServiceBus.Property.External], out var isExternal) && isExternal)
                     {
                         builder.AddData("azurerm_servicebus_topic", varName, data => data
-                            .AddRawSetting("name", "var.app_insights_name")
+                            .AddSetting("name", name)
                             .AddRawSetting("namespace_id", $"data.azurerm_servicebus_namespace.service_bus.id"));
                         
                         var configName = @event.Properties[Infrastructure.AzureServiceBus.Property.ConfigurationName];
