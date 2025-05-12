@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.UnitTesting</id>
-  <version>1.0.0-beta.2</version>
+  <version>1.0.0-beta.3</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>The module adds support for Unit Testing applications.</summary>
   <description>The module adds support for Unit Testing applications.</description>
@@ -37,7 +37,9 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.UnitTesting.NuGetInstallFactoryExtension" externalReference="92e43c85-2541-4ca0-b3a7-f71965c0e7bc" />
+  </factoryExtensions>
   <moduleSettings>
     <group id="d62269ea-8e64-44a0-8392-e1a69da7c960" title="Unit Test Settings" externalReference="d62269ea-8e64-44a0-8392-e1a69da7c960">
       <settings>

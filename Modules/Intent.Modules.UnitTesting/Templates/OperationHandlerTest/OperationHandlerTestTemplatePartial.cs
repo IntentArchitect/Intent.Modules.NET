@@ -24,8 +24,6 @@ namespace Intent.Modules.UnitTesting.Templates.OperationHandlerTest
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public OperationHandlerTestTemplate(IOutputTarget outputTarget, OperationModel model) : base(TemplateId, outputTarget, model)
         {
-            this.AddUnitTestPackages(ExecutionContext.Settings);
-
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetOperationNormalizedPath())
                .AddClass($"{Model.Name}ServiceOperationTests", @class =>
                {
@@ -41,14 +39,14 @@ namespace Intent.Modules.UnitTesting.Templates.OperationHandlerTest
 
                 if (serviceTemplate != null && serviceTemplate is ICSharpFileBuilderTemplate csharpTemplate)
                 {
-                    Helpers.PopulateTestConstructor(this, ctor, serviceTemplate, csharpTemplate, false);
+                    TestHelpers.PopulateTestConstructor(this, ctor, serviceTemplate, csharpTemplate, false);
 
                     @class.AddField(GetTypeName(serviceTemplate), "_service", @field =>
                     {
                         @field.PrivateReadOnly();
                     });
 
-                    Helpers.AddDefaultSuccessTest(this, model, @class, false);
+                    TestHelpers.AddDefaultSuccessTest(this, model, @class, false);
                 }
             }), 9999);
         }

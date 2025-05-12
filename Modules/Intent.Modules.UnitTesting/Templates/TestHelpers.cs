@@ -20,18 +20,8 @@ using static Intent.Modules.Constants.TemplateRoles.Application;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 
 namespace Intent.Modules.UnitTesting.Templates;
-internal static class Helpers
+internal static class TestHelpers
 {
-    public static void AddUnitTestPackages<TModel>(this CSharpTemplateBase<TModel> template, IApplicationSettingsProvider settings)
-    {
-        template.AddNugetDependency(NugetPackages.XunitV3(template.OutputTarget));
-        template.AddNugetDependency(NugetPackages.CoverletCollector(template.OutputTarget));
-        template.AddNugetDependency(NugetPackages.XunitRunnerVisualstudio(template.OutputTarget));
-        template.AddNugetDependency(NugetPackages.MicrosoftNETTestSdk(template.OutputTarget));
-
-        template.AddNugetDependency(GetMockFramework(settings.GetUnitTestSettings().MockFramework().AsEnum(), template.OutputTarget));
-    }
-
     public static string GetCommandQueryNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
         var model = template.Model as IElementWrapper;
@@ -115,6 +105,12 @@ internal static class Helpers
         }
     }
 
+    public static INugetPackageInfo GetMockFramework(MockFrameworkOptionsEnum mockFramework, IOutputTarget outputTarget) => mockFramework switch
+    {
+        MockFrameworkOptionsEnum.Nsubstitute => NugetPackages.NSubstitute(outputTarget),
+        _ => NugetPackages.Moq(outputTarget),
+    };
+
     private static string GetAssociationAction(IAssociationEnd association) => association?.SpecializationTypeId switch
     {
         "328f54e5-7bad-4b5f-90ca-03ce3105d016" => "Create",
@@ -143,12 +139,6 @@ internal static class Helpers
 
         return [.. ctor.Parameters];
     }
-
-    private static INugetPackageInfo GetMockFramework(MockFrameworkOptionsEnum mockFramework, IOutputTarget outputTarget) => mockFramework switch
-    {
-        MockFrameworkOptionsEnum.Nsubstitute => NugetPackages.NSubstitute(outputTarget),
-        _ => NugetPackages.Moq(outputTarget),
-    };
 
     private static string GetMockInstantiation(MockFrameworkOptionsEnum mockFramework, ICSharpTemplate template, string typeName) => mockFramework switch
     {

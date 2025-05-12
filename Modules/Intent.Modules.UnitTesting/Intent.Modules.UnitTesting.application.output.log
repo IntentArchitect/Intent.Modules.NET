@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>1c3cc43b-4c65-48fc-8172-e4a10eb7e391</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#92e43c85-2541-4ca0-b3a7-f71965c0e7bc</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/NuGetInstallFactoryExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NuGetInstallFactoryExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>de2f00e9-4f2d-4b0d-95e0-b945b7a7d985</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#de2f00e9-4f2d-4b0d-95e0-b945b7a7d985</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
