@@ -14,6 +14,7 @@ using Intent.Modules.Metadata.WebApi.Models;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -52,6 +53,25 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
                     p => { p.IntroduceReadonlyField((_, assignment) => assignment.ThrowArgumentNullException()); });
 
                 var method = @class.FindMethod(s => s.HasMetadata("handle"))!;
+
+                var fromBodyParam = endpointTemplate.Model.Parameters.FirstOrDefault(p =>
+                        p.Source == HttpInputSource.FromBody);
+
+                if (fromBodyParam != null)
+                {
+                    if (!endpointTemplate.TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
+                    {
+                        return;
+                    }
+
+                    @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((_, statement) =>
+                    {
+                        statement.ThrowArgumentNullException();
+                    }));
+
+                    method.AddStatement($"await _validationService.Handle(req, ct);");
+                }
+
                 var serviceInvocation = new CSharpInvocationStatement($"_appService.{endpointTemplate.Model.Name.ToPascalCase()}");
                 foreach (var parameter in endpointTemplate.Model.Parameters)
                 {
