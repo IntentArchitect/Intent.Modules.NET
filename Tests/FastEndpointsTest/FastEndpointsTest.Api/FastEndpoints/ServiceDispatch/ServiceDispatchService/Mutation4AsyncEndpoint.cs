@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
         public override void Configure()
         {
-            Post("mutation-async-with-param");
+            Post("api/service-dispatch/mutation-async-with-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchService");

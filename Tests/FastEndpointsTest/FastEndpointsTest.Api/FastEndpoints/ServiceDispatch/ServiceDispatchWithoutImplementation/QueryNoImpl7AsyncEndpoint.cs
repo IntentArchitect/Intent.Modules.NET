@@ -26,7 +26,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override void Configure()
         {
-            Get("query-async-param");
+            Get("api/service-dispatch-without-implementation/query-async-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchWithoutImplementation");

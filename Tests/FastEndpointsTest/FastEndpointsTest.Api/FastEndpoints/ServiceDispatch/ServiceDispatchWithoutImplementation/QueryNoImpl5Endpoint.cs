@@ -26,7 +26,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override void Configure()
         {
-            Get("query");
+            Get("api/service-dispatch-without-implementation/query");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchWithoutImplementation");

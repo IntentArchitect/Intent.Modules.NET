@@ -498,6 +498,46 @@
     </FileLog>
     <FileLog>
       <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#7fc4ca01-dc85-41f8-91db-9089282083c7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/CreateSimpleProductEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService/CreateSimpleProductEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#760ad475-fb75-496e-beb0-a0a75a3cfb74</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/DeleteSimpleProductEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService/DeleteSimpleProductEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#0750263c-4c35-4334-abb5-5cf87e6b2c79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductByIdEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService/FindSimpleProductByIdEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#75f82ffb-d051-47d7-bf63-ea3940a3c393</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/FindSimpleProductsEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService/FindSimpleProductsEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
+      <CorrelationId>Intent.FastEndpoints.EndpointTemplate#62840dcd-d620-4d19-95ea-c07bda389a9a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/SimpleProductsService/UpdateSimpleProductEndpoint.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService/UpdateSimpleProductEndpoint.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>99f262f9-c25f-4328-ac12-2dacb1cf3cc0</ProjectId>
       <CorrelationId>Intent.FastEndpoints.EndpointTemplate#0e9818ca-8780-4bb7-8840-498eab6644d8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Api/FastEndpoints/Unversioned/TestCommandEndpoint.cs</ApplicationRelativeFilePath>
@@ -1929,11 +1969,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>23f2ddca-94c2-43ee-b345-9900b0f7ba93</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#c801606e-af1e-4188-a7e8-269263ab7a78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Implementation/SimpleProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProductsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>82ede5c6-b095-4302-9a9b-d3d2bd086514</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#430e9e10-e33a-4502-882a-21290b884c00</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Application/Interfaces/Headers/IServiceWithHeaderFieldService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Headers/IServiceWithHeaderFieldService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>82ede5c6-b095-4302-9a9b-d3d2bd086514</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#c801606e-af1e-4188-a7e8-269263ab7a78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/Interfaces/ISimpleProductsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISimpleProductsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2246,6 +2302,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Application/Security/Permissions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Permissions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#395aa2c2-2f9e-4504-8e05-9935bdadc1e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#395aa2c2-2f9e-4504-8e05-9935bdadc1e1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#04eeb889-2097-42c9-a13f-d667fde24db1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#04eeb889-2097-42c9-a13f-d667fde24db1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9df3fddd-e4fe-45c4-8420-fe9648bd4006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8c673357-b030-480f-8c12-985d765eeb07</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9df3fddd-e4fe-45c4-8420-fe9648bd4006</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Application/SimpleProducts/SimpleProductUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SimpleProducts/SimpleProductUpdateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2618,6 +2722,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5e2bfbea-2672-43d5-8973-d703a90a1ce0</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#208b1ea5-ef50-433d-a846-1148d0146ab2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Domain/Entities/CRUD/SimpleProduct.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CRUD/SimpleProduct.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5e2bfbea-2672-43d5-8973-d703a90a1ce0</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#7505760a-2db9-4384-b26b-6b711365a5b3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Domain/Entities/DDD/Account.cs</ApplicationRelativeFilePath>
@@ -2790,6 +2902,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Domain/Repositories/CRUD/IAggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CRUD/IAggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a6d5c58-b9e4-4739-a88d-626c4b3a8bd5</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#208b1ea5-ef50-433d-a846-1148d0146ab2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Domain/Repositories/CRUD/ISimpleProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CRUD/ISimpleProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -3042,6 +3162,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>440fb696-467e-4051-a3d8-d3910fb1d463</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#208b1ea5-ef50-433d-a846-1148d0146ab2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Infrastructure/Persistence/Configurations/CRUD/SimpleProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CRUD/SimpleProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>440fb696-467e-4051-a3d8-d3910fb1d463</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#7505760a-2db9-4384-b26b-6b711365a5b3</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Infrastructure/Persistence/Configurations/DDD/AccountConfiguration.cs</ApplicationRelativeFilePath>
@@ -3174,6 +3302,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FastEndpointsTest.Infrastructure/Repositories/CRUD/AggregateTestNoIdReturnRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CRUD/AggregateTestNoIdReturnRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b6c601e7-352e-4a97-b7b7-296831749eab</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#208b1ea5-ef50-433d-a846-1148d0146ab2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FastEndpointsTest.Infrastructure/Repositories/CRUD/SimpleProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CRUD/SimpleProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
