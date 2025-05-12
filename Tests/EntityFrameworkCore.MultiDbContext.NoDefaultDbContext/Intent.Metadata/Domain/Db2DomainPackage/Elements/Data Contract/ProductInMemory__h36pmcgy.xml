@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0bcb89da-5aac-47ef-9f0e-8e4bf983789e" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>ProductInMemory</name>
+  <display>ProductInMemory</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>34c0f6dd-391d-4546-93cd-f6f01b395940</parentFolderId>
+  <packageId>34c0f6dd-391d-4546-93cd-f6f01b395940</packageId>
+  <packageName>Db2DomainPackage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

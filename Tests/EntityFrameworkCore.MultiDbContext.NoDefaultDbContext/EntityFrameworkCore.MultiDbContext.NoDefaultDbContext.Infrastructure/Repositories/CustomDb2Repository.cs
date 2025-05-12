@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Contracts;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Repositories;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
@@ -21,7 +24,28 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
 
         public async Task TestProc(CancellationToken cancellationToken = default)
         {
-            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE TestProc", cancellationToken);
+            throw new NotImplementedException();
+        }
+
+        public async Task UpdateProductName(int productId, string newName, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateProductPrice(
+            int productId,
+            decimal newPrice,
+            CancellationToken cancellationToken = default)
+        {
+
+            throw new NotImplementedException();
+        }
+
+        public async Task<IReadOnlyCollection<ProductInMemory>> GetProductsByName(
+            string search,
+            CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
         }
     }
 }

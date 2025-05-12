@@ -50,5 +50,326 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="ce1fd95d-f0d6-4655-a44f-b5161735d558" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>update_product_price</name>
+      <display>update_product_price(product_id: int, new_price: decimal, out success: bool): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="48ed75d9-d212-491b-927d-52fd2d63d737">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
+      <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+      <packageName>Db3DomainPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="503be273-acdd-4de9-b8f7-9ff12bbb9fe3" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>product_id</name>
+          <display>product_id: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4267083d-e131-416b-98e5-a53cc43e77af">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ce1fd95d-f0d6-4655-a44f-b5161735d558</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a8d70165-c9d8-4832-a051-228936df95f9" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>new_price</name>
+          <display>new_price: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="211c6a16-69dd-4cbe-9808-33ddeed06a71">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ce1fd95d-f0d6-4655-a44f-b5161735d558</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="06c2181d-5283-4fa7-bd2f-3cdbe5de4083" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>success</name>
+          <display>out success: bool</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f9dc3d9a-b70f-46de-9c3b-7ead4f395023">
+            <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ce1fd95d-f0d6-4655-a44f-b5161735d558</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="true" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1963ac10-5237-44e1-88e0-7f85ca7a503e" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>update_product_name</name>
+      <display>update_product_name(product_id: int, new_name: string): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="cecaf2f9-5762-4051-9b52-43288b8baff6">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
+      <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+      <packageName>Db3DomainPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a9fc04f4-8aa5-4e92-9690-09a453c1d620" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>product_id</name>
+          <display>product_id: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a0528f24-ce1b-4d01-b1d3-a1215164f2fd">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1963ac10-5237-44e1-88e0-7f85ca7a503e</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0e8dbeaa-5a11-4121-aedc-68e5d6b7d6a4" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>new_name</name>
+          <display>new_name: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4d8bc922-00c6-48b3-93da-b55720bb7a98">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1963ac10-5237-44e1-88e0-7f85ca7a503e</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="9feaa651-0612-4673-911f-7eb4a3306b7b" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>get_products_by_name</name>
+      <display>get_products_by_name(search: string): Product[*]</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <typeReference id="48108ee1-0e53-4d6b-93af-97fbe8802531">
+        <typeId>d0ebbd80-27c5-4b47-92fd-a530e61b8c6a</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Db3DomainPackage</typePackageName>
+        <typePackageId>43e241be-9a89-4cfd-8dfc-612182b90123</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
+      <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+      <packageName>Db3DomainPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="0cf530e5-ec48-4f7d-88f9-bcc086eac545" type="Stored Procedure Parameter" typeId="5823b192-eb03-47c8-90d8-5501c922e9a5">
+          <name>search</name>
+          <display>search: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3e09e7c6-6858-470e-94f5-c7e0c6233e28">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9feaa651-0612-4673-911f-7eb4a3306b7b</parentFolderId>
+          <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+          <packageName>Db3DomainPackage</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="5332b774-6499-4b4b-9fdb-e3eef13bdee4" name="Stored Procedure Parameter Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+              <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+              <properties>
+                <property name="17aa77a0-c531-49ec-bed0-9cbb125f6ce3" display="Is Output Parameter" value="false" isActive="true" />
+                <property name="dfa55cca-142e-4d76-b772-6f86a9c99b0f" display="SQL String Type" value="VarChar" isActive="false" />
+                <property name="febc9d55-6c43-4549-bef8-9f2aee7811c9" display="Size" value="255" isActive="false" />
+                <property name="ccf2fa26-234b-49c9-ad0b-0e33d570f2df" display="Precision" isActive="false" />
+                <property name="4ac97c2e-d789-4174-9343-47758b4f4938" display="Scale" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

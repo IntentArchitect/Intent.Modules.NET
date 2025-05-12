@@ -362,6 +362,7 @@ internal static class EntityFrameworkRepositoryHelpers
         template.AddTypeSource(TemplateRoles.Domain.Enum);
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
+        template.CSharpFile.AddUsing("System");
         template.CSharpFile.AddUsing("System.Threading");
         template.CSharpFile.AddUsing("System.Threading.Tasks");
 
@@ -422,10 +423,10 @@ internal static class EntityFrameworkRepositoryHelpers
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle:
                     provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle;
                     break;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default:
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory:
                     provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory;
                     break;
-                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default:
                 default:
                     throw new ArgumentOutOfRangeException(nameof(Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum), stereotype.DatabaseProvider().AsEnum(), "Unsupported provider");
             }
@@ -499,6 +500,7 @@ internal static class EntityFrameworkRepositoryHelpers
         if (parameterFactory is DefaultDbParameterFactory)
         {
             method.AddStatement("throw new NotImplementedException();");
+            
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
         }

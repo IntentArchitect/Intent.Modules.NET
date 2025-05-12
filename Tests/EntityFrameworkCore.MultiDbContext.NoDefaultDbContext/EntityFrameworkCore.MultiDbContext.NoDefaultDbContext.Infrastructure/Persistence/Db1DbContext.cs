@@ -1,4 +1,5 @@
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Common.Interfaces;
+using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Contracts;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Entities;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
@@ -15,6 +16,9 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
         {
         }
 
+        public DbSet<ProductInMemory> ProductInMemories { get; set; }
+        public DbSet<Product> Products { get; set; }
+
         public DbSet<Db1Entity> Db1Entities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,6 +26,8 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.Entity<ProductInMemory>().HasNoKey().ToView(null);
+            modelBuilder.Entity<Product>().HasNoKey().ToView(null);
             modelBuilder.ApplyConfiguration(new Db1EntityConfiguration());
         }
 

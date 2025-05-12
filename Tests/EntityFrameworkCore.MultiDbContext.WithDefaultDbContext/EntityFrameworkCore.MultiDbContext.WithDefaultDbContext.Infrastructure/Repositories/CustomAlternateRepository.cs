@@ -21,7 +21,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
 
         public async Task TestProc(CancellationToken cancellationToken = default)
         {
-            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE TestProc", cancellationToken);
+            throw new NotImplementedException();
         }
     }
 }

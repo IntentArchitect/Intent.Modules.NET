@@ -651,6 +651,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4221cf10-0c08-4eed-b17b-f07ef4274f17</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#d0ebbd80-27c5-4b47-92fd-a530e61b8c6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain/Contracts/Product.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4221cf10-0c08-4eed-b17b-f07ef4274f17</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#0bcb89da-5aac-47ef-9f0e-8e4bf983789e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain/Contracts/ProductInMemory.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductInMemory.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>076324da-4955-4ff8-9b61-8cd0aa963de2</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#508c6d92-56a1-4838-8da0-392c2aff2fe1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
