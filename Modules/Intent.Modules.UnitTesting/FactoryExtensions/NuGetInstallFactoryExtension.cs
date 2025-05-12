@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.VisualStudio;
@@ -9,8 +11,6 @@ using Intent.Modules.UnitTesting.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
