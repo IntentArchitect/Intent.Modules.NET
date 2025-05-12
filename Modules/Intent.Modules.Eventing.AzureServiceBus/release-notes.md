@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: Wrong Service Provider was supplied to Dispatcher resulting in EventBus flushing not to take place.
+
 ### Version 1.0.2
 
 - Improvement: Updated NuGet package versions.

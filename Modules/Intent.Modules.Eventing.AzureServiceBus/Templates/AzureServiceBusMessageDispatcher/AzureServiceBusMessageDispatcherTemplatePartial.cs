@@ -35,28 +35,26 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AzureServiceBusMessageDispatcher", @class =>
                 {
-                    @class.AddField("IServiceProvider", "_serviceProvider", field => field.PrivateReadOnly());
                     @class.AddField("Dictionary<string, DispatchHandler>", "_handlers", field => field.PrivateReadOnly());
 
                     @class.ImplementsInterface(this.GetAzureServiceBusMessageDispatcherInterfaceName());
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IServiceProvider", "serviceProvider")
-                            .AddParameter($"IOptions<{this.GetSubscriptionOptionsName()}>", "options");
+                        ctor.AddParameter($"IOptions<{this.GetSubscriptionOptionsName()}>", "options");
 
-                        ctor.AddStatement("_serviceProvider = serviceProvider;")
-                            .AddStatement("_handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);");
+                        ctor.AddStatement("_handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);");
                     });
 
                     @class.AddMethod("async Task", "DispatchAsync", method =>
                     {
+                        method.AddParameter("IServiceProvider", "scopedServiceProvider");
                         method.AddParameter("ServiceBusReceivedMessage", "message");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
                         method.AddStatement("""var messageTypeName = message.ApplicationProperties["MessageType"].ToString()!;""");
                         method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)",
-                            block => { block.AddStatement("await handlerAsync(_serviceProvider, message, cancellationToken);"); });
+                            block => { block.AddStatement("await handlerAsync(scopedServiceProvider, message, cancellationToken);"); });
                     });
 
                     @class.AddMethod("Task", "InvokeDispatchHandler", method =>
