@@ -120,7 +120,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.ResourceGroupTf
                 builder.AddResource("azurerm_servicebus_namespace", "service_bus", resource => resource
                     .AddRawSetting("name", "local.service_bus_namespace_name")
                     .AddRawSetting("location", "var.resource_group_location")
-                    .AddRawSetting("resource_group_name", "var.resource_group_name")
+                    .AddRawSetting("resource_group_name", "azurerm_resource_group.rg.name")
                     .AddSetting("sku", "Standard"));
             }
 
