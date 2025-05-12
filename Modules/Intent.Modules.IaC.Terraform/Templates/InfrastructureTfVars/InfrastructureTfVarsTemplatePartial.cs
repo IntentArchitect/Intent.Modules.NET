@@ -51,14 +51,14 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTfVars
             var sanitizedAppName = ExecutionContext.GetApplicationConfig().Name.Replace('.', '-').ToKebabCase();
             var keysWithDefaults = new Dictionary<string, string>
             {
-                { "app_insights_name", @"""" },
+                { "app_insights_name", @"""""" },
                 { "resource_group_location", @"""East US""" },
                 { "resource_group_name", $@"""rg-{sanitizedAppName}""" }
             };
 
             if (_hasAzureServiceBus)
             {
-                keysWithDefaults["service_bus_namespace_name"] = "";
+                keysWithDefaults["service_bus_namespace_name"] = @"""""";
             }
 
             return this.MergeKeyValuePairs(keysWithDefaults);

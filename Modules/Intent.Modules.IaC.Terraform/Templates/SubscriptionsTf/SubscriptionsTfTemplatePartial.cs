@@ -76,8 +76,6 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTf
                 .AddSetting("description", "The ID of the Function App")
                 .AddRawSetting("type", "string"));
 
-            _eventGridTerraformExtension.ApplyVariables(builder);
-
             _eventGridTerraformExtension.ApplySubscriptions(builder);
 
             return builder.Build();

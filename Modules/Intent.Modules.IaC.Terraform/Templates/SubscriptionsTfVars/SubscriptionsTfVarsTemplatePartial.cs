@@ -67,19 +67,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.SubscriptionsTfVars
                 { "resource_group_name", $@"""rg-{sanitizedAppName}""" },
                 { "function_app_id", @"""""" }
             };
-            foreach (var receivedEvent in _receivedEvents)
-            {
-                switch (receivedEvent.InfrastructureComponent)
-                {
-                    case Infrastructure.AzureEventGrid.Subscription:
-                    {
-                        var topicName = receivedEvent.Properties[Infrastructure.AzureEventGrid.Property.TopicName].ToPascalCase();
-                        var varName = $"eventGridTopic{topicName}".ToSnakeCase();
-                        keysWithDefaults.Add($"{varName}_id", @"""""");
-                    }
-                        break;
-                }
-            }
+
             return this.MergeKeyValuePairs(keysWithDefaults);
         }
     }

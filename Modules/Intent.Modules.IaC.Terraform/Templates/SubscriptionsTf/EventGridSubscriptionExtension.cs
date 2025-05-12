@@ -32,18 +32,6 @@ internal class EventGridTerraformExtension
             HandlerFunctionName: @event.Properties[Infrastructure.AzureEventGrid.Property.HandlerFunctionName]));
     }
 
-    public void ApplyVariables(TerraformFileBuilder builder)
-    {
-        OrderSubscriptionsOnceOff();
-        foreach (var subscription in _subscriptions)
-        {
-            var varName = $"eventGridTopic{subscription.TopicName}".ToSnakeCase();
-            builder.AddVariable($"{varName}_id", v => v
-                .AddSetting("description", $"The ID of {subscription.TopicName.ToSentenceCase()}")
-                .AddRawSetting("type", "string"));
-        }
-    }
-
     public void ApplySubscriptions(TerraformFileBuilder builder)
     {
         OrderSubscriptionsOnceOff();
@@ -52,9 +40,14 @@ internal class EventGridTerraformExtension
         foreach (var subscription in _subscriptions)
         {
             var varName = $"eventGridTopic{subscription.TopicName}".ToSnakeCase();
+            
+            builder.AddData("azurerm_eventgrid_topic", varName, data => data
+                .AddSetting("name", subscription.TopicName.ToKebabCase())
+                .AddRawSetting("resource_group_name", "var.resource_group_name"));
+            
             builder.AddResource("azurerm_eventgrid_event_subscription", $"{varName}_subscription", resource => resource
                 .AddSetting("name", $"{varName.ToKebabCase()}-sub")
-                .AddRawSetting("scope", $"var.{varName}_id")
+                .AddRawSetting("scope", $"data.azurerm_eventgrid_topic.{varName}.id")
                 .AddBlock("azure_function_endpoint", endpoint => endpoint
                     .AddSetting("function_id", $"${{var.function_app_id}}/functions/{subscription.HandlerFunctionName}")
                     .AddSetting("max_events_per_batch", 1)

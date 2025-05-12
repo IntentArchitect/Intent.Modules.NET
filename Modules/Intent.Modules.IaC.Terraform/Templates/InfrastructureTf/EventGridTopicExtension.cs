@@ -46,32 +46,5 @@ internal class EventGridTopicExtension
             configVarMappings[topic.KeyConfigName] = $"azurerm_eventgrid_topic.{varName}.primary_access_key";
             configVarMappings[topic.EndpointConfigName] = $"azurerm_eventgrid_topic.{varName}.endpoint";
         }
-
-        foreach (var subscription in _subscriptions)
-        {
-            var varName = $"eventGridTopic{subscription}".ToPascalCase().ToSnakeCase();
-            builder.AddData("azurerm_eventgrid_topic", varName, data => data
-                .AddSetting("name", subscription.ToKebabCase())
-                .AddRawSetting("location", "var.resource_group_location")
-                .AddRawSetting("resource_group_name", "var.resource_group_name"));
-        }
-    }
-
-    public void ApplyOutput(TerraformFileBuilder builder)
-    {
-        foreach (var topic in _topics)
-        {
-            var varName = $"eventGridTopic{topic.TopicName}".ToPascalCase().ToSnakeCase();
-            
-            builder.AddOutput($"{varName}_id", output => output
-                .AddRawSetting("value", $"azurerm_eventgrid_topic.{varName}.id"));
-        }
-
-        foreach (var subscription in _subscriptions)
-        {
-            var varName = $"eventGridTopic{subscription}".ToPascalCase().ToSnakeCase();
-            builder.AddOutput($"{varName}_id", output => output
-                .AddRawSetting("value", $"data.azurerm_eventgrid_topic.{varName}.id"));
-        }
     }
 }

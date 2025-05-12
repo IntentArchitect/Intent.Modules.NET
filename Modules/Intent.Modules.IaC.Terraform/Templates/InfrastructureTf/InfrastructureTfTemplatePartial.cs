@@ -175,8 +175,6 @@ namespace Intent.Modules.IaC.Terraform.Templates.InfrastructureTf
             builder.AddOutput("function_app_id", output => output
                 .AddRawSetting("value", "azurerm_windows_function_app.function_app.id"));
 
-            _eventGridTopicExtension.ApplyOutput(builder);
-
             return builder.Build();
         }
     }
