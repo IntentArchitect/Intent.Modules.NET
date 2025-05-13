@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d88d3e01-fc34-4bd3-8194-a7f78a90ae88" type="Domain Event" typeId="0814e459-fb9b-47db-b7eb-32ce30397e8a">
+  <name>CustomerCreated</name>
+  <display>CustomerCreated</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a985b685-fee6-4413-b291-34a1cb171158</parentFolderId>
+  <packageId>a985b685-fee6-4413-b291-34a1cb171158</packageId>
+  <packageName>Module1.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f169f518-92c0-4c5c-a0a5-80b7651e9315" type="Property" typeId="b4d69073-5abb-4968-b41b-545b2f7408ed">
+      <name>Customer</name>
+      <display>Customer: Customer</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9356a7f4-9dc4-4b75-a688-a1bab3609f59">
+        <typeId>f2f592d4-380a-494f-b799-7a74b6cce2f5</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Module1.Domain</typePackageName>
+        <typePackageId>a985b685-fee6-4413-b291-34a1cb171158</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d88d3e01-fc34-4bd3-8194-a7f78a90ae88</parentFolderId>
+      <packageId>a985b685-fee6-4413-b291-34a1cb171158</packageId>
+      <packageName>Module1.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

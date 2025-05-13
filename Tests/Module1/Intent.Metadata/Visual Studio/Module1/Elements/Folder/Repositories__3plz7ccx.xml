@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1dac7e35-7cb0-4278-ad00-c33a8720086e" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Repositories</name>
+  <display>Repositories</display>
+  <externalReference>8aabdb29-d9b9-4376-8ad6-0ae6eaabd7f3</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>fb7214f9-ab4f-4419-ac71-a3f347b74160</parentFolderId>
+  <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+  <packageName>Module1</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="666aa3c4-d6a9-46f4-8c5e-5af9893b35ae" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Entities.Repositories.Api.CustomRepository</name>
+      <display>Intent.Entities.Repositories.Api.CustomRepository</display>
+      <externalReference>93deb8e5-6e28-4ea9-8253-3d3d4a1c4ce9</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1dac7e35-7cb0-4278-ad00-c33a8720086e</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="79066da0-5d33-4fea-8cca-07de26303b7a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.Repository</name>
+      <display>Intent.EntityFrameworkCore.Repositories.Repository</display>
+      <externalReference>9d582570-50dd-4e41-be97-2ab1955f64f5</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1dac7e35-7cb0-4278-ad00-c33a8720086e</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="d943ea02-883f-421d-a0b5-88c9899f3b18" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.EntityFrameworkCore.Repositories.RepositoryBase</name>
+      <display>Intent.EntityFrameworkCore.Repositories.RepositoryBase</display>
+      <externalReference>f2a9389c-4f36-4c71-b84e-f3e64390dd39</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>1dac7e35-7cb0-4278-ad00-c33a8720086e</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

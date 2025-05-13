@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e4409f41-56c2-4956-b1dc-47acb1576293">
+  <sourceEnd id="aa2624fa-950d-4fa1-9997-83a4f4e59c4a" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: Module2.Services.CustomerCreatedIEHandler</display>
+    <order>0</order>
+    <typeReference id="38711ce9-a6b6-4e23-837d-2d16b21d60ac">
+      <typeId>b20e9df4-1f8d-4297-bc0c-944d873f93e8</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e4409f41-56c2-4956-b1dc-47acb1576293" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: CustomerCreatedIE</display>
+    <order>0</order>
+    <typeReference id="0a51f25a-f9f1-4402-a53b-acbb44a4431d">
+      <typeId>e6887cdd-9704-40c3-b81c-c0f743639f8b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Eventing.Messages</typePackageName>
+      <typePackageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

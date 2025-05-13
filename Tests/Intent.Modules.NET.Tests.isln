@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.0.16" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module" version="1.0.0-pre.1" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -149,5 +149,8 @@
     <application id="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" name="AzureFunctions.AzureServiceBus" relativePath="AzureFunctions.AzureServiceBus/AzureFunctions.AzureServiceBus.application.config" />
     <application id="4a338751-91d2-4c13-b0ad-bb2979c82f22" name="AzureFunctions.AzureEventGrid" relativePath="AzureFunctions.AzureEventGrid/AzureFunctions.AzureEventGrid.application.config" />
     <application id="74dbe983-f492-4a82-909e-005cf26e9110" name="SqlDbProject" relativePath="SqlDbProject/SqlDbProject.application.config" />
+    <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Modular Monolith" relativePath="ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
+    <application id="4d989763-0499-4e06-a75d-af159dea70cd" name="Module1" solutionFolder="Modular Monolith" relativePath="Module1/Module1.application.config" />
+    <application id="42bb3d2c-d940-43c9-8d76-95250d6ee17e" name="Module2" solutionFolder="Modular Monolith" relativePath="Module2/Module2.application.config" />
   </applications>
 </solution>

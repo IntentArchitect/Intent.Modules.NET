@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Intent.Engine;
+using Intent.IArchitect.Agent.Persistence.Output;
+using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Templates;
@@ -7,6 +11,7 @@ using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -41,23 +46,35 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
 
         private void DisableMessageSubscriptions(IApplication application)
         {
+            var externalAppIds = new HashSet<string>();
+
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationCommand");
-            DisbaleSubscribedOnes(templates);
+            DisbaleSubscribedOnes(templates, externalAppIds);
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationEventMessage");
-            DisbaleSubscribedOnes(templates);
+            DisbaleSubscribedOnes(templates, externalAppIds);
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationEventDto");
             DisbaleSubscribedOnes(templates);
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Intent.Eventing.Contracts.IntegrationEventEnum");
             DisbaleSubscribedOnes(templates);
+            foreach (var externalAppId in externalAppIds)
+            {
+
+            }
         }
 
-        private static void DisbaleSubscribedOnes(System.Collections.Generic.IEnumerable<ICSharpFileBuilderTemplate> templates)
+        private static void DisbaleSubscribedOnes(System.Collections.Generic.IEnumerable<ICSharpFileBuilderTemplate> templates, HashSet<string>? externalAppIds = null)
         {
             foreach (var template in templates)
             {
                 if (!template.Namespace.StartsWith(template.OutputTarget.ApplicationName()))
                 {
                     template.CanRun = false;
+                    if (externalAppIds != null)
+                    {
+                        var element = ((ITemplateWithModel)template).Model;
+                        var appId = ((IElementWrapper)element).InternalElement.Application.Id;
+                        externalAppIds.Add(appId);
+                    }
                 }
             }
         }

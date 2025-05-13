@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d1643e2a-f8c1-4035-b0ee-e10ea033c947">
+  <sourceEnd id="f1aebe9e-8b82-4fc3-99c1-70c1a7a440e7" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Accounts.CreateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="b2bc3bc7-136b-4085-bb17-74c25ef1d866">
+      <typeId>a343716f-4eec-4ef1-9ca7-673d827fff7f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d1643e2a-f8c1-4035-b0ee-e10ea033c947" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] AccountCreatedIE</display>
+    <order>2</order>
+    <typeReference id="d0e6b27f-20dd-4fa7-9f49-116d5e6c2691">
+      <typeId>21d8681d-70fd-4065-b22a-8daeb022f958</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Eventing.Messages</typePackageName>
+      <typePackageId>4facd9cc-f546-4410-a042-d03e29747931</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a343716f-4eec-4ef1-9ca7-673d827fff7f" location="[Module2].[Services].[CreateAccountCommand]" />
+        <target applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="21d8681d-70fd-4065-b22a-8daeb022f958" location="[Module2].[Services].[AccountCreatedIE]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{account.Id}</expression>
+            <path>
+              <target id="21d8681d-70fd-4065-b22a-8daeb022f958" name="AccountCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="97ffcc76-0772-4582-9563-c7e523bf7fb4" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="account.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="a343716f-4eec-4ef1-9ca7-673d827fff7f" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="252ec526-6da6-4c0b-b14d-e6ea3c43ea03" name="account" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="1bf63d0a-66df-4bdc-90a3-732224ea247d" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{account.Name}</expression>
+            <path>
+              <target id="21d8681d-70fd-4065-b22a-8daeb022f958" name="AccountCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="22e2f26e-cbcd-4f28-aabf-bd75d418e334" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="account.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="a343716f-4eec-4ef1-9ca7-673d827fff7f" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="252ec526-6da6-4c0b-b14d-e6ea3c43ea03" name="account" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="5c871904-778d-481f-a57a-98a9fde9db67" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>
