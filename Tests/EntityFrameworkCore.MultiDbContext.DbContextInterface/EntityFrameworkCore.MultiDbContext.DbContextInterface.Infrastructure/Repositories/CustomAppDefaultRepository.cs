@@ -22,7 +22,7 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.R
 
         public async Task TestProc(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE TestProc", cancellationToken);
         }
     }
 }
