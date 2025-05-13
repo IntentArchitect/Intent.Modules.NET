@@ -51,6 +51,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install target="Domain" src="Intent.Metadata/Module Builder/Intent.AspNetCore.OData.EntityFramework/Intent.AspNetCore.OData.EntityFramework.pkg.config" externalReference="f80db930-cd05-493f-a2a6-f487326ec7c5" />
+    <install src="modelers/Domain Designer Settings.designer.settings" externalReference="20b4965e-80e6-437c-918d-aaceb7b39245" />
   </metadata>
   <migrations />
 </package>

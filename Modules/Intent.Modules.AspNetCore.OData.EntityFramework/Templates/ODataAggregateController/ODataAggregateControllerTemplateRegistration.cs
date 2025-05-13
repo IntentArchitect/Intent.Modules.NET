@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ClassModel> GetModels(IApplication application)
         {
-            return _metadataManager.Domain(application).GetClassModels().Where(m => m.HasExposeAsOData());
+            return _metadataManager.Domain(application).GetClassModels().Where(m => m.HasOData());
         }
     }
 }

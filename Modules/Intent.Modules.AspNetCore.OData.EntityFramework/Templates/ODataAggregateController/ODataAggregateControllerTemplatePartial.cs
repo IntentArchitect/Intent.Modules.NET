@@ -50,7 +50,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                         constructor.AddParameter(dbContextInstance.GetTypeName(this), "context", p => p.IntroduceReadonlyField());
                     });
 
-                    if (!model.TryGetExposeAsOData(out var stereotype))
+                    if (!model.TryGetOData(out var stereotype))
                     {
                         return;
                     }

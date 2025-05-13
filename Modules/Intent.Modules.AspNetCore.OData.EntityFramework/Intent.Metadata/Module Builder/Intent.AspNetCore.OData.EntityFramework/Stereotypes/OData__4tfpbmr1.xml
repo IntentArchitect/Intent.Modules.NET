@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="0b58c045-255d-4f09-8ad2-25e9496480f4" version="3.1.0">
-  <name>Expose As OData</name>
+  <name>OData</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
     <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
@@ -19,6 +19,14 @@
   <order>0</order>
   <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
   <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
+  <validateFunction>let isAggregate = !element.getAssociations("Association")
+            .some(x =&gt; x.isSourceEnd() &amp;&amp; !x.typeReference.isCollection &amp;&amp; !x.typeReference.isNullable);
+
+if(isAggregate){
+    return null;
+}
+
+return "Can only apply Expose As OData on aggregate types"</validateFunction>
   <properties>
     <property id="997174ce-4a81-47ac-8271-0671ef7e28e1">
       <name>GetAll</name>

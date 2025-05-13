@@ -13,36 +13,36 @@ namespace Intent.AspNetCore.OData.EntityFramework.Api
 {
     public static class ClassModelStereotypeExtensions
     {
-        public static ExposeAsOData GetExposeAsOData(this ClassModel model)
+        public static OData GetOData(this ClassModel model)
         {
-            var stereotype = model.GetStereotype(ExposeAsOData.DefinitionId);
-            return stereotype != null ? new ExposeAsOData(stereotype) : null;
+            var stereotype = model.GetStereotype(OData.DefinitionId);
+            return stereotype != null ? new OData(stereotype) : null;
         }
 
 
-        public static bool HasExposeAsOData(this ClassModel model)
+        public static bool HasOData(this ClassModel model)
         {
-            return model.HasStereotype(ExposeAsOData.DefinitionId);
+            return model.HasStereotype(OData.DefinitionId);
         }
 
-        public static bool TryGetExposeAsOData(this ClassModel model, out ExposeAsOData stereotype)
+        public static bool TryGetOData(this ClassModel model, out OData stereotype)
         {
-            if (!HasExposeAsOData(model))
+            if (!HasOData(model))
             {
                 stereotype = null;
                 return false;
             }
 
-            stereotype = new ExposeAsOData(model.GetStereotype(ExposeAsOData.DefinitionId));
+            stereotype = new OData(model.GetStereotype(OData.DefinitionId));
             return true;
         }
 
-        public class ExposeAsOData
+        public class OData
         {
             private IStereotype _stereotype;
             public const string DefinitionId = "0b58c045-255d-4f09-8ad2-25e9496480f4";
 
-            public ExposeAsOData(IStereotype stereotype)
+            public OData(IStereotype stereotype)
             {
                 _stereotype = stereotype;
             }

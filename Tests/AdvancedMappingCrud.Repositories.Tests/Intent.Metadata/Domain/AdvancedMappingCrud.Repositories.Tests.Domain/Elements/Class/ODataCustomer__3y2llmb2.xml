@@ -9,21 +9,7 @@
   <parentFolderId>e9691f10-5c64-46dd-a8d3-a79cbc446ea7</parentFolderId>
   <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
   <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
-  <stereotypes>
-    <stereotype stereotypeDefinitionId="0b58c045-255d-4f09-8ad2-25e9496480f4" name="Expose As OData">
-      <addedByDefault>false</addedByDefault>
-      <definitionPackageName>Intent.AspNetCore.OData.EntityFramework</definitionPackageName>
-      <definitionPackageId>f80db930-cd05-493f-a2a6-f487326ec7c5</definitionPackageId>
-      <properties>
-        <property name="997174ce-4a81-47ac-8271-0671ef7e28e1" display="GetAll" value="true" isActive="true" />
-        <property name="cc630eb0-4645-4028-8f8f-4b71f5918bf6" display="GetById" value="true" isActive="true" />
-        <property name="dec657fd-c066-4f9b-8a81-2d314af18017" display="Post" value="true" isActive="true" />
-        <property name="2612067a-7c3c-471c-b9f1-e418b3298962" display="Delete" value="true" isActive="true" />
-        <property name="8640c3ea-3176-4b55-9785-9c8f2ad5c80e" display="Patch" value="true" isActive="true" />
-        <property name="fd8511f9-204c-414d-b355-dc4026b61f72" display="Put" value="true" isActive="true" />
-      </properties>
-    </stereotype>
-  </stereotypes>
+  <stereotypes />
   <metadata />
   <childElements>
     <childElement id="9497975e-00b7-49be-9216-467285a3c0d2" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
@@ -52,7 +38,6 @@
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
           <properties>
-            <property name="4c1e3f7e-61d4-460d-bd20-c2edbc0c0e2e" display="Identity" value="false" isActive="true" />
             <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
           </properties>
         </stereotype>
