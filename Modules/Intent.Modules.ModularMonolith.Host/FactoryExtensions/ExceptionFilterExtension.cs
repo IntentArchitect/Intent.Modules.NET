@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -6,8 +8,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
-using System.Threading;
+using Intent.Modules.ModularMonolith.Host;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -29,6 +30,7 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
             var filterTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.ExceptionFilter");
             filterTemplate?.CSharpFile.OnBuild(file =>
             {
+                filterTemplate.AddNugetDependency(NugetPackages.FluentValidation(filterTemplate.OutputTarget));
                 InstalValidationExceptionIfMissing(file);
             }, 1000);
         }

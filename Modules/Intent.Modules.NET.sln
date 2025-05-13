@@ -376,7 +376,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.O
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modular Monolith", "Modular Monolith", "{AAC9E56F-D806-4BBC-AAED-FE2462ECA1D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ModularMonolith.ModuleInfrastructure", "Intent.Modules.ModularMonolith.ModuleInfrastructure\Intent.Modules.ModularMonolith.ModuleInfrastructure.csproj", "{3C8206AE-11AD-4593-99F8-FBFF3693141B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ModularMonolith.Module", "Intent.Modules.ModularMonolith.Module\Intent.Modules.ModularMonolith.Module.csproj", "{3C8206AE-11AD-4593-99F8-FBFF3693141B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.ModularMonolith.Host", "Intent.Modules.ModularMonolith.Host\Intent.Modules.ModularMonolith.Host.csproj", "{B25B64FE-817E-461E-B0CD-D1F4A80FB598}"
 EndProject

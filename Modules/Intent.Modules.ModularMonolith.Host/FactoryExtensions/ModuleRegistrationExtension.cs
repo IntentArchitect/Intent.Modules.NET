@@ -9,6 +9,7 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.ModularMonolith.Host.Templates;
+using Intent.Modules.ModularMonolith.Host.Templates.ModuleInstallerInterface;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -58,6 +59,7 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
             {
                 startup.StartupFile.ConfigureServices((statements, context) =>
                 {
+                    startup.GetTypeName(application.FindTemplateInstance<ICSharpFileBuilderTemplate>(ModuleInstallerInterfaceTemplate.TemplateId));
                     var statement = statements.FindStatement(m => m.Text.StartsWith($"{context.Services}.AddApplication"));
 
                     if (statement is null) return;
@@ -71,6 +73,12 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
                         statement.Replace(statement.GetText("").Replace(")", " ,moduleInstallers)"));
                     }
                     statement = statements.FindStatement(m => m.Text.StartsWith($"{context.Services}.ConfigureSwagger"));
+                    if (statement is not null)
+                    {
+                        statement.Replace(statement.GetText("").Replace(")", " ,moduleInstallers)"));
+                    }
+
+                    statement = statements.FindStatement(m => m.Text.StartsWith($"{context.Services}.AddMassTransitConfiguration"));
                     if (statement is not null)
                     {
                         statement.Replace(statement.GetText("").Replace(")", " ,moduleInstallers)"));

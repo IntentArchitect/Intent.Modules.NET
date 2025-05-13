@@ -43,7 +43,7 @@
     </detect>
     <detect id="Intent.Application.Dtos">
       <install>
-        <package id="Intent.Application.Dtos.AutoMapper" version="4.0.7" />
+        <package id="Intent.Application.Dtos.AutoMapper" version="4.0.14-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.DependencyInjection.AutoMapper">

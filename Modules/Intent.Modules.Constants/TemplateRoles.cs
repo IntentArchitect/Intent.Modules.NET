@@ -77,6 +77,7 @@ namespace Intent.Modules.Constants
             public const string DependencyInjection = "Application.DependencyInjection";
             public const string Query = "Application.Query";
             public const string Command = "Application.Command";
+            public const string EntityDtoMappingExtensions = "Intent.Application.Dtos.EntityDtoMappingExtensions";
 
             public static class Handler
             {

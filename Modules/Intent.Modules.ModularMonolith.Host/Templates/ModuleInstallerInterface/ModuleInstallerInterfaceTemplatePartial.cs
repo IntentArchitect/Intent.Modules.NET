@@ -21,6 +21,9 @@ namespace Intent.Modules.ModularMonolith.Host.Templates.ModuleInstallerInterface
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ModuleInstallerInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            AddNugetDependency(NugetPackages.SwashbuckleAspNetCore(outputTarget));
+            AddNugetDependency(NugetPackages.MassTransit(outputTarget));
+
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"IModuleInstaller", @interface =>
                 {

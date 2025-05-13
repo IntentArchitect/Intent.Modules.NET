@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
@@ -35,9 +36,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.DtoMappingProfile
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetDTOModels()
-                .Where(x => x.HasMapFromDomainMapping())
-                .ToList();
+            if (application.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileSeparate())
+            {
+                return _metadataManager.Services(application).GetDTOModels()
+                    .Where(x => x.HasMapFromDomainMapping())
+                    .ToList();
+
+            }
+            return new List<DTOModel>();
         }
     }
 }

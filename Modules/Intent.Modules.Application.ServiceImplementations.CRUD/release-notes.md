@@ -5,6 +5,10 @@
 
 ### Version 5.0.26
 
+- Improvement: Support for different `MapTo` Extension methods.
+
+### Version 5.0.26
+
 - Fixed: Not found exception message incorrect for composite entities.
 
 ### Version 5.0.25

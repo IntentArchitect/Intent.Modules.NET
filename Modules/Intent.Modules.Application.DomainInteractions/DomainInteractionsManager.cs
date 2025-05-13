@@ -393,6 +393,8 @@ public class DomainInteractionsManager
             }
             else
             {
+                //Adding Using Clause for Extension Methods
+                _template.TryGetTypeName("Intent.Application.Dtos.EntityDtoMappingExtensions", returnType.Element, out var _);
                 var autoMapperFieldName = InjectService(_template.UseType("AutoMapper.IMapper"), handlerClass);
                 string nullable = returnType.IsNullable ? "?" : "";
                 statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");

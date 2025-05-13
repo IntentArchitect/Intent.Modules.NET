@@ -26,6 +26,9 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.DtoMappingProfile
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DtoMappingProfileTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.EntityDtoMappingExtensions);
+            IsDiscoverable = ExecutionContext.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileSeparate();
+
             CSharpFile = new CSharpFile(this.GetNamespace().Replace(".Mappings", ""), this.GetFolderPath())
                 .AddUsing("AutoMapper")
                 .AddClass($"{Model.Name}Profile", @class =>
@@ -75,6 +78,8 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.DtoMappingProfile
                     });
                 });
         }
+
+
 
         private string GetDtoModelName()
         {
