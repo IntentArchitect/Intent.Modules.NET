@@ -33,7 +33,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 var @class = file.Classes.First();
-
+                file.AddUsing("System.Linq");
                 var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
                 if (configureSwaggerOptionsBlock is null)
                 {
@@ -41,6 +41,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                 }
 
                 configureSwaggerOptionsBlock.AddStatement($@"options.SchemaFilter<{template.GetODataJsonSchemaSwaggerFilterName()}>();");
+                configureSwaggerOptionsBlock.AddStatement("options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());");
             });
         }
 

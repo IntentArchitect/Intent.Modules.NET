@@ -47,6 +47,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                     }
 
                     options.SchemaFilter<ODataJsonSchemaSwaggerFilter>();
+                    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                     options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
