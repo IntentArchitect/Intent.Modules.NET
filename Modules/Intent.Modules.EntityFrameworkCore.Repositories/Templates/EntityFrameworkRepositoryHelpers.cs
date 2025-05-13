@@ -362,7 +362,6 @@ internal static class EntityFrameworkRepositoryHelpers
         template.AddTypeSource(TemplateRoles.Domain.Enum);
         template.AddTypeSource(TemplateRoles.Domain.Entity.Interface);
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
-        template.CSharpFile.AddUsing("System");
         template.CSharpFile.AddUsing("System.Threading");
         template.CSharpFile.AddUsing("System.Threading.Tasks");
 
@@ -424,6 +423,7 @@ internal static class EntityFrameworkRepositoryHelpers
                     provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle;
                     break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default:
+                    break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory:
                     provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory;
                     break;
@@ -453,7 +453,7 @@ internal static class EntityFrameworkRepositoryHelpers
             return;
         }
 
-        var parameters = new List<(string SpParameterName, string VariableName, string OutputKeyword)>();
+        var parameters = new List<SqlParameter>();
 
         foreach (var parameter in storedProcedure.Parameters)
         {
@@ -473,7 +473,7 @@ internal static class EntityFrameworkRepositoryHelpers
                 ? spParameterName.EnsureSuffixedWith("Parameter")
                 : sourceExpression;
 
-            parameters.Add((spParameterName, variableName, output));
+            parameters.Add(new SqlParameter(spParameterName, variableName, output));
 
             if (isOutputParameter)
             {
@@ -499,7 +499,7 @@ internal static class EntityFrameworkRepositoryHelpers
 
         if (parameterFactory is DefaultDbParameterFactory)
         {
-            method.AddStatement("throw new NotImplementedException();");
+            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}();");
             
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
@@ -508,12 +508,7 @@ internal static class EntityFrameworkRepositoryHelpers
         {
             if (returnsScalar)
             {
-                var sql = $"\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" @{x.SpParameterName}{x.OutputKeyword}"))}\"";
-
-                if (parameterFactory is PostgresDbParameterFactory)
-                {
-                    sql = $"\"CALL {spName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"@{x.SpParameterName}" : $" @{x.SpParameterName}"))})\"";
-                }
+                var sql = parameterFactory.GenerateScalarSqlStatement(spName, parameters);
 
                 method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure.TypeReference)}>",
                     s =>
@@ -533,12 +528,7 @@ internal static class EntityFrameworkRepositoryHelpers
             }
             else if (returnTypeElement == null)
             {
-                var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
-
-                if (parameterFactory is PostgresDbParameterFactory)
-                {
-                    sql = $"$\"CALL {spName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName}}}" : $" {{{x.VariableName}}}"))})\"";
-                }
+                var sql = parameterFactory.GenerateTypeElementSqlStatement(spName, parameters);
 
                 template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
                 method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
@@ -550,12 +540,7 @@ internal static class EntityFrameworkRepositoryHelpers
             }
             else
             {
-                var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
-
-                if (parameterFactory is PostgresDbParameterFactory)
-                {
-                    sql = $"$\"SELECT * FROM {spName}({string.Join(",", parameters.Select((x, index) => index == 0 ? $"{{{x.VariableName}}}" : $" {{{x.VariableName}}}"))})\"";
-                }
+                var sql = parameterFactory.GenerateTableTypeSqlStatement(spName, parameters);
 
                 template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
                 var assignment = assignResultToVariable

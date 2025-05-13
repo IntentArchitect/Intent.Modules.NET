@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml.Linq;
 using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -142,6 +145,21 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
                 null => "VarChar",
                 var value => value
             };
+        }
+
+        public string GenerateScalarSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
+        {
+            return $"\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" @{x.SpParameterName}{x.OutputKeyword}"))}\"";
+        }
+
+        public string GenerateTypeElementSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
+        {
+            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
+        }
+
+        public string GenerateTableTypeSqlStatement(string storeProcedureName, List<SqlParameter> parameters)
+        {
+            return $"$\"EXECUTE {storeProcedureName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
         }
     }
 }

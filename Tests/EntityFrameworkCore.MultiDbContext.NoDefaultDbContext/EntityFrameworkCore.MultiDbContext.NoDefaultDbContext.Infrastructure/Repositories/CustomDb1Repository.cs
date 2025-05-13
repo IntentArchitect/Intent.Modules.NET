@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Repositories;
@@ -22,7 +21,7 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
 
         public async Task TestProc(CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            await _dbContext.Database.ExecuteSqlInterpolatedAsync($"EXECUTE TestProc", cancellationToken);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Intent.Modules.Common.CSharp.Builder;
+﻿using System.Collections.Generic;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories.Interfaces
@@ -17,5 +18,11 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories.I
         CSharpStatement CreateForTableType(
             string invocationPrefix,
             Parameter parameter);
+
+        string GenerateScalarSqlStatement(string storeProcedureName, List<SqlParameter> parameters);
+        string GenerateTypeElementSqlStatement(string storeProcedureName, List<SqlParameter> parameters);
+        string GenerateTableTypeSqlStatement(string storeProcedureName, List<SqlParameter> parameters);
     }
+
+    internal record SqlParameter(string SpParameterName, string VariableName, string OutputKeyword);
 }
