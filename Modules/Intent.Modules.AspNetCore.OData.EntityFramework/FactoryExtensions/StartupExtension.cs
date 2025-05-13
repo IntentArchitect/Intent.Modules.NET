@@ -49,7 +49,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
             foreach (var template in templates)
             {
                 if (!template.TryGetModel<ClassModel>(out var templateModel) ||
-                    !templateModel.HasStereotype("Expose As OData"))
+                    !templateModel.HasStereotype("OData"))
                 {
                     continue;
                 }
@@ -120,7 +120,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                     foreach (var template in templates)
                     {
                         if (!template.TryGetModel<ClassModel>(out var templateModel) ||
-                            !templateModel.HasStereotype("Expose As OData"))
+                            !templateModel.HasStereotype("OData"))
                         {
                             continue;
                         }

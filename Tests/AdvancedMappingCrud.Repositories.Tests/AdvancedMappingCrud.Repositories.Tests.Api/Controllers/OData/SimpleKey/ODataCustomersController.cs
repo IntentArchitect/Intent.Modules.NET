@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Deltas;
 using Microsoft.AspNetCore.OData.Query;
+using Microsoft.AspNetCore.OData.Routing.Attributes;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers.OData.SimpleKey
 {
     [EnableQuery]
+    [ODataRouteComponent("odata")]
     public class ODataCustomersController : ODataController
     {
         private readonly ApplicationDbContext _context;
