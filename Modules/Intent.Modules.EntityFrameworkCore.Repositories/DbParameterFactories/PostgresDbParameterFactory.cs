@@ -79,6 +79,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
                 statement.AddObjectInitStatement("Scale", scale.ToString());
             }
             statement.AddObjectInitStatement("ParameterName", $"\"{valueVariableName}\"");
+            _template.AddUsing("System");
             statement.AddObjectInitStatement("Value", "DBNull.Value");
             statement.WithSemicolon();
 
