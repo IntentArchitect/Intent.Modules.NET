@@ -79,13 +79,14 @@ internal static class TestHelpers
 
         var entityName = association?.TypeReference?.Element?.Name == null ? "Entity" : association.TypeReference.Element.Name;
         var action = GetAssociationAction(association);
+        var methodName = $"{(isCQRS ? "Handler" : "Operation")}_Should_{action}_{entityName}_Successfully";
 
         if (association != null)
         {
-            @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), $"{(isCQRS ? "Handler" : "Operation")}_Should_{action}_{entityName}_Successfully", method =>
+            @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), methodName, method =>
             {
                 method.AddAttribute(template.UseType("Xunit.Fact"));
-                method.AddAttribute(CSharpIntentManagedAttribute.Ignore());
+                method.AddAttribute(template.UseType("Intent.RoslynWeaver.Attributes.IntentInitialGen"));
                 method.Async();
 
                 method.AddStatement("// Arrange");
@@ -98,6 +99,7 @@ internal static class TestHelpers
 
                 method.AddStatement("// Assert");
                 method.AddStatement("// Check the outcomes of the test");
+                method.AddStatement($"Assert.Fail($\"Implement unit test logic for test '{{nameof({methodName})}}'\");");
                 method.AddStatement("");
 
                 method.AddReturn("");
