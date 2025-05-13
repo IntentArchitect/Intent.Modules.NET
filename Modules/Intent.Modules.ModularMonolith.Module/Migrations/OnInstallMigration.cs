@@ -1,11 +1,11 @@
+using System.Diagnostics;
+using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Metadata;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Diagnostics;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -37,11 +37,11 @@ namespace Intent.Modules.ModularMonolith.Module.Migrations
                     Name = "Database Settings",
                     DefinitionPackageId = "Intent.EntityFrameworkCore",
                     DefinitionPackageName = "a9d2a398-04e4-4300-9fbb-768568c65f9e"
-                    
+
                 };
                 stereotype.Properties =
                 [
-                    new StereotypePropertyPersistable 
+                    new StereotypePropertyPersistable
                     {
                         DefinitionId = "62bac18a-63d0-44eb-b3b8-52eb2ce6b65d",
                         Name = "Connection String Name",
