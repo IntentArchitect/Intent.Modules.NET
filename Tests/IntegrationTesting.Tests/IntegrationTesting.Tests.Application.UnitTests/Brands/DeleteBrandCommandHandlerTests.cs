@@ -24,7 +24,6 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
         }
 
         [Fact]
-        [IntentManaged(Mode.Ignore)]
         public async Task Handler_Should_Delete_Brand_Successfully()
         {
             // Arrange
@@ -35,6 +34,7 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
 
             // Assert
             // Check the outcomes of the test
+            Assert.Fail($"Implement unit test logic for test '{nameof(Handler_Should_Delete_Brand_Successfully)}'");
 
             return;
         }
