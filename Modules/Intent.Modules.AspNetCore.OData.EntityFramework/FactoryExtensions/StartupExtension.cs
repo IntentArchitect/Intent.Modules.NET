@@ -57,7 +57,11 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
                 template.TryGetTemplate(TemplateRoles.Domain.Entity.Primary, templateModel, out ICSharpFileBuilderTemplate entityTemplate);
                 var entityName = startupTemplate.GetTypeName(entityTemplate);
                 var primaryKeys = templateModel.Attributes.Where(att => att.HasStereotype("Primary Key"));
-                exposedAsODataEntityNames.Add(entityName, primaryKeys);
+                if (!exposedAsODataEntityNames.ContainsKey(entityName))
+                {
+                    exposedAsODataEntityNames.Add(entityName, primaryKeys);
+                }
+
                 TraverseAssociatedChildren(templateModel.AssociatedClasses, exposedAsODataEntityNames, template, startupTemplate);
             }
 

@@ -35,11 +35,13 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ODataAggrega
                 .AddUsing("Microsoft.AspNetCore.OData.Routing.Controllers")
                 .AddUsing("Microsoft.EntityFrameworkCore")
                 .AddUsing("System.Linq")
+                .AddUsing("Microsoft.AspNetCore.OData.Routing.Attributes")
                 .AddClass($"{Model.Name.RemoveSuffix("Controller", "Service").Pluralize()}Controller", @class =>
                 {
                     @class.WithBaseType("ODataController");
                     @class.AddMetadata("model", Model);
                     @class.AddAttribute("[EnableQuery]");
+                    @class.AddAttribute("""[ODataRouteComponent("odata")]""");
 
                     var dbContextInstance = DbContextManager.GetDbContext(Model);
 
