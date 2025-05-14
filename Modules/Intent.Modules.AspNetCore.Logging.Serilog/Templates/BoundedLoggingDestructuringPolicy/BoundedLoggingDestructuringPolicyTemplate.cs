@@ -218,9 +218,9 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Templates.BoundedLoggingDest
                              return new PropertyAnalysisResult(propertyInfos, hasPropertiesToOmit);
                          }
                      
-                         private record PropertyAnalysisResult(IReadOnlyList<PropertyAnalysisInfo> Properties, bool HasPropertiesToOmit);
+                         private sealed record PropertyAnalysisResult(IReadOnlyList<PropertyAnalysisInfo> Properties, bool HasPropertiesToOmit);
                      
-                         private record PropertyAnalysisInfo(PropertyInfo PropertyInfo, string Name, bool ShouldOmit, string ReplacementText);
+                         private sealed record PropertyAnalysisInfo(PropertyInfo PropertyInfo, string Name, bool ShouldOmit, string ReplacementText);
                      }
                      """;
         }
