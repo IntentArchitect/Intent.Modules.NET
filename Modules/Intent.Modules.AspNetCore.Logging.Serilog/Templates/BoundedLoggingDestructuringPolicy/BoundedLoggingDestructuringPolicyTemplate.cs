@@ -12,14 +12,16 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.Templates.BoundedLoggingDest
         public override string TransformText()
         {
             return $$"""
+                     using System;
                      using System.Collections;
                      using System.Collections.Concurrent;
+                     using System.Collections.Generic;
                      using System.Diagnostics.CodeAnalysis;
+                     using System.IO;
+                     using System.Linq;
                      using System.Reflection;
                      using Serilog.Core;
                      using Serilog.Events;
-                     
-                     [assembly: DefaultIntentManaged(Mode.Fully)]
                      
                      namespace {{Namespace}};
                      

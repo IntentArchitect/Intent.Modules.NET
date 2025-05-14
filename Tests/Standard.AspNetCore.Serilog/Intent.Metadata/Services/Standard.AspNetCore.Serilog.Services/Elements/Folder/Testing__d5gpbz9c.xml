@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="14fabf97-8018-4a60-a19e-b8944224e201" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>Test</name>
-  <display>Test</display>
+<class id="0e442fb0-b481-4209-9e6e-bbf3a519fea2" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Testing</name>
+  <display>Testing</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
