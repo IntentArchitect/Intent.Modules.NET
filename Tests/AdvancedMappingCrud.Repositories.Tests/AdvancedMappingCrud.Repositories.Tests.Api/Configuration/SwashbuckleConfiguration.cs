@@ -46,7 +46,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                         options.IncludeXmlComments(applicationXmlFile);
                     }
 
-                    options.SchemaFilter<ODataJsonSchemaSwaggerFilter>();
+                    options.DocumentFilter<ExcludeODataDocumentFilter>();
                     options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                     options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<ODataQueryFilter>();

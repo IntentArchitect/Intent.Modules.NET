@@ -101,9 +101,9 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="8daf43bd-576a-4a18-8a82-a959cdc8afa7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.OData.EntityFramework.ODataJsonSchemaSwaggerFilter</name>
-      <display>Intent.AspNetCore.OData.EntityFramework.ODataJsonSchemaSwaggerFilter</display>
+    <childElement id="0d0c3040-4465-4f94-beca-71abadc4c3ce" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</name>
+      <display>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</display>
       <externalReference>Intent.AspNetCore.OData.EntityFramework</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

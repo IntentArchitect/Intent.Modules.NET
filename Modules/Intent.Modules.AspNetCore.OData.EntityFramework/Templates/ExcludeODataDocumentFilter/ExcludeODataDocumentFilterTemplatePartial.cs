@@ -25,6 +25,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.Templates.ExcludeOData
                 .AddUsing("Swashbuckle.AspNetCore.SwaggerGen")
                 .AddUsing("Microsoft.OpenApi.Models")
                 .AddUsing("System.Linq")
+                .AddUsing("System")
                 .AddClass($"ExcludeODataDocumentFilter", @class =>
                 {
                     @class.ImplementsInterface("IDocumentFilter");

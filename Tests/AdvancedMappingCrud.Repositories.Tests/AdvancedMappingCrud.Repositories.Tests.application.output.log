@@ -236,10 +236,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</ProjectId>
-      <CorrelationId>Intent.AspNetCore.OData.EntityFramework.ODataJsonSchemaSwaggerFilter</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/ODataJsonSchemaSwaggerFilter.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ODataJsonSchemaSwaggerFilter.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/ExcludeODataDocumentFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExcludeODataDocumentFilter.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
