@@ -36,10 +36,17 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                     @class.AddGenericParameter("TResponse", out var TResponse);
                     @class.AddGenericTypeConstraint(TRequest, c => c.AddType("notnull"));
                     @class.ImplementsInterface($"IPipelineBehavior<{TRequest}, {TResponse}>");
+                    
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter($"ILogger<UnhandledExceptionBehaviour<{TRequest},{TResponse}>>", "logger", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
+
+                        ctor.AddStatement(@"_logRequestPayload = configuration.GetValue<bool?>(""CqrsSettings:LogRequestPayload"") ?? false;");
                     });
+                    
+                    @class.AddField("bool", "_logRequestPayload", cfg => cfg.PrivateReadOnly());
+                    
                     @class.AddMethod($"Task<{TResponse}>", "Handle", method =>
                     {
                         method.Async();
@@ -50,18 +57,30 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                         {
                             t.AddStatement("return await next();");
                         });
-                        method.AddCatchBlock(c => c
-                            .WithExceptionType("Exception")
-                            .WithParameterName("ex")
-                            .AddStatement($"var requestName = typeof({TRequest}).Name;")
-                            .AddStatement($@"_logger.LogError(ex, ""{ExecutionContext.GetApplicationConfig().Name} Request: Unhandled Exception for Request {{Name}} {{@Request}}"", requestName, request);")
-                            .AddStatement("throw;"));
+                        method.AddCatchBlock(c =>
+                        {
+                            c.WithExceptionType("Exception").WithParameterName("ex");
+                            c.AddStatement($"var requestName = typeof({TRequest}).Name;");
+                            
+                            c.AddIfStatement("_logRequestPayload", logIf =>
+                            {
+                                logIf.AddStatement($@"_logger.LogError(ex, ""{ExecutionContext.GetApplicationConfig().Name} Request: Unhandled Exception for Request {{Name}} {{@Request}}"", requestName, request);");
+                            });
+                            c.AddElseStatement(@else =>
+                            {
+                                @else.AddStatement($@"_logger.LogError(ex, ""{ExecutionContext.GetApplicationConfig().Name} Request: Unhandled Exception for Request {{Name}}"", requestName);");
+                            });
+                            
+                            c.AddStatement("throw;");
+                        });
                     });
                 });
         }
 
         public override void BeforeTemplateExecution()
         {
+            this.ApplyAppSetting("CqrsSettings:LogRequestPayload", true);
+            
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(0)
