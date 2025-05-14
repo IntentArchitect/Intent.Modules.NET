@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="ecf256ce-76b5-497e-a2a0-ec346378d373" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+<class id="b9fe9d4d-407a-4ec8-9855-bb41d65f98e6" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Testing</name>
   <display>Testing (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>8</order>
+  <order>9</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>9612bb90-998c-4dda-b8af-98f201160728</parentFolderId>
@@ -29,7 +29,7 @@
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>ecf256ce-76b5-497e-a2a0-ec346378d373</parentFolderId>
+      <parentFolderId>b9fe9d4d-407a-4ec8-9855-bb41d65f98e6</parentFolderId>
       <packageId>9612bb90-998c-4dda-b8af-98f201160728</packageId>
       <packageName>Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture</packageName>
       <stereotypes>
@@ -42,7 +42,7 @@
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="The module adds support for Integration Testing ASP.NET Core applications." isActive="true" />
             <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -67,7 +67,7 @@
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
-                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="[]" isActive="false" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>
@@ -93,7 +93,7 @@
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
-                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="[]" isActive="false" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>

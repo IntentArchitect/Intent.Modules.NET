@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="c2bd30c5-a0c2-452e-afcf-a49ff36a3885" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
-  <name>Tooling</name>
-  <display>Tooling (1)</display>
+  <name>Developer Tooling</name>
+  <display>Developer Tooling (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>5</order>
