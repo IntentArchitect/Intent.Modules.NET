@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="62c19c80-6648-4440-acb4-ace861b273b8" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>Continuous Integration</name>
-  <display>Continuous Integration</display>
+  <name>DevOps</name>
+  <display>DevOps</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
