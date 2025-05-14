@@ -34,13 +34,14 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var configureSwaggerOptionsBlock = GetConfigureSwaggerOptionsBlock(@class);
-
+                file.AddUsing("System.Linq");
                 if (configureSwaggerOptionsBlock is null)
                 {
                     return;
                 }
 
                 configureSwaggerOptionsBlock.AddStatement($@"options.DocumentFilter<{template.GetExcludeODataDocumentFilterName()}>();");
+                configureSwaggerOptionsBlock.AddStatement("options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());");
             });
         }
 
