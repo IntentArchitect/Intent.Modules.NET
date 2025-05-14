@@ -72,46 +72,13 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
                         {
                             if (HasCrudImplementation(model.InternalElement))
                             {
-                                if (!method.Statements.Any() || method.Statements.Last().GetText("").Trim().StartsWith("throw"))
-                                {
-                                    continue;
-                                }
-
-                                string cancellationTokenName = method.Parameters.FirstOrDefault(p => p.Type.EndsWith("CancellationToken"))?.Name ?? "";
-                                var commitClause = $"await _unitOfWork.SaveChangesAsync({cancellationTokenName});";
-                                CSharpStatement lastNonReturnStatement;
-                                if (method.Statements.Last().GetText("").Trim().StartsWith("return"))
-                                {
-                                    lastNonReturnStatement = method.Statements[method.Statements.Count - 2];
-                                }
-                                else
-                                {
-                                    lastNonReturnStatement = method.Statements.Last();
-                                }
-                                if (!lastNonReturnStatement.GetText("").Contains(".SaveChanges"))
-                                {
-                                    method.AddStatement(commitClause, s => s.SeparatedFromPrevious());
-
-                                    var ctor = @class.Constructors.FirstOrDefault();
-                                    if (ctor == null)
-                                    {
-                                        return;
-                                    }
-                                    var unitOfWorkTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
-                                    if (!ctor.Parameters.Any(p => p.Name == "unitOfWork"))
-                                    {
-                                        ctor.AddParameter(template.GetTypeName(unitOfWorkTemplate), "unitOfWork", p => p.IntroduceReadonlyField());
-                                    }
-
-                                }
-
+                                ImplementUOWSave(template, @class, method);
                             }
                         }
                     }
                 }, 1000);
             }
         }
-
 
         private void DoCommandHandlers(IApplication application)
         {
@@ -129,37 +96,42 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
                 {
                     var @class = file.Classes.First();
                     var method = @class.FindMethod("Handle");
-                    if (!method.Statements.Any() || method.Statements.Last().GetText("").Trim().StartsWith("throw"))
-                    {
-                        return;
-                    }
-
-                    string cancellationTokenName = method.Parameters.FirstOrDefault(p => p.Type.EndsWith("CancellationToken"))?.Name ?? "";
-                    var commitClause = $"await _unitOfWork.SaveChangesAsync({cancellationTokenName});";
-                    CSharpStatement lastNonReturnStatement;
-                    if (method.Statements.Last().GetText("").Trim().StartsWith("return"))
-                    {
-                        lastNonReturnStatement = method.Statements[method.Statements.Count - 2];
-                    }
-                    else
-                    {
-                        lastNonReturnStatement = method.Statements.Last();
-                    }
-                    if (!lastNonReturnStatement.GetText("").Contains(".SaveChanges"))
-                    {
-                        method.AddStatement(commitClause, s => s.SeparatedFromPrevious());
-
-                        var ctor = @class.Constructors.FirstOrDefault();
-                        if (ctor == null)
-                        {
-                            return;
-                        }
-                        var unitOfWorkTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
-                        ctor.AddParameter(template.GetTypeName(unitOfWorkTemplate), "unitOfWork", p => p.IntroduceReadonlyField());
-
-                    }
+                    ImplementUOWSave(template, @class, method);
 
                 }, 1000);
+            }
+        }
+
+        private static void ImplementUOWSave(ICSharpFileBuilderTemplate template, CSharpClass @class, CSharpClassMethod method)
+        {
+            if (!method.Statements.Any() || method.Statements.Last().GetText("").Trim().StartsWith("throw"))
+            {
+                return;
+            }
+
+            string cancellationTokenName = method.Parameters.FirstOrDefault(p => p.Type.EndsWith("CancellationToken"))?.Name ?? "";
+            var commitClause = $"await _unitOfWork.SaveChangesAsync({cancellationTokenName});";
+            CSharpStatement lastNonReturnStatement;
+            if (method.Statements.Last().GetText("").Trim().StartsWith("return"))
+            {
+                lastNonReturnStatement = method.Statements[method.Statements.Count - 2];
+            }
+            else
+            {
+                lastNonReturnStatement = method.Statements.Last();
+            }
+            if (!lastNonReturnStatement.GetText("").Contains(".SaveChanges"))
+            {
+                lastNonReturnStatement.InsertBelow(commitClause, s => s.SeparatedFromPrevious());
+
+                var ctor = @class.Constructors.FirstOrDefault();
+                if (ctor == null)
+                {
+                    return;
+                }
+                var unitOfWorkTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
+                ctor.AddParameter(template.GetTypeName(unitOfWorkTemplate), "unitOfWork", p => p.IntroduceReadonlyField());
+
             }
         }
 

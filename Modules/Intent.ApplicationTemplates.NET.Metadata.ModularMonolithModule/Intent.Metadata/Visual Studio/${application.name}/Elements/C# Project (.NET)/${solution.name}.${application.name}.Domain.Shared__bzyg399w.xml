@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3c28239f-a407-4e44-bbea-f172a0335b6e" type="C# Project (.NET)" typeId="8e9e6693-2888-4f48-a0d6-0f163baab740">
-  <name>${solution.name}.${application.name}.Domain.Enums</name>
-  <display>${solution.name}.${application.name}.Domain.Enums</display>
+  <name>${solution.name}.${application.name}.Domain.Shared</name>
+  <display>${solution.name}.${application.name}.Domain.Shared</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
