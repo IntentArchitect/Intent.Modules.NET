@@ -2,6 +2,7 @@ using System;
 using AdvancedMappingCrud.Cosmos.Tests.Api;
 using AdvancedMappingCrud.Cosmos.Tests.Api.Configuration;
 using AdvancedMappingCrud.Cosmos.Tests.Api.Filters;
+using AdvancedMappingCrud.Cosmos.Tests.Api.Logging;
 using AdvancedMappingCrud.Cosmos.Tests.Application;
 using AdvancedMappingCrud.Cosmos.Tests.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -28,7 +29,8 @@ try
     // Add services to the container.
     builder.Host.UseSerilog((context, services, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services));
+        .ReadFrom.Services(services)
+        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
     builder.Services.AddControllers(
         opt =>

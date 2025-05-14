@@ -83,6 +83,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>80ddb457-8c3f-4136-9ea1-a92e9c4bc486</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenTelemetry.AzureAppInsights.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>62f5260a-5c14-4cd9-b7d7-460aaf62dd46</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#62f5260a-5c14-4cd9-b7d7-460aaf62dd46</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

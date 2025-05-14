@@ -14,13 +14,16 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
         private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
         private readonly Stopwatch _timer;
+        private readonly bool _logRequestPayload;
 
         public PerformanceBehaviour(ILogger<PerformanceBehaviour<TRequest, TResponse>> logger,
-            ICurrentUserService currentUserService)
+            ICurrentUserService currentUserService,
+            IConfiguration configuration)
         {
             _timer = new Stopwatch();
             _logger = logger;
             _currentUserService = currentUserService;
+            _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
         public async Task<TResponse> Handle(
@@ -42,7 +45,14 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
                 var userId = _currentUserService.UserId;
                 var userName = _currentUserService.UserName;
 
-                _logger.LogWarning("ModularMonolithAppTests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                if (_logRequestPayload)
+                {
+                    _logger.LogWarning("ModularMonolithAppTests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                }
+                else
+                {
+                    _logger.LogWarning("ModularMonolithAppTests Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
+                }
             }
             return response;
         }

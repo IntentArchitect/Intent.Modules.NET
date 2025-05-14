@@ -1,6 +1,7 @@
 using System;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Api.Configuration;
+using MassTransit.RabbitMQ.Api.Logging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -38,7 +39,8 @@ namespace MassTransit.RabbitMQ.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services), writeToProviders: true)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()), writeToProviders: true)
                 .ConfigureLogging((context, logBuilder) =>
                 {
                     logBuilder.ClearProviders();

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CleanArchitecture.Dapr.Api.Configuration;
+using CleanArchitecture.Dapr.Api.Logging;
 using Dapr.Client;
 using Dapr.Extensions.Configuration;
 using Intent.RoslynWeaver.Attributes;
@@ -39,7 +40,8 @@ namespace CleanArchitecture.Dapr.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()))
                 .ConfigureAppConfiguration(config =>
                 {
                     config.AddDaprConfigurationStoreDeferred();

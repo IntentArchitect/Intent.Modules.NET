@@ -10,10 +10,13 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
         where TRequest : notnull
     {
         private readonly ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> _logger;
+        private readonly bool _logRequestPayload;
 
-        public UnhandledExceptionBehaviour(ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> logger)
+        public UnhandledExceptionBehaviour(ILogger<UnhandledExceptionBehaviour<TRequest, TResponse>> logger,
+            IConfiguration configuration)
         {
             _logger = logger;
+            _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
         public async Task<TResponse> Handle(
@@ -28,7 +31,15 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
             catch (Exception ex)
             {
                 var requestName = typeof(TRequest).Name;
-                _logger.LogError(ex, "ModularMonolithAppTests Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+
+                if (_logRequestPayload)
+                {
+                    _logger.LogError(ex, "ModularMonolithAppTests Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+                }
+                else
+                {
+                    _logger.LogError(ex, "ModularMonolithAppTests Request: Unhandled Exception for Request {Name}", requestName);
+                }
                 throw;
             }
         }

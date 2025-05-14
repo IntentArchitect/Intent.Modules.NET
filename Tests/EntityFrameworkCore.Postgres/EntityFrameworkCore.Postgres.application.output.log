@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e010ebf7-fb09-4b4b-98d0-fe30e66a37c8</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e010ebf7-fb09-4b4b-98d0-fe30e66a37c8</ProjectId>
       <CorrelationId>Intent.NetTopologySuite.GeoDestructureSerilogPolicy</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Postgres.Api/Logging/GeoDestructureSerilogPolicy.cs</ApplicationRelativeFilePath>

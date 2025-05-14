@@ -155,6 +155,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6be3de7d-8692-4e6f-a731-9e27e533bf5d</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2e824bc0-2bc0-422c-bba4-da72a19ea1a1</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#2e824bc0-2bc0-422c-bba4-da72a19ea1a1</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

@@ -12,11 +12,15 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
     {
         private readonly ILogger<LoggingBehaviour<TRequest>> _logger;
         private readonly ICurrentUserService _currentUserService;
+        private readonly bool _logRequestPayload;
 
-        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest>> logger, ICurrentUserService currentUserService)
+        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest>> logger,
+            ICurrentUserService currentUserService,
+            IConfiguration configuration)
         {
             _logger = logger;
             _currentUserService = currentUserService;
+            _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
         public Task Process(TRequest request, CancellationToken cancellationToken)
@@ -25,7 +29,14 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
             var userId = _currentUserService.UserId;
             var userName = _currentUserService.UserName;
 
-            _logger.LogInformation("ModularMonolithAppTests Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, userName, request);
+            if (_logRequestPayload)
+            {
+                _logger.LogInformation("ModularMonolithAppTests Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, userName, request);
+            }
+            else
+            {
+                _logger.LogInformation("ModularMonolithAppTests Request: {Name} {@UserId} {@UserName}", requestName, userId, userName);
+            }
             return Task.CompletedTask;
         }
     }

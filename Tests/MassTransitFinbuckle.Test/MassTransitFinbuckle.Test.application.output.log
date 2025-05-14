@@ -107,6 +107,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7db58e10-db4d-454a-af9b-4802fe3b6219</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransitFinbuckle.Test.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3c9062a3-83b2-44d6-8dce-ac88e0fedd13</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#3c9062a3-83b2-44d6-8dce-ac88e0fedd13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

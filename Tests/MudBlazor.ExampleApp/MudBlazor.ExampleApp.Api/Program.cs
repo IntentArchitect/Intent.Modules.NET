@@ -1,4 +1,5 @@
 using Intent.RoslynWeaver.Attributes;
+using MudBlazor.ExampleApp.Api.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -32,7 +33,8 @@ namespace MudBlazor.ExampleApp.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
