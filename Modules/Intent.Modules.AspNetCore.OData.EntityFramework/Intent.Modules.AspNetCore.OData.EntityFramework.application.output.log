@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b8b9d695-08b8-4f1c-859c-2aebe6e7d361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b8b9d695-08b8-4f1c-859c-2aebe6e7d361</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExcludeODataDocumentFilter/ExcludeODataDocumentFilterTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#72c5b5d8-3c53-4a2b-b6a7-ec0eb4feec11</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ODataAggregateController/ODataAggregateControllerTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -94,22 +110,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ODataAggregateController/ODataAggregateControllerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c0b1a223-433e-4c2d-9079-41669f95f73e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>94b04ba1-51f3-4912-b3c7-e2df71c670ea</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c0b1a223-433e-4c2d-9079-41669f95f73e</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ODataJsonSchemaSwaggerFilter/ODataJsonSchemaSwaggerFilterTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

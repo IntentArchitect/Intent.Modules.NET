@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="c0b1a223-433e-4c2d-9079-41669f95f73e" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>ODataJsonSchemaSwaggerFilter</name>
-  <display>ODataJsonSchemaSwaggerFilter: Single File</display>
+<class id="b8b9d695-08b8-4f1c-859c-2aebe6e7d361" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>ExcludeODataDocumentFilter</name>
+  <display>ExcludeODataDocumentFilter: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="1abf1d7d-4b6d-4c61-82f6-ae7547dd1d6c">
+  <typeReference id="a4ebe8e5-e01d-4b36-ab0b-f373288c19b0">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
