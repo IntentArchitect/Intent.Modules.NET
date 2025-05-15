@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a861fe18-b422-4d44-a1e0-5398b2643d53" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetProductsQuery</name>
+  <display>GetProductsQuery: ProductDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="fd144cea-4dc2-49ee-a42f-d7a31835969b">
+    <typeId>96457bb3-cb67-4d6c-abea-381056d2d65f</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>Module1.Services</typePackageName>
+    <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>c8674d12-4583-4050-a804-3c0237552d64</parentFolderId>
+  <packageId>e665bbb9-639a-45b1-af30-377f7d721f36</packageId>
+  <packageName>Module1.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="Products" />
+  </metadata>
+  <childElements />
+</class>

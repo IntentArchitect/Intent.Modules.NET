@@ -25,6 +25,7 @@ namespace Intent.Modules.NET.Tests.Module1.Infrastructure
             });
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<Module1DbContext>());
             return services;

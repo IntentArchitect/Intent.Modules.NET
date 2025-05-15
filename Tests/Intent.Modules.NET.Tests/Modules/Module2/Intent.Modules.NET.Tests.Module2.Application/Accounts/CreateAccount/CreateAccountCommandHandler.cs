@@ -42,9 +42,9 @@ namespace Intent.Modules.NET.Tests.Module2.Application.Accounts.CreateAccount
                 Id = account.Id,
                 Name = account.Name
             });
-            return account.Id;
 
             await _unitOfWork.SaveChangesAsync(cancellationToken);
+            return account.Id;
         }
     }
 }

@@ -247,6 +247,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>59872820-d8b5-40e2-9b1c-ddb226d45dee</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#0e80666c-52e3-42d2-90b7-1a5f3d7d3505</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/IntegrationEvents/ProductCreatedIEEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductCreatedIEEvent.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#cb41abdc-01bb-4e43-9adb-baae9bd176f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -292,6 +300,54 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Orders/OrderUpdateDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1aaad2bd-4499-472f-af53-cc0537565b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/CreateProduct/CreateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1011986c-f6c8-4766-a549-dad946ed41d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/DeleteProduct/DeleteProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#c40df472-c260-4f6a-a4ea-88028545ad6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProductById/GetProductByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#a861fe18-b422-4d44-a1e0-5398b2643d53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/GetProducts/GetProductsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#96457bb3-cb67-4d6c-abea-381056d2d65f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/ProductDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb41abdc-01bb-4e43-9adb-baae9bd176f8</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#e267a7d5-d1f3-4189-b789-b3651d641643</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application.Contracts/Products/UpdateProduct/UpdateProductCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommand.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -511,6 +567,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>af2d7808-7055-4696-b206-b472fede4efb</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.DtoMappingProfile#96457bb3-cb67-4d6c-abea-381056d2d65f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Mappings/Products/ProductDtoProfile.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductDtoProfile.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#eea05e16-262b-4f4a-a4d6-744fa1837f7b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -524,6 +588,86 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Orders/OrderUpdateDtoValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Orders/OrderUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1aaad2bd-4499-472f-af53-cc0537565b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1aaad2bd-4499-472f-af53-cc0537565b6b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/CreateProduct/CreateProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/CreateProduct/CreateProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1011986c-f6c8-4766-a549-dad946ed41d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1011986c-f6c8-4766-a549-dad946ed41d0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/DeleteProduct/DeleteProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/DeleteProduct/DeleteProductCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#c40df472-c260-4f6a-a4ea-88028545ad6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#c40df472-c260-4f6a-a4ea-88028545ad6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProductById/GetProductByIdQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProductById/GetProductByIdQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#a861fe18-b422-4d44-a1e0-5398b2643d53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#a861fe18-b422-4d44-a1e0-5398b2643d53</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/GetProducts/GetProductsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/GetProducts/GetProductsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#e267a7d5-d1f3-4189-b789-b3651d641643</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7be30d9c-a356-49e3-8df3-a0eeba8cc517</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#e267a7d5-d1f3-4189-b789-b3651d641643</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Application/Products/UpdateProduct/UpdateProductCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/UpdateProduct/UpdateProductCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -599,6 +743,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>7eb6a3be-f26a-4f73-b415-07ab1b7d5132</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#63ce9b3f-4f29-4aff-b0da-870b42ae51d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Entities/Product.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Product.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>7dc0be41-e173-4981-a3fb-8b1959b1e272</ProjectId>
       <CorrelationId>Intent.DomainEvents.DomainEvent#d88d3e01-fc34-4bd3-8194-a7f78a90ae88</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -644,6 +796,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d68887cb-9c71-4e07-a8a5-2c7b004d7e2d</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#63ce9b3f-4f29-4aff-b0da-870b42ae51d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Domain/Repositories/IProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -703,6 +863,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>adb2675f-462d-44cf-8492-f50801274f72</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#63ce9b3f-4f29-4aff-b0da-870b42ae51d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Persistence/Configurations/ProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>eba8e8d5-a19f-4716-8c96-12624b38bd91</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -732,6 +900,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/OrderRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>OrderRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1dac7e35-7cb0-4278-ad00-c33a8720086e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#63ce9b3f-4f29-4aff-b0da-870b42ae51d9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module1/Intent.Modules.NET.Tests.Module1.Infrastructure/Repositories/ProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

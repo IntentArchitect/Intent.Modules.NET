@@ -22,6 +22,7 @@ namespace Intent.Modules.NET.Tests.Module1.Infrastructure.Persistence
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -44,6 +45,7 @@ namespace Intent.Modules.NET.Tests.Module1.Infrastructure.Persistence
             ConfigureModel(modelBuilder);
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

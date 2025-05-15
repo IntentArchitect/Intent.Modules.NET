@@ -17,20 +17,20 @@
       <role>Distribution.ModuleConfiguration</role>
       <location>Configuration</location>
     </template>
+    <template id="Intent.ModularMonolith.Host.ModuleInstallerInterface">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.ModuleInstallerInterface</role>
+      <location></location>
+    </template>
     <template id="Intent.ModularMonolith.Module.ModuleInstallerTemplate" externalReference="621fcfc5-d2cb-492b-a8e7-e3a28ebcf0c8">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>ModuleStartup;Module.Installer</role>
-      <location></location>
-    </template>
-    <template id="Intent.ModularMonolith.Host.ModuleInstallerInterface" externalReference="e3f6f5ec-b691-4666-ba29-915a5016f075">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.ModuleInstallerInterface</role>
       <location></location>
     </template>
   </templates>

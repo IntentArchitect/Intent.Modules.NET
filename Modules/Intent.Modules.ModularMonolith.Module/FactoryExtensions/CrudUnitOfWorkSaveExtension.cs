@@ -129,8 +129,11 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
                 {
                     return;
                 }
-                var unitOfWorkTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
-                ctor.AddParameter(template.GetTypeName(unitOfWorkTemplate), "unitOfWork", p => p.IntroduceReadonlyField());
+                if (!ctor.Parameters.Any(p => p.Name == "unitOfWork"))
+                {
+                    var unitOfWorkTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Intent.Entities.Repositories.Api.UnitOfWorkInterface");
+                    ctor.AddParameter(template.GetTypeName(unitOfWorkTemplate), "unitOfWork", p => p.IntroduceReadonlyField());
+                }
 
             }
         }

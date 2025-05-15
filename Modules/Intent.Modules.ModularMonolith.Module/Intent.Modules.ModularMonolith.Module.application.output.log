@@ -38,7 +38,7 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.ModularMonolith.Module.imodspec</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.ModularMonolith.Module.imodspec</ProjectRelativeFilePath>
-      <IsIgnored>true</IsIgnored>
+      <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>3c8206ae-11ad-4593-99f8-fbff3693141b</ProjectId>

@@ -43,14 +43,14 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
             //ASP Net Core Versioning
             DisableTemplate(application, "Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions");
             //ASP Net Core Controllers
-            DisableTemplate(application, "Intent.AspNetCore.Controllers.ExceptionFilter");            
+            DisableTemplate(application, "Intent.AspNetCore.Controllers.ExceptionFilter");
             //Integration Subscriptions
             SortOutMessageSubscriptions(application);
 
             //Security
             DisableTemplate(application, "Intent.Application.Identity.ApplicationSecurityConfiguration");
             DisableTemplate(application, "Intent.Application.Identity.CurrentUserService");
-            
+
         }
 
         private void SortOutMessageSubscriptions(IApplication application)
@@ -83,8 +83,8 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
             {
                 var appConfig = _configurationProvider.GetApplicationConfig(externalAppId);
                 var currentProject = externalMessageTemplates.First().OutputTarget.GetProject();
-                var thisModuleContactProject = Path.Combine( currentProject.RelativeLocation, $"{currentProject.Name}.csproj");
-                var targetProject =  @"..\..\" + thisModuleContactProject.Replace(application.Name, appConfig.Name).Replace(@"./Modules/", "");
+                var thisModuleContactProject = Path.Combine(currentProject.RelativeLocation, $"{currentProject.Name}.csproj");
+                var targetProject = @"..\..\" + thisModuleContactProject.Replace(application.Name, appConfig.Name).Replace(@"./Modules/", "");
                 //Sanity Check if the project is not there don't add the reference
                 if (System.IO.File.Exists(Path.Combine(currentProject.Location, targetProject)))
                 {

@@ -23,6 +23,8 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>Module1.Eventing.Messages</typePackageName>
+        <typePackageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

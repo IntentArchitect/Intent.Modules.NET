@@ -123,6 +123,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>Module1.Services</typePackageName>
+        <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
