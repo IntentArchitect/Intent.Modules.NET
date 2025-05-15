@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="e6db6627-4762-4df4-b1f0-9d113ea84864" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
-  <name>ResourceGroupTfVarsTemplate</name>
-  <display>ResourceGroupTfVarsTemplate: Single File</display>
+<class id="c8b8221e-293c-4a95-8dba-cb6fa61990cc" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
+  <name>AzureServiceBusResourcesTf</name>
+  <display>AzureServiceBusResourcesTf: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="0922fe10-2a95-400b-87b0-405d702dcc76">
+  <typeReference id="1e16e586-6e34-474f-9a6d-9993b8f04a66">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</parentFolderId>
+  <parentFolderId>b9b52437-773a-4c2b-ab14-6a6b365f3430</parentFolderId>
   <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
   <packageName>Intent.IaC.Terraform</packageName>
   <stereotypes>
@@ -28,7 +28,7 @@
         <property name="db83691e-fc21-467b-a004-427b23f9ed9b" display="Output File Content" value="Text" isActive="true" />
         <property name="c22d63a0-a3ad-4fe0-a956-7ac74bb6c2fe" display="Templating Method" value="Custom" isActive="true" />
         <property name="add2c4a0-5e44-4b93-9851-be809230751c" display="Data File Output Type" value="JSON" isActive="false" />
-        <property name="329d0550-b81b-4db6-a99b-05d90360d432" display="File Extension" value="tfvars" isActive="true" />
+        <property name="329d0550-b81b-4db6-a99b-05d90360d432" display="File Extension" value="tf" isActive="true" />
       </properties>
     </stereotype>
     <stereotype stereotypeDefinitionId="b1f08a30-9aae-4702-bfc8-e285e6b43a61" name="Template Settings">
@@ -40,8 +40,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.ResourceGroup.Vars" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.AzureServiceBus.Resources" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="01-applications" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

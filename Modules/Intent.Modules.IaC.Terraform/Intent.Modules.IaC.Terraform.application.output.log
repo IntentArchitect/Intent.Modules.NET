@@ -34,98 +34,66 @@
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#3031b24a-45a3-46e9-9d45-14b3c48efc4a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e285dfdd-34ff-4b2c-a69e-7374051cd1e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/InfrastructureTf/InfrastructureTfTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InfrastructureTf/InfrastructureTfTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Event Grid/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Event Grid/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3031b24a-45a3-46e9-9d45-14b3c48efc4a</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e285dfdd-34ff-4b2c-a69e-7374051cd1e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/InfrastructureTf/InfrastructureTfTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InfrastructureTf/InfrastructureTfTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Event Grid/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Event Grid/AzureEventGridResourcesTf/AzureEventGridResourcesTfTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#72da06b3-5a11-40b9-b9e2-ede2a2fe9deb</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#7b2b5228-48da-4289-a5d0-fa7bb1cf95e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/InfrastructureTfVars/InfrastructureTfVarsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InfrastructureTfVars/InfrastructureTfVarsTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Functions/AzureFunctionAppTf/AzureFunctionAppTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Functions/AzureFunctionAppTf/AzureFunctionAppTfTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#72da06b3-5a11-40b9-b9e2-ede2a2fe9deb</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#7b2b5228-48da-4289-a5d0-fa7bb1cf95e9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/InfrastructureTfVars/InfrastructureTfVarsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InfrastructureTfVars/InfrastructureTfVarsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Functions/AzureFunctionAppTf/AzureFunctionAppTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Functions/AzureFunctionAppTf/AzureFunctionAppTfTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#b72d2c24-f3bb-4c12-b3ba-1ecf5993c1db</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#c8b8221e-293c-4a95-8dba-cb6fa61990cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ResourceGroupTf/ResourceGroupTfTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ResourceGroupTf/ResourceGroupTfTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Service Bus/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Service Bus/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#b72d2c24-f3bb-4c12-b3ba-1ecf5993c1db</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c8b8221e-293c-4a95-8dba-cb6fa61990cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ResourceGroupTf/ResourceGroupTfTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ResourceGroupTf/ResourceGroupTfTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure Service Bus/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure Service Bus/AzureServiceBusResourcesTf/AzureServiceBusResourcesTfTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#e6db6627-4762-4df4-b1f0-9d113ea84864</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#ff58621f-ee16-4ee2-b91e-43289c85906d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ResourceGroupTfVars/ResourceGroupTfVarsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ResourceGroupTfVars/ResourceGroupTfVarsTemplatePartial.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure/AzureMainTf/AzureMainTfTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure/AzureMainTf/AzureMainTfTemplatePartial.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e6db6627-4762-4df4-b1f0-9d113ea84864</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ff58621f-ee16-4ee2-b91e-43289c85906d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ResourceGroupTfVars/ResourceGroupTfVarsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ResourceGroupTfVars/ResourceGroupTfVarsTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#a45ea395-15f9-4bed-902b-48a5435f70ce</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionsTf/SubscriptionsTfTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionsTf/SubscriptionsTfTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#a45ea395-15f9-4bed-902b-48a5435f70ce</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionsTf/SubscriptionsTfTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionsTf/SubscriptionsTfTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#5e768de0-5626-4afb-b38d-36a2356313b9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionsTfVars/SubscriptionsTfVarsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionsTfVars/SubscriptionsTfVarsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>35d59cfd-0fe9-4747-9c51-05dcd919cc12</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5e768de0-5626-4afb-b38d-36a2356313b9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionsTfVars/SubscriptionsTfVarsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionsTfVars/SubscriptionsTfVarsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Azure/AzureMainTf/AzureMainTfTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Azure/AzureMainTf/AzureMainTfTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

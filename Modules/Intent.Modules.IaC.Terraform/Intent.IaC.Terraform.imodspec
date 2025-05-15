@@ -8,29 +8,21 @@
   <authors>Intent.Modules.NET</authors>
   <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=</iconUrl>
   <templates>
-    <template id="Intent.IaC.Terraform.InfrastructureTfTemplate" externalReference="3031b24a-45a3-46e9-9d45-14b3c48efc4a">
-      <role>IaC.Terraform.Infrastructure</role>
-      <location></location>
+    <template id="Intent.IaC.Terraform.Azure Event Grid.AzureEventGridResourcesTf" externalReference="e285dfdd-34ff-4b2c-a69e-7374051cd1e2">
+      <role>IaC.Terraform.AzureEventGrid.Resources</role>
+      <location>01-applications</location>
     </template>
-    <template id="Intent.IaC.Terraform.InfrastructureTfVarsTemplate" externalReference="72da06b3-5a11-40b9-b9e2-ede2a2fe9deb">
-      <role>IaC.Terraform.Infrastructure.Vars</role>
-      <location></location>
+    <template id="Intent.IaC.Terraform.Azure Functions.AzureFunctionAppTf" externalReference="7b2b5228-48da-4289-a5d0-fa7bb1cf95e9">
+      <role>IaC.Terraform.AzureFunctions</role>
+      <location>01-applications</location>
     </template>
-    <template id="Intent.IaC.Terraform.ResourceGroupTfTemplate" externalReference="b72d2c24-f3bb-4c12-b3ba-1ecf5993c1db">
-      <role>IaC.Terraform.ResourceGroup</role>
-      <location></location>
+    <template id="Intent.IaC.Terraform.Azure Service Bus.AzureServiceBusResourcesTf" externalReference="c8b8221e-293c-4a95-8dba-cb6fa61990cc">
+      <role>IaC.Terraform.AzureServiceBus.Resources</role>
+      <location>01-applications</location>
     </template>
-    <template id="Intent.IaC.Terraform.ResourceGroupTfVarsTemplate" externalReference="e6db6627-4762-4df4-b1f0-9d113ea84864">
-      <role>IaC.Terraform.ResourceGroup.Vars</role>
-      <location></location>
-    </template>
-    <template id="Intent.IaC.Terraform.SubscriptionsTfTemplate" externalReference="a45ea395-15f9-4bed-902b-48a5435f70ce">
-      <role>IaC.Terraform.Subscriptions</role>
-      <location></location>
-    </template>
-    <template id="Intent.IaC.Terraform.SubscriptionsTfVarsTemplate" externalReference="5e768de0-5626-4afb-b38d-36a2356313b9">
-      <role>IaC.Terraform.Subscriptions.Vars</role>
-      <location></location>
+    <template id="Intent.IaC.Terraform.Azure.AzureMainTf" externalReference="ff58621f-ee16-4ee2-b91e-43289c85906d">
+      <role>IaC.Terraform.AzureMain</role>
+      <location>01-applications</location>
     </template>
   </templates>
   <decorators></decorators>

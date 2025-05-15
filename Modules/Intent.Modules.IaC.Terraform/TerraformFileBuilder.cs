@@ -176,7 +176,7 @@ internal class TerraformBlockBuilder : TerraformElementBuilder
     public string? BlockName { get; }
     public IReadOnlyList<string> Arguments => new ReadOnlyCollection<string>(_arguments);
     public IReadOnlyList<TerraformElementBuilder> GetElementBuilders() => new ReadOnlyCollection<TerraformElementBuilder>(_elements);
-
+    
     public TerraformBlockBuilder AddComment(string commentBlock)
     {
         if (string.IsNullOrWhiteSpace(commentBlock))
