@@ -1,3 +1,7 @@
+### Version 1.1.5
+
+- Fixed: Importing column names which start with a number will now be prefix with "col".
+
 ### Version 1.1.4
 
 - Fixed: Importing tables with the same name under different schemas would result in an error.
