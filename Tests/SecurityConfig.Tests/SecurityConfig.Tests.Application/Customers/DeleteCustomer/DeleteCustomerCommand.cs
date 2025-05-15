@@ -10,7 +10,8 @@ using SecurityConfig.Tests.Application.Security;
 
 namespace SecurityConfig.Tests.Application.Customers.DeleteCustomer
 {
-    [Authorize(Policy = $"{Permissions.PolicyCustomer},{Permissions.PolicyAdmin}")]
+    [Authorize(Policy = Permissions.PolicyCustomer)]
+    [Authorize(Policy = Permissions.PolicyAdmin)]
     public class DeleteCustomerCommand : IRequest, ICommand
     {
         public DeleteCustomerCommand(Guid id)
