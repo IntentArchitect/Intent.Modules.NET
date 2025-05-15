@@ -2,6 +2,10 @@
 
 - Improvement: Updated NuGet package versions.
 
+### Version 5.0.5
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.4
 
 - Improvement: Updated NuGet package versions.

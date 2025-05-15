@@ -39,7 +39,7 @@ namespace AzureFunctions.NET6.Application.Common.Behaviours
                 }
             }
 
-            return await next(cancellationToken);
+            return await next();
         }
     }
 }

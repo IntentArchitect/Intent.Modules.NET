@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -55,7 +56,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddTryBlock(t =>
                         {
-                            t.AddStatement("return await next(cancellationToken);");
+                            var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
+                                                    version.Major is <= 2 or > 6
+                                ? "cancellationToken"
+                                : string.Empty;
+                            t.AddStatement($"return await next({cancellationToken});");
                         });
                         method.AddCatchBlock(c =>
                         {

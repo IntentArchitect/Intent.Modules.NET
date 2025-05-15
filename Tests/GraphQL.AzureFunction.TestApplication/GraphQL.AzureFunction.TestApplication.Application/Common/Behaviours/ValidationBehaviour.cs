@@ -39,7 +39,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
                 }
             }
 
-            return await next(cancellationToken);
+            return await next();
         }
     }
 }

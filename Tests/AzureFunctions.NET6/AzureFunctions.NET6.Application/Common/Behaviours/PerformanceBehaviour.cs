@@ -38,7 +38,7 @@ namespace AzureFunctions.NET6.Application.Common.Behaviours
         {
             _timer.Start();
 
-            var response = await next(cancellationToken);
+            var response = await next();
 
             _timer.Stop();
 

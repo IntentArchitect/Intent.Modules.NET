@@ -69,20 +69,17 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
             
             #line default
             #line hidden
-            this.Write(@" eventBus)
-    {
-        _eventBus = eventBus;
-    }
-    
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
-    {
-        var response = await next(cancellationToken);
-
-        await _eventBus.FlushAllAsync(cancellationToken);
-
-        return response;
-    }
-}");
+            this.Write(" eventBus)\r\n    {\r\n        _eventBus = eventBus;\r\n    }\r\n    \r\n    public async T" +
+                    "ask<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, " +
+                    "CancellationToken cancellationToken)\r\n    {\r\n        var response = await next(");
+            
+            #line 30 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetCancellationToken()));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\r\n        await _eventBus.FlushAllAsync(cancellationToken);\r\n\r\n        return" +
+                    " response;\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

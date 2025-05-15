@@ -87,7 +87,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
             }
 
             // User is authorized / authorization not required
-            return await next(cancellationToken);
+            return await next();
         }
     }
 }

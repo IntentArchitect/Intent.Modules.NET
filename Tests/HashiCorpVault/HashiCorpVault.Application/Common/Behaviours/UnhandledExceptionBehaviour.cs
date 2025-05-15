@@ -31,7 +31,7 @@ namespace HashiCorpVault.Application.Common.Behaviours
         {
             try
             {
-                return await next(cancellationToken);
+                return await next();
             }
             catch (Exception ex)
             {

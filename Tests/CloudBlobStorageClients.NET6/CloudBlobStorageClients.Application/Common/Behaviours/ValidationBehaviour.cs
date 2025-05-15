@@ -39,7 +39,7 @@ namespace CloudBlobStorageClients.Application.Common.Behaviours
                 }
             }
 
-            return await next(cancellationToken);
+            return await next();
         }
     }
 }

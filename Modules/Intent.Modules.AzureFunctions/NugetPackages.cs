@@ -63,7 +63,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 7, 0) => new PackageVersion("12.4.1", locked: true),
+                        ( >= 7, 0) => new PackageVersion("12.5.0", locked: true),
                         ( >= 6, 0) => new PackageVersion("12.1.1", locked: true),
                         ( >= 2, 0) => new PackageVersion("12.5.0")
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")

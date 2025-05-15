@@ -32,7 +32,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
         {
             try
             {
-                return await next(cancellationToken);
+                return await next();
             }
             catch (ValidationException)
             {

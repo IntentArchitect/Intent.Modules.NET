@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -55,10 +56,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
                         method.AddParameter($"{UseType("MediatR.RequestHandlerDelegate")}<{tResponse}>", "next");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
+                        var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
+                                                version.Major is <= 2 or > 6
+                            ? "cancellationToken"
+                            : string.Empty;
                         method.ApplyUnitOfWorkImplementations(
                             template: this,
                             constructor: @class.Constructors.First(),
-                            invocationStatement: "await next(cancellationToken);",
+                            invocationStatement: $"await next({cancellationToken});",
                             returnType: tResponse,
                             resultVariableName: "response",
                             fieldSuffix: "dataSource");
