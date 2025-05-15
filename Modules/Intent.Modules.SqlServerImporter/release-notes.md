@@ -1,6 +1,7 @@
 ### Version 1.1.5
 
-- Fixed: Importing column names which start with a number will now be prefix with "col".
+- Fixed: Columns starting with a number will be prefixed with "db"
+- Fixed: Tables starting with a number will be prefixed with "Db"
 
 ### Version 1.1.4
 
