@@ -56,7 +56,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddInvocationStatement("_timer.Start", cfg => cfg.SeparatedFromNext());
-                        method.AddObjectInitStatement("var response", "await next();", cfg => cfg.SeparatedFromNext());
+                        method.AddObjectInitStatement("var response", "await next(cancellationToken);", cfg => cfg.SeparatedFromNext());
                         method.AddInvocationStatement("_timer.Stop", cfg => cfg.SeparatedFromNext());
                         method.AddObjectInitStatement("var elapsedMilliseconds", "_timer.ElapsedMilliseconds;", cfg => cfg.SeparatedFromNext());
 

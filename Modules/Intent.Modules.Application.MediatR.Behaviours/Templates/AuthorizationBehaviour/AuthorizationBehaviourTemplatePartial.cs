@@ -118,7 +118,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         });
 
                         method.AddStatement("// User is authorized / authorization not required", s => s.SeparatedFromPrevious());
-                        method.AddStatement("return await next();");
+                        method.AddStatement("return await next(cancellationToken);");
                     });
                 });
         }

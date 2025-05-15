@@ -70,7 +70,7 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                             });
                         });
 
-                        method.AddReturn("await next()");
+                        method.AddReturn("await next(cancellationToken)");
                     });
                 });
         }

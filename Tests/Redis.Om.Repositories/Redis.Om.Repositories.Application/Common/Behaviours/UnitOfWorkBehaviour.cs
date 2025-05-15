@@ -32,7 +32,7 @@ namespace Redis.Om.Repositories.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next();
+            var response = await next(cancellationToken);
 
             await _redisOmDataSource.SaveChangesAsync(cancellationToken);
 

@@ -32,7 +32,7 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Common.Behaviou
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Be
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

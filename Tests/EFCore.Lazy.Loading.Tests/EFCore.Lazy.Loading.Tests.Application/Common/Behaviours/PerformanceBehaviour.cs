@@ -38,7 +38,7 @@ namespace EFCore.Lazy.Loading.Tests.Application.Common.Behaviours
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

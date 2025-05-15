@@ -55,7 +55,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnhandledExcep
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddTryBlock(t =>
                         {
-                            t.AddStatement("return await next();");
+                            t.AddStatement("return await next(cancellationToken);");
                         });
                         method.AddCatchBlock(c =>
                         {

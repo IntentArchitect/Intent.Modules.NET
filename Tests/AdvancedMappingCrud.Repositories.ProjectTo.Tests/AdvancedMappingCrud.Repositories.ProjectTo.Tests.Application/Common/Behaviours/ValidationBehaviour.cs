@@ -38,7 +38,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Common.Be
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

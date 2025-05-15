@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Common.Behaviou
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

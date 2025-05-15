@@ -87,7 +87,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

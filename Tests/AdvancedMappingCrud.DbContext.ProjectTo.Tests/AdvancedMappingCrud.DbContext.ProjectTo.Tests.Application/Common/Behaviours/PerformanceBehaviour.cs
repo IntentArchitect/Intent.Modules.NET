@@ -38,7 +38,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Common.Behav
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

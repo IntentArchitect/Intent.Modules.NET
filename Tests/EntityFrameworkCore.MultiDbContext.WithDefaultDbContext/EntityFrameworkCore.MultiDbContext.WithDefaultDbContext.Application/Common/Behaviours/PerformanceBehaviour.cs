@@ -38,7 +38,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Application.Co
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

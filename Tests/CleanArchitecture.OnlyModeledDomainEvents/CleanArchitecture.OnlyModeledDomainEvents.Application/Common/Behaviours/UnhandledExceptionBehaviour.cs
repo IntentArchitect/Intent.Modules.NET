@@ -32,7 +32,7 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Application.Common.Behaviour
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

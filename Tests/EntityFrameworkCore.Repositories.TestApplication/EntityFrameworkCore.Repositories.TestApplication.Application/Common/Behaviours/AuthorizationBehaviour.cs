@@ -87,7 +87,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Be
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

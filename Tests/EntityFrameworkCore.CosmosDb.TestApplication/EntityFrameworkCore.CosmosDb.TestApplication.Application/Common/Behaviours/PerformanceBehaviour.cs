@@ -38,7 +38,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behavi
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

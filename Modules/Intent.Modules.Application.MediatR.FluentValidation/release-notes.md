@@ -1,8 +1,9 @@
-### Version 4.9.0
+﻿### Version 4.9.0
 
+- Improvement: `CancellationToken` is now used as an argument to the `next()` delegate in the MediatR behaviour template.
 - Improvement: Updated NuGet package versions.
 
-> ?? **NOTE**
+> ⚠️ **NOTE**
 >
 > This module update may cause a compilation breaks if you have written any custom code which uses FluentValidation features which are not supported on v12.
 > Any generated code will be compliant.

@@ -32,7 +32,7 @@ namespace AzureFunctions.AzureServiceBus.Application.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

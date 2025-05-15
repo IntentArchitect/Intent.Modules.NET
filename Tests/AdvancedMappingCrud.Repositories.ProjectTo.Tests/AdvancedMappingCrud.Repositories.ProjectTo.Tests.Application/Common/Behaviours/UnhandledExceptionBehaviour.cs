@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Common.Be
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

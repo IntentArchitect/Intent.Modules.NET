@@ -58,7 +58,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.UnitOfWorkBeha
                         method.ApplyUnitOfWorkImplementations(
                             template: this,
                             constructor: @class.Constructors.First(),
-                            invocationStatement: "await next();",
+                            invocationStatement: "await next(cancellationToken);",
                             returnType: tResponse,
                             resultVariableName: "response",
                             fieldSuffix: "dataSource");

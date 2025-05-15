@@ -38,7 +38,8 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Common.Behaviou
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

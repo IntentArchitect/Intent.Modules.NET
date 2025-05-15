@@ -32,7 +32,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Beh
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

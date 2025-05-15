@@ -34,7 +34,7 @@ namespace SqlDbProject.Application.Common.Behaviours
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

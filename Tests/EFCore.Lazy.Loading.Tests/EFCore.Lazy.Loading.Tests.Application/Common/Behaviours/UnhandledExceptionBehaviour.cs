@@ -32,7 +32,7 @@ namespace EFCore.Lazy.Loading.Tests.Application.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

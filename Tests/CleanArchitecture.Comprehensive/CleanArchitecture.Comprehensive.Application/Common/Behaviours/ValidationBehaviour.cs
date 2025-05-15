@@ -39,7 +39,8 @@ namespace CleanArchitecture.Comprehensive.Application.Common.Behaviours
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }
