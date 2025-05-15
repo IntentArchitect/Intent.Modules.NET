@@ -99,8 +99,8 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         var htmlElement = new HtmlElement(_componentTemplate.GetTypeName((IElement)component.TypeReference.Element), _componentTemplate.RazorFile);
         foreach (var property in model.Properties.Where(x => x.HasBindable()))
         {
-            var bindingProperty = _bindingManager.GetElementBinding(property, parentNode);
-            var prefix = ShouldIncludeAtSign(property) ? "@" : string.Empty;
+            var bindingProperty = _bindingManager.GetElementBindingWithParent(property, component.ParentId, parentNode);
+            var prefix = ShouldIncludeAtSign(property, component.ParentId) ? "@" : string.Empty;
             var propertyBindingExpression = prefix + bindingProperty;
             htmlElement.AddAttributeIfNotEmpty(property.Name, propertyBindingExpression);
         }
@@ -120,9 +120,9 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         return [htmlElement];
     }
 
-    private bool ShouldIncludeAtSign(PropertyModel property)
+    private bool ShouldIncludeAtSign(PropertyModel property, string? parentId = null )
     {
-        if (!IsBindingExpression(property))
+        if (!IsBindingExpression(property, parentId))
         {
             return false;
         }
@@ -138,11 +138,11 @@ public class DisplayCommonComponentBuilder : IRazorComponentBuilder
         return false;
     }
 
-    private bool IsBindingExpression(PropertyModel property)
+    private bool IsBindingExpression(PropertyModel property, string? parentId = null)
     {
         // I'm wondering if we can have some metadata returned through the GetElementBinding call
         // so that we don't need to make a separate call like this.
-        var mappedEnd = _bindingManager.GetMappedEndFor(property);
+        var mappedEnd = _bindingManager.GetMappedEndForWithParent(property, parentId);
         var expression = mappedEnd?.MappingExpression?.Trim();
         return expression is not null && expression.StartsWith('{') && expression.EndsWith('}');
     }
