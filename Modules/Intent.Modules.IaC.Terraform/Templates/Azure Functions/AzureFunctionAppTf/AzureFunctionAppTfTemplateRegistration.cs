@@ -28,10 +28,15 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            
-            var arr = applicationManager.MetadataManager.GetSolutionMetadata<IElement>("Services").ToArray();
-            
-            //registry.RegisterTemplate(TemplateId, project => new AzureFunctionAppTfTemplate(project, null));
+            var apps = applicationManager.GetSolutionConfig()
+                .GetApplicationReferences()
+                .Select(s => applicationManager.GetSolutionConfig().GetApplicationConfig(s.Id))
+                .Where(p => p.Modules.Any(x => x.ModuleId == "Intent.AzureFunctions"))
+                .ToArray();
+            foreach (var applicationConfig in apps)
+            {
+                registry.RegisterTemplate(TemplateId, project => new AzureFunctionAppTfTemplate(project, new ApplicationInfo(applicationConfig)));
+            }
         }
     }
 }
