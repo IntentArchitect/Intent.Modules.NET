@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.13" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.15" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Common" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -157,5 +157,6 @@
     <application id="d7160580-fd34-48ed-89c5-a7ddb1224f69" name="Intent.Modules.Eventing.AzureEventGrid" solutionFolder="Eventing Integration" relativePath="Intent.Modules.Eventing.AzureEventGrid/Intent.Modules.Eventing.AzureEventGrid.application.config" />
     <application id="3ef324e0-3f39-431c-a2eb-243a7681432c" name="Intent.Modules.AzureFunctions.AzureEventGrid" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureEventGrid/Intent.Modules.AzureFunctions.AzureEventGrid.application.config" />
     <application id="ef0bb9b8-4ed6-4f65-8e3b-b628b1c61729" name="Intent.Modules.SqlDatabaseProject" solutionFolder="Persistence" relativePath="Intent.Modules.SqlDatabaseProject/Intent.Modules.SqlDatabaseProject.application.config" />
+    <application id="4e255eb0-077f-43e9-a3ff-0fcdfb027119" name="Intent.Modules.IaC.Terraform" solutionFolder="Continuous Integration" relativePath="Intent.Modules.IaC.Terraform/Intent.Modules.IaC.Terraform.application.config" />
   </applications>
 </solution>
