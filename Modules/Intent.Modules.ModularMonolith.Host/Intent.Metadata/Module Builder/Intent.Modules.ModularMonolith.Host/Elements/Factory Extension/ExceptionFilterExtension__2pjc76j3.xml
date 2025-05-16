@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d67ffc26-a36b-42fb-9653-38ce74103cf0" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ExceptionFilterExtension</name>
+  <display>ExceptionFilterExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</parentFolderId>
+  <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+  <packageName>Intent.ModularMonolith.Host</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

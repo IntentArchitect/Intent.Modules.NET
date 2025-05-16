@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
         public override void Configure()
         {
-            Post("query-async-with-param");
+            Post("api/service-dispatch/query-async-with-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchService");

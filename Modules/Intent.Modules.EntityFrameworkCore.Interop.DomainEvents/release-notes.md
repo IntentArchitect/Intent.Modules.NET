@@ -1,3 +1,7 @@
+### Version 4.1.4
+
+- Improvement: Updates Multiple DB Contexts to all have Domain Eventing infrastructure.
+
 ### Version 4.1.3
 
 - Improvement: Updated module icon

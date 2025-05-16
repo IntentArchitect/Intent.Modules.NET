@@ -1,3 +1,7 @@
+### Version 4.3.3
+
+- Improvement: Request Payload logging is optional through the `CqrsSettings:LogRequestPayload` setting.
+
 ### Version 4.3.2
 
 - Improvement: Updated NuGet package versions.

@@ -119,7 +119,7 @@ namespace Intent.Modules.Eventing.Solace
             NugetRegistry.Register(SolaceSystemsSolclientMessagingPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 2, 0) => new PackageVersion("10.27.0"),
+                        ( >= 2, 0) => new PackageVersion("10.28.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SolaceSystemsSolclientMessagingPackageName}'"),
                     }
                 );

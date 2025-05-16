@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using OcelotTest.Api.Configuration;
+using OcelotTest.Api.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -37,7 +38,8 @@ namespace OcelotTest.Api
                 })
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

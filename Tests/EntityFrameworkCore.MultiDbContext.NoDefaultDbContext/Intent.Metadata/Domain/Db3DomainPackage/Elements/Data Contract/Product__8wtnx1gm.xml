@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d0ebbd80-27c5-4b47-92fd-a530e61b8c6a" type="Data Contract" typeId="4464fabe-c59e-4d90-81fc-c9245bdd1afd">
+  <name>Product</name>
+  <display>Product</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>43e241be-9a89-4cfd-8dfc-612182b90123</parentFolderId>
+  <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
+  <packageName>Db3DomainPackage</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

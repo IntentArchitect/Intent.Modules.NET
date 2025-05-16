@@ -45,14 +45,14 @@
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
-              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" />
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="1b1daa4c-4b43-4917-994d-28d169c22052" name="DeleteBrandCommand" type="element" specialization="Command" />
-                  <target id="d45210e9-a5f7-4650-bbd8-1582a295bb1f" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="1b1daa4c-4b43-4917-994d-28d169c22052" name="DeleteBrandCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d45210e9-a5f7-4650-bbd8-1582a295bb1f" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

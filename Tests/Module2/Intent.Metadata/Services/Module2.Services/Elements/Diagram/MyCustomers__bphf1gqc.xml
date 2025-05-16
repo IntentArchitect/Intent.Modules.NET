@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ecadb99a-384f-4c31-95ff-31caf68f92fc" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>MyCustomers</name>
+  <display>MyCustomers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8c3b663b-3715-4e52-aafb-7462e894229d</parentFolderId>
+  <packageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</packageId>
+  <packageName>Module2.Services</packageName>
+  <diagram>
+    <targetPackageId>ecadb99a-384f-4c31-95ff-31caf68f92fc</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

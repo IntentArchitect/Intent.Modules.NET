@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c4b82a9a-b2f1-4851-b807-81b80f3723c9" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Mappings</name>
+  <display>Mappings</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>4735fc39-bb13-4dce-85c2-b5efec2269dc</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="32c9b617-b5cf-403b-8263-e4b48d8cd4b7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.AutoMapper.DtoMappingProfile</name>
+      <display>Intent.Application.Dtos.AutoMapper.DtoMappingProfile</display>
+      <externalReference>Intent.Application.Dtos.AutoMapper</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c4b82a9a-b2f1-4851-b807-81b80f3723c9</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

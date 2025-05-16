@@ -21,6 +21,9 @@
   <targetEnd id="dc625b66-d481-49d7-aa31-26ff9e26ddca" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : UpdateAccountCommand(...): void</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="63360925-7b87-41d9-ab76-f24a4c08b2bb">
       <typeId>9f5413d1-5d32-48d6-996c-f27d6ec671fc</typeId>
       <isNavigable>true</isNavigable>

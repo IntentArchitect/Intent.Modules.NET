@@ -37,6 +37,7 @@ namespace CleanArchitecture.Comprehensive.Api
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
                     .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy())
                     .Destructure.With(new GeoDestructureSerilogPolicy()))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

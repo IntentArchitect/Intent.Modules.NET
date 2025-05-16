@@ -107,6 +107,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>fa3afd58-04bb-4d9f-bd96-63e5285fd50d</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MultipleDocumentStores.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>51943174-2235-4aa6-90a0-cacb540fefcc</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#51943174-2235-4aa6-90a0-cacb540fefcc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

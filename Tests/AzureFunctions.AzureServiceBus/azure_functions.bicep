@@ -142,6 +142,18 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: specificTopicSubscription.name
         }
         {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'dotnet-isolated'
         }

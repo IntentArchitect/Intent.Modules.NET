@@ -68,9 +68,9 @@ namespace Intent.Modules.Eventing.MassTransit
                 (framework) => framework switch
                     {
                         ( >= 9, 0) => new PackageVersion("8.4.0")
-                            .WithNugetDependency("MassTransit", "8.4.0")
+                            .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98")
                             .WithNugetDependency("AWSSDK.SQS", "3.7.400.98")
-                            .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98"),
+                            .WithNugetDependency("MassTransit", "8.4.0"),
                         ( >= 8, 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98")
                             .WithNugetDependency("AWSSDK.SQS", "3.7.400.98")
@@ -86,9 +86,9 @@ namespace Intent.Modules.Eventing.MassTransit
                 (framework) => framework switch
                     {
                         ( >= 9, 0) => new PackageVersion("8.4.0")
-                            .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("Azure.Identity", "1.13.2")
-                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4"),
+                            .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4")
+                            .WithNugetDependency("MassTransit", "8.4.0"),
                         ( >= 8, 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("Azure.Identity", "1.13.2")
                             .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4")

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="137e5f2f-8432-4ade-b797-9a8e5e703e6d" type="Module Settings Configuration" typeId="37e678f8-370a-4b05-ae44-69bb3d2b39b6">
+  <name>AutoMapper Settings</name>
+  <display>AutoMapper Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>bbd2c56f-b591-4434-ac25-2b08337570c3</parentFolderId>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="e2a4568b-8eac-49a4-b7df-9dbe9dc04d20" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
+      <name>Profile location</name>
+      <display>Profile location</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>137e5f2f-8432-4ade-b797-9a8e5e703e6d</parentFolderId>
+      <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+      <packageName>Intent.Application.AutoMapper</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="4805c791-5be3-4049-b929-6046d7be9944" name="Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Select" isActive="true" />
+            <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Put AutoMapper profiles in Dtos files or separate them out." isActive="true" />
+            <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="profile-in-dto" isActive="true" />
+            <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
+            <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="75e31823-42b9-44e6-96a8-0a67d6f8b6f0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Profile in Dto</name>
+          <display>Profile in Dto = profile-in-dto</display>
+          <isAbstract>false</isAbstract>
+          <value>profile-in-dto</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e2a4568b-8eac-49a4-b7df-9dbe9dc04d20</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="99eaba27-44f1-47da-a1b2-5793569100f1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>Profile Separate</name>
+          <display>Profile Separate = profile-separate</display>
+          <isAbstract>false</isAbstract>
+          <value>profile-separate</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e2a4568b-8eac-49a4-b7df-9dbe9dc04d20</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

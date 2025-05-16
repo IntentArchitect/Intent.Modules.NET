@@ -1,3 +1,7 @@
+### Version 4.7.9
+
+- Improvement: Added PostgreSql stored procedure support. Also added a default stored procedure implementation for other DB providers.
+
 ### Version 4.7.8
 
 - Improvement: Moved custom repository creation out of this module into a centeral module so it can be used by any database provider.

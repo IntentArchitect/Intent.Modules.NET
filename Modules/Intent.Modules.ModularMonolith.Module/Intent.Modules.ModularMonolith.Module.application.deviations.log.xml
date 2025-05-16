@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.ModularMonolith.Module/Templates/TemplateExtensions.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-05-12T13:41:53.5360924Z</updatedAt>
+      <deviationsHash>8AE3626DBE9649A75EB74E923E7D5556732722121198E9F595BCC2B10DFF426E</deviationsHash>
+      <fileHash>D2C1F893CB4FE628189D59309F417ACF470064158E36E33E78DFF1FBFAF5D8AB</fileHash>
+    </file>
+  </files>
+</deviationsLog>

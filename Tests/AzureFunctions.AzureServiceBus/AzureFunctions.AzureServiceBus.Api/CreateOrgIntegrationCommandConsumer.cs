@@ -21,16 +21,19 @@ namespace AzureFunctions.AzureServiceBus.Api
         private readonly IAzureServiceBusMessageDispatcher _dispatcher;
         private readonly ILogger<CreateOrgIntegrationCommandConsumer> _logger;
         private readonly IEventBus _eventBus;
+        private readonly IServiceProvider _serviceProvider;
         private readonly IUnitOfWork _unitOfWork;
 
         public CreateOrgIntegrationCommandConsumer(IAzureServiceBusMessageDispatcher dispatcher,
             ILogger<CreateOrgIntegrationCommandConsumer> logger,
             IEventBus eventBus,
+            IServiceProvider serviceProvider,
             IUnitOfWork unitOfWork)
         {
             _dispatcher = dispatcher;
             _logger = logger;
             _eventBus = eventBus;
+            _serviceProvider = serviceProvider;
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -50,7 +53,7 @@ namespace AzureFunctions.AzureServiceBus.Api
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                     new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    await _dispatcher.DispatchAsync(message, cancellationToken);
+                    await _dispatcher.DispatchAsync(_serviceProvider, message, cancellationToken);
 
                     // By calling SaveChanges at the last point in the transaction ensures that write-
                     // locks in the database are created and then released as quickly as possible. This

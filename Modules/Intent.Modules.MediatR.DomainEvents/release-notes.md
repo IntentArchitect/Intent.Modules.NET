@@ -1,3 +1,8 @@
+### Version 5.0.27
+
+- Improvement: Support for different `MapTo` Extension methods.
+- Fixed: Mapping code now correctly generated when modeling and mapping a ValueObject collection as an Entity Attribute.
+
 ### Version 5.0.26
 
 - Fixed: Not found exception message incorrect for composite entities.

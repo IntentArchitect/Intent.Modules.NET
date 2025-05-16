@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d6ecb3cb-9c51-45da-b454-6ebcf7b842e2" type="On-Uninstall Migration" typeId="d95b829a-fabc-4f12-b044-b3fa198885aa">
+  <name>On-Uninstall</name>
+  <display>On-Uninstall</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>37886284-997b-4abb-b113-c0059e246040</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

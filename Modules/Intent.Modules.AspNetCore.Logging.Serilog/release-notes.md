@@ -1,3 +1,7 @@
+### Version 5.3.0
+
+- Improvement: Added logging policy to prevent runaway complex object logging.
+
 ### Version 5.2.1
 
 - Improvement: Updated NuGet package versions.

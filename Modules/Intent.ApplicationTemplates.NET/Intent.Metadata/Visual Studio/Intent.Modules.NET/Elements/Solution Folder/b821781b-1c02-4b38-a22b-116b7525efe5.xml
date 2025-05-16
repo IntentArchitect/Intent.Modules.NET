@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="b821781b-1c02-4b38-a22b-116b7525efe5" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
-  <name>Common</name>
-  <display>Common</display>
+  <name>App Templates</name>
+  <display>App Templates</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

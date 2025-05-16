@@ -12,13 +12,16 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
-      <target id="0fe9afdd-7892-494c-9152-9e0562ea5578" name="ClientsService" type="element" specialization="Service" />
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="0fe9afdd-7892-494c-9152-9e0562ea5578" name="ClientsService" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
   <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
   <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -41,12 +44,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ca81f2fc-189e-4825-8c01-4b6dba599924" name="DeleteClient" type="element" specialization="Operation" />
+          <target id="ca81f2fc-189e-4825-8c01-4b6dba599924" name="DeleteClient" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3560edc8-0de2-4510-a4aa-08d3bb543eb6</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

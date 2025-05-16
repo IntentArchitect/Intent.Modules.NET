@@ -18,7 +18,7 @@ namespace Intent.Modules.SonarQube
             NugetRegistry.Register(SonarAnalyzerCSharpPackageName,
                 (framework) => framework switch
                     {
-                        ( >= 0, 0) => new PackageVersion("10.8.0.113526")
+                        ( >= 0, 0) => new PackageVersion("10.9.0.115408")
                             .SpecifyAssetsBehaviour(privateAssets: new[] { "all" }, includeAssets: new[] { "runtime", "build", "native", "contentFiles", "analyzers", "buildTransitive" }),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SonarAnalyzerCSharpPackageName}'"),
                     }

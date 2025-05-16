@@ -76,10 +76,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>4241e7b0-0b03-49a8-a8e9-af6abd1854b2</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#14fabf97-8018-4a60-a19e-b8944224e201</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#0e442fb0-b481-4209-9e6e-bbf3a519fea2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Controllers/TestController.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TestController.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Controllers/TestingController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TestingController.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -96,6 +96,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>29875f90-43fd-491a-b9e9-dfa25eb07e5d</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -252,18 +260,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#74588452-13aa-421a-8433-c34e720119e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/Test/TestCommand.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLogging.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Testing/PerformLargeObjectLogging/PerformLargeObjectLogging.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#ce454d77-9758-45b0-9fdd-000e5ae925f8</CorrelationId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#74588452-13aa-421a-8433-c34e720119e2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Test/Test/TestCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Test/Test/TestCommandHandler.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Testing/PerformLargeObjectLogging/PerformLargeObjectLoggingHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Testing/PerformLargeObjectLogging/PerformLargeObjectLoggingHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#8772e743-5bf4-4405-bcac-9f10dd7e1a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Testing/PerformSmallObjectLogging/PerformSmallObjectLogging.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Testing/PerformSmallObjectLogging/PerformSmallObjectLogging.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6b33fd3e-9263-4ca8-a555-99e32df4ea03</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#8772e743-5bf4-4405-bcac-9f10dd7e1a75</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Standard.AspNetCore.Serilog.Application/Testing/PerformSmallObjectLogging/PerformSmallObjectLoggingHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Testing/PerformSmallObjectLogging/PerformSmallObjectLoggingHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8f4a4531-8e2f-4ee7-82c9-2995410241fc" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
   <name>CreateOrderCommand</name>
-  <display>CreateOrderCommand: void</display>
+  <display>CreateOrderCommand: string</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <typeReference id="12e7a27a-cf57-4b09-8ac9-071fd3717e46">
+    <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
     <isRequired>true</isRequired>
+    <typePackageName>Intent.Common.Types</typePackageName>
+    <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
     <stereotypes />
     <genericTypeParameters />
   </typeReference>

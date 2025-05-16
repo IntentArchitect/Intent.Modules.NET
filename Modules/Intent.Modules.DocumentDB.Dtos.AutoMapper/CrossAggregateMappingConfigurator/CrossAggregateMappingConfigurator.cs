@@ -28,6 +28,7 @@ internal static partial class CrossAggregateMappingConfigurator
 {
     public static void Execute(IApplication application)
     {
+
         var templates = application.FindTemplateInstances<DtoModelTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Application.Contracts.Dto));
         foreach (var template in templates)
         {
@@ -38,53 +39,74 @@ internal static partial class CrossAggregateMappingConfigurator
                 if (!IsDtoMappingAccrossAggregates(templateModel, application))
                     return;
 
-                file.AddUsing("System.Linq");
-
-                var @class = file.TypeDeclarations.First();
                 var entityTemplate = GetEntityTemplate(template, templateModel.Mapping.ElementId);
-
-                var method = @class.FindMethod("Mapping");
-                var mappingStatement = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
-
-                var mappedFields = new List<CrossAggregateMappedField>();
-
-                var needToElevatePropertyAccessors = NeedToElevatePropertyAccessors(application);
-
-                foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
+                var dtoClass = file.TypeDeclarations.First();
+                if (application.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileInDto())
                 {
-                    for (int i = 0; i < field.Mapping.Path.Count; i++)
-                    {
-                        var pathPart = field.Mapping.Path[i];
+                    file.AddUsing("System.Linq");
 
-                        if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
-                        {
-                            var statementToRemove = mappingStatement.Statements.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("field", out var currentField) && currentField.Id == field.Id);
-                            if (statementToRemove != null)
-                            {
-                                mappingStatement.Statements.Remove(statementToRemove);
-                            }
 
-                            mappedFields.Add(new CrossAggregateMappedField(field, ae, i));
-                            //We done with this attribute
-                            break;
-                        }
-                    }
+                    var method = dtoClass.FindMethod("Mapping");
+                    var mappingStatement = method.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
+                    AddInMappingActions(application, template, template, templateModel, dtoClass, dtoClass, entityTemplate, mappingStatement);
                 }
-                mappingStatement.AddChainStatement($"AfterMap<MappingAction>()");
-
-                if (needToElevatePropertyAccessors)
+                else
                 {
-                    foreach (var mappedField in mappedFields)
-                    {
-                        var property = @class.Properties.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("model", out var currentField) && currentField.Id == mappedField.Field.Id);
-                        if (property != null)
-                            property.Setter.Internal();
-                    }
+                    var profileTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Application.Dtos.AutoMapper.DtoMappingProfile", templateModel);
+                    profileTemplate.CSharpFile.AddUsing("System.Linq");
+
+                    var mappingClass = profileTemplate.CSharpFile.Classes.First(c => c.BaseType.Name.EndsWith("Profile"));
+                    var ctor = mappingClass.Constructors.First();
+
+                    var mappingStatement = ctor.Statements.OfType<CSharpMethodChainStatement>().FirstOrDefault();
+
+                    AddInMappingActions(application, profileTemplate, template, templateModel, dtoClass, mappingClass, entityTemplate, mappingStatement);
                 }
 
-                CreateMappingActionClass(template, @class, entityTemplate, mappedFields);
             }, 10);
         }
+    }
+
+    private static void AddInMappingActions(IApplication application, ICSharpFileBuilderTemplate mappingTemplate, ICSharpFileBuilderTemplate dtoTemplate, DTOModel templateModel, CSharpClass dtoClass, CSharpClass mappingClass, ICSharpFileBuilderTemplate entityTemplate, CSharpMethodChainStatement mappingStatement)
+    {
+
+        var mappedFields = new List<CrossAggregateMappedField>();
+
+        var needToElevatePropertyAccessors = NeedToElevatePropertyAccessors(application);
+
+        foreach (var field in templateModel.Fields.Where(x => x.Mapping != null))
+        {
+            for (int i = 0; i < field.Mapping.Path.Count; i++)
+            {
+                var pathPart = field.Mapping.Path[i];
+
+                if (pathPart.Element is IAssociationEnd ae && IsAggregational(ae))
+                {
+                    var statementToRemove = mappingStatement.Statements.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("field", out var currentField) && currentField.Id == field.Id);
+                    if (statementToRemove != null)
+                    {
+                        mappingStatement.Statements.Remove(statementToRemove);
+                    }
+
+                    mappedFields.Add(new CrossAggregateMappedField(field, ae, i));
+                    //We done with this attribute
+                    break;
+                }
+            }
+        }
+        mappingStatement.AddChainStatement($"AfterMap<MappingAction>()");
+
+        if (needToElevatePropertyAccessors)
+        {
+            foreach (var mappedField in mappedFields)
+            {
+                var property = dtoClass.Properties.FirstOrDefault(s => s.TryGetMetadata<DTOFieldModel>("model", out var currentField) && currentField.Id == mappedField.Field.Id);
+                if (property != null)
+                    property.Setter.Internal();
+            }
+        }
+
+        CreateMappingActionClass(mappingTemplate, dtoTemplate, mappingClass, entityTemplate, mappedFields);
     }
 
     private static bool NeedToElevatePropertyAccessors(IApplication application)
@@ -93,7 +115,7 @@ internal static partial class CrossAggregateMappingConfigurator
         return setting.IsPrivate() || setting.IsInit();
     }
 
-    private static void CreateMappingActionClass(DtoModelTemplate template, CSharpClass @class, ICSharpFileBuilderTemplate entityTemplate, List<CrossAggregateMappedField> mappedFields)
+    private static void CreateMappingActionClass(ICSharpFileBuilderTemplate mappingTemplate, ICSharpFileBuilderTemplate dtoTemplate, CSharpClass mappingClass, ICSharpFileBuilderTemplate entityTemplate, List<CrossAggregateMappedField> mappedFields)
     {
         var repositoriesNeeded = new HashSet<RepositoryInfo>();
         var aggregateLoadInstructions = new Dictionary<string, LoadInstruction>();
@@ -109,7 +131,7 @@ internal static partial class CrossAggregateMappingConfigurator
                     var aggregate = new PathAggregate(i, GetPathExpression(mapping.Field.Mapping.Path.Take(i + 1)));
                     if (!aggregateLoadInstructions.ContainsKey(aggregate.Expression))
                     {
-                        if (!template.TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, ae.AsAssociationEndModel().Class, out var pathRepoInterfaceType))
+                        if (!mappingTemplate.TryGetTypeName(EntityRepositoryInterfaceTemplate.TemplateId, ae.AsAssociationEndModel().Class, out var pathRepoInterfaceType))
                         {
                             throw new Exception($"No repository found for {ae.AsAssociationEndModel().Class.Name}");
                         }
@@ -131,10 +153,10 @@ internal static partial class CrossAggregateMappingConfigurator
             }
         }
 
-        @class.AddNestedClass($"MappingAction", child =>
+        mappingClass.AddNestedClass($"MappingAction", child =>
         {
             child.Internal();
-            child.ImplementsInterface($"IMappingAction<{template.GetTypeName(entityTemplate)},{template.ClassName}>");
+            child.ImplementsInterface($"IMappingAction<{mappingTemplate.GetTypeName(entityTemplate)},{dtoTemplate.ClassName}>");
 
             child.AddConstructor(con =>
             {
@@ -147,8 +169,8 @@ internal static partial class CrossAggregateMappingConfigurator
 
             child.AddMethod("void", "Process", method =>
             {
-                method.AddParameter(template.GetTypeName(entityTemplate), "source");
-                method.AddParameter(template.ClassName, "destination");
+                method.AddParameter(mappingTemplate.GetTypeName(entityTemplate), "source");
+                method.AddParameter(dtoTemplate.ClassName, "destination");
                 method.AddParameter("ResolutionContext", "context");
 
                 //Aggregates depend on parent aggregates for loading, order by path length handles this automatically 
@@ -164,7 +186,7 @@ internal static partial class CrossAggregateMappingConfigurator
                     }
 
                     var fkExpression = fkAttribute.TypeReference.IsCollection ? $"{fkAttribute.Name.ToPascalCase()}{(fkAttribute.TypeReference.IsNullable ? "?" : "")}.ToArray()" : fkAttribute.Name.ToPascalCase();
-                    var valueAccessorExpression = fkAttribute.TypeReference.IsNullable && template.GetTypeInfo(fkAttribute.TypeReference).IsPrimitive
+                    var valueAccessorExpression = fkAttribute.TypeReference.IsNullable && mappingTemplate.GetTypeInfo(fkAttribute.TypeReference).IsPrimitive
                         ? ".Value"
                         : string.Empty;
                     
@@ -185,14 +207,14 @@ internal static partial class CrossAggregateMappingConfigurator
                     {
                         method.AddIfStatement($"{load.Variable} == null", ifs =>
                         {
-                            ifs.AddStatement($"throw new {template.GetNotFoundExceptionName()}($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");");
+                            ifs.AddStatement($"throw new {mappingTemplate.GetNotFoundExceptionName()}($\"Unable to load required relationship for Id({{{load.FieldPath}.{fkExpression}}}). ({load.AssociationEndModel.OtherEnd().Class.Name})->({load.AssociationEndModel.Class.Name})\");");
                         });
                     }
                 }
 
                 foreach (var mapping in mappedFields)
                 {
-                    string aggregateExpression = GetAggregatePathExpression(template, mapping.Field, mapping.Field.Mapping.Path, out var fieldPath);
+                    string aggregateExpression = GetAggregatePathExpression(mappingTemplate, mapping.Field, mapping.Field.Mapping.Path, out var fieldPath);
                     var load = aggregateLoadInstructions[aggregateExpression];
                     if (load.IsOptional || load.IsExpressionOptional)
                     {
@@ -208,7 +230,7 @@ internal static partial class CrossAggregateMappingConfigurator
     }
 
 
-    private static string GetAggregatePathExpression(DtoModelTemplate template, DTOFieldModel field, IList<IElementMappingPathTarget> path, out string fieldPath)
+    private static string GetAggregatePathExpression(ICSharpFileBuilderTemplate template, DTOFieldModel field, IList<IElementMappingPathTarget> path, out string fieldPath)
     {
         fieldPath = null;
         for (int i = path.Count - 1; i >= 0; i--)
@@ -229,7 +251,7 @@ internal static partial class CrossAggregateMappingConfigurator
         throw new Exception("Aggregate not found");
     }
 
-    private static string GetMappingFunction(DtoModelTemplate template, DTOFieldModel field)
+    private static string GetMappingFunction(ICSharpFileBuilderTemplate template, DTOFieldModel field)
     {
         var result = field.TypeReference.IsCollection
             ? $"MapTo{template.GetTypeName(field.TypeReference, "{0}")}List"

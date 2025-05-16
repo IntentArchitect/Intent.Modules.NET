@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3acb0590-9fa7-4669-9722-fb7dc7f87654" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MassTransitRegistrationsExtension</name>
+  <display>MassTransitRegistrationsExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</parentFolderId>
+  <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+  <packageName>Intent.ModularMonolith.Host</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

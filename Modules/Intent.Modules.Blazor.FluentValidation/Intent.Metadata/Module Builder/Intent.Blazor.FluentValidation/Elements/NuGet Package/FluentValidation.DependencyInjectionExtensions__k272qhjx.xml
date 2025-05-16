@@ -130,5 +130,48 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="22a5eff3-82de-4108-81d4-0c92d4ff52ce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>12.0.0</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>460304f7-29ff-4c7f-8e72-58d0ae8b0023</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="ebc4792b-c12f-4bbf-bb87-ba2937426aa6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FluentValidation</name>
+          <isAbstract>false</isAbstract>
+          <value>12.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>22a5eff3-82de-4108-81d4-0c92d4ff52ce</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="05431217-43b8-4ea8-98b7-2b44f4267156" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Dependencyinjection.Abstractions</name>
+          <isAbstract>false</isAbstract>
+          <value>2.1.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>22a5eff3-82de-4108-81d4-0c92d4ff52ce</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

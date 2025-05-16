@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="86981326-b69e-4558-8720-0774277f7289" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.1</name>
+      <name>1.12.0</name>
       <display>1.9.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f5ed7493-a841-49d0-b15a-c6f48404a426" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="003901aa-7d71-420a-a574-5a3666a06e57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a07f2f0b-42fe-4d13-9e50-9db1041f2d4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1082c8fd-28b1-4a21-a0a0-ace70156471b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d6840a81-ec02-4c61-9d20-a1d1f9df4882" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e3811b66-2e9d-4b08-a99b-b44b86f6d669" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>86981326-b69e-4558-8720-0774277f7289</parentFolderId>
@@ -83,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="1d1ee6b0-3dd7-49bf-ba0b-9332a5b02b5e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.1</name>
+      <name>1.12.0</name>
       <display>1.9.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -105,7 +105,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="31f8e9a9-8d50-46f0-b532-751ef91db9f4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="86ee0fb4-a948-40e5-b4a3-f0e8855d998d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -116,7 +116,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8cb2af34-36c9-4dd0-a991-a911ad8bd2c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f839b865-5032-46b1-bcc8-c59da47aae8a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
@@ -127,10 +127,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7527a192-cb1f-481a-b401-624ef0fd9057" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ec7867c-406e-4ff7-858f-41199ca49a0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api.ProviderBuilderExtensions</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1d1ee6b0-3dd7-49bf-ba0b-9332a5b02b5e</parentFolderId>

@@ -1,3 +1,13 @@
+### Version 1.1.0
+
+- Improvement: Updated NuGet package versions.
+
+> ?? **NOTE**
+>
+> This module update may cause a compilation breaks if you have written any custom code which uses AWSSDK features which are not supported on v4.
+> Any generated code will be compliant.
+> For details on what the breaking changes are check out the [change logs](https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.2025.md) and [migration guide](https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/net-dg-v4.html).
+
 ### Version 1.0.6
 
 - Improvement: Updated NuGet package versions.

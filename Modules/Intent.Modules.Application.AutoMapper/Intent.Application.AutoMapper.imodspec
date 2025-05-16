@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.AutoMapper</id>
-  <version>5.2.0</version>
+  <version>5.2.1-pre.0</version>
   <supportedClientVersions>[4.1.0-pre.0, 5.0.0-a)</supportedClientVersions>
   <summary>Support for creating Mapping specifications using AutoMapper</summary>
   <description>Support for creating Mapping specifications using AutoMapper</description>
@@ -29,7 +29,7 @@
   </templates>
   <dependencies>
     <dependency id="Intent.Application.Dtos" version="4.1.1" />
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.3.10" />
@@ -43,7 +43,7 @@
     </detect>
     <detect id="Intent.Application.Dtos">
       <install>
-        <package id="Intent.Application.Dtos.AutoMapper" version="4.0.7" />
+        <package id="Intent.Application.Dtos.AutoMapper" version="4.0.14-pre.0" />
       </install>
     </detect>
     <detect id="Intent.Application.DependencyInjection.AutoMapper">
@@ -58,9 +58,23 @@
   </files>
   <decorators />
   <metadata />
-  <moduleSettings />
+  <moduleSettings>
+    <group id="137e5f2f-8432-4ade-b797-9a8e5e703e6d" title="AutoMapper Settings" externalReference="137e5f2f-8432-4ade-b797-9a8e5e703e6d">
+      <settings>
+        <setting id="e2a4568b-8eac-49a4-b7df-9dbe9dc04d20" title="Profile location" type="select">
+          <hint>Put AutoMapper profiles in Dtos files or separate them out.</hint>
+          <defaultValue>profile-in-dto</defaultValue>
+          <options>
+            <option value="profile-in-dto" description="Profile in Dto" />
+            <option value="profile-separate" description="Profile Separate" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
   <factoryExtensions>
     <factoryExtension id="Intent.Application.AutoMapper.EFRepositoryExtension" externalReference="c728fd6f-1d65-4d54-96b7-b1d7c45ea647" />
   </factoryExtensions>
+  <migrations has-on-install-migration="true" />
 </package>

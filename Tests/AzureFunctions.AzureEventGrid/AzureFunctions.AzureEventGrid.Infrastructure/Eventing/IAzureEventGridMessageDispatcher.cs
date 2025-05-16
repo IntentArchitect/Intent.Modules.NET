@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Azure.Messaging.EventGrid;
@@ -10,6 +11,6 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public interface IAzureEventGridMessageDispatcher
     {
-        Task DispatchAsync(EventGridEvent message, CancellationToken cancellationToken);
+        Task DispatchAsync(IServiceProvider scopedServiceProvider, EventGridEvent message, CancellationToken cancellationToken);
     }
 }

@@ -1,3 +1,9 @@
+### Version 1.0.4
+
+- Fixed: Full route is now used on the template
+- Fixed: When using versioning, the correct version is now applied to the endpoint
+
+
 ### Version 1.0.3
 
 - Improvement: Updated NuGet package versions.

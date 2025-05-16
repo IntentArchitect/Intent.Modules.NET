@@ -1,3 +1,7 @@
+### Version 5.3.5
+
+- Fixed: `Content-length` parameter now set correctly when creating a proxy service.
+
 ### Version 5.3.4
 
 - Improvement: Updated NuGet package versions.

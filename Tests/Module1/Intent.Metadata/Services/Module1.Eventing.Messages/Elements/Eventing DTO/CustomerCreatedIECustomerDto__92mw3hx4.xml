@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="467d7483-2b6e-4e5b-b02f-a69358a25bab" type="Eventing DTO" typeId="544f1d57-27ce-4985-a4ec-cc01568d72b0">
+  <name>CustomerCreatedIECustomerDto</name>
+  <display>CustomerCreatedIECustomerDto</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</parentFolderId>
+  <packageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</packageId>
+  <packageName>Module1.Eventing.Messages</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f3d47237-2b14-40ef-9a43-491dfca8ab73" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Id</name>
+      <display>Id: guid</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="1631eaea-a9fd-4634-b520-3e6bed78e8c5">
+        <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>467d7483-2b6e-4e5b-b02f-a69358a25bab</parentFolderId>
+      <packageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</packageId>
+      <packageName>Module1.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="77294433-58ab-4641-b1f6-eea86231110b" type="Eventing DTO-Field" typeId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="178c9c4c-0854-4314-8f0d-01a65dae1392">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>467d7483-2b6e-4e5b-b02f-a69358a25bab</parentFolderId>
+      <packageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</packageId>
+      <packageName>Module1.Eventing.Messages</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="a2ac3536-b9c9-42fb-83f4-255ed36851a1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController</name>
+      <display>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController</display>
+      <externalReference>Intent.AspNetCore.OData.EntityFramework</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0d72f64b-027f-4e29-8567-b43887b0fc08</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="881cf0e0-6c13-411b-a04e-6baee056b072">
+  <sourceEnd id="026f63d5-6ddc-4926-88c7-aa5714f3f3f8" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetMyCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="f0d9dabf-ae85-4b6d-a680-38ca5a37a16f">
+      <typeId>13574f3a-21df-4da9-9c0a-9ded1635ddb6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="881cf0e0-6c13-411b-a04e-6baee056b072" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>myCustomers</name>
+    <display>[query] myCustomers: MyCustomer[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6f8c7937-6c03-45c3-99f5-1960c954f5ce">
+      <typeId>c74de081-ad52-4e7c-9284-5296089e5994</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="13574f3a-21df-4da9-9c0a-9ded1635ddb6" location="[Module2].[Services].[GetMyCustomersQuery]" />
+        <target applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c74de081-ad52-4e7c-9284-5296089e5994" location="[Module2].[Services].[MyCustomer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

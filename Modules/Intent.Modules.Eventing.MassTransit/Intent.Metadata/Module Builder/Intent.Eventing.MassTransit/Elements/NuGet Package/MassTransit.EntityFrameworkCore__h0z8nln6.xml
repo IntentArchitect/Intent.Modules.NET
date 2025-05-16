@@ -77,64 +77,6 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="e4d834d0-e9f5-46e5-b3b8-388f7f0913b8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.4.0</name>
-      <display>8.3.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-by-name</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>fa397ed9-00e4-49a9-89a6-4d849f92e8b4</parentFolderId>
-      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-      <packageName>Intent.Eventing.MassTransit</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
-          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
-          <properties>
-            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="eaa91f73-0579-4c75-abff-7d199f0b6687" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>MassTransit</name>
-          <isAbstract>false</isAbstract>
-          <value>8.4.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6cf2d426-50e8-4c34-b6c4-4c927b72a90b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="089dbecf-751e-4426-9145-967657cf821e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Memory</name>
-          <isAbstract>false</isAbstract>
-          <value>8.0.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
     <childElement id="fe1629df-6638-49ea-bafe-5abe94c1f554" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.3.1</name>
       <display>8.3.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
@@ -188,12 +130,83 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="7799a154-c02f-42eb-a131-f214972792be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+    <childElement id="e4d834d0-e9f5-46e5-b3b8-388f7f0913b8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.4.0</name>
+      <display>8.4.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>fa397ed9-00e4-49a9-89a6-4d849f92e8b4</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="eaa91f73-0579-4c75-abff-7d199f0b6687" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>MassTransit</name>
+          <display>MassTransit (8.4.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.4.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6cf2d426-50e8-4c34-b6c4-4c927b72a90b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="089dbecf-751e-4426-9145-967657cf821e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e4d834d0-e9f5-46e5-b3b8-388f7f0913b8</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7799a154-c02f-42eb-a131-f214972792be" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.4.0</name>
+      <display>8.4.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fa397ed9-00e4-49a9-89a6-4d849f92e8b4</parentFolderId>
+      <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+      <packageName>Intent.Eventing.MassTransit</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -209,33 +222,42 @@
       <childElements>
         <childElement id="8a79594c-89ab-4692-806f-1b37df3adc08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
+          <display>MassTransit (8.4.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.4.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7799a154-c02f-42eb-a131-f214972792be</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="56d9af72-b094-4d1d-a1f4-e060eb5ac21c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7799a154-c02f-42eb-a131-f214972792be</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8db150c0-268e-4ad0-a782-a26d0c53eac1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
+          <display>Microsoft.Extensions.Caching.Memory (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7799a154-c02f-42eb-a131-f214972792be</parentFolderId>
+          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
+          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />

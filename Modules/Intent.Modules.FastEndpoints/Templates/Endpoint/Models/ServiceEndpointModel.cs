@@ -49,13 +49,13 @@ public class ServiceEndpointModel : IEndpointModel
         Comment = operationModel.Comment;
         TypeReference = operationModel.TypeReference;
         Verb = httpEndpoint.Verb;
-        Route = httpEndpoint.SubRoute;
+        Route = httpEndpoint.Route;
         MediaType = httpEndpoint.MediaType;
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         RequiresAuthorization = httpEndpoint.RequiresAuthorization;
         AllowAnonymous = httpEndpoint.AllowAnonymous;
         SecurityModels = securityModels;
-        ApplicableVersions = serviceModel.GetApiVersionSettings()
+        ApplicableVersions = operationModel.GetApiVersionSettings()
             ?.ApplicableVersions()
             .Select(s => new EndpointApiVersionModel(s))
             .Cast<IApiVersionModel>()
