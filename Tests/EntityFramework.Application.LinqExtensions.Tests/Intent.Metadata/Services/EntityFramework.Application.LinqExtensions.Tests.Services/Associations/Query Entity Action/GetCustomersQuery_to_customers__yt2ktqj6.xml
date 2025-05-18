@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bfcee90d-5670-44a8-b0e4-f236810e27d8">
+  <sourceEnd id="aab0acdc-1f33-44e3-bef6-119b8163a36d" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="c64f8b39-40ec-4b5e-8c22-93008dfdf7e6">
+      <typeId>241c7e76-9428-4f77-b3f0-262d3b992c2b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Services</typePackageName>
+      <typePackageId>446bb1f6-1ca4-4bf6-a437-c3f91cf15726</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bfcee90d-5670-44a8-b0e4-f236810e27d8" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5fe2b5ba-877b-479c-89d3-c37b05d54588">
+      <typeId>bc78aa8f-6ea3-4c83-8179-24b537131c59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Domain</typePackageName>
+      <typePackageId>07142643-252f-4030-b002-c12b5c4e9836</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="241c7e76-9428-4f77-b3f0-262d3b992c2b" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[GetCustomersQuery]" />
+        <target applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc78aa8f-6ea3-4c83-8179-24b537131c59" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

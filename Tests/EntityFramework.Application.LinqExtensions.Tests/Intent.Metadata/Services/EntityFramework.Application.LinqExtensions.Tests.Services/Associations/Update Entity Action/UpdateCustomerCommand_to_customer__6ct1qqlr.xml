@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="878a535c-773e-4985-a1b2-0ea052d891c5">
+  <sourceEnd id="b992de66-b98c-41bf-b5d2-d69f27d66a8f" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="b5b3e38e-3715-4399-9725-8e47f5166aa6">
+      <typeId>b66171db-df70-4b70-8726-54546eb43a1d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Services</typePackageName>
+      <typePackageId>446bb1f6-1ca4-4bf6-a437-c3f91cf15726</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="878a535c-773e-4985-a1b2-0ea052d891c5" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="64d155da-d61c-46bf-ad6c-6ac10ce9d3ac">
+      <typeId>bc78aa8f-6ea3-4c83-8179-24b537131c59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Domain</typePackageName>
+      <typePackageId>07142643-252f-4030-b002-c12b5c4e9836</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b66171db-df70-4b70-8726-54546eb43a1d" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc78aa8f-6ea3-4c83-8179-24b537131c59" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bc78aa8f-6ea3-4c83-8179-24b537131c59" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88a70f2e-dd9d-4a35-a29c-5554595312f7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="b66171db-df70-4b70-8726-54546eb43a1d" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3397a1ec-dc41-4aa1-bdc7-624a3c76a6c7" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="b66171db-df70-4b70-8726-54546eb43a1d" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc78aa8f-6ea3-4c83-8179-24b537131c59" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="bc78aa8f-6ea3-4c83-8179-24b537131c59" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ec2d3dfb-5cf0-46e0-b127-3897df669bac" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b66171db-df70-4b70-8726-54546eb43a1d" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="06b6dd2f-31d5-411e-93ed-5dbc2d0aeeb9" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="bc78aa8f-6ea3-4c83-8179-24b537131c59" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="41d01eb7-fe74-445c-af20-72bbf43cb74c" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b66171db-df70-4b70-8726-54546eb43a1d" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d592b25d-1743-43f8-86f6-649467eb3d40" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="bc78aa8f-6ea3-4c83-8179-24b537131c59" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="a65e0af1-2f6e-41f4-9661-dde6adb585ae" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="b66171db-df70-4b70-8726-54546eb43a1d" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="d1355ea3-d94e-42ec-baa6-73dced16e862" name="IsActive" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

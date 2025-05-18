@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="4125cbcb-678d-4964-80f6-e697a333e624">
+  <sourceEnd id="c2d492fe-087f-4674-a1fb-c8bc577e0de0" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersWithStatusQuery</display>
+    <order>0</order>
+    <typeReference id="4235e4f5-9039-4ed1-9333-37b68d942ee6">
+      <typeId>1ae612ec-323a-4836-826f-b99fd0ab389d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Services</typePackageName>
+      <typePackageId>446bb1f6-1ca4-4bf6-a437-c3f91cf15726</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="4125cbcb-678d-4964-80f6-e697a333e624" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="39826066-c5ed-422f-89e5-81589094b1da">
+      <typeId>bc78aa8f-6ea3-4c83-8179-24b537131c59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Domain</typePackageName>
+      <typePackageId>07142643-252f-4030-b002-c12b5c4e9836</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1ae612ec-323a-4836-826f-b99fd0ab389d" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[GetCustomersWithStatusQuery]" />
+        <target applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc78aa8f-6ea3-4c83-8179-24b537131c59" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
