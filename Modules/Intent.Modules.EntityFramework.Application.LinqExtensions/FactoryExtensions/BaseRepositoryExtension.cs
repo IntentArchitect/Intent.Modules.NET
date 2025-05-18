@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -5,8 +7,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -33,7 +33,7 @@ namespace Intent.Modules.EntityFramework.Application.LinqExtensions.FactoryExten
 
         private void AppendEFBaseRepository(IApplication application, ICSharpFileBuilderTemplate baseEFRepositoryTemplate)
         {
-            baseEFRepositoryTemplate.CSharpFile.AfterBuild(file => 
+            baseEFRepositoryTemplate.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
                 var queryInternal = @class.FindMethod(m => m.Name == "QueryInternal" && m.Parameters.Count == 1 && m.Parameters[0].Name == "queryOptions");
@@ -43,7 +43,7 @@ namespace Intent.Modules.EntityFramework.Application.LinqExtensions.FactoryExten
 
                 queryInternal = @class.FindMethod(m => m.Name == "QueryInternal" && m.Parameters.Count == 2 && m.Parameters[1].Name == "queryOptions");
                 statement = queryInternal.FindStatement(s => s.GetText("") == "var result = queryOptions(queryable);");
-                statement.InsertBelow(new CSharpStatement( "result = result.ApplyMarkers();"));
+                statement.InsertBelow(new CSharpStatement("result = result.ApplyMarkers();"));
                 var tParam = queryInternal.GenericParameters.First();
                 //Need to ensure this constraint is in place for AsTracking
                 if (!queryInternal.GenericTypeConstraints.Any(gc => gc.GenericTypeParameter == tParam.TypeName && gc.Types.Contains("class")))
