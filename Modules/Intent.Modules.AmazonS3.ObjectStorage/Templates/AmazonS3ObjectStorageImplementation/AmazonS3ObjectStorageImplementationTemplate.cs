@@ -35,6 +35,7 @@ namespace Intent.Modules.AmazonS3.ObjectStorage.Templates.AmazonS3ObjectStorageI
             this.Write(@"using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Amazon.S3;
@@ -46,21 +47,21 @@ using Microsoft.Extensions.Configuration;
 
 namespace ");
             
-            #line 22 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
+            #line 23 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\npublic class ");
             
-            #line 24 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
+            #line 25 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 24 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
+            #line 25 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetObjectStorageInterfaceName()));
             
             #line default
@@ -68,7 +69,7 @@ namespace ");
             this.Write("\r\n{\r\n    private readonly IAmazonS3 _client;\r\n    private readonly IConfiguration" +
                     " _configuration;\r\n\r\n    public ");
             
-            #line 29 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
+            #line 30 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AmazonS3.ObjectStorage\Templates\AmazonS3ObjectStorageImplementation\AmazonS3ObjectStorageImplementationTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -81,43 +82,44 @@ namespace ");
                     "DateTime.Now.Add(_configuration.GetValue<TimeSpan?>(\"AWS:PreSignedUrlExpiry\") ??" +
                     " TimeSpan.FromMinutes(5))\r\n        };\r\n\r\n        var url = await _client.GetPreS" +
                     "ignedURLAsync(request).ConfigureAwait(false);\r\n        return new Uri(url);\r\n   " +
-                    " }\r\n\r\n    public async IAsyncEnumerable<Uri> ListAsync(string bucketName, Cancel" +
-                    "lationToken cancellationToken = default)\r\n    {\r\n        var request = new ListO" +
-                    "bjectsV2Request\r\n        {\r\n            BucketName = bucketName\r\n        };\r\n\r\n " +
-                    "       var response = await _client.ListObjectsV2Async(request, cancellationToke" +
-                    "n).ConfigureAwait(false);\r\n        foreach (var s3Object in response.S3Objects)\r" +
-                    "\n        {\r\n            yield return await GetAsync(bucketName, s3Object.Key, ca" +
-                    "ncellationToken);\r\n        }\r\n    }\r\n\r\n    public Task<Uri> UploadAsync(Uri clou" +
-                    "dStorageLocation, Stream dataStream, CancellationToken cancellationToken = defau" +
-                    "lt)\r\n    {\r\n        var s3Uri = new AmazonS3Uri(cloudStorageLocation);\r\n        " +
-                    "return UploadAsync(s3Uri.Bucket, s3Uri.Key, dataStream, cancellationToken);\r\n   " +
-                    " }\r\n\r\n    public async Task<Uri> UploadAsync(string bucketName, string key, Stre" +
-                    "am dataStream, CancellationToken cancellationToken = default)\r\n    {\r\n        va" +
-                    "r putRequest = new PutObjectRequest\r\n        {\r\n            BucketName = bucketN" +
-                    "ame,\r\n            Key = key,\r\n            InputStream = dataStream\r\n        };\r\n" +
-                    "\r\n        await _client.PutObjectAsync(putRequest, cancellationToken).ConfigureA" +
-                    "wait(false);\r\n        return await GetAsync(bucketName, key, cancellationToken);" +
-                    "\r\n    }\r\n\r\n    public async IAsyncEnumerable<Uri> BulkUploadAsync(string bucketN" +
-                    "ame, IEnumerable<BulkObjectItem> objects, CancellationToken cancellationToken = " +
-                    "default)\r\n    {\r\n        foreach (var blob in objects)\r\n        {\r\n            y" +
-                    "ield return await UploadAsync(bucketName, blob.Name, blob.DataStream, cancellati" +
-                    "onToken);\r\n        }\r\n    }\r\n\r\n    public Task<Stream> DownloadAsync(Uri cloudSt" +
-                    "orageLocation, CancellationToken cancellationToken = default)\r\n    {\r\n        va" +
-                    "r s3Uri = new AmazonS3Uri(cloudStorageLocation);\r\n        return DownloadAsync(s" +
-                    "3Uri.Bucket, s3Uri.Key, cancellationToken);\r\n    }\r\n\r\n    public async Task<Stre" +
-                    "am> DownloadAsync(string bucketName, string key, CancellationToken cancellationT" +
-                    "oken = default)\r\n    {\r\n        var getRequest = new GetObjectRequest\r\n        {" +
-                    "\r\n            BucketName = bucketName,\r\n            Key = key\r\n        };\r\n\r\n   " +
-                    "     var response = await _client.GetObjectAsync(getRequest, cancellationToken)." +
-                    "ConfigureAwait(false);\r\n        return response.ResponseStream;\r\n    }\r\n\r\n    pu" +
-                    "blic Task DeleteAsync(Uri cloudStorageLocation, CancellationToken cancellationTo" +
-                    "ken = default)\r\n    {\r\n        var s3Uri = new AmazonS3Uri(cloudStorageLocation)" +
-                    ";\r\n        return DeleteAsync(s3Uri.Bucket, s3Uri.Key, cancellationToken);\r\n    " +
-                    "}\r\n\r\n    public async Task DeleteAsync(string bucketName, string key, Cancellati" +
-                    "onToken cancellationToken = default)\r\n    {\r\n        var deleteRequest = new Del" +
-                    "eteObjectRequest\r\n        {\r\n            BucketName = bucketName,\r\n            K" +
-                    "ey = key\r\n        };\r\n\r\n        await _client.DeleteObjectAsync(deleteRequest, c" +
-                    "ancellationToken).ConfigureAwait(false);\r\n    }\r\n}\r\n");
+                    " }\r\n\r\n    public async IAsyncEnumerable<Uri> ListAsync(string bucketName, [Enume" +
+                    "ratorCancellation] CancellationToken cancellationToken = default)\r\n    {\r\n      " +
+                    "  var request = new ListObjectsV2Request\r\n        {\r\n            BucketName = bu" +
+                    "cketName\r\n        };\r\n\r\n        var response = await _client.ListObjectsV2Async(" +
+                    "request, cancellationToken).ConfigureAwait(false);\r\n        foreach (var s3Objec" +
+                    "t in response.S3Objects)\r\n        {\r\n            yield return await GetAsync(buc" +
+                    "ketName, s3Object.Key, cancellationToken);\r\n        }\r\n    }\r\n\r\n    public Task<" +
+                    "Uri> UploadAsync(Uri cloudStorageLocation, Stream dataStream, CancellationToken " +
+                    "cancellationToken = default)\r\n    {\r\n        var s3Uri = new AmazonS3Uri(cloudSt" +
+                    "orageLocation);\r\n        return UploadAsync(s3Uri.Bucket, s3Uri.Key, dataStream," +
+                    " cancellationToken);\r\n    }\r\n\r\n    public async Task<Uri> UploadAsync(string buc" +
+                    "ketName, string key, Stream dataStream, CancellationToken cancellationToken = de" +
+                    "fault)\r\n    {\r\n        var putRequest = new PutObjectRequest\r\n        {\r\n       " +
+                    "     BucketName = bucketName,\r\n            Key = key,\r\n            InputStream =" +
+                    " dataStream\r\n        };\r\n\r\n        await _client.PutObjectAsync(putRequest, canc" +
+                    "ellationToken).ConfigureAwait(false);\r\n        return await GetAsync(bucketName," +
+                    " key, cancellationToken);\r\n    }\r\n\r\n    public async IAsyncEnumerable<Uri> BulkU" +
+                    "ploadAsync(string bucketName, IEnumerable<BulkObjectItem> objects, [EnumeratorCa" +
+                    "ncellation] CancellationToken cancellationToken = default)\r\n    {\r\n        forea" +
+                    "ch (var blob in objects)\r\n        {\r\n            yield return await UploadAsync(" +
+                    "bucketName, blob.Name, blob.DataStream, cancellationToken);\r\n        }\r\n    }\r\n\r" +
+                    "\n    public Task<Stream> DownloadAsync(Uri cloudStorageLocation, CancellationTok" +
+                    "en cancellationToken = default)\r\n    {\r\n        var s3Uri = new AmazonS3Uri(clou" +
+                    "dStorageLocation);\r\n        return DownloadAsync(s3Uri.Bucket, s3Uri.Key, cancel" +
+                    "lationToken);\r\n    }\r\n\r\n    public async Task<Stream> DownloadAsync(string bucke" +
+                    "tName, string key, CancellationToken cancellationToken = default)\r\n    {\r\n      " +
+                    "  var getRequest = new GetObjectRequest\r\n        {\r\n            BucketName = buc" +
+                    "ketName,\r\n            Key = key\r\n        };\r\n\r\n        var response = await _cli" +
+                    "ent.GetObjectAsync(getRequest, cancellationToken).ConfigureAwait(false);\r\n      " +
+                    "  return response.ResponseStream;\r\n    }\r\n\r\n    public Task DeleteAsync(Uri clou" +
+                    "dStorageLocation, CancellationToken cancellationToken = default)\r\n    {\r\n       " +
+                    " var s3Uri = new AmazonS3Uri(cloudStorageLocation);\r\n        return DeleteAsync(" +
+                    "s3Uri.Bucket, s3Uri.Key, cancellationToken);\r\n    }\r\n\r\n    public async Task Del" +
+                    "eteAsync(string bucketName, string key, CancellationToken cancellationToken = de" +
+                    "fault)\r\n    {\r\n        var deleteRequest = new DeleteObjectRequest\r\n        {\r\n " +
+                    "           BucketName = bucketName,\r\n            Key = key\r\n        };\r\n\r\n      " +
+                    "  await _client.DeleteObjectAsync(deleteRequest, cancellationToken).ConfigureAwa" +
+                    "it(false);\r\n    }\r\n}\r\n");
             return this.GenerationEnvironment.ToString();
         }
     }
