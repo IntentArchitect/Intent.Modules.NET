@@ -66,7 +66,7 @@
           <defaultValue>profile-in-dto</defaultValue>
           <options>
             <option value="profile-in-dto" description="Profile in Dto" />
-            <option value="profile-separate" description="Profile Separate" />
+            <option value="profile-separate" description="Profile Separate from Dto" />
           </options>
         </setting>
       </settings>
