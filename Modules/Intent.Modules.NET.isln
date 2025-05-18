@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.0.19-pre.1" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.15" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -161,5 +161,6 @@
     <application id="237847a3-71e6-4ce0-8df3-cedfa16aeb5f" name="Intent.Modules.ModularMonolith.Module" solutionFolder="Modular Monolith" relativePath="Intent.Modules.ModularMonolith.Module/Intent.Modules.ModularMonolith.Module.application.config" />
     <application id="9a6cab0d-4d62-4430-9b70-e3a7a9dbedfc" name="Intent.Modules.AspNetCore.OData.EntityFramework" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.OData.EntityFramework/Intent.Modules.AspNetCore.OData.EntityFramework.application.config" />
     <application id="c72f8015-9445-4a19-8824-12c44d378386" name="Intent.Modules.ModularMonolith.Host" solutionFolder="Modular Monolith" relativePath="Intent.Modules.ModularMonolith.Host/Intent.Modules.ModularMonolith.Host.application.config" />
+    <application id="dbb291d2-616b-4aa7-b526-f1b2c1a908be" name="Intent.Modules.EntityFramework.Application.LinqExtensions" solutionFolder="Persistence" relativePath="Intent.Modules.EntityFramework.Application.LinqExtensions/Intent.Modules.EntityFramework.Application.LinqExtensions.application.config" />
   </applications>
 </solution>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="239f489e-d038-4016-b380-2dd48f3d8f5a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>BaseRepositoryExtension</name>
+  <display>BaseRepositoryExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>06e48f7b-5c7a-4335-b30e-0c910afa20d9</parentFolderId>
+  <packageId>06e48f7b-5c7a-4335-b30e-0c910afa20d9</packageId>
+  <packageName>Intent.EntityFramework.Application.LinqExtensions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
