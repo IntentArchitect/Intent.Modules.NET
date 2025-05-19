@@ -1,7 +1,7 @@
 ### Version 1.1.5
 
-- Fixed: Columns starting with a number will be prefixed with "db"
-- Fixed: Tables starting with a number will be prefixed with "Db"
+- Fixed: Elements are prefixed with "db" if their name would result in invalid C# code.
+- Fixed: Now handles the use case of multiple elements being created with the same name
 
 ### Version 1.1.4
 
