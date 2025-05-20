@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class EventBusPublishBehaviourTemplate : CSharpTemplateBase<object>
     {
@@ -35,14 +35,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
             this.Write("using System.Threading;\r\nusing System.Threading.Tasks;\r\nusing MediatR;\r\n\r\n[assemb" +
                     "ly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 16 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\npublic class ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -50,39 +50,36 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
             this.Write("<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>\r\nwhere TRequest : " +
                     "notnull\r\n{\r\n    private readonly ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 21 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
             this.Write(" _eventBus;\r\n\r\n    public ");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 23 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("(");
             
-            #line 23 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            #line 23 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetEventBusInterfaceName()));
             
             #line default
             #line hidden
-            this.Write(@" eventBus)
-    {
-        _eventBus = eventBus;
-    }
-    
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
-    {
-        var response = await next();
-
-        await _eventBus.FlushAllAsync(cancellationToken);
-
-        return response;
-    }
-}");
+            this.Write(" eventBus)\r\n    {\r\n        _eventBus = eventBus;\r\n    }\r\n    \r\n    public async T" +
+                    "ask<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, " +
+                    "CancellationToken cancellationToken)\r\n    {\r\n        var response = await next(");
+            
+            #line 30 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.Application.MediatR.Behaviours\Templates\EventBusPublishBehaviour\EventBusPublishBehaviourTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(GetCancellationToken()));
+            
+            #line default
+            #line hidden
+            this.Write(");\r\n\r\n        await _eventBus.FlushAllAsync(cancellationToken);\r\n\r\n        return" +
+                    " response;\r\n    }\r\n}");
             return this.GenerationEnvironment.ToString();
         }
     }

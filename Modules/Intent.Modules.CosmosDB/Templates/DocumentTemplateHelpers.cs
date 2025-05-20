@@ -317,9 +317,9 @@ namespace Intent.Modules.CosmosDB.Templates
                         {
                             var nullableSuppression = attribute.TypeReference.IsNullable ? string.Empty : "!";
                             suffix = $"{documentTypeName}.FromEntity(entity.{attribute.Name.ToPascalCase()}){nullableSuppression}";
-                        }
 
-                        accessEntityAttribute = false;
+                            accessEntityAttribute = false;
+                        }
                     }
 
                     if (attribute.TypeReference.IsCollection)

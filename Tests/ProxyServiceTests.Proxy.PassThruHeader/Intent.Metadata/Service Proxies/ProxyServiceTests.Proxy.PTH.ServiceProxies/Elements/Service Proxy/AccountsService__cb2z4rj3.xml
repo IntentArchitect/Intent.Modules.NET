@@ -12,13 +12,16 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
-      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" />
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
   <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
   <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -44,12 +47,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" />
+          <target id="17474e7d-6631-495d-a0aa-ba048b114453" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0071dfa3-d943-46e2-b8b2-6169060e3dd8</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -100,12 +106,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" />
+          <target id="b65cd6fd-9eac-4f8b-b0b4-97a00bf69e38" name="UpdateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0071dfa3-d943-46e2-b8b2-6169060e3dd8</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -185,12 +194,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="c4542aab-10c2-47d7-a2e1-f3b871d57bef" name="GetAccountByIdQuery" type="element" specialization="Query" />
+          <target id="c4542aab-10c2-47d7-a2e1-f3b871d57bef" name="GetAccountByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0071dfa3-d943-46e2-b8b2-6169060e3dd8</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -243,12 +255,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5e56137a-f83f-4b29-981f-588fdcdbe605" name="GetAccountsQuery" type="element" specialization="Query" />
+          <target id="5e56137a-f83f-4b29-981f-588fdcdbe605" name="GetAccountsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>0071dfa3-d943-46e2-b8b2-6169060e3dd8</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

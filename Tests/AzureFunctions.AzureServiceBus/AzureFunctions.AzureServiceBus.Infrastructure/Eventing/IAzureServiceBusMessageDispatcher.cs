@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Azure.Messaging.ServiceBus;
@@ -10,6 +11,6 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Eventing
 {
     public interface IAzureServiceBusMessageDispatcher
     {
-        Task DispatchAsync(ServiceBusReceivedMessage message, CancellationToken cancellationToken);
+        Task DispatchAsync(IServiceProvider scopedServiceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
     }
 }

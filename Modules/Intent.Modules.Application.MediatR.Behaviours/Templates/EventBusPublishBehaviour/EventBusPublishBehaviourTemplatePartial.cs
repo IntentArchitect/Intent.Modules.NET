@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -31,6 +32,14 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.EventBusPublis
                 className: $"EventBusPublishBehaviour",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
+        }
+
+        private string GetCancellationToken()
+        {
+            return Project.TryGetMaxNetAppVersion(out var version) &&
+                   version.Major is <= 2 or > 6
+                ? "cancellationToken"
+                : string.Empty;
         }
 
         public override bool CanRunTemplate()

@@ -38,7 +38,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

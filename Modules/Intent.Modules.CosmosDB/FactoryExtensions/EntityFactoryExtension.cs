@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Constants;
 using Intent.Modules.CosmosDB.Templates;
+using Intent.Modules.CosmosDB.Templates.CosmosDBDocument;
 using Intent.Modules.DocumentDB.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
@@ -45,6 +46,8 @@ namespace Intent.Modules.CosmosDB.FactoryExtensions
             template.CSharpFile.OnBuild(file =>
             {
                 file.AddUsing("Microsoft.Extensions.DependencyInjection");
+
+                file.Template.AddTypeSource(CosmosDBDocumentTemplate.TemplateId);
 
                 var method = file.Classes.First().FindMethod("AddInfrastructure");
                 method.AddInvocationStatement("services.AddCosmosRepository", invocation =>

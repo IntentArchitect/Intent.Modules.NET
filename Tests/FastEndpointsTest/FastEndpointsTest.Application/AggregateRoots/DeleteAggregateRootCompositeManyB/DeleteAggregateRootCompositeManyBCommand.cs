@@ -17,7 +17,7 @@ namespace FastEndpointsTest.Application.AggregateRoots.DeleteAggregateRootCompos
             Id = id;
         }
 
-        [FromQuery]
+        [QueryParam]
         public Guid AggregateRootId { get; set; }
         public Guid Id { get; set; }
     }

@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: FindClients(...): ClientDto[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="3eafc5c0-be7b-4662-8711-0e696c7a8c4a">
       <typeId>e9e27b39-5a37-4d4d-8180-86af023e3ddd</typeId>
       <isNavigable>true</isNavigable>

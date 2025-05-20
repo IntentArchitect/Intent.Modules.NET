@@ -14,8 +14,7 @@ namespace FastEndpointsTest.Application.NamedQueryStrings.NamedQueryStrings
         {
             Par1 = par1;
         }
-
-        [FromQuery]
+        [QueryParam]
         [BindFrom("custom-querystring-name")]
         public string Par1 { get; set; }
     }

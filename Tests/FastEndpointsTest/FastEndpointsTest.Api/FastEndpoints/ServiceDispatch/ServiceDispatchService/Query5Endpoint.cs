@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
         public override void Configure()
         {
-            Post("query-with-param");
+            Post("api/service-dispatch/query-with-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchService");
@@ -61,7 +61,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
     public class Query5RequestModel
     {
-        [FromQuery]
+        [QueryParam]
         public string Param { get; set; }
     }
 }

@@ -95,8 +95,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)

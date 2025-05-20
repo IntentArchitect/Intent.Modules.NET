@@ -91,6 +91,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>21182ff7-aa02-4a05-affa-ac678dcc078a</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#8df6ca1f-6027-408d-bf39-c449d9a9b050</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Controllers/FileController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfcfe906-c952-4c51-8d2e-4b6ebf720a92</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentAttribute</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Controllers/FileTransfer/BinaryContentAttribute.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentAttribute.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>2d595f83-bbee-4e68-a81f-af4ea14570c0</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.JsonResponse</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -108,6 +124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6c3784a7-96dd-4a1a-bd7b-eea5bf7ecea9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.BinaryContentFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Filters/BinaryContentFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BinaryContentFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6c3784a7-96dd-4a1a-bd7b-eea5bf7ecea9</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.ExceptionFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Filters/ExceptionFilter.cs</ApplicationRelativeFilePath>
@@ -120,6 +144,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2bb8d1ad-e44f-4aa9-a32e-ef5ad0e65f62</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -539,6 +571,30 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>File/FileUpload/FileUploadCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>File/FileUpload/FileUploadCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3741f823-7755-468d-8830-87bdfc8e9b06</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#88f2e76b-ee77-4f33-9efc-bbd14b8b3f8d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/File/FileUpload/FileUploadCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>File/FileUpload/FileUploadCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9f3fd9c2-2e99-451c-b4cf-30e43435e9c4</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#b329a494-73a4-42df-b1d4-43d89d01b676</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -635,6 +691,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>82d4cf79-b4f8-471c-a566-6897fd866252</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#c332c382-fee8-45a9-b946-7ca164155a01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/Contracts/OriginalServices/Services/File/FileUploadCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OriginalServices/Services/File/FileUploadCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e8470cc9-ce1a-4e8c-8755-0efbe08ac485</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#0071dfa3-d943-46e2-b8b2-6169060e3dd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -664,6 +728,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IDeleteClientsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IDeleteClientsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e8470cc9-ce1a-4e8c-8755-0efbe08ac485</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#d5e9cd30-4437-4c69-9fdf-5ee5936f3634</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Application/IntegrationServices/IFileService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IFileService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -808,6 +880,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/DeleteClientsServiceHttpClient.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DeleteClientsServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ee382ca5-df43-4dfa-a614-b4bf6762b37b</ProjectId>
+      <CorrelationId>Intent.Integration.HttpClients.HttpClient#d5e9cd30-4437-4c69-9fdf-5ee5936f3634</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Infrastructure/HttpClients/FileServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>FileServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

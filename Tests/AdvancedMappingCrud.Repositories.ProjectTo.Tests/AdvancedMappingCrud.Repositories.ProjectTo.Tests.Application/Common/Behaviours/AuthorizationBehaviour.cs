@@ -87,7 +87,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Common.Be
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

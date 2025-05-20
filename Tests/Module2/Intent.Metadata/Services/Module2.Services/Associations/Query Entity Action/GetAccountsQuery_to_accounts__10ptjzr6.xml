@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7638cc0e-7f08-40be-bf0f-927a8ab2e31c">
+  <sourceEnd id="86cd2445-1800-42a3-b224-3da2c5781fb7" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetAccountsQuery</display>
+    <order>0</order>
+    <typeReference id="3e902aae-ff55-4952-8467-434aa415f127">
+      <typeId>5c99b647-03de-4b28-a5d1-89ff218ac117</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7638cc0e-7f08-40be-bf0f-927a8ab2e31c" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>accounts</name>
+    <display>[query] accounts: Account[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ac990f41-a426-4df4-888f-002ead0323d9">
+      <typeId>b6b74caa-042f-47ae-8a89-2cc6adef9448</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5c99b647-03de-4b28-a5d1-89ff218ac117" location="[Module2].[Services].[GetAccountsQuery]" />
+        <target applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b6b74caa-042f-47ae-8a89-2cc6adef9448" location="[Module2].[Services].[Account]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

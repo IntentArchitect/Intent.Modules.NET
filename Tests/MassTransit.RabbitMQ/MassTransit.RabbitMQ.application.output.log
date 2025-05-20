@@ -99,6 +99,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c8a8cfe2-0593-4db0-b4ec-0fe4fd42aa9a</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8cab7e82-ebd6-48fe-9fab-4903decafa34</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#8cab7e82-ebd6-48fe-9fab-4903decafa34</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

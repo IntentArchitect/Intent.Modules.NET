@@ -67,8 +67,7 @@ namespace EFCore.Lazy.Loading.Tests.Infrastructure.Persistence
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)

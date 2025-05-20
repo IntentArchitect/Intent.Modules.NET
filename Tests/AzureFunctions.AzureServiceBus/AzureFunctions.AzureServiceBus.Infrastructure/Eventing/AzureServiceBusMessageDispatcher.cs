@@ -18,22 +18,23 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Eventing
 {
     public class AzureServiceBusMessageDispatcher : IAzureServiceBusMessageDispatcher
     {
-        private readonly IServiceProvider _serviceProvider;
         private readonly Dictionary<string, DispatchHandler> _handlers;
 
-        public AzureServiceBusMessageDispatcher(IServiceProvider serviceProvider, IOptions<SubscriptionOptions> options)
+        public AzureServiceBusMessageDispatcher(IOptions<SubscriptionOptions> options)
         {
-            _serviceProvider = serviceProvider;
             _handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);
         }
 
-        public async Task DispatchAsync(ServiceBusReceivedMessage message, CancellationToken cancellationToken)
+        public async Task DispatchAsync(
+            IServiceProvider scopedServiceProvider,
+            ServiceBusReceivedMessage message,
+            CancellationToken cancellationToken)
         {
             var messageTypeName = message.ApplicationProperties["MessageType"].ToString()!;
 
             if (_handlers.TryGetValue(messageTypeName, out var handlerAsync))
             {
-                await handlerAsync(_serviceProvider, message, cancellationToken);
+                await handlerAsync(scopedServiceProvider, message, cancellationToken);
             }
         }
 

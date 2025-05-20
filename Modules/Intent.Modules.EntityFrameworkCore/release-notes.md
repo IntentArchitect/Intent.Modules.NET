@@ -1,3 +1,7 @@
+### Version 5.0.22
+
+- Improvement: Added documentation for modeling Entities as one-to-one relationships.
+
 ### Version 5.0.21
 
 - Improvement: `Primary Key` stereotype uses `Data Source` to determine whether a `PK` column should have the `Identity` specification or not.

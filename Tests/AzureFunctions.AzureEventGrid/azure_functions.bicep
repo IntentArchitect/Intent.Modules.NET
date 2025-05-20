@@ -62,6 +62,18 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: storageConnectionString
         }
         {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
+          name: 'CqrsSettings:LogRequestPayload'
+          value: 'True'
+        }
+        {
           name: 'EventGrid:Topics:ClientCreatedEvent:Endpoint'
           value: eventGridTopicClientCreatedEvent.properties.endpoint
         }

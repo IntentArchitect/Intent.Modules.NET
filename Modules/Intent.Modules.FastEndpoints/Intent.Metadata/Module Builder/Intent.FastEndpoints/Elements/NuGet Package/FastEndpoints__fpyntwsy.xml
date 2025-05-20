@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="5f206ec4-8ed0-43cf-a118-edeac370b2ea" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>5.35.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <display>5.35.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,33 +49,42 @@
       <childElements>
         <childElement id="7399c135-5b97-4b0b-9b46-3531a0f820b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
+          <display>FastEndpoints.Attributes (5.35.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.35.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5f206ec4-8ed0-43cf-a118-edeac370b2ea</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5a437659-abf0-42c2-8d73-3668b7f32c71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
+          <display>FastEndpoints.Messaging.Core (5.35.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.35.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5f206ec4-8ed0-43cf-a118-edeac370b2ea</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e4e3a3a5-8f7a-4e40-b329-ff743a2be53a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
+          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
           <value>11.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5f206ec4-8ed0-43cf-a118-edeac370b2ea</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -84,7 +93,7 @@
     </childElement>
     <childElement id="65cbe81f-0cf8-48be-bfbd-11d83c18a5c0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>5.35.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <display>5.35.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -107,33 +116,42 @@
       <childElements>
         <childElement id="3191114c-74ca-45e6-9f96-c041e6846848" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
+          <display>FastEndpoints.Attributes (5.35.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.35.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>65cbe81f-0cf8-48be-bfbd-11d83c18a5c0</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="90c4eda9-8ac0-4ae8-a4a2-77e99864b12f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
+          <display>FastEndpoints.Messaging.Core (5.35.0)</display>
           <isAbstract>false</isAbstract>
           <value>5.35.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>65cbe81f-0cf8-48be-bfbd-11d83c18a5c0</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="53f21b49-4653-4cee-9a3f-f94a5bfbb84b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
+          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
           <value>11.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>65cbe81f-0cf8-48be-bfbd-11d83c18a5c0</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -142,7 +160,7 @@
     </childElement>
     <childElement id="7d67f05b-8078-476c-a343-51cd410a2891" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>6.0.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -165,33 +183,42 @@
       <childElements>
         <childElement id="45d4cf19-4d3b-4167-8075-6216de1f325d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
+          <display>FastEndpoints.Attributes (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ce9e6eb4-fbce-49a4-bc5a-f0a8a0bb5e4a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
+          <display>FastEndpoints.Messaging.Core (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e4fad8d8-20f6-47f5-b47b-8de9ec1c6dae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
+          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
           <value>11.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7d67f05b-8078-476c-a343-51cd410a2891</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -200,7 +227,7 @@
     </childElement>
     <childElement id="857b2e05-eebf-4b73-a769-ab49fd966ea3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>6.0.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -223,33 +250,42 @@
       <childElements>
         <childElement id="769812a1-8d65-43cc-be70-f884ff991105" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Attributes</name>
+          <display>FastEndpoints.Attributes (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="015e64d1-e6e4-4c5c-b287-4336c1829f0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FastEndpoints.Messaging.Core</name>
+          <display>FastEndpoints.Messaging.Core (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a085307d-d338-4acc-b437-935d31e2cf5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>FluentValidation</name>
+          <display>FluentValidation (11.11.0)</display>
           <isAbstract>false</isAbstract>
           <value>11.11.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>857b2e05-eebf-4b73-a769-ab49fd966ea3</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />

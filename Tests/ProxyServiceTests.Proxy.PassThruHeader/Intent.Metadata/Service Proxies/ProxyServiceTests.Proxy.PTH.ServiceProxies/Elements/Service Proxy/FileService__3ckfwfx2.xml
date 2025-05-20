@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d5e9cd30-4437-4c69-9fdf-5ee5936f3634" type="Service Proxy" typeId="07d8d1a9-6b9f-4676-b7d3-8db06299e35c">
+  <name>FileService</name>
+  <display>FileService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>true</isMapped>
+  <mappedClass isRoot="true">
+    <applicationId>a2574e70-3bcd-42d0-82ea-d08c81f825ac</applicationId>
+    <metadataId>81104ae6-2bc5-4bae-b05a-f987b0372d81</metadataId>
+    <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+    <autoSyncTypeReference>true</autoSyncTypeReference>
+    <mappedPath>
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="239597b3-b79c-4ae2-b46b-2257db17147a" name="File" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+    </mappedPath>
+  </mappedClass>
+  <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
+  <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+  <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3eaa3ade-1f4f-4fbd-adfe-d73abe538c22" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
+      <name>FileUploadCommand</name>
+      <display>FileUploadCommand(contentType: string?, contentLength: long?, command: FileUploadCommand): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="8bee5a06-7866-4049-b1c7-9953a1cf3a00">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>true</isMapped>
+      <mappedClass>
+        <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
+        <autoSyncTypeReference>true</autoSyncTypeReference>
+        <mappedPath>
+          <target id="c332c382-fee8-45a9-b946-7ca164155a01" name="FileUploadCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>d5e9cd30-4437-4c69-9fdf-5ee5936f3634</parentFolderId>
+      <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+      <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9aba194e-57cc-4778-a00d-dbb4245187d1" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>contentType</name>
+          <display>contentType: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="798d59a9-8c39-40bc-a4ff-afefc8d5bc68">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3eaa3ade-1f4f-4fbd-adfe-d73abe538c22</parentFolderId>
+          <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+          <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="aef59158-68b0-4b6f-9b05-86df1f1d9b52" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="98472366-f30b-4c61-8c23-5fbdf58418c6" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>contentLength</name>
+          <display>contentLength: long?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="528712df-22a3-420e-8ed1-b8dcd48113c6">
+            <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3eaa3ade-1f4f-4fbd-adfe-d73abe538c22</parentFolderId>
+          <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+          <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="b15c0e68-1056-4516-9d7a-9fd1c6b8ee24" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="9a2716e8-c73c-437e-861a-e9849ef2bc8c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: FileUploadCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ea75543b-21ee-47b8-b7b0-34d24dcec69f">
+            <typeId>c332c382-fee8-45a9-b946-7ca164155a01</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>ProxyServiceTests.OriginalServices.Services</typePackageName>
+            <typePackageId>6903e185-3c4a-48c9-b939-d78d32ad4e0a</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3eaa3ade-1f4f-4fbd-adfe-d73abe538c22</parentFolderId>
+          <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
+          <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="c332c382-fee8-45a9-b946-7ca164155a01" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

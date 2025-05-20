@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Module1.Application\Intent.Modules.NET.Tests.Module1.Application.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Module1.Domain\Intent.Modules.NET.Tests.Module1.Domain.csproj" />
+    <ProjectReference Include="..\..\..\Intent.Modules.NET.Tests.Infrastructure.Core\Intent.Modules.NET.Tests.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\..\..\Intent.Modules.NET.Tests.Application.Core\Intent.Modules.NET.Tests.Application.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.15" />
+  </ItemGroup>
+  </Project>

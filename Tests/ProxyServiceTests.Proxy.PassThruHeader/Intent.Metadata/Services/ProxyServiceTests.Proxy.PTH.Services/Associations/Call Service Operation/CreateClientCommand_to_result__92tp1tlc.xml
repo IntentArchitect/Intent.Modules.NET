@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: CreateClient(...): guid</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="a3afea40-9235-4b3c-8513-2c61b3eb75c3">
       <typeId>448e5ce6-9ca8-4954-b742-c88420d352a3</typeId>
       <isNavigable>true</isNavigable>

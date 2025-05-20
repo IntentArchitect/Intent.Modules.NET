@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2ee11a60-27e5-4ca9-b7e9-17a37f0083bc" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f80db930-cd05-493f-a2a6-f487326ec7c5</parentFolderId>
+  <packageId>f80db930-cd05-493f-a2a6-f487326ec7c5</packageId>
+  <packageName>Intent.AspNetCore.OData.EntityFramework</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

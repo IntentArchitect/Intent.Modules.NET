@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9d2b463a-2cb9-416c-864a-4ed88a35e900" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6569e846-a3a6-4cac-a4b9-8247ad8b2f46</parentFolderId>
+  <packageId>1066fdf3-c24e-431f-be22-1cf7d9ea5ba6</packageId>
+  <packageName>Intent.ModularMonolith.Module</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

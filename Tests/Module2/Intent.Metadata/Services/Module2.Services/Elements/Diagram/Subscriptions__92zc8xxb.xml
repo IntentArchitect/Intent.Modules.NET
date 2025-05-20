@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9deb9c83-7c8e-4655-85fb-0c86a4ae574b" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Subscriptions</name>
+  <display>Subscriptions</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</parentFolderId>
+  <packageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</packageId>
+  <packageName>Module2.Services</packageName>
+  <diagram>
+    <targetPackageId>9deb9c83-7c8e-4655-85fb-0c86a4ae574b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

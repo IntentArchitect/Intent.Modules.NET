@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using MinimalHostingModel.Api;
 using MinimalHostingModel.Api.Configuration;
 using MinimalHostingModel.Api.Filters;
+using MinimalHostingModel.Api.Logging;
 using MinimalHostingModel.Application;
 using MinimalHostingModel.Infrastructure;
 using Serilog;
@@ -28,7 +29,8 @@ try
     // Add services to the container.
     builder.Host.UseSerilog((context, services, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services));
+        .ReadFrom.Services(services)
+        .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
     builder.Services.AddControllers(
         opt =>

@@ -20,6 +20,26 @@
   <packageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</packageId>
   <packageName>Intent.VisualStudio.Projects</packageName>
   <properties>
+    <property id="71b53d7c-7977-467b-853c-15016c196afa">
+      <hint>Override the  VS Solution Name</hint>
+      <name>Solution Name</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
+    <property id="22b54494-6f14-4f12-9e6b-a39a96dd1ae1">
+      <hint>Override the VS Solution location</hint>
+      <name>Solution Relative Location</name>
+      <type>string</type>
+      <controlType>text</controlType>
+      <optionsSource>n/a</optionsSource>
+      <placeholder />
+      <valueOptions />
+      <lookupTypes />
+    </property>
     <property id="49e78350-c77b-4f83-88d8-5841e6cb3ab9">
       <hint>Enables [Central Package Management](https://learn.microsoft.com/nuget/consume-packages/central-package-management) for the solution.</hint>
       <name>Manage Package Versions Centrally</name>

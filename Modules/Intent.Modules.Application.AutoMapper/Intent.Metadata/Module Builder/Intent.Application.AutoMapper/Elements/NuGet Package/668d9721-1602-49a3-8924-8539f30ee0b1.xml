@@ -157,10 +157,14 @@
     </childElement>
     <childElement id="217f6681-3205-4e61-b9d0-a48323b7719b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>14.0.0</name>
+      <display>14.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>668d9721-1602-49a3-8924-8539f30ee0b1</parentFolderId>
+      <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+      <packageName>Intent.Application.AutoMapper</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -176,11 +180,14 @@
       <childElements>
         <childElement id="1a1a5f77-60d2-4631-8b6b-2d02f02ae44f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>217f6681-3205-4e61-b9d0-a48323b7719b</parentFolderId>
+          <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+          <packageName>Intent.Application.AutoMapper</packageName>
           <stereotypes />
           <metadata />
           <childElements />

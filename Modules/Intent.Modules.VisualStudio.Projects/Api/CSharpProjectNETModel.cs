@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Intent.Configuration;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
@@ -27,10 +29,43 @@ namespace Intent.Modules.VisualStudio.Projects.Api
                 throw new Exception($"Cannot create a '{GetType().Name}' from element with specialization type '{element.SpecializationType}'. Must be of type '{SpecializationType}'");
             }
             _element = element;
-            RelativeLocation = this.GetCSharpProjectOptions()?.RelativeLocation();
             ParentFolder = element.ParentElement?.SpecializationType == SolutionFolderModel.SpecializationType ? new SolutionFolderModel(element.ParentElement) : null;
+            RelativeLocation = GetRelativeLocation();
             LanguageVersion = this.GetCSharpProjectOptions()?.LanguageVersion()?.Value;
             NullableEnabled = this.NullableIsEnabled();
+        }
+
+        private string GetRelativeLocation()
+        {
+            string initialPath = "";
+            var parentFolders = GetParentFolders(this).Reverse();
+            if (parentFolders.Any(pf => pf.HasFolderOptions() && pf.GetFolderOptions().MaterializeFolder()))
+            {
+                initialPath = @".";
+                foreach (var materializedFolder in parentFolders.Where(pf => pf.HasFolderOptions() && pf.GetFolderOptions().MaterializeFolder()))
+                {
+                    initialPath += @$"\{materializedFolder.Name}";
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(this.GetCSharpProjectOptions()?.RelativeLocation()))
+            {
+                return Path.Combine(initialPath, this.GetCSharpProjectOptions()?.RelativeLocation());
+            }
+            else if (!string.IsNullOrEmpty(initialPath))
+            {
+                return Path.Combine(initialPath, this.Name);
+            }
+            return null;
+        }
+
+        private IEnumerable<SolutionFolderModel> GetParentFolders(CSharpProjectNETModel cSharpProjectNETModel)
+        {
+            var current = cSharpProjectNETModel.ParentFolder;
+            while (current != null)
+            {
+                yield return current;
+                current = current.ParentFolder;
+            }
         }
 
         public string Id => _element.Id;

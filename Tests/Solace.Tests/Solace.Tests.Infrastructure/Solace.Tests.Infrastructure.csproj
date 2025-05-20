@@ -23,6 +23,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
-    <PackageReference Include="SolaceSystems.Solclient.Messaging" Version="10.27.0" />
+    <PackageReference Include="SolaceSystems.Solclient.Messaging" Version="10.28.0" />
   </ItemGroup>
   </Project>

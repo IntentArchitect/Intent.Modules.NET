@@ -30,7 +30,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.NamedQueryStrings.ServiceWithNamed
 
         public override void Configure()
         {
-            Post("do-named-query-string");
+            Post("api/service-with-named-query-string/do-named-query-string");
             Description(b =>
             {
                 b.WithTags("ServiceWithNamedQueryString");
@@ -58,7 +58,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.NamedQueryStrings.ServiceWithNamed
 
     public class DoNamedQueryStringRequestModel
     {
-        [FromQuery]
+        [QueryParam]
         [BindFrom("custom-querystring-name")]
         public string CustomName { get; set; }
     }

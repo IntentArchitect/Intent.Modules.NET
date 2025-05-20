@@ -92,8 +92,8 @@
       </childElements>
     </childElement>
     <childElement id="e09fb8aa-41db-4aa0-8be9-580161ae619a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>2.0.1</name>
-      <display>2.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>2.0.2</name>
+      <display>2.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -114,7 +114,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f9f1eff5-4952-4b15-828e-6a4ead8c4842" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2cc072ee-428e-45f9-bfae-2351db124030" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.analyzers</name>
           <display>xunit.analyzers (1.21.0)</display>
           <isAbstract>false</isAbstract>
@@ -128,11 +128,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4bb75beb-e3a5-4df9-8ca1-a21a94c4ed34" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="96db42cc-32e1-4987-9ab9-220df72e2b49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.v3.assert</name>
-          <display>xunit.v3.assert (2.0.1)</display>
+          <display>xunit.v3.assert (2.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.1</value>
+          <value>2.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e09fb8aa-41db-4aa0-8be9-580161ae619a</parentFolderId>
@@ -142,11 +142,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4a4a1749-6f99-4ce9-9a68-ab0a9a85000c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3d810e46-d218-4054-8dff-2ae0201a1ede" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>xunit.v3.core</name>
-          <display>xunit.v3.core (2.0.1)</display>
+          <display>xunit.v3.core (2.0.2)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.1</value>
+          <value>2.0.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e09fb8aa-41db-4aa0-8be9-580161ae619a</parentFolderId>

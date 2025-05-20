@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9e37f57f-ccb4-4dbe-9c6c-19ba1b9ef1e1" type="Application Template Settings Configuration" typeId="69000b7e-8bc8-49d0-80f5-eb65a6f7653a">
+  <name>Basic Settings</name>
+  <display>Basic Settings</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>10</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</parentFolderId>
+  <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="4e256dca-d391-41a5-9027-8f8ab47568f2" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Target Framework</name>
+      <display>Target Framework = target-framework</display>
+      <isAbstract>false</isAbstract>
+      <value>target-framework</value>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9e37f57f-ccb4-4dbe-9c6c-19ba1b9ef1e1</parentFolderId>
+      <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Select" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="true" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="08862025-ecc3-42db-be3f-fa8d3de73e9b" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 9.0</name>
+          <display>.NET 9.0 = e70e92fe-878e-451d-a196-0062a53216f4</display>
+          <isAbstract>false</isAbstract>
+          <value>e70e92fe-878e-451d-a196-0062a53216f4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2fc96bd9-9e54-4561-b7cd-3dde30777bb9" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 8.0</name>
+          <display>.NET 8.0 = f8b1618d-1e64-4c2c-9787-e0725c3633a1</display>
+          <isAbstract>false</isAbstract>
+          <value>f8b1618d-1e64-4c2c-9787-e0725c3633a1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="05276c1f-6473-4a0b-bcd9-9eb5996a1b33" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 7.0</name>
+          <display>.NET 7.0 = 0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</display>
+          <isAbstract>false</isAbstract>
+          <value>0cd4e056-3bc1-4f8c-9cba-7d362d42c33c</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dca5a74b-8876-4d6a-aac2-1abd86bf3546" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 6.0</name>
+          <display>.NET 6.0 = 16d99e3e-7b91-42f8-ae3b-2686edde94b7</display>
+          <isAbstract>false</isAbstract>
+          <value>16d99e3e-7b91-42f8-ae3b-2686edde94b7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="52b33ee2-7c51-492a-b757-f2a45061ecc5" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET 5.0</name>
+          <display>.NET 5.0 = 9880b776-9b13-4ff6-87b3-2219cfa66652</display>
+          <isAbstract>false</isAbstract>
+          <value>9880b776-9b13-4ff6-87b3-2219cfa66652</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="a41af498-b22e-4284-82fd-1fdb9a6fe96e" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
+          <name>.NET Core 3.1</name>
+          <display>.NET Core 3.1 = d603dbfd-3361-4406-b5c0-efc2ac6f33fc</display>
+          <isAbstract>false</isAbstract>
+          <value>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
+          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="a1324fb6-2cc4-4428-b19d-d864350cd7b9" type="Application Template Settings Field Configuration" typeId="053d28c8-18c9-45b9-b3cb-184ec4b19679">
+      <name>Use Top-Level Statements</name>
+      <display>Use Top-Level Statements = top-level-statements</display>
+      <isAbstract>false</isAbstract>
+      <value>top-level-statements</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9e37f57f-ccb4-4dbe-9c6c-19ba1b9ef1e1</parentFolderId>
+      <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="97f6fe89-5973-447c-93b8-ac18fe446047" name="Settings Field Configuration">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="ad6b372c-58e6-4fe0-b6fe-aa7d70f95ebc" display="Control Type" value="Checkbox" isActive="true" />
+            <property name="f0689c97-cb23-4ae1-8bb1-8b6af69b1504" display="Is Required" value="false" isActive="true" />
+            <property name="95738255-b024-4b7f-b789-26eb8c30665f" display="Hint" isActive="true" />
+            <property name="980bae71-ac8a-4a52-9888-9bac41f126ba" display="Default Value" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

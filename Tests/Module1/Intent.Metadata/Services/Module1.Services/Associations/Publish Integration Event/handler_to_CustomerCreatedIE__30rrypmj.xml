@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="12efc32b-77d5-4f36-a3b3-339330de5358">
+  <sourceEnd id="99a15604-2c94-4c17-bd4a-aad086852c40" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : CustomerCreatedHandler.handler</display>
+    <order>0</order>
+    <typeReference id="ce2505c6-cc24-41c3-907c-fb6bbdf29ce1">
+      <typeId>c9a05c64-bdf3-4229-ae37-3997659ecf23</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Services</typePackageName>
+      <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="12efc32b-77d5-4f36-a3b3-339330de5358" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] CustomerCreatedIE</display>
+    <order>0</order>
+    <typeReference id="53a8150b-27b2-4b6f-b06f-dc1484f94506">
+      <typeId>e6887cdd-9704-40c3-b81c-c0f743639f8b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Eventing.Messages</typePackageName>
+      <typePackageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c9a05c64-bdf3-4229-ae37-3997659ecf23" location="[Module1].[Services].[handler]" />
+        <target applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e6887cdd-9704-40c3-b81c-c0f743639f8b" location="[Module1].[Services].[CustomerCreatedIE]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Customer.Id}</expression>
+            <path>
+              <target id="e6887cdd-9704-40c3-b81c-c0f743639f8b" name="CustomerCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="2a452251-0553-4862-b091-e9b517e16e78" name="Customer" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="f3d47237-2b14-40ef-9a43-491dfca8ab73" name="Id" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="Customer.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="c9a05c64-bdf3-4229-ae37-3997659ecf23" name="handler" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="f169f518-92c0-4c5c-a0a5-80b7651e9315" name="Customer" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                  <target id="94a03b09-9da8-4470-b7cd-aa748f7ae6a6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Customer.Name}</expression>
+            <path>
+              <target id="e6887cdd-9704-40c3-b81c-c0f743639f8b" name="CustomerCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="2a452251-0553-4862-b091-e9b517e16e78" name="Customer" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="77294433-58ab-4641-b1f6-eea86231110b" name="Name" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="Customer.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="c9a05c64-bdf3-4229-ae37-3997659ecf23" name="handler" type="association" specialization="Domain Event Handler Association Target End" specializationId="f45dfee9-f62b-45ac-bfce-a3878e04b73f" />
+                  <target id="f169f518-92c0-4c5c-a0a5-80b7651e9315" name="Customer" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+                  <target id="8b05dac2-1671-484d-9f6b-53845ed27f4e" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

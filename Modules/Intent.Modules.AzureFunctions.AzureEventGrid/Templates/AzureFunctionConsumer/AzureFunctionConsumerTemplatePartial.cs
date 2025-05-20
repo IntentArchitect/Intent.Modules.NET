@@ -46,6 +46,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         ctor.AddParameter(this.GetAzureEventGridMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("Task", "Run", method =>
@@ -61,6 +62,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         method.AddTryBlock(block =>
                         {
                             var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
+                                .AddArgument("_serviceProvider")
                                 .AddArgument("message")
                                 .AddArgument("cancellationToken"));
                             dispatch.AddMetadata("service-dispatch-statement", true);

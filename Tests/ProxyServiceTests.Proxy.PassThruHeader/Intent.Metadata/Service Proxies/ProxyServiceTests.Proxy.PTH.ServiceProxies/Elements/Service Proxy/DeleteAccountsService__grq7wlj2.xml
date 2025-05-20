@@ -12,13 +12,16 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="association" specialization="Services Package" />
-      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" />
+      <target id="6903e185-3c4a-48c9-b939-d78d32ad4e0a" name="ProxyServiceTests.OriginalServices.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="0ed235d0-2e2d-4ca9-9a72-385242be9bd8" name="Accounts" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>9c2c2259-0547-44c4-8e56-d236e28ab84d</parentFolderId>
   <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
   <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -41,12 +44,15 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="2f661d56-8964-449f-bcf9-6fc20544884d" name="DeleteAccountCommand" type="element" specialization="Command" />
+          <target id="2f661d56-8964-449f-bcf9-6fc20544884d" name="DeleteAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d365a3d5-e3a5-4b91-a16b-de559f40fac3</parentFolderId>
       <packageId>9c2c2259-0547-44c4-8e56-d236e28ab84d</packageId>
       <packageName>ProxyServiceTests.Proxy.PTH.ServiceProxies</packageName>
+      <traits>
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

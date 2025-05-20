@@ -91,6 +91,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>58fbcf3e-434c-4a05-ae29-b2b4264bd165</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.AzureServiceBus.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>1b127e69-05bb-4e42-a53d-89cb373b3518</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1b127e69-05bb-4e42-a53d-89cb373b3518</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

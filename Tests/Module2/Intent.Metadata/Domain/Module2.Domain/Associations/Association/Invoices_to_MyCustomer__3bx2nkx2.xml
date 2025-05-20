@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="ff6d7f30-2585-4716-8649-8e2d73087a93">
+  <sourceEnd id="a4a205b4-4829-4594-857e-7c16a03a149c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Invoices</name>
+    <display>Invoices: Invoice[*]</display>
+    <order>0</order>
+    <typeReference id="e8173bf7-bba4-4099-8143-bd2c6404a25a">
+      <typeId>be2946be-55ea-4d38-8a3d-568a33d1956d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="ff6d7f30-2585-4716-8649-8e2d73087a93" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MyCustomer</name>
+    <display>MyCustomer: MyCustomer</display>
+    <order>3</order>
+    <typeReference id="c266ec5f-f0a2-4d0e-9c91-6d57a5177226">
+      <typeId>c74de081-ad52-4e7c-9284-5296089e5994</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

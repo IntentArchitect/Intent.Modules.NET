@@ -9,6 +9,7 @@
     "AzureServiceBus:ClientCreated": "client-created",
     "AzureServiceBus:ClientCreatedSubscription": "client-created-subscription",
     "AzureServiceBus:SpecificTopicSubscription": "specific-topic-subscription",
-    "AzureServiceBus:ConnectionString": ""
+    "AzureServiceBus:ConnectionString": "",
+    "CqrsSettings:LogRequestPayload": true
   }
 }

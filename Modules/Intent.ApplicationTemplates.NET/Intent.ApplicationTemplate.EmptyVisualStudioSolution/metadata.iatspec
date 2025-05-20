@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.EmptyVisualStudioSolution</id>
-  <version>4.0.16</version>
+  <version>4.0.17-pre.0</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Empty Visual Studio Solution</displayName>
   <shortDescription>Empty Visual Studio Solution for creating customized project structures.</shortDescription>
@@ -17,7 +17,7 @@
     <createFolderForSolution>true</createFolderForSolution>
   </defaults>
   <componentGroups>
-    <group name="Tooling">
+    <group name="Developer Tooling">
       <selectionMode>allow-multiple</selectionMode>
       <components>
         <component id="af859152-4664-4696-88cf-b81622c7b618" name="Visual Studio Integration" included="true" required="true">

@@ -8,8 +8,10 @@ using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEventServiceInterface;
 using Intent.Modules.DomainEvents.Templates.HasDomainEventInterface;
 using Intent.Modules.EntityFrameworkCore.Shared;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -33,38 +35,42 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.DbContext);
-            template?.CSharpFile.OnBuild(file =>
-            {
-                file.AddUsing("System.Linq");
-                file.AddUsing("System.Threading");
-                file.AddUsing("System.Threading.Tasks");
-                var @class = file.Classes.First();
-                @class.Constructors.First().AddParameter(template.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService",
-                    param => { param.IntroduceReadonlyField(); });
-
-                var saveMethod = template.GetSaveChangesMethod();
-                saveMethod.InsertStatement(0, "DispatchEventsAsync().GetAwaiter().GetResult();");
-
-                var saveAsyncMethod = template.GetSaveChangesAsyncMethod();
-                saveAsyncMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
-
-                @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), "DispatchEventsAsync", method =>
+            var contexts = DbContextManager.GetDbContexts(application.Id, application.MetadataManager);
+            foreach (var context in contexts)
+            {                
+                var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateRoles.Infrastructure.Data.ConnectionStringDbContext, context);
+                template?.CSharpFile.OnBuild(file =>
                 {
-                    method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
-                    method.Private().Async();
-                    method.AddWhileStatement("true", @while => @while
-                        .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
-                            .AddChainStatement($"Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()")
-                            .AddChainStatement("Select(x => x.Entity.DomainEvents)")
-                            .AddChainStatement("SelectMany(x => x)")
-                            .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
-                        .AddIfStatement("domainEventEntity is null", @if => @if
-                            .AddStatement("break;"))
-                        .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
-                        .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
+                    file.AddUsing("System.Linq");
+                    file.AddUsing("System.Threading");
+                    file.AddUsing("System.Threading.Tasks");
+                    var @class = file.Classes.First();
+                    @class.Constructors.First().AddParameter(template.GetTypeName(DomainEventServiceInterfaceTemplate.TemplateId), "domainEventService",
+                        param => { param.IntroduceReadonlyField(); });
+
+                    var saveMethod = template.GetSaveChangesMethod();
+                    saveMethod.InsertStatement(0, "DispatchEventsAsync().GetAwaiter().GetResult();");
+
+                    var saveAsyncMethod = template.GetSaveChangesAsyncMethod();
+                    saveAsyncMethod.InsertStatement(0, "await DispatchEventsAsync(cancellationToken);");
+
+                    @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), "DispatchEventsAsync", method =>
+                    {
+                        method.AddParameter("CancellationToken", "cancellationToken", p => p.WithDefaultValue("default"));
+                        method.Private().Async();
+                        method.AddWhileStatement("true", @while => @while
+                            .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
+                                .AddChainStatement($"Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()")
+                                .AddChainStatement("SelectMany(x => x.Entity.DomainEvents)")
+                                .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
+                            .AddIfStatement("domainEventEntity is null", @if => @if
+                                .AddStatement("break;"))
+                            .AddStatement("domainEventEntity.IsPublished = true;", s => s.SeparatedFromPrevious())
+                            .AddStatement("await _domainEventService.Publish(domainEventEntity, cancellationToken);"));
+                    });
                 });
-            });
+
+            }
         }
     }
 }

@@ -35,6 +35,12 @@
         <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="4965bed2-6320-49d1-beba-0fbc6fd4dfe6" name="Unit Test">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.UnitTesting</definitionPackageName>
+      <definitionPackageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</definitionPackageId>
+      <properties />
+    </stereotype>
   </stereotypes>
   <metadata>
     <entry key="baseName" value="Brands" />

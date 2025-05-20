@@ -36,6 +36,7 @@ namespace FastEndpointsTest.Infrastructure
             services.AddTransient<IAggregateRootLongRepository, AggregateRootLongRepository>();
             services.AddTransient<IAggregateSingleCRepository, AggregateSingleCRepository>();
             services.AddTransient<IAggregateTestNoIdReturnRepository, AggregateTestNoIdReturnRepository>();
+            services.AddTransient<ISimpleProductRepository, SimpleProductRepository>();
             services.AddTransient<IAccountHolderRepository, AccountHolderRepository>();
             services.AddTransient<ICameraRepository, CameraRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();

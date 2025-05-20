@@ -64,7 +64,8 @@ namespace SecurityConfig.Tests.Api.Controllers
         /// <response code="403">Forbidden request.</response>
         /// <response code="404">One or more entities could not be found with the provided parameters.</response>
         [HttpDelete("api/customers/{id}")]
-        [Authorize(Policy = $"{Permissions.PolicyCustomer},{Permissions.PolicyAdmin}")]
+        [Authorize(Policy = Permissions.PolicyCustomer)]
+        [Authorize(Policy = Permissions.PolicyAdmin)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

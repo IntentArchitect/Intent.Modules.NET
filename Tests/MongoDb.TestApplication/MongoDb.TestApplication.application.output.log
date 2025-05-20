@@ -187,6 +187,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5ea2111d-309c-4476-843f-fc2476c3f0b0</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.TestApplication.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>36f5ce7e-0227-40ed-81ec-f52dcb573920</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#36f5ce7e-0227-40ed-81ec-f52dcb573920</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

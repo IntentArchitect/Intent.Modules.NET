@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d2799fd1-b078-457e-9662-1de436a943d7" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>TemplateSuppressorExtension</name>
+  <display>TemplateSuppressorExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1066fdf3-c24e-431f-be22-1cf7d9ea5ba6</parentFolderId>
+  <packageId>1066fdf3-c24e-431f-be22-1cf7d9ea5ba6</packageId>
+  <packageName>Intent.ModularMonolith.Module</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

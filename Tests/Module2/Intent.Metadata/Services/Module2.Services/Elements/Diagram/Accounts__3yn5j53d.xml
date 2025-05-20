@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="82343f39-183b-4e37-82f5-c65686c54f2e" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Accounts</name>
+  <display>Accounts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>beec728e-1e0e-4939-8909-f8d6100d3d9d</parentFolderId>
+  <packageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</packageId>
+  <packageName>Module2.Services</packageName>
+  <diagram>
+    <targetPackageId>82343f39-183b-4e37-82f5-c65686c54f2e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

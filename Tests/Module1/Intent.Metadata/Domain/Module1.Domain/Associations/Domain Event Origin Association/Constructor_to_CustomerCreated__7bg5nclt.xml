@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8c3e2a6a-d884-4f25-8618-d55f92ead848">
+  <sourceEnd id="0ab6657c-e472-499b-ba25-b3b8b0ecb1c8" type="Domain Event Origin Association Source End" typeId="2495d3ef-f7a2-441d-b749-b51b2546b45e">
+    <display>published by : Customer.Constructor</display>
+    <order>1</order>
+    <typeReference id="2513c203-a419-43ed-a022-0a008d795ac3">
+      <typeId>dae727de-1c42-4801-966b-f34e0de51011</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Domain</typePackageName>
+      <typePackageId>a985b685-fee6-4413-b291-34a1cb171158</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8c3e2a6a-d884-4f25-8618-d55f92ead848" type="Domain Event Origin Association Target End" typeId="17046427-14e2-4081-8463-ef16c0fda399">
+    <display>publishes : CustomerCreated</display>
+    <order>1</order>
+    <typeReference id="31fc3f77-7ef1-456b-a456-8dc44d56a934">
+      <typeId>d88d3e01-fc34-4bd3-8194-a7f78a90ae88</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Domain</typePackageName>
+      <typePackageId>a985b685-fee6-4413-b291-34a1cb171158</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Entity to Domain Event Mapping" typeId="86cb62b5-412d-493b-a901-d6e08cf88059">
+        <source applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f2f592d4-380a-494f-b799-7a74b6cce2f5" location="[Module1].[Domain].[Customer]" />
+        <target applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d88d3e01-fc34-4bd3-8194-a7f78a90ae88" location="[Module1].[Domain].[CustomerCreated]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Customer}</expression>
+            <path>
+              <target id="d88d3e01-fc34-4bd3-8194-a7f78a90ae88" name="CustomerCreated" type="element" specialization="Domain Event" specializationId="0814e459-fb9b-47db-b7eb-32ce30397e8a" />
+              <target id="f169f518-92c0-4c5c-a0a5-80b7651e9315" name="Customer" type="element" specialization="Property" specializationId="b4d69073-5abb-4968-b41b-545b2f7408ed" />
+            </path>
+            <sources>
+              <source identifier="Customer" mappingType="Data Mapping" mappingTypeId="ddfefa35-caf3-48f8-aeed-7beabc8b2f5c">
+                <path>
+                  <target id="f2f592d4-380a-494f-b799-7a74b6cce2f5" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Origin Association</associationType>
+  <associationTypeId>4c0cc50b-8a9d-43cd-b731-9f354f69f3c9</associationTypeId>
+  <stereotypes />
+</association>

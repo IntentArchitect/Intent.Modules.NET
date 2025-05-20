@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using OpenTelemetry.Console.Api.Configuration;
+using OpenTelemetry.Console.Api.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -38,7 +39,8 @@ namespace OpenTelemetry.Console.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services), writeToProviders: true)
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()), writeToProviders: true)
                 .ConfigureLogging((context, logBuilder) =>
                 {
                     logBuilder.ClearProviders();

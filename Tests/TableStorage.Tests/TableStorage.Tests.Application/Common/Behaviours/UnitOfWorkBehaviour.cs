@@ -32,7 +32,7 @@ namespace TableStorage.Tests.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next();
+            var response = await next(cancellationToken);
 
             await _tableStorageDataSource.SaveChangesAsync(cancellationToken);
 
