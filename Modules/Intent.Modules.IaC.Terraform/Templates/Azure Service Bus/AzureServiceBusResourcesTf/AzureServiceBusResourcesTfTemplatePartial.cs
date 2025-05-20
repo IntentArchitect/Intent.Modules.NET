@@ -5,6 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IaC.Terraform.Templates.Azure_Service_Bus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -36,7 +37,23 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBus
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return "";
+            var builder = new TerraformFileBuilder();
+
+            builder.AddResource(Terraform.azurerm_servicebus_namespace.type, Terraform.azurerm_servicebus_namespace.service_bus.refname, resource =>
+            {
+                resource.AddSetting("name", "azure-service-bus");
+                resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);
+                resource.AddRawSetting("resource_group_name", Terraform.azurerm_resource_group.main_rg.name);
+                resource.AddSetting("sku", "Standard");
+            });
+
+            var topics = AzureServiceBusManager.Instance.GetTopics(ExecutionContext.GetApplicationConfig().Id);
+            foreach (var topic in topics)
+            {
+                
+            }
+            
+            return builder.Build();
         }
     }
 }

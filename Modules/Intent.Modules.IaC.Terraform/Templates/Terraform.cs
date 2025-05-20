@@ -28,4 +28,18 @@ internal static class Terraform
             public const string instrumentation_key = $"{expression}.{nameof(instrumentation_key)}";
         }
     }
+
+    public static class azurerm_servicebus_namespace
+    {
+        public const string type = nameof(azurerm_servicebus_namespace);
+
+        public static class service_bus
+        {
+            public const string refname = nameof(service_bus);
+            
+            private const string expression = $"{type}.{refname}";
+            public const string id = $"{expression}.{nameof(id)}";
+            public const string default_primary_connection_string = $"{expression}.{nameof(default_primary_connection_string)}";
+        }
+    }
 }

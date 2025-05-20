@@ -9,6 +9,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>91e6227b-e7b3-41cb-918a-72775204e1b2</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#2d76791c-4815-45d3-bae7-e02335209228</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/MetadataLoaderExtension.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MetadataLoaderExtension.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>76452c1d-da77-4b8e-a5c2-b8b3a1a315ba</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

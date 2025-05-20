@@ -84,9 +84,10 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
 
             var storageNameExpression = $"azurerm_storage_account.{storageNameRef}.name";
             var storagePrimaryAccessKeyExpression = $"azurerm_storage_account.{storageNameRef}.primary_access_key";
+            var functionAppNameRef = $"{_sanitizedApplicationName}_function_app";
 
             builder.AddComment("Function App");
-            builder.AddResource("azurerm_windows_function_app", $"{_sanitizedApplicationName}_function_app", resource =>
+            builder.AddResource("azurerm_windows_function_app", functionAppNameRef, resource =>
             {
                 resource.AddRawSetting("name", localAppName);
                 resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);
@@ -104,15 +105,19 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                         const string csharpProjectType = "8e9e6693-2888-4f48-a0d6-0f163baab740";
                         const string projectStereotype = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
                         const string azureFuncVersionProperty = "9da51e12-529a-4592-9119-491d7bc9d5d5";
-                        var project = designer.GetElementsOfType(csharpProjectType)
-                            .FirstOrDefault(p => (p.GetStereotype(projectStereotype)?.TryGetProperty(azureFuncVersionProperty, out var version) ?? false) && version?.Value != null);
 
-                        if (project is not null)
+                        var project = designer.GetElementsOfType(csharpProjectType).FirstOrDefault(IsAzureFunctionProject);
+                        if (project is null)
                         {
-                            const string targetFrameworkProperty = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
-                            var versionValue = project.GetStereotype(projectStereotype).GetProperty<IElement>(targetFrameworkProperty);
-                            appStack.AddSetting("dotnet_version", $"v{versionValue.Value.Replace("net", string.Empty)}");
+                            return;
                         }
+                        const string targetFrameworkProperty = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
+                        var versionValue = project.GetStereotype(projectStereotype).GetProperty<IElement>(targetFrameworkProperty);
+                        appStack.AddSetting("dotnet_version", $"v{versionValue.Value.Replace("net", string.Empty)}");
+
+                        return;
+
+                        bool IsAzureFunctionProject(IElement p) => (p.GetStereotype(projectStereotype)?.TryGetProperty(azureFuncVersionProperty, out var version) ?? false) && version?.Value != null;
                     });
                     siteConfig.AddBlock("cors", cors => cors.AddSetting("allowed_origins", new[] { "https://portal.azure.com" }));
                 });
@@ -120,7 +125,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                 {
                     appSettings.AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", Terraform.azurerm_application_insights.app_insights.instrumentation_key);
                     appSettings.AddSetting(@"""AzureWebJobsStorage""", $"DefaultEndpointsProtocol=https;AccountName=${{{storageNameExpression}}};AccountKey=${{{storagePrimaryAccessKeyExpression}}};EndpointSuffix=core.windows.net");
-
+                    appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet");
+                    
                     // foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
                     // {
                     //     if (configVarMappings.TryGetValue(request.Key, out var varName))
@@ -134,6 +140,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                     //     }
                     // }
                 });
+            });
+
+            builder.AddComment("Output variables");
+            builder.AddOutput($"{functionAppNameRef}_id", output =>
+            {
+                output.AddRawSetting("value", $"azurerm_windows_function_app.{functionAppNameRef}.id");
             });
 
             return builder.Build();
