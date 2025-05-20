@@ -163,5 +163,6 @@
     <application id="9a6cab0d-4d62-4430-9b70-e3a7a9dbedfc" name="Intent.Modules.AspNetCore.OData.EntityFramework" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.OData.EntityFramework/Intent.Modules.AspNetCore.OData.EntityFramework.application.config" />
     <application id="c72f8015-9445-4a19-8824-12c44d378386" name="Intent.Modules.ModularMonolith.Host" solutionFolder="Modular Monolith" relativePath="Intent.Modules.ModularMonolith.Host/Intent.Modules.ModularMonolith.Host.application.config" />
     <application id="dbb291d2-616b-4aa7-b526-f1b2c1a908be" name="Intent.Modules.EntityFramework.Application.LinqExtensions" solutionFolder="Persistence" relativePath="Intent.Modules.EntityFramework.Application.LinqExtensions/Intent.Modules.EntityFramework.Application.LinqExtensions.application.config" />
+    <application id="077919ca-638f-40e2-84e6-e217ff37068c" name="Intent.Modules.EntityFrameworkCore.DiffAudit" solutionFolder="Persistence" relativePath="Intent.Modules.EntityFrameworkCore.DiffAudit/Intent.Modules.EntityFrameworkCore.DiffAudit.application.config" />
   </applications>
 </solution>

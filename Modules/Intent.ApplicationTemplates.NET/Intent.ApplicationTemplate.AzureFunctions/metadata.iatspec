@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AzureFunctions</id>
-  <version>5.1.15-pre.3</version>
+  <version>5.1.16-pre.0</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Azure Serverless</displayName>
   <shortDescription>Create Azure Serverless apps for the Azure Cloud with a clean separation of concerns using .NET.</shortDescription>

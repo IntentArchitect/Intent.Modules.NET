@@ -38,8 +38,11 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure
             services.AddTransient<ICustomDefaultRepository, CustomDefaultRepository>();
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IConnStrDbContext>(provider => provider.GetRequiredService<ConnStrDbContext>());
+            services.AddTransient<IAppDbDomainPackageAuditLogRepository, AppDbDomainPackageAuditLogRepository>();
             services.AddTransient<IAppDbEntityRepository, AppDbEntityRepository>();
+            services.AddTransient<IConnstrDomainPackageAuditLogRepository, ConnstrDomainPackageAuditLogRepository>();
             services.AddTransient<IConnstrEntityRepository, ConnstrEntityRepository>();
+            services.AddTransient<IDefaultDomainPackageAuditLogRepository, DefaultDomainPackageAuditLogRepository>();
             services.AddTransient<IDefaultEntityRepository, DefaultEntityRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;

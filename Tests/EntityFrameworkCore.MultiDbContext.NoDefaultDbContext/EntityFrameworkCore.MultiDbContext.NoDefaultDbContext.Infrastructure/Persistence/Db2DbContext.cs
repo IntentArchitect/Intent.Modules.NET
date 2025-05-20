@@ -25,6 +25,7 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
 
         public DbSet<ProductInMemory> ProductInMemories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Db2DomainPackageAuditLog> Db2DomainPackageAuditLogs { get; set; }
 
         public DbSet<Db2Entity> Db2Entities { get; set; }
 
@@ -49,6 +50,7 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
             ConfigureModel(modelBuilder);
             modelBuilder.Entity<ProductInMemory>().HasNoKey().ToView(null);
             modelBuilder.Entity<Product>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new Db2DomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new Db2EntityConfiguration());
         }
 
