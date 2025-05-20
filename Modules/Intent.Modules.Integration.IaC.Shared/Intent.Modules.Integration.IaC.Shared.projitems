@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fdb2a66d-cabe-4cc0-9f2f-9037a7d8efa5</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureServiceBus\Api\IntegrationCommandModelStereotypeExtensions.cs">
+      <Link>ExistingApi\IntegrationCommandModelStereotypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs">
+      <Link>MessageModelStereotypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
+  </ItemGroup>
+</Project>

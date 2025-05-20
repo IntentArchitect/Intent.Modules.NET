@@ -1,7 +1,7 @@
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.IaC.Terraform.Templates.Azure_Service_Bus;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,7 +20,7 @@ namespace Intent.Modules.IaC.Terraform.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            AzureServiceBusManager.Initialize(application);
+            IntegrationManager.Initialize(application);
         }
     }
 }

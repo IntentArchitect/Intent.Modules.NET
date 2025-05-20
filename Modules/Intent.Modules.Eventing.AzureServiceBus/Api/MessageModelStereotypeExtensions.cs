@@ -102,6 +102,5 @@ namespace Intent.Eventing.AzureServiceBus.Api
                 Topic
             }
         }
-
     }
 }

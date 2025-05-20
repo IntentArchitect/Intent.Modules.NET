@@ -6,7 +6,7 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.Eventing.AzureServiceBus.Templates;
 
-public static class ServiceBusHelper
+internal static class ServiceBusHelper
 {
     public enum ChannelType
     {

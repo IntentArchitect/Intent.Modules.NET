@@ -4,7 +4,7 @@ using Intent.Modules.Common.Templates;
 
 namespace Intent.Modules.Eventing.AzureEventGrid.Templates;
 
-public static class EventGridHelper
+internal static class EventGridHelper
 {
     public static string GetTopicName(this MessageModel model)
     {

@@ -42,4 +42,19 @@ internal static class Terraform
             public const string default_primary_connection_string = $"{expression}.{nameof(default_primary_connection_string)}";
         }
     }
+
+    public static class azurerm_servicebus_topic
+    {
+        public const string type = nameof(azurerm_servicebus_topic);
+    }
+    
+    public static class azurerm_servicebus_queue
+    {
+        public const string type = nameof(azurerm_servicebus_queue);
+    }
+
+    public static class azurerm_servicebus_subscription
+    {
+        public const string type = nameof(azurerm_servicebus_subscription);
+    }
 }

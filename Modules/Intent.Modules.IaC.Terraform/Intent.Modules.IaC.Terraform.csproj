@@ -22,6 +22,8 @@
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <Import Project="..\Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems" Label="Shared" />
+
   <ItemGroup>
     <Compile Remove="OldTemplates\InfrastructureTf\AzureServiceBusExtension.cs" />
     <None Include="OldTemplates\InfrastructureTf\AzureServiceBusExtension.cs" />

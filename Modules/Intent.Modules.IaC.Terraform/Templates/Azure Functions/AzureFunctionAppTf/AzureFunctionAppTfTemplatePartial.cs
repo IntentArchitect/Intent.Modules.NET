@@ -6,6 +6,7 @@ using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -126,19 +127,27 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                     appSettings.AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", Terraform.azurerm_application_insights.app_insights.instrumentation_key);
                     appSettings.AddSetting(@"""AzureWebJobsStorage""", $"DefaultEndpointsProtocol=https;AccountName=${{{storageNameExpression}}};AccountKey=${{{storagePrimaryAccessKeyExpression}}};EndpointSuffix=core.windows.net");
                     appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet");
+
+                    var appKeys = new HashSet<string>();
+                    var azureServiceBusMessages = IntegrationManager.Instance.GetPublishedAzureServiceBusMessages(Model.Id)
+                        .Concat(IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(Model.Id))
+                        .ToList();
+                    if (azureServiceBusMessages.Count != 0)
+                    {
+                        appSettings.AddRawSetting($@"""AzureServiceBus:ConnectionString""", Terraform.azurerm_servicebus_namespace.service_bus.default_primary_connection_string);
+                    }
+                    foreach (var message in azureServiceBusMessages)
+                    {
+                        if (appKeys.Add(message.QueueOrTopicConfigurationName))
+                        {
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");                            
+                        }
+                        if (message.MethodType == AzureServiceBusMethodType.Subscribe)
+                        {
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
+                        }
+                    }
                     
-                    // foreach (var request in _appSettingsRequests.OrderBy(x => x.Key))
-                    // {
-                    //     if (configVarMappings.TryGetValue(request.Key, out var varName))
-                    //     {
-                    //         appSettings.AddRawSetting($@"""{request.Key}""", varName);
-                    //     }
-                    //     else
-                    //     {
-                    //         var value = request.Value?.ToString();
-                    //         appSettings.AddRawSetting($@"""{request.Key}""", value is null ? "null" : value == "" ? @"""""" : @$"""{value}""");
-                    //     }
-                    // }
                 });
             });
 

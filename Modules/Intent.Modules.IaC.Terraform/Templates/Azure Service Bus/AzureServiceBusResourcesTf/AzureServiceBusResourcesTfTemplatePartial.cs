@@ -5,7 +5,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.IaC.Terraform.Templates.Azure_Service_Bus;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -47,10 +47,35 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBus
                 resource.AddSetting("sku", "Standard");
             });
 
-            var topics = AzureServiceBusManager.Instance.GetTopics(ExecutionContext.GetApplicationConfig().Id);
-            foreach (var topic in topics)
+            var apps = ExecutionContext.GetSolutionConfig()
+                .GetApplicationReferences()
+                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
+                .ToArray();
+            var azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureServiceBusMessages(app.Id))
+                .Concat(apps.SelectMany(app => IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(app.Id)))
+                .ToList();
+
+            var items = new HashSet<string>();
+            foreach (var message in azureServiceBusMessages)
             {
-                
+                if (items.Add(message.QueueOrTopicName))
+                {
+                    builder.AddResource(Terraform.azurerm_servicebus_queue.type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    {
+                        resource.AddSetting("name", message.QueueOrTopicName);
+                        resource.AddRawSetting("namespace_id", Terraform.azurerm_servicebus_namespace.service_bus.id);
+                    });
+                }
+
+                if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
+                {
+                    builder.AddResource(Terraform.azurerm_servicebus_subscription.type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    {
+                        resource.AddSetting("name", message.QueueOrTopicName);
+                        resource.AddRawSetting("topic_id", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
+                        resource.AddSetting("max_delivery_count", 3);
+                    });
+                }
             }
             
             return builder.Build();
