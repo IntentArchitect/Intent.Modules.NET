@@ -23,6 +23,8 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             _domainEventService = domainEventService;
         }
 
+        public DbSet<AlternateConnStrDefaultDbDomainPackageAuditLog> AlternateConnStrDefaultDbDomainPackageAuditLogs { get; set; }
+
         public DbSet<EntityAlternate> EntityAlternates { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -44,6 +46,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AlternateConnStrDefaultDbDomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new EntityAlternateConfiguration());
         }
 

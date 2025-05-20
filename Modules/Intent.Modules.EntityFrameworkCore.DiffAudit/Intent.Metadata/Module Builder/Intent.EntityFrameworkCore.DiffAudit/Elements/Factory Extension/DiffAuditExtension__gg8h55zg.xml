@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dbf43ad1-b736-4fe6-94c8-e4a463350a48" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DiffAuditExtension</name>
+  <display>DiffAuditExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e4873852-59e4-4522-84c9-c5980e197fcc</parentFolderId>
+  <packageId>e4873852-59e4-4522-84c9-c5980e197fcc</packageId>
+  <packageName>Intent.EntityFrameworkCore.DiffAudit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -22,6 +22,8 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
             _domainEventService = domainEventService;
         }
 
+        public DbSet<ConnstrDomainPackageAuditLog> ConnstrDomainPackageAuditLogs { get; set; }
+
         public DbSet<ConnstrEntity> ConnstrEntities { get; set; }
 
         public override async Task<int> SaveChangesAsync(
@@ -43,6 +45,7 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Infrastructure.P
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ConnstrDomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new ConnstrEntityConfiguration());
         }
 

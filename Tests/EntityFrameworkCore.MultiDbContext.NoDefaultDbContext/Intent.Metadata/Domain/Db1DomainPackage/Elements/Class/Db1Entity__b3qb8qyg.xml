@@ -9,7 +9,14 @@
   <parentFolderId>7c221de3-e077-4dc1-8aa0-71e5833c3109</parentFolderId>
   <packageId>7c221de3-e077-4dc1-8aa0-71e5833c3109</packageId>
   <packageName>Db1DomainPackage</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="4c7ff86d-641f-431b-a20f-94b3ccbef265" name="Diff Audit">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.EntityFrameworkCore.DiffAudit</definitionPackageName>
+      <definitionPackageId>e4873852-59e4-4522-84c9-c5980e197fcc</definitionPackageId>
+      <properties />
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="cf9f9d4e-97e9-4726-bfb3-b60282a88626" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">

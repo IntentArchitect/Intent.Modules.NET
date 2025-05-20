@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2effa247-bf37-47b8-ab2c-9c4ba3ea4cca" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e4873852-59e4-4522-84c9-c5980e197fcc</parentFolderId>
+  <packageId>e4873852-59e4-4522-84c9-c5980e197fcc</packageId>
+  <packageName>Intent.EntityFrameworkCore.DiffAudit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="38063711-9ff5-4f1a-b95d-7432e3f87616" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Diff Audit Module Documentation</name>
+      <display>Diff Audit Module Documentation</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>2effa247-bf37-47b8-ab2c-9c4ba3ea4cca</parentFolderId>
+      <packageId>e4873852-59e4-4522-84c9-c5980e197fcc</packageId>
+      <packageName>Intent.EntityFrameworkCore.DiffAudit</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Information and guidance for using the Intent.EntityFrameworkCore.DiffAudit module." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-entityframeworkcore-diffaudit/intent-entityframeworkcore-diffaudit.html" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;6ab29b31-27af-4f56-a67c-986d82097d63&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="module moduledocumentation Intent.EntityFrameworkCore.DiffAudit audit logging ef entityframeworkcore" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

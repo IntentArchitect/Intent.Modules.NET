@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.EntityFrameworkCore.DiffAudit</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>A custom module for Intent.Modules.NET</summary>
+  <description>A custom module for Intent.Modules.NET</description>
+  <authors>Intent.Modules.NET</authors>
+  <iconUrl>data:image/png;base64,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</iconUrl>
+  <templates>
+    <template id="Intent.EntityFrameworkCore.DiffAudit.DiffAuditInterface" externalReference="b296e89d-6259-4ade-9cd6-09c4f3783e29">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.AuditableInterface</role>
+      <location>Common/Interfaces</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.EntityFrameworkCore.DiffAudit.DiffAuditExtension" externalReference="dbf43ad1-b736-4fe6-94c8-e4a463350a48" />
+    <factoryExtension id="Intent.EntityFrameworkCore.DiffAudit.EfCoreExtension" externalReference="76267192-ec61-4491-a710-856945af2da1" />
+  </factoryExtensions>
+  <moduleSettings>
+    <group id="af5069a0-967a-4ffd-95b1-8bf6d305375c" title="Diff Audit" externalReference="af5069a0-967a-4ffd-95b1-8bf6d305375c">
+      <settings>
+        <setting id="bf94aeeb-5e26-485e-9f1a-79bcb1ac158b" title="User Identity to Audit" type="select">
+          <hint>Which data would you like to audit to identify the user.</hint>
+          <defaultValue>user-id</defaultValue>
+          <options>
+            <option value="user-id" description="User Id" />
+            <option value="user-name" description="User Name" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Application.Identity" version="3.5.6" />
+    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.EntityFrameworkCore.DiffAudit/Intent.EntityFrameworkCore.DiffAudit.pkg.config" externalReference="e4873852-59e4-4522-84c9-c5980e197fcc" />
+    <install target="Domain" src="modelers/Diff Audit Persistence Settings.designer.settings" externalReference="380fcef8-0ba4-4416-be00-1ce4dda928fc" />
+  </metadata>
+  <migrations has-on-install-migration="true" />
+</package>
