@@ -61,8 +61,7 @@ namespace Intent.Modules.EntityFrameworkCore.Interop.DomainEvents.FactoryExtensi
                         method.AddWhileStatement("true", @while => @while
                             .AddMethodChainStatement("var domainEventEntity = ChangeTracker", chain => chain
                                 .AddChainStatement($"Entries<{template.GetTypeName(HasDomainEventInterfaceTemplate.TemplateId)}>()")
-                                .AddChainStatement("Select(x => x.Entity.DomainEvents)")
-                                .AddChainStatement("SelectMany(x => x)")
+                                .AddChainStatement("SelectMany(x => x.Entity.DomainEvents)")
                                 .AddChainStatement("FirstOrDefault(domainEvent => !domainEvent.IsPublished)"))
                             .AddIfStatement("domainEventEntity is null", @if => @if
                                 .AddStatement("break;"))

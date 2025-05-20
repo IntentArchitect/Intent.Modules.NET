@@ -17,9 +17,9 @@ namespace FastEndpointsTest.Application.Pagination.GetLogEntries
             PageSize = pageSize;
         }
 
-        [FromQuery]
+        [QueryParam]
         public int PageNo { get; set; }
-        [FromQuery]
+        [QueryParam]
         public int PageSize { get; set; }
     }
 }

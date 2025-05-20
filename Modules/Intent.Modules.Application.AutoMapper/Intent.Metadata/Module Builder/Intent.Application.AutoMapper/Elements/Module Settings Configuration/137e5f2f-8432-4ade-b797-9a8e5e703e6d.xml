@@ -54,8 +54,8 @@
           <childElements />
         </childElement>
         <childElement id="99eaba27-44f1-47da-a1b2-5793569100f1" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Profile Separate</name>
-          <display>Profile Separate = profile-separate</display>
+          <name>Profile Separate from Dto</name>
+          <display>Profile Separate from Dto = profile-separate</display>
           <isAbstract>false</isAbstract>
           <value>profile-separate</value>
           <genericTypes />

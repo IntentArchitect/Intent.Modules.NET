@@ -34,7 +34,7 @@ namespace Intent.Modules.NET.Tests.Module2.Application.Common.Behaviours
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Application.Common.Behav
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

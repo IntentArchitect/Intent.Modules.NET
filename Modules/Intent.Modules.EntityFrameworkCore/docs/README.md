@@ -103,7 +103,7 @@ This can also be using for forcing columns in base class to go to the end by ass
 
 The `Domain Designer` has been extended with many stereotypes for modeling RDBMS technology specific concepts in your domain.
 
-Please see the [RDBMS README](https://github.com/IntentArchitect/Intent.Modules/blob/master/Modules/Intent.Modules.Metadata.RDBMS/README.md) for additional information on modeling RDBMS concepts in the `Domain Designer`, including, but not limited to:
+Please see the [RDBMS README](https://docs.intentarchitect.com/articles/modules-common/intent-metadata-rdbms/intent-metadata-rdbms.html) for additional information on modeling RDBMS concepts in the `Domain Designer`, including, but not limited to:
 
 * **Modifying Table defaults**
 * **Modifying Column defaults**
@@ -126,15 +126,35 @@ The `Row Version` stereotype can be manually applied. This stereotype is visuali
 
 ![Column visual](images/row-version-stereotype.png)
 
+### Embedded vs. Separate Tables
+
+Designing a 1 -> 1 relationship between two Entities (as illustrated below) communicates that `AccountDetails` being **owned** by `Account`.
+
+![Embedded one-to-one relationship](images/embedded-one-to-one.png)
+
+This will result in Entity Framework embedding `AccountDetails` into the `Accounts` table like this:
+
+![Embedded table](images/embedded-table.png)
+
+Learn more about this by visiting this [article](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities).
+
+To "split" the Entities into different tables, apply the `Table` stereotype on the `AccountDetails` entity.
+
+![Split with Table Stereotype](images/split-table-stereotype.png)
+
+This will result in Entity Framework making separate tables for both Entities:
+
+![Split Entities tables](images/split-entities-table.png)
+
 ### Modeling Inheritance
 
-In Entity Framework Core there are 3 ways to model inheritance namely:
+In Entity Framework Core there are 3 ways to model inheritance, namely:
 
 * Table per hierarchy (TPH).
 * Table per type (TPT).
 * Table per concrete type (TPC).
 
-For more information on modeling inheritance with Entity Framework Core see the [documentation](https://learn.microsoft.com/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
+For more information on modeling inheritance with Entity Framework Core, see the [documentation](https://learn.microsoft.com/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration).
 
 #### Table per hierarchy
 

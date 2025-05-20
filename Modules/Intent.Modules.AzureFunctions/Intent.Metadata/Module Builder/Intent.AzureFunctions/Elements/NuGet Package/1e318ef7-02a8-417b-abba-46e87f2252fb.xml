@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="0d3c4541-963c-4ffd-9592-01013d41ce7d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.23.0</name>
-      <display>2.22.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.23.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,88 +49,112 @@
       <childElements>
         <childElement id="b38e0df0-5c0d-4013-bb5a-80c422f06a54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights</name>
+          <display>Microsoft.ApplicationInsights (2.23.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.23.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="dc110c26-a033-4eaa-9ea7-0ae5edf7c361" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel</name>
-          <isAbstract>false</isAbstract>
-          <value>2.23.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="f7ae8711-302c-40ea-b077-70ae2ad3fc82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging.ApplicationInsights</name>
-          <isAbstract>false</isAbstract>
-          <value>2.23.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a661b6db-5ceb-4243-8f40-f8c69626558e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights.DependencyCollector</name>
+          <display>Microsoft.ApplicationInsights.DependencyCollector (2.23.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.23.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="54cd918b-a258-462b-a65c-ba3da35d50ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights.EventCounterCollector</name>
+          <display>Microsoft.ApplicationInsights.EventCounterCollector (2.23.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.23.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9579280e-7dc1-4049-92aa-dfd727b62c91" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights.PerfCounterCollector</name>
+          <display>Microsoft.ApplicationInsights.PerfCounterCollector (2.23.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.23.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="1da87232-3c49-49f8-8f2a-0c663f0872e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.ApplicationInsights.WindowsServer</name>
+          <display>Microsoft.ApplicationInsights.WindowsServer (2.23.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.23.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="dc110c26-a033-4eaa-9ea7-0ae5edf7c361" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel</name>
+          <display>Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel (2.23.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.23.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3f4cd5fa-9052-4558-9387-288a27bee61f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection</name>
+          <display>Microsoft.Extensions.DependencyInjection (2.1.1)</display>
           <isAbstract>false</isAbstract>
           <value>2.1.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f7ae8711-302c-40ea-b077-70ae2ad3fc82" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.ApplicationInsights</name>
+          <display>Microsoft.Extensions.Logging.ApplicationInsights (2.23.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.23.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>0d3c4541-963c-4ffd-9592-01013d41ce7d</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

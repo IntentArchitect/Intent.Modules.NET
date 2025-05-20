@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Application.Common.Behav
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

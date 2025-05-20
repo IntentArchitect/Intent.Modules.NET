@@ -38,7 +38,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.B
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

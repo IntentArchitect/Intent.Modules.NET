@@ -32,7 +32,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

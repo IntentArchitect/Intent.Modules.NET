@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Application.
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

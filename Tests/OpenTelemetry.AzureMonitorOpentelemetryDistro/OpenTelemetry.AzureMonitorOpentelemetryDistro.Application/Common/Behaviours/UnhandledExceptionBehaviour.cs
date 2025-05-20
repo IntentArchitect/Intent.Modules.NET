@@ -31,7 +31,7 @@ namespace OpenTelemetry.AzureMonitorOpentelemetryDistro.Application.Common.Behav
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (Exception ex)
             {

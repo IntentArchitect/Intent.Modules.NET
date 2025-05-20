@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="e897219b-7aef-498e-846d-d6d0e5647574" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>5.35.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <display>5.35.0 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,46 +47,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="67c8b7f0-62ad-49f9-ac43-239e0887ca2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>FastEndpoints</name>
-          <isAbstract>false</isAbstract>
-          <value>5.35.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e897219b-7aef-498e-846d-d6d0e5647574</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="be8ecb08-d6f9-4c30-809a-367185c7bfff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Http</name>
+          <display>Asp.Versioning.Http (7.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e897219b-7aef-498e-846d-d6d0e5647574</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="3ca96643-b6ca-4f5d-a9e0-23306fcdce27" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Mvc.ApiExplorer</name>
+          <display>Asp.Versioning.Mvc.ApiExplorer (7.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e897219b-7aef-498e-846d-d6d0e5647574</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="67c8b7f0-62ad-49f9-ac43-239e0887ca2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints</name>
+          <display>FastEndpoints (5.35.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>5.35.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e897219b-7aef-498e-846d-d6d0e5647574</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f81319e8-e4b8-4b31-99f9-cd44ef001379" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NSwag.Generation.AspNetCore</name>
+          <display>NSwag.Generation.AspNetCore (14.2.0)</display>
           <isAbstract>false</isAbstract>
           <value>14.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e897219b-7aef-498e-846d-d6d0e5647574</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -95,7 +107,7 @@
     </childElement>
     <childElement id="3536777f-043b-4534-8fc0-a5d9445fff84" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>6.0.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -116,46 +128,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e4314281-ff44-4f0b-8993-ff839027d852" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>FastEndpoints</name>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="7fc713de-416b-4d03-9a4c-1427f7a1061e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Http</name>
+          <display>Asp.Versioning.Http (8.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="25f275a5-8d45-4216-aa73-cbc47f8314c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Mvc.ApiExplorer</name>
+          <display>Asp.Versioning.Mvc.ApiExplorer (8.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e4314281-ff44-4f0b-8993-ff839027d852" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints</name>
+          <display>FastEndpoints (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e41db103-f239-42c4-948b-e06c2af6df4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NSwag.Generation.AspNetCore</name>
+          <display>NSwag.Generation.AspNetCore (14.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3536777f-043b-4534-8fc0-a5d9445fff84</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -164,7 +188,7 @@
     </childElement>
     <childElement id="5ad38632-2580-4c6a-b235-c938ab8cea13" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>6.0.0</name>
-      <display>5.31.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>6.0.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -185,46 +209,58 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6fd8d822-4ae4-46b2-9306-400bd489fb14" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>FastEndpoints</name>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="abba20e9-67f0-474c-856b-e4f99cea32f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Http</name>
+          <display>Asp.Versioning.Http (8.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="455c1081-a16d-48c7-a062-0f15cb6a1cb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Asp.Versioning.Mvc.ApiExplorer</name>
+          <display>Asp.Versioning.Mvc.ApiExplorer (8.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6fd8d822-4ae4-46b2-9306-400bd489fb14" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>FastEndpoints</name>
+          <display>FastEndpoints (6.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9952cf70-47d0-49d4-9b2c-e4a1cc87b70e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>NSwag.Generation.AspNetCore</name>
+          <display>NSwag.Generation.AspNetCore (14.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>14.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5ad38632-2580-4c6a-b235-c938ab8cea13</parentFolderId>
+          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
+          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />

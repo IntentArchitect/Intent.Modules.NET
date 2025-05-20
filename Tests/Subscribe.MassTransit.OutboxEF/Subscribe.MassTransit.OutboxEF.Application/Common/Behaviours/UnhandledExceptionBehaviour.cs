@@ -32,7 +32,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

@@ -59,17 +59,15 @@ namespace Intent.Modules.FastEndpoints.Dispatch.Services.FactoryExtensions
 
                 if (fromBodyParam != null)
                 {
-                    if (!endpointTemplate.TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
+                    if (endpointTemplate.TryGetTypeName(TemplateRoles.Application.Common.ValidationServiceInterface, out var validationProviderName))
                     {
-                        return;
+                        @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((_, statement) =>
+                        {
+                            statement.ThrowArgumentNullException();
+                        }));
+
+                        method.AddStatement($"await _validationService.Handle(req, ct);");
                     }
-
-                    @class.Constructors.First().AddParameter(validationProviderName, "validationService", param => param.IntroduceReadonlyField((_, statement) =>
-                    {
-                        statement.ThrowArgumentNullException();
-                    }));
-
-                    method.AddStatement($"await _validationService.Handle(req, ct);");
                 }
 
                 var serviceInvocation = new CSharpInvocationStatement($"_appService.{endpointTemplate.Model.Name.ToPascalCase()}");

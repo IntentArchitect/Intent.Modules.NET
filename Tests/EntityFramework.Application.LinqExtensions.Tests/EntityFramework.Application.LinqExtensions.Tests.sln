@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{624878F0-7A62-49D9-A220-64D225ED89FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.Application.LinqExtensions.Tests.Api", "EntityFramework.Application.LinqExtensions.Tests.Api\EntityFramework.Application.LinqExtensions.Tests.Api.csproj", "{DB089C63-043F-4050-AA05-A39D6F3A7744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{8339211A-0321-430E-A3A3-CA2FE677C59E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.Application.LinqExtensions.Tests.Application", "EntityFramework.Application.LinqExtensions.Tests.Application\EntityFramework.Application.LinqExtensions.Tests.Application.csproj", "{E006CF51-6B9F-4532-B4F4-28A5758CD5D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{181969F0-8D2A-4A27-8E43-4E71249EA244}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.Application.LinqExtensions.Tests.Domain", "EntityFramework.Application.LinqExtensions.Tests.Domain\EntityFramework.Application.LinqExtensions.Tests.Domain.csproj", "{1BD8E5EE-5970-4AF8-9D08-0F60C4698340}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{99595D3A-5AC7-4EBA-9AF0-9398D5E2FB09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFramework.Application.LinqExtensions.Tests.Infrastructure", "EntityFramework.Application.LinqExtensions.Tests.Infrastructure\EntityFramework.Application.LinqExtensions.Tests.Infrastructure.csproj", "{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB089C63-043F-4050-AA05-A39D6F3A7744} = {624878F0-7A62-49D9-A220-64D225ED89FE}
+		{E006CF51-6B9F-4532-B4F4-28A5758CD5D9} = {8339211A-0321-430E-A3A3-CA2FE677C59E}
+		{1BD8E5EE-5970-4AF8-9D08-0F60C4698340} = {181969F0-8D2A-4A27-8E43-4E71249EA244}
+		{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E} = {99595D3A-5AC7-4EBA-9AF0-9398D5E2FB09}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB089C63-043F-4050-AA05-A39D6F3A7744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB089C63-043F-4050-AA05-A39D6F3A7744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB089C63-043F-4050-AA05-A39D6F3A7744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB089C63-043F-4050-AA05-A39D6F3A7744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E006CF51-6B9F-4532-B4F4-28A5758CD5D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E006CF51-6B9F-4532-B4F4-28A5758CD5D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E006CF51-6B9F-4532-B4F4-28A5758CD5D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E006CF51-6B9F-4532-B4F4-28A5758CD5D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BD8E5EE-5970-4AF8-9D08-0F60C4698340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BD8E5EE-5970-4AF8-9D08-0F60C4698340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BD8E5EE-5970-4AF8-9D08-0F60C4698340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BD8E5EE-5970-4AF8-9D08-0F60C4698340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E9B58E-A2DC-4EAE-B38B-B71B08FE5C6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

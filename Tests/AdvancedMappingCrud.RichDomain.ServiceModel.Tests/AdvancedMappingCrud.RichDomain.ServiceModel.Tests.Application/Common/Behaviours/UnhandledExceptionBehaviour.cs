@@ -32,7 +32,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.B
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

@@ -42,7 +42,7 @@ namespace ValueObjects.Record.Application.Common.Behaviours
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                var response = await next();
+                var response = await next(cancellationToken);
 
                 // By calling SaveChanges at the last point in the transaction ensures that write-
                 // locks in the database are created and then released as quickly as possible. This

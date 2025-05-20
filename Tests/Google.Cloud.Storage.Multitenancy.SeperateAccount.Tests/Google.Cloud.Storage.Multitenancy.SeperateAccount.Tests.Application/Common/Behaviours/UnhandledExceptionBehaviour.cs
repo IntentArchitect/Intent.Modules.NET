@@ -32,7 +32,7 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

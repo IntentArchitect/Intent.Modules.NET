@@ -32,7 +32,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

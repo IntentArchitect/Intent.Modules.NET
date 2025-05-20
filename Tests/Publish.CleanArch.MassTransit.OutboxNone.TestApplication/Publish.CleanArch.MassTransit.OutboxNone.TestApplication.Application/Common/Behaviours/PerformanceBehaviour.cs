@@ -38,7 +38,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 

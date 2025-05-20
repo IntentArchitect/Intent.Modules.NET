@@ -58,7 +58,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.NamedQueryStrings.ServiceWithNamed
 
     public class DoNamedQueryStringRequestModel
     {
-        [FromQuery]
+        [QueryParam]
         [BindFrom("custom-querystring-name")]
         public string CustomName { get; set; }
     }

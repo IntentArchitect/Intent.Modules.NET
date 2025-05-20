@@ -18,11 +18,11 @@ namespace FastEndpointsTest.Application.Pagination.GetPeoplePaginated
             OrderBy = orderBy;
         }
 
-        [FromQuery]
+        [QueryParam]
         public int PageNo { get; set; }
-        [FromQuery]
+        [QueryParam]
         public int PageSize { get; set; }
-        [FromQuery]
+        [QueryParam]
         public string? OrderBy { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace AspNetCoreMvc.Application.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

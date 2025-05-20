@@ -38,7 +38,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behavi
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

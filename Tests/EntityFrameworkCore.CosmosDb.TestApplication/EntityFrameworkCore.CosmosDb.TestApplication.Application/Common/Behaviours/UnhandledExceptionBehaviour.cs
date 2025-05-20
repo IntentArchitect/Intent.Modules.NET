@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behavi
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

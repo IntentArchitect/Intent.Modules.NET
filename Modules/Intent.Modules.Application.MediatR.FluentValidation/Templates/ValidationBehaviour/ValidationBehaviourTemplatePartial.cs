@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -70,7 +71,11 @@ namespace Intent.Modules.Application.MediatR.FluentValidation.Templates.Validati
                             });
                         });
 
-                        method.AddReturn("await next()");
+                        var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
+                                                version.Major is <= 2 or > 6
+                            ? "cancellationToken"
+                            : string.Empty;
+                        method.AddReturn($"await next({cancellationToken})");
                     });
                 });
         }

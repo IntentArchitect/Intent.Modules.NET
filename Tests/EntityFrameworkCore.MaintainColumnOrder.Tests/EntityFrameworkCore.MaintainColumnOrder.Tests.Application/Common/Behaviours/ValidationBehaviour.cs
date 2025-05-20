@@ -38,7 +38,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Application.Common.Behav
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

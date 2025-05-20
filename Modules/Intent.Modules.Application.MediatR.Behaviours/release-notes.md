@@ -1,6 +1,7 @@
 ### Version 4.3.3
 
-- Improvement: Request Payload logging is optional through the `CqrsSettings:LogRequestPayload` setting.
+- Improvement: Request Payload logging is now optional through the `CqrsSettings:LogRequestPayload` setting.
+- Improvement: `CancellationToken` is now used as an argument to the `next()` delegate in the MediatR behaviour templates.
 
 ### Version 4.3.2
 

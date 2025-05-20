@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -56,7 +57,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddInvocationStatement("_timer.Start", cfg => cfg.SeparatedFromNext());
-                        method.AddObjectInitStatement("var response", "await next();", cfg => cfg.SeparatedFromNext());
+
+                        var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
+                                                version.Major is <= 2 or > 6
+                            ? "cancellationToken"
+                            : string.Empty;
+                        method.AddObjectInitStatement("var response", $"await next({cancellationToken});", cfg => cfg.SeparatedFromNext());
                         method.AddInvocationStatement("_timer.Stop", cfg => cfg.SeparatedFromNext());
                         method.AddObjectInitStatement("var elapsedMilliseconds", "_timer.ElapsedMilliseconds;", cfg => cfg.SeparatedFromNext());
 

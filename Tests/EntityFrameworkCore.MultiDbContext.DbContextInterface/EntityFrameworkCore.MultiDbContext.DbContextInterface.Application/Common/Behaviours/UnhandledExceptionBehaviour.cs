@@ -32,7 +32,7 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.Comm
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (ValidationException)
             {

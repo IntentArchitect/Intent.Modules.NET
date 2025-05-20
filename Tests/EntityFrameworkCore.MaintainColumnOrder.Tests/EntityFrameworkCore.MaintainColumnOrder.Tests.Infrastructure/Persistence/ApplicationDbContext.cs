@@ -81,8 +81,7 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.Persisten
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)

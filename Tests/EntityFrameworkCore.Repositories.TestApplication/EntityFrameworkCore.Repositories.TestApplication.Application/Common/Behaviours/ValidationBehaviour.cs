@@ -38,7 +38,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.Be
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

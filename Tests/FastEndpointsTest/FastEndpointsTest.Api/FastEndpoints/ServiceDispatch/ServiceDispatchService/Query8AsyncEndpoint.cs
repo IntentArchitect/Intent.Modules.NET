@@ -61,7 +61,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchSer
 
     public class Query8AsyncRequestModel
     {
-        [FromQuery]
+        [QueryParam]
         public string Param { get; set; }
     }
 }

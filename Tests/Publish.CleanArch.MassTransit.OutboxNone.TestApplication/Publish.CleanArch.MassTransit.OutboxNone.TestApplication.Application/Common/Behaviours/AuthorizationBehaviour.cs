@@ -87,7 +87,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

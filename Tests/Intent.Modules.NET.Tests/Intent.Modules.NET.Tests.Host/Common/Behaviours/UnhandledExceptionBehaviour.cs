@@ -26,7 +26,7 @@ namespace Intent.Modules.NET.Tests.Host.Common.Behaviours
         {
             try
             {
-                return await next();
+                return await next(cancellationToken);
             }
             catch (Exception ex)
             {
