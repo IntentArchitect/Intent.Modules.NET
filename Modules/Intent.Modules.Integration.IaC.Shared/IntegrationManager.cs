@@ -5,7 +5,9 @@ using Intent.Configuration;
 using Intent.Engine;
 using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
 namespace Intent.Modules.Integration.IaC.Shared;
 
@@ -32,6 +34,8 @@ internal class IntegrationManager
     
     private readonly List<MessageInfo> _publishedMessages;
     private readonly List<MessageInfo> _subscribedMessages;
+    private readonly List<CommandInfo> _sentCommands;
+    private readonly List<CommandInfo> _receivedCommands;
 
     private IntegrationManager(IApplication application)
     {
@@ -39,7 +43,7 @@ internal class IntegrationManager
             .GetApplicationReferences()
             .Select(app => application.GetSolutionConfig().GetApplicationConfig(app.Id))
             .ToArray();
-        
+
         _publishedMessages = applications
             .SelectMany(app => application.MetadataManager
                 .GetExplicitlyPublishedMessageModels(app.Id)
@@ -50,6 +54,19 @@ internal class IntegrationManager
             .SelectMany(app => application.MetadataManager
                 .GetExplicitlySubscribedToMessageModels(app.Id)
                 .Select(message => new MessageInfo(app.Id, message, new ModuleInfo(app.Modules))))
+            .Distinct()
+            .ToList();
+        
+        _sentCommands = applications
+            .SelectMany(app => application.MetadataManager
+                .GetExplicitlySentIntegrationCommandModels(app.Id)
+                .Select(command => new CommandInfo(app.Id, command, new ModuleInfo(app.Modules))))
+            .Distinct()
+            .ToList();
+        _receivedCommands = applications
+            .SelectMany(app => application.MetadataManager
+                .GetExplicitlySubscribedToIntegrationCommandModels(app.Id)
+                .Select(command => new CommandInfo(app.Id, command, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
     }
@@ -71,8 +88,54 @@ internal class IntegrationManager
             .ToList();
         return messages;
     }
+    
+    public IReadOnlyList<AzureServiceBusCommand> GetPublishedAzureServiceBusCommands(string applicationId)
+    {
+        var messages = _sentCommands
+            .Where(p => p.ModuleInfo.IsAzureServiceBus && p.ApplicationId == applicationId)
+            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.Command, AzureServiceBusMethodType.Publish))
+            .ToList();
+        return messages;
+    }
+    
+    public IReadOnlyList<AzureServiceBusCommand> GetSubscribedAzureServiceBusCommands(string applicationId)
+    {
+        var messages = _receivedCommands
+            .Where(p => p.ModuleInfo.IsAzureServiceBus && p.ApplicationId == applicationId)
+            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.Command, AzureServiceBusMethodType.Subscribe))
+            .ToList();
+        return messages;
+    }
+
+    public IReadOnlyList<AzureServiceBusItemBase> GetAggregatedPublishedAzureServiceBusItems(string applicationId)
+    {
+        return GetPublishedAzureServiceBusMessages(applicationId)
+            .Cast<AzureServiceBusItemBase>()
+            .Concat(GetPublishedAzureServiceBusCommands(applicationId))
+            .ToList();
+    }
+    
+    public IReadOnlyList<AzureServiceBusItemBase> GetAggregatedSubscribedAzureServiceBusItems(string applicationId)
+    {
+        return GetSubscribedAzureServiceBusMessages(applicationId)
+            .Cast<AzureServiceBusItemBase>()
+            .Concat(GetSubscribedAzureServiceBusCommands(applicationId))
+            .ToList();
+    }
+
+    public IReadOnlyList<AzureServiceBusItemBase> GetAggregatedAzureServiceBusItems(string applicationId)
+    {
+        var duplicateCheckSet = new HashSet<string>();
+        return GetAggregatedPublishedAzureServiceBusItems(applicationId)
+            .Concat(GetAggregatedSubscribedAzureServiceBusItems(applicationId))
+            .Where(p => duplicateCheckSet.Add(p.QueueOrTopicName))
+            .ToList();
+    }
+    
+    
 
     private record MessageInfo(string ApplicationId, MessageModel Message, ModuleInfo ModuleInfo);
+    private record CommandInfo(string ApplicationId, IntegrationCommandModel Command, ModuleInfo ModuleInfo);
 
     private record ModuleInfo
     {

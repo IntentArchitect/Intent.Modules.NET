@@ -26,35 +26,20 @@
 
   <ItemGroup>
     <Compile Remove="OldTemplates\InfrastructureTf\AzureServiceBusExtension.cs" />
-    <None Include="OldTemplates\InfrastructureTf\AzureServiceBusExtension.cs" />
     <Compile Remove="OldTemplates\InfrastructureTf\EventGridTopicExtension.cs" />
-    <None Include="OldTemplates\InfrastructureTf\EventGridTopicExtension.cs" />
     <Compile Remove="OldTemplates\InfrastructureTf\InfrastructureTfTemplatePartial.cs" />
-    <None Include="OldTemplates\InfrastructureTf\InfrastructureTfTemplatePartial.cs" />
     <Compile Remove="OldTemplates\InfrastructureTf\InfrastructureTfTemplateRegistration.cs" />
-    <None Include="OldTemplates\InfrastructureTf\InfrastructureTfTemplateRegistration.cs" />
     <Compile Remove="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplatePartial.cs" />
-    <None Include="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplatePartial.cs" />
     <Compile Remove="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplateRegistration.cs" />
-    <None Include="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplateRegistration.cs" />
     <Compile Remove="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplatePartial.cs" />
-    <None Include="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplatePartial.cs" />
     <Compile Remove="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplatePartial.cs" />
-    <None Include="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplatePartial.cs" />
     <Compile Remove="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplateRegistration.cs" />
-    <None Include="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplateRegistration.cs" />
     <Compile Remove="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplateRegistration.cs" />
-    <None Include="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplateRegistration.cs" />
     <Compile Remove="OldTemplates\SubscriptionsTf\EventGridSubscriptionExtension.cs" />
-    <None Include="OldTemplates\SubscriptionsTf\EventGridSubscriptionExtension.cs" />
     <Compile Remove="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplatePartial.cs" />
-    <None Include="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplatePartial.cs" />
     <Compile Remove="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplateRegistration.cs" />
-    <None Include="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplateRegistration.cs" />
     <Compile Remove="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplatePartial.cs" />
-    <None Include="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplatePartial.cs" />
     <Compile Remove="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplateRegistration.cs" />
-    <None Include="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplateRegistration.cs" />
   </ItemGroup>
 
 </Project>

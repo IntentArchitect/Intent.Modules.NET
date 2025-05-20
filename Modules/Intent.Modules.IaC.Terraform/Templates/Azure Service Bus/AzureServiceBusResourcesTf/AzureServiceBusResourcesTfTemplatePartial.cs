@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -51,9 +52,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBus
                 .GetApplicationReferences()
                 .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
                 .ToArray();
-            var azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureServiceBusMessages(app.Id))
-                .Concat(apps.SelectMany(app => IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(app.Id)))
-                .ToList();
+            var azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(app.Id)).ToList();
 
             var items = new HashSet<string>();
             foreach (var message in azureServiceBusMessages)

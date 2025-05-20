@@ -3,21 +3,9 @@ using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common.Templates;
 
-namespace Intent.Modules.Integration.IaC.Shared;
+namespace Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
-internal enum AzureServiceBusChannelType
-{
-    Queue,
-    Topic
-}
-
-internal enum AzureServiceBusMethodType
-{
-    Publish = 1,
-    Subscribe = 2
-}
-
-internal record AzureServiceBusMessage
+internal record AzureServiceBusMessage : AzureServiceBusItemBase
 {
     public AzureServiceBusMessage(string ApplicationId, MessageModel MessageModel, AzureServiceBusMethodType MethodType)
     {
@@ -31,13 +19,7 @@ internal record AzureServiceBusMessage
             ? $"{QueueOrTopicConfigurationName}Subscription".ToPascalCase() : null;
     }
 
-    public string ApplicationId { get; init; }
     public MessageModel MessageModel { get; init; }
-    public AzureServiceBusMethodType MethodType { get; init; }
-    public AzureServiceBusChannelType ChannelType { get; init; }
-    public string QueueOrTopicName { get; init; }
-    public string QueueOrTopicConfigurationName { get; init; }
-    public string? QueueOrTopicSubscriptionConfigurationName { get; init; }
 
     private static string GetQueueOrTopicName(MessageModel command)
     {
@@ -90,5 +72,15 @@ internal record AzureServiceBusMessage
             false => AzureServiceBusChannelType.Queue,
             _ => AzureServiceBusChannelType.Topic
         };
+    }
+
+    public override string GetModelTypeName(IntentTemplateBase template)
+    {
+        return template.GetTypeName("Intent.Eventing.Contracts.IntegrationEventMessage", MessageModel);
+    }
+
+    public override string GetSubscriberTypeName<T>(IntentTemplateBase<T> template)
+    {
+        return $"{template.GetTypeName("Intent.Eventing.Contracts.IntegrationEventHandlerInterface")}<{GetModelTypeName(template)}>";
     }
 }

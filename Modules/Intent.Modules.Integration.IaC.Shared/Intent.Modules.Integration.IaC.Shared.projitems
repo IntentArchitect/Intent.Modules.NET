@@ -15,7 +15,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs">
       <Link>MessageModelStereotypeExtensions.cs</Link>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusChannelType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusItemBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusMethodType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
   </ItemGroup>
 </Project>

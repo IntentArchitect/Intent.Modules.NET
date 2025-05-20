@@ -7,6 +7,7 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -129,9 +130,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                     appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet");
 
                     var appKeys = new HashSet<string>();
-                    var azureServiceBusMessages = IntegrationManager.Instance.GetPublishedAzureServiceBusMessages(Model.Id)
-                        .Concat(IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(Model.Id))
-                        .ToList();
+                    var azureServiceBusMessages = IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
                     if (azureServiceBusMessages.Count != 0)
                     {
                         appSettings.AddRawSetting($@"""AzureServiceBus:ConnectionString""", Terraform.azurerm_servicebus_namespace.service_bus.default_primary_connection_string);
