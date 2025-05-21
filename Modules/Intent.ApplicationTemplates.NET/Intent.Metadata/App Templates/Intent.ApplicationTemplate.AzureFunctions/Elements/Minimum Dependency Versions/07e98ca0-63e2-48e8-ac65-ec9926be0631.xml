@@ -57,7 +57,7 @@
     </childElement>
     <childElement id="f78a5eaa-0063-4959-8e54-4f1b19f17370" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.FluentValidation.Dtos</name>
-      <display>Intent.Application.FluentValidation.Dtos 3.11.3</display>
+      <display>Intent.Application.FluentValidation.Dtos 3.12.0</display>
       <isAbstract>false</isAbstract>
       <value>3.12.0</value>
       <genericTypes />
@@ -85,7 +85,7 @@
     </childElement>
     <childElement id="65542414-7d10-4ea4-a6d5-78bc1e31144f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.MediatR.FluentValidation</name>
-      <display>Intent.Application.MediatR.FluentValidation 4.8.4</display>
+      <display>Intent.Application.MediatR.FluentValidation 4.9.0</display>
       <isAbstract>false</isAbstract>
       <value>4.9.0</value>
       <genericTypes />
@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.13</display>
+      <display>Intent.Common.CSharp 3.8.14</display>
       <isAbstract>false</isAbstract>
       <value>3.8.14</value>
       <genericTypes />
@@ -169,7 +169,7 @@
     </childElement>
     <childElement id="c213e140-4c55-4622-8922-28b622bc0f67" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.DocumentDB.Dtos.AutoMapper</name>
-      <display>Intent.DocumentDB.Dtos.AutoMapper 1.0.3</display>
+      <display>Intent.DocumentDB.Dtos.AutoMapper 1.0.4</display>
       <isAbstract>false</isAbstract>
       <value>1.0.4</value>
       <genericTypes />
@@ -211,7 +211,7 @@
     </childElement>
     <childElement id="73017a09-d0f6-464e-8757-442b42f38514" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.EntityFrameworkCore.Interop.DomainEvents</name>
-      <display>Intent.EntityFrameworkCore.Interop.DomainEvents 4.1.3</display>
+      <display>Intent.EntityFrameworkCore.Interop.DomainEvents 4.1.4</display>
       <isAbstract>false</isAbstract>
       <value>4.1.4</value>
       <genericTypes />
@@ -225,7 +225,7 @@
     </childElement>
     <childElement id="aed4e0db-a58d-4fab-988b-bb99080ed0fd" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.DocumentDB</name>
-      <display>Intent.Metadata.DocumentDB 1.3.0</display>
+      <display>Intent.Metadata.DocumentDB 1.3.1</display>
       <isAbstract>false</isAbstract>
       <value>1.3.1</value>
       <genericTypes />
@@ -253,7 +253,7 @@
     </childElement>
     <childElement id="e145e122-ca12-43b5-a65b-cdcba8281b64" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.Security</name>
-      <display>Intent.Metadata.Security 1.0.2</display>
+      <display>Intent.Metadata.Security 1.0.3</display>
       <isAbstract>false</isAbstract>
       <value>1.0.3</value>
       <genericTypes />
@@ -393,7 +393,7 @@
     </childElement>
     <childElement id="0a311147-4ba2-4e4c-9c02-9cb1f0895bbe" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Types.ServiceProxies</name>
-      <display>Intent.Modelers.Types.ServiceProxies 5.4.2</display>
+      <display>Intent.Modelers.Types.ServiceProxies 5.4.3</display>
       <isAbstract>false</isAbstract>
       <value>5.4.3</value>
       <genericTypes />
