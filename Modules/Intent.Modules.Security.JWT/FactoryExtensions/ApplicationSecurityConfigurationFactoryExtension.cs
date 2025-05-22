@@ -51,9 +51,9 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
 
 
         var jwtBearer = new CSharpInvocationStatement("AddJwtBearer");
-        switch (application.GetSettings().GetJWTSecurity().JWTBearerAuthenticationType().AsEnum())
+        switch (application.GetSettings().GetJWTSecuritySettings().JWTBearerAuthenticationType().AsEnum())
         {
-            case JWTSecurity.JWTBearerAuthenticationTypeOptionsEnum.Manual:
+            case JWTSecuritySettings.JWTBearerAuthenticationTypeOptionsEnum.Manual:
                     jwtBearer
                         .AddArgument("JwtBearerDefaults.AuthenticationScheme")
                         .AddArgument(new CSharpLambdaBlock("options")
@@ -70,7 +70,7 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
                             .AddStatement("options.SaveToken = true;"))
                         .WithArgumentsOnNewLines();
                     break;
-            case JWTSecurity.JWTBearerAuthenticationTypeOptionsEnum.Oidc:
+            case JWTSecuritySettings.JWTBearerAuthenticationTypeOptionsEnum.Oidc:
             default:
                 jwtBearer
                     .AddArgument("JwtBearerDefaults.AuthenticationScheme")
