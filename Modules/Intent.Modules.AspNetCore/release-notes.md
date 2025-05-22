@@ -1,4 +1,4 @@
-### Version 6.1.0
+### Version 6.1.1
 
 - Fixed: `ProblemDetailsConfiguration` CanRun behaviour didn't respect base implementation.
 
