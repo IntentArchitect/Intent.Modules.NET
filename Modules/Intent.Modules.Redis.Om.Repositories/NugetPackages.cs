@@ -19,31 +19,31 @@ namespace Intent.Modules.Redis.Om.Repositories
             NugetRegistry.Register(MicrosoftExtensionsHostingAbstractionsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4"),
-                        ( >= 2, >= 1) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.5"),
+                        ( >= 2, >= 1) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.5"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.5")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHostingAbstractionsPackageName}'"),
                     }

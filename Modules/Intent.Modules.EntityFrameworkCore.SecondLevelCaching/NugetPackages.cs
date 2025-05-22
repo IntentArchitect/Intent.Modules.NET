@@ -19,31 +19,31 @@ namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
             NugetRegistry.Register(EFCoreSecondLevelCacheInterceptorPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("5.2.4")
+                        ( >= 9, >= 0) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
                             .WithNugetDependency("System.IO.Hashing", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("5.2.4")
+                        ( >= 8, >= 0) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "8.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1")
                             .WithNugetDependency("System.IO.Hashing", "8.0.0"),
-                        ( >= 7, >= 0) => new PackageVersion("5.2.4")
+                        ( >= 7, >= 0) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "7.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.0"),
-                        ( >= 6, >= 0) => new PackageVersion("5.2.4")
+                        ( >= 6, >= 0) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "6.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "6.0.2"),
-                        ( >= 2, >= 1) => new PackageVersion("5.2.4")
+                        ( >= 2, >= 1) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("5.2.4")
+                        ( >= 2, >= 0) => new PackageVersion("5.2.5")
                             .WithNugetDependency("AsyncKeyedLock", "7.1.6")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.0"),

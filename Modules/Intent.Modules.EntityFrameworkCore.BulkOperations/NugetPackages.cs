@@ -18,10 +18,10 @@ namespace Intent.Modules.EntityFrameworkCore.BulkOperations
             NugetRegistry.Register(ZEntityFrameworkExtensionsEFCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.103.6.2", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.103.8.1", locked: true)
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("8.103.6.2", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.103.8.1", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.103.8.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "7.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0"),

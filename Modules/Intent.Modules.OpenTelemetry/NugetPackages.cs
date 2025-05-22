@@ -28,24 +28,34 @@ namespace Intent.Modules.OpenTelemetry
             NugetRegistry.Register(AzureMonitorOpenTelemetryAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("1.2.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.2.0")
-                            .WithNugetDependency("Azure.Core", "1.40.0")
-                            .WithNugetDependency("Azure.Monitor.OpenTelemetry.Exporter", "1.3.0")
-                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.8.1")
-                            .WithNugetDependency("OpenTelemetry.Instrumentation.AspNetCore", "1.8.1")
-                            .WithNugetDependency("OpenTelemetry.Instrumentation.Http", "1.8.1"),
+                        ( >= 8, >= 0) => new PackageVersion("1.3.0")
+                            .WithNugetDependency("Azure.Core", "1.46.1")
+                            .WithNugetDependency("Azure.Monitor.OpenTelemetry.Exporter", "1.4.0")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Instrumentation.AspNetCore", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Instrumentation.Http", "1.12.0"),
+                        ( >= 2, >= 0) => new PackageVersion("1.3.0")
+                            .WithNugetDependency("Azure.Core", "1.46.1")
+                            .WithNugetDependency("Azure.Monitor.OpenTelemetry.Exporter", "1.4.0")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Instrumentation.AspNetCore", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Instrumentation.Http", "1.12.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMonitorOpenTelemetryAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(AzureMonitorOpenTelemetryExporterPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("1.3.0"),
-                        ( >= 2, >= 0) => new PackageVersion("1.3.0")
-                            .WithNugetDependency("Azure.Core", "1.40.0")
-                            .WithNugetDependency("OpenTelemetry", "1.8.1")
-                            .WithNugetDependency("OpenTelemetry.PersistentStorage.FileSystem", "1.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("1.4.0")
+                            .WithNugetDependency("Azure.Core", "1.46.0")
+                            .WithNugetDependency("OpenTelemetry", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.PersistentStorage.FileSystem", "1.0.1"),
+                        ( >= 2, >= 0) => new PackageVersion("1.4.0")
+                            .WithNugetDependency("Azure.Core", "1.46.0")
+                            .WithNugetDependency("OpenTelemetry", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.12.0")
+                            .WithNugetDependency("OpenTelemetry.PersistentStorage.FileSystem", "1.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMonitorOpenTelemetryExporterPackageName}'"),
                     }
                 );

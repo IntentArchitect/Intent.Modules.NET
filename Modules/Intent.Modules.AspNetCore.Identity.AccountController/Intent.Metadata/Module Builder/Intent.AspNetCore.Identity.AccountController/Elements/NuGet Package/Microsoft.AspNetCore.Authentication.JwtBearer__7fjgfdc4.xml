@@ -140,8 +140,8 @@
       <childElements />
     </childElement>
     <childElement id="a036ba62-e96b-414d-983a-04e0ae96212e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.15</name>
-      <display>8.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.16</name>
+      <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -162,7 +162,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f1ce1286-a959-4c5c-9c8a-c3cfcbf7d7dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="faa8288a-21c6-490e-8abb-ca119c76c878" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
           <isAbstract>false</isAbstract>
@@ -179,8 +179,8 @@
       </childElements>
     </childElement>
     <childElement id="f4dfa24b-277e-4200-bff6-3d24a70d8e07" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.4</name>
-      <display>9.0.4 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.5</name>
+      <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -201,7 +201,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f5c98621-29a6-4d04-b211-0e22c7526029" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="27402b4c-f9d4-4197-bb51-54bac0dc110a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
           <isAbstract>false</isAbstract>

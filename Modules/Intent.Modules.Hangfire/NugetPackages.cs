@@ -22,8 +22,8 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.18")
-                            .WithNugetDependency("Hangfire.NetCore", "1.8.18")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
+                            .WithNugetDependency("Hangfire.NetCore", "1.8.20")
                             .WithNugetDependency("Microsoft.AspNetCore.Antiforgery", "2.0.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireAspNetCorePackageName}'"),
@@ -32,7 +32,7 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.18")
+                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
                             .WithNugetDependency("Newtonsoft.Json", "11.0.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireCorePackageName}'"),
                     }
@@ -48,8 +48,8 @@ namespace Intent.Modules.Hangfire
             NugetRegistry.Register(HangfireSqlServerPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("1.8.18")
-                            .WithNugetDependency("Hangfire.Core", "1.8.18"),
+                        ( >= 2, >= 0) => new PackageVersion("1.8.20")
+                            .WithNugetDependency("Hangfire.Core", "1.8.20"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{HangfireSqlServerPackageName}'"),
                     }
                 );

@@ -32,22 +32,22 @@ namespace Intent.Modules.ModularMonolith.Host
             NugetRegistry.Register(MassTransitPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.4.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.4.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("8.4.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.4.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.4.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
@@ -55,12 +55,12 @@ namespace Intent.Modules.ModularMonolith.Host
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
                             .WithNugetDependency("System.Diagnostics.DiagnosticSource", "8.0.0")
-                            .WithNugetDependency("System.Memory", "4.6.0")
+                            .WithNugetDependency("System.Memory", "4.6.3")
                             .WithNugetDependency("System.Reflection.Emit", "4.7.0")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0")
                             .WithNugetDependency("System.Text.Json", "8.0.5")
                             .WithNugetDependency("System.Threading.Channels", "8.0.0")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.0"),
+                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitPackageName}'"),
                     }
                 );

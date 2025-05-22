@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="41c34095-4d0e-4d8c-b25f-711a1d7bb8ae" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.13.0</name>
+      <name>4.14.0</name>
       <display>4.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -46,10 +46,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3b71a24e-b1f2-4caf-88a7-d79b71cdf0ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3fd35099-d597-4e09-ae6c-71b0678f9a04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -57,10 +57,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1c39fa99-4264-4e23-9610-ccd5a7f3eca0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ae4231e3-083c-45e6-a387-fb172b47e598" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.CSharp</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -68,10 +68,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a7e6251-3dbe-4e4e-a2c7-834fb690f982" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="07c9245c-c711-4dd5-a27f-099010bc28a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Workspaces.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -79,7 +79,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0b3abae5-f378-42a7-be1b-db17ed64f83a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f454e385-a599-440e-9d8e-cff13fd7a7de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Humanizer.Core</name>
           <isAbstract>false</isAbstract>
           <value>2.14.1</value>
@@ -90,10 +90,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e163328f-ae84-4384-9eb1-ad747f793ad1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="246c86d3-a48c-4f59-b7f5-4b3b20800a4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -101,7 +101,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="93306a14-2a7d-4362-a0ba-b743d41ae00d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="39422b09-9fec-4e81-909d-a7f60c8f1ec1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Analyzers</name>
           <isAbstract>false</isAbstract>
           <value>3.11.0</value>
@@ -112,7 +112,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="830a4274-de4c-463d-a4e3-e35bcb21a4ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ae2367eb-89ce-408b-90a2-973f3a9bca2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
           <isAbstract>false</isAbstract>
           <value>4.5.1</value>
@@ -123,10 +123,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8a64884c-81ba-4241-9891-28a239670888" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea96b15a-9e61-4bf6-a3d2-845445817ede" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Collections.Immutable</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -134,10 +134,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="976e44f4-2841-4e3f-b8b6-0e7c254d860d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="082299a8-2dc0-47d6-9b7b-9fa0160dabb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Composition</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -145,10 +145,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f5bc9571-fb26-4f39-8cb0-405b222d2edb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ed9910a-335c-408b-ba00-d1d5f0f00909" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -156,7 +156,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ff356915-bcea-4b37-a594-aabbbab86236" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="27bcc23c-87a6-48ec-bb93-728f15cd85e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
@@ -167,7 +167,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3f78b030-2157-441f-a818-d95afa5f72ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9a6ea2bf-5d76-4bd4-a2a3-8c1b3ddeeb97" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Numerics.Vectors</name>
           <isAbstract>false</isAbstract>
           <value>4.5.0</value>
@@ -178,10 +178,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c240e4bf-e8dc-4ee4-a6c8-a23ee45b9173" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2f0c1e20-5649-41e8-9d53-b7f8bbea3659" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Metadata</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41c34095-4d0e-4d8c-b25f-711a1d7bb8ae</parentFolderId>
@@ -189,7 +189,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a6afbadc-5105-4a7b-ac0b-24e40583ce53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9f8c91fd-f855-4877-a5e2-b996f2f9ac3e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Runtime.CompilerServices.Unsafe</name>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
@@ -200,7 +200,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9f1ce7a0-1278-4baa-9fdb-e9b6bb627924" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ebd4b8ee-48b8-468e-b7bf-3a024ccb0a5b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encoding.CodePages</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -211,7 +211,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ae145395-1bdf-480f-88e0-c830908134ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c7aa271f-7632-4c58-be75-4366ee38ee26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -222,7 +222,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a44b64e6-5566-4ad4-a297-d20bb140bd88" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="179b4ab3-1c44-4025-9367-5abc5a6c0e58" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
@@ -236,7 +236,7 @@
       </childElements>
     </childElement>
     <childElement id="7100d4af-2cbf-4d5c-9748-094b9a28c55e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.13.0</name>
+      <name>4.14.0</name>
       <display>4.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -258,10 +258,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="15ebac01-29f7-4024-8797-0d7b33c70853" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ff9f1297-903e-42ab-bfa9-60eb14993d9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -269,10 +269,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="554031f2-b90d-4ce7-9b73-c2ee3be98ed0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c07fdc4e-a5d0-4c4c-9518-85acb3f92ce5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.CSharp</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -280,10 +280,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="262983f7-e92e-43fc-a353-d8d80444b715" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ac1de0c0-9a17-477a-9254-54426c75ba42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Workspaces.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -291,7 +291,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="df10b6ed-f565-48b7-9535-73dcbddd066a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="854a1fd8-2ffa-4973-b978-d9e97bbcf685" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Humanizer.Core</name>
           <isAbstract>false</isAbstract>
           <value>2.14.1</value>
@@ -302,7 +302,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c4b5170c-e6bf-4a4e-8c8a-97ce5f71fa17" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="112681b0-32ad-46f1-a6d6-79e815443579" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Analyzers</name>
           <isAbstract>false</isAbstract>
           <value>3.11.0</value>
@@ -313,10 +313,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="666c1452-ca3d-4ba7-aa0a-943708b07092" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ec11eb51-6441-4b80-9279-ec80c700d326" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Collections.Immutable</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -324,10 +324,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d21f34bc-f999-41d2-be69-beab04cd44da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be2d8bfb-b7ba-44ea-9b71-17d6a30d329a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Composition</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -335,10 +335,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2dda90d6-65db-4994-bcff-c8cef8ea438b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a473e20d-eb3f-42b7-b933-7ecf9ffce504" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -346,10 +346,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="593689b4-c26c-4e1a-a907-5edb9f5270c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="98d3ba2b-ee6a-4ff7-b387-0a7768f77b03" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Metadata</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7100d4af-2cbf-4d5c-9748-094b9a28c55e</parentFolderId>
@@ -357,7 +357,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="44754322-fc87-43f5-9487-a3a37249e961" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fbaac935-0e12-4cd8-9acc-b28dac9a8c5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
@@ -371,7 +371,7 @@
       </childElements>
     </childElement>
     <childElement id="83acf077-6292-4267-8fe9-7099b149cc18" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.13.0</name>
+      <name>4.14.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -389,10 +389,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="22953dc9-95f0-4836-8b99-49b974d17804" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bc8cd469-bc7c-4f6a-9b88-9b17f9ea6f43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -400,10 +400,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="64dff693-8423-42a9-810d-c00e2a53088d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="07ae6a86-87a7-41aa-85c7-45b0726edcfe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.CSharp</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -411,10 +411,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a862c62e-9542-453c-bd32-1f870543554c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d7d311a1-d5c6-4bd1-8bff-0cf42a15bd04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Workspaces.Common</name>
           <isAbstract>false</isAbstract>
-          <value>4.13.0</value>
+          <value>4.14.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -422,7 +422,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4d3b2497-afbe-4408-81bd-20041d39472a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b2fb7fff-2bce-49ca-939d-52f05f731a5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Humanizer.Core</name>
           <isAbstract>false</isAbstract>
           <value>2.14.1</value>
@@ -433,7 +433,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1528b3a8-bb9b-495f-86bb-58bf2955ce06" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a323a62c-79f9-4930-911f-02e64318a796" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeAnalysis.Analyzers</name>
           <isAbstract>false</isAbstract>
           <value>3.11.0</value>
@@ -444,10 +444,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a823959e-2a50-432b-8659-4cde1ecff305" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f75a2b7f-9787-4a30-a892-d99e754e8dd8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Collections.Immutable</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -455,10 +455,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="218572c7-cdaf-4136-aced-0a275fbc92c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3501cb56-f27e-431d-a296-564a2354c18d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Composition</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -466,10 +466,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3479aa49-d8fb-4194-a007-a7e688f45bfd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6213856d-18e8-4922-815d-3772f9379e35" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -477,10 +477,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="648c2ace-e7ee-47f8-851c-a6cd49f7e583" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="37b2ae30-e9ec-4570-9694-b33cb8a4c178" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Metadata</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>83acf077-6292-4267-8fe9-7099b149cc18</parentFolderId>
@@ -488,7 +488,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e75ced97-a151-4a9b-a879-a79abad86c1d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dd8f0c3e-75e6-4122-ad6d-302695b07de0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>

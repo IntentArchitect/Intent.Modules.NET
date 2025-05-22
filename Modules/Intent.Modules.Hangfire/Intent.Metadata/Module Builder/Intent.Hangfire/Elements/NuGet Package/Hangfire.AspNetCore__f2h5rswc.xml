@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="0a49738d-5117-4d97-bb0e-acd29a4ba941" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.8.18</name>
+      <name>1.8.20</name>
       <display>1.8.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="99ccbb71-69f8-4136-b6be-40420617735e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15fc6488-7bfd-457e-8258-e68da3c5bae9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Http.Abstractions</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -58,7 +58,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="323e799e-ad60-4f5e-a9bc-ce6cf5659f4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6dfc8da1-3b4f-47c8-bf8b-87431273088e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Antiforgery</name>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe82a73d-1c0a-468f-870c-fdbbbc6c76b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6b637546-617d-4ff2-b728-a8f560a2bc4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Hangfire.NetCore</name>
           <isAbstract>false</isAbstract>
-          <value>1.8.18</value>
+          <value>1.8.20</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a49738d-5117-4d97-bb0e-acd29a4ba941</parentFolderId>

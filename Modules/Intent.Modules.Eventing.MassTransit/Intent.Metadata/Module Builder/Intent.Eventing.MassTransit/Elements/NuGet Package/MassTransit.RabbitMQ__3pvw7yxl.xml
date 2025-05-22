@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="9b920605-e766-4106-9d29-1d50bf909d84" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.4.0</name>
+      <name>8.4.1</name>
       <display>8.4.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c3f3fc66-846c-48d8-a117-e8899f834c83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="eb6f4791-3f37-4c98-a4b4-d8608a901cae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
-          <display>MassTransit (8.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.4.0</value>
+          <value>8.4.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9b920605-e766-4106-9d29-1d50bf909d84</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d4847e1f-1bd3-40ed-b2c1-88fd874caac3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="894ee546-6ae2-4f01-aa3a-f929aa4dd2ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9b920605-e766-4106-9d29-1d50bf909d84</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="12c2967d-7fd3-4dee-bf78-9a841a66599b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.4.0</name>
+      <name>8.4.1</name>
       <display>8.4.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +94,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1495c4bb-658e-4a71-9697-6114a175f081" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1fe0977a-26b5-49db-acd1-115bf384e2e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
-          <display>MassTransit (8.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.4.0</value>
+          <value>8.4.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>12c2967d-7fd3-4dee-bf78-9a841a66599b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="40821a07-3d7d-4036-9a5c-14ae01ee1be3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="919211ef-153d-4ea9-a1d1-fd481589e48b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>12c2967d-7fd3-4dee-bf78-9a841a66599b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +119,7 @@
       </childElements>
     </childElement>
     <childElement id="07358c40-8983-46f3-8563-986110d7b54b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.4.0</name>
+      <name>8.4.1</name>
       <display>8.4.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,30 +141,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8968647b-a6d3-4d9c-803e-fefc1cb126f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="71bfe500-920c-441f-9475-a4ffeea68670" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>MassTransit</name>
-          <display>MassTransit (8.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.4.0</value>
+          <value>8.4.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>07358c40-8983-46f3-8563-986110d7b54b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9738d196-4b24-40af-85e7-fddc0147f14b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d22c24c-2a50-4e15-8dff-0ce8c27fb241" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>RabbitMQ.Client</name>
-          <display>RabbitMQ.Client (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>07358c40-8983-46f3-8563-986110d7b54b</parentFolderId>
-          <packageId>6502ee82-f515-4007-9635-bade3eb88e72</packageId>
-          <packageName>Intent.Eventing.MassTransit</packageName>
           <stereotypes />
           <metadata />
           <childElements />
