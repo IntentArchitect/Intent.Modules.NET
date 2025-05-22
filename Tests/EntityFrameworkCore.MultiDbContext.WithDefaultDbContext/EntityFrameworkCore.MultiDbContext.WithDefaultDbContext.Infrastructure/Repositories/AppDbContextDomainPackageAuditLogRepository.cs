@@ -35,6 +35,14 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AppDbContextDomainPackageAuditLog?> FindByIdAsync(
+            int id,
+            Func<IQueryable<AppDbContextDomainPackageAuditLog>, IQueryable<AppDbContextDomainPackageAuditLog>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AppDbContextDomainPackageAuditLog>> FindByIdsAsync(
             int[] ids,
             CancellationToken cancellationToken = default)

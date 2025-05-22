@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.AnemicChild
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<ParentWithAnemicChild?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ParentWithAnemicChild?> FindByIdAsync(Guid id, Func<IQueryable<ParentWithAnemicChild>, IQueryable<ParentWithAnemicChild>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ParentWithAnemicChild>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

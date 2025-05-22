@@ -33,6 +33,14 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Infrastructure.Repositor
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Basic?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<Basic>, IQueryable<Basic>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Basic>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

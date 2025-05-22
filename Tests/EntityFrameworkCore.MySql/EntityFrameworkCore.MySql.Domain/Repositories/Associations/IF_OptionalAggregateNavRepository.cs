@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.Associations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.Associations
     {
         [IntentManaged(Mode.Fully)]
         Task<F_OptionalAggregateNav?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<F_OptionalAggregateNav?> FindByIdAsync(Guid id, Func<IQueryable<F_OptionalAggregateNav>, IQueryable<F_OptionalAggregateNav>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<F_OptionalAggregateNav>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

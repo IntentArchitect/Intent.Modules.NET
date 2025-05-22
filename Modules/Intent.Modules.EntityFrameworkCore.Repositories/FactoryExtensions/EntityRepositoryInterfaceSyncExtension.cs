@@ -41,6 +41,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 {
                     var @interface = template.CSharpFile.Interfaces.First();
                     var model = @interface.GetMetadata<ClassModel>("model");
+                    if (!model.InternalElement.Package.HasStereotype("Relational Database"))
+                    {
+                        return;
+                    }
                     if (!template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Domain.Entity.Primary, model, out var entityTemplate))
                     {
                         return;

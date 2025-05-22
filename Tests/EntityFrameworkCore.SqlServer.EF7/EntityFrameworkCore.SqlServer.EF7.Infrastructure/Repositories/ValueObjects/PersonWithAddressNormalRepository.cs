@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.ValueObj
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<PersonWithAddressNormal?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<PersonWithAddressNormal>, IQueryable<PersonWithAddressNormal>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<PersonWithAddressNormal>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

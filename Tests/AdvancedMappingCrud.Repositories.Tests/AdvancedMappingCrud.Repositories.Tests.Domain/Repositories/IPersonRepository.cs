@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Contracts;
@@ -21,6 +22,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
         List<Guid> SetPersons(IEnumerable<PersonDC> people);
         [IntentManaged(Mode.Fully)]
         Task<Person?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Person?> FindByIdAsync(Guid id, Func<IQueryable<Person>, IQueryable<Person>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Person>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.Associations
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<H_MultipleDependent?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<H_MultipleDependent>, IQueryable<H_MultipleDependent>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<H_MultipleDependent>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

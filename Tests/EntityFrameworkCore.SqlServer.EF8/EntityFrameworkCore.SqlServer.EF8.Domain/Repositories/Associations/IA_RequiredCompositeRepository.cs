@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Associations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Associations
     {
         [IntentManaged(Mode.Fully)]
         Task<A_RequiredComposite?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<A_RequiredComposite?> FindByIdAsync(Guid id, Func<IQueryable<A_RequiredComposite>, IQueryable<A_RequiredComposite>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<A_RequiredComposite>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

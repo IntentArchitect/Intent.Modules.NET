@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -17,6 +18,8 @@ namespace MassTransit.RabbitMQ.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Animal?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Animal?> FindByIdAsync(Guid id, Func<IQueryable<Animal>, IQueryable<Animal>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Animal>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

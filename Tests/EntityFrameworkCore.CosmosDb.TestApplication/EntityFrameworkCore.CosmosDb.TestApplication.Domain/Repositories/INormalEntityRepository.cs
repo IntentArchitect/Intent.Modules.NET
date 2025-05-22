@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities;
@@ -17,6 +18,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<NormalEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<NormalEntity?> FindByIdAsync(Guid id, Func<IQueryable<NormalEntity>, IQueryable<NormalEntity>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NormalEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

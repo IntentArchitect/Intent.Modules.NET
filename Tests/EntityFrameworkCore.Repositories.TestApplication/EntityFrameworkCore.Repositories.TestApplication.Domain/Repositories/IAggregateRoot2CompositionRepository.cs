@@ -20,6 +20,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<AggregateRoot2Composition?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<AggregateRoot2Composition?> FindByIdAsync(Guid id, Func<IQueryable<AggregateRoot2Composition>, IQueryable<AggregateRoot2Composition>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<AggregateRoot2Composition>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

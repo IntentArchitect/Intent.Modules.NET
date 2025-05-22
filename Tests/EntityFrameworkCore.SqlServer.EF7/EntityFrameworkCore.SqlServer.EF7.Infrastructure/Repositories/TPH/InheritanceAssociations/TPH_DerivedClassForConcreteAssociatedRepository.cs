@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.TPH.Inhe
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPH_DerivedClassForConcreteAssociated?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPH_DerivedClassForConcreteAssociated>, IQueryable<TPH_DerivedClassForConcreteAssociated>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPH_DerivedClassForConcreteAssociated>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

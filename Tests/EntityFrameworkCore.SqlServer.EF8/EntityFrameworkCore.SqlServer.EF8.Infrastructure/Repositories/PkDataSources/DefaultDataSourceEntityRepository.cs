@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.PkDataSo
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<DefaultDataSourceEntity?> FindByIdAsync(
+            long id,
+            Func<IQueryable<DefaultDataSourceEntity>, IQueryable<DefaultDataSourceEntity>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<DefaultDataSourceEntity>> FindByIdsAsync(
             long[] ids,
             CancellationToken cancellationToken = default)

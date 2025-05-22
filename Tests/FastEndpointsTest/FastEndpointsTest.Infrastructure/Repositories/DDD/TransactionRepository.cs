@@ -34,6 +34,14 @@ namespace FastEndpointsTest.Infrastructure.Repositories.DDD
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Transaction?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<Transaction>, IQueryable<Transaction>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Transaction>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

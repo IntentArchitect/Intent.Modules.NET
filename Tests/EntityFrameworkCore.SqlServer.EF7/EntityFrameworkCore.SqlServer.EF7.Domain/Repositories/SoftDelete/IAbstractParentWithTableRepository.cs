@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.SoftDelete;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.SoftDelete
     {
         [IntentManaged(Mode.Fully)]
         Task<AbstractParentWithTable?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AbstractParentWithTable?> FindByIdAsync(Guid id, Func<IQueryable<AbstractParentWithTable>, IQueryable<AbstractParentWithTable>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AbstractParentWithTable>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

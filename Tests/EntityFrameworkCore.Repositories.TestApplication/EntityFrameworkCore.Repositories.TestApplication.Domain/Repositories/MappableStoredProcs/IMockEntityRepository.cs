@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.MappableStoredProcs;
@@ -19,6 +20,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
         Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<MockEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<MockEntity?> FindByIdAsync(Guid id, Func<IQueryable<MockEntity>, IQueryable<MockEntity>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<MockEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

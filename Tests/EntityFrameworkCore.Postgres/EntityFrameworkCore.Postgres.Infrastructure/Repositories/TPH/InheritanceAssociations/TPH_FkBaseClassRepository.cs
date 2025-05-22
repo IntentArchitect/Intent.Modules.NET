@@ -27,5 +27,13 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.TPH.Inheritan
         {
             return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
         }
+
+        public async Task<TPH_FkBaseClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            Func<IQueryable<TPH_FkBaseClass>, IQueryable<TPH_FkBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, queryOptions, cancellationToken);
+        }
     }
 }

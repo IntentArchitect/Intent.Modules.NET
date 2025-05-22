@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.TPH.InheritanceAssociations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.TPH.InheritanceA
     {
         [IntentManaged(Mode.Fully)]
         Task<TPH_DerivedClassForAbstractAssociated?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPH_DerivedClassForAbstractAssociated?> FindByIdAsync(Guid id, Func<IQueryable<TPH_DerivedClassForAbstractAssociated>, IQueryable<TPH_DerivedClassForAbstractAssociated>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPH_DerivedClassForAbstractAssociated>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

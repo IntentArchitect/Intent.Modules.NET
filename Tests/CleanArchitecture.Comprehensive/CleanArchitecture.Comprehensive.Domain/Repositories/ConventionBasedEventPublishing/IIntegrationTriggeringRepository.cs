@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.ConventionBasedEventPublishing;
@@ -17,6 +18,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.ConventionBasedEve
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<IntegrationTriggering?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<IntegrationTriggering?> FindByIdAsync(Guid id, Func<IQueryable<IntegrationTriggering>, IQueryable<IntegrationTriggering>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IntegrationTriggering>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

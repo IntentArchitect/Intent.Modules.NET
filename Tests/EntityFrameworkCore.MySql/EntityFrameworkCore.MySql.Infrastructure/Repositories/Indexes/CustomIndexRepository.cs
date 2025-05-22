@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.Indexes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<CustomIndex?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<CustomIndex>, IQueryable<CustomIndex>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CustomIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

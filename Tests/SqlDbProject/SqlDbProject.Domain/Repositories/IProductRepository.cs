@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<Product?> FindByIdAsync(int productId, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Product?> FindByIdAsync(int productId, Func<IQueryable<Product>, IQueryable<Product>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Product>> FindByIdsAsync(int[] productIds, CancellationToken cancellationToken = default);
     }
 }

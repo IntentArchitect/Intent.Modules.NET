@@ -19,6 +19,8 @@ namespace GraphQL.CQRS.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<ProfitCenter?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<ProfitCenter?> FindByIdAsync(Guid id, Func<IQueryable<ProfitCenter>, IQueryable<ProfitCenter>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<ProfitCenter>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

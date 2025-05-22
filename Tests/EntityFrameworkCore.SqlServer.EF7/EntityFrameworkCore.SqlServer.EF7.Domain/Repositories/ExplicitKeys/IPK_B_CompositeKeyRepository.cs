@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.ExplicitKeys;
@@ -15,5 +16,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.ExplicitKeys
     {
         [IntentManaged(Mode.Fully)]
         Task<PK_B_CompositeKey?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<PK_B_CompositeKey?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, Func<IQueryable<PK_B_CompositeKey>, IQueryable<PK_B_CompositeKey>> queryOptions, CancellationToken cancellationToken = default);
     }
 }

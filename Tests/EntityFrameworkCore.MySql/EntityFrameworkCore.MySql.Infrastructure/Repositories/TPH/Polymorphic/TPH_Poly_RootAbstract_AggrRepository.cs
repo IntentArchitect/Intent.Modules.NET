@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPH.Polymorphic
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPH_Poly_RootAbstract_Aggr?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPH_Poly_RootAbstract_Aggr>, IQueryable<TPH_Poly_RootAbstract_Aggr>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPH_Poly_RootAbstract_Aggr>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

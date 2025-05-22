@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Compositional;
@@ -17,6 +18,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Repositories.Compositio
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<OneToOneSource?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<OneToOneSource?> FindByIdAsync(Guid id, Func<IQueryable<OneToOneSource>, IQueryable<OneToOneSource>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OneToOneSource>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

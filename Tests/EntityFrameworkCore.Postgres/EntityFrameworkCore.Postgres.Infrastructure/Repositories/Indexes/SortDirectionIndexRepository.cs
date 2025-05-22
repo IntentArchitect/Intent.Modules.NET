@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.Indexes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<SortDirectionIndex?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<SortDirectionIndex>, IQueryable<SortDirectionIndex>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<SortDirectionIndex>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

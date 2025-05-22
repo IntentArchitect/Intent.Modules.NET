@@ -12,10 +12,9 @@ namespace Intent.Modules.NET.Tests.Host.Configuration
     {
         public static IEnumerable<IModuleInstaller> GetModuleInstallers()
         {
-            var result = new List<IModuleInstaller>();
-            result.Add(new Intent.Modules.NET.Tests.Module1.Api.ModuleInstaller());
-            result.Add(new Intent.Modules.NET.Tests.Module2.Api.ModuleInstaller());
-            return result;
+            yield return new Intent.Modules.NET.Tests.Module2.Api.ModuleInstaller();
+            yield return new Intent.Modules.NET.Tests.Module1.Api.ModuleInstaller();
+            yield break;
         }
     }
 }

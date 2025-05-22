@@ -14,6 +14,8 @@ namespace Intent.Modules.NET.Tests.Module1.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<Order?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Order?> FindByIdAsync(Guid id, Func<IQueryable<Order>, IQueryable<Order>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Order>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

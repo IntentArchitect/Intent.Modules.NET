@@ -34,6 +34,14 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.Nullabilit
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<NullabilityPeer?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<NullabilityPeer>, IQueryable<NullabilityPeer>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<NullabilityPeer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

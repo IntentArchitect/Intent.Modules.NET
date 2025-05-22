@@ -27,5 +27,13 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.TPT.Inhe
         {
             return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
         }
+
+        public async Task<TPT_FkBaseClass?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            Func<IQueryable<TPT_FkBaseClass>, IQueryable<TPT_FkBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, queryOptions, cancellationToken);
+        }
     }
 }

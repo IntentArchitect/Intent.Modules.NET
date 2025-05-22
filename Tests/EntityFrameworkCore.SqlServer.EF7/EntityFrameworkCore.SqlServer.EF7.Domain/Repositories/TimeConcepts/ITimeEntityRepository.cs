@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TimeConcepts;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.TimeConcepts
     {
         [IntentManaged(Mode.Fully)]
         Task<TimeEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TimeEntity?> FindByIdAsync(Guid id, Func<IQueryable<TimeEntity>, IQueryable<TimeEntity>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TimeEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<FilteredIndex?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<FilteredIndex?> FindByIdAsync(Guid id, Func<IQueryable<FilteredIndex>, IQueryable<FilteredIndex>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FilteredIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

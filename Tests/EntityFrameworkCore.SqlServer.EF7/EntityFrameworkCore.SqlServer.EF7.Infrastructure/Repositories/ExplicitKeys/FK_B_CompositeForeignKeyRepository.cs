@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Explicit
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<FK_B_CompositeForeignKey?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<FK_B_CompositeForeignKey>, IQueryable<FK_B_CompositeForeignKey>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<FK_B_CompositeForeignKey>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

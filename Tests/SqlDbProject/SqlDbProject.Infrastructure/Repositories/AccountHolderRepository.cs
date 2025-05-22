@@ -30,6 +30,14 @@ namespace SqlDbProject.Infrastructure.Repositories
             return await FindAsync(x => x.AccountHolderId == accountHolderId, cancellationToken);
         }
 
+        public async Task<AccountHolder?> FindByIdAsync(
+            long accountHolderId,
+            Func<IQueryable<AccountHolder>, IQueryable<AccountHolder>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.AccountHolderId == accountHolderId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AccountHolder>> FindByIdsAsync(
             long[] accountHolderIds,
             CancellationToken cancellationToken = default)

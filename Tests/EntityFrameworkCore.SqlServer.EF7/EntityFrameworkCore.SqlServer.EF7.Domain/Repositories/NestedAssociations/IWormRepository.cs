@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.NestedAssociations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.NestedAssociatio
     {
         [IntentManaged(Mode.Fully)]
         Task<Worm?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Worm?> FindByIdAsync(Guid id, Func<IQueryable<Worm>, IQueryable<Worm>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Worm>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

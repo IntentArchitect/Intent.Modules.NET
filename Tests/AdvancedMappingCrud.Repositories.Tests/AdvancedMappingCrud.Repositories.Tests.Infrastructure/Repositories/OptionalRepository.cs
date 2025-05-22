@@ -33,6 +33,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Optional?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<Optional>, IQueryable<Optional>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Optional>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.PrimaryKeyTypes;
@@ -17,6 +18,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.P
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(long id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<NewClassLong?> FindByIdAsync(long id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<NewClassLong?> FindByIdAsync(long id, Func<IQueryable<NewClassLong>, IQueryable<NewClassLong>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<NewClassLong>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);
     }

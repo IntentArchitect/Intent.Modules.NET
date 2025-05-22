@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.Nullability;
@@ -17,6 +18,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.Nullability
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<TestNullablity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TestNullablity?> FindByIdAsync(Guid id, Func<IQueryable<TestNullablity>, IQueryable<TestNullablity>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TestNullablity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

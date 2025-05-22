@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Associat
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<B_OptionalAggregate?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<B_OptionalAggregate>, IQueryable<B_OptionalAggregate>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<B_OptionalAggregate>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPC.Polymorphic
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPC_Poly_BaseClassNonAbstract?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPC_Poly_BaseClassNonAbstract>, IQueryable<TPC_Poly_BaseClassNonAbstract>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPC_Poly_BaseClassNonAbstract>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

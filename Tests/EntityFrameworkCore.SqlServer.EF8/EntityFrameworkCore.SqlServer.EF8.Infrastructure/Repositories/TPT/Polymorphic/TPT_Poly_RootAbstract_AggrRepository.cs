@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.TPT.Poly
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_Poly_RootAbstract_Aggr?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_Poly_RootAbstract_Aggr>, IQueryable<TPT_Poly_RootAbstract_Aggr>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_Poly_RootAbstract_Aggr>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

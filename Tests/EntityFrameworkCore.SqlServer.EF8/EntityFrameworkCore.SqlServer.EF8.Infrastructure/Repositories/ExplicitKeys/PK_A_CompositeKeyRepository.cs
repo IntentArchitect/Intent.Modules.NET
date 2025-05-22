@@ -27,5 +27,13 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Explicit
         {
             return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
         }
+
+        public async Task<PK_A_CompositeKey?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            Func<IQueryable<PK_A_CompositeKey>, IQueryable<PK_A_CompositeKey>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, queryOptions, cancellationToken);
+        }
     }
 }

@@ -33,6 +33,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<CompanyContactSecond?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<CompanyContactSecond>, IQueryable<CompanyContactSecond>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CompanyContactSecond>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

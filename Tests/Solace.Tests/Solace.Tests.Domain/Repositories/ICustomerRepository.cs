@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -21,6 +22,8 @@ namespace Solace.Tests.Domain.Repositories
         Task<List<CustomerCustom>> SearchCustomResultAsync(CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Customer?> FindByIdAsync(Guid id, Func<IQueryable<Customer>, IQueryable<Customer>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Customer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

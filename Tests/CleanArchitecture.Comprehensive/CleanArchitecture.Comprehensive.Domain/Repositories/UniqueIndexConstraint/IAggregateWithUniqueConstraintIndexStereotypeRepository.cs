@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint;
@@ -17,6 +18,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstra
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<AggregateWithUniqueConstraintIndexStereotype?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AggregateWithUniqueConstraintIndexStereotype?> FindByIdAsync(Guid id, Func<IQueryable<AggregateWithUniqueConstraintIndexStereotype>, IQueryable<AggregateWithUniqueConstraintIndexStereotype>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateWithUniqueConstraintIndexStereotype>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<PolicyStatus?> FindByIdAsync(Guid policyStatusId, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<PolicyStatus?> FindByIdAsync(Guid policyStatusId, Func<IQueryable<PolicyStatus>, IQueryable<PolicyStatus>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<PolicyStatus>> FindByIdsAsync(Guid[] policyStatusIds, CancellationToken cancellationToken = default);
     }
 }

@@ -19,6 +19,8 @@ namespace AzureFunctions.NET8.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<SampleDomain> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<SampleDomain> FindByIdAsync(Guid id, Func<IQueryable<SampleDomain>, IQueryable<SampleDomain>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<SampleDomain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

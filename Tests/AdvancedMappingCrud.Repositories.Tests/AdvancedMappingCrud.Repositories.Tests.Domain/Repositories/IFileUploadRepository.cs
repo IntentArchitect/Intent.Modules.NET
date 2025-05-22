@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<FileUpload?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<FileUpload?> FindByIdAsync(Guid id, Func<IQueryable<FileUpload>, IQueryable<FileUpload>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FileUpload>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

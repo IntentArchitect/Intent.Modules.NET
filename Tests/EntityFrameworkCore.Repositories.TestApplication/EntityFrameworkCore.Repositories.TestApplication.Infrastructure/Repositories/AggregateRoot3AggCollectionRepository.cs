@@ -36,6 +36,14 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AggregateRoot3AggCollection?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<AggregateRoot3AggCollection>, IQueryable<AggregateRoot3AggCollection>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AggregateRoot3AggCollection>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Explicit
             return await FindAsync(x => x.PrimaryKeyId == primaryKeyId, cancellationToken);
         }
 
+        public async Task<PK_PrimaryKeyInt?> FindByIdAsync(
+            int primaryKeyId,
+            Func<IQueryable<PK_PrimaryKeyInt>, IQueryable<PK_PrimaryKeyInt>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.PrimaryKeyId == primaryKeyId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<PK_PrimaryKeyInt>> FindByIdsAsync(
             int[] primaryKeyIds,
             CancellationToken cancellationToken = default)
