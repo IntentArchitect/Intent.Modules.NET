@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="9ab58dcc-ee4a-4973-a2b1-a39e24f91c1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
+          <display>Microsoft.Identity.Web (3.8.4)</display>
           <isAbstract>false</isAbstract>
           <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -85,11 +88,14 @@
       <childElements>
         <childElement id="412b0ac1-9252-43e2-a916-7ab5699ee8be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
+          <display>Microsoft.Identity.Web (3.8.4)</display>
           <isAbstract>false</isAbstract>
           <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0528715f-11a6-4481-b431-782d4e7ac71a</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -121,11 +127,14 @@
       <childElements>
         <childElement id="48288255-bed9-413f-a16d-5d3e33fa7d96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
+          <display>Microsoft.Identity.Web (3.8.4)</display>
           <isAbstract>false</isAbstract>
           <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -157,11 +166,14 @@
       <childElements>
         <childElement id="30d3aa7f-ecee-4ff5-9d76-42085f7377a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
+          <display>Microsoft.Identity.Web (3.8.4)</display>
           <isAbstract>false</isAbstract>
           <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />

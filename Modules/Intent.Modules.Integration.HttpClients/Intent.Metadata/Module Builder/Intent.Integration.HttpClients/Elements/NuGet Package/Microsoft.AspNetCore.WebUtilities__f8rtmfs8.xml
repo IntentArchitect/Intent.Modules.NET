@@ -102,22 +102,28 @@
       <childElements>
         <childElement id="b78016a8-f20e-4dca-8792-2f74c79a7554" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (8.0.15)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.16</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8968705f-065c-4bb5-a0b2-eeda81b1cd97</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="50fb89a9-c9c3-48b8-838d-23e12f3a6c4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8968705f-065c-4bb5-a0b2-eeda81b1cd97</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -149,11 +155,14 @@
       <childElements>
         <childElement id="2d279c95-ff2b-48eb-9611-e2d444a0eca7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (9.0.4)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>948749a4-eebf-4b02-84aa-381dc1767df8</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />

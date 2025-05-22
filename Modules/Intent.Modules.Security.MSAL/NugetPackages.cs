@@ -11,6 +11,7 @@ namespace Intent.Modules.Security.MSAL
 {
     public class NugetPackages : INugetPackages
     {
+        public const string DuendeIdentityModelPackageName = "Duende.IdentityModel";
         public const string IdentityModelPackageName = "IdentityModel";
         public const string MicrosoftAspNetCoreAuthenticationJwtBearerPackageName = "Microsoft.AspNetCore.Authentication.JwtBearer";
         public const string MicrosoftAspNetCoreAuthenticationOpenIdConnectPackageName = "Microsoft.AspNetCore.Authentication.OpenIdConnect";
@@ -20,6 +21,15 @@ namespace Intent.Modules.Security.MSAL
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(DuendeIdentityModelPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 8, 0) => new PackageVersion("7.0.0", locked: true),
+                        ( >= 2, 0) => new PackageVersion("7.0.0", locked: true)
+                            .WithNugetDependency("System.Text.Json", "8.0.5"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DuendeIdentityModelPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(IdentityModelPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -154,6 +164,8 @@ namespace Intent.Modules.Security.MSAL
                     }
                 );
         }
+
+        public static NugetPackageInfo DuendeIdentityModel(IOutputTarget outputTarget) => NugetRegistry.GetVersion(DuendeIdentityModelPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo IdentityModel(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelPackageName, outputTarget.GetMaxNetAppVersion());
 

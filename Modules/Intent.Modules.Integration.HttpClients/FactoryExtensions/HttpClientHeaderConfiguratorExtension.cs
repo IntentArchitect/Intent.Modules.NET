@@ -12,6 +12,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
@@ -69,14 +70,17 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                 var method = @class.FindMethod("AddHttpClients");
                 if (method == null) return;
 
-                file.Template.AddNugetDependency(NuGetPackages.IdentityModelAspNetCore(file.Template.OutputTarget));
+                application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
+                NugetPackages.IdentityModelAspNetCorePackageName, file.Template.OutputTarget));
+                file.Template.AddNugetDependency(NuGetPackages.DuendeAccessTokenManagement(file.Template.OutputTarget));
 
                 method.InsertStatement(0,
                     """
-                    services.AddAccessTokenManagement(options =>
-                                {
-                                    configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-                                }).ConfigureBackchannelHttpClient();
+                    var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+                    foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
+                    {
+                        clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+                    }
 
                     """);
 
@@ -89,7 +93,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
                     if (RequiresSecurity(proxyModel, application))
                     {
-                        proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientAccessTokenHandler")
+                        proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"AddClientCredentialsTokenHandler")
                             .AddArgument($@"configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Service, "IdentityClientKey")}"") ?? 
                     configuration.GetValue<string>(""{HttpClientConfigurationTemplate.GetConfigKey(proxyModel, KeyType.Group, "IdentityClientKey")}"") ?? 
                     ""default""").WithoutSemicolon());

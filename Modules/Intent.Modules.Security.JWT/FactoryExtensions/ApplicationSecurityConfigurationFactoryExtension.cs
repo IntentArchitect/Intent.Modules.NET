@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Security.JWT.Settings;
@@ -33,8 +34,12 @@ public class ApplicationSecurityConfigurationFactoryExtension : FactoryExtension
             return;
         }
 
+        application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
+            NugetPackages.IdentityModelPackageName, template.OutputTarget));
+
         template.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(template.OutputTarget));
-        template.AddNugetDependency(NugetPackages.IdentityModel(template.OutputTarget));
+        template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
+        
         template.CSharpFile.AfterBuild(file =>
         {
         file.AddUsing("System")

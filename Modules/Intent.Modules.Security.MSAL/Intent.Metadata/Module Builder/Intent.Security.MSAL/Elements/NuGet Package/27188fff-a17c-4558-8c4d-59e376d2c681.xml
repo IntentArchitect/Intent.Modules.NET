@@ -54,6 +54,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a08814e-0038-4624-a442-8dfafe2a0d71</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -61,10 +63,12 @@
         <childElement id="ff4662a3-7916-482e-9c6f-c92eeae79e9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7a08814e-0038-4624-a442-8dfafe2a0d71</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -101,6 +105,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d736c2-6f3d-4d07-89aa-b0a57165b216</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -108,10 +114,12 @@
         <childElement id="11b5a7b8-0fe0-40c2-a045-369d19d97c99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>72d736c2-6f3d-4d07-89aa-b0a57165b216</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -148,6 +156,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bac567fa-517c-4d6c-a3e2-1d756cd20acf</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -155,10 +165,12 @@
         <childElement id="83f9717f-aeec-431c-8506-324159df08dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bac567fa-517c-4d6c-a3e2-1d756cd20acf</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -195,6 +207,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0feabb65-44a6-4bfb-9f4c-f3192b5acec2</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -202,10 +216,12 @@
         <childElement id="78ed21eb-f4bf-4fa7-a5e3-13b112ee24a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0feabb65-44a6-4bfb-9f4c-f3192b5acec2</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -242,6 +258,8 @@
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0ec4f4ad-41f6-4f8f-a903-7a61e2fb32bd</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -249,10 +267,12 @@
         <childElement id="09bf3dc5-fc9c-4d3c-ad41-d44ba5c6d548" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Graph</name>
           <isAbstract>false</isAbstract>
-          <value>4.36.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0ec4f4ad-41f6-4f8f-a903-7a61e2fb32bd</parentFolderId>
+          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
+          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
