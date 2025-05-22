@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="04e1a8cd-7345-41eb-a1ee-7a704c984db0" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+<class id="cbc2a393-2e3e-4ca0-9604-8f17153f5889" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
   <name>Pagination</name>
   <display>Pagination</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>e8e3dab6-ced0-4196-8f1b-12ed86e11ad0</parentFolderId>
+  <parentFolderId>082f75b6-dd03-4e26-ac55-c65bb800d683</parentFolderId>
   <packageId>798b053f-af96-45dd-9aee-985301ccb287</packageId>
   <packageName>${application.name}</packageName>
   <stereotypes>
@@ -21,14 +21,14 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="94977da2-b227-408e-a696-5d5ad9128173" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.PagedList</name>
-      <display>Intent.EntityFrameworkCore.PagedList</display>
-      <externalReference>Intent.EntityFrameworkCore</externalReference>
+    <childElement id="f7b7f74c-7162-43ce-b4d3-6580668dad35" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResult</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResult</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
-      <parentFolderId>04e1a8cd-7345-41eb-a1ee-7a704c984db0</parentFolderId>
+      <parentFolderId>cbc2a393-2e3e-4ca0-9604-8f17153f5889</parentFolderId>
       <packageId>798b053f-af96-45dd-9aee-985301ccb287</packageId>
       <packageName>${application.name}</packageName>
       <stereotypes />

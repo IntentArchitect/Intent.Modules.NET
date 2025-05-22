@@ -60,19 +60,9 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                             return;
                         }
 
-                        @interface.AddMethod($"{template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
-                        {
-                            method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                            if (pks.Length == 1)
-                            {
-                                var pk = pks.First();
-                                method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
-                            }
-                            else
-                            {
-                                method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
-                            }
-                        });
+
+                        AddMethodFindById(template, @interface, model, entityTemplate, pks, addqueryOptions: false);
+                        AddMethodFindById(template, @interface, model, entityTemplate, pks, addqueryOptions: true);
 
                         if (pks.Length == 1)
                         {
@@ -86,6 +76,29 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     });
                 });
             }
+        }
+
+        private static void AddMethodFindById(ICSharpFileBuilderTemplate template, CSharpInterface @interface, IMetadataModel model, ICSharpFileBuilderTemplate entityTemplate, CSharpProperty[] pks, bool addqueryOptions)
+        {
+            @interface.AddMethod($"{template.GetTypeName(TemplateRoles.Domain.Entity.Interface, model)}{(template.OutputTarget.GetProject().NullableEnabled ? "?" : "")}", "FindById", method =>
+            {
+                method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                if (pks.Length == 1)
+                {
+                    var pk = pks.First();
+                    method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                }
+                else
+                {
+                    method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
+                }
+                if (addqueryOptions)
+                {
+                    method.AddParameter(
+                        type: $"Func<IQueryable<{template.GetTypeName(TemplateRoles.Domain.Entity.Primary, model)}>, IQueryable<{template.GetTypeName(TemplateRoles.Domain.Entity.Primary, model)}>>",
+                        name: "queryOptions");
+                }
+            });
         }
     }
 }

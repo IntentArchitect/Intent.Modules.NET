@@ -1,6 +1,7 @@
 ### Version 5.0.28
 
 - Improvement: Improved code generated when using a literal as a query filter
+- Fixed: CRUD implementations where failing in some circumstances with reserved words.
 
 ### Version 5.0.27
 
