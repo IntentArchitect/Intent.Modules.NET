@@ -21,23 +21,23 @@ namespace Intent.Modules.Eventing.MassTransit
         public void RegisterPackages()
         {
             NugetRegistry.Register(MassTransitPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("8.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit.Abstractions", "8.4.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
@@ -56,26 +56,26 @@ namespace Intent.Modules.Eventing.MassTransit
                     }
                 );
             NugetRegistry.Register(MassTransitAbstractionsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0"),
-                        ( >= 2, 0) => new PackageVersion("8.4.0"),
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0"),
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0"),
+                        ( >= 2, >= 0) => new PackageVersion("8.4.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitAbstractionsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MassTransitAmazonSQSPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98")
                             .WithNugetDependency("AWSSDK.SQS", "3.7.400.98")
                             .WithNugetDependency("MassTransit", "8.4.0"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98")
                             .WithNugetDependency("AWSSDK.SQS", "3.7.400.98")
                             .WithNugetDependency("MassTransit", "8.4.0"),
-                        ( >= 2, 0) => new PackageVersion("8.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.98")
                             .WithNugetDependency("AWSSDK.SQS", "3.7.400.98")
                             .WithNugetDependency("MassTransit", "8.4.0"),
@@ -83,17 +83,17 @@ namespace Intent.Modules.Eventing.MassTransit
                     }
                 );
             NugetRegistry.Register(MassTransitAzureServiceBusCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("Azure.Identity", "1.13.2")
                             .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4")
                             .WithNugetDependency("MassTransit", "8.4.0"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("Azure.Identity", "1.13.2")
                             .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4")
                             .WithNugetDependency("MassTransit", "8.4.0"),
-                        ( >= 2, 0) => new PackageVersion("8.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("Azure.Identity", "1.13.2")
                             .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.4")
                             .WithNugetDependency("MassTransit", "8.4.0"),
@@ -101,35 +101,35 @@ namespace Intent.Modules.Eventing.MassTransit
                     }
                 );
             NugetRegistry.Register(MassTransitEntityFrameworkCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1"),
-                        ( >= 6, 0) => new PackageVersion("8.3.1")
+                        ( >= 6, >= 0) => new PackageVersion("8.3.1")
                             .WithNugetDependency("MassTransit", "8.3.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "6.0.1"),
-                        ( >= 2, 0) => new PackageVersion("8.3.1")
+                        ( >= 2, >= 0) => new PackageVersion("8.3.1")
                             .WithNugetDependency("MassTransit", "8.3.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.18"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitEntityFrameworkCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MassTransitRabbitMQPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("8.4.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("RabbitMQ.Client", "7.1.2"),
-                        ( >= 8, 0) => new PackageVersion("8.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("RabbitMQ.Client", "7.1.2"),
-                        ( >= 2, 0) => new PackageVersion("8.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.4.0")
                             .WithNugetDependency("MassTransit", "8.4.0")
                             .WithNugetDependency("RabbitMQ.Client", "7.1.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitRabbitMQPackageName}'"),

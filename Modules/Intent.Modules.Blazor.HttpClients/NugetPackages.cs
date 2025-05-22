@@ -19,45 +19,45 @@ namespace Intent.Modules.Blazor.HttpClients
         public void RegisterPackages()
         {
             NugetRegistry.Register(IdentityModelAspNetCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("4.3.0", locked: true),
-                        ( >= 2, 0) => new PackageVersion("2.0.0", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("4.3.0", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("2.0.0", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.15")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.15")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
                             .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
@@ -67,13 +67,13 @@ namespace Intent.Modules.Blazor.HttpClients
                     }
                 );
             NugetRegistry.Register(SystemTextJsonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("System.IO.Pipelines", "9.0.4")
                             .WithNugetDependency("System.Text.Encodings.Web", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("System.IO.Pipelines", "9.0.4")

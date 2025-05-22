@@ -20,21 +20,21 @@ namespace Intent.Modules.AzureFunctions.OpenApi
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsOpenApiPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 7, 0) => new PackageVersion("1.5.1")
+                        ( >= 7, >= 0) => new PackageVersion("1.5.1")
                             .WithNugetDependency("Microsoft.Azure.Core.NewtonsoftJson", "1.0.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.8.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Http", "3.0.13")
                             .WithNugetDependency("Microsoft.Azure.WebJobs.Extensions.OpenApi.Core", "1.5.1")
                             .WithNugetDependency("YamlDotNet", "12.0.1"),
-                        ( >= 6, 0) => new PackageVersion("1.5.1")
+                        ( >= 6, >= 0) => new PackageVersion("1.5.1")
                             .WithNugetDependency("Microsoft.Azure.Core.NewtonsoftJson", "1.0.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.8.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Http", "3.0.13")
                             .WithNugetDependency("Microsoft.Azure.WebJobs.Extensions.OpenApi.Core", "1.5.1")
                             .WithNugetDependency("YamlDotNet", "12.0.1"),
-                        ( >= 2, 0) => new PackageVersion("1.5.1")
+                        ( >= 2, >= 0) => new PackageVersion("1.5.1")
                             .WithNugetDependency("Microsoft.Azure.Core.NewtonsoftJson", "1.0.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Core", "1.8.0")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Extensions.Http", "3.0.13")
@@ -44,24 +44,24 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                     }
                 );
             NugetRegistry.Register(MicrosoftAzureWebJobsExtensionsOpenApiPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("1.5.1"),
+                        ( >= 2, >= 0) => new PackageVersion("1.5.1"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureWebJobsExtensionsOpenApiPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftCodeAnalysisCommonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("4.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0"),
-                        ( >= 8, 0) => new PackageVersion("4.13.0")
+                        ( >= 8, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("4.13.0")
+                        ( >= 2, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0")
@@ -75,9 +75,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                     }
                 );
             NugetRegistry.Register(MicrosoftCodeAnalysisCSharpWorkspacesPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("4.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.Common", "4.13.0")
@@ -88,7 +88,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0")
                             .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 8, 0) => new PackageVersion("4.13.0")
+                        ( >= 8, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
@@ -99,7 +99,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0")
                             .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 2, 0) => new PackageVersion("4.13.0")
+                        ( >= 2, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.Common", "4.13.0")
@@ -121,9 +121,9 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                     }
                 );
             NugetRegistry.Register(MicrosoftCodeAnalysisWorkspacesCommonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("4.13.0")
+                        ( >= 9, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("System.Composition", "8.0.0")
@@ -132,7 +132,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0"),
-                        ( >= 8, 0) => new PackageVersion("4.13.0")
+                        ( >= 8, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Analyzers", "3.11.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
@@ -141,7 +141,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0")
                             .WithNugetDependency("System.Reflection.Metadata", "8.0.0")
                             .WithNugetDependency("System.Threading.Channels", "7.0.0"),
-                        ( >= 2, 0) => new PackageVersion("4.13.0")
+                        ( >= 2, >= 0) => new PackageVersion("4.13.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Common", "4.13.0")
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")

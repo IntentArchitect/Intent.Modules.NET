@@ -17,27 +17,27 @@ namespace Intent.Modules.Blazor
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "8.0.15")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "8.0.15"),
-                        ( >= 7, 0) => new PackageVersion("7.0.20")
+                        ( >= 7, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "7.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "7.0.0")
                             .WithNugetDependency("Microsoft.JSInterop.WebAssembly", "7.0.20"),
-                        ( >= 6, 0) => new PackageVersion("6.0.36")
+                        ( >= 6, >= 0) => new PackageVersion("6.0.36")
                             .WithNugetDependency("Microsoft.AspNetCore.Components.Web", "6.0.36")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "6.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "6.0.1")
@@ -47,12 +47,12 @@ namespace Intent.Modules.Blazor
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreComponentsWebAssemblyServerPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15"),
-                        ( >= 7, 0) => new PackageVersion("7.0.20"),
-                        ( >= 6, 0) => new PackageVersion("6.0.36"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.15"),
+                        ( >= 7, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 6, >= 0) => new PackageVersion("6.0.36"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreComponentsWebAssemblyServerPackageName}'"),
                     }
                 );

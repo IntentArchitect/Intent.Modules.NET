@@ -19,36 +19,36 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsConfigurationEnvironmentVariablesPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsConfigurationFileExtensionsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Primitives", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
@@ -58,26 +58,26 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsConfigurationJsonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("System.Text.Json", "9.0.4"),
-                        ( >= 2, 1) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 1) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("System.Text.Json", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.FileExtensions", "9.0.4")
@@ -87,19 +87,19 @@ namespace Intent.Modules.EntityFrameworkCore.DesignTimeDbContextFactory
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsConfigurationUserSecretsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Physical", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Json", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "9.0.4")

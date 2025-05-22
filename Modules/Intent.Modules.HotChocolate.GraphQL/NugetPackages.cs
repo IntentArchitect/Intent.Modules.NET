@@ -16,9 +16,9 @@ namespace Intent.Modules.HotChocolate.GraphQL
         public void RegisterPackages()
         {
             NugetRegistry.Register(HotChocolatePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("15.1.3")
+                        ( >= 9, >= 0) => new PackageVersion("15.1.3")
                             .WithNugetDependency("HotChocolate.Authorization", "15.1.3")
                             .WithNugetDependency("HotChocolate.Execution.Projections", "15.1.3")
                             .WithNugetDependency("HotChocolate.Execution", "15.1.3")
@@ -30,7 +30,7 @@ namespace Intent.Modules.HotChocolate.GraphQL
                             .WithNugetDependency("HotChocolate.Types", "15.1.3")
                             .WithNugetDependency("HotChocolate.Validation", "15.1.3")
                             .WithNugetDependency("HotChocolate.CostAnalysis", "15.1.3"),
-                        ( >= 8, 0) => new PackageVersion("15.1.3")
+                        ( >= 8, >= 0) => new PackageVersion("15.1.3")
                             .WithNugetDependency("HotChocolate.Authorization", "15.1.3")
                             .WithNugetDependency("HotChocolate.CostAnalysis", "15.1.3")
                             .WithNugetDependency("HotChocolate.Execution", "15.1.3")
@@ -42,7 +42,7 @@ namespace Intent.Modules.HotChocolate.GraphQL
                             .WithNugetDependency("HotChocolate.Types.Mutations", "15.1.3")
                             .WithNugetDependency("HotChocolate.Types.Queries", "15.1.3")
                             .WithNugetDependency("HotChocolate.Validation", "15.1.3"),
-                        ( >= 7, 0) => new PackageVersion("14.3.0")
+                        ( >= 7, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("HotChocolate.Authorization", "14.3.0")
                             .WithNugetDependency("HotChocolate.CostAnalysis", "14.3.0")
                             .WithNugetDependency("HotChocolate.Execution", "14.3.0")
@@ -54,7 +54,7 @@ namespace Intent.Modules.HotChocolate.GraphQL
                             .WithNugetDependency("HotChocolate.Types.OffsetPagination", "14.3.0")
                             .WithNugetDependency("HotChocolate.Types.Queries", "14.3.0")
                             .WithNugetDependency("HotChocolate.Validation", "14.3.0"),
-                        ( >= 6, 0) => new PackageVersion("14.3.0")
+                        ( >= 6, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("HotChocolate.Authorization", "14.3.0")
                             .WithNugetDependency("HotChocolate.Execution", "14.3.0")
                             .WithNugetDependency("HotChocolate.Fetching", "14.3.0")
@@ -64,7 +64,7 @@ namespace Intent.Modules.HotChocolate.GraphQL
                             .WithNugetDependency("HotChocolate.Types.OffsetPagination", "14.3.0")
                             .WithNugetDependency("HotChocolate.Types.Queries", "14.3.0")
                             .WithNugetDependency("HotChocolate.Validation", "14.3.0"),
-                        ( >= 2, 0) => new PackageVersion("14.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("14.3.0")
                             .WithNugetDependency("HotChocolate.Authorization", "14.3.0")
                             .WithNugetDependency("HotChocolate.Execution", "14.3.0")
                             .WithNugetDependency("HotChocolate.Fetching", "14.3.0")

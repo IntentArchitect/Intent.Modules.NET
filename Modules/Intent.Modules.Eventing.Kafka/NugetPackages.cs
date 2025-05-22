@@ -19,30 +19,30 @@ namespace Intent.Modules.Eventing.Kafka
         public void RegisterPackages()
         {
             NugetRegistry.Register(ConfluentKafkaPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("2.10.0")
+                        ( >= 8, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("librdkafka.redist", "2.10.0"),
-                        ( >= 6, 0) => new PackageVersion("2.10.0")
+                        ( >= 6, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("librdkafka.redist", "2.10.0"),
-                        ( >= 2, 0) => new PackageVersion("2.10.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("librdkafka.redist", "2.10.0")
                             .WithNugetDependency("System.Memory", "4.5.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ConfluentKafkaPackageName}'"),
                     }
                 );
             NugetRegistry.Register(ConfluentSchemaRegistrySerdesJsonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("2.10.0")
+                        ( >= 8, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("Confluent.Kafka", "2.10.0")
                             .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
                             .WithNugetDependency("NJsonSchema.NewtonsoftJson", "11.0.2"),
-                        ( >= 6, 0) => new PackageVersion("2.10.0")
+                        ( >= 6, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("Confluent.Kafka", "2.10.0")
                             .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
                             .WithNugetDependency("NJsonSchema", "10.9.0"),
-                        ( >= 2, 0) => new PackageVersion("2.10.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.10.0")
                             .WithNugetDependency("Confluent.Kafka", "2.10.0")
                             .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
                             .WithNugetDependency("NJsonSchema", "10.9.0")
@@ -52,15 +52,15 @@ namespace Intent.Modules.Eventing.Kafka
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsDependencyInjectionPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4"),
-                        ( >= 2, 1) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 1) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
@@ -68,9 +68,9 @@ namespace Intent.Modules.Eventing.Kafka
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsHostingPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -93,7 +93,7 @@ namespace Intent.Modules.Eventing.Kafka
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -116,7 +116,7 @@ namespace Intent.Modules.Eventing.Kafka
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 1) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 1) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -139,7 +139,7 @@ namespace Intent.Modules.Eventing.Kafka
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")

@@ -17,9 +17,9 @@ namespace Intent.Modules.MongoDb
         public void RegisterPackages()
         {
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.1.3")
+                        ( >= 9, >= 0) => new PackageVersion("9.1.3")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "9.0.4")
@@ -27,7 +27,7 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.1.3")
+                        ( >= 8, >= 0) => new PackageVersion("9.1.3")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
@@ -35,7 +35,7 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Logging", "8.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "8.0.0"),
-                        ( >= 7, 0) => new PackageVersion("8.1.2")
+                        ( >= 7, >= 0) => new PackageVersion("8.1.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "7.0.0")
@@ -43,8 +43,8 @@ namespace Intent.Modules.MongoDb
                             .WithNugetDependency("Microsoft.Extensions.Logging", "7.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "7.0.1")
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "7.0.0"),
-                        ( >= 6, 0) => new PackageVersion("6.13.1", locked: true),
-                        ( >= 2, 1) => new PackageVersion("6.9.1")
+                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 2, >= 1) => new PackageVersion("6.9.1")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "3.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "3.1.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "3.1.0")
@@ -57,21 +57,21 @@ namespace Intent.Modules.MongoDb
                     }
                 );
             NugetRegistry.Register(MongoFrameworkPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("0.29.0")
+                        ( >= 6, >= 0) => new PackageVersion("0.29.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
                             .WithNugetDependency("MongoDB.Driver", "2.19.2")
                             .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
                             .WithNugetDependency("System.Linq.Async", "6.0.1"),
-                        ( >= 2, 1) => new PackageVersion("0.29.0")
+                        ( >= 2, >= 1) => new PackageVersion("0.29.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
                             .WithNugetDependency("MongoDB.Driver", "2.19.2")
                             .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "7.0.0")
                             .WithNugetDependency("System.Linq.Async", "6.0.1"),
-                        ( >= 2, 0) => new PackageVersion("0.29.0")
+                        ( >= 2, >= 0) => new PackageVersion("0.29.0")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "7.0.0")
                             .WithNugetDependency("MongoDB.Driver", "2.19.2")
                             .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")

@@ -16,12 +16,12 @@ namespace Intent.Modules.Eventing.AzureEventGrid
         public void RegisterPackages()
         {
             NugetRegistry.Register(AzureMessagingEventGridPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("4.30.0")
+                        ( >= 8, >= 0) => new PackageVersion("4.30.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("System.Memory.Data", "6.0.0"),
-                        ( >= 2, 0) => new PackageVersion("4.30.0")
+                        ( >= 2, >= 0) => new PackageVersion("4.30.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("System.Memory.Data", "6.0.0")
                             .WithNugetDependency("System.Text.Json", "6.0.10"),

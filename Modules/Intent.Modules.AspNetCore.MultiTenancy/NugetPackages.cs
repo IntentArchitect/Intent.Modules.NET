@@ -19,37 +19,37 @@ namespace Intent.Modules.AspNetCore.MultiTenancy
         public void RegisterPackages()
         {
             NugetRegistry.Register(FinbuckleMultiTenantPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantPackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantAspNetCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(FinbuckleMultiTenantEntityFrameworkCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("6.13.1", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("6.13.1", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FinbuckleMultiTenantEntityFrameworkCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4"),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreInMemoryPackageName}'"),
                     }

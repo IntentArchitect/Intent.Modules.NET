@@ -17,9 +17,9 @@ namespace Intent.Modules.Eventing.Solace
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftExtensionsHostingPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -42,7 +42,7 @@ namespace Intent.Modules.Eventing.Solace
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -65,7 +65,7 @@ namespace Intent.Modules.Eventing.Solace
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 1) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 1) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Binder", "9.0.4")
@@ -88,7 +88,7 @@ namespace Intent.Modules.Eventing.Solace
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventLog", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.EventSource", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
@@ -117,9 +117,9 @@ namespace Intent.Modules.Eventing.Solace
                     }
                 );
             NugetRegistry.Register(SolaceSystemsSolclientMessagingPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("10.28.0"),
+                        ( >= 2, >= 0) => new PackageVersion("10.28.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SolaceSystemsSolclientMessagingPackageName}'"),
                     }
                 );

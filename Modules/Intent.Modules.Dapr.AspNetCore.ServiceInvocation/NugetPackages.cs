@@ -22,9 +22,9 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
         public void RegisterPackages()
         {
             NugetRegistry.Register(DaprClientPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("1.15.4")
+                        ( >= 9, >= 0) => new PackageVersion("1.15.4")
                             .WithNugetDependency("Dapr.Common", "1.15.4")
                             .WithNugetDependency("Dapr.Protos", "1.15.4")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.2.0")
@@ -37,7 +37,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                             .WithNugetDependency("Microsoft.Extensions.Http", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "6.0.4"),
-                        ( >= 8, 0) => new PackageVersion("1.15.4")
+                        ( >= 8, >= 0) => new PackageVersion("1.15.4")
                             .WithNugetDependency("Dapr.Common", "1.15.4")
                             .WithNugetDependency("Dapr.Protos", "1.15.4")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.2.0")
@@ -50,7 +50,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                             .WithNugetDependency("Microsoft.Extensions.Http", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "6.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "6.0.4"),
-                        ( >= 6, 0) => new PackageVersion("1.15.4")
+                        ( >= 6, >= 0) => new PackageVersion("1.15.4")
                             .WithNugetDependency("Dapr.Common", "1.15.4")
                             .WithNugetDependency("Dapr.Protos", "1.15.4")
                             .WithNugetDependency("Google.Api.CommonProtos", "2.2.0")
@@ -67,17 +67,17 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                     }
                 );
             NugetRegistry.Register(IdentityModelAspNetCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("4.3.0", locked: true),
-                        ( >= 2, 0) => new PackageVersion("2.0.0", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("4.3.0", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("2.0.0", locked: true),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreHttpPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.WebUtilities", "2.3.0")
                             .WithNugetDependency("Microsoft.Extensions.ObjectPool", "8.0.11")
@@ -87,9 +87,9 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreHttpExtensionsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Http.Abstractions", "2.3.0")
                             .WithNugetDependency("Microsoft.Extensions.FileProviders.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
@@ -98,37 +98,37 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.15")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.15")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
                             .WithNugetDependency("System.Text.Encodings.Web", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreWebUtilitiesPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4")
@@ -138,13 +138,13 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
                     }
                 );
             NugetRegistry.Register(SystemTextJsonPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("System.IO.Pipelines", "9.0.4")
                             .WithNugetDependency("System.Text.Encodings.Web", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.4")
                             .WithNugetDependency("System.Buffers", "4.5.1")
                             .WithNugetDependency("System.IO.Pipelines", "9.0.4")
