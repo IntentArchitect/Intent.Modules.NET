@@ -1,7 +1,7 @@
 ### Version 1.0.5
 
-- Fixed: CanRun behaviour to allow disabling template from other modules.
 - Improvement: Updated NuGet package versions.
+- Fixed: CanRun behaviour to allow disabling template from other modules.
 
 ### Version 1.0.4
 
