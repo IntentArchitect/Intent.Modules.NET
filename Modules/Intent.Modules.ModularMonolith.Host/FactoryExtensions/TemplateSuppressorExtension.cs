@@ -22,6 +22,9 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             DisableTemplate(application, "Intent.Eventing.MassTransit.IntegrationEventConsumer");
+            //Entities (This module is only added for modeling Shared Enums basically)
+            DisableTemplate(application, "Intent.Entities.CollectionExtensions");
+            DisableTemplate(application, "Intent.Entities.UpdateHelper");
         }
 
         private void DisableTemplate(IApplication application, string templateId)

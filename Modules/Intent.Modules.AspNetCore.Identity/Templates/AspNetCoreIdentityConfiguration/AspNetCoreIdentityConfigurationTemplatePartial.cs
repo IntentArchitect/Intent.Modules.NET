@@ -39,8 +39,9 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                         {
                             param.WithThisModifier();
                         });
+                        var dbContextName = GetDbContextName();
                         method.AddStatement(new CSharpMethodChainStatement($"services.AddIdentityWithoutCookieAuth<{this.GetIdentityUserClass()}, {this.GetIdentityRoleClass()}>()")
-                            .AddChainStatement($@"AddEntityFrameworkStores<{this.GetTypeName("Infrastructure.Data.DbContext")}>()")
+                            .AddChainStatement($@"AddEntityFrameworkStores<{dbContextName}>()")
                             .AddChainStatement($@"AddDefaultTokenProviders()"));
                         method.AddStatement(new CSharpInvocationStatement("services.Configure<IdentityOptions>")
                             .AddArgument(new CSharpLambdaBlock("options")
@@ -64,6 +65,18 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                             .WithArgumentsOnNewLines());
                     });
                 });
+        }
+
+        private string GetDbContextName()
+        {
+            if (!this.TryGetTypeName("Infrastructure.Data.DbContext", out var result))
+            {
+                if (!this.TryGetTypeName("Intent.EntityFrameworkCore.DbContext", out result))
+                {
+                    throw new Exception("Unable to find DB Context template.");
+                }
+            }
+            return result;
         }
 
         public override void BeforeTemplateExecution()

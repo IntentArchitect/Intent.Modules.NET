@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="acdf1bad-970c-4351-a0f6-64e982a6a431" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>4.1.4-pre.0</name>
+  <display>4.1.4-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>30bdc758-c9e9-4385-b16b-e059ca28a5cf</parentFolderId>
+  <packageId>9fb1a7b6-7648-40c9-ab68-a5c826e215e0</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
