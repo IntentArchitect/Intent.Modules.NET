@@ -62,8 +62,21 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                                     ? $"<{string.Join(", ", model.GenericTypes)}>"
                                     : string.Empty;
 
-                                AddMethodFindByIdAsync(@interface, entityTemplate, pks, genericTypeParameters, addqueryOptions: false);
-                                AddMethodFindByIdAsync(@interface, entityTemplate, pks, genericTypeParameters, addqueryOptions: true);
+                                @interface.AddMethod($"Task<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
+                                {
+                                    method.AddAttribute("[IntentManaged(Mode.Fully)]");
+                                    if (pks.Length == 1)
+                                    {
+                                        var pk = pks.First();
+                                        method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
+                                    }
+                                    else
+                                    {
+                                        method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
+                                    }
+
+                                    method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+                                });
 
                                 if (pks.Length == 1)
                                 {
@@ -79,33 +92,6 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                         });
                     }
                 });
-        }
-
-        private void AddMethodFindByIdAsync(CSharpInterface @interface, ICSharpFileBuilderTemplate entityTemplate, CSharpProperty[] pks, string genericTypeParameters, bool addqueryOptions)
-        {
-            @interface.AddMethod($"Task<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
-            {
-                method.AddAttribute("[IntentManaged(Mode.Fully)]");
-                if (pks.Length == 1)
-                {
-                    var pk = pks.First();
-                    method.AddParameter(entityTemplate.UseType(pk.Type), pk.Name.ToCamelCase());
-                }
-                else
-                {
-                    method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
-                }
-
-                if (addqueryOptions)
-                {
-                    var persistenceType = GetTypeName(TemplateRoles.Domain.Entity.Primary, Model);
-                    method.AddParameter(
-                        type: $"Func<IQueryable<{persistenceType}>, IQueryable<{persistenceType}>>",
-                        name: "queryOptions");
-                }
-
-                method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
-            });
         }
 
         public CSharpFile CSharpFile { get; }
