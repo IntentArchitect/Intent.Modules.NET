@@ -98,20 +98,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e4b6bcc9-88a0-4565-8da1-b0a174cad897" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Distribution</name>
-      <display>Distribution</display>
-      <externalReference>f10c8526-d3e1-4fbf-9773-15837a20b8c7</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>385ad5cc-9f70-4c7d-9990-3769ba24a27d</parentFolderId>
-      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
-      <packageName>Module1</packageName>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="5e7481f6-8c2e-4cf9-a6d5-6355fd110906" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
       <name>Startup</name>
       <display>Startup</display>

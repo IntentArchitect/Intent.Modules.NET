@@ -3,6 +3,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
+using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,7 +30,7 @@ namespace Intent.Modules.ModularMonolith.Host.FactoryExtensions
 
         private void DisableTemplate(IApplication application, string templateId)
         {
-            var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(templateId);
+            var template = application.FindTemplateInstance<IIntentTemplate>(templateId);
 
             if (template is not null)
             {

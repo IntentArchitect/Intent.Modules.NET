@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="396a07e3-8c67-4ea2-b6b1-5e343168bee8" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Eventing</name>
+  <display>Eventing</display>
+  <externalReference>ecab7a34-7d70-4f08-8259-f67263572e94</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+  <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+  <packageName>Intent.Modules.NET.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="992e5e26-8ac1-4101-b13e-3e41dbfe1ad2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</display>
+      <externalReference>418bd55c-4592-49b9-b1ea-3ed64ff7975f</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="811f8f88-1df0-4910-8f6e-4b3e7347e7d8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</display>
+      <externalReference>20eb0bc5-7977-468a-b88d-56085884b31a</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="08e2bfc4-8030-4613-83e6-a193aca26834" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbucklePublishingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbucklePublishingFilter</display>
+      <externalReference>1d8fb7a2-9603-4676-a4e8-efb4e9cc1626</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9b023602-584c-4b8b-80a0-d36eedde5492" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
+      <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
+      <externalReference>9087e480-d0ca-48de-8c80-fd98c4947e3a</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="7b6cb46e-40db-4fc3-bfe8-c30b9be040b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
+      <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
+      <externalReference>0d492248-aaf4-452c-900f-593d71eec274</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="3a97ad68-a34b-425f-8570-1800e2d35d43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.MassTransit.MassTransitConfiguration</name>
+      <display>Intent.Eventing.MassTransit.MassTransitConfiguration</display>
+      <externalReference>65fbde37-9264-4dc3-b781-4ad7cc6fb308</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -155,9 +155,9 @@
     </childElement>
     <childElement id="c5c67c13-fe86-43aa-8a3e-6c3a2ce5e0ea" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AspNetCore</name>
-      <display>Intent.AspNetCore 6.1.0</display>
+      <display>Intent.AspNetCore 6.1.1-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>6.1.0</value>
+      <value>6.1.1-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cd827c9b-fbbf-4a5a-93ea-fd2e755ebeac</parentFolderId>
@@ -211,9 +211,9 @@
     </childElement>
     <childElement id="0e0269ab-d4c4-48a7-ab16-21adeaca4590" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.AspNetCore.Identity</name>
-      <display>Intent.AspNetCore.Identity 4.1.5</display>
+      <display>Intent.AspNetCore.Identity 4.1.6-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.1.5</value>
+      <value>4.1.6-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>cd827c9b-fbbf-4a5a-93ea-fd2e755ebeac</parentFolderId>

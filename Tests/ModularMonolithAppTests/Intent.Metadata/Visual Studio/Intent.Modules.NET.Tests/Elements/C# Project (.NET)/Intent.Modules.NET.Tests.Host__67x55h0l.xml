@@ -4,10 +4,12 @@
   <display>Intent.Modules.NET.Tests.Host</display>
   <externalReference>67f98324-98a7-4f02-9045-b9e23f93a56c</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>35f90acd-253f-4eba-8251-a11921d97b47</parentFolderId>
+  <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+  <packageName>Intent.Modules.NET.Tests</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -48,838 +50,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="fe7634d4-bf0b-4745-9066-4ee4e19d105c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Common</name>
-      <display>Common</display>
-      <externalReference>562e06c7-fb45-4954-96a1-b6b0ff498417</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="f257ea47-a3e4-408f-adb7-02e1f89370f7" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-          <name>Behaviours</name>
-          <display>Behaviours</display>
-          <externalReference>5fb7f53d-80da-4079-87f3-255c264dfe36</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fe7634d4-bf0b-4745-9066-4ee4e19d105c</parentFolderId>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-              <properties>
-                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements>
-            <childElement id="46175b59-d819-429c-b16d-e7a3209e1db6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</display>
-              <externalReference>5bb738ae-d5f3-481b-9035-3537cbd90143</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="22e1acca-e566-466e-a3af-cf19bc3aeeed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.EventBusPublishBehaviour</display>
-              <externalReference>16b01329-1b8f-4578-958a-dc999ab9342d</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="dba1d494-80ec-4db3-b621-ce69abd93dd1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.LoggingBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.LoggingBehaviour</display>
-              <externalReference>0ce59d32-98fc-4144-83d1-3344be0c3e82</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="34aa8361-5fc2-4123-947c-374790d94ff0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.PerformanceBehaviour</display>
-              <externalReference>a057243a-f085-43bb-8e5c-bea923aaf7b5</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="c2731bba-a33a-4964-83b6-b6741d5887da" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.UnhandledExceptionBehaviour</display>
-              <externalReference>807ce5f7-0f40-4b5c-b4f1-283e30e29a4b</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="29cc81a9-dc17-4b83-ae4a-d8d62a1a30eb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</name>
-              <display>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</display>
-              <externalReference>39675878-43d7-4a3c-a1d5-fc3c73f87625</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>f257ea47-a3e4-408f-adb7-02e1f89370f7</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-          </childElements>
-        </childElement>
-        <childElement id="63cde312-4a75-4efe-a5a1-46dd43b0e79a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-          <name>Models</name>
-          <display>Models</display>
-          <externalReference>1df3939b-88ca-4129-982e-daf788ba1c8a</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fe7634d4-bf0b-4745-9066-4ee4e19d105c</parentFolderId>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-              <properties>
-                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements>
-            <childElement id="47624d7e-43be-4102-89c4-bb8c356bf6ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Application.Identity.ResultModel</name>
-              <display>Intent.Application.Identity.ResultModel</display>
-              <externalReference>b743159f-d1c0-43b2-be8b-19071d8bd74c</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>63cde312-4a75-4efe-a5a1-46dd43b0e79a</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-          </childElements>
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="c7d31070-6496-40e6-a888-3987c0ea573d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Configuration</name>
-      <display>Configuration</display>
-      <externalReference>36673243-d368-4825-af4a-eac8c8156b3e</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="31bdf1fb-844b-411c-aa0d-68459066a36d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
-          <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
-          <externalReference>fdabb536-8299-4ae0-b675-f9546dd49c19</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="f4a6db6f-4b00-4a5e-a621-5e2d887d5f0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-          <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-          <externalReference>cb96ee68-6a03-4f8a-a512-6ddfe57cfa00</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="f9b72c80-cdc5-4ec5-b560-c1e95e423b53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
-          <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
-          <externalReference>c04705a3-bece-484e-95c3-7bdee51c84ca</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="025d734b-6729-427c-b98a-144c5b2f310a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
-          <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
-          <externalReference>13f861b3-39de-4d8c-8a86-c4d2568307d8</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="94cd6d8c-69f5-47b8-b8f0-6ce369679605" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
-          <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
-          <externalReference>8a455c85-8995-4d9f-bcf7-ed56c43dc647</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="6e49e943-c6d7-4b93-b19a-78861f6e1b01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.ModularMonolith.Host.ModuleConfiguration</name>
-          <display>Intent.ModularMonolith.Host.ModuleConfiguration</display>
-          <externalReference>c3909425-bab4-472e-9880-b9204400839f</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="a7c48580-5caf-4ae3-a8dc-50c7f51e4c9c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Controllers</name>
-      <display>Controllers</display>
-      <externalReference>1bf04ba9-ec88-496d-a25e-96c3a7e07344</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="4b19a18f-6d12-4dbc-85af-74c19905ca5f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-          <name>FileTransfer</name>
-          <display>FileTransfer</display>
-          <externalReference>147619b6-f3c3-4c31-85a7-6aeb25023bcd</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a7c48580-5caf-4ae3-a8dc-50c7f51e4c9c</parentFolderId>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-              <properties>
-                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements>
-            <childElement id="bb5ed089-be88-4e9b-8a87-5f358bbdfaa4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.AspNetCore.Controllers.BinaryContentAttribute</name>
-              <display>Intent.AspNetCore.Controllers.BinaryContentAttribute</display>
-              <externalReference>5c78b1e1-cafc-4dc3-82a1-ba28b17a1233</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>4b19a18f-6d12-4dbc-85af-74c19905ca5f</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-          </childElements>
-        </childElement>
-        <childElement id="70a8e1f8-d08c-43e0-b8cd-128dcf4b24fa" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-          <name>ResponseTypes</name>
-          <display>ResponseTypes</display>
-          <externalReference>de0c4f86-8f1b-4c29-98dc-8081c712b959</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a7c48580-5caf-4ae3-a8dc-50c7f51e4c9c</parentFolderId>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-              <properties>
-                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements>
-            <childElement id="d2c68b42-3f0c-4182-90dd-abcba0a0d951" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.AspNetCore.Controllers.JsonResponse</name>
-              <display>Intent.AspNetCore.Controllers.JsonResponse</display>
-              <externalReference>9ae03604-5e90-40d8-9c34-c1d236f7845d</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>70a8e1f8-d08c-43e0-b8cd-128dcf4b24fa</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-          </childElements>
-        </childElement>
-        <childElement id="a6823de0-ea5b-4841-ad96-013873611b9c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Controllers.Controller</name>
-          <display>Intent.AspNetCore.Controllers.Controller</display>
-          <externalReference>63a8468b-97d8-4134-87de-79fc4fa30478</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a7c48580-5caf-4ae3-a8dc-50c7f51e4c9c</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="396a07e3-8c67-4ea2-b6b1-5e343168bee8" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Eventing</name>
-      <display>Eventing</display>
-      <externalReference>ecab7a34-7d70-4f08-8259-f67263572e94</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="992e5e26-8ac1-4101-b13e-3e41dbfe1ad2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</name>
-          <display>Intent.Eventing.MassTransit.FinbuckleConsumingFilter</display>
-          <externalReference>418bd55c-4592-49b9-b1ea-3ed64ff7975f</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="811f8f88-1df0-4910-8f6e-4b3e7347e7d8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</name>
-          <display>Intent.Eventing.MassTransit.FinbuckleMessageHeaderStrategy</display>
-          <externalReference>20eb0bc5-7977-468a-b88d-56085884b31a</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="08e2bfc4-8030-4613-83e6-a193aca26834" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.FinbucklePublishingFilter</name>
-          <display>Intent.Eventing.MassTransit.FinbucklePublishingFilter</display>
-          <externalReference>1d8fb7a2-9603-4676-a4e8-efb4e9cc1626</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="9b023602-584c-4b8b-80a0-d36eedde5492" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.FinbuckleSendingFilter</name>
-          <display>Intent.Eventing.MassTransit.FinbuckleSendingFilter</display>
-          <externalReference>9087e480-d0ca-48de-8c80-fd98c4947e3a</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="7b6cb46e-40db-4fc3-bfe8-c30b9be040b0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.IntegrationEventConsumer</name>
-          <display>Intent.Eventing.MassTransit.IntegrationEventConsumer</display>
-          <externalReference>0d492248-aaf4-452c-900f-593d71eec274</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="3a97ad68-a34b-425f-8570-1800e2d35d43" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.MassTransit.MassTransitConfiguration</name>
-          <display>Intent.Eventing.MassTransit.MassTransitConfiguration</display>
-          <externalReference>65fbde37-9264-4dc3-b781-4ad7cc6fb308</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>396a07e3-8c67-4ea2-b6b1-5e343168bee8</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="5944c82a-8b54-42bc-8389-0fe31118158f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Filters</name>
-      <display>Filters</display>
-      <externalReference>4a5c3d72-d1d5-40a2-8886-932aa9014151</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="18c2c47f-b374-4fa6-b7d1-5c1f26069904" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Controllers.BinaryContentFilter</name>
-          <display>Intent.AspNetCore.Controllers.BinaryContentFilter</display>
-          <externalReference>da929af0-84ca-4adc-a523-e48d605ab451</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5944c82a-8b54-42bc-8389-0fe31118158f</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="3b5197cb-43a7-4d9c-a99e-0005188385f2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Controllers.ExceptionFilter</name>
-          <display>Intent.AspNetCore.Controllers.ExceptionFilter</display>
-          <externalReference>68987757-515e-437d-a2ec-3ccafb4c24f3</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5944c82a-8b54-42bc-8389-0fe31118158f</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="f9a3a2da-fa94-403a-98cf-4076aeb73f57" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</name>
-          <display>Intent.AspNetCore.Swashbuckle.Security.AuthorizeCheckOperationFilter</display>
-          <externalReference>4af175da-7491-4c8d-be9f-7432f5cddc5f</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5944c82a-8b54-42bc-8389-0fe31118158f</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="fc0c1395-ad01-407d-8670-e5b18538879a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</name>
-          <display>Intent.AspNetCore.Swashbuckle.TypeSchemaFilter</display>
-          <externalReference>6a21e60b-fe6a-4be7-8c3a-db2857eea82a</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5944c82a-8b54-42bc-8389-0fe31118158f</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="9b1b42eb-6c1e-4575-977d-e17dc6f9e2da" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>IntegrationCommands</name>
-      <display>IntegrationCommands</display>
-      <externalReference>7c7c03be-784e-461f-92db-79086db0c373</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="ec8e3ebe-3021-41e1-a3f6-bf228c176c48" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.Contracts.IntegrationCommand</name>
-          <display>Intent.Eventing.Contracts.IntegrationCommand</display>
-          <externalReference>5a3c4ed9-6c8d-465f-b9c0-32ecd8205081</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>9b1b42eb-6c1e-4575-977d-e17dc6f9e2da</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="70403aa1-f059-4f4e-ab5f-aa78d618ed12" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>IntegrationEvents</name>
-      <display>IntegrationEvents</display>
-      <externalReference>845029db-5b80-4f3b-9407-e7d9a09b8e00</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="34e968f6-b07c-4c24-9a26-e14621839e8c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-          <name>EventHandlers</name>
-          <display>EventHandlers</display>
-          <externalReference>0fc48866-72d4-4136-94a8-5806a26df2b7</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70403aa1-f059-4f4e-ab5f-aa78d618ed12</parentFolderId>
-          <stereotypes>
-            <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-              <addedByDefault>true</addedByDefault>
-              <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-              <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-              <properties>
-                <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-              </properties>
-            </stereotype>
-          </stereotypes>
-          <metadata />
-          <childElements>
-            <childElement id="b4a5c266-3eaa-4e41-b7e5-6b780373ea6b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Eventing.MassTransit.IntegrationEventHandler</name>
-              <display>Intent.Eventing.MassTransit.IntegrationEventHandler</display>
-              <externalReference>d90f22da-2953-4ab6-8787-d595c22ed152</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>34e968f6-b07c-4c24-9a26-e14621839e8c</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-            <childElement id="6e1b2a75-21d0-4563-806e-70257b27ee2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-              <name>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</name>
-              <display>Intent.Eventing.MassTransit.IntegrationEventHandlerImplementation</display>
-              <externalReference>525b7f96-3470-4534-a294-61c706922c1a</externalReference>
-              <isAbstract>false</isAbstract>
-              <genericTypes />
-              <isMapped>false</isMapped>
-              <parentFolderId>34e968f6-b07c-4c24-9a26-e14621839e8c</parentFolderId>
-              <stereotypes />
-              <metadata>
-                <entry key="status" value="assigned" />
-              </metadata>
-              <childElements />
-            </childElement>
-          </childElements>
-        </childElement>
-        <childElement id="df48665f-18fb-4341-8183-c70937800ece" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
-          <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
-          <externalReference>43fa404e-cddc-4ace-8556-e7730999ea4e</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70403aa1-f059-4f4e-ab5f-aa78d618ed12</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="a7515795-ba22-436e-b08a-98b35956d0d7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
-          <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
-          <externalReference>d29c2788-f814-433e-a2dd-2672f475a32b</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70403aa1-f059-4f4e-ab5f-aa78d618ed12</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-        <childElement id="d6c70640-c5ec-4d25-a01f-bcd14ed8a9c7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
-          <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
-          <externalReference>8f601fbf-f8ed-4018-82e8-900c002de468</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>70403aa1-f059-4f4e-ab5f-aa78d618ed12</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="97278c42-b0be-482f-a7a6-09df9924966b" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Security</name>
-      <display>Security</display>
-      <externalReference>e12624b5-ee8d-4113-8a8a-7117f6b763af</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="ba49581d-5936-44c8-b10e-8cb1acb2a12e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.AspNetCore.Permissions</name>
-          <display>Intent.AspNetCore.Permissions</display>
-          <externalReference>fe8c686b-b008-4f31-a18e-59decfc7cd84</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>97278c42-b0be-482f-a7a6-09df9924966b</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="a2615126-26d0-46c1-b90f-271743fbae71" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
-      <name>Services</name>
-      <display>Services</display>
-      <externalReference>21d2d802-b1e7-46cb-a8f5-bdad4527ce3b</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
-          <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
-          <properties>
-            <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="5c009bba-a058-4572-b2c7-50ee4110f959" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.Application.Identity.CurrentUserService</name>
-          <display>Intent.Application.Identity.CurrentUserService</display>
-          <externalReference>a1f69cb3-6e4f-49f0-b256-1c9cefc2de16</externalReference>
-          <isAbstract>false</isAbstract>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a2615126-26d0-46c1-b90f-271743fbae71</parentFolderId>
-          <stereotypes />
-          <metadata>
-            <entry key="status" value="assigned" />
-          </metadata>
-          <childElements />
-        </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="e8b3d4f5-bd02-4b07-9d0b-e69a19ea89f7" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Application</name>
-      <display>Application</display>
-      <externalReference>e3fdb181-0dba-4068-97ac-9dfd5e73b7ce</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="d1854c4b-60b0-4db4-bc26-1b3d6bf685ec" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Distribution</name>
-      <display>Distribution</display>
-      <externalReference>382e82d5-a898-4a39-a96c-82640db72db0</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="469f9077-16f5-41f4-acf2-01d3f1fb95fe" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Infrastructure</name>
-      <display>Infrastructure</display>
-      <externalReference>471fcda9-973d-4f8f-85cf-30fc094abf3c</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="71faedbf-f080-46b4-91aa-72ee0fee2a76" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Startup</name>
-      <display>Startup</display>
-      <externalReference>4d01cad5-4016-408a-a32c-4c6210dc7412</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
     <childElement id="70e7ec70-5536-4873-9aa6-788c28b1b2ac" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.DependencyInjection.DependencyInjection</name>
       <display>Intent.Application.DependencyInjection.DependencyInjection</display>
@@ -888,6 +58,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -902,6 +74,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -916,6 +90,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -930,6 +106,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -944,6 +122,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -958,6 +138,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -972,6 +154,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -986,10 +170,68 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="e8b3d4f5-bd02-4b07-9d0b-e69a19ea89f7" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Application</name>
+      <display>Application</display>
+      <externalReference>e3fdb181-0dba-4068-97ac-9dfd5e73b7ce</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d1854c4b-60b0-4db4-bc26-1b3d6bf685ec" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Distribution</name>
+      <display>Distribution</display>
+      <externalReference>382e82d5-a898-4a39-a96c-82640db72db0</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="469f9077-16f5-41f4-acf2-01d3f1fb95fe" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Infrastructure</name>
+      <display>Infrastructure</display>
+      <externalReference>471fcda9-973d-4f8f-85cf-30fc094abf3c</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="71faedbf-f080-46b4-91aa-72ee0fee2a76" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Startup</name>
+      <display>Startup</display>
+      <externalReference>4d01cad5-4016-408a-a32c-4c6210dc7412</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>
