@@ -2,6 +2,7 @@ using System;
 using GrpcServer.Api.Configuration;
 using GrpcServer.Api.Filters;
 using GrpcServer.Api.Logging;
+using GrpcServer.Api.Services;
 using GrpcServer.Application;
 using GrpcServer.Application.Account;
 using GrpcServer.Infrastructure;
@@ -53,6 +54,7 @@ namespace GrpcServer.Api
                 builder.Services.ConfigureGrpc();
 
                 builder.Services.AddTransient<IAccountEmailSender, AccountEmailSender>();
+                builder.Services.AddTransient<ITokenService, TokenService>();
 
                 var app = builder.Build();
 

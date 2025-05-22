@@ -13,6 +13,7 @@
     <ProjectReference Include="..\Intent.Modules.NET.Tests.Application.Core\Intent.Modules.NET.Tests.Application.Core.csproj" />
     <ProjectReference Include="..\Modules\Module1\Intent.Modules.NET.Tests.Module1.Api\Intent.Modules.NET.Tests.Module1.Api.csproj" />
     <ProjectReference Include="..\Modules\Module2\Intent.Modules.NET.Tests.Module2.Api\Intent.Modules.NET.Tests.Module2.Api.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Domain.Core\Intent.Modules.NET.Tests.Domain.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

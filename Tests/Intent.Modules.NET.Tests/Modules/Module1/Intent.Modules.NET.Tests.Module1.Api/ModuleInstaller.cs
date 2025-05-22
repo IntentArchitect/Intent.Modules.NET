@@ -1,4 +1,6 @@
 using Intent.Modules.NET.Tests.Infrastructure.Core.Interfaces;
+using Intent.Modules.NET.Tests.Module1.Application;
+using Intent.Modules.NET.Tests.Module1.Infrastructure;
 using Intent.Modules.NET.Tests.Module1.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit;
@@ -16,8 +18,8 @@ namespace Intent.Modules.NET.Tests.Module1.Api
     {
         public void ConfigureContainer(IServiceCollection services, IConfiguration configuration)
         {
-            Application.DependencyInjection.AddApplication(services, configuration);
-            Infrastructure.DependencyInjection.AddInfrastructure(services, configuration);
+            services.AddApplication(configuration);
+            services.AddInfrastructure(configuration);
             var builder = services.AddControllers();
             builder.PartManager.ApplicationParts.Add(new AssemblyPart(typeof(ModuleInstaller).Assembly));
         }

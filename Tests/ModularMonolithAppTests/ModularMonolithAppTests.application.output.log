@@ -73,6 +73,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>368d6665-d8fd-4a0f-bc2d-0079a496d516</ProjectId>
+      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Domain.Core/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>c5ea45ee-9cb9-4af2-8c31-1597f5079d26</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c5ea45ee-9cb9-4af2-8c31-1597f5079d26</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

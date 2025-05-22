@@ -20,7 +20,6 @@ namespace Application.Identity.AccountController.Api.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddTransient<ITokenService, TokenService>();
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
