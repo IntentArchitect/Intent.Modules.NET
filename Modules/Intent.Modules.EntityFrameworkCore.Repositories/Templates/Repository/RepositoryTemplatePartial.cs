@@ -174,7 +174,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                     }
                     string findMethod = makeAsync ? "await FindAsync" : "Find";
-                    method.AddStatement($"return {findMethod}(x => x.{pk.Name} == {pk.Name.ToCamelCase()}{(addqueryOptions ? ", queryOptions": "")}{(makeAsync ? ", cancellationToken" : "")});");
+                    method.AddStatement($"return {findMethod}(x => x.{pk.Name} == {pk.Name.ToCamelCase()}{(addqueryOptions ? ", queryOptions" : "")}{(makeAsync ? ", cancellationToken" : "")});");
                 }
                 else
                 {
