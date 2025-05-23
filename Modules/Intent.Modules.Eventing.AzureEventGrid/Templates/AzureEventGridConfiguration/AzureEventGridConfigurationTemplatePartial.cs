@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -46,7 +47,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                                 .AddStatement(
                                     $"services.AddSingleton<{this.GetAzureEventGridMessageDispatcherInterfaceName()}, {this.GetAzureEventGridMessageDispatcherName()}>();");
 
-                            var publishMessages = GetMessagesBeingPublished();
+                            var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
                             if (publishMessages.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetPublisherOptionsName()}>", inv => inv
@@ -55,12 +56,12 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                                         foreach (var publishMessage in publishMessages)
                                         {
                                             arg.AddStatement(
-                                                $"""options.Add<{this.GetIntegrationEventMessageName(publishMessage)}>(configuration["EventGrid:Topics:{publishMessage.GetTopicConfigurationName()}:Key"]!, configuration["EventGrid:Topics:{publishMessage.GetTopicConfigurationName()}:Endpoint"]!);""");
+                                                $"""options.Add<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationKeyName}"]!, configuration["{publishMessage.TopicConfigurationEndpointName}"]!);""");
                                         }
                                     }));
                             }
-
-                            var eventHandlers = GetEventMessagesBeingSubscribed();
+                            
+                            var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
                             if (eventHandlers.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetSubscriptionOptionsName()}>", inv => inv
@@ -68,9 +69,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                                     {
                                         foreach (var eventHandler in eventHandlers)
                                         {
-                                            if (!eventHandler.Element.IsMessageModel()) continue;
-                                            var messageName = this.GetIntegrationEventMessageName(eventHandler.Element.AsMessageModel());
-                                            arg.AddStatement($"""options.Add<{messageName}, {this.GetIntegrationEventHandlerInterfaceName()}<{messageName}>>();""");
+                                            arg.AddStatement($"""options.Add<{eventHandler.GetModelTypeName(this)}, {eventHandler.GetSubscriberTypeName(this)}>();""");
                                         }
                                     }));
                             }
@@ -87,45 +86,11 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridConfigu
                 .HasDependency(this)
                 .ForConcern("Infrastructure"));
 
-            foreach (var messageModel in GetMessagesBeingPublished().DistinctBy(k => k.GetTopicName()))
+            foreach (var message in IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id))
             {
-                RegisterEventGridTopic(
-                    messageModel.GetTopicConfigurationName(),
-                    messageModel.InternalElement.Package.ApplicationId
-                );
+                this.ApplyAppSetting(message.TopicConfigurationKeyName, "");
+                this.ApplyAppSetting(message.TopicConfigurationEndpointName, "");
             }
-        }
-
-        private void RegisterEventGridTopic(string topicName, string modelApplicationId)
-        {
-            var keyConfigName = $"EventGrid:Topics:{topicName}:Key";
-            var endpointConfigName = $"EventGrid:Topics:{topicName}:Endpoint";
-
-            this.ApplyAppSetting(keyConfigName, "");
-            this.ApplyAppSetting(endpointConfigName, "");
-
-            var isExternal = modelApplicationId != ExecutionContext.GetApplicationConfig().Id;
-
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureEventGrid.TopicRegistered)
-                .WithProperty(Infrastructure.AzureEventGrid.Property.TopicName, topicName)
-                .WithProperty(Infrastructure.AzureEventGrid.Property.KeyConfig, keyConfigName)
-                .WithProperty(Infrastructure.AzureEventGrid.Property.EndpointConfig, endpointConfigName)
-                .WithProperty(Infrastructure.AzureEventGrid.Property.External, isExternal.ToString().ToLower()));
-        }
-
-        private IReadOnlyList<SubscribeIntegrationEventTargetEndModel> GetEventMessagesBeingSubscribed()
-        {
-            return ExecutionContext.MetadataManager
-                .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-                .SelectMany(x => x.IntegrationEventSubscriptions())
-                .ToArray();
-        }
-
-        private IReadOnlyList<MessageModel> GetMessagesBeingPublished()
-        {
-            return ExecutionContext.MetadataManager
-                .GetExplicitlyPublishedMessageModels(OutputTarget.Application)
-                .ToArray();
         }
 
         [IntentManaged(Mode.Fully)]

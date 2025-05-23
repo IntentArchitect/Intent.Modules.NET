@@ -93,113 +93,16 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .ToRegister("ConfigureAzureServiceBus", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this)
                 .ForConcern("Infrastructure"));
-
-            // // Process commands being sent
-            // foreach (var commandModel in GetCommandsBeingSent().DistinctBy(k => k.GetCommandQueueOrTopicConfigurationName()))
-            // {
-            //     RegisterInfrastructureForModel(
-            //         commandModel.GetCommandQueueOrTopicConfigurationName(),
-            //         commandModel.GetCommandQueueOrTopicName(),
-            //         commandModel.GetCommandInfrastructureRegistrationEventName(),
-            //         commandModel.InternalElement.Package.ApplicationId
-            //     );
-            // }
-            //
-            // // Process messages being published
-            // foreach (var messageModel in GetMessagesBeingPublished().DistinctBy(k => k.GetMessageQueueOrTopicConfigurationName()))
-            // {
-            //     RegisterInfrastructureForModel(
-            //         messageModel.GetMessageQueueOrTopicConfigurationName(),
-            //         messageModel.GetMessageQueueOrTopicName(),
-            //         messageModel.GetMessageInfrastructureRegistrationEventName(),
-            //         messageModel.InternalElement.Package.ApplicationId
-            //     );
-            // }
-            //
-            // // Process command subscriptions
-            // foreach (var commandModel in GetCommandMessagesBeingSubscribed()
-            //              .Select(x => x.Element.AsIntegrationCommandModel())
-            //              .Where(x => x?.HasCommandSubscription() == true)
-            //              .DistinctBy(k => k.GetCommandSubscriptionConfigurationName()))
-            // {
-            //     RegisterSubscription(
-            //         commandModel.GetCommandSubscriptionConfigurationName()!,
-            //         commandModel.GetCommandQueueOrTopicName(),
-            //         commandModel.GetCommandQueueOrTopicConfigurationName(),
-            //         commandModel.GetCommandInfrastructureRegistrationEventName(),
-            //         commandModel.InternalElement.Package.ApplicationId
-            //     );
-            // }
-            //
-            // // Process event subscriptions
-            // foreach (var messageModel in GetEventMessagesBeingSubscribed()
-            //              .Select(x => x.Element.AsMessageModel())
-            //              .Where(x => x?.HasMessageSubscription() == true)
-            //              .DistinctBy(k => k.GetMessageSubscriptionConfigurationName()))
-            // {
-            //     RegisterSubscription(
-            //         messageModel.GetMessageSubscriptionConfigurationName()!,
-            //         messageModel.GetMessageQueueOrTopicName(),
-            //         messageModel.GetMessageQueueOrTopicConfigurationName(),
-            //         messageModel.GetMessageInfrastructureRegistrationEventName(),
-            //         messageModel.InternalElement.Package.ApplicationId
-            //     );
-            // }
+            
+            foreach (var message in IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id))
+            {
+                this.ApplyAppSetting(message.QueueOrTopicConfigurationName, message.QueueOrTopicName);
+                if (message.QueueOrTopicSubscriptionConfigurationName != null)
+                {
+                    this.ApplyAppSetting(message.QueueOrTopicSubscriptionConfigurationName, message.QueueOrTopicName + "-subscription");
+                }
+            }
         }
-
-        // private void RegisterInfrastructureForModel(
-        //     string configurationName,
-        //     string queueOrTopicName,
-        //     string registrationEventName,
-        //     string modelApplicationId)
-        // {
-        //     var fullConfigName = $"AzureServiceBus:{configurationName}";
-        //     this.ApplyAppSetting(fullConfigName, queueOrTopicName);
-        //
-        //     PublishInfrastructureRegisteredEvent(
-        //         registrationEventName,
-        //         queueOrTopicName,
-        //         fullConfigName,
-        //         modelApplicationId);
-        // }
-        //
-        // private void RegisterSubscription(
-        //     string subscriptionConfigName,
-        //     string queueOrTopicName,
-        //     string queueOrTopicConfigName,
-        //     string registrationEventName,
-        //     string modelApplicationId)
-        // {
-        //     var fullSubscriptionConfigName = $"AzureServiceBus:{subscriptionConfigName}";
-        //     var fullQueueConfigName = $"AzureServiceBus:{queueOrTopicConfigName}";
-        //
-        //     this.ApplyAppSetting(fullQueueConfigName, queueOrTopicName);
-        //     this.ApplyAppSetting(fullSubscriptionConfigName, $"{queueOrTopicName}-subscription");
-        //
-        //     PublishInfrastructureRegisteredEvent(
-        //         registrationEventName,
-        //         queueOrTopicName,
-        //         fullQueueConfigName,
-        //         modelApplicationId);
-        //
-        //     ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(Infrastructure.AzureServiceBus.SubscriptionType)
-        //         .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, queueOrTopicName)
-        //         .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, fullSubscriptionConfigName));
-        // }
-        //
-        // private void PublishInfrastructureRegisteredEvent(
-        //     string registrationEventName,
-        //     string queueOrTopicName,
-        //     string configurationName,
-        //     string modelApplicationId)
-        // {
-        //     var isExternal = modelApplicationId != ExecutionContext.GetApplicationConfig().Id;
-        //
-        //     ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(registrationEventName)
-        //         .WithProperty(Infrastructure.AzureServiceBus.Property.QueueOrTopicName, queueOrTopicName)
-        //         .WithProperty(Infrastructure.AzureServiceBus.Property.ConfigurationName, configurationName)
-        //         .WithProperty(Infrastructure.AzureServiceBus.Property.External, isExternal.ToString().ToLower()));
-        // }
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
@@ -215,35 +118,5 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
         {
             return CSharpFile.ToString();
         }
-
-        // private IReadOnlyList<SubscribeIntegrationCommandTargetEndModel> GetCommandMessagesBeingSubscribed()
-        // {
-        //     return ExecutionContext.MetadataManager
-        //         .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-        //         .SelectMany(x => x.IntegrationCommandSubscriptions())
-        //         .ToArray();
-        // }
-        //
-        // private IReadOnlyList<SubscribeIntegrationEventTargetEndModel> GetEventMessagesBeingSubscribed()
-        // {
-        //     return ExecutionContext.MetadataManager
-        //         .Services(ExecutionContext.GetApplicationConfig().Id).GetIntegrationEventHandlerModels()
-        //         .SelectMany(x => x.IntegrationEventSubscriptions())
-        //         .ToArray();
-        // }
-        //
-        // private IReadOnlyList<MessageModel> GetMessagesBeingPublished()
-        // {
-        //     return ExecutionContext.MetadataManager
-        //         .GetExplicitlyPublishedMessageModels(OutputTarget.Application)
-        //         .ToArray();
-        // }
-        //
-        // private IReadOnlyList<IntegrationCommandModel> GetCommandsBeingSent()
-        // {
-        //     return ExecutionContext.MetadataManager
-        //         .GetExplicitlySentIntegrationCommandModels(OutputTarget.Application)
-        //         .ToArray();
-        // }
     }
 }

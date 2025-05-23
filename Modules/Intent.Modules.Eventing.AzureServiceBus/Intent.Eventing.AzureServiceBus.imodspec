@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Eventing.AzureServiceBus</id>
   <version>1.0.4-pre.0</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>

@@ -7,6 +7,7 @@ using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
 namespace Intent.Modules.Integration.IaC.Shared;
@@ -71,6 +72,8 @@ internal class IntegrationManager
             .ToList();
     }
 
+    #region Azure Service Bus
+
     public IReadOnlyList<AzureServiceBusMessage> GetPublishedAzureServiceBusMessages(string applicationId)
     {
         var messages = _publishedMessages
@@ -131,8 +134,37 @@ internal class IntegrationManager
             .Where(p => duplicateCheckSet.Add(p.QueueOrTopicName))
             .ToList();
     }
+
+    #endregion
+
+    #region Azure Event Grid
+
+    public IReadOnlyList<AzureEventGridMessage> GetPublishedAzureEventGridMessages(string applicationId)
+    {
+        var messages = _publishedMessages
+            .Where(p => p.ModuleInfo.IsAzureEventGrid && p.ApplicationId == applicationId)
+            .Select(s => new AzureEventGridMessage(s.ApplicationId, s.Message, AzureEventGridMethodType.Publish))
+            .ToList();
+        return messages;
+    }
     
-    
+    public IReadOnlyList<AzureEventGridMessage> GetSubscribedAzureEventGridMessages(string applicationId)
+    {
+        var messages = _subscribedMessages
+            .Where(p => p.ModuleInfo.IsAzureEventGrid && p.ApplicationId == applicationId)
+            .Select(s => new AzureEventGridMessage(s.ApplicationId, s.Message, AzureEventGridMethodType.Subscribe))
+            .ToList();
+        return messages;
+    }
+
+    public IReadOnlyList<AzureEventGridMessage> GetAggregatedAzureEventGridMessages(string applicationId)
+    {
+        return GetPublishedAzureEventGridMessages(applicationId)
+            .Concat(GetSubscribedAzureEventGridMessages(applicationId))
+            .ToList();
+    }
+
+    #endregion
 
     private record MessageInfo(string ApplicationId, MessageModel Message, ModuleInfo ModuleInfo);
     private record CommandInfo(string ApplicationId, IntegrationCommandModel Command, ModuleInfo ModuleInfo);

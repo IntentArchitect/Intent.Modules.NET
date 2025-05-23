@@ -9,12 +9,17 @@
     <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureEventGrid\Api\MessageModelStereotypeExtensions.cs">
+      <Link>AzureEventGridApi\MessageModelStereotypeExtensions.cs</Link>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureServiceBus\Api\IntegrationCommandModelStereotypeExtensions.cs">
-      <Link>ExistingApi\IntegrationCommandModelStereotypeExtensions.cs</Link>
+      <Link>AzureServiceBusApi\IntegrationCommandModelStereotypeExtensions.cs</Link>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs">
-      <Link>MessageModelStereotypeExtensions.cs</Link>
+      <Link>AzureServiceBusApi\MessageModelStereotypeExtensions.cs</Link>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGrid\AzureEventGridMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGrid\AzureEventGridMethodType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusChannelType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBus\AzureServiceBusItemBase.cs" />

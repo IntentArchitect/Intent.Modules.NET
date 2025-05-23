@@ -9,6 +9,7 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -39,18 +40,19 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
         public override IEnumerable<AzureFunctionSubscriptionModel> GetModels(IApplication application)
         {
             var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
-
+            var eventGridMessages = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(application.Id)
+                .ToDictionary(k => k.MessageModel);
+            
             var results = handlerModels
                 .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
                 {
                     Handler = handlerModel,
-                    MessageModel = subscription.Element?.AsMessageModel()!
+                    Message = eventGridMessages[subscription.Element.AsMessageModel()]
                 })
-                .Where(p => p.MessageModel is not null)
-                .GroupBy(x => x.MessageModel.GetTopicConfigurationName())
+                .GroupBy(x => x.Message.TopicConfigurationEndpointName)
                 .Select(grouping => new AzureFunctionSubscriptionModel(
                     HandlerModel: grouping.First().Handler,
-                    MessageModels: grouping.Select(x => x.MessageModel).ToArray(),
+                    MessageModels: grouping.Select(x => x.Message.MessageModel).ToArray(),
                     TopicName: grouping.Key))
                 .OrderBy(x => x.TopicName)
                 .ToArray();

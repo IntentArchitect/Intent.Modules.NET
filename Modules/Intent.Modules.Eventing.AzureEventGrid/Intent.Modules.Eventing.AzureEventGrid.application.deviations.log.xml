@@ -2,6 +2,16 @@
 <deviationsLog>
   <files>
     <file>
+      <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</correlationId>
+      <path>Intent.Modules.Eventing.AzureEventGrid/Api/MessageModelStereotypeExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-23T14:57:06.7161538Z</updatedAt>
+      <deviationsHash>D00A4D66F05761BC87EED88A4CA6A8FCDC1597E5EDF5AD0A124462FBEA722FD6</deviationsHash>
+      <fileHash>589289A176751664ED1EE06FAC72F85D8CF8D8BABBC86AE2FB9344F5342F4C19</fileHash>
+    </file>
+    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f2148016-efbc-439d-8687-89b32fdc1366</correlationId>
       <path>Intent.Modules.Eventing.AzureEventGrid/Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</path>
       <count>2</count>

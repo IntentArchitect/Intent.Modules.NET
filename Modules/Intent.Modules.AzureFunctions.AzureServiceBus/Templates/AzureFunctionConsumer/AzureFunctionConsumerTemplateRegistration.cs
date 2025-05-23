@@ -8,7 +8,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Eventing.AzureServiceBus.Templates;
+using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -38,31 +39,36 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<AzureFunctionSubscriptionModel> GetModels(IApplication application)
         {
-            var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
             var results = new List<AzureFunctionSubscriptionModel>();
-            foreach (var handlerModel in handlerModels)
-            {
-                results.AddRange(handlerModel.IntegrationEventSubscriptions()
-                    .Select(sub => sub.Element?.AsMessageModel())
-                    .Where(p => p is not null)
-                    .Cast<MessageModel>()
-                    .Select(message => new AzureFunctionSubscriptionModel(
-                        HandlerModel: handlerModel,
-                        QueueOrTopicName: message.GetMessageQueueOrTopicName(),
-                        QueueOrTopicConfigurationName: message.GetMessageQueueOrTopicConfigurationName(),
-                        NeedsSubscription: message.HasMessageSubscription(),
-                        SubscriptionName: message.GetMessageSubscriptionConfigurationName())));
+            var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
 
-                results.AddRange(handlerModel.IntegrationCommandSubscriptions()
-                    .Select(sub => sub.Element?.AsIntegrationCommandModel())
-                    .Where(p => p is not null)
-                    .Cast<IntegrationCommandModel>()
-                    .Select(command => new AzureFunctionSubscriptionModel(
-                        HandlerModel: handlerModel,
-                        QueueOrTopicName: command.GetCommandQueueOrTopicName(),
-                        QueueOrTopicConfigurationName: command.GetCommandQueueOrTopicConfigurationName(),
-                        NeedsSubscription: command.HasCommandSubscription(),
-                        SubscriptionName: command.GetCommandSubscriptionConfigurationName())));
+            var messagesLookup = handlerModels.Where(p => p.InternalElement.IsMessageModel())
+                .ToDictionary(k => k.InternalElement.AsMessageModel());
+            var messages = IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(application.Id);
+            foreach (var message in messages)
+            {
+                var handlerModel = messagesLookup[message.MessageModel];
+                results.Add(new AzureFunctionSubscriptionModel(
+                    handlerModel,
+                    message.QueueOrTopicName,
+                    message.QueueOrTopicConfigurationName,
+                    message.ChannelType == AzureServiceBusChannelType.Topic,
+                    message.QueueOrTopicSubscriptionConfigurationName));
+            }
+
+            var commandsLookup = handlerModels.Where(p => p.InternalElement.IsCommentModel())
+                .ToDictionary(k => k.InternalElement.AsIntegrationCommandModel());
+            var commands = IntegrationManager.Instance.GetSubscribedAzureServiceBusCommands(application.Id);
+            foreach (var command in commands)
+            {
+                var handlerModel = commandsLookup[command.CommandModel];
+                results.Add(new AzureFunctionSubscriptionModel(
+                    handlerModel,
+                    command.QueueOrTopicName,
+                    command.QueueOrTopicConfigurationName,
+                    command.ChannelType == AzureServiceBusChannelType.Topic,
+                    command.QueueOrTopicSubscriptionConfigurationName
+                ));
             }
 
             results = results.DistinctBy(k => k.QueueOrTopicName).ToList();

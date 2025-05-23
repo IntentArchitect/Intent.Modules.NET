@@ -146,7 +146,16 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                             appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
                         }
                     }
-                    
+
+                    var azureEventGridMessages = IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(Model.Id);
+                    foreach (var message in azureEventGridMessages)
+                    {
+                        if (appKeys.Add(message.TopicConfigurationKeyName))
+                        {
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");                            
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");                            
+                        }
+                    }
                 });
             });
 

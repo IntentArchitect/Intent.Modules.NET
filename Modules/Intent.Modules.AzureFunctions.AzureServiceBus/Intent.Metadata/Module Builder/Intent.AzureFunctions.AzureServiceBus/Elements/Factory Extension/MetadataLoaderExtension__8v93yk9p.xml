@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d4a70680-56a5-4b59-9aab-7637713b6c00" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MetadataLoaderExtension</name>
+  <display>MetadataLoaderExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>de732e1b-6c3a-487e-8d0c-06da65383731</parentFolderId>
+  <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
+  <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

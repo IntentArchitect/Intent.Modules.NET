@@ -57,4 +57,9 @@ internal static class Terraform
     {
         public const string type = nameof(azurerm_servicebus_subscription);
     }
+
+    public static class azurerm_eventgrid_topic
+    {
+        public const string type = nameof(azurerm_eventgrid_topic);
+    }
 }
