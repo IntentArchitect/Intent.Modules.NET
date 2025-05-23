@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.Associations
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<F_OptionalAggregateNav?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<F_OptionalAggregateNav>, IQueryable<F_OptionalAggregateNav>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<F_OptionalAggregateNav>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

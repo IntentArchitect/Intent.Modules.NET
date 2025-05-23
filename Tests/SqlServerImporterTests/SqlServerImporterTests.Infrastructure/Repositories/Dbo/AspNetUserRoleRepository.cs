@@ -35,5 +35,13 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
         {
             return await FindAsync(x => x.UserId == id.UserId && x.RoleId == id.RoleId, cancellationToken);
         }
+
+        public async Task<AspNetUserRole?> FindByIdAsync(
+            (string UserId, string RoleId) id,
+            Func<IQueryable<AspNetUserRole>, IQueryable<AspNetUserRole>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.UserId == id.UserId && x.RoleId == id.RoleId, queryOptions, cancellationToken);
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories.Accounts
         [IntentManaged(Mode.Fully)]
         Task<Period?> FindByIdAsync(int periodId, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Period?> FindByIdAsync(int periodId, Func<IQueryable<Period>, IQueryable<Period>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Period>> FindByIdsAsync(int[] periodIds, CancellationToken cancellationToken = default);
     }
 }

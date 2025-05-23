@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="cc974001-b1dd-4bd0-9cef-4ff2cc0a7f7e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>6.0.0</name>
+      <name>6.1.0</name>
       <display>6.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e0f7305d-adfa-4f6f-b9ce-aeb0b3904455" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="538497e0-2c10-459f-94c9-3d00575049f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Primitives</name>
-          <display>Microsoft.Extensions.Primitives (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cc974001-b1dd-4bd0-9cef-4ff2cc0a7f7e</parentFolderId>
-          <packageId>430deea4-f39e-436a-890e-10ff0536f95c</packageId>
-          <packageName>Intent.FastEndpoints</packageName>
           <stereotypes />
           <metadata />
           <childElements />

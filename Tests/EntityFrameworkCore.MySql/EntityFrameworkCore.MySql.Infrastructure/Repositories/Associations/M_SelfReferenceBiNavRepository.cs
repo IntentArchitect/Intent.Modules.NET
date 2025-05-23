@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.Associations
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<M_SelfReferenceBiNav?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<M_SelfReferenceBiNav>, IQueryable<M_SelfReferenceBiNav>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<M_SelfReferenceBiNav>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

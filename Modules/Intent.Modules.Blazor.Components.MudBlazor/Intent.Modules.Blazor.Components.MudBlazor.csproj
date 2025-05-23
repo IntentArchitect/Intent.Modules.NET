@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.0-beta.24</Version>
+    <Version>1.0.0-beta.25</Version>
     <Authors>Intent Architect</Authors>
     <Description>MudBlazor components module for Intent Architect.</Description>
     <Copyright>Copyright 2024</Copyright>
@@ -13,7 +13,7 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />

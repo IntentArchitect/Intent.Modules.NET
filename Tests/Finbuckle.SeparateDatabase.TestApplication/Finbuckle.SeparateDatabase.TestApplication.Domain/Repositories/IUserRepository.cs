@@ -20,6 +20,8 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<User?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<User?> FindByIdAsync(Guid id, Func<IQueryable<User>, IQueryable<User>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<User>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.ExplicitKeys
             return await FindAsync(x => x.PrimaryKeyLong == primaryKeyLong, cancellationToken);
         }
 
+        public async Task<PK_PrimaryKeyLong?> FindByIdAsync(
+            long primaryKeyLong,
+            Func<IQueryable<PK_PrimaryKeyLong>, IQueryable<PK_PrimaryKeyLong>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.PrimaryKeyLong == primaryKeyLong, queryOptions, cancellationToken);
+        }
+
         public async Task<List<PK_PrimaryKeyLong>> FindByIdsAsync(
             long[] primaryKeyLongs,
             CancellationToken cancellationToken = default)

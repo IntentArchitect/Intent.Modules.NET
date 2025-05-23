@@ -34,6 +34,14 @@ namespace FastEndpointsTest.Infrastructure.Repositories.CRUD
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AggregateTestNoIdReturn?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<AggregateTestNoIdReturn>, IQueryable<AggregateTestNoIdReturn>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AggregateTestNoIdReturn>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

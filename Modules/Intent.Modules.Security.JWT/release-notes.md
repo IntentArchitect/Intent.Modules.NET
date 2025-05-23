@@ -1,3 +1,8 @@
+### Version 4.2.8
+
+- Improvement: Added configuration options for different types of JWT authorization setup.
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.7
 
 - Improvement: Updated NuGet package versions.

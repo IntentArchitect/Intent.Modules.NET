@@ -19,6 +19,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Value
         [IntentManaged(Mode.Fully)]
         Task<PersonWithAddressSerialized?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<PersonWithAddressSerialized?> FindByIdAsync(Guid id, Func<IQueryable<PersonWithAddressSerialized>, IQueryable<PersonWithAddressSerialized>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<PersonWithAddressSerialized>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

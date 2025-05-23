@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories
     {
         [IntentManaged(Mode.Fully)]
         Task<TablePlain?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TablePlain?> FindByIdAsync(Guid id, Func<IQueryable<TablePlain>, IQueryable<TablePlain>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TablePlain>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

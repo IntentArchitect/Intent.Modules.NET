@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>38fb3267-e318-4914-8504-3fb65d8c1198</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b369949a-03ff-4cb6-a99b-b7c3ba692613</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/ApplicationSecurityConfigurationFactoryExtension.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationSecurityConfigurationFactoryExtension.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>38fb3267-e318-4914-8504-3fb65d8c1198</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#13865168-61e7-42fb-a40f-8996295a6a4b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>FactoryExtensions/DbContextApplicationIdentityUserFactoryExtension.cs</ApplicationRelativeFilePath>
@@ -46,6 +38,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.AccountController.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>44e0a44f-d249-4ba0-a2c2-26b67fa70214</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#acdf1bad-970c-4351-a0f6-64e982a6a431</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_04_01_04_Pre_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_04_01_04_Pre_00.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>44e0a44f-d249-4ba0-a2c2-26b67fa70214</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#291c5a73-408c-40e2-ae94-2ea5551c8f63</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OnInstallMigration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

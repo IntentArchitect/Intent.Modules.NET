@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories.Accounts
         [IntentManaged(Mode.Fully)]
         Task<Account?> FindByIdAsync(long accountId, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Account?> FindByIdAsync(long accountId, Func<IQueryable<Account>, IQueryable<Account>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Account>> FindByIdsAsync(long[] accountIds, CancellationToken cancellationToken = default);
     }
 }

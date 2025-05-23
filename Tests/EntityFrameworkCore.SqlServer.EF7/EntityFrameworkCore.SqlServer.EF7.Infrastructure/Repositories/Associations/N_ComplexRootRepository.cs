@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Associat
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<N_ComplexRoot?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<N_ComplexRoot>, IQueryable<N_ComplexRoot>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<N_ComplexRoot>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

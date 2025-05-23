@@ -36,6 +36,14 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.BugFixes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Domain.Entities.BugFixes.Task?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<Domain.Entities.BugFixes.Task>, IQueryable<Domain.Entities.BugFixes.Task>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Domain.Entities.BugFixes.Task>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

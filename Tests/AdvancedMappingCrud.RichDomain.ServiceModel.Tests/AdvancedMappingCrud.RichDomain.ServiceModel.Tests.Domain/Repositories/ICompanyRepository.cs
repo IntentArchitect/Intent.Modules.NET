@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Company?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Company?> FindByIdAsync(Guid id, Func<IQueryable<Company>, IQueryable<Company>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Company>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

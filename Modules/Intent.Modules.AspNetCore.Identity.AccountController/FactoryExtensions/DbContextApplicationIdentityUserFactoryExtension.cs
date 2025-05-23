@@ -31,7 +31,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                 return;
             }
 
-            var dbContext = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
+            var dbContext = GetDbContextTemplate(application);
             if (dbContext == null)
             {
                 return;
@@ -47,5 +47,14 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                     .Statements.Add($"modelBuilder.ApplyConfiguration(new {dbContext.GetTypeName(ApplicationIdentityUserConfigurationTemplate.TemplateId)}());");
             });
         }
+
+        private static ICSharpFileBuilderTemplate? GetDbContextTemplate(IApplication application)
+        {
+            var result = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
+            if (result != null) return result;
+            result = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.EntityFrameworkCore.DbContext"));
+            return result;
+        }
+
     }
 }

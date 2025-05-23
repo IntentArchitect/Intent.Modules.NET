@@ -1,3 +1,7 @@
+### Version 4.7.10
+
+- Improvement: Added `FindById` overload with `queryOptions` on repositories.
+
 ### Version 4.7.9
 
 - Improvement: Added PostgreSql stored procedure support. Also added a default stored procedure implementation for other DB providers.

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.RichDomain.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<FamilyComplexSkipped?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<FamilyComplexSkipped?> FindByIdAsync(Guid id, Func<IQueryable<FamilyComplexSkipped>, IQueryable<FamilyComplexSkipped>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FamilyComplexSkipped>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

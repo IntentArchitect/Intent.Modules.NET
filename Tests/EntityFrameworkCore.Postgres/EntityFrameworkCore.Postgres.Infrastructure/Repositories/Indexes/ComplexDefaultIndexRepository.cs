@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.Indexes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<ComplexDefaultIndex?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<ComplexDefaultIndex>, IQueryable<ComplexDefaultIndex>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<ComplexDefaultIndex>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

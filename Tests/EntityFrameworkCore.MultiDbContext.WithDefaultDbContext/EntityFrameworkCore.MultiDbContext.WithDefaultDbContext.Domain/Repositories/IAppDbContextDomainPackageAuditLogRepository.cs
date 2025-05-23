@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Entities;
@@ -17,6 +18,8 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Reposit
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(int id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<AppDbContextDomainPackageAuditLog?> FindByIdAsync(int id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AppDbContextDomainPackageAuditLog?> FindByIdAsync(int id, Func<IQueryable<AppDbContextDomainPackageAuditLog>, IQueryable<AppDbContextDomainPackageAuditLog>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AppDbContextDomainPackageAuditLog>> FindByIdsAsync(int[] ids, CancellationToken cancellationToken = default);
     }

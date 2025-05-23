@@ -1,3 +1,7 @@
+### Version 5.1.6
+
+- Improvement: Added `FindById` overload with `queryOptions` on repositories.
+
 ### Version 5.1.5
 
 - Improvement: Moved custom repository creation to this module leveraged by any database provider.

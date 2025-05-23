@@ -125,7 +125,7 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
 
         public override bool CanRunTemplate()
         {
-            return IsExceptionHandlerSupported(OutputTarget);
+            return base.CanRunTemplate() && IsExceptionHandlerSupported(OutputTarget);
         }
 
         public static bool IsExceptionHandlerSupported(IOutputTarget outputTarget)

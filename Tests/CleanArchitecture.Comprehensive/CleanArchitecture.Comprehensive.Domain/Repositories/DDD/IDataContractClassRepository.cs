@@ -19,6 +19,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.DDD
         [IntentManaged(Mode.Fully)]
         Task<DataContractClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<DataContractClass?> FindByIdAsync(Guid id, Func<IQueryable<DataContractClass>, IQueryable<DataContractClass>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<DataContractClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

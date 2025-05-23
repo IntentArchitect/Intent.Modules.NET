@@ -13,6 +13,7 @@
     <ProjectReference Include="..\Intent.Modules.NET.Tests.Application.Core\Intent.Modules.NET.Tests.Application.Core.csproj" />
     <ProjectReference Include="..\Modules\Module1\Intent.Modules.NET.Tests.Module1.Api\Intent.Modules.NET.Tests.Module1.Api.csproj" />
     <ProjectReference Include="..\Modules\Module2\Intent.Modules.NET.Tests.Module2.Api\Intent.Modules.NET.Tests.Module2.Api.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Domain.Core\Intent.Modules.NET.Tests.Domain.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,8 +22,8 @@
     <PackageReference Include="FluentValidation" Version="12.0.0" />
     <PackageReference Include="IdentityModel" Version="7.0.0" />
     <PackageReference Include="MediatR" Version="12.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.5" />
   </ItemGroup>
   </Project>

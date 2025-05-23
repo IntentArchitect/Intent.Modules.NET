@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3f259f3f-d0f2-4b3e-812b-97bd6dea470a" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Domain</name>
+  <display>Domain (1)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>4</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47b86f35-d2c9-414a-8dd9-8017a1a1aec9</parentFolderId>
+  <packageId>47b86f35-d2c9-414a-8dd9-8017a1a1aec9</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Host</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="1bde0b37-1ca9-4f0c-9ec4-2f57ad35b49c" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Entities</name>
+      <display>Entities (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>3f259f3f-d0f2-4b3e-812b-97bd6dea470a</parentFolderId>
+      <packageId>47b86f35-d2c9-414a-8dd9-8017a1a1aec9</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Host</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDdhOTI4ZjExLTE1ZDYtNDIxNS05ZGJiLTI4NjU4NTJkMmM5YSIgeDE9IjI1IiB5MT0iLjkiIHgyPSIyNSIgeTI9IjQ5LjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOWM1N2IzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjEiIHN0b3AtY29sb3I9IiM5MjRmYTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNyIgc3RvcC1jb2xvcj0iIzczMzM4NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NzI5N2EiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQuNCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ3YTkyOGYxMS0xNWQ2LTQyMTUtOWRiYi0yODY1ODUyZDJjOWEpIi8+CiAgICAgIDxwYXRoIGQ9Ik0zOS4zLDE4LjdoLTQuOHYtMS43aDExLjZ2MS43aC00Ljh2MTRoLTJ2LTE0WiIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBkPSJNMzIuNiwyNS40aC02LjF2NS43aDYuOHYxLjdoLTguOHYtMTUuN2g4LjV2MS43aC02LjR2NWg2LjF2MS43aC0uMVoiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTkuMiwzMi43di0xNS43aDIuMmw1LDcuOWMxLjIsMS44LDIuMSwzLjUsMi44LDUuMWgwYy0uMi0yLjEtLjItNC0uMi02LjV2LTYuNmgxLjl2MTUuN2gtMmwtNS04Yy0xLjEtMS43LTIuMS0zLjUtMi45LTUuMmgwYy4xLDIsLjIsMy45LjIsNi41djYuN2gtMloiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTMuOCwzMS41YzAtLjkuNi0xLjUsMS40LTEuNXMxLjQuNiwxLjQsMS41LS41LDEuNS0xLjQsMS41LTEuNC0uNi0xLjQtMS41WiIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="POCO entities projected off the Domain UML Model." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="55492686-99ec-4e4b-85e5-5d04280085ac" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Entities</name>
+          <display>Intent.Entities</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1bde0b37-1ca9-4f0c-9ec4-2f57ad35b49c</parentFolderId>
+          <packageId>47b86f35-d2c9-414a-8dd9-8017a1a1aec9</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Host</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.1.12" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

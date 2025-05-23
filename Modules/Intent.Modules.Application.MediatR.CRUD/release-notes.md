@@ -1,3 +1,8 @@
+### Version 6.0.31
+
+- Improvement: Improved code generated when using a literal as a query filter
+- Fixed: CRUD implementations where failing in some circumstances with reserved words.
+
 ### Version 6.0.30
 
 - Improvement: When a create operation is mapped to Cosmos DB document with a partition key which is separate from its primary key, the auto generated primary key can now be returned.

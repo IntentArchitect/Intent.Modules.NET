@@ -27,5 +27,13 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.ExplicitKeys
         {
             return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, cancellationToken);
         }
+
+        public async Task<PK_B_CompositeKey?> FindByIdAsync(
+            (Guid CompositeKeyA, Guid CompositeKeyB) id,
+            Func<IQueryable<PK_B_CompositeKey>, IQueryable<PK_B_CompositeKey>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CompositeKeyA == id.CompositeKeyA && x.CompositeKeyB == id.CompositeKeyB, queryOptions, cancellationToken);
+        }
     }
 }

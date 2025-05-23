@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -17,6 +18,8 @@ namespace RichDomain.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<IDerivedFromAbstractClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<IDerivedFromAbstractClass?> FindByIdAsync(Guid id, Func<IQueryable<DerivedFromAbstractClass>, IQueryable<DerivedFromAbstractClass>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IDerivedFromAbstractClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.Associat
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<E_RequiredCompositeNav?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<E_RequiredCompositeNav>, IQueryable<E_RequiredCompositeNav>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<E_RequiredCompositeNav>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

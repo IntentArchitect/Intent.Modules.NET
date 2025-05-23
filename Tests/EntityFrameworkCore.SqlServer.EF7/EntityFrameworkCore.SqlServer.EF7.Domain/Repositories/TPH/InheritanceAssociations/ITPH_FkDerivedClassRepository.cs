@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPH.InheritanceAssociations;
@@ -15,5 +16,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.TPH.InheritanceA
     {
         [IntentManaged(Mode.Fully)]
         Task<TPH_FkDerivedClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPH_FkDerivedClass?> FindByIdAsync((Guid CompositeKeyA, Guid CompositeKeyB) id, Func<IQueryable<TPH_FkDerivedClass>, IQueryable<TPH_FkDerivedClass>> queryOptions, CancellationToken cancellationToken = default);
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.TPC.Polymorphic;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.TPC.Polymorphic
     {
         [IntentManaged(Mode.Fully)]
         Task<TPC_Poly_TopLevel?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPC_Poly_TopLevel?> FindByIdAsync(Guid id, Func<IQueryable<TPC_Poly_TopLevel>, IQueryable<TPC_Poly_TopLevel>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPC_Poly_TopLevel>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

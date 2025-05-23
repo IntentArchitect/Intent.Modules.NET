@@ -74,26 +74,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>b68ef7d1-34bb-4427-a467-122411719699</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Configuration/ApiVersioningConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApiVersioningConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b68ef7d1-34bb-4427-a467-122411719699</ProjectId>
       <CorrelationId>Intent.ModularMonolith.Host.ModuleConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Configuration/ModuleInstallerFactory.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleInstallerFactory.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b68ef7d1-34bb-4427-a467-122411719699</ProjectId>
-      <CorrelationId>Intent.AspNetCore.ProblemDetailsConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Configuration/ProblemDetailsConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

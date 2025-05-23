@@ -34,6 +34,14 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return await FindAsync(x => x.MyId == myId, cancellationToken);
         }
 
+        public async Task<CustomPk?> FindByIdAsync(
+            Guid myId,
+            Func<IQueryable<CustomPk>, IQueryable<CustomPk>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.MyId == myId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CustomPk>> FindByIdsAsync(Guid[] myIds, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

@@ -33,6 +33,14 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Db3DomainPackageAuditLog?> FindByIdAsync(
+            int id,
+            Func<IQueryable<Db3DomainPackageAuditLog>, IQueryable<Db3DomainPackageAuditLog>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Db3DomainPackageAuditLog>> FindByIdsAsync(
             int[] ids,
             CancellationToken cancellationToken = default)

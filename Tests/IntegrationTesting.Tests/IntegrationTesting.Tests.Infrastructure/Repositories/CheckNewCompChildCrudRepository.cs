@@ -33,6 +33,14 @@ namespace IntegrationTesting.Tests.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<CheckNewCompChildCrud?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<CheckNewCompChildCrud>, IQueryable<CheckNewCompChildCrud>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CheckNewCompChildCrud>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

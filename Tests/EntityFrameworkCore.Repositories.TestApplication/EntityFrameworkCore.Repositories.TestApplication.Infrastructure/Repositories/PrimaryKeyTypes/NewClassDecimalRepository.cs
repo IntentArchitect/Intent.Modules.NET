@@ -34,6 +34,14 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<NewClassDecimal?> FindByIdAsync(
+            decimal id,
+            Func<IQueryable<NewClassDecimal>, IQueryable<NewClassDecimal>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<NewClassDecimal>> FindByIdsAsync(
             decimal[] ids,
             CancellationToken cancellationToken = default)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Entities;
@@ -17,6 +18,8 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<CustomerRich?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<CustomerRich?> FindByIdAsync(Guid id, Func<IQueryable<CustomerRich>, IQueryable<CustomerRich>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<CustomerRich>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

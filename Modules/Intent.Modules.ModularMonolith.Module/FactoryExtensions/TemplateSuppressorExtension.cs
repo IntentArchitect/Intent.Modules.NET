@@ -42,6 +42,7 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
             DisableTemplate(application, "Intent.AspNetCore.Program");
             //ASP Net Core Versioning
             DisableTemplate(application, "Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions");
+            
             //ASP Net Core Controllers
             DisableTemplate(application, "Intent.AspNetCore.Controllers.ExceptionFilter");
             //Integration Subscriptions
@@ -50,6 +51,10 @@ namespace Intent.Modules.ModularMonolith.Module.FactoryExtensions
             //Security
             DisableTemplate(application, "Intent.Application.Identity.ApplicationSecurityConfiguration");
             DisableTemplate(application, "Intent.Application.Identity.CurrentUserService");
+
+            //Hosting Concern
+            DisableTemplate(application, "Intent.AspNetCore.ProblemDetailsConfiguration");
+            DisableTemplate(application, "Intent.AspNetCore.Versioning.ApiVersioningConfiguration");
 
         }
 

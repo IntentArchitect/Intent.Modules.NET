@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity.AccountController</id>
-  <version>4.1.3</version>
+  <version>4.1.4-pre.2</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</summary>
   <description>ASP.NET WebApi Controller which exposes basic account management endpoints: account registration; account authentication which returns a JWT token.</description>
@@ -55,7 +55,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution;Startup</role>
       <location>Services</location>
     </template>
     <template id="Intent.AspNetCore.Identity.AccountController.TokenServiceInterface" externalReference="a06334f3-a3ac-4036-8a05-f1f1d5c2dbc6">
@@ -63,25 +63,24 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution;Startup</role>
       <location>Services</location>
     </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
-    <factoryExtension id="Intent.AspNetCore.Identity.AccountController.ApplicationSecurityConfigurationFactoryExtension" externalReference="b369949a-03ff-4cb6-a99b-b7c3ba692613" />
     <factoryExtension id="Intent.AspNetCore.Identity.AccountController.DbContextApplicationIdentityUserFactoryExtension" externalReference="13865168-61e7-42fb-a40f-8996295a6a4b" />
     <factoryExtension id="Intent.AspNetCore.Identity.AccountController.IdentityUserFactoryExtension" externalReference="320bd997-2f28-4eea-9309-84645719a33a" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Identity" version="3.5.1" />
-    <dependency id="Intent.AspNetCore.Identity" version="4.1.1" />
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.AspNetCore.Identity" version="4.1.6-pre.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-    <dependency id="Intent.Security.JWT" version="4.2.2" />
+    <dependency id="Intent.Security.JWT" version="4.2.8-pre.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -89,4 +88,7 @@
   </files>
   <moduleSettingsExtensions />
   <metadata />
+  <migrations has-on-install-migration="true">
+    <migration version="4.1.4-pre.0" />
+  </migrations>
 </package>

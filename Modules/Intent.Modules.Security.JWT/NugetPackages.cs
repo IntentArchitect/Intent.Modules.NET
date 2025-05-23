@@ -17,25 +17,25 @@ namespace Intent.Modules.Security.JWT
         public void RegisterPackages()
         {
             NugetRegistry.Register(IdentityModelPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 7, 0) => new PackageVersion("7.0.0", locked: true),
-                        ( >= 2, 0) => new PackageVersion("7.0.0", locked: true)
+                        ( >= 7, >= 0) => new PackageVersion("7.0.0", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("7.0.0", locked: true)
                             .WithNugetDependency("System.Text.Json", "8.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{IdentityModelPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftAspNetCoreAuthenticationJwtBearerPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.0.1"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.1.2"),
-                        ( >= 7, 0) => new PackageVersion("7.0.20"),
-                        ( >= 6, 0) => new PackageVersion("6.0.36")
+                        ( >= 7, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 6, >= 0) => new PackageVersion("6.0.36")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "6.35.0"),
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Authentication", "2.3.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "5.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAspNetCoreAuthenticationJwtBearerPackageName}'"),

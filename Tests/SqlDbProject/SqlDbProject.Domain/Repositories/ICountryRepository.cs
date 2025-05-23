@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<Country?> FindByIdAsync(string countryIso, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Country?> FindByIdAsync(string countryIso, Func<IQueryable<Country>, IQueryable<Country>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Country>> FindByIdsAsync(string[] countryIsos, CancellationToken cancellationToken = default);
     }
 }

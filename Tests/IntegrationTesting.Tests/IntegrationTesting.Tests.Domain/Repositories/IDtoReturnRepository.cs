@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using IntegrationTesting.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace IntegrationTesting.Tests.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<DtoReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<DtoReturn?> FindByIdAsync(Guid id, Func<IQueryable<DtoReturn>, IQueryable<DtoReturn>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DtoReturn>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

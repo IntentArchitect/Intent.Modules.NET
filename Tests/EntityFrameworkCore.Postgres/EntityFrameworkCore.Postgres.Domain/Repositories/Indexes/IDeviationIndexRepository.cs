@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.Indexes;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.Indexes
     {
         [IntentManaged(Mode.Fully)]
         Task<DeviationIndex?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<DeviationIndex?> FindByIdAsync(Guid id, Func<IQueryable<DeviationIndex>, IQueryable<DeviationIndex>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DeviationIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -29,6 +29,14 @@ namespace SqlDbProject.Infrastructure.Repositories.Accounts
             return await FindAsync(x => x.CurrencyIso == currencyIso, cancellationToken);
         }
 
+        public async Task<Currency?> FindByIdAsync(
+            int currencyIso,
+            Func<IQueryable<Currency>, IQueryable<Currency>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CurrencyIso == currencyIso, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Currency>> FindByIdsAsync(int[] currencyIsos, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

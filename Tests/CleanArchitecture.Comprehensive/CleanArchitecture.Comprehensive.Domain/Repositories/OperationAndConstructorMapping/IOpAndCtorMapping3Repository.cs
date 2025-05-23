@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.OperationAndConstructorMapping;
@@ -17,6 +18,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.OperationAndConstr
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<OpAndCtorMapping3?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<OpAndCtorMapping3?> FindByIdAsync(Guid id, Func<IQueryable<OpAndCtorMapping3>, IQueryable<OpAndCtorMapping3>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OpAndCtorMapping3>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -82,6 +82,22 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="72b1fa94-cb62-4827-b033-5c83baa13de4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</name>
+      <display>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</display>
+      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>295e0b31-b937-4f8a-bbbd-7d35ad015896</parentFolderId>
+      <packageId>798b053f-af96-45dd-9aee-985301ccb287</packageId>
+      <packageName>${application.name}</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="e5d4cc1c-21ca-437d-a358-ebd991a8ce9d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.FluentValidation.Dtos.DTOValidator</name>
       <display>Intent.Application.FluentValidation.Dtos.DTOValidator</display>

@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.Identity.AccountController.Templates.AccountEmailSenderInterface;
+using Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -135,6 +138,12 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenSe
                         nestedClass.AddProperty("DateTime", "Expiry");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!CanRunTemplate()) return;
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface(GetTemplate<TokenServiceInterfaceTemplate>(TokenServiceInterfaceTemplate.TemplateId)));
         }
 
         [IntentManaged(Mode.Fully)]

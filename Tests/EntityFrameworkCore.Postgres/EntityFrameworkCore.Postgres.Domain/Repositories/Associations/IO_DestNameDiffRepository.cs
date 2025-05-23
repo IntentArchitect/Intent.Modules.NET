@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.Associations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.Associations
     {
         [IntentManaged(Mode.Fully)]
         Task<O_DestNameDiff?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<O_DestNameDiff?> FindByIdAsync(Guid id, Func<IQueryable<O_DestNameDiff>, IQueryable<O_DestNameDiff>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<O_DestNameDiff>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

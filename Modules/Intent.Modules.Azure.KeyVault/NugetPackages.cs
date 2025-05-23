@@ -18,13 +18,13 @@ namespace Intent.Modules.Azure.KeyVault
         public void RegisterPackages()
         {
             NugetRegistry.Register(AzureExtensionsAspNetCoreConfigurationSecretsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("1.4.0")
+                        ( >= 8, >= 0) => new PackageVersion("1.4.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("Azure.Security.KeyVault.Secrets", "4.6.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "2.1.0"),
-                        ( >= 2, 0) => new PackageVersion("1.4.0")
+                        ( >= 2, >= 0) => new PackageVersion("1.4.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("Azure.Security.KeyVault.Secrets", "4.6.0")
                             .WithNugetDependency("Microsoft.Extensions.Configuration", "2.1.0"),
@@ -32,28 +32,25 @@ namespace Intent.Modules.Azure.KeyVault
                     }
                 );
             NugetRegistry.Register(AzureIdentityPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("1.13.2")
-                            .WithNugetDependency("Azure.Core", "1.44.1")
-                            .WithNugetDependency("Microsoft.Identity.Client", "4.67.2")
-                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.67.2")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
-                        ( >= 2, 0) => new PackageVersion("1.13.2")
-                            .WithNugetDependency("Azure.Core", "1.44.1")
-                            .WithNugetDependency("Microsoft.Identity.Client", "4.67.2")
-                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.67.2")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Text.Json", "6.0.10")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
+                        ( >= 8, >= 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Azure.Core", "1.46.1")
+                            .WithNugetDependency("Microsoft.Identity.Client", "4.71.1")
+                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.71.1")
+                            .WithNugetDependency("System.Memory", "4.5.5"),
+                        ( >= 2, >= 0) => new PackageVersion("1.14.0")
+                            .WithNugetDependency("Azure.Core", "1.46.1")
+                            .WithNugetDependency("Microsoft.Identity.Client", "4.71.1")
+                            .WithNugetDependency("Microsoft.Identity.Client.Extensions.Msal", "4.71.1")
+                            .WithNugetDependency("System.Memory", "4.5.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureIdentityPackageName}'"),
                     }
                 );
             NugetRegistry.Register(AzureSecurityKeyVaultSecretsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("4.7.0")
+                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("System.Memory", "4.5.5")
                             .WithNugetDependency("System.Text.Json", "6.0.10")

@@ -162,7 +162,7 @@ public class DomainInteractionsManager
                 throw new ElementException(queryContext.AssociationEnd, "Query Entity Mapping has not been specified.");
             }
 
-            var entityVariableName = associationEnd.Name;
+            var entityVariableName = associationEnd.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
 
             _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
             _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
@@ -475,10 +475,10 @@ public class DomainInteractionsManager
         {
             var entity = createAction.Element.AsClassModel() ?? createAction.Element.AsClassConstructorModel().ParentClass;
 
-            var entityVariableName = createAction.Name;
+            var entityVariableName = createAction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
             var dataAccess = InjectDataAccessProvider(handlerClass, entity);
 
-            TrackedEntities.Add(createAction.Id, new EntityDetails(entity.InternalElement, createAction.Name, dataAccess, true));
+            TrackedEntities.Add(createAction.Id, new EntityDetails(entity.InternalElement, entityVariableName, dataAccess, true));
 
             var mapping = createAction.Mappings.SingleOrDefault();
             var statements = new List<CSharpStatement>();

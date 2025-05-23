@@ -35,6 +35,14 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<ClassWithSoftDelete?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<ClassWithSoftDelete>, IQueryable<ClassWithSoftDelete>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<ClassWithSoftDelete>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

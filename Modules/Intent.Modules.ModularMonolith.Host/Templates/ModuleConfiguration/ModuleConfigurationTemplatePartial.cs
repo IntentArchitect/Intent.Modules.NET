@@ -34,8 +34,9 @@ namespace Intent.Modules.ModularMonolith.Host.Templates.ModuleConfiguration
                     @class.AddMethod($"IEnumerable<{this.GetModuleInstallerInterfaceName()}>", "GetModuleInstallers", method =>
                     {
                         method.Static();
-                        method.AddStatement($"var result = new List<{this.GetModuleInstallerInterfaceName()}>();");
-                        method.AddStatement($"return result;");
+                        method.AddStatement($"yield break;");
+                        //method.AddStatement($"var result = new List<{this.GetModuleInstallerInterfaceName()}>();");
+                        //method.AddStatement($"return result;");
                     });
                 });
         }

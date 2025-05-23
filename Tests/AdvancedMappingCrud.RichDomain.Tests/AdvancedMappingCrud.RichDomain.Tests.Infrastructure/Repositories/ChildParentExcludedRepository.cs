@@ -33,6 +33,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<ChildParentExcluded?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<ChildParentExcluded>, IQueryable<ChildParentExcluded>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<ChildParentExcluded>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

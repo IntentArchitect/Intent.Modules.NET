@@ -28,6 +28,14 @@ namespace SqlDbProject.Infrastructure.Repositories
             return await FindAsync(x => x.PolicyId == policyId, cancellationToken);
         }
 
+        public async Task<Policy?> FindByIdAsync(
+            long policyId,
+            Func<IQueryable<Policy>, IQueryable<Policy>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.PolicyId == policyId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Policy>> FindByIdsAsync(long[] policyIds, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

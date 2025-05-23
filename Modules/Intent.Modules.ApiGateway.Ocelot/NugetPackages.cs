@@ -16,27 +16,27 @@ namespace Intent.Modules.ApiGateway.Ocelot
         public void RegisterPackages()
         {
             NugetRegistry.Register(OcelotPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("24.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("24.0.0")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.2.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "9.0.4")
                             .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "9.0.4")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
-                        ( >= 8, 0) => new PackageVersion("24.0.0")
+                        ( >= 8, >= 0) => new PackageVersion("24.0.0")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.2.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "8.0.15")
                             .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "8.0.15")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
-                        ( >= 7, 0) => new PackageVersion("23.4.3")
+                        ( >= 7, >= 0) => new PackageVersion("23.4.3")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.1.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "7.0.20")
                             .WithNugetDependency("Microsoft.AspNetCore.Mvc.NewtonsoftJson", "7.0.20")
                             .WithNugetDependency("Microsoft.Extensions.DiagnosticAdapter", "3.1.32"),
-                        ( >= 6, 0) => new PackageVersion("23.4.3")
+                        ( >= 6, >= 0) => new PackageVersion("23.4.3")
                             .WithNugetDependency("FluentValidation", "11.11.0")
                             .WithNugetDependency("IPAddressRange", "6.1.0")
                             .WithNugetDependency("Microsoft.AspNetCore.MiddlewareAnalysis", "6.0.36")

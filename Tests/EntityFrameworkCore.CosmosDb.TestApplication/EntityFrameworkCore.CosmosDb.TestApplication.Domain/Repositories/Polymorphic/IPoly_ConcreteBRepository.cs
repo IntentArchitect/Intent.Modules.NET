@@ -20,6 +20,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Polym
         [IntentManaged(Mode.Fully)]
         Task<Poly_ConcreteB?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Poly_ConcreteB?> FindByIdAsync(Guid id, Func<IQueryable<Poly_ConcreteB>, IQueryable<Poly_ConcreteB>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Poly_ConcreteB>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

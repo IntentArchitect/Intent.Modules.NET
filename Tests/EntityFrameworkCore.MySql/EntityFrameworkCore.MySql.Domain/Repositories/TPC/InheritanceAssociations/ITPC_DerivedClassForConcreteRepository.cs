@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.TPC.InheritanceAssociations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.TPC.InheritanceAssociati
     {
         [IntentManaged(Mode.Fully)]
         Task<TPC_DerivedClassForConcrete?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPC_DerivedClassForConcrete?> FindByIdAsync(Guid id, Func<IQueryable<TPC_DerivedClassForConcrete>, IQueryable<TPC_DerivedClassForConcrete>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPC_DerivedClassForConcrete>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

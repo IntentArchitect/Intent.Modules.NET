@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.Interfaces.EF.Domain.Entities;
@@ -17,6 +18,8 @@ namespace Entities.Interfaces.EF.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<IPerson?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<IPerson?> FindByIdAsync(Guid id, Func<IQueryable<Person>, IQueryable<Person>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<IPerson>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

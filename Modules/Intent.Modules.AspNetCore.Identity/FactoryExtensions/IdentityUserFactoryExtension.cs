@@ -29,7 +29,6 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
         public override int Order => 0;
     }
 
-#warning is this actually used and just lying around here - 16 Aug 2024
     [IntentManaged(Mode.Ignore)]
     public class DbContextFactoryExtension : FactoryExtensionBase
     {
@@ -46,10 +45,17 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             UpdateEntityTemplate(application, identityModel);
         }
 
+        private static DbContextTemplate? GetDbContextTemplate(IApplication application)
+        {
+            var result = application.FindTemplateInstance<DbContextTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DbContext"));
+            if (result != null) return result;
+            result = application.FindTemplateInstance<DbContextTemplate>(TemplateDependency.OnTemplate("Intent.EntityFrameworkCore.DbContext"));
+            return result;
+        }
+
         private static void UpdateDbContext(IApplication application, ClassModel identityModel)
         {
-            var dbContextTemplate =
-                application.FindTemplateInstance<DbContextTemplate>(TemplateDependency.OnTemplate("Infrastructure.Data.DbContext"));
+            var dbContextTemplate = GetDbContextTemplate(application);
             if (dbContextTemplate == null)
             {
                 return;
@@ -61,10 +67,8 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
                 var @class = file.Classes.First();
                 @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClass()}>");
 
-                if (identityModel != null && (
-                        identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase) ||
-                        identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase))
-                    )
+                // Users Exists on the base class already
+                if (identityModel != null && identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase))                    
                 {
                     var usersProperty = @class.Properties.SingleOrDefault(x => x.Name == "Users");
                     if (usersProperty != null)

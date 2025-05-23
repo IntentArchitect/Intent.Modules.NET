@@ -1,3 +1,9 @@
+### Version 4.1.6
+
+- Improvement: Added `Distribution` role target for container configuration.
+- Improvement: Made the DB Context template resolution a little smarter.
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.5
 
 - Improvement: Updated NuGet package versions.

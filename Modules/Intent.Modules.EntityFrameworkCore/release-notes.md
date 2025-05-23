@@ -1,3 +1,7 @@
+### Version 5.0.23
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.22
 
 - Improvement: Added documentation for modeling Entities as one-to-one relationships.

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="32c49a2f-2576-41e5-ab5a-32a2e53d195c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.30.0</name>
+      <name>4.31.0</name>
       <display>4.30.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="47c7dc3d-d7a6-4eff-92c4-dfe973ff1dea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e570f557-553b-4bce-83cf-62eaf13e4f3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
-          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
-          <value>1.44.1</value>
+          <value>1.46.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>32c49a2f-2576-41e5-ab5a-32a2e53d195c</parentFolderId>
-          <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
-          <packageName>Intent.Eventing.AzureEventGrid</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4d2768b6-1622-4799-a372-99ec7ff4b07a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Memory.Data</name>
-          <display>System.Memory.Data (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>32c49a2f-2576-41e5-ab5a-32a2e53d195c</parentFolderId>
-          <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
-          <packageName>Intent.Eventing.AzureEventGrid</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="2d4a7870-32a5-438a-bb2b-825e0e94ae52" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.30.0</name>
+      <name>4.31.0</name>
       <display>4.30.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,44 +83,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e99fb523-bdf5-4c4c-926c-7b9ee1f887f3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9398424b-1652-491a-9ca9-e8c8e5f75f7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
-          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
-          <value>1.44.1</value>
+          <value>1.46.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2d4a7870-32a5-438a-bb2b-825e0e94ae52</parentFolderId>
-          <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
-          <packageName>Intent.Eventing.AzureEventGrid</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0e102be6-3e20-4951-9c39-2b24ae010295" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Memory.Data</name>
-          <display>System.Memory.Data (6.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d4a7870-32a5-438a-bb2b-825e0e94ae52</parentFolderId>
-          <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
-          <packageName>Intent.Eventing.AzureEventGrid</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a199fbf6-c7a3-43b3-b107-b79f0093d2bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (6.0.10)</display>
-          <isAbstract>false</isAbstract>
-          <value>6.0.10</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2d4a7870-32a5-438a-bb2b-825e0e94ae52</parentFolderId>
-          <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
-          <packageName>Intent.Eventing.AzureEventGrid</packageName>
           <stereotypes />
           <metadata />
           <childElements />

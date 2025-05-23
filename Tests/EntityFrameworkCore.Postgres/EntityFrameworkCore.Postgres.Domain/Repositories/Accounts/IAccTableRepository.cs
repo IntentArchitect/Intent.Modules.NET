@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.Accounts;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.Accounts
     {
         [IntentManaged(Mode.Fully)]
         Task<AccTable?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AccTable?> FindByIdAsync(Guid id, Func<IQueryable<AccTable>, IQueryable<AccTable>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AccTable>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.Associations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.Associations
     {
         [IntentManaged(Mode.Fully)]
         Task<Q_DestNameDiff?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Q_DestNameDiff?> FindByIdAsync(Guid id, Func<IQueryable<Q_DestNameDiff>, IQueryable<Q_DestNameDiff>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Q_DestNameDiff>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
