@@ -18,10 +18,10 @@ namespace Intent.Modules.Security.JWT
         public void RegisterPackages()
         {
             NugetRegistry.Register(DuendeIdentityModelPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("7.0.0", locked: true),
-                        ( >= 2, 0) => new PackageVersion("7.0.0", locked: true)
+                        ( >= 8, >= 0) => new PackageVersion("7.0.0", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("7.0.0", locked: true)
                             .WithNugetDependency("System.Text.Json", "8.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DuendeIdentityModelPackageName}'"),
                     }
