@@ -1,3 +1,15 @@
+### Version 6.0.0
+
+> ⚠️ **NOTE**
+>
+> This version contains a breaking change.
+> Configuration files will now have an additional configuration entry under the `IdentityClients` section called `TokenEndpoint`
+> Please set this value to the same as what the previous `Address` value was. You can safely remove `Address` if no longer required.
+> Update your configuration files where necessary 
+
+- Improvement: Replaced IdentityModel with Duende.IdentityModel
+- Improvement: Replaced IdentityModel.AspNetCore with Duende.AccessTokenManagement
+
 ### Version 5.3.6
 
 - Improvement: Updated NuGet package versions.

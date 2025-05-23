@@ -1,5 +1,6 @@
 ### Version 4.2.8
 
+- Improvement: Replaced IdentityModel with Duende.IdentityModel
 - Improvement: Updated NuGet package versions.
 
 ### Version 4.2.7
