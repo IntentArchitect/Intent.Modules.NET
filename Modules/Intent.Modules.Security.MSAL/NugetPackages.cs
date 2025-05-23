@@ -22,10 +22,10 @@ namespace Intent.Modules.Security.MSAL
         public void RegisterPackages()
         {
             NugetRegistry.Register(DuendeIdentityModelPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("7.0.0", locked: true),
-                        ( >= 2, 0) => new PackageVersion("7.0.0", locked: true)
+                        ( >= 8, >= 0) => new PackageVersion("7.0.0", locked: true),
+                        ( >= 2, >= 0) => new PackageVersion("7.0.0", locked: true)
                             .WithNugetDependency("System.Text.Json", "8.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DuendeIdentityModelPackageName}'"),
                     }
@@ -111,10 +111,10 @@ namespace Intent.Modules.Security.MSAL
                             .WithNugetDependency("System.Formats.Asn1", "6.0.1")
                             .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.10.0"),
                         ( >= 2, >= 0) => new PackageVersion("3.9.1")
-                            .WithNugetDependency("Microsoft.AspNetCore.DataProtection", "2.1.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "2.1.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting", "2.1.1")
-                            .WithNugetDependency("Microsoft.Extensions.Http", "3.1.3")
+                            .WithNugetDependency("Microsoft.AspNetCore.DataProtection", "3.8.4")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "3.8.4")
+                            .WithNugetDependency("Microsoft.Extensions.Hosting", "3.8.4")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "3.8.4")
                             .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.9.1")
                             .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.9.1")
                             .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.9.1")

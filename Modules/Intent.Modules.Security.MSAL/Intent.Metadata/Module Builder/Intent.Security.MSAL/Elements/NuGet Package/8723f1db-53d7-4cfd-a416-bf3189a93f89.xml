@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.0.16</name>
-      <display>8.0.14 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -180,7 +180,7 @@
     </childElement>
     <childElement id="bd6e645d-4b23-4b37-b4a4-5231190337b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.5</name>
-      <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
