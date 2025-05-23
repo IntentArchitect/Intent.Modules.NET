@@ -59,7 +59,7 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
                 var dotNetVersion = OutputTarget.GetMaxNetAppVersion();
-                if(dotNetVersion.Major >= 8)
+                if (dotNetVersion.Major >= 8)
                 {
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:TokenEndpoint", "https://localhost:{sts_port}/connect/token"));
                 }
