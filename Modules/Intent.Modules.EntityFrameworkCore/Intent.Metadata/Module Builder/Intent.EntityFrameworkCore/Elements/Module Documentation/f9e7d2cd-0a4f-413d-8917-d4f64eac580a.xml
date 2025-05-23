@@ -93,6 +93,33 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="c470bad0-d6e0-4bce-8bbb-8a70f93f86c0" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Modeling a Many-to-Many Relationship</name>
+      <display>Modeling a Many-to-Many Relationship</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f9e7d2cd-0a4f-413d-8917-d4f64eac580a</parentFolderId>
+      <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+      <packageName>Intent.EntityFrameworkCore</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Options and customizations available when modeling a many-to-many relationship." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-entityframeworkcore/intent-entityframeworkcore.html#many-to-many-relationship-modeling" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;6ab29b31-27af-4f56-a67c-986d82097d63&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="ef entityframework relationship association many manytomany" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="8649f2d2-47c6-472f-8554-59a285b30c17" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
       <name>Modeling Entity Framework Core Inheritence</name>
       <display>Modeling Entity Framework Core Inheritence</display>

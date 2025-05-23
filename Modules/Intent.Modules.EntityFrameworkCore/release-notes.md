@@ -1,6 +1,7 @@
 ### Version 5.0.23
 
 - Improvement: Updated NuGet package versions.
+- Improvement: Added documentation and topics related to modeling many-to-many relationships.
 
 ### Version 5.0.22
 

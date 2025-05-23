@@ -146,6 +146,41 @@ This will result in Entity Framework making separate tables for both Entities:
 
 ![Split Entities tables](images/split-entities-table.png)
 
+### Many-to-Many Relationship Modeling
+
+When modeling a `many-to-many` relationship, it is not always necessary to explicitly define the **joining table**. Entity Framework Core can automatically create and manage this table behind the scenes - see the [official documentation](https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many) for more details.
+
+However, the joining table can also be explicitly modeled if preferred. Both approaches are functionally equivalent in many scenarios.
+
+#### Implicit Join Table
+
+When not modeling the joining table explicitly, Entity Framework will generate the necessary intermediate table automatically:
+
+![Implicit Many-To-Many](images/many-to-many-no-join.png)
+
+#### Explicit Join Table
+
+You can also model the join table directly in the domain:
+
+![Explicit Many-To-Many](images/many-to-many-with-join.png)
+
+#### When to Model the Join Table
+
+You should explicitly model the join table when:
+
+* You need to add additional columns to the joining table (beyond the default foreign keys).
+* You need to establish relationships between the joining table and other tables not part of the original many-to-many relationship.
+
+Example:
+
+![Many-To-Many Additions](images/many-to-many-additions.png)
+
+#### Naming the Join Table
+
+When using an implicit many-to-many relationship, you can still customize the generated join table’s name using the `Join Table` stereotype. This allows for control over the table name without needing to fully model the table.
+
+> For more information on configuring the join table using the `Join Table` stereotype, refer to the [Intent.Metadata.RDBMS module documentation](https://docs.intentarchitect.com/articles/modules-common/intent-metadata-rdbms/intent-metadata-rdbms.html#create-join-table-constraint).
+
 ### Modeling Inheritance
 
 In Entity Framework Core there are 3 ways to model inheritance, namely:
