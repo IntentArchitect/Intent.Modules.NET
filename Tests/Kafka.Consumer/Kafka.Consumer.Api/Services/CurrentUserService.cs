@@ -1,6 +1,6 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
-using IdentityModel;
+using Duende.IdentityModel;
 using Intent.RoslynWeaver.Attributes;
 using Kafka.Consumer.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Authorization;

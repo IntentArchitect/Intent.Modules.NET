@@ -1,5 +1,5 @@
 using System.Security.Claims;
-using IdentityModel;
+using Duende.IdentityModel;
 using Intent.Modules.NET.Tests.Application.Core.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;

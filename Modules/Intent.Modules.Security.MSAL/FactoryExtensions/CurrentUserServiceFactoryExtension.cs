@@ -38,7 +38,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System.Security.Claims");
-                file.AddUsing("IdentityModel");
+                file.AddUsing("Duende.IdentityModel");
                 file.AddUsing("Microsoft.AspNetCore.Authorization");
                 file.AddUsing("Microsoft.AspNetCore.Http");
 
