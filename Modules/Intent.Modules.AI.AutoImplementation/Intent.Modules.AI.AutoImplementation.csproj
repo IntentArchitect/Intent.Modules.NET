@@ -1,9 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tasks\IntentSemanticKernelFactory.cs" />
+    <Compile Remove="Tasks\SoftwareFactoryLogger.cs" />
+    <Compile Remove="Tasks\SoftwareFactoryLoggingProvider.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
@@ -12,12 +18,13 @@
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.8.0" />
     <PackageReference Include="Intent.Modules.Modelers.Services.CQRS" Version="5.1.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services.DomainInteractions" Version="2.0.2" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-alpha.0" />
     <PackageReference Include="Intent.Packager" Version="3.5.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0-alpha.0" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.9.0-alpha.3" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Microsoft.SemanticKernel" Version="1.40.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.40.0" />
@@ -26,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Intent.Modules.AI.ChatDrivenDomain\Intent.Modules.AI.ChatDrivenDomain.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
   </ItemGroup>
 
