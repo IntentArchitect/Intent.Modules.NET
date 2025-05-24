@@ -113,6 +113,7 @@ public class AutoImplementHandlerTask : IModuleTask
         return "success";
     }
 
+
     private string GetPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
