@@ -8,7 +8,7 @@ public record AzureFunctionSubscriptionModel(
     string QueueOrTopicName, 
     string QueueOrTopicConfigurationName, 
     bool NeedsSubscription,
-    string? SubscriptionName) : IMetadataModel
+    string? SubscriptionConfigurationName) : IMetadataModel
 {
     public string Id => QueueOrTopicName;
 }

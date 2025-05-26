@@ -49,13 +49,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                 .AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();")
                                 .AddStatement(
                                     $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
-
-                            var apps = ExecutionContext.GetSolutionConfig()
-                                .GetApplicationReferences()
-                                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
-                                .ToArray();
                             
-                            var publishers = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(app.Id)).ToList();
+                            var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
                             if (publishers.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetPublisherOptionsName()}>", inv => inv
@@ -69,7 +64,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                                     }));
                             }
 
-                            var subscribers = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(app.Id)).ToList();
+                            var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
                             if (subscribers.Count != 0)
                             {
                                 method.AddInvocationStatement($"services.Configure<{this.GetSubscriptionOptionsName()}>", inv => inv

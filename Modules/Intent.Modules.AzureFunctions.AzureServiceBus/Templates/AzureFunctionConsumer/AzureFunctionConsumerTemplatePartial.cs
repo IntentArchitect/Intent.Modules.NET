@@ -56,10 +56,10 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                             param.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.ServiceBusTrigger"), attr =>
                             {
 
-                                attr.AddArgument($@"""%AzureServiceBus:{Model.QueueOrTopicConfigurationName}%""");
+                                attr.AddArgument($@"""%{Model.QueueOrTopicConfigurationName}%""");
                                 if (Model.NeedsSubscription)
                                 {
-                                    attr.AddArgument($@"""%AzureServiceBus:{Model.SubscriptionName}%""");
+                                    attr.AddArgument($@"""%{Model.SubscriptionConfigurationName}%""");
                                 }
                                 attr.AddArgument(@"Connection = ""AzureServiceBus:ConnectionString""");
                             });
