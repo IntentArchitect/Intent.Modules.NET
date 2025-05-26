@@ -1,11 +1,11 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.ProjectTo.Tests.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -13,7 +13,7 @@ using MediatR;
 namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Customers.GetCustomersPaged
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetCustomersPagedQueryHandler : IRequestHandler<GetCustomersPagedQuery, Common.Pagination.PagedResult<CustomerDto>>
+    public class GetCustomersPagedQueryHandler : IRequestHandler<GetCustomersPagedQuery, PagedResult<CustomerDto>>
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.ProjectTo.Tests.Application.Customers
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<CustomerDto>> Handle(
+        public async Task<PagedResult<CustomerDto>> Handle(
             GetCustomersPagedQuery request,
             CancellationToken cancellationToken)
         {

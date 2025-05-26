@@ -1,5 +1,4 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +6,7 @@ using FastEndpointsTest.Application.Common.Pagination;
 using FastEndpointsTest.Domain.Repositories.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -14,7 +14,7 @@ using MediatR;
 namespace FastEndpointsTest.Application.Pagination.GetPeoplePaginated
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetPeoplePaginatedQueryHandler : IRequestHandler<GetPeoplePaginatedQuery, Common.Pagination.PagedResult<PersonEntryDto>>
+    public class GetPeoplePaginatedQueryHandler : IRequestHandler<GetPeoplePaginatedQuery, PagedResult<PersonEntryDto>>
     {
         private readonly IPersonEntryRepository _personEntryRepository;
         private readonly IMapper _mapper;
@@ -27,7 +27,7 @@ namespace FastEndpointsTest.Application.Pagination.GetPeoplePaginated
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<PersonEntryDto>> Handle(
+        public async Task<PagedResult<PersonEntryDto>> Handle(
             GetPeoplePaginatedQuery request,
             CancellationToken cancellationToken)
         {

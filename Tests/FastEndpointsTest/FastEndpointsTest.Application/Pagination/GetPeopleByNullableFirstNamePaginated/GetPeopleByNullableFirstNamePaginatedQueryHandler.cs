@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -9,6 +8,7 @@ using FastEndpointsTest.Domain.Entities.Pagination;
 using FastEndpointsTest.Domain.Repositories.Pagination;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -16,7 +16,7 @@ using MediatR;
 namespace FastEndpointsTest.Application.Pagination.GetPeopleByNullableFirstNamePaginated
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetPeopleByNullableFirstNamePaginatedQueryHandler : IRequestHandler<GetPeopleByNullableFirstNamePaginatedQuery, Common.Pagination.PagedResult<PersonEntryDto>>
+    public class GetPeopleByNullableFirstNamePaginatedQueryHandler : IRequestHandler<GetPeopleByNullableFirstNamePaginatedQuery, PagedResult<PersonEntryDto>>
     {
         private readonly IPersonEntryRepository _personEntryRepository;
         private readonly IMapper _mapper;
@@ -30,7 +30,7 @@ namespace FastEndpointsTest.Application.Pagination.GetPeopleByNullableFirstNameP
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<PersonEntryDto>> Handle(
+        public async Task<PagedResult<PersonEntryDto>> Handle(
             GetPeopleByNullableFirstNamePaginatedQuery request,
             CancellationToken cancellationToken)
         {

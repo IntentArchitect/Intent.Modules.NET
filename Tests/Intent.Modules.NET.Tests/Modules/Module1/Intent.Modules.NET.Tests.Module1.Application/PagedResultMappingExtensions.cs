@@ -1,10 +1,11 @@
+using Intent.Modules.NET.Tests.Application.Core.Common.Pagination;
 using Intent.Modules.NET.Tests.Module1.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.Pagination.PagedResultMappingExtensions", Version = "1.0")]
 
-namespace Intent.Modules.NET.Tests.Module1.Application.Common.Pagination
+namespace Intent.Modules.NET.Tests.Module1.Application
 {
     public static class PagedResultMappingExtensions
     {

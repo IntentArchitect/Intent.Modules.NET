@@ -1,5 +1,4 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -7,6 +6,7 @@ using GrpcServer.Application.Common.Pagination;
 using GrpcServer.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -14,7 +14,7 @@ using MediatR;
 namespace GrpcServer.Application.Products.GetProductsPaged
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetProductsPagedQueryHandler : IRequestHandler<GetProductsPagedQuery, Common.Pagination.PagedResult<ProductDto>>
+    public class GetProductsPagedQueryHandler : IRequestHandler<GetProductsPagedQuery, PagedResult<ProductDto>>
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
@@ -27,7 +27,7 @@ namespace GrpcServer.Application.Products.GetProductsPaged
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<ProductDto>> Handle(
+        public async Task<PagedResult<ProductDto>> Handle(
             GetProductsPagedQuery request,
             CancellationToken cancellationToken)
         {
