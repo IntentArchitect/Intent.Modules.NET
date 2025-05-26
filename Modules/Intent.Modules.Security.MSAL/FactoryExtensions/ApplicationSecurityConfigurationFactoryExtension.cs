@@ -53,9 +53,18 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 configMethod.FindStatement(stmt => stmt.GetText("").Contains("return services")).Remove();
                 configMethod.AddStatement("JwtSecurityTokenHandler.DefaultMapInboundClaims = false;");
                 configMethod.AddStatement("services.AddHttpContextAccessor();");
+
+                var identityWebApiInvocation = new CSharpInvocationStatement("AddMicrosoftIdentityWebApi")
+                .AddArgument(new CSharpLambdaBlock("options")
+                        .AddStatement(@"options.TokenValidationParameters.RoleClaimType = ""roles"";")
+                        .AddStatement(@"options.TokenValidationParameters.NameClaimType = ""name"";"))
+                .AddArgument(new CSharpLambdaBlock("identityOptions")
+                        .AddStatement(@"configuration.GetSection(""AzureAd"").Bind(identityOptions);"));
+
                 configMethod.AddMethodChainStatement("services", stmt => stmt
                     .AddChainStatement("AddAuthentication(JwtBearerDefaults.AuthenticationScheme)")
-                    .AddChainStatement(@"AddMicrosoftIdentityWebApi(configuration.GetSection(""AzureAd""))"));
+                    .AddStatement(identityWebApiInvocation.WithoutSemicolon()));
+
                 configMethod.AddInvocationStatement("services.Configure<OpenIdConnectOptions>", block => block
                     .AddArgument("OpenIdConnectDefaults.AuthenticationScheme")
                     .AddArgument(new CSharpLambdaBlock("options")
@@ -70,8 +79,8 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                     .AddAttribute(CSharpIntentManagedAttribute.Ignore())
                     .AddParameter("AuthorizationOptions", "options")
                     .AddStatement("//Configure policies and other authorization options here. For example:")
-                    .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"role\", \"employee\"));")
-                    .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"role\", \"admin\"));"));
+                    .AddStatement("//options.AddPolicy(\"EmployeeOnly\", policy => policy.RequireClaim(\"roles\", \"employee\"));")
+                    .AddStatement("//options.AddPolicy(\"AdminOnly\", policy => policy.RequireClaim(\"roles\", \"admin\"));"));
             });
 
             template.ApplyAppSetting("AzureAd", new
