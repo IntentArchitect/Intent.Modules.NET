@@ -64,6 +64,38 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="564fb010-fc8d-474f-8e3d-11b5a01c9e3c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.ContractEnumModel</name>
+      <display>Intent.Application.Dtos.ContractEnumModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>67f98324-98a7-4f02-9045-b9e23f93a56c</parentFolderId>
+      <packageId>3deb002a-521a-4829-aa22-04ab37edbe99</packageId>
+      <packageName>${solution.name}</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1dc73a5e-f863-466f-8e69-5a5a34096445" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Dtos.DtoModel</name>
+      <display>Intent.Application.Dtos.DtoModel</display>
+      <externalReference>Intent.Application.Dtos</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>67f98324-98a7-4f02-9045-b9e23f93a56c</parentFolderId>
+      <packageId>3deb002a-521a-4829-aa22-04ab37edbe99</packageId>
+      <packageName>${solution.name}</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="8f328b43-fbe6-488b-9174-ba8d1e4c11a2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Application.MediatR.CommandHandler</name>
       <display>Intent.Application.MediatR.CommandHandler</display>

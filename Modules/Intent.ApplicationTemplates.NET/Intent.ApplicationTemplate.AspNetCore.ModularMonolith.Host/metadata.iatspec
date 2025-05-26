@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Host</id>
-  <version>1.0.0-pre.4</version>
+  <version>1.0.0-pre.5</version>
   <supportedClientVersions>[3.0.0,5.0.0)</supportedClientVersions>
   <displayName>Modular Monolith Host</displayName>
   <shortDescription>Web application implementation based on Modular Monolith Architecture.</shortDescription>
