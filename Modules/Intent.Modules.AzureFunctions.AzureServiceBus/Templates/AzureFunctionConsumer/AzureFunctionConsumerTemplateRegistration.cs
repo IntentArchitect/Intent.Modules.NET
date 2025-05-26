@@ -41,36 +41,46 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
         {
             var results = new List<AzureFunctionSubscriptionModel>();
             var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
+            
+            var messagesLookup = IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(application.Id)
+                .ToDictionary(k => k.MessageModel);
 
-            var messagesLookup = handlerModels.Where(p => p.InternalElement.IsMessageModel())
-                .ToDictionary(k => k.InternalElement.AsMessageModel());
-            var messages = IntegrationManager.Instance.GetSubscribedAzureServiceBusMessages(application.Id);
-            foreach (var message in messages)
-            {
-                var handlerModel = messagesLookup[message.MessageModel];
-                results.Add(new AzureFunctionSubscriptionModel(
-                    handlerModel,
-                    message.QueueOrTopicName,
-                    message.QueueOrTopicConfigurationName,
-                    message.ChannelType == AzureServiceBusChannelType.Topic,
-                    message.QueueOrTopicSubscriptionConfigurationName));
-            }
+            results.AddRange(handlerModels
+                .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
+                {
+                    Handler = handlerModel,
+                    Message = subscription.Element.IsMessageModel() 
+                        ? messagesLookup.GetValueOrDefault(subscription.Element.AsMessageModel()) 
+                        : null
+                })
+                .Where(p => p.Message is not null)
+                .Select(s => new AzureFunctionSubscriptionModel(
+                    s.Handler,
+                    s.Message!.QueueOrTopicName,
+                    s.Message.QueueOrTopicConfigurationName,
+                    s.Message.ChannelType == AzureServiceBusChannelType.Topic,
+                    s.Message.QueueOrTopicSubscriptionConfigurationName))
+            );
 
-            var commandsLookup = handlerModels.Where(p => p.InternalElement.IsCommentModel())
-                .ToDictionary(k => k.InternalElement.AsIntegrationCommandModel());
-            var commands = IntegrationManager.Instance.GetSubscribedAzureServiceBusCommands(application.Id);
-            foreach (var command in commands)
-            {
-                var handlerModel = commandsLookup[command.CommandModel];
-                results.Add(new AzureFunctionSubscriptionModel(
-                    handlerModel,
-                    command.QueueOrTopicName,
-                    command.QueueOrTopicConfigurationName,
-                    command.ChannelType == AzureServiceBusChannelType.Topic,
-                    command.QueueOrTopicSubscriptionConfigurationName
-                ));
-            }
-
+            var commandsLookup = IntegrationManager.Instance.GetSubscribedAzureServiceBusCommands(application.Id)
+                .ToDictionary(k => k.CommandModel);
+            results.AddRange(handlerModels
+                .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
+                {
+                    Handler = handlerModel,
+                    Message = subscription.Element.IsIntegrationCommandModel()
+                        ? commandsLookup.GetValueOrDefault(subscription.Element.AsIntegrationCommandModel())
+                        : null
+                })
+                .Where(p => p.Message is not null)
+                .Select(s => new AzureFunctionSubscriptionModel(
+                    s.Handler,
+                    s.Message!.QueueOrTopicName,
+                    s.Message.QueueOrTopicConfigurationName,
+                    s.Message.ChannelType == AzureServiceBusChannelType.Topic,
+                    s.Message.QueueOrTopicSubscriptionConfigurationName))
+            );
+            
             results = results.DistinctBy(k => k.QueueOrTopicName).ToList();
 
             return results;

@@ -47,12 +47,13 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                 .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
                 {
                     Handler = handlerModel,
-                    Message = eventGridMessages[subscription.Element.AsMessageModel()]
+                    Message = eventGridMessages.GetValueOrDefault(subscription.Element.AsMessageModel())
                 })
-                .GroupBy(x => x.Message.TopicConfigurationEndpointName)
+                .Where(p => p.Message is not null)
+                .GroupBy(x => x.Message!.TopicConfigurationEndpointName)
                 .Select(grouping => new AzureFunctionSubscriptionModel(
                     HandlerModel: grouping.First().Handler,
-                    MessageModels: grouping.Select(x => x.Message.MessageModel).ToArray(),
+                    MessageModels: grouping.Select(x => x.Message!.MessageModel).ToArray(),
                     TopicName: grouping.Key))
                 .OrderBy(x => x.TopicName)
                 .ToArray();
