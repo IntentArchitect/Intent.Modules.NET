@@ -2,6 +2,7 @@
 
 - Improvement: Updated NuGet package versions.
 - Improvement: Added documentation and topics related to modeling many-to-many relationships.
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
 
 ### Version 5.0.22
 

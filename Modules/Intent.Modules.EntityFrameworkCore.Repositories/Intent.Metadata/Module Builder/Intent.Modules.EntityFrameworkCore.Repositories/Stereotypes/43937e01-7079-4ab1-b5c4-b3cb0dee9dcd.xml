@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="43937e01-7079-4ab1-b5c4-b3cb0dee9dcd" version="3.1.0">
+  <comment>Configures database level properties to allow the data contract to map to a user-defined table.</comment>
   <name>User-Defined Table Type Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -7,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="cogs" />
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -26,10 +27,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <defaultValue />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

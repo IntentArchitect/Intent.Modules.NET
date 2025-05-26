@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="b4995259-b47b-405a-a332-fd3dc69cd3a5" version="3.1.0">
+  <comment>Configures how the entity is stored and managed within a Cosmos DB container.</comment>
   <name>Cosmos DB Container Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -28,8 +29,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(application name)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="7b55a191-1bd5-483c-a7e5-182c93cd6af6">
       <name>Partition Key</name>
@@ -37,8 +36,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(Id)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

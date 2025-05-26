@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="f7a2e653-d654-48d6-9a44-18cf49c9233e" version="3.1.0">
+  <comment>When applied, no implementation is generated for the service.</comment>
   <hint>When applied, no implementation is generated for the service.</hint>
   <name>Contract Only</name>
   <targetMode>of-type</targetMode>

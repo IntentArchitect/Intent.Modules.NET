@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="5332b774-6499-4b4b-9fdb-e3eef13bdee4" version="3.1.0">
+  <comment>Configures database level properties of the parameter, including type, size and precision.</comment>
   <name>Stored Procedure Parameter Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -7,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
-  <icon type="FontAwesome" source="cogs" />
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -25,17 +26,13 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="dfa55cca-142e-4d76-b772-6f86a9c99b0f">
       <name>SQL String Type</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>VarChar</defaultValue>
       <valueOptions>
         <option>VarChar</option>
@@ -45,7 +42,6 @@
         <option>Text</option>
         <option>NText</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == StringTypeId;</isActiveFunction>
     </property>
@@ -56,8 +52,6 @@ return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == String
       <optionsSource>n/a</optionsSource>
       <placeholder>(required)</placeholder>
       <defaultValue>255</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>const StringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == StringTypeId;</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
@@ -68,8 +62,6 @@ return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == String
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>const DecimalTypeId = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
 return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == DecimalTypeId;</isActiveFunction>
     </property>
@@ -79,8 +71,6 @@ return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == Decima
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>const DecimalTypeId = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
 return IsOutputParameter &amp;&amp; element.typeReference?.getTypeId() == DecimalTypeId;</isActiveFunction>
     </property>

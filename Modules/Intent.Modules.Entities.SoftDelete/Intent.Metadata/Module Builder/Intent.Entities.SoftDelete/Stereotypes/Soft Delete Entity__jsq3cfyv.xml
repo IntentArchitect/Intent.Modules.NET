@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="65860af3-8805-4a63-9fb9-3884b80f4380" version="3.1.0">
+  <comment>Adds a soft delete attribute, allowing a row to be marked as deleted without removing it from the database.</comment>
   <name>Soft Delete Entity</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

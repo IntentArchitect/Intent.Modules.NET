@@ -1,3 +1,7 @@
+### Version 4.7.11
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 4.7.10
 
 - Improvement: Added `FindById` overload with `queryOptions` on repositories.

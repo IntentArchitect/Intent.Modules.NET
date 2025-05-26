@@ -1,3 +1,7 @@
+### Version 4.5.11
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 4.5.10
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.
