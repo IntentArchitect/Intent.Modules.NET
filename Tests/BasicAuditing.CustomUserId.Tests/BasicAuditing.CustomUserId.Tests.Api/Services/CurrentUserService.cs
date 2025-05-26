@@ -2,7 +2,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BasicAuditing.CustomUserId.Tests.Application.Common.Interfaces;
-using IdentityModel;
+using Duende.IdentityModel;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

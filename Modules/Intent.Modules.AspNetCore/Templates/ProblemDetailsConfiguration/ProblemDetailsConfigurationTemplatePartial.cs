@@ -128,15 +128,6 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
             return base.CanRunTemplate() && IsExceptionHandlerSupported(OutputTarget);
         }
 
-        public static bool IsExceptionHandlerSupported(IOutputTarget outputTarget)
-        {
-            var proj = outputTarget.GetProject();
-            return !proj.IsNetCore2App() &&
-                   !proj.IsNetCore3App() &&
-                   !proj.IsNetApp(4) &&
-                   !proj.IsNetApp(5);
-        }
-
         public override void BeforeTemplateExecution()
         {
             if (!CanRunTemplate()) { return; }
@@ -148,6 +139,15 @@ namespace Intent.Modules.AspNetCore.Templates.ProblemDetailsConfiguration
             ExecutionContext.EventDispatcher.Publish(ApplicationBuilderRegistrationRequest
                 .ToRegister("UseExceptionHandler")
                 .WithPriority(-40));
+        }
+
+        public static bool IsExceptionHandlerSupported(IOutputTarget outputTarget)
+        {
+            var proj = outputTarget.GetProject();
+            return !proj.IsNetCore2App() &&
+                   !proj.IsNetCore3App() &&
+                   !proj.IsNetApp(4) &&
+                   !proj.IsNetApp(5);
         }
 
         [IntentManaged(Mode.Fully)]

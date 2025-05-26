@@ -57,6 +57,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>f81f0cec-bb13-4ba4-b455-a68cb33b31cc</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>e24cee1e-667e-47c5-803d-3c0861b27ce7</ProjectId>
       <CorrelationId>Intent.Application.Identity.AuthorizeAttribute</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

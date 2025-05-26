@@ -17,6 +17,7 @@
     "HttpClients:AzureFunctions.NET8.Services:Uri": "https://localhost:{app_port}/",
     "HttpClients:AzureFunctions.NET8.Services:IdentityClientKey": "default",
     "HttpClients:AzureFunctions.NET8.Services:Timeout": "00:01:00",
-    "CqrsSettings:LogRequestPayload": true
+    "CqrsSettings:LogRequestPayload": true,
+    "IdentityClients:default:TokenEndpoint": "https://localhost:{sts_port}/connect/token"
   }
 }

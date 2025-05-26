@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.DbContext.Tests.Application.Common.Interfaces;
@@ -8,6 +7,7 @@ using AdvancedMappingCrud.DbContext.Tests.Application.Common.Pagination;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -15,7 +15,7 @@ using MediatR;
 namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPaginatedByNameOptionalWithOrder
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetProductsPaginatedByNameOptionalWithOrderQueryHandler : IRequestHandler<GetProductsPaginatedByNameOptionalWithOrderQuery, Common.Pagination.PagedResult<ProductDto>>
+    public class GetProductsPaginatedByNameOptionalWithOrderQueryHandler : IRequestHandler<GetProductsPaginatedByNameOptionalWithOrderQuery, PagedResult<ProductDto>>
     {
         private readonly IApplicationDbContext _dbContext;
         private readonly IMapper _mapper;
@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.DbContext.Tests.Application.Products.GetProductsPa
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<ProductDto>> Handle(
+        public async Task<PagedResult<ProductDto>> Handle(
             GetProductsPaginatedByNameOptionalWithOrderQuery request,
             CancellationToken cancellationToken)
         {

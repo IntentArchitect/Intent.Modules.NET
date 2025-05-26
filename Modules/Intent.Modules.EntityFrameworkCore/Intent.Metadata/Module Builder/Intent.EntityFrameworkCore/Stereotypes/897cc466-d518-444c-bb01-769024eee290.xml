@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="897cc466-d518-444c-bb01-769024eee290" version="3.1.0">
+  <comment>Customize the connection string name and provider for the Domain Package.</comment>
   <name>Database Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,16 +27,12 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <defaultValue />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="2e40f3e9-834c-4bb4-86b3-2d18e6b1266c">
       <name>Database Provider</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Default</defaultValue>
       <valueOptions>
         <option>SQL Server</option>
@@ -45,7 +42,6 @@
         <option>In Memory</option>
         <option>Default</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

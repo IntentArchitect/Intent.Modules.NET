@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="6ad19817-2014-464b-a525-409b3a5230d1" version="3.1.0">
+  <comment>Configure how domain Services are registered with the dependency injection container.</comment>
   <name>Service Registration Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -31,7 +32,6 @@
         <option>Scoped</option>
         <option>Singleton</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

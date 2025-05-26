@@ -1,10 +1,10 @@
-using System.Linq.Dynamic.Core;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using MudBlazor.ExampleApp.Application.Common.Pagination;
 using MudBlazor.ExampleApp.Domain.Entities;
 using MudBlazor.ExampleApp.Domain.Repositories;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -12,7 +12,7 @@ using MudBlazor.ExampleApp.Domain.Repositories;
 namespace MudBlazor.ExampleApp.Application.Customers.GetCustomers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, Common.Pagination.PagedResult<CustomerDto>>
+    public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQuery, PagedResult<CustomerDto>>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
@@ -25,9 +25,7 @@ namespace MudBlazor.ExampleApp.Application.Customers.GetCustomers
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<CustomerDto>> Handle(
-            GetCustomersQuery request,
-            CancellationToken cancellationToken)
+        public async Task<PagedResult<CustomerDto>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
             IQueryable<Customer> FilterCustomers(IQueryable<Customer> queryable)
             {

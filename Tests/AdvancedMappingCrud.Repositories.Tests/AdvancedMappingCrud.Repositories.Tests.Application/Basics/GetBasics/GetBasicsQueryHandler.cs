@@ -1,5 +1,4 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
@@ -7,6 +6,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -14,7 +14,7 @@ using MediatR;
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Basics.GetBasics
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetBasicsQueryHandler : IRequestHandler<GetBasicsQuery, Common.Pagination.PagedResult<BasicDto>>
+    public class GetBasicsQueryHandler : IRequestHandler<GetBasicsQuery, PagedResult<BasicDto>>
     {
         private readonly IBasicRepository _basicRepository;
         private readonly IMapper _mapper;
@@ -27,9 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Basics.GetBasics
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<BasicDto>> Handle(
-            GetBasicsQuery request,
-            CancellationToken cancellationToken)
+        public async Task<PagedResult<BasicDto>> Handle(GetBasicsQuery request, CancellationToken cancellationToken)
         {
             var basics = await _basicRepository.FindAllAsync(request.PageNo, request.PageSize, queryOptions => queryOptions.OrderBy(request.OrderBy), cancellationToken);
             return basics.MapToPagedResult(x => x.MapToBasicDto(_mapper));

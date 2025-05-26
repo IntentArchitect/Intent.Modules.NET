@@ -15,10 +15,11 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
+            var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+            foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
+                clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+            }
 
             services
                 .AddHttpClient<IAccountsService, AccountsServiceHttpClient>(http =>
@@ -37,7 +38,7 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.Configuration
                 {
                     ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "DeleteAccountsService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteAccountsService:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:DeleteAccountsService:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:ProxyServiceTests.OriginalServices.Services:IdentityClientKey") ??
                     "default");
 
@@ -46,7 +47,7 @@ namespace ProxyServiceTests.Proxy.TMS.Infrastructure.Configuration
                 {
                     ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "DeleteClientsService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:DeleteClientsService:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:DeleteClientsService:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:ProxyServiceTests.OriginalServices.Services:IdentityClientKey") ??
                     "default");
         }

@@ -15,17 +15,18 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
+            var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+            foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
+                clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+            }
 
             services
                 .AddHttpClient<IBuyersService, BuyersServiceHttpClient>(http =>
                 {
                     ApplyAppSettings(http, configuration, "PackageLevelSecurity", "BuyersService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:BuyersService:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:BuyersService:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:PackageLevelSecurity:IdentityClientKey") ??
                     "default");
 
@@ -34,7 +35,7 @@ namespace AspNetCore.Controllers.Secured.Infrastructure.Configuration
                 {
                     ApplyAppSettings(http, configuration, "AspNetCore.Controllers.Secured.Services", "ProductsService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:ProductsService:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:ProductsService:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:AspNetCore.Controllers.Secured.Services:IdentityClientKey") ??
                     "default");
         }

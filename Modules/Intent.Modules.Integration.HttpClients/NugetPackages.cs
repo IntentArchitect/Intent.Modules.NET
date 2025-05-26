@@ -11,6 +11,7 @@ namespace Intent.Modules.Integration.HttpClients
 {
     public class NugetPackages : INugetPackages
     {
+        public const string DuendeAccessTokenManagementPackageName = "Duende.AccessTokenManagement";
         public const string IdentityModelAspNetCorePackageName = "IdentityModel.AspNetCore";
         public const string MicrosoftAspNetCoreHttpPackageName = "Microsoft.AspNetCore.Http";
         public const string MicrosoftAspNetCoreHttpExtensionsPackageName = "Microsoft.AspNetCore.Http.Extensions";
@@ -20,6 +21,28 @@ namespace Intent.Modules.Integration.HttpClients
 
         public void RegisterPackages()
         {
+            NugetRegistry.Register(DuendeAccessTokenManagementPackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 9, >= 0) => new PackageVersion("3.2.0", locked: true)
+                            .WithNugetDependency("Duende.IdentityModel", "7.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.0.1"),
+                        ( >= 8, >= 0) => new PackageVersion("3.2.0", locked: true)
+                            .WithNugetDependency("Duende.IdentityModel", "7.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Http", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.0.1"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DuendeAccessTokenManagementPackageName}'"),
+                    }
+                );
             NugetRegistry.Register(IdentityModelAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
@@ -100,16 +123,18 @@ namespace Intent.Modules.Integration.HttpClients
                             .WithNugetDependency("System.Text.Encodings.Web", "9.0.5"),
                         ( >= 2, >= 0) => new PackageVersion("9.0.5")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.5")
-                            .WithNugetDependency("System.Buffers", "4.5.1")
+                            .WithNugetDependency("System.Buffers", "4.5.5")
                             .WithNugetDependency("System.IO.Pipelines", "9.0.5")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
+                            .WithNugetDependency("System.Memory", "6.0.0")
+                            .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "9.0.4")
                             .WithNugetDependency("System.Text.Encodings.Web", "9.0.5")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }
                 );
         }
+
+        public static NugetPackageInfo DuendeAccessTokenManagement(IOutputTarget outputTarget) => NugetRegistry.GetVersion(DuendeAccessTokenManagementPackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo IdentityModelAspNetCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(IdentityModelAspNetCorePackageName, outputTarget.GetMaxNetAppVersion());
 

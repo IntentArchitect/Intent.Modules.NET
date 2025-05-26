@@ -13,10 +13,11 @@ namespace WindowsServiceHost.Tests.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
+            var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+            foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
+                clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+            }
         }
 
         private static void ApplyAppSettings(

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="56f48881-3e17-43bf-aead-e222a8f725fd" version="3.1.0">
+  <comment>Configures caching behavior, including duration, invalidation strategy, and cache vary conditions.</comment>
   <name>Caching Config</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -7,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="cogs" />
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayFunction />
@@ -26,9 +27,6 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="1370668f-ac9c-4909-bbbf-8d3be6045b44">
@@ -37,9 +35,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="918474b5-0dc9-42e0-bf60-f59cef4024ef">
@@ -48,9 +43,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="83b5eeb6-8937-45a8-8d08-c2a5f0a662d0">
@@ -59,9 +51,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="6910f48f-1454-49c6-ac7b-553b439f91d4">
@@ -70,9 +59,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return NoCaching === false;</isActiveFunction>
     </property>
     <property id="85f804e7-4357-48c3-adcf-340aaf376ffe">
@@ -81,10 +67,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

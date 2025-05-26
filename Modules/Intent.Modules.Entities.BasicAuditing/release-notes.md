@@ -1,3 +1,7 @@
+### Version 1.0.6
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.0.5
 
 - Improvement: Included module help topic.

@@ -41,6 +41,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4ae3daa6-695f-4c19-b348-eaf1b8c48168</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Application.Core/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>34ee9d16-3274-4758-831c-eb1a8ee14d99</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#34ee9d16-3274-4758-831c-eb1a8ee14d99</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -351,22 +359,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>b430416f-27a3-4495-a957-004476589aac</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -460,6 +452,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/MyCustomers/GetMyCustomers/GetMyCustomersQueryValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MyCustomers/GetMyCustomers/GetMyCustomersQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>be3e88f5-aab2-4e59-bdf8-9b50543e3996</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

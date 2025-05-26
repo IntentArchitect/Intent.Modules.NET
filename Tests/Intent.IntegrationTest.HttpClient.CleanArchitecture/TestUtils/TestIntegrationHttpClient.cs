@@ -17,7 +17,7 @@ public static class TestIntegrationHttpClient
         
         var services = new ServiceCollection();
         services.AddHttpClients(config);
-
+        services.AddDistributedMemoryCache();
         var sp = services.BuildServiceProvider();
 
         return sp;

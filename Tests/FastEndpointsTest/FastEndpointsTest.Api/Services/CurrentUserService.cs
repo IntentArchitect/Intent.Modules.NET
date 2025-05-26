@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Duende.IdentityModel;
 using FastEndpointsTest.Application.Common.Interfaces;
-using IdentityModel;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

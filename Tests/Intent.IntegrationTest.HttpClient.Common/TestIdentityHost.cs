@@ -49,8 +49,8 @@ public static class TestIdentityHost
                     .AddInMemoryApiScopes(new[]
                     {
                         new ApiScope("api")
-                    })
-                    ;
+                    });
+
                 if (outputHelper != null)
                 {
                     services.AddLogging((builder) => builder.AddXUnit(outputHelper));

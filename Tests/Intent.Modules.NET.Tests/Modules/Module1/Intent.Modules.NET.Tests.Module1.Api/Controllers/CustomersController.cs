@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Intent.Modules.NET.Tests.Application.Core.Common.Pagination;
 using Intent.Modules.NET.Tests.Module1.Api.Controllers.ResponseTypes;
 using Intent.Modules.NET.Tests.Module1.Application.Contracts.Customers;
 using Intent.Modules.NET.Tests.Module1.Application.Contracts.Customers.CreateCustomer;
@@ -111,13 +112,19 @@ namespace Intent.Modules.NET.Tests.Module1.Api.Controllers
 
         /// <summary>
         /// </summary>
-        /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
+        /// <response code="200">Returns the specified PagedResult&lt;CustomerDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
         [HttpGet("api/customers")]
-        [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PagedResult<CustomerDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<List<CustomerDto>>> GetCustomers(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<PagedResult<CustomerDto>>> GetCustomers(
+            [FromQuery] int pageNo,
+            [FromQuery] int pageSize,
+            [FromQuery] string? orderBy,
+            CancellationToken cancellationToken = default)
         {
-            var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
+            var result = await _mediator.Send(new GetCustomersQuery(pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);
             return Ok(result);
         }
     }

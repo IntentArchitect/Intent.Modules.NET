@@ -16,17 +16,18 @@ namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
+            var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+            foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
+                clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+            }
 
             services
                 .AddHttpClient<IIntegrationServiceProxy, IntegrationServiceProxyHttpClient>(http =>
                 {
                     ApplyAppSettings(http, configuration, "Standard.AspNetCore.TestApplication.Services", "IntegrationServiceProxy");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:IntegrationServiceProxy:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:Standard.AspNetCore.TestApplication.Services:IdentityClientKey") ??
                     "default");
 

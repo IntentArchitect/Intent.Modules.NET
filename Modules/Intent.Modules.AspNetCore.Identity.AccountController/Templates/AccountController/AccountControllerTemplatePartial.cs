@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -21,7 +23,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AccountControllerTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
-            AddNugetDependency(NugetPackages.IdentityModel(OutputTarget));
+            AddNugetDependency(NugetPackages.DuendeIdentityModel(OutputTarget));
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreAuthenticationJwtBearer(OutputTarget));
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())

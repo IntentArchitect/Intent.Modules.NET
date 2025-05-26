@@ -1,5 +1,6 @@
 ### Version 4.2.8
 
+- Improvement: Replaced IdentityModel with Duende.IdentityModel
 - Improvement: Added configuration options for different types of JWT authorization setup.
 - Improvement: Updated NuGet package versions.
 

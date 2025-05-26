@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="cfd03810-5aff-4196-a32e-de82a35e6497" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
-  <name>Application1</name>
-  <display>Application1 (7)</display>
+  <name>Application</name>
+  <display>Application (7)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>3</order>
@@ -279,7 +279,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.31-pre.1" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.31-pre.2" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -333,7 +333,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.28-pre.1" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.28-pre.2" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />

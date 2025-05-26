@@ -88,44 +88,6 @@ namespace Intent.AspNetCore.OutputCaching.Redis.Api
             {
                 return _stereotype.GetProperty<bool>("No Caching");
             }
-
-            public class OverrideOptions
-            {
-                public readonly string Value;
-
-                public OverrideOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public OverrideOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "Policy":
-                            return OverrideOptionsEnum.Policy;
-                        case "Custom":
-                            return OverrideOptionsEnum.Custom;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsPolicy()
-                {
-                    return Value == "Policy";
-                }
-                public bool IsCustom()
-                {
-                    return Value == "Custom";
-                }
-            }
-
-            public enum OverrideOptionsEnum
-            {
-                Policy,
-                Custom
-            }
         }
 
     }
