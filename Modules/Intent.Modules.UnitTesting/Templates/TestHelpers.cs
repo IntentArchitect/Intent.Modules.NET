@@ -57,11 +57,12 @@ internal static class TestHelpers
         }
 
         List<string> handleArguments = [];
+        var mockFramework = template.ExecutionContext.Settings.GetUnitTestSettings().MockFramework().AsEnum();
         foreach (var handlerParam in handlerCtorParams)
         {
-            var mockInitStatement = GetMockInstantiation(template.ExecutionContext.Settings.GetUnitTestSettings().MockFramework().AsEnum(), template, handlerParam.Type);
+            var mockInitStatement = GetMockInstantiation(mockFramework, template, handlerParam.Type);
             ctor.AddStatement($"// _{handlerParam.Name}Mock = {mockInitStatement}");
-            handleArguments.Add($"_{handlerParam.Name}Mock");
+            handleArguments.Add(GetMockParameterName(mockFramework, $"_{handlerParam.Name}Mock"));
         }
 
         if (handlerCtorParams.Count != 0)
@@ -70,7 +71,7 @@ internal static class TestHelpers
         }
 
         var ctorParams = string.Join(", ", handleArguments);
-        ctor.AddStatement($"// {(isCQRS ? "_handler" : "_service")} = new {template.GetTypeName(handlerTemplate)}({ctorParams})");
+        ctor.AddStatement($"// {(isCQRS ? "_handler" : "_service")} = new {template.GetTypeName(handlerTemplate)}({ctorParams});");
     }
 
     public static void AddDefaultSuccessTest(ICSharpTemplate template, IElementWrapper model, CSharpClass @class, bool isCQRS = true)
@@ -79,7 +80,7 @@ internal static class TestHelpers
 
         var entityName = association?.TypeReference?.Element?.Name == null ? "Entity" : association.TypeReference.Element.Name;
         var action = GetAssociationAction(association);
-        var methodName = $"{(isCQRS ? "Handler" : "Operation")}_Should_{action}_{entityName}_Successfully";
+        var methodName = $"{(isCQRS ? "Handle" : "Operation")}_Should_{action}_{entityName}_Successfully";
 
         if (association != null)
         {
@@ -145,7 +146,13 @@ internal static class TestHelpers
     private static string GetMockInstantiation(MockFrameworkOptionsEnum mockFramework, ICSharpTemplate template, string typeName) => mockFramework switch
     {
         MockFrameworkOptionsEnum.Nsubstitute => $"{template.UseType("NSubstitute.Substitute")}.For<{typeName}>();",
-        _ => $"new {template.UseType("Moq.Mock")}<{typeName}>();"
+        _ => $"new {template.UseType("Moq.Mock")}<{template.UseType(typeName)}>();"
+    };
+
+    private static string GetMockParameterName(MockFrameworkOptionsEnum mockFramework, string parameterName) => mockFramework switch
+    {
+        MockFrameworkOptionsEnum.Nsubstitute => parameterName,
+        _ => $"{parameterName}.Object"
     };
 
 }
