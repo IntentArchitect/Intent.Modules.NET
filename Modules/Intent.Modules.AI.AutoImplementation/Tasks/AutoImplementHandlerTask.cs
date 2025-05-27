@@ -78,19 +78,7 @@ public class AutoImplementHandlerTask : IModuleTask
         var element = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
         var promptTemplate = GetPromptTemplate(element);
 
-        var codebaseAccessor = _applicationConfigurationProvider.GetTrackedCodebaseFiles();
-
-        var inputFiles = codebaseAccessor.GetFilesForMetadata(element).ToList();
-        if (element.TypeReference.ElementId != null)
-        {
-            inputFiles.AddRange(codebaseAccessor.GetFilesForMetadata(element.TypeReference.Element));
-        }
-
-        inputFiles.AddRange(GetRelatedDomainEntities(element)
-            .SelectMany(x => codebaseAccessor.GetFilesForMetadata(x.InternalElement)));
-
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
+        var inputFiles = GetInputFiles(element);
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
@@ -152,7 +140,7 @@ Implement the `Handle` method in the {targetFileName} class following the implem
 2. **NEVER change existing method signatures or implementations**
 3. **ONLY add new members when necessary (repository methods)**
 4. **Preserve all existing attributes and code exactly as provided**
-5. **Don't add comments to the code**
+5. **Don't add comments to existing code**
 
 ## Code File Modifications
 1. You may modify ONLY:
@@ -185,6 +173,25 @@ Your response MUST include:
         return prompt;
     }
 
+
+    private List<ICodebaseFile> GetInputFiles(IElement element)
+    {
+        var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
+        var inputFiles = filesProvider.GetFilesForMetadata(element).ToList();
+        if (element.TypeReference.ElementId != null)
+        {
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(element.TypeReference.Element));
+        }
+        foreach (var dto in element.ChildElements.Where(x => x.TypeReference.Element.IsDTOModel()).Select(x => x.TypeReference.Element))
+        {
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
+        }
+
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
+
+        return inputFiles;
+    }
     private static ChatResponseFormat CreateJsonSchemaFormat()
     {
         return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "FileChangesResult",

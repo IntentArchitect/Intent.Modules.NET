@@ -47,7 +47,7 @@ public class GenerateUnitTestsWithAITask : IModuleTask
         IMetadataManager metadataManager,
         ISolutionConfig solution,
         IOutputRegistry outputRegistry,
-            IUserSettingsProvider userSettingsProvider)
+        IUserSettingsProvider userSettingsProvider)
     {
         _applicationConfigurationProvider = applicationConfigurationProvider;
         _metadataManager = metadataManager;
@@ -106,21 +106,16 @@ public class GenerateUnitTestsWithAITask : IModuleTask
         var targetFileName = model.Name + "Handler";
         var prompt = @$"
 ## Role and Context
-You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
+You are a senior C# developer specializing in clean architecture with MediatR, FluentValidation, and Entity Framework Core. You're implementing testing logic in a system that strictly follows the repository pattern.
 
 ## Primary Objective
-Write me a set of unit tests that comprehensively test the `Handle` method using xUnit and Moq in the {targetFileName} class.
+Create or update the existing test class file with a set of unit tests that comprehensively test the `Handle` method using xUnit and Moq in the {targetFileName} class.
 
-## Code Preservation Requirements (CRITICAL)
-1. **NEVER remove or modify existing class members, methods, or properties**
-2. **NEVER change existing method signatures or implementations**
-3. **ONLY add new members when necessary (repository methods)**
-4. **Preserve all existing attributes and code exactly as provided**
-
-## Code File Modifications
-1. You may only create the test file
-2. Preserve all existing code, attributes, and file paths exactly
+## Code File Modification Rules
+1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
+2. You may only create or update the test file
 3. Add using clauses for code files that you use
+4. Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
 
 ## Input Code Files:
 ```json
@@ -131,11 +126,20 @@ Write me a set of unit tests that comprehensively test the `Handle` method using
 ## Required Output Format
 Your response MUST include:
 1. Your test file as pure code (no markdown).
-2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and mirror the relative path of the class that is being tested.
+2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{string.Join('/', model.GetParentPath().Select(x => x.Name))}'.
 
 ## Important things to understand
 - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
 - Collections on entities cannot be treated like arrays.
+- If an existing file exists, you must read this file and update it according to the 'Code Preservation Requirements' below.
+- If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
+
+## Code Preservation Requirements (CRITICAL)
+1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
+2. **NEVER change existing method signatures or implementations**
+3. **ONLY add new members when necessary (repository methods)**
+4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code**
+5. **Don't add comments to existing code**
 
 ## Examples
 1. Here's an example of a creation handler:
@@ -174,17 +178,21 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
 
     private List<ICodebaseFile> GetInputFiles(IElement element)
     {
-        var codebaseAccessor = _applicationConfigurationProvider.GetTrackedCodebaseFiles();
-        var inputFiles = codebaseAccessor.GetFilesForMetadata(element).ToList();
+        var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
+        var inputFiles = filesProvider.GetFilesForMetadata(element).ToList();
         if (element.TypeReference.ElementId != null)
         {
-            inputFiles.AddRange(codebaseAccessor.GetFilesForMetadata(element.TypeReference.Element));
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(element.TypeReference.Element));
+        }
+        foreach (var dto in element.ChildElements.Where(x => x.TypeReference.Element.IsDTOModel()).Select(x => x.TypeReference.Element))
+        {
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
 
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.Entities.NotFoundException"));
-        inputFiles.AddRange(codebaseAccessor.GetFilesForTemplate("Intent.VisualStudio.Projects.VisualStudioSolution"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.VisualStudio.Projects.VisualStudioSolution"));
 
         return inputFiles;
     }
