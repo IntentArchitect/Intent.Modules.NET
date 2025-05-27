@@ -47,8 +47,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="dbc0662f-0804-4a82-9c5a-bfdab9af821a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Core</name>
+        <childElement id="a598a229-6f12-4940-b8a0-7cfb55fd4e6f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -60,8 +61,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a598a229-6f12-4940-b8a0-7cfb55fd4e6f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
+        <childElement id="dbc0662f-0804-4a82-9c5a-bfdab9af821a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -75,7 +77,7 @@
         </childElement>
         <childElement id="adf10797-09f5-4493-b969-d305d6946a28" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.4)</display>
+          <display>Microsoft.Extensions.Logging (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -112,8 +114,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="efae2da8-c48c-4fa8-a139-8c74f2f9567b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Core</name>
+        <childElement id="9e928e8c-a3ae-486c-b073-f4428d6bc7aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -125,8 +128,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e928e8c-a3ae-486c-b073-f4428d6bc7aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
+        <childElement id="efae2da8-c48c-4fa8-a139-8c74f2f9567b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Core</name>
+          <display>Microsoft.Extensions.Identity.Core (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -140,7 +144,7 @@
         </childElement>
         <childElement id="de44bb3b-61b0-47f7-bd10-a4378c79f6f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.4)</display>
+          <display>Microsoft.Extensions.Logging (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" version="3.1.0">
+  <comment>Configures behavior and integration settings for an Azure Function.</comment>
   <name>Azure Function</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -29,7 +30,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Http Trigger</defaultValue>
       <valueOptions>
         <option>Http Trigger</option>
@@ -41,7 +41,6 @@
         <option>Cosmos DB Trigger</option>
         <option>RabbitMQ Trigger</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="bb4eeea4-a572-416e-8af9-8b56743879ea">
@@ -50,7 +49,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Function</defaultValue>
       <valueOptions>
         <option>Anonymous</option>
@@ -59,7 +57,6 @@
         <option>System</option>
         <option>Admin</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>return Trigger === "Http Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -69,9 +66,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -81,9 +75,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Trigger === "Timer Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -92,9 +83,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Trigger === "EventHub Trigger";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -104,11 +92,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Trigger === "Service Bus Trigger" || Trigger === "Queue Trigger" || Trigger === "EventHub Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="a83b939c-86c5-498e-8e64-006a9e4cdc83">
       <hint />
@@ -116,13 +100,11 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Default</defaultValue>
       <valueOptions>
         <option>Default</option>
         <option>application/json</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="02abfe51-f96a-4ce0-be98-e007ea84f374">
@@ -131,11 +113,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba">
       <comment />
@@ -143,7 +121,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <valueOptions>
         <option>GET</option>
         <option>POST</option>
@@ -151,7 +128,6 @@
         <option>PATCH</option>
         <option>DELETE</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -160,10 +136,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Trigger === "Queue Trigger" || Trigger === "RabbitMQ Trigger";</isActiveFunction>
     </property>
   </properties>

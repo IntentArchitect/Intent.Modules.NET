@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="6b1a00d5-377b-4e0d-87d3-8c2ad5c70c5d" version="3.1.0">
+  <comment>Configures details of the Solace queue.</comment>
   <name>Queue Config</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,18 +26,12 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="965d0655-763b-4ae2-92ca-c898bbc17172">
       <name>Selector</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

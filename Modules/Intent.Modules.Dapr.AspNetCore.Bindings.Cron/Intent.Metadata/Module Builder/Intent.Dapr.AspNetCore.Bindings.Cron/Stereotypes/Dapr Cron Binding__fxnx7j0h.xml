@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="48db7f06-3edd-488a-8838-1f7f33b81eb0" version="3.1.0">
+  <comment>Configures the execution schedule for the Command when triggered by Dapr.</comment>
   <name>Dapr Cron Binding</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,10 +27,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>@every 5m</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

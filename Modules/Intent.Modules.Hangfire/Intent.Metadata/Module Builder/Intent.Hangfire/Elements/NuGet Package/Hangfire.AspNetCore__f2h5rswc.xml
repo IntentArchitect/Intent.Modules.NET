@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="0a49738d-5117-4d97-bb0e-acd29a4ba941" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.8.20</name>
-      <display>1.8.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>1.8.20 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,35 +47,44 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="15fc6488-7bfd-457e-8258-e68da3c5bae9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.AspNetCore.Http.Abstractions</name>
+        <childElement id="6b637546-617d-4ff2-b728-a8f560a2bc4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Hangfire.NetCore</name>
+          <display>Hangfire.NetCore (1.8.20)</display>
           <isAbstract>false</isAbstract>
-          <value>2.0.0</value>
+          <value>1.8.20</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a49738d-5117-4d97-bb0e-acd29a4ba941</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="6dfc8da1-3b4f-47c8-bf8b-87431273088e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Antiforgery</name>
+          <display>Microsoft.AspNetCore.Antiforgery (2.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a49738d-5117-4d97-bb0e-acd29a4ba941</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6b637546-617d-4ff2-b728-a8f560a2bc4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Hangfire.NetCore</name>
+        <childElement id="15fc6488-7bfd-457e-8258-e68da3c5bae9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Http.Abstractions</name>
+          <display>Microsoft.AspNetCore.Http.Abstractions (2.0.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.8.20</value>
+          <value>2.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0a49738d-5117-4d97-bb0e-acd29a4ba941</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="39863d70-29fe-44df-985d-d28fc00b4a96" version="3.1.0">
+  <comment>Configures the endpoint to be exposed using the gRPC protocol.</comment>
   <name>Expose with gRPC</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

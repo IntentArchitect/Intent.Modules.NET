@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" version="3.1.0">
+  <comment>Configures the topic name for the message.</comment>
   <name>Azure Event Grid</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,8 +27,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(required)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="abd54fa8-f51e-4cd9-b3ce-6512968c2d0c" version="3.1.0">
+  <comment>Configures the entity to use temporal tables, preserving a history of its data over time.</comment>
   <name>Temporal Table</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -37,8 +38,6 @@ return null;
       <optionsSource>n/a</optionsSource>
       <placeholder>PeriodStart</placeholder>
       <defaultValue>PeriodStart</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="bef0c148-17f7-47f1-baf8-952d4fc30a63">
       <hint>The name of the period end column. The default will be used if left blank.</hint>
@@ -48,8 +47,6 @@ return null;
       <optionsSource>n/a</optionsSource>
       <placeholder>PeriodEnd</placeholder>
       <defaultValue>PeriodEnd</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="97dc9f2e-6ba9-4faa-8119-9adce2aabcb6">
       <hint>The name of the history table. The default will be used if left blank.</hint>
@@ -57,9 +54,6 @@ return null;
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

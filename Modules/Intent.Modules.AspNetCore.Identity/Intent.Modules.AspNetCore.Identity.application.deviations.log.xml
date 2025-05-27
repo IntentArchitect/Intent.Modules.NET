@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:02:57.0319884Z</approvedAt>
       <deviationsHash>7468690C68912D35A16EA4BC8C15A6D84FAEB1D4C9ACF80541A1207FBFB7467F</deviationsHash>
-      <fileHash>7DFCDCDC5E22314CA8174899AF9D140AFDD0D7B43E2D9ABF4C80F7DD4697C230</fileHash>
+      <fileHash>CC33BCF61FEFD5DEDE9B00319E40E52F495830FDD2B00D46D1743066D557581A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>

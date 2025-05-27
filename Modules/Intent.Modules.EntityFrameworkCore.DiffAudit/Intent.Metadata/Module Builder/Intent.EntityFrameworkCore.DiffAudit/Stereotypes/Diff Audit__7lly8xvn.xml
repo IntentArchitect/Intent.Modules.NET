@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="4c7ff86d-641f-431b-a20f-94b3ccbef265" version="3.1.0">
+  <comment>Marks that the table should be included in diff-based audit tracking.</comment>
   <name>Diff Audit</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="78edaf9d-bc43-4792-b483-408fcd630261" version="3.1.0">
+  <comment>Configures behavior and integration settings for a Cosmos DB trigger on an endpoint.</comment>
   <name>Cosmos DB Trigger</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -27,9 +28,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="008ce4a1-3c71-4018-8a86-e6a02a72fa21">
@@ -37,9 +35,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="a0e3af28-64ee-44a0-94de-0aaa642eed99">
@@ -47,9 +42,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="de9569f1-fdb6-4398-bd11-251909675646">
@@ -58,8 +50,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>optional</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="eea32735-0b3d-4f34-9c38-eb14c7c000ee">
       <name>Lease Database Name</name>
@@ -67,17 +57,12 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>optional</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="b0e6ae72-bc67-4b43-ba69-1eaf2e3c9e4d">
       <name>Lease Container Name</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="6f9ba10a-a8cf-483d-93ab-0dc3ba7e100a">
@@ -85,10 +70,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="4aca9805-63a6-4e9b-a906-9f473a40b510">
       <name>Leases Container Throughput</name>
@@ -96,8 +78,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>optional</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="96e0d1ed-185f-480f-b4d7-986bbb50e64b">
       <name>Lease Container Prefix</name>
@@ -105,8 +85,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>optional</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

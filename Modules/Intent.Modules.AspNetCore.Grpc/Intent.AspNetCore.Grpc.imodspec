@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Grpc</id>
-  <version>1.0.0-beta.2</version>
+  <version>1.0.0-beta.3</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Generates gRPC services based off the Services Designer.</summary>
   <description>Generates gRPC services based off the Services Designer.</description>

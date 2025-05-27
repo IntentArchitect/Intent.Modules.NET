@@ -243,8 +243,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="789e547a-d11e-45be-88e3-bfb4773a30f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
+        <childElement id="ebb52ca3-2728-45b5-889c-f3c975b6a0ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (8.0.16)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.16</value>
           <genericTypes />
@@ -256,8 +257,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ebb52ca3-2728-45b5-889c-f3c975b6a0ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
+        <childElement id="789e547a-d11e-45be-88e3-bfb4773a30f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (8.0.16)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.16</value>
           <genericTypes />
@@ -294,8 +296,9 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="725a5b30-7fb0-4fe0-b948-64ad47a3d3b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
+        <childElement id="534a9479-20aa-4c42-9e3f-cbbae5a18802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <display>Microsoft.EntityFrameworkCore.Relational (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />
@@ -307,8 +310,9 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="534a9479-20aa-4c42-9e3f-cbbae5a18802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
+        <childElement id="725a5b30-7fb0-4fe0-b948-64ad47a3d3b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
+          <display>Microsoft.Extensions.Identity.Stores (9.0.5)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.5</value>
           <genericTypes />

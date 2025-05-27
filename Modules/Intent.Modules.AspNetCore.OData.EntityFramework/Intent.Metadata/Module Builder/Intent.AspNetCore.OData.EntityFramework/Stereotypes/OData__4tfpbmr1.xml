@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="0b58c045-255d-4f09-8ad2-25e9496480f4" version="3.1.0">
+  <comment>Configures the entity for OData exposure, specifying which operations are supported through the OData endpoint.</comment>
   <name>OData</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -33,60 +34,42 @@ return "Can only apply Expose As OData on aggregate types"</validateFunction>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="cc630eb0-4645-4028-8f8f-4b71f5918bf6">
       <name>GetById</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="dec657fd-c066-4f9b-8a81-2d314af18017">
       <name>Post</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="2612067a-7c3c-471c-b9f1-e418b3298962">
       <name>Delete</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="8640c3ea-3176-4b55-9785-9c8f2ad5c80e">
       <name>Patch</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="fd8511f9-204c-414d-b355-dc4026b61f72">
       <name>Put</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

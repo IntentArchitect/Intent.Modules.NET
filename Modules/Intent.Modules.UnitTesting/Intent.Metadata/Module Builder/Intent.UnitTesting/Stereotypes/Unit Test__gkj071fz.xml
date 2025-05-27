@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="4965bed2-6320-49d1-beba-0fbc6fd4dfe6" version="3.1.0">
+  <comment>Marks the service to indicate that scaffolded unit tests should be generated for it.</comment>
   <name>Unit Test</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

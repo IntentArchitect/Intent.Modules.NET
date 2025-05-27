@@ -40,8 +40,8 @@
       <metadata />
       <childElements>
         <childElement id="f19fad71-a71c-44c1-a84a-6bd020432b9b" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Settings Option</name>
-          <display>Settings Option = None</display>
+          <name>None</name>
+          <display>None = None</display>
           <isAbstract>false</isAbstract>
           <value>None</value>
           <genericTypes />

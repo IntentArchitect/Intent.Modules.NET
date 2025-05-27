@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="e707106e-0496-4717-8d50-402e84aa3d39" version="3.1.0">
+  <comment>Configures Dapr state management settings for the domain.</comment>
   <name>Dapr State Store Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,10 +27,7 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>statestore</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="eb7c1b7f-5593-417d-a809-51ea457504a0">
@@ -38,10 +36,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

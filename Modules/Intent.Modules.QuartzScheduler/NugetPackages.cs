@@ -20,9 +20,9 @@ namespace Intent.Modules.QuartzScheduler
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 9, >= 0) => new PackageVersion("3.14.0")
-                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.14.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
+                            .WithNugetDependency("Quartz.Extensions.Hosting", "3.14.0"),
                         ( >= 8, >= 0) => new PackageVersion("3.14.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
@@ -37,8 +37,8 @@ namespace Intent.Modules.QuartzScheduler
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 9, >= 0) => new PackageVersion("3.14.0")
-                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.14.0")
-                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0"),
+                            .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
+                            .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.14.0"),
                         ( >= 8, >= 0) => new PackageVersion("3.14.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
                             .WithNugetDependency("Quartz.Extensions.DependencyInjection", "3.14.0"),

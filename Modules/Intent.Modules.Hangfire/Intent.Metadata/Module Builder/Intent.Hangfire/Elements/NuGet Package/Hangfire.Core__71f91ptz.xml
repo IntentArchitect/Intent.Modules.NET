@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="4ff08158-0736-4cad-b1df-0b42b6f6456b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>1.8.20</name>
-      <display>1.8.15 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>1.8.20 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="d9fd36e8-d00f-4b7e-806e-b6cb360006c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (11.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>11.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4ff08158-0736-4cad-b1df-0b42b6f6456b</parentFolderId>
+          <packageId>fda30066-088b-48e0-9189-6cad1c70af13</packageId>
+          <packageName>Intent.Hangfire</packageName>
           <stereotypes />
           <metadata />
           <childElements />

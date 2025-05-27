@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="1f60bd15-005b-4184-8c12-c44c20158001" version="3.1.0">
+  <comment>Configures Azure Service Bus message queue/topic name.</comment>
   <name>Azure Service Bus</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,21 +27,16 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <valueOptions>
         <option>Queue</option>
         <option>Topic</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="a3aa298d-8e4b-46af-bd4e-acb81b2109f2">
       <name>Queue Name</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Type == "Queue";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -49,9 +45,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Type == "Topic";</isActiveFunction>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>

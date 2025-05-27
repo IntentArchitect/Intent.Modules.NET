@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="b2a247bc-47da-4251-ac39-b985ad30e8f7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.0.3</name>
-      <display>2.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.0.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,22 +49,28 @@
       <childElements>
         <childElement id="5a215851-a02a-4fd6-9d07-0575352ae011" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Sdk.Analyzers</name>
+          <display>Microsoft.Azure.Functions.Worker.Sdk.Analyzers (1.2.2)</display>
           <isAbstract>false</isAbstract>
           <value>1.2.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b2a247bc-47da-4251-ac39-b985ad30e8f7</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5aadc9bd-c63f-4420-a659-b8f3bb081d01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Sdk.Generators</name>
+          <display>Microsoft.Azure.Functions.Worker.Sdk.Generators (1.3.5)</display>
           <isAbstract>false</isAbstract>
           <value>1.3.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>b2a247bc-47da-4251-ac39-b985ad30e8f7</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

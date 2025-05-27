@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="a321ab87-a4a2-4a09-a9ca-2cb6ecd758be" version="3.1.0">
+  <comment>Configures support for rich, RESTful querying on the endpoint using the OData protocol.</comment>
   <name>ODataQuery</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,10 +26,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

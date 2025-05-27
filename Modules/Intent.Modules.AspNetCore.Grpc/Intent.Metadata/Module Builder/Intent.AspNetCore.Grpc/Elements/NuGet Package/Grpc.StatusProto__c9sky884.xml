@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="2b359096-7f8b-44d9-86c2-f112d21530cf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.71.0</name>
-      <display>2.67.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
+      <display>2.71.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,24 +47,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7d8d727b-38fc-48e3-972d-110739eb3a93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Grpc.Core.Api</name>
-          <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>2b359096-7f8b-44d9-86c2-f112d21530cf</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="651f6435-98ac-426e-8449-6dd47b0a5dcd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.CommonProtos</name>
+          <display>Google.Api.CommonProtos (2.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>2b359096-7f8b-44d9-86c2-f112d21530cf</parentFolderId>
+          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+          <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="7d8d727b-38fc-48e3-972d-110739eb3a93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Core.Api</name>
+          <display>Grpc.Core.Api (2.71.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.71.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2b359096-7f8b-44d9-86c2-f112d21530cf</parentFolderId>
+          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+          <packageName>Intent.AspNetCore.Grpc</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -73,7 +79,7 @@
     </childElement>
     <childElement id="7e0b6343-f53e-4dbe-a309-8694bddb888e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>2.71.0</name>
-      <display>2.67.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>2.71.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -94,24 +100,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="055b296e-2843-4116-83ea-b9895818e854" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Grpc.Core.Api</name>
-          <isAbstract>false</isAbstract>
-          <value>2.71.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>7e0b6343-f53e-4dbe-a309-8694bddb888e</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
         <childElement id="cdec9735-ecf3-47ad-a6c6-d3fa01b1f1df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Google.Api.CommonProtos</name>
+          <display>Google.Api.CommonProtos (2.16.0)</display>
           <isAbstract>false</isAbstract>
           <value>2.16.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7e0b6343-f53e-4dbe-a309-8694bddb888e</parentFolderId>
+          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+          <packageName>Intent.AspNetCore.Grpc</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="055b296e-2843-4116-83ea-b9895818e854" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Grpc.Core.Api</name>
+          <display>Grpc.Core.Api (2.71.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>2.71.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7e0b6343-f53e-4dbe-a309-8694bddb888e</parentFolderId>
+          <packageId>2b80d4f5-b004-4832-8678-05b39e33193c</packageId>
+          <packageName>Intent.AspNetCore.Grpc</packageName>
           <stereotypes />
           <metadata />
           <childElements />

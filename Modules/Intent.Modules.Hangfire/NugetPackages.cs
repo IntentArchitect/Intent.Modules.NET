@@ -57,15 +57,15 @@ namespace Intent.Modules.Hangfire
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 9, >= 0) => new PackageVersion("6.0.2")
-                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
+                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.4")
+                            .WithNugetDependency("Microsoft.Data.SqlClient.SNI.runtime", "6.0.2")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.4")
                             .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "7.5.0")
                             .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "7.5.0")
                             .WithNugetDependency("Microsoft.SqlServer.Server", "1.0.0")
                             .WithNugetDependency("System.Configuration.ConfigurationManager", "9.0.4")
-                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.4")
-                            .WithNugetDependency("Microsoft.Bcl.Cryptography", "9.0.4"),
+                            .WithNugetDependency("System.Security.Cryptography.Pkcs", "9.0.4"),
                         ( >= 8, >= 0) => new PackageVersion("6.0.2")
                             .WithNugetDependency("Azure.Identity", "1.11.4")
                             .WithNugetDependency("Microsoft.Bcl.Cryptography", "8.0.0")

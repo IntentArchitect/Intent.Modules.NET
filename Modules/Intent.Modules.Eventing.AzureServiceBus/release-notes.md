@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.0.3
 
 - Fixed: Wrong Service Provider was supplied to Dispatcher resulting in EventBus flushing not to take place.

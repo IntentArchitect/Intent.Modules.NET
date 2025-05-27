@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="92e433aa-4858-4129-849f-ef0f9f0bf9e6" version="3.1.0">
+  <comment>Marks and configures the entity as an audit table, adding the required attribtues.</comment>
   <name>Audit Table</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
