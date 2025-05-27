@@ -18,6 +18,14 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Api.Filters
         {
             if (!HasAuthorize(context))
             {
+                var securityScheme = new OpenApiSecurityScheme();
+                operation.Security = new List<OpenApiSecurityRequirement>
+                {
+                    new OpenApiSecurityRequirement
+                    {
+                        { securityScheme, Array.Empty<string>() }
+                    }
+                };
                 return;
             }
 
