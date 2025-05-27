@@ -24,7 +24,7 @@ namespace AzureFunctions.NET8.Api
         }
 
         [Function("FunctionWithIgnoreInApi")]
-        [OpenApiOperation("FunctionWithIgnoreInApi", tags: new[] { "FunctionWithIgnoreInApi" }, Description = "Function with ignore in api")]
+        [OpenApiOperation("FunctionWithIgnoreInApi", tags: new[] { "FunctionWithIgnoreInApi", "V1" }, Description = "Function with ignore in api", Summary = "Function with ignore in api")]
         [OpenApiIgnoreAttribute]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(

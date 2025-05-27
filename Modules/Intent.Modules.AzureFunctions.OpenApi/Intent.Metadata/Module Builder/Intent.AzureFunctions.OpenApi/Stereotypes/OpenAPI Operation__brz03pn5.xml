@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="d0dce09b-f93f-4b45-aeaf-106397bee14d" version="3.1.0">
+  <comment>Specifies the configuration of the OpenApiOperation attribute for the endpoint.</comment>
+  <hint>Specifies the configuration of the OpenApiOperation attribute for the endpoint.</hint>
   <name>OpenAPI Operation</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
