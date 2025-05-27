@@ -1,3 +1,7 @@
+### Version 0.0.5
+
+- Improvement: Upgraded to use the `Intent.Common.AI` module which moves API Key settings into the User's settings.
+
 ### Version 0.0.4
 
 - Improvement: The LLM will no longer attempt to generate the domain as part of its output but instead rely on tools to carve out a domain from an in-memory model whereby then the model gets sent to the designer to be updated from there. It does run quite long and is more expensive, but it does seem to handle larger and more complex domains a lot better.
