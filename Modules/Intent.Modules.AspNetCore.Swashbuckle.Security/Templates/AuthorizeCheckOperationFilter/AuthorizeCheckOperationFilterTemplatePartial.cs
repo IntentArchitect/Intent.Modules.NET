@@ -40,6 +40,15 @@ namespace Intent.Modules.AspNetCore.Swashbuckle.Security.Templates.AuthorizeChec
 
                         method.AddIfStatement("!HasAuthorize(context)", block =>
                         {
+                            block.AddObjectInitStatement("var securityScheme", "new OpenApiSecurityScheme();");
+                            block.AddObjectInitStatement("operation.Security", @"new List<OpenApiSecurityRequirement>
+                {
+                    new OpenApiSecurityRequirement
+                    {
+                        { securityScheme, Array.Empty<string>() }
+                    }
+                };");
+
                             block.AddStatement("return;");
                             block.SeparatedFromNext();
                         });
