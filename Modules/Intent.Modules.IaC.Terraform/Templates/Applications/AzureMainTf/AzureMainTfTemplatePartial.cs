@@ -11,13 +11,13 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.Azure.AzureMainTf
+namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureMainTf
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureMainTfTemplate : IntentTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.IaC.Terraform.Azure.AzureMainTf";
+        public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureMainTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureMainTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -64,7 +64,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Azure.AzureMainTf
                 .AddSetting("sku", "PerGB2018")
                 .AddSetting("retention_in_days", 30)
             );
-            
+
             builder.AddComment("Application Insights");
             builder.AddResource(Terraform.azurerm_application_insights.type, Terraform.azurerm_application_insights.app_insights.refname, resource => resource
                 .AddSetting("name", "app-insights")
@@ -73,7 +73,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Azure.AzureMainTf
                 .AddSetting("application_type", "web")
                 .AddRawSetting("workspace_id", "azurerm_log_analytics_workspace.workspace.id")
             );
-            
+
             return builder.Build();
         }
     }

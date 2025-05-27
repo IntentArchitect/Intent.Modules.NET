@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="c8b8221e-293c-4a95-8dba-cb6fa61990cc" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
-  <name>AzureServiceBusResourcesTf</name>
-  <display>AzureServiceBusResourcesTf: Single File</display>
+<class id="4877aace-a09b-4fdc-b495-26308c0d44db" type="File Template" typeId="43eae4bd-4613-4d15-88ac-52b7e743b7b2">
+  <name>AzureEventGridTf</name>
+  <display>AzureEventGridTf: Custom</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="1e16e586-6e34-474f-9a6d-9993b8f04a66">
-    <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
+  <typeReference id="dd33b44f-0c1d-49bb-913d-0e3e46f317d2">
+    <typeId>d2931361-7cf0-4c79-9847-621c60886ef9</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -16,7 +16,7 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>e1af8f07-2ec7-4c3b-823d-c83b37d08e07</parentFolderId>
+  <parentFolderId>0b7e607f-0e43-4064-b43f-3fab36013264</parentFolderId>
   <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
   <packageName>Intent.IaC.Terraform</packageName>
   <stereotypes>
@@ -37,11 +37,11 @@
       <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
       <properties>
         <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
-        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
+        <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="a1c3dd87-352e-4353-853b-c79853debecb" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="186a5477-fae7-42a3-98f0-f2de7ac639d0" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.Applications.AzureServiceBus.Resources" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="01-applications" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="IaC.Terraform.Subscriptions.AzureEventGrid" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="02-subscriptions" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

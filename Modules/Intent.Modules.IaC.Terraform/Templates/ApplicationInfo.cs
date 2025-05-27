@@ -1,7 +1,7 @@
 using Intent.Configuration;
 using Intent.Metadata.Models;
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionAppTf;
+namespace Intent.Modules.IaC.Terraform.Templates;
 
 public class ApplicationInfo(IApplicationConfig applicationConfig) : IMetadataModel
 {

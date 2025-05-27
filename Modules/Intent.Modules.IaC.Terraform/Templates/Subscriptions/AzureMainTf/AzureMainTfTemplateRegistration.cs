@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBusResourcesTf
+namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureMainTf
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class AzureServiceBusResourcesTfTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureMainTfTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => AzureServiceBusResourcesTfTemplate.TemplateId;
+        public override string TemplateId => AzureMainTfTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new AzureServiceBusResourcesTfTemplate(outputTarget);
+            return new AzureMainTfTemplate(outputTarget);
         }
     }
 }

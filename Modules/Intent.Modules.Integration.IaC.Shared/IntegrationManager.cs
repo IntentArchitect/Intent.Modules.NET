@@ -5,6 +5,7 @@ using Intent.Configuration;
 using Intent.Engine;
 using Intent.Eventing.AzureServiceBus.Api;
 using Intent.Modelers.Eventing.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
@@ -34,7 +35,7 @@ internal class IntegrationManager
     }
     
     private readonly List<MessageInfo> _publishedMessages;
-    private readonly List<MessageInfo> _subscribedMessages;
+    private readonly List<MessageInfo> _subscribedMessages; 
     private readonly List<CommandInfo> _sentCommands;
     private readonly List<CommandInfo> _receivedCommands;
 
@@ -48,26 +49,40 @@ internal class IntegrationManager
         _publishedMessages = applications
             .SelectMany(app => application.MetadataManager
                 .GetExplicitlyPublishedMessageModels(app.Id)
-                .Select(message => new MessageInfo(app.Id, message, new ModuleInfo(app.Modules))))
+                .Select(message => new MessageInfo(app.Id, message, null, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
         _subscribedMessages = applications
             .SelectMany(app => application.MetadataManager
-                .GetExplicitlySubscribedToMessageModels(app.Id)
-                .Select(message => new MessageInfo(app.Id, message, new ModuleInfo(app.Modules))))
+                .Services(app.Id)
+                .GetIntegrationEventHandlerModels()
+                .SelectMany(handler => handler.IntegrationEventSubscriptions()
+                    .Select(sub => new
+                    {
+                        Message = sub.Element.AsMessageModel(),
+                        Handler = handler
+                    }))
+                .Select(sub => new MessageInfo(app.Id, sub.Message, sub.Handler, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
         
         _sentCommands = applications
             .SelectMany(app => application.MetadataManager
                 .GetExplicitlySentIntegrationCommandModels(app.Id)
-                .Select(command => new CommandInfo(app.Id, command, new ModuleInfo(app.Modules))))
+                .Select(command => new CommandInfo(app.Id, command, null, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
         _receivedCommands = applications
             .SelectMany(app => application.MetadataManager
-                .GetExplicitlySubscribedToIntegrationCommandModels(app.Id)
-                .Select(command => new CommandInfo(app.Id, command, new ModuleInfo(app.Modules))))
+                .Services(app.Id)
+                .GetIntegrationEventHandlerModels()
+                .SelectMany(handler => handler.IntegrationCommandSubscriptions()
+                    .Select(sub => new
+                    {
+                        Command = sub.Element.AsIntegrationCommandModel(),
+                        Handler = handler
+                    }))
+                .Select(sub => new CommandInfo(app.Id, sub.Command, sub.Handler, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
     }
@@ -87,6 +102,7 @@ internal class IntegrationManager
     {
         var messages = _subscribedMessages
             .Where(p => p.ModuleInfo.IsAzureServiceBus && p.ApplicationId == applicationId)
+            .DistinctBy(s => s.Message.Id)
             .Select(s => new AzureServiceBusMessage(s.ApplicationId, s.Message, AzureServiceBusMethodType.Subscribe))
             .ToList();
         return messages;
@@ -105,6 +121,7 @@ internal class IntegrationManager
     {
         var messages = _receivedCommands
             .Where(p => p.ModuleInfo.IsAzureServiceBus && p.ApplicationId == applicationId)
+            .DistinctBy(s => s.Command.Id)
             .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.Command, AzureServiceBusMethodType.Subscribe))
             .ToList();
         return messages;
@@ -135,6 +152,27 @@ internal class IntegrationManager
             .ToList();
     }
 
+    public IReadOnlyList<Subscription<AzureServiceBusItemBase>> GetAggregatedAzureServiceBusSubscriptions(string applicationId)
+    {
+        var results = new List<Subscription<AzureServiceBusItemBase>>();
+
+        results.AddRange(_subscribedMessages
+            .Where(message => message.ModuleInfo.IsAzureServiceBus && message.ApplicationId == applicationId)
+            .Select(message => new Subscription<AzureServiceBusItemBase>(
+                message.EventHandlerModel!,
+                new AzureServiceBusMessage(applicationId, message.Message, AzureServiceBusMethodType.Subscribe)))
+        );
+
+        results.AddRange(_receivedCommands
+            .Where(command => command.ModuleInfo.IsAzureServiceBus && command.ApplicationId == applicationId)
+            .Select(command => new Subscription<AzureServiceBusItemBase>(
+                command.EventHandlerModel!,
+                new AzureServiceBusCommand(applicationId, command.Command, AzureServiceBusMethodType.Subscribe)))
+        );
+
+        return results;
+    }
+
     #endregion
 
     #region Azure Event Grid
@@ -163,11 +201,27 @@ internal class IntegrationManager
             .Concat(GetSubscribedAzureEventGridMessages(applicationId))
             .ToList();
     }
+    
+    public IReadOnlyList<Subscription<AzureEventGridMessage>> GetAggregatedAzureEventGridSubscriptions(string applicationId)
+    {
+        var results = new List<Subscription<AzureEventGridMessage>>();
+
+        results.AddRange(_subscribedMessages
+            .Where(message => message.ModuleInfo.IsAzureEventGrid && message.ApplicationId == applicationId)
+            .Select(message => new Subscription<AzureEventGridMessage>(
+                message.EventHandlerModel!,
+                new AzureEventGridMessage(applicationId, message.Message, AzureEventGridMethodType.Subscribe)))
+        );
+
+        return results;
+    }
 
     #endregion
 
-    private record MessageInfo(string ApplicationId, MessageModel Message, ModuleInfo ModuleInfo);
-    private record CommandInfo(string ApplicationId, IntegrationCommandModel Command, ModuleInfo ModuleInfo);
+    public record Subscription<TSubscriptionItem>(IntegrationEventHandlerModel EventHandlerModel, TSubscriptionItem SubscriptionItem);
+    
+    private record MessageInfo(string ApplicationId, MessageModel Message, IntegrationEventHandlerModel? EventHandlerModel, ModuleInfo ModuleInfo);
+    private record CommandInfo(string ApplicationId, IntegrationCommandModel Command, IntegrationEventHandlerModel? EventHandlerModel, ModuleInfo ModuleInfo);
 
     private record ModuleInfo
     {

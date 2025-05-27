@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="b9b52437-773a-4c2b-ab14-6a6b365f3430" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>Azure Service Bus</name>
-  <display>Azure Service Bus</display>
+<class id="e1af8f07-2ec7-4c3b-823d-c83b37d08e07" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Applications</name>
+  <display>Applications</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />

@@ -6,6 +6,7 @@ using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf;
 using Intent.Modules.Integration.IaC.Shared;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
@@ -14,7 +15,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionAppTf
+namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureFunctionAppTfTemplate : IntentTemplateBase<ApplicationInfo>
@@ -22,7 +23,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
         private readonly string _sanitizedApplicationName;
 
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.IaC.Terraform.Azure Functions.AzureFunctionAppTf";
+        public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureFunctionAppTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureFunctionAppTfTemplate(IOutputTarget outputTarget, ApplicationInfo model) : base(TemplateId, outputTarget, model)
@@ -114,14 +115,14 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                 {
                     appSettings.AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", Terraform.azurerm_application_insights.app_insights.instrumentation_key);
                     appSettings.AddSetting(@"""AzureWebJobsStorage""", $"DefaultEndpointsProtocol=https;AccountName=${{{storageNameExpression}}};AccountKey=${{{storagePrimaryAccessKeyExpression}}};EndpointSuffix=core.windows.net");
-                    
+
                     var versionValue = GetDotNetVersion();
                     var runtime = "dotnet";
                     if (IsVersionForIsolatedProcesses(versionValue?.Value.Replace("net", string.Empty)))
                     {
                         runtime = "dotnet-isolated";
                     }
-                    
+
                     appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", runtime);
 
                     var appKeys = new HashSet<string>();
@@ -134,7 +135,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                     {
                         if (appKeys.Add(message.QueueOrTopicConfigurationName))
                         {
-                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");                            
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
                         }
                         if (message.MethodType == AzureServiceBusMethodType.Subscribe)
                         {
@@ -147,8 +148,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                     {
                         if (appKeys.Add(message.TopicConfigurationKeyName))
                         {
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");                            
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");                            
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");
                         }
                     }
                 });
@@ -174,7 +175,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
             {
                 return false;
             }
-            
+
             var minVersion = new Version(8, 0);
             return version >= minVersion;
         }
@@ -183,7 +184,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
         {
             const string visualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
             var designer = ExecutionContext.MetadataManager.GetDesigner(Model.Id, visualStudioDesignerId);
-                        
+
             const string csharpProjectType = "8e9e6693-2888-4f48-a0d6-0f163baab740";
             const string projectStereotype = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
             const string azureFuncVersionProperty = "9da51e12-529a-4592-9119-491d7bc9d5d5";
@@ -193,11 +194,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
             {
                 return null;
             }
-            
+
             const string targetFrameworkProperty = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
             var versionValue = project.GetStereotype(projectStereotype).GetProperty<IElement>(targetFrameworkProperty);
             return versionValue;
-            
+
             bool IsAzureFunctionProject(IElement p) => (p.GetStereotype(projectStereotype)?.TryGetProperty(azureFuncVersionProperty, out var version) ?? false) && version?.Value != null;
         }
 

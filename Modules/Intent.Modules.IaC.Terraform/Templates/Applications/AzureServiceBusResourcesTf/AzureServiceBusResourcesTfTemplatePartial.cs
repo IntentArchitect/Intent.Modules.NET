@@ -13,13 +13,13 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBusResourcesTf
+namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusResourcesTf
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureServiceBusResourcesTfTemplate : IntentTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.IaC.Terraform.Azure Service Bus.AzureServiceBusResourcesTf";
+        public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureServiceBusResourcesTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -79,7 +79,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBus
                     });
                 }
             }
-            
+
             return builder.Build();
         }
     }

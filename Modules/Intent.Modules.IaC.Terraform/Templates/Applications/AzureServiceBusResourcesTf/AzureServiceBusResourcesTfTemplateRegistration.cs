@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureEventGrid.AzureEventGridResourcesTf
+namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusResourcesTf
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class AzureEventGridResourcesTfTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureServiceBusResourcesTfTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => AzureEventGridResourcesTfTemplate.TemplateId;
+        public override string TemplateId => AzureServiceBusResourcesTfTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new AzureEventGridResourcesTfTemplate(outputTarget);
+            return new AzureServiceBusResourcesTfTemplate(outputTarget);
         }
     }
 }

@@ -13,13 +13,13 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.ProjectItemTemplate.Partial", Version = "1.0")]
 
-namespace Intent.Modules.IaC.Terraform.Templates.AzureEventGrid.AzureEventGridResourcesTf
+namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridResourcesTf
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureEventGridResourcesTfTemplate : IntentTemplateBase<object>
     {
         [IntentManaged(Mode.Fully)]
-        public const string TemplateId = "Intent.IaC.Terraform.Azure Event Grid.AzureEventGridResourcesTf";
+        public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureEventGridResourcesTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -45,7 +45,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureEventGrid.AzureEventGridRe
                 .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
                 .ToArray();
             var azureEventGridMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id)).ToList();
-            
+
             var items = new HashSet<string>();
             foreach (var message in azureEventGridMessages)
             {
@@ -59,7 +59,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureEventGrid.AzureEventGridRe
                     });
                 }
             }
-            
+
             return builder.Build();
         }
     }

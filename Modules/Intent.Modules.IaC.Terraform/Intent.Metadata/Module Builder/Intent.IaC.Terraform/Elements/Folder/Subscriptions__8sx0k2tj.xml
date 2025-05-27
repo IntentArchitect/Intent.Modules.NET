@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="94ef8dda-95ae-40a6-9305-1d583647438c" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
-  <name>Azure Functions</name>
-  <display>Azure Functions</display>
+<class id="0b7e607f-0e43-4064-b43f-3fab36013264" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Subscriptions</name>
+  <display>Subscriptions</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
