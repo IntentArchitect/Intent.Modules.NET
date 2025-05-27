@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#65b68a93-9d50-4c16-a613-f37104dbe59f</correlationId>
-      <path>Intent.Modules.AI.ChatDrivenDomain/Settings/ModuleSettingsExtensions.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-03-04T20:11:25.3737818Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-03-04T20:11:26.8992073Z</approvedAt>
-      <notes><![CDATA[Not sure why Intent doesn't generate this as an INT]]></notes>
-      <deviationsHash>653424041FCB1EDDBDC41710A811A2B44AEAF6CE2576F20FC67137ECC2BE5519</deviationsHash>
-      <fileHash>EED804F432F09DC90698340FA41136DF3CA490819929CF59E57859D9023D6F15</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

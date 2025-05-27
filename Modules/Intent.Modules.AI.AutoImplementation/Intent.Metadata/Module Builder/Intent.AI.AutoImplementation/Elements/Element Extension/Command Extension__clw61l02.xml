@@ -87,7 +87,7 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let result = await launchHostedModuleTask(&quot;Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt&quot;, [application.id, element.id]);" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="let form = await dialogService.openForm({&#xD;&#xA;    title: &quot;Auto Implement&quot;,&#xD;&#xA;    fields: [&#xD;&#xA;        {&#xD;&#xA;            id: &quot;additional-instructions&quot;,&#xD;&#xA;            fieldType: &quot;textarea&quot;,&#xD;&#xA;            label: &quot;Additional Instructions&quot;&#xD;&#xA;        }&#xD;&#xA;    ]&#xD;&#xA;})&#xD;&#xA;&#xD;&#xA;console.warn(form);&#xD;&#xA;if (!form) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let result = await launchHostedModuleTask(&quot;Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt&quot;, [application.id, element.id], {&#xD;&#xA;    taskName: &quot;AI Implement: &quot; +element.getName()&#xD;&#xA;});" isActive="true" />
                 <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[]" isActive="true" />
               </properties>
             </stereotype>
