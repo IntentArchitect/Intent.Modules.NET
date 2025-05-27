@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="221e2646-a3d5-4107-8b23-b6d476dd294a" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>OpenApiOperationAttributeExtension</name>
+  <display>OpenApiOperationAttributeExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c3808b69-f250-4ea9-b9c6-5636d3d52860</parentFolderId>
+  <packageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</packageId>
+  <packageName>Intent.AzureFunctions.OpenApi</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Added OpenAPI Operation stereotype, to allow OpenApiOperation customisation.
+
 ### Version 2.0.3
 
 - Improvement: Updated NuGet package versions.
