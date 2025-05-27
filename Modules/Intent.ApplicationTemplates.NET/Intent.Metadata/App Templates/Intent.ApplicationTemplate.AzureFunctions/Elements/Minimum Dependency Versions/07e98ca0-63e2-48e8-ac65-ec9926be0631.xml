@@ -59,7 +59,7 @@
       <name>Intent.Application.FluentValidation.Dtos</name>
       <display>Intent.Application.FluentValidation.Dtos 3.11.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.11.2</value>
+      <value>3.11.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -87,7 +87,7 @@
       <name>Intent.Application.MediatR.FluentValidation</name>
       <display>Intent.Application.MediatR.FluentValidation 4.8.3</display>
       <isAbstract>false</isAbstract>
-      <value>4.8.3</value>
+      <value>4.8.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -199,7 +199,7 @@
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
       <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.6</value>
+      <value>4.2.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -241,7 +241,7 @@
       <name>Intent.Metadata.RDBMS</name>
       <display>Intent.Metadata.RDBMS 3.7.2</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.2</value>
+      <value>3.7.3</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -353,7 +353,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.9.3</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.3</value>
+      <value>3.9.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -367,7 +367,7 @@
       <name>Intent.Modelers.Services.CQRS</name>
       <display>Intent.Modelers.Services.CQRS 5.1.3</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.3</value>
+      <value>5.1.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>
@@ -423,7 +423,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.6</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.6</value>
+      <value>4.9.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>07e98ca0-63e2-48e8-ac65-ec9926be0631</parentFolderId>

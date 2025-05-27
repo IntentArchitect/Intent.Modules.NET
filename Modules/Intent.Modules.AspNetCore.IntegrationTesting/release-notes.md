@@ -8,6 +8,8 @@
 > Any generated code will be migrated to be v3 compliant.
 > For details on what the breaking changes are check out the [XUnit documentation on migrating from v2 to v3](https://xunit.net/docs/getting-started/v3/migration).
 
+- Fixed: If the `HTTP endpoint` is versioned, the version number is added to the test class and filename to avoid naming conflicts.
+
 ### Version 1.1.2
 
 - Improvement: Updated NuGet package versions.
