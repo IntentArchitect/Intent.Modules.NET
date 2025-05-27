@@ -20,11 +20,11 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
             // Mock the parameters to the Handler constructor
             // _brandRepositoryMock = new Mock<IBrandRepository>();
 
-            // _handler = new CreateBrandCommandHandler(_brandRepositoryMock)
+            // _handler = new CreateBrandCommandHandler(_brandRepositoryMock.Object);
         }
 
         [Fact]
-        public async Task Handler_Should_Create_Brand_Successfully()
+        public async Task Handle_Should_Create_Brand_Successfully()
         {
             // Arrange
             // Create an instance of the command/query here with relevant data for the test
@@ -34,7 +34,7 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
 
             // Assert
             // Check the outcomes of the test
-            Assert.True(true, $"Implement unit test logic for test '{nameof(Handler_Should_Create_Brand_Successfully)}'");
+            Assert.Fail($"Implement unit test logic for test '{nameof(Handle_Should_Create_Brand_Successfully)}'");
 
             return;
         }
