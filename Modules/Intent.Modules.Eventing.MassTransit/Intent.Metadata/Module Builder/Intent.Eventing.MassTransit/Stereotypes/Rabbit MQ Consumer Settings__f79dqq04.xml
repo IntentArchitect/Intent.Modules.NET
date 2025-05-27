@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="43ff81bf-7e41-40c9-a1cd-041b4195cade" version="3.1.0">
+  <comment>Configures settings for consuming messages from RabbitMQ, including behavior and performance-related options.</comment>
   <name>Rabbit MQ Consumer Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -28,8 +29,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="53f8ff4a-6b37-41aa-af03-6f88457a4ab9">
       <hint>Specify the number of messages to prefetch from the message broker.</hint>
@@ -38,8 +37,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="e158d458-ae1b-486a-a3d4-d231a35e79de">
       <hint>Sets the queue to be lazy.</hint>
@@ -47,10 +44,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="36cef3c0-9be1-4885-a96f-193aec2d576d">
       <hint>Specify the queue should be durable or in-memory. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -58,10 +52,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="5e5f2079-b866-4650-bf3c-6e03b65ffac8">
       <hint>Purge the messages from an existing queue on startup. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -69,10 +60,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="f2b97c75-b29a-4a29-9bd9-df3b9f0c8813">
       <hint>Specify that the queue is exclusive to this process and cannot be accessed by other processes at the same time. [Documentation](https://masstransit.io/documentation/configuration/transports/rabbitmq#endpoint-configuration)</hint>
@@ -80,10 +68,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="24c1edb4-8136-4588-97db-cd9f4849c6ba">
       <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration#receive-endpoints)</hint>
@@ -92,8 +77,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

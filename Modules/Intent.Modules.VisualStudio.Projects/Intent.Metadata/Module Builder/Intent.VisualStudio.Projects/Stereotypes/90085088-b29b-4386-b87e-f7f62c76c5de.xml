@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="90085088-b29b-4386-b87e-f7f62c76c5de" version="3.1.0">
+  <comment>Configures Visual Studio Solution-level settings.</comment>
   <name>Visual Studio Solution Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,9 +27,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="22b54494-6f14-4f12-9e6b-a39a96dd1ae1">
       <hint>Override the VS Solution location</hint>
@@ -36,9 +34,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="49e78350-c77b-4f83-88d8-5841e6cb3ab9">
       <hint>Enables [Central Package Management](https://learn.microsoft.com/nuget/consume-packages/central-package-management) for the solution.</hint>
@@ -46,10 +41,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="ad4bb70e-9dbd-41ce-95a0-1d319a40b8a9">
       <hint>The output location for the Directory.Packages.props file.</hint>
@@ -57,14 +49,12 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Check Parent Folders</defaultValue>
       <valueOptions>
         <option>Same as sln file</option>
         <option>Check Parent Folders</option>
         <option>Relative Path</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>return ManagePackageVersionsCentrally;</isActiveFunction>
     </property>
     <property id="ca30802f-7cf3-459e-9ea1-aa20d7af7638">
@@ -73,10 +63,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return OutputLocation === `Check Parent Folders` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
     </property>
     <property id="eaf8fe0b-2aec-4610-9bc8-608f6967ce55">
@@ -85,9 +72,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return OutputLocation === `Relative Path` &amp;&amp; ManagePackageVersionsCentrally;</isActiveFunction>
     </property>
   </properties>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="97218a15-c5ad-42f7-aac4-a9b8edcb5acd" version="3.1.0">
+  <comment>Configures Azure Functions version.</comment>
   <name>Azure Functions Project Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,14 +26,12 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>v4</defaultValue>
       <valueOptions>
         <option>v2</option>
         <option>v3</option>
         <option>v4</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

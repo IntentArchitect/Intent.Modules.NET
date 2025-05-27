@@ -52,51 +52,6 @@ namespace Intent.Modules.VisualStudio.Projects.Api
             {
                 return _stereotype.GetProperty<IElement>("Target Framework");
             }
-
-            public class TargetFrameworkOptions
-            {
-                public readonly string Value;
-
-                public TargetFrameworkOptions(string value)
-                {
-                    Value = value;
-                }
-
-                public TargetFrameworkOptionsEnum AsEnum()
-                {
-                    switch (Value)
-                    {
-                        case "net452":
-                            return TargetFrameworkOptionsEnum.Net452;
-                        case "net462":
-                            return TargetFrameworkOptionsEnum.Net462;
-                        case "net472":
-                            return TargetFrameworkOptionsEnum.Net472;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-                }
-
-                public bool IsNet452()
-                {
-                    return Value == "net452";
-                }
-                public bool IsNet462()
-                {
-                    return Value == "net462";
-                }
-                public bool IsNet472()
-                {
-                    return Value == "net472";
-                }
-            }
-
-            public enum TargetFrameworkOptionsEnum
-            {
-                Net452,
-                Net462,
-                Net472
-            }
         }
 
     }

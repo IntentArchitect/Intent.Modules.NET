@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="0f333544-56ed-499e-8ba2-f856025de6ef" version="3.1.0">
+  <comment>Marks the attribute to be used in queries when querying documents.</comment>
   <name>Searchable</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

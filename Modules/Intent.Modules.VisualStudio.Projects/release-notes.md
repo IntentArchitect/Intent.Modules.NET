@@ -1,3 +1,7 @@
+### Version 3.8.13
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 3.8.12
 
 - Improvement: Ability to override the name and location of the Visual Studio solution file name, through the `Visual Studio Solution Options` stereotype.

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="d9b43864-0370-401b-9e71-b1d286919500" version="3.1.0">
+  <comment>Configures .NET project-level settings.</comment>
   <name>C# Project Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -56,7 +57,6 @@
         <option>2</option>
         <option>1</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="5c953a82-78c4-4986-b204-df9fcbea5242">
       <name>Relative Location</name>
@@ -64,8 +64,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="415a5406-0517-4c0e-ab60-bc809a23c308">
       <comment>This stereotype property exists for backwards compatibility reasons, use the "Nullable" property instead which will take precedence over this one.</comment>
@@ -76,8 +74,6 @@
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="68a31b13-148b-45da-a6ea-5a6883f86438">
@@ -93,7 +89,6 @@
         <option>warnings</option>
         <option>annotations</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

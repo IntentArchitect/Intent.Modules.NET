@@ -1,6 +1,7 @@
 ### Version 1.0.9
 
 - Improvement: Updated NuGet package versions.
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
 
 ### Version 1.0.8
 

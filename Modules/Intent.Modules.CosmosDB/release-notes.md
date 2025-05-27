@@ -1,3 +1,7 @@
+### Version 1.2.16
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.2.15
 
 - Fixed: Fixed incorrect code when modeling a ValueObject collection as an Entity Attribute.

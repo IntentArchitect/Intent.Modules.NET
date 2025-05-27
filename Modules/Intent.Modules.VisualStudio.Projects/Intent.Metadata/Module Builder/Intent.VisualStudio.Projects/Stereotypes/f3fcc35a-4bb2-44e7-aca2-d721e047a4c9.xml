@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="f3fcc35a-4bb2-44e7-aca2-d721e047a4c9" version="3.1.0">
+  <comment>Configures .NET target Framework.</comment>
   <name>.NET Framework Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -29,13 +30,7 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
-      <placeholder />
       <defaultValue>475ed40d-d952-4056-9509-afdec875a10f</defaultValue>
-      <valueOptions>
-        <option>net452</option>
-        <option>net462</option>
-        <option>net472</option>
-      </valueOptions>
       <lookupTypes>
         <type>6453c4bd-78b8-4589-a223-9f57a348a1a1</type>
       </lookupTypes>

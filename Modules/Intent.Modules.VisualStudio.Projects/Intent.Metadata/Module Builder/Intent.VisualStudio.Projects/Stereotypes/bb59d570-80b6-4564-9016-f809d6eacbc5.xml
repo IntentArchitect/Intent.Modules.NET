@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="bb59d570-80b6-4564-9016-f809d6eacbc5" version="3.1.0">
+  <comment>Configures if the solution folder should be generated or not.</comment>
   <name>Folder Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,10 +27,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

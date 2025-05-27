@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ced769d7-12d7-4efc-b8e7-4fe013097613" version="3.1.0">
+  <comment>Configures the queue name for the subscription.</comment>
   <name>Command Consumption</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -30,10 +31,6 @@ return "";</displayFunction>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(uses convention)</placeholder>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
-      <isRequiredFunction />
     </property>
   </properties>
 </stereotypeDefinition>

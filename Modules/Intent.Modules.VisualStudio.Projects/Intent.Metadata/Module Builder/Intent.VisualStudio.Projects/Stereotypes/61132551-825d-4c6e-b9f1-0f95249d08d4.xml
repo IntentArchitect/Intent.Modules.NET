@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="61132551-825d-4c6e-b9f1-0f95249d08d4" version="3.1.0">
+  <comment>Configures whether the folder name is included in the namespace of contained code files.</comment>
   <name>Folder Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,10 +26,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>
