@@ -59,7 +59,10 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureServiceBus.AzureServiceBus
             {
                 if (items.Add(message.QueueOrTopicName))
                 {
-                    builder.AddResource(Terraform.azurerm_servicebus_queue.type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    var type = message.ChannelType == AzureServiceBusChannelType.Queue
+                        ? Terraform.azurerm_servicebus_queue.type
+                        : Terraform.azurerm_servicebus_topic.type;
+                    builder.AddResource(type, message.QueueOrTopicName.ToSnakeCase(), resource =>
                     {
                         resource.AddSetting("name", message.QueueOrTopicName);
                         resource.AddRawSetting("namespace_id", Terraform.azurerm_servicebus_namespace.service_bus.id);

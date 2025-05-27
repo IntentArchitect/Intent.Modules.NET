@@ -101,25 +101,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                 {
                     siteConfig.AddBlock("application_stack", appStack =>
                     {
-                        const string visualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
-                        var designer = ExecutionContext.MetadataManager.GetDesigner(Model.Id, visualStudioDesignerId);
-                        
-                        const string csharpProjectType = "8e9e6693-2888-4f48-a0d6-0f163baab740";
-                        const string projectStereotype = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
-                        const string azureFuncVersionProperty = "9da51e12-529a-4592-9119-491d7bc9d5d5";
-
-                        var project = designer.GetElementsOfType(csharpProjectType).FirstOrDefault(IsAzureFunctionProject);
-                        if (project is null)
+                        var versionValue = GetDotNetVersion();
+                        if (versionValue is null)
                         {
                             return;
                         }
-                        const string targetFrameworkProperty = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
-                        var versionValue = project.GetStereotype(projectStereotype).GetProperty<IElement>(targetFrameworkProperty);
                         appStack.AddSetting("dotnet_version", $"v{versionValue.Value.Replace("net", string.Empty)}");
-
-                        return;
-
-                        bool IsAzureFunctionProject(IElement p) => (p.GetStereotype(projectStereotype)?.TryGetProperty(azureFuncVersionProperty, out var version) ?? false) && version?.Value != null;
                     });
                     siteConfig.AddBlock("cors", cors => cors.AddSetting("allowed_origins", new[] { "https://portal.azure.com" }));
                 });
@@ -127,7 +114,15 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
                 {
                     appSettings.AddRawSetting(@"""APPINSIGHTS_INSTRUMENTATIONKEY""", Terraform.azurerm_application_insights.app_insights.instrumentation_key);
                     appSettings.AddSetting(@"""AzureWebJobsStorage""", $"DefaultEndpointsProtocol=https;AccountName=${{{storageNameExpression}}};AccountKey=${{{storagePrimaryAccessKeyExpression}}};EndpointSuffix=core.windows.net");
-                    appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", "dotnet");
+                    
+                    var versionValue = GetDotNetVersion();
+                    var runtime = "dotnet";
+                    if (IsVersionForIsolatedProcesses(versionValue?.Value.Replace("net", string.Empty)))
+                    {
+                        runtime = "dotnet-isolated";
+                    }
+                    
+                    appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", runtime);
 
                     var appKeys = new HashSet<string>();
                     var azureServiceBusMessages = IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
@@ -166,6 +161,44 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureFunctions.AzureFunctionApp
             });
 
             return builder.Build();
+        }
+
+        private static bool IsVersionForIsolatedProcesses(string? versionString)
+        {
+            if (string.IsNullOrWhiteSpace(versionString))
+            {
+                return false;
+            }
+
+            if (!Version.TryParse(versionString, out var version))
+            {
+                return false;
+            }
+            
+            var minVersion = new Version(8, 0);
+            return version >= minVersion;
+        }
+
+        private IElement? GetDotNetVersion()
+        {
+            const string visualStudioDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
+            var designer = ExecutionContext.MetadataManager.GetDesigner(Model.Id, visualStudioDesignerId);
+                        
+            const string csharpProjectType = "8e9e6693-2888-4f48-a0d6-0f163baab740";
+            const string projectStereotype = "a490a23f-5397-40a1-a3cb-6da7e0b467c0";
+            const string azureFuncVersionProperty = "9da51e12-529a-4592-9119-491d7bc9d5d5";
+
+            var project = designer.GetElementsOfType(csharpProjectType).FirstOrDefault(IsAzureFunctionProject);
+            if (project is null)
+            {
+                return null;
+            }
+            
+            const string targetFrameworkProperty = "d53ab03c-90cf-4b6a-b733-73b6983ab603";
+            var versionValue = project.GetStereotype(projectStereotype).GetProperty<IElement>(targetFrameworkProperty);
+            return versionValue;
+            
+            bool IsAzureFunctionProject(IElement p) => (p.GetStereotype(projectStereotype)?.TryGetProperty(azureFuncVersionProperty, out var version) ?? false) && version?.Value != null;
         }
 
         private string GetStorageResourceName(string seed, int randomSeedLength)

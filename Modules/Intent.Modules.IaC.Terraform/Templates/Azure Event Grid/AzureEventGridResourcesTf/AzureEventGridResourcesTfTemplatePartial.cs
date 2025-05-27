@@ -5,6 +5,8 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -36,7 +38,29 @@ namespace Intent.Modules.IaC.Terraform.Templates.AzureEventGrid.AzureEventGridRe
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
-            return "";
+            var builder = new TerraformFileBuilder();
+
+            var apps = ExecutionContext.GetSolutionConfig()
+                .GetApplicationReferences()
+                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
+                .ToArray();
+            var azureEventGridMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id)).ToList();
+            
+            var items = new HashSet<string>();
+            foreach (var message in azureEventGridMessages)
+            {
+                if (items.Add(message.TopicName))
+                {
+                    builder.AddResource(Terraform.azurerm_eventgrid_topic.type, message.TopicName.ToSnakeCase(), resource =>
+                    {
+                        resource.AddSetting("name", message.TopicName);
+                        resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);
+                        resource.AddRawSetting("resource_group_name", Terraform.azurerm_resource_group.main_rg.name);
+                    });
+                }
+            }
+            
+            return builder.Build();
         }
     }
 }
