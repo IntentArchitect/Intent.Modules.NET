@@ -70,7 +70,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                     resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.type}.{topicNameRef}.id");
                     resource.AddBlock("azure_function_endpoint", b =>
                     {
-                        b.AddSetting("function_id", $"${{{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
+                        b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
                         b.AddSetting("max_events_per_batch", 1);
                         b.AddSetting("preferred_batch_size_in_kilobytes", 64);
                     });
@@ -104,13 +104,13 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
         // Keep GetFunctionName() in sync with:
         // - Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionConsumer.AzureFunctionConsumerTemplate
-        private string GetFunctionName(IntegrationEventHandlerModel subscriptionEventHandlerModel)
+        private string GetFunctionName(IntegrationEventHandlerModel model)
         {
-            var functionName = $"{Model.Name.RemoveSuffix("Handler")}Consumer";
+            var functionName = $"{model.Name.RemoveSuffix("Handler")}Consumer";
 
             if (!SimpleFunctionNames())
             {
-                var path = string.Join("_", subscriptionEventHandlerModel.GetParentFolderNames());
+                var path = string.Join("_", model.GetParentFolderNames());
                 if (!string.IsNullOrWhiteSpace(path))
                 {
                     return $"{path}_{functionName}";
@@ -125,7 +125,9 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
             const string azureFunctionsSettingsGroup = "90437e3f-cb10-4e44-b229-cc30c4807bea";
             const string simpleFunctionNamesSetting = "ff298d6c-705b-41d9-9286-be85480a0abd";
             
-            bool.TryParse(ExecutionContext.Settings.GetGroup(azureFunctionsSettingsGroup)?.GetSetting(simpleFunctionNamesSetting)?.Value, out var result);
+            var value = ExecutionContext.GetApplicationConfig(Model.Id).ModuleSetting
+                .FirstOrDefault(x => x.Id == azureFunctionsSettingsGroup)?.GetSetting(simpleFunctionNamesSetting)?.Value;
+            bool.TryParse(value, out var result);
             return result;
         }
     }

@@ -46,6 +46,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureMainTf
                         .AddSetting("version", "~> 3.0"))
                 );
             });
+            
+            builder.AddProvider("azurerm", provider => provider.AddBlock("features"));
 
             builder.AddVariable("resource_group_name", var => var.AddRawSetting("type", "string"));
             
