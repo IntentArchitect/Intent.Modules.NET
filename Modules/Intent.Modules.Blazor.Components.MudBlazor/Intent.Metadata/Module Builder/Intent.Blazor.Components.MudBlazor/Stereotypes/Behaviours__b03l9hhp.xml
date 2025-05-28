@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="b3d9be90-aaa8-4bf7-b8d0-95c73a6ee68a" version="3.1.0">
+  <comment>Defines input behavior characteristics for the component.</comment>
   <name>Behaviours</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,19 +26,13 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="a4523682-d4d6-4c7f-a40a-b3437a3d7abe">
       <name>Debounce Interval</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

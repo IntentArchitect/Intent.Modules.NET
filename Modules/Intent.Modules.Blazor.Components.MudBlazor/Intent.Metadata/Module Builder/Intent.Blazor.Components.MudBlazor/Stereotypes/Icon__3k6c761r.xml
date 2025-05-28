@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="8e1b7033-fd27-495a-a2a7-36b5168f04f5" version="3.1.0">
+  <comment>Configure icon-related settings for the component.</comment>
   <name>Icon</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -30,16 +31,6 @@
       <controlType>select</controlType>
       <optionsSource>lookup-children</optionsSource>
       <placeholder>(none)</placeholder>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
       <lookupInternalTargetPropertyId>return "c5a84f56-06d6-4c56-b051-9ad96b12eadf" // Color (Enum);</lookupInternalTargetPropertyId>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
@@ -49,16 +40,6 @@
       <controlType>select</controlType>
       <optionsSource>lookup-children</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
       <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
     </property>
     <property id="13f1151e-7611-4bde-8374-1598b5d3335c">
@@ -68,16 +49,6 @@
       <optionsSource>lookup-children</optionsSource>
       <placeholder>(default)</placeholder>
       <defaultValue>41f2ef78-a358-43bd-9b84-926dc185c8d1</defaultValue>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
       <lookupInternalTargetPropertyId>return "3e567ea2-5065-40bb-8b52-4e2ce035082d" // Icon Variant (Enum);</lookupInternalTargetPropertyId>
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" version="3.1.0">
+  <comment>Defines visual presentation settings for the component, allowing customization of its appearance and style.</comment>
   <name>Appearance</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,38 +26,25 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="17f49bf9-0511-469e-8fe3-58ce147af1bc">
       <name>Width</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f">
       <name>Height</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f">
       <name>Elevation</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="5a21da28-5f76-40b4-946b-0306be8d8dc1">
       <name>Class</name>
@@ -64,8 +52,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>
