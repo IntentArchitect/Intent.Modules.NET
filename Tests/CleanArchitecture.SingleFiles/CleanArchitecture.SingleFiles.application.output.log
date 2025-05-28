@@ -444,6 +444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1773a42c-b33a-400c-acbb-0b81956fcadd</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1773a42c-b33a-400c-acbb-0b81956fcadd</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1773a42c-b33a-400c-acbb-0b81956fcadd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.SingleFiles.Application/CleanArchitecture.SingleFiles.Application.csproj</ApplicationRelativeFilePath>

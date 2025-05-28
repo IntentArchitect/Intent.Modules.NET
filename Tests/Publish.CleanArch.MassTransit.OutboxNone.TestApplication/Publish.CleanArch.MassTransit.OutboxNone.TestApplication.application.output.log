@@ -132,6 +132,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f82faa-76ce-4e02-b346-66d8841391e7</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#a6b417eb-3041-441e-9033-f0140bf82b2b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application/Baskets/BasketBasketItemDto.cs</ApplicationRelativeFilePath>

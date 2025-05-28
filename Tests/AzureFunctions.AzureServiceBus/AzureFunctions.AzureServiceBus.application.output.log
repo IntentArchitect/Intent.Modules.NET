@@ -170,6 +170,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c9e04d7a-4dc4-4735-b69c-ad7b4121b533</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#c9e04d7a-4dc4-4735-b69c-ad7b4121b533</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/AzureFunctions.AzureServiceBus.Application.csproj</ApplicationRelativeFilePath>

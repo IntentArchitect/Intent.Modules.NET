@@ -300,6 +300,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Solace.Tests.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b20a2672-f0fe-41aa-ab40-6e220d530595</ProjectId>
       <CorrelationId>Intent.Eventing.Solace.BaseMessage</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Application/BaseMessage.cs</ApplicationRelativeFilePath>

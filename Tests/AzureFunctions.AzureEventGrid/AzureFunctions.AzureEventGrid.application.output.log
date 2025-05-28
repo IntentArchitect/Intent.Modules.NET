@@ -130,6 +130,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#5a484fc2-eb94-438e-9fc8-8323b2723e13</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/AzureFunctions.AzureEventGrid.Application.csproj</ApplicationRelativeFilePath>
