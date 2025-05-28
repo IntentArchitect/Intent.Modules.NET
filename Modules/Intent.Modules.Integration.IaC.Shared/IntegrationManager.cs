@@ -16,9 +16,9 @@ namespace Intent.Modules.Integration.IaC.Shared;
 internal class IntegrationManager
 {
     private static IntegrationManager? _instance;
-    public static void Initialize(IApplication application)
+    public static void Initialize(ISoftwareFactoryExecutionContext executionContext)
     {
-        _instance = new IntegrationManager(application);
+        _instance = new IntegrationManager(executionContext);
     }
 
     public static IntegrationManager Instance
@@ -39,21 +39,21 @@ internal class IntegrationManager
     private readonly List<CommandInfo> _sentCommands;
     private readonly List<CommandInfo> _receivedCommands;
 
-    private IntegrationManager(IApplication application)
+    private IntegrationManager(ISoftwareFactoryExecutionContext executionContext)
     {
-        var applications = application.GetSolutionConfig()
+        var applications = executionContext.GetSolutionConfig()
             .GetApplicationReferences()
-            .Select(app => application.GetSolutionConfig().GetApplicationConfig(app.Id))
+            .Select(app => executionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
             .ToArray();
 
         _publishedMessages = applications
-            .SelectMany(app => application.MetadataManager
+            .SelectMany(app => executionContext.MetadataManager
                 .GetExplicitlyPublishedMessageModels(app.Id)
                 .Select(message => new MessageInfo(app.Id, message, null, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
         _subscribedMessages = applications
-            .SelectMany(app => application.MetadataManager
+            .SelectMany(app => executionContext.MetadataManager
                 .Services(app.Id)
                 .GetIntegrationEventHandlerModels()
                 .SelectMany(handler => handler.IntegrationEventSubscriptions()
@@ -67,13 +67,13 @@ internal class IntegrationManager
             .ToList();
         
         _sentCommands = applications
-            .SelectMany(app => application.MetadataManager
+            .SelectMany(app => executionContext.MetadataManager
                 .GetExplicitlySentIntegrationCommandModels(app.Id)
                 .Select(command => new CommandInfo(app.Id, command, null, new ModuleInfo(app.Modules))))
             .Distinct()
             .ToList();
         _receivedCommands = applications
-            .SelectMany(app => application.MetadataManager
+            .SelectMany(app => executionContext.MetadataManager
                 .Services(app.Id)
                 .GetIntegrationEventHandlerModels()
                 .SelectMany(handler => handler.IntegrationCommandSubscriptions()

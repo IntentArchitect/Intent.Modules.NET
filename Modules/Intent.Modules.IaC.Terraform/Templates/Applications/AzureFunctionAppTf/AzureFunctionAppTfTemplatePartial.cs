@@ -54,7 +54,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
             });
 
             var appNameRef = $"{_sanitizedApplicationName}_app_name";
-            var storageNameRef = $"{_sanitizedApplicationName}_storage_name";
+            var storageNameRef = $"{_sanitizedApplicationName.ToSnakeCase()}_storage_name";
             var localAppName = $"local.{appNameRef}";
             var localStorageName = $"local.{storageNameRef}";
 
@@ -135,11 +135,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                     {
                         if (appKeys.Add(message.QueueOrTopicConfigurationName))
                         {
-                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }
                         if (message.MethodType == AzureServiceBusMethodType.Subscribe)
                         {
-                            appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }
                     }
 
