@@ -42,6 +42,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f1467209-d74e-4e04-85fa-11883ef28bce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#f1467209-d74e-4e04-85fa-11883ef28bce</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes/AssemblyAttributesTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b3523dcd-a2ea-447b-9e1e-68fd5651a010</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c05c51e0-a3d4-4a0b-8c66-2855263c672f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EventBusInterface/EventBusInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: `SuppressMessage("Formatting", "IDE0130:Namespace does not match folder structure.", Target = "<namespace>", Scope = "namespaceanddescendants", Justification = "Message namespaces need to be consistent between applications for deserialization to work")` assembly attributes will now be generated to prevent compiler warnings for generated eventing messages if `dotnet_style_namespace_match_folder` is enabled in `.editorconfig`.
+
 ### Version 5.2.0
 
 - Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.
