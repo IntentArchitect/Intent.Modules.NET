@@ -1,9 +1,9 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.Metadata;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
