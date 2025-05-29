@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationCommand", Version = "1.0")]
 
-namespace AzureFunctions.AzureServiceBus.Eventing.Messages
+namespace AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages
 {
     public record CreateOrgIntegrationCommand
     {

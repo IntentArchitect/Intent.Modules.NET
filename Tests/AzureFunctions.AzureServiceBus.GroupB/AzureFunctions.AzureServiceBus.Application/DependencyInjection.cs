@@ -6,7 +6,7 @@ using AzureFunctions.AzureServiceBus.Application.Common.Validation;
 using AzureFunctions.AzureServiceBus.Application.Implementation;
 using AzureFunctions.AzureServiceBus.Application.IntegrationEvents.EventHandlers;
 using AzureFunctions.AzureServiceBus.Application.Interfaces;
-using AzureFunctions.AzureServiceBus.Eventing.Messages;
+using AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -39,10 +39,6 @@ namespace AzureFunctions.AzureServiceBus.Application
             services.AddTransient<ISpecificChannelService, SpecificChannelService>();
             services.AddTransient<IIntegrationEventHandler<ClientCreatedEvent>, ClientCreatedEventHandler>();
             services.AddTransient<IIntegrationEventHandler<CreateOrgIntegrationCommand>, CreateOrgIntegrationCommandHandler>();
-            services.AddTransient<IIntegrationEventHandler<SpecificQueueOneMessageEvent>, SpecificQueueMessageHandler>();
-            services.AddTransient<IIntegrationEventHandler<SpecificQueueTwoMessageEvent>, SpecificQueueMessageHandler>();
-            services.AddTransient<IIntegrationEventHandler<SpecificTopicOneMessageEvent>, SpecificTopicMessageHandler>();
-            services.AddTransient<IIntegrationEventHandler<SpecificTopicTwoMessageEvent>, SpecificTopicMessageHandler>();
             return services;
         }
     }

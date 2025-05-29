@@ -15,7 +15,7 @@ namespace AzureFunctions.AzureServiceBus.Api.Configuration
         {
             Info = new OpenApiInfo
             {
-                Title = "AzureFunctions.AzureServiceBus.GroupA API",
+                Title = "AzureFunctions.AzureServiceBus.GroupB API",
                 Version = "1.0.0"
             };
         }

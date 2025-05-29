@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.Contracts.IntegrationEventDto", Version = "1.0")]
 
-namespace AzureFunctions.AzureServiceBus.Eventing.Messages
+namespace AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages
 {
     public class OrgDepartmentDto
     {

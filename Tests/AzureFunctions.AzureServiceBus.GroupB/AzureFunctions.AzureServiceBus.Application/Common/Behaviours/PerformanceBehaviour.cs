@@ -51,11 +51,11 @@ namespace AzureFunctions.AzureServiceBus.Application.Common.Behaviours
 
                 if (_logRequestPayload)
                 {
-                    _logger.LogWarning("AzureFunctions.AzureServiceBus.GroupA Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                    _logger.LogWarning("AzureFunctions.AzureServiceBus.GroupB Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
                 }
                 else
                 {
-                    _logger.LogWarning("AzureFunctions.AzureServiceBus.GroupA Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
+                    _logger.LogWarning("AzureFunctions.AzureServiceBus.GroupB Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
                 }
             }
             return response;

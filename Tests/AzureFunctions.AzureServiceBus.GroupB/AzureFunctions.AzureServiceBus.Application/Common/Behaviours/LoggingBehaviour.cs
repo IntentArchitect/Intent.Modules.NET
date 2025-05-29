@@ -35,11 +35,11 @@ namespace AzureFunctions.AzureServiceBus.Application.Common.Behaviours
 
             if (_logRequestPayload)
             {
-                _logger.LogInformation("AzureFunctions.AzureServiceBus.GroupA Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, userName, request);
+                _logger.LogInformation("AzureFunctions.AzureServiceBus.GroupB Request: {Name} {@UserId} {@UserName} {@Request}", requestName, userId, userName, request);
             }
             else
             {
-                _logger.LogInformation("AzureFunctions.AzureServiceBus.GroupA Request: {Name} {@UserId} {@UserName}", requestName, userId, userName);
+                _logger.LogInformation("AzureFunctions.AzureServiceBus.GroupB Request: {Name} {@UserId} {@UserName}", requestName, userId, userName);
             }
             return Task.CompletedTask;
         }

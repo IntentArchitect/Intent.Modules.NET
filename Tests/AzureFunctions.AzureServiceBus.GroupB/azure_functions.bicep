@@ -1,4 +1,4 @@
-param functionAppName string = 'azure-functions-azure-service-bus-group-a-${uniqueString(resourceGroup().id)}'
+param functionAppName string = 'azure-functions-azure-service-bus-group-b-${uniqueString(resourceGroup().id)}'
 param appInsightsName string = 'app-insights-${uniqueString(resourceGroup().id)}'
 param storageName string = 'storage${uniqueString(resourceGroup().id)}'
 param serviceBusNamespaceName string = 'service-bus-${uniqueString(resourceGroup().id)}'
@@ -40,11 +40,6 @@ resource serviceBusNamespace 'Microsoft.ServiceBus/namespaces@2021-06-01-preview
   }
 }
 
-resource createOrgQueue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'create-org'
-}
-
 resource specificQueueQueue 'Microsoft.ServiceBus/namespaces/queues@2021-06-01-preview' = {
   parent: serviceBusNamespace
   name: 'specific-queue'
@@ -55,24 +50,9 @@ resource clientCreatedSubscription 'Microsoft.ServiceBus/namespaces/topics/subsc
   name: 'client-created-subscription'
 }
 
-resource specificTopicSubscription 'Microsoft.ServiceBus/namespaces/topics/subscriptions@2021-06-01-preview' = {
-  parent: specificTopicTopic
-  name: 'specific-topic-subscription'
-}
-
-resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
+resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' existing = {
   parent: serviceBusNamespace
   name: 'client-created'
-}
-
-resource clientCreatedTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'client-created'
-}
-
-resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
-  parent: serviceBusNamespace
-  name: 'specific-topic'
 }
 
 resource specificTopicTopic 'Microsoft.ServiceBus/namespaces/topics@2021-06-01-preview' = {
@@ -110,10 +90,6 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: clientCreatedTopic.name
         }
         {
-          name: 'AzureServiceBus:ClientCreated'
-          value: clientCreatedTopic.name
-        }
-        {
           name: 'AzureServiceBus:ClientCreatedSubscription'
           value: clientCreatedSubscription.name
         }
@@ -122,24 +98,12 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           value: serviceBusConnectionString
         }
         {
-          name: 'AzureServiceBus:CreateOrg'
-          value: createOrgQueue.name
-        }
-        {
           name: 'AzureServiceBus:SpecificQueue'
           value: specificQueueQueue.name
         }
         {
           name: 'AzureServiceBus:SpecificTopic'
           value: specificTopicTopic.name
-        }
-        {
-          name: 'AzureServiceBus:SpecificTopic'
-          value: specificTopicTopic.name
-        }
-        {
-          name: 'AzureServiceBus:SpecificTopicSubscription'
-          value: specificTopicSubscription.name
         }
         {
           name: 'CqrsSettings:LogRequestPayload'

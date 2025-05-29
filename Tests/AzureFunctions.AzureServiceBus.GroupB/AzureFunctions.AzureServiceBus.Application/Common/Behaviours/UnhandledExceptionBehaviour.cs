@@ -45,11 +45,11 @@ namespace AzureFunctions.AzureServiceBus.Application.Common.Behaviours
 
                 if (_logRequestPayload)
                 {
-                    _logger.LogError(ex, "AzureFunctions.AzureServiceBus.GroupA Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
+                    _logger.LogError(ex, "AzureFunctions.AzureServiceBus.GroupB Request: Unhandled Exception for Request {Name} {@Request}", requestName, request);
                 }
                 else
                 {
-                    _logger.LogError(ex, "AzureFunctions.AzureServiceBus.GroupA Request: Unhandled Exception for Request {Name}", requestName);
+                    _logger.LogError(ex, "AzureFunctions.AzureServiceBus.GroupB Request: Unhandled Exception for Request {Name}", requestName);
                 }
                 throw;
             }

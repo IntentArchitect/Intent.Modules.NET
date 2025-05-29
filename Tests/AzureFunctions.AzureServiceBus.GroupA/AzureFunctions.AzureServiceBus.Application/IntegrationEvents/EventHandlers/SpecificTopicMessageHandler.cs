@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.AzureServiceBus.Application.Common.Eventing;
-using AzureFunctions.AzureServiceBus.Eventing.Messages;
+using AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
