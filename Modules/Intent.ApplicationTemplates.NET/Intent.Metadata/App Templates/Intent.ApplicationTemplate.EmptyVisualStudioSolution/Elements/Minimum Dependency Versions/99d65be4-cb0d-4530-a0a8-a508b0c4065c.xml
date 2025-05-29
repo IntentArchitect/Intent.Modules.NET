@@ -57,7 +57,7 @@
     </childElement>
     <childElement id="7eb1fe23-e830-4ad6-b833-cf9c862d9a5f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.6</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.7</display>
       <isAbstract>false</isAbstract>
       <value>4.9.7</value>
       <genericTypes />

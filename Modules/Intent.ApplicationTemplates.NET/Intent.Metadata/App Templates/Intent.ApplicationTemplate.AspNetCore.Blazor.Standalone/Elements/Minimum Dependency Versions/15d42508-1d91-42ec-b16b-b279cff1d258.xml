@@ -29,7 +29,7 @@
     </childElement>
     <childElement id="617e88b3-08e6-4c7b-b371-a1fbd826e6b8" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor</name>
-      <display>Intent.Blazor 1.0.0-beta.12</display>
+      <display>Intent.Blazor 1.0.0-beta.14</display>
       <isAbstract>false</isAbstract>
       <value>1.0.0-beta.14</value>
       <genericTypes />
@@ -43,7 +43,7 @@
     </childElement>
     <childElement id="c0b216ae-2b8d-445e-907f-c9fa0fda762b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor.Components.MudBlazor</name>
-      <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.23</display>
+      <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.24</display>
       <isAbstract>false</isAbstract>
       <value>1.0.0-beta.24</value>
       <genericTypes />
@@ -71,7 +71,7 @@
     </childElement>
     <childElement id="0830efbc-8dc3-4058-9f94-939ea993750b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Blazor.HttpClients</name>
-      <display>Intent.Blazor.HttpClients 4.0.6</display>
+      <display>Intent.Blazor.HttpClients 4.0.7</display>
       <isAbstract>false</isAbstract>
       <value>4.0.7</value>
       <genericTypes />
@@ -99,7 +99,7 @@
     </childElement>
     <childElement id="130c0bc7-09fb-48df-8713-421fad2faa6b" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Code.Weaving.Razor</name>
-      <display>Intent.Code.Weaving.Razor 1.0.7</display>
+      <display>Intent.Code.Weaving.Razor 1.0.8</display>
       <isAbstract>false</isAbstract>
       <value>1.0.8</value>
       <genericTypes />
@@ -183,7 +183,7 @@
     </childElement>
     <childElement id="ec8a1b65-5255-4487-8216-fae4e28925a3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.9.3</display>
+      <display>Intent.Modelers.Services 3.9.4</display>
       <isAbstract>false</isAbstract>
       <value>3.9.4</value>
       <genericTypes />
@@ -197,7 +197,7 @@
     </childElement>
     <childElement id="36f49d2d-e3b9-4920-a0e5-d7b247ef9fb3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 5.1.3</display>
+      <display>Intent.Modelers.Services.CQRS 5.1.4</display>
       <isAbstract>false</isAbstract>
       <value>5.1.4</value>
       <genericTypes />
@@ -267,7 +267,7 @@
     </childElement>
     <childElement id="422325ee-c865-4749-a7f2-83db5752bf85" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.6</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.7</display>
       <isAbstract>false</isAbstract>
       <value>4.9.7</value>
       <genericTypes />

@@ -57,7 +57,7 @@
     </childElement>
     <childElement id="f78a5eaa-0063-4959-8e54-4f1b19f17370" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.FluentValidation.Dtos</name>
-      <display>Intent.Application.FluentValidation.Dtos 3.11.2</display>
+      <display>Intent.Application.FluentValidation.Dtos 3.11.3</display>
       <isAbstract>false</isAbstract>
       <value>3.11.3</value>
       <genericTypes />
@@ -85,7 +85,7 @@
     </childElement>
     <childElement id="65542414-7d10-4ea4-a6d5-78bc1e31144f" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.MediatR.FluentValidation</name>
-      <display>Intent.Application.MediatR.FluentValidation 4.8.3</display>
+      <display>Intent.Application.MediatR.FluentValidation 4.8.4</display>
       <isAbstract>false</isAbstract>
       <value>4.8.4</value>
       <genericTypes />
@@ -197,7 +197,7 @@
     </childElement>
     <childElement id="a13f95f2-ff31-4fa2-a594-f6ae38de2e55" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
-      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.6</display>
+      <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.7</display>
       <isAbstract>false</isAbstract>
       <value>4.2.7</value>
       <genericTypes />
@@ -239,7 +239,7 @@
     </childElement>
     <childElement id="361de086-0139-46b8-9440-0815438848d1" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.RDBMS</name>
-      <display>Intent.Metadata.RDBMS 3.7.2</display>
+      <display>Intent.Metadata.RDBMS 3.7.3</display>
       <isAbstract>false</isAbstract>
       <value>3.7.3</value>
       <genericTypes />
@@ -351,7 +351,7 @@
     </childElement>
     <childElement id="0e9ad9d2-b0a2-458f-b2d4-3aecae09bb9c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.9.3</display>
+      <display>Intent.Modelers.Services 3.9.4</display>
       <isAbstract>false</isAbstract>
       <value>3.9.4</value>
       <genericTypes />
@@ -365,7 +365,7 @@
     </childElement>
     <childElement id="4b8dac02-1381-4d68-bef8-875ca3acc19d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 5.1.3</display>
+      <display>Intent.Modelers.Services.CQRS 5.1.4</display>
       <isAbstract>false</isAbstract>
       <value>5.1.4</value>
       <genericTypes />
@@ -421,7 +421,7 @@
     </childElement>
     <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.6</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.7</display>
       <isAbstract>false</isAbstract>
       <value>4.9.7</value>
       <genericTypes />
