@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.IaC.Terraform</id>
+  <version>1.0.0-beta.0</version>
+  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
+  <summary>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</summary>
+  <description>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=</iconUrl>
+  <templates>
+    <template id="Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf" externalReference="e285dfdd-34ff-4b2c-a69e-7374051cd1e2">
+      <role>IaC.Terraform.Applications.AzureEventGrid.Resources</role>
+      <location>01-applications</location>
+    </template>
+    <template id="Intent.IaC.Terraform.Applications.AzureFunctionAppTf" externalReference="7b2b5228-48da-4289-a5d0-fa7bb1cf95e9">
+      <role>IaC.Terraform.Applications.AzureFunctions</role>
+      <location>01-applications</location>
+    </template>
+    <template id="Intent.IaC.Terraform.Applications.AzureMainTf" externalReference="ff58621f-ee16-4ee2-b91e-43289c85906d">
+      <role>IaC.Terraform.Applications.AzureMain</role>
+      <location>01-applications</location>
+    </template>
+    <template id="Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf" externalReference="c8b8221e-293c-4a95-8dba-cb6fa61990cc">
+      <role>IaC.Terraform.Applications.AzureServiceBus.Resources</role>
+      <location>01-applications</location>
+    </template>
+    <template id="Intent.IaC.Terraform.Subscriptions.AzureEventGridTf" externalReference="4877aace-a09b-4fdc-b495-26308c0d44db">
+      <role>IaC.Terraform.Subscriptions.AzureEventGrid</role>
+      <location>02-subscriptions</location>
+    </template>
+    <template id="Intent.IaC.Terraform.Subscriptions.AzureMainTf" externalReference="2c864c3b-b1c7-40ac-83af-150a3cf9fb95">
+      <role>IaC.Terraform.Subscriptions.AzureMain</role>
+      <location>02-subscriptions</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.IaC.Terraform.MetadataLoaderExtension" externalReference="2d76791c-4815-45d3-bae7-e02335209228" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.7.7" />
+    <dependency id="Intent.Common.CSharp" version="3.8.13" />
+    <dependency id="Intent.Common.Types" version="4.1.1" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.1-pre.0" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata />
+  <migrations />
+</package>

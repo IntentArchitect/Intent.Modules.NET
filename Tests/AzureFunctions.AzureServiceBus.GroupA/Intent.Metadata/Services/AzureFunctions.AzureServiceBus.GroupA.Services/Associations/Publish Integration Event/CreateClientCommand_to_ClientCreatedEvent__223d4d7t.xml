@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d83fec1d-0636-4533-b7eb-bc1b48818a31">
+  <sourceEnd id="74b4a1ca-525d-406a-9f81-a1ad3dc8cea1" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Client.CreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="3987912b-c871-42e1-8161-ee45f9c11367">
+      <typeId>e58bc5de-1e86-4ac4-950e-7f94ae202cc9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Services</typePackageName>
+      <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d83fec1d-0636-4533-b7eb-bc1b48818a31" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] ClientCreatedEvent</display>
+    <order>1</order>
+    <typeReference id="221e9888-7c01-491a-a520-0a7ef1cc4300">
+      <typeId>15910849-8a7b-46ed-af6d-4068859bbb31</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="e58bc5de-1e86-4ac4-950e-7f94ae202cc9" location="[AzureFunctions.AzureServiceBus.GroupA].[Services].[CreateClientCommand]" />
+        <target applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="15910849-8a7b-46ed-af6d-4068859bbb31" location="[AzureFunctions.AzureServiceBus.GroupA].[Services].[ClientCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="15910849-8a7b-46ed-af6d-4068859bbb31" name="ClientCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="1c5a926d-1451-417f-9251-183fb18cdf84" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="e58bc5de-1e86-4ac4-950e-7f94ae202cc9" name="CreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f04e2c9e-47de-49f0-bc0d-ab5e9055fe58" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

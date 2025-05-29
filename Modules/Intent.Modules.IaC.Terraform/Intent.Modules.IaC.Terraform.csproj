@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.Modules.Common" Version="3.7.7" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.13" />
+    <PackageReference Include="Intent.Modules.Common.Types" Version="4.1.1" />
+    <PackageReference Include="Intent.Modules.Modelers.Services.EventInteractions" Version="1.2.1-pre.0" />
+    <PackageReference Include="Intent.Packager" Version="3.5.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+    <PackageReference Include="Intent.SoftwareFactory.SDK" Version="3.8.0-pre.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Compile Remove="OldTemplates\InfrastructureTf\AzureServiceBusExtension.cs" />
+    <Compile Remove="OldTemplates\InfrastructureTf\EventGridTopicExtension.cs" />
+    <Compile Remove="OldTemplates\InfrastructureTf\InfrastructureTfTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\InfrastructureTf\InfrastructureTfTemplateRegistration.cs" />
+    <Compile Remove="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\InfrastructureTfVars\InfrastructureTfVarsTemplateRegistration.cs" />
+    <Compile Remove="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\ResourceGroupTf\ResourceGroupTfTemplateRegistration.cs" />
+    <Compile Remove="OldTemplates\ResourceGroupTfVars\ResourceGroupTfVarsTemplateRegistration.cs" />
+    <Compile Remove="OldTemplates\SubscriptionsTf\EventGridSubscriptionExtension.cs" />
+    <Compile Remove="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\SubscriptionsTf\SubscriptionsTfTemplateRegistration.cs" />
+    <Compile Remove="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplatePartial.cs" />
+    <Compile Remove="OldTemplates\SubscriptionsTfVars\SubscriptionsTfVarsTemplateRegistration.cs" />
+  </ItemGroup>
+
+</Project>

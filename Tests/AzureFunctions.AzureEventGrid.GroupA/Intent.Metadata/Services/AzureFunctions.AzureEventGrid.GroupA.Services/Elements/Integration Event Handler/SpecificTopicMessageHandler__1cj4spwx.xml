@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0dbad813-a470-45ec-8b8f-ead93d749ca0" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>SpecificTopicMessageHandler</name>
+  <display>SpecificTopicMessageHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6433daa4-2629-48a7-bbd6-fe222f161a68</parentFolderId>
+  <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.GroupA.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

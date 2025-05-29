@@ -11,7 +11,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Eventing.AzureServiceBus.Api
 {
-    public static class MessageModelStereotypeExtensions
+    [IntentManaged(Mode.Fully, Signature = Mode.Ignore)]
+    internal static class MessageModelStereotypeExtensions
     {
         public static AzureServiceBus GetAzureServiceBus(this MessageModel model)
         {
@@ -102,6 +103,5 @@ namespace Intent.Eventing.AzureServiceBus.Api
                 Topic
             }
         }
-
     }
 }

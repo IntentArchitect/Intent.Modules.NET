@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<applicationTemplate>
+  <id>Intent.ApplicationTemplate.Terraform</id>
+  <version>1.0.0-pre.0</version>
+  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
+  <displayName>Terraform Infrastructure Provisioning</displayName>
+  <shortDescription>Infrastructure as Code application that provisions cloud infrastructure for your Intent Architect solution using Terraform.</shortDescription>
+  <priority>10</priority>
+  <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=" />
+  <defaults>
+    <name>Infrastructure.Terraform</name>
+    <relativeOutputLocation>${application.name}</relativeOutputLocation>
+    <placeInSameDirectory>false</placeInSameDirectory>
+    <separateIntentFiles>true</separateIntentFiles>
+    <setGitIgnoreEntries>true</setGitIgnoreEntries>
+    <createFolderForSolution>true</createFolderForSolution>
+  </defaults>
+  <componentGroups>
+    <group name="Core">
+      <selectionMode>allow-multiple</selectionMode>
+      <components>
+        <component id="894bfdd5-147d-49e7-8a48-9c313eb1e8ce" name="Terraform" included="true" required="true">
+          <description>Infrastructure as Code (IaC) to build your cloud resources programmatically for your Intent Architect solution.</description>
+          <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=" />
+          <modules>
+            <module id="Intent.IaC.Terraform" version="1.0.0-beta.0">
+              <includedByDefault>true</includedByDefault>
+              <required>true</required>
+            </module>
+            <module id="Intent.OutputTargets.Folders" version="3.4.0">
+              <includedByDefault>true</includedByDefault>
+              <required>true</required>
+            </module>
+          </modules>
+          <dependencies />
+        </component>
+      </components>
+    </group>
+  </componentGroups>
+  <additionalSettings />
+</applicationTemplate>

@@ -16,6 +16,6 @@ internal record EventGridSubscription
     public string FullyQualifiedEventNames { get; }
     public string HandlerFunctionName { get; }
     public string TopicName { get; }
-    public string TopicResourceName => $"eventGridTopic{TopicName.ToPascalCase()}";
+    public string TopicResourceName => $"eventGridTopic{TopicName.ToPascalCase()}".ToCamelCase();
     public string SubscriptionResourceName => $"eventGridSubscription{TopicName.ToPascalCase()}";
 }

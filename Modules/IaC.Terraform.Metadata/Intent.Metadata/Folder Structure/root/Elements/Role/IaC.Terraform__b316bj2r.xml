@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="701d1c92-c585-4764-a8d3-6a3b1596a074" type="Role" typeId="8663c9f9-2852-45e7-aaa1-0883a2e6f1da">
+  <name>IaC.Terraform</name>
+  <display>IaC.Terraform</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b6713045-83a4-47d5-9174-b5c4e4f5458b</parentFolderId>
+  <packageId>b6713045-83a4-47d5-9174-b5c4e4f5458b</packageId>
+  <packageName>root</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

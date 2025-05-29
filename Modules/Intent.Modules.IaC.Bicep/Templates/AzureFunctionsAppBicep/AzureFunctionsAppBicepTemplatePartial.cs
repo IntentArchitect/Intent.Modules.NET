@@ -173,10 +173,10 @@ namespace Intent.Modules.IaC.Bicep.Templates.AzureFunctionsAppBicep
                 }
                 else if (@event.InfrastructureComponent == Infrastructure.AzureEventGrid.TopicRegistered)
                 {
-                    var topicName = @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName];
+                    var topicName = @event.Properties[Infrastructure.AzureEventGrid.Property.TopicName].ToPascalCase();
                     var keyConfigName = @event.Properties[Infrastructure.AzureEventGrid.Property.KeyConfig];
                     var endpointConfigName = @event.Properties[Infrastructure.AzureEventGrid.Property.EndpointConfig];
-                    var varName = $"eventGridTopic{topicName}".ToPascalCase().ToCamelCase();
+                    var varName = $"eventGridTopic{topicName}".ToCamelCase();
 
                     sb.AppendLine(new BicepResource(varName, "'Microsoft.EventGrid/topics@2021-12-01'")
                         .Set("name", $"'{topicName.ToKebabCase()}'")
