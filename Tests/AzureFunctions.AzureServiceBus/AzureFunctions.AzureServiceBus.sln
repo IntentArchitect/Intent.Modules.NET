@@ -32,14 +32,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-infrastructure", "01-inf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-infrastructure", "02-infrastructure", "{A908E30B-55C0-4468-8532-0B5A062CF0E9}"
 	ProjectSection(SolutionItems) = preProject
-		terraform\02-infrastructure\main.tf = terraform\02-infrastructure\main.tf
-		terraform\02-infrastructure\terraform.tfvars = terraform\02-infrastructure\terraform.tfvars
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-resource-group", "01-resource-group", "{A242DB89-E6D6-482B-B6AE-B0EF7284DB22}"
 	ProjectSection(SolutionItems) = preProject
-		terraform\01-resource-group\main.tf = terraform\01-resource-group\main.tf
-		terraform\01-resource-group\terraform.tfvars = terraform\01-resource-group\terraform.tfvars
 	EndProjectSection
 EndProject
 Global
