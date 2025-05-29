@@ -58,7 +58,7 @@ public class AutoImplementHandlerTask : IModuleTask
     }
 
     public string TaskTypeId => "Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt";
-    public string TaskTypeName => "Create Prompt for Handler";
+    public string TaskTypeName => "Auto-Implementation with AI Task";
     public int Order => 0;
 
     [Experimental("SKEXP0010")]
@@ -72,11 +72,6 @@ public class AutoImplementHandlerTask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
-        var chatResponseFormat = CreateJsonSchemaFormat();
-        var executionSettings = new OpenAIPromptExecutionSettings
-        {
-            ResponseFormat = chatResponseFormat
-        };
 
         var element = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
         var promptTemplate = GetPromptTemplate(element);
@@ -84,13 +79,18 @@ public class AutoImplementHandlerTask : IModuleTask
         var inputFiles = GetInputFiles(element);
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
+
+        var chatResponseFormat = CreateJsonSchemaFormat();
+        var executionSettings = new OpenAIPromptExecutionSettings
+        {
+            ResponseFormat = chatResponseFormat
+        };
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext
         }).Result;
-
 
         FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
 
@@ -224,18 +224,6 @@ Your response MUST include:
                                               }
                                               """),
             jsonSchemaIsStrict: true);
-    }
-
-    private IEnumerable<ClassModel> GetRelatedDomainEntities(IElement element)
-    {
-        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
-            ?.TypeReference.Element.AsClassModel();
-        if (queriedEntity == null)
-        {
-            return [];
-        }
-        var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
-        return relatedClasses;
     }
 
     public class FileChangesResult

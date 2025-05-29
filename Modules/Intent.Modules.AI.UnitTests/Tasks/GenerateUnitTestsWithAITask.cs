@@ -57,7 +57,7 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     }
 
     public string TaskTypeId => "Intent.Modules.AI.UnitTests.Generate";
-    public string TaskTypeName => "Create Prompt for Handler";
+    public string TaskTypeName => "Auto-Implement Unit Tests with AI Task";
     public int Order => 0;
 
     [Experimental("SKEXP0010")]
@@ -88,7 +88,6 @@ public class GenerateUnitTestsWithAITask : IModuleTask
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext
         }).Result;
-
 
         FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
 
@@ -136,6 +135,7 @@ Your response MUST include:
 - Collections on entities cannot be treated like arrays.
 - If an existing file exists, you must read this file and update it according to the 'Code Preservation Requirements' below.
 - If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
+- No FluentValidations happen inside of the handlers so don't test for that.
 
 ## Code Preservation Requirements (CRITICAL)
 1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
