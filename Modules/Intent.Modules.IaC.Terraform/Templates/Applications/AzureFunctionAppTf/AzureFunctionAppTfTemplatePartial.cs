@@ -137,7 +137,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                         {
                             appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }
-                        if (message.MethodType == AzureServiceBusMethodType.Subscribe)
+                        if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
                         {
                             appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }

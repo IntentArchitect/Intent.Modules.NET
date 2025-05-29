@@ -54,7 +54,6 @@ resource "azurerm_windows_function_app" "azure-functions-azure-service-bus-group
     "AzureServiceBus:ClientCreated"               = azurerm_servicebus_topic.client_created.name
     "AzureServiceBus:CreateOrgIntegrationCommand" = azurerm_servicebus_topic.create_org_integration_command.name
     "AzureServiceBus:SpecificQueue"               = azurerm_servicebus_topic.specific_queue.name
-    ""                                            = azurerm_servicebus_subscription.specific_queue.name
     "AzureServiceBus:SpecificTopic"               = azurerm_servicebus_topic.specific_topic.name
     "AzureServiceBus:SpecificTopicSubscription"   = azurerm_servicebus_subscription.specific_topic.name
   }
