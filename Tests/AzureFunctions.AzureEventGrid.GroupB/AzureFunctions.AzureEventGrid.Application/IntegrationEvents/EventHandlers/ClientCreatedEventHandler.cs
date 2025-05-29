@@ -2,8 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
-using AzureFunctions.AzureEventGrid.Eventing.Messages;
-using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
+using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Logging;
 

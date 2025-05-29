@@ -58,14 +58,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#4af9acd7-dd01-4c7e-8390-4257615af688</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/CreateClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateClient.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#123230fb-082f-488b-8a13-63f10ce34188</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/host.json</ApplicationRelativeFilePath>
@@ -118,14 +110,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificChannelService/SendSpecificTopicTwo.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpecificChannelService/SendSpecificTopicTwo.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#SpecificTopic</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificTopicMessageConsumer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SpecificTopicMessageConsumer.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -346,22 +330,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandModels#4af9acd7-dd01-4c7e-8390-4257615af688</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/CreateClient/CreateClientCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateClient/CreateClientCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.CommandHandler#4af9acd7-dd01-4c7e-8390-4257615af688</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/CreateClient/CreateClientCommandHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateClient/CreateClientCommandHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -390,14 +358,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientCreatedEventHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e70be397-a29d-4314-af81-b33c50809690</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#0dbad813-a470-45ec-8b8f-ead93d749ca0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SpecificTopicMessageHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -438,14 +398,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/ResourceLocation.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ResourceLocation.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e84fe889-5904-4f72-9050-6a69270148f9</ProjectId>
-      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#4af9acd7-dd01-4c7e-8390-4257615af688</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Validators/CreateClient/CreateClientCommandValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CreateClient/CreateClientCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

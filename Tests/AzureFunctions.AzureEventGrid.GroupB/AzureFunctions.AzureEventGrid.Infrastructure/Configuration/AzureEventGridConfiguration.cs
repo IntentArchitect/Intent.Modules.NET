@@ -1,5 +1,5 @@
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
-using AzureFunctions.AzureEventGrid.Eventing.Messages;
+using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
@@ -22,13 +22,10 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             {
                 options.Add<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!);
                 options.Add<SpecificTopicTwoMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!);
-                options.Add<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!);
             });
             services.Configure<SubscriptionOptions>(options =>
             {
                 options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>();
-                options.Add<SpecificTopicOneMessageEvent, IIntegrationEventHandler<SpecificTopicOneMessageEvent>>();
-                options.Add<SpecificTopicTwoMessageEvent, IIntegrationEventHandler<SpecificTopicTwoMessageEvent>>();
             });
             return services;
         }

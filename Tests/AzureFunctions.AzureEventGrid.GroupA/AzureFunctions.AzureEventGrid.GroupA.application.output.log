@@ -33,14 +33,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#ClientCreatedEvent</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/ClientCreatedEventConsumer.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientCreatedEventConsumer.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>16647e02-cc23-4518-9cde-7e391ed77862</ProjectId>
       <CorrelationId>Intent.Application.Identity.ApplicationSecurityConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -102,22 +94,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CurrentUserService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#adc44efb-d772-4409-b0f5-5441093b40f3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificChannelService/SendSpecificTopicOne.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SpecificChannelService/SendSpecificTopicOne.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
-      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#3797a17c-60bf-4d0c-8393-eb0900aab588</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/SpecificChannelService/SendSpecificTopicTwo.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SpecificChannelService/SendSpecificTopicTwo.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -369,27 +345,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>63db3c9a-d8c0-4822-8f7e-c41778c25a2c</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#409838a1-2efe-42b7-a90d-da50dd544f56</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Implementation/SpecificChannelService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SpecificChannelService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>7f582d46-8712-4f49-b400-59a974b49c45</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#1a56a2eb-1642-43af-bff7-a99f62ed7ffd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/ClientCreatedEvent.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientCreatedEvent.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e70be397-a29d-4314-af81-b33c50809690</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClientCreatedEventHandler.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -417,14 +377,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>607f7793-ae98-4369-b7ce-9ef1aff438bd</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#409838a1-2efe-42b7-a90d-da50dd544f56</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Interfaces/ISpecificChannelService.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ISpecificChannelService.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#c32af656-e7e2-4b42-831e-dfefb7f83857</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -446,14 +398,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Validators/CreateClient/CreateClientCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CreateClient/CreateClientCommandValidator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>e84fe889-5904-4f72-9050-6a69270148f9</ProjectId>
-      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#c32af656-e7e2-4b42-831e-dfefb7f83857</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Validators/PayloadDtoValidator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PayloadDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

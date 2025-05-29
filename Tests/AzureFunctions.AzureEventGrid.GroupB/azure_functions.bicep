@@ -30,12 +30,6 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
-resource eventGridTopicClientCreatedEvent 'Microsoft.EventGrid/topics@2021-12-01' = {
-  name: 'client-created-event'
-  location: resourceGroup().location
-  properties: {}
-}
-
 resource eventGridTopicSpecificTopic 'Microsoft.EventGrid/topics@2021-12-01' = {
   name: 'specific-topic'
   location: resourceGroup().location
@@ -72,14 +66,6 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'CqrsSettings:LogRequestPayload'
           value: 'True'
-        }
-        {
-          name: 'EventGrid:Topics:ClientCreatedEvent:Endpoint'
-          value: eventGridTopicClientCreatedEvent.properties.endpoint
-        }
-        {
-          name: 'EventGrid:Topics:ClientCreatedEvent:Key'
-          value: eventGridTopicClientCreatedEvent.listKeys().key1
         }
         {
           name: 'EventGrid:Topics:SpecificTopic:Endpoint'

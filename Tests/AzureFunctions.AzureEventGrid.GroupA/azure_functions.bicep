@@ -36,12 +36,6 @@ resource eventGridTopicClientCreatedEvent 'Microsoft.EventGrid/topics@2021-12-01
   properties: {}
 }
 
-resource eventGridTopicSpecificTopic 'Microsoft.EventGrid/topics@2021-12-01' = {
-  name: 'specific-topic'
-  location: resourceGroup().location
-  properties: {}
-}
-
 var storageAccountKey = storageAccount.listKeys().keys[0].value
 var storageConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};AccountKey=${storageAccountKey};EndpointSuffix=${environment().suffixes.storage}'
 
@@ -80,14 +74,6 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
         {
           name: 'EventGrid:Topics:ClientCreatedEvent:Key'
           value: eventGridTopicClientCreatedEvent.listKeys().key1
-        }
-        {
-          name: 'EventGrid:Topics:SpecificTopic:Endpoint'
-          value: eventGridTopicSpecificTopic.properties.endpoint
-        }
-        {
-          name: 'EventGrid:Topics:SpecificTopic:Key'
-          value: eventGridTopicSpecificTopic.listKeys().key1
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'

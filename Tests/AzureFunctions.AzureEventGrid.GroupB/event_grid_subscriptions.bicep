@@ -8,10 +8,6 @@ resource eventGridTopicClientCreatedEvent 'Microsoft.EventGrid/topics@2021-12-01
   name: 'client-created-event'
 }
 
-resource eventGridTopicSpecificTopic 'Microsoft.EventGrid/topics@2021-12-01' existing = {
-  name: 'specific-topic'
-}
-
 resource eventGridSubscriptionClientCreatedEvent 'Microsoft.EventGrid/eventSubscriptions@2021-12-01' = {
   name: 'client-created-event-eg-sub'
   scope: eventGridTopicClientCreatedEvent
@@ -24,26 +20,7 @@ resource eventGridSubscriptionClientCreatedEvent 'Microsoft.EventGrid/eventSubsc
     }
     filter: {
       includedEventTypes: [
-        'AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.ClientCreatedEvent'
-      ]
-    }
-  }
-}
-
-resource eventGridSubscriptionSpecificTopic 'Microsoft.EventGrid/eventSubscriptions@2021-12-01' = {
-  name: 'specific-topic-eg-sub'
-  scope: eventGridTopicSpecificTopic
-  properties: {
-    destination: {
-      endpointType: 'AzureFunction'
-      properties: {
-        resourceId: '${functionAppEventGrid.id}/functions/SpecificTopicMessageConsumer'
-      }
-    }
-    filter: {
-      includedEventTypes: [
-        'AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessageEvent'
-        'AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessageEvent'
+        'AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.ClientCreatedEvent'
       ]
     }
   }

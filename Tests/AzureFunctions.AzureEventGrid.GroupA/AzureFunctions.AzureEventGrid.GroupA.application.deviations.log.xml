@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#ClientCreatedEvent</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Api/ClientCreatedEventConsumer.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T08:24:33.4673876Z</updatedAt>
-      <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
-      <fileHash>D2AEC902643498B60BE2AFF9784C2847638620F93885AF7376B3D7034C0E84ED</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#SpecificTopic</correlationId>
       <path>AzureFunctions.AzureEventGrid.Api/SpecificTopicMessageConsumer.cs</path>
       <count>1</count>
@@ -22,16 +12,6 @@
       <fileHash>5A63191C63F53936C5ED25E1052293A195AAC74ED43BB6D9119F9FA1C6E4A678</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T08:24:33.4677845Z</updatedAt>
-      <deviationsHash>1FC81B0141D0685939607A2157888C4D4154AFBF4664B6C309D06F03ED7EB588</deviationsHash>
-      <fileHash>2E045B4D1286564688D5BCBA2330CF6C4421D8153ABF2FD0367AE5EEA9DB78E4</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#0dbad813-a470-45ec-8b8f-ead93d749ca0</correlationId>
       <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs</path>
       <count>2</count>
@@ -39,7 +19,7 @@
       <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
       <updatedAt>2025-05-29T08:24:33.4677925Z</updatedAt>
       <deviationsHash>B6ACCB1E0E859F6055C249B1B31B798EF4BBAB4BEA37A3A3571C4A4B96615F88</deviationsHash>
-      <fileHash>3CBF2A407C8FC2B6695170BB2015A9B25F642EDECFF7F88B545D720D85C99935</fileHash>
+      <fileHash>731FD5B05E05A8F069863803FB4D6177D5D3C2ECD1B60CB7D1A276D3AA31487E</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</correlationId>
