@@ -4,6 +4,7 @@
 - Improvement: Made the DB Context template resolution a little smarter.
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
 - Improvement: Updated NuGet package versions.
+- Improvement: Added more description error message when required module is not installed.
 
 ### Version 4.1.5
 

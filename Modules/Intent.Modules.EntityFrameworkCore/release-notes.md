@@ -3,6 +3,7 @@
 - Improvement: Updated NuGet package versions.
 - Improvement: Added documentation and topics related to modeling many-to-many relationships.
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Fixed: OnInstall of the module will now configure the Domain package to avoid SF execution errors under certain conditions.
 
 ### Version 5.0.22
 

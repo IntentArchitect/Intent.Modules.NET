@@ -1,14 +1,19 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -73,7 +78,10 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
             {
                 if (!this.TryGetTypeName("Intent.EntityFrameworkCore.DbContext", out result))
                 {
-                    throw new Exception("Unable to find DB Context template.");
+                    var domainDesigner = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, Designers.Domain);
+                    DomainPackageModel? domainModel = domainDesigner.GetDomainPackageModels().First();
+
+                    throw new ElementException(domainModel.UnderlyingPackage, "Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
                 }
             }
             return result;
