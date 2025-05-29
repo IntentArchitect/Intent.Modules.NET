@@ -59,10 +59,10 @@ namespace Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes
 
         public override void AfterTemplateRegistration()
         {
-            TryAddForTemplateType(IntegrationCommandTemplate.TemplateId);
-            TryAddForTemplateType(IntegrationEventDtoTemplate.TemplateId);
-            TryAddForTemplateType(IntegrationEventEnumTemplate.TemplateId);
-            TryAddForTemplateType(IntegrationEventMessageTemplate.TemplateId);
+            TryAddForTemplateType<IntegrationCommandModel>(IntegrationCommandTemplate.TemplateId);
+            TryAddForTemplateType<EventingDTOModel>(IntegrationEventDtoTemplate.TemplateId);
+            TryAddForTemplateType<EnumModel>(IntegrationEventEnumTemplate.TemplateId);
+            TryAddForTemplateType<MessageModel>(IntegrationEventMessageTemplate.TemplateId);
             _afterTemplateRegistrationCalled = true;
         }
 
@@ -71,51 +71,98 @@ namespace Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes
             return !_afterTemplateRegistrationCalled || _namespaces.Count > 0;
         }
 
-        private void TryAddForTemplateType(string templateId)
+        private void TryAddForTemplateType<T>(string templateId) where T: IElementWrapper, IHasFolder
         {
-            var templates = OutputTarget.ExecutionContext.FindTemplateInstances<ITemplateWithModel>(templateId).ToArray();
+            var templates = OutputTarget.ExecutionContext.FindTemplateInstances<CSharpTemplateBase<T>>(templateId).ToArray();
             if (templates.Length == 0)
             {
                 return;
             }
 
-            var namespaces = templates
-                .Select(template =>
-                {
-                    var classNamespace =
-                        ((IElementWrapper)template.Model).InternalElement.Package.Name.ToCSharpNamespace() ??
-                        throw new InvalidOperationException($"{templateId} for {template.Model} has no namespace");
-                    var extendedNamespace = ((IHasFolder)template.Model).GetParentFolders().Where(x =>
-                        {
-                            if (string.IsNullOrWhiteSpace(x.Name))
-                            {
-                                return false;
-                            }
-
-                            return !x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider();
-                        })
-                        .Select(x => x.Name);
-
-                    return classNamespace.Split('.').Concat(extendedNamespace).ToArray();
-                })
+            var modelsByPackage = templates
+                //.Select(x => new
+                //{
+                //    Element = ((IElementWrapper)x.Model).InternalElement,
+                //    HasFolder = (IHasFolder)x.Model
+                //})
+                .GroupBy(x => x.Model.InternalElement.Package.Id)
+                .Select(x => x.ToArray())
                 .ToArray();
 
-            var minLength = namespaces.Min(x => x.Length);
-            var commonParts = new List<string>();
-
-            for (var i = 0; i < minLength; i++)
+            foreach (var packageModels in modelsByPackage)
             {
-                var namespacePart = namespaces[0][i];
+                var namespaces = packageModels
+                    .Select(template =>
+                    {
+                        var model = template.Model;
+                        var classNamespace = model.InternalElement.Package.Name.ToCSharpNamespace() ??
+                                             throw new InvalidOperationException($"{templateId} for {model} has no namespace");
+                        var extendedNamespace = model.GetParentFolders().Where(x =>
+                            {
+                                if (string.IsNullOrWhiteSpace(x.Name))
+                                {
+                                    return false;
+                                }
 
-                if (namespaces.Skip(1).Any(@namespace => @namespace[i] != namespacePart))
+                                return !x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider();
+                            })
+                            .Select(x => x.Name);
+
+                        var eventingSpecificNamespace = classNamespace.Split('.').Concat(extendedNamespace).ToArray();
+                        var defaultNamespace = template.GetNamespace();
+
+                        return (string.Join('.', eventingSpecificNamespace) != defaultNamespace
+                            ? eventingSpecificNamespace
+                            : null)!;
+                    })
+                    .Where(x => x != null)
+                    .ToArray();
+
+                if (namespaces.Length == 0)
                 {
                     continue;
                 }
 
-                commonParts.Add(namespacePart);
-            }
+                var minLength = namespaces.Min(x => x.Length);
+                var commonParts = new List<string>();
 
-            _namespaces.Add(string.Join('.', commonParts));
+                for (var i = 0; i < minLength; i++)
+                {
+                    var namespacePart = namespaces[0][i];
+
+                    if (namespaces.Skip(1).Any(@namespace => @namespace[i] != namespacePart))
+                    {
+                        continue;
+                    }
+
+                    commonParts.Add(namespacePart);
+                }
+
+                var toAdd = string.Join('.', commonParts);
+
+                var shouldAdd = true;
+                foreach (var existing in _namespaces.ToArray())
+                {
+                    // If the one we're adding is more general making the existing entry redundant:
+                    if ($"{existing}.".StartsWith(toAdd))
+                    {
+                        _namespaces.Remove(existing);
+                        continue;
+                    }
+
+                    // If the one we're adding is already generally covered:
+                    if ($"{toAdd}.".StartsWith(existing))
+                    {
+                        shouldAdd = false;
+                        break;
+                    }
+                }
+
+                if (shouldAdd)
+                {
+                    _namespaces.Add(toAdd);
+                }
+            }
         }
 
         [IntentManaged(Mode.Fully)]
