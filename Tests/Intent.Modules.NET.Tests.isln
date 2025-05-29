@@ -146,12 +146,12 @@
     <application id="05c06fb4-1c1b-4a08-99e5-5d4b81551d3f" name="OcelotTest" relativePath="OcelotTest/OcelotTest.application.config" />
     <application id="90057001-3f88-4be0-8a65-cc23cafbf6a6" name="AspNetControllers.SecuredByDefault" relativePath="AspNetControllers.SecuredByDefault/AspNetControllers.SecuredByDefault.application.config" />
     <application id="7bab7f92-fc1f-48ea-b44e-ce8530d75e88" name="CleanArchitecture.Dapr.DomainEntityInterfaces" relativePath="CleanArchitecture.Dapr.DomainEntityInterfaces/CleanArchitecture.Dapr.DomainEntityInterfaces.application.config" />
-    <application id="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" name="AzureFunctions.AzureServiceBus" relativePath="AzureFunctions.AzureServiceBus/AzureFunctions.AzureServiceBus.application.config" />
-    <application id="4a338751-91d2-4c13-b0ad-bb2979c82f22" name="AzureFunctions.AzureEventGrid" relativePath="AzureFunctions.AzureEventGrid/AzureFunctions.AzureEventGrid.application.config" />
     <application id="74dbe983-f492-4a82-909e-005cf26e9110" name="SqlDbProject" relativePath="SqlDbProject/SqlDbProject.application.config" />
     <application id="85910570-7e99-4f58-8f6c-38f0342ec8bc" name="ModularMonolithAppTests" solutionFolder="Modular Monolith" relativePath="ModularMonolithAppTests/ModularMonolithAppTests.application.config" />
     <application id="4d989763-0499-4e06-a75d-af159dea70cd" name="Module1" solutionFolder="Modular Monolith" relativePath="Module1/Module1.application.config" />
     <application id="42bb3d2c-d940-43c9-8d76-95250d6ee17e" name="Module2" solutionFolder="Modular Monolith" relativePath="Module2/Module2.application.config" />
     <application id="6ee95f25-fa06-4768-88ae-56edabd68494" name="EntityFramework.Application.LinqExtensions.Tests" relativePath="EntityFramework.Application.LinqExtensions.Tests/EntityFramework.Application.LinqExtensions.Tests.application.config" />
+    <application id="4a338751-91d2-4c13-b0ad-bb2979c82f22" name="AzureFunctions.AzureEventGrid.GroupA" relativePath="AzureFunctions.AzureEventGrid.GroupA/AzureFunctions.AzureEventGrid.GroupA.application.config" />
+    <application id="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" name="AzureFunctions.AzureServiceBus.GroupA" relativePath="AzureFunctions.AzureServiceBus.GroupA/AzureFunctions.AzureServiceBus.GroupA.application.config" />
   </applications>
 </solution>
