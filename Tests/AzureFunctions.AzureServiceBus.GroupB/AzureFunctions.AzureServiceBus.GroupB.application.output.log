@@ -9,14 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>8cb0825a-30b1-4209-8508-f6c1b3d88c1d</ProjectId>
-      <CorrelationId>Intent.IaC.Bicep.AzureFunctionsAppBicepTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>azure_functions.bicep</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>azure_functions.bicep</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c1d87bb2-d2e7-473a-9fa2-cc5f3049b0f9</ProjectId>
       <CorrelationId>Intent.AzureFunctions.AzureFunctionClassHelper</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

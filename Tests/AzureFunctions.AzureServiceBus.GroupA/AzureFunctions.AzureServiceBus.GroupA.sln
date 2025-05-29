@@ -4,7 +4,6 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{8CB0825A-30B1-4209-8508-F6C1B3D88C1D}"
 	ProjectSection(SolutionItems) = preProject
-		azure_functions.bicep = azure_functions.bicep
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{C4019E8B-C5A3-457D-AB27-DA21607E1A81}"
