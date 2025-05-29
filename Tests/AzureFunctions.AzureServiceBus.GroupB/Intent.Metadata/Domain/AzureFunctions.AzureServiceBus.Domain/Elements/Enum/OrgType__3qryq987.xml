@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fc5d0936-a645-4c4f-98ee-b7678b44d28a" type="Enum" typeId="85fba0e9-9161-4c85-a603-a229ef312beb">
+  <name>OrgType</name>
+  <display>OrgType</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</parentFolderId>
+  <packageId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="173c2e9f-8691-4d16-875d-68beaeb5bf49" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Corp</name>
+      <display>Corp</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fc5d0936-a645-4c4f-98ee-b7678b44d28a</parentFolderId>
+      <packageId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0206e284-735d-483d-b30d-61d1839e5420" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Public Co</name>
+      <display>Public Co</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fc5d0936-a645-4c4f-98ee-b7678b44d28a</parentFolderId>
+      <packageId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bd4447d9-52e5-424c-a11d-9e77dec0d66d" type="Enum-Literal" typeId="4215f417-25d2-4509-9309-5076a1452eaa">
+      <name>Private Co</name>
+      <display>Private Co</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>fc5d0936-a645-4c4f-98ee-b7678b44d28a</parentFolderId>
+      <packageId>c9c09855-ff4d-4c4f-afaf-d89f2126b432</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

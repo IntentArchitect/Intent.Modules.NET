@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Application.Interfaces;
-using AzureFunctions.AzureEventGrid.Eventing.Messages;
+using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

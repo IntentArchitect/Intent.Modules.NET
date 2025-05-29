@@ -1,5 +1,5 @@
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
-using AzureFunctions.AzureEventGrid.Eventing.Messages;
+using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;

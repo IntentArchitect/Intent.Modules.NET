@@ -6,7 +6,7 @@ using AzureFunctions.AzureEventGrid.Application.Common.Validation;
 using AzureFunctions.AzureEventGrid.Application.Implementation;
 using AzureFunctions.AzureEventGrid.Application.IntegrationEvents.EventHandlers;
 using AzureFunctions.AzureEventGrid.Application.Interfaces;
-using AzureFunctions.AzureEventGrid.Eventing.Messages;
+using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;

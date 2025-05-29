@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e7b53666-b2c8-4293-83d7-e49f1a13742f" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>19e7b5a4-0c2d-4db9-8ae3-6a7d0d55674d</parentFolderId>
+  <packageId>19e7b5a4-0c2d-4db9-8ae3-6a7d0d55674d</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.Domain</packageName>
+  <diagram>
+    <targetPackageId>e7b53666-b2c8-4293-83d7-e49f1a13742f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

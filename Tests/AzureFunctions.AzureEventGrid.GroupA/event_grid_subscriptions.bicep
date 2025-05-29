@@ -24,7 +24,7 @@ resource eventGridSubscriptionClientCreatedEvent 'Microsoft.EventGrid/eventSubsc
     }
     filter: {
       includedEventTypes: [
-        'AzureFunctions.AzureEventGrid.Eventing.Messages.ClientCreatedEvent'
+        'AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.ClientCreatedEvent'
       ]
     }
   }
@@ -42,8 +42,8 @@ resource eventGridSubscriptionSpecificTopic 'Microsoft.EventGrid/eventSubscripti
     }
     filter: {
       includedEventTypes: [
-        'AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicOneMessageEvent'
-        'AzureFunctions.AzureEventGrid.Eventing.Messages.SpecificTopicTwoMessageEvent'
+        'AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.SpecificTopicOneMessageEvent'
+        'AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.SpecificTopicTwoMessageEvent'
       ]
     }
   }

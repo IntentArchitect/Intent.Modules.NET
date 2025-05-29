@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#ClientCreatedEvent</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Api/ClientCreatedEventConsumer.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-29T08:30:08.3047375Z</updatedAt>
+      <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
+      <fileHash>D2AEC902643498B60BE2AFF9784C2847638620F93885AF7376B3D7034C0E84ED</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#SpecificTopic</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Api/SpecificTopicMessageConsumer.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-29T08:30:08.3048234Z</updatedAt>
+      <deviationsHash>1461708A20D47B640D2C1B36512BD788FD7E991854A6C769AD503DFD1654F3BE</deviationsHash>
+      <fileHash>5A63191C63F53936C5ED25E1052293A195AAC74ED43BB6D9119F9FA1C6E4A678</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-29T08:30:08.3052612Z</updatedAt>
+      <deviationsHash>1FC81B0141D0685939607A2157888C4D4154AFBF4664B6C309D06F03ED7EB588</deviationsHash>
+      <fileHash>1A6393BEB50AC23DAF726C27957CC0F12E3715680A9E5F940FF9223627ED3402</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#0dbad813-a470-45ec-8b8f-ead93d749ca0</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs</path>
+      <count>2</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-29T08:30:08.3052706Z</updatedAt>
+      <deviationsHash>B6ACCB1E0E859F6055C249B1B31B798EF4BBAB4BEA37A3A3571C4A4B96615F88</deviationsHash>
+      <fileHash>87E98DBAEF9F777EAD7CAA63A94FA8540318E731159C17222EF505843824C02C</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridMessageDispatcher.cs</path>
+      <count>3</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-05-29T08:30:08.3054204Z</updatedAt>
+      <deviationsHash>B1A64D588978AD3752BD015EC9DFE8111E971039DE5BFB5003082337E5A51D21</deviationsHash>
+      <fileHash>A7E01EBA9A471EDB3A792081612A6021143697E37FA46AE52AF88DDD766A72DF</fileHash>
+    </file>
+  </files>
+</deviationsLog>
