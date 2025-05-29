@@ -4,8 +4,6 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Solution Items", "0 - Solution Items", "{2D49073F-1E89-47A4-99ED-5DEDD9DFD866}"
 	ProjectSection(SolutionItems) = preProject
-		azure_functions.bicep = azure_functions.bicep
-		event_grid_subscriptions.bicep = event_grid_subscriptions.bicep
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{B02D7FD4-01AC-40BC-BF8A-A94628B2F66C}"
