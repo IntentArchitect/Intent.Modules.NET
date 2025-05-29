@@ -71,7 +71,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes
             return !_afterTemplateRegistrationCalled || _namespaces.Count > 0;
         }
 
-        private void TryAddForTemplateType<T>(string templateId) where T: IElementWrapper, IHasFolder
+        private void TryAddForTemplateType<T>(string templateId) where T : IElementWrapper, IHasFolder
         {
             var templates = OutputTarget.ExecutionContext.FindTemplateInstances<CSharpTemplateBase<T>>(templateId).ToArray();
             if (templates.Length == 0)
