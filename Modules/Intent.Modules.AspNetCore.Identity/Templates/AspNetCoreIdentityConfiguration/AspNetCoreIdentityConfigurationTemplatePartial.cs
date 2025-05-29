@@ -79,9 +79,15 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                 if (!this.TryGetTypeName("Intent.EntityFrameworkCore.DbContext", out result))
                 {
                     var domainDesigner = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, Designers.Domain);
-                    DomainPackageModel? domainModel = domainDesigner.GetDomainPackageModels().First();
+                    DomainPackageModel? domainModel = domainDesigner?.GetDomainPackageModels()?.FirstOrDefault();
 
-                    throw new ElementException(domainModel.UnderlyingPackage, "Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
+                    if (domainModel is not null)
+                    {
+                        throw new ElementException(domainModel.UnderlyingPackage, "Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
+                    }
+
+                    throw new Exception("Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
+
                 }
             }
             return result;
