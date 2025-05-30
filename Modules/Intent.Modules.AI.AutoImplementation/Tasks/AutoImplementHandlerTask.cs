@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -65,6 +66,8 @@ public class AutoImplementHandlerTask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
+        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+
         _applicationConfig = _solution.GetApplicationConfig(applicationId);
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
@@ -84,7 +87,8 @@ public class AutoImplementHandlerTask : IModuleTask
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
-            ["inputFilesJson"] = jsonInput
+            ["inputFilesJson"] = jsonInput,
+            ["userProvidedContext"] = userProvidedContext
         }).Result;
 
 
@@ -148,6 +152,9 @@ Implement the `Handle` method in the {targetFileName} class following the implem
    - Repository interfaces (adding new methods only)
    - Repository concrete classes (implementing new methods only)
 2. Preserve all existing code, attributes, and file paths exactly
+
+## Additional User Context (Optional)
+{{{{$userProvidedContext}}}}
 
 ## Input Code Files:
 ```json

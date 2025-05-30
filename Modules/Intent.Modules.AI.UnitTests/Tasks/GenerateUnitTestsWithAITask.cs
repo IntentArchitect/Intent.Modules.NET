@@ -65,6 +65,8 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
+        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+
         _applicationConfig = _solution.GetApplicationConfig(applicationId);
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
@@ -83,7 +85,8 @@ public class GenerateUnitTestsWithAITask : IModuleTask
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
-            ["inputFilesJson"] = jsonInput
+            ["inputFilesJson"] = jsonInput,
+            ["userProvidedContext"] = userProvidedContext
         }).Result;
 
 
@@ -140,6 +143,9 @@ Your response MUST include:
 3. **ONLY add new members when necessary (repository methods)**
 4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code**
 5. **Don't add comments to existing code**
+
+## Additional User Context (Optional)
+{{{{$userProvidedContext}}}}
 
 ## Examples
 1. Here's an example of a creation handler:
