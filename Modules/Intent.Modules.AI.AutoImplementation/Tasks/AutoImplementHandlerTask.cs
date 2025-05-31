@@ -193,12 +193,26 @@ Your response MUST include:
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
+        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x.InternalElement)));
 
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
 
         return inputFiles;
     }
+
+    private IEnumerable<ClassModel> GetRelatedDomainEntities(IElement element)
+    {
+        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
+            ?.TypeReference.Element.AsClassModel();
+        if (queriedEntity == null)
+        {
+            return [];
+        }
+        var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
+        return relatedClasses;
+    }
+
     private static ChatResponseFormat CreateJsonSchemaFormat()
     {
         return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "FileChangesResult",
