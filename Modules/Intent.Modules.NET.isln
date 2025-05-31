@@ -158,5 +158,6 @@
     <application id="3ef324e0-3f39-431c-a2eb-243a7681432c" name="Intent.Modules.AzureFunctions.AzureEventGrid" solutionFolder="API Frameworks" relativePath="Intent.Modules.AzureFunctions.AzureEventGrid/Intent.Modules.AzureFunctions.AzureEventGrid.application.config" />
     <application id="ef0bb9b8-4ed6-4f65-8e3b-b628b1c61729" name="Intent.Modules.SqlDatabaseProject" solutionFolder="Persistence" relativePath="Intent.Modules.SqlDatabaseProject/Intent.Modules.SqlDatabaseProject.application.config" />
     <application id="bbf75c63-2462-4413-ba54-1a31cd28f9b7" name="Intent.Modules.AI.UnitTests" solutionFolder="AI" relativePath="Intent.Modules.AI.UnitTests/Intent.Modules.AI.UnitTests.application.config" />
+    <application id="6d81061b-aaf4-4ae0-b8a5-e97ed0aa2a39" name="Intent.Modules.AI.Blazor" solutionFolder="AI" relativePath="Intent.Modules.AI.Blazor/Intent.Modules.AI.Blazor.application.config" />
   </applications>
 </solution>
