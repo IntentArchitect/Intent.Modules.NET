@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Associat
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<L_SelfReferenceMultiple?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<L_SelfReferenceMultiple>, IQueryable<L_SelfReferenceMultiple>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<L_SelfReferenceMultiple>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

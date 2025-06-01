@@ -45,12 +45,12 @@
           <mappedEnd>
             <expression>{CreateBrandCommand}</expression>
             <path>
-              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
             </path>
             <sources>
               <source identifier="CreateBrandCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="f09e30c7-857f-4a6b-942a-fbdabec0233c" name="CreateBrandCommand" type="element" specialization="Command" />
+                  <target id="f09e30c7-857f-4a6b-942a-fbdabec0233c" name="CreateBrandCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
                 </path>
               </source>
             </sources>
@@ -58,14 +58,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
-              <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" />
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
                 <path>
-                  <target id="f09e30c7-857f-4a6b-942a-fbdabec0233c" name="CreateBrandCommand" type="element" specialization="Command" />
-                  <target id="77d0c3a0-b689-45f1-ac48-f3c610ba8694" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="f09e30c7-857f-4a6b-942a-fbdabec0233c" name="CreateBrandCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="77d0c3a0-b689-45f1-ac48-f3c610ba8694" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

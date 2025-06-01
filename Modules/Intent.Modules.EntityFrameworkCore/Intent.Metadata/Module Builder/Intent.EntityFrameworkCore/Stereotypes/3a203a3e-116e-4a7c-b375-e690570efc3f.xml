@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="3a203a3e-116e-4a7c-b375-e690570efc3f" version="3.1.0">
+  <comment>Marks the attribute as defining how data is grouped and distributed in the database.</comment>
   <name>Partition Key</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -7,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
-  <icon type="FontAwesome" source="th" />
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAn9JREFUeF7tWk1rE1EUPe/lQ/yYqVXEhYooCILoRiTTUl24rR+JEn9CwS61/gkx3amU/gODTSx066YSEnSlCIIgiiKIFNuZUjEfc2VMA9nYeTfQIeTd2ebcvHfPnHvveTOjYPmlLM8fQoAowHIGpAQsF4A0QSkBKQHLGZASsFwAg02BxvX1U520ntWEkzsRqBTu5iruWoSp39rwEKp7RoRrmveWxuoRtlHwDxPh6U5xocIXRZ3HE9Xxz0b/3wdil0Dt2tYxnWq/hcKh2MV0+oS3tO9bN5GgSETPYmMAKKXu5CpOuUvc1nGE7a9xcURY61DqwtTy/u9x2P7f2QQ0Cv4DIjw0WiRBArb3M+dV3ZLR3rZBfALyfokAQyknp4AoHwXM56rufSGAwYAogEHWP2hDSkB6gDRBmQI2j0Fu0xx2PHsMDntC3P0JAVzGGoXgahjSJZO4Dv15MrV8JIiwtdv+WdXGTZM4SuPF5HP3Q4R9deOnk1J7Zk3itFavcxXnpQm2h2ErQIyQOEFxguIExQna7ARlCsgUkClg9xToPqdvHjWxm05m7N25smpG2NXp9fFMBqdN4lotfLq8cvBXhH1fpGzQ2jhvEged/dF7D2GE7z5JtvsSArj33/oSEB8gPkB8gN0+QHqA9ADLe0A97z8CYPYRQvJfiJS8qjvH8TZsJ1jPBzMALRgtkjABpDAzUXEXjfY26CcytSLt1a3NVYAuxi6UIAEh8AYZ58pkWf2O3VcfgK2A3gltsxlMQ+FMSP8/UCXxYkQrEAgfD2Sdld7Jc9cJ4Cww7NiBFDDsSXH2JwRw2BpFrChgFO8qJydRAIetUcSKAkbxrnJysl4BfwGcv/hfWEAxHgAAAABJRU5ErkJggg==" />
   <displayIcon>true</displayIcon>
   <displayIconFunction>return true;</displayIconFunction>
   <displayFunction />

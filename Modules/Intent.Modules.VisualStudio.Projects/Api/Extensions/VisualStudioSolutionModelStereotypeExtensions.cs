@@ -48,6 +48,16 @@ namespace Intent.Modules.VisualStudio.Projects.Api
 
             public string Name => _stereotype.Name;
 
+            public string SolutionName()
+            {
+                return _stereotype.GetProperty<string>("Solution Name");
+            }
+
+            public string SolutionRelativeLocation()
+            {
+                return _stereotype.GetProperty<string>("Solution Relative Location");
+            }
+
             public bool ManagePackageVersionsCentrally()
             {
                 return _stereotype.GetProperty<bool>("Manage Package Versions Centrally");

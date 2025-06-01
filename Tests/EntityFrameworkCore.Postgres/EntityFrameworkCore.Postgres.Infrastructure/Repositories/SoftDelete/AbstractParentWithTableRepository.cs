@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.SoftDelete
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AbstractParentWithTable?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<AbstractParentWithTable>, IQueryable<AbstractParentWithTable>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AbstractParentWithTable>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

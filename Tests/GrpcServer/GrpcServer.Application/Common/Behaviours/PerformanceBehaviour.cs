@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using GrpcServer.Application.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -17,13 +18,16 @@ namespace GrpcServer.Application.Common.Behaviours
         private readonly ILogger<PerformanceBehaviour<TRequest, TResponse>> _logger;
         private readonly ICurrentUserService _currentUserService;
         private readonly Stopwatch _timer;
+        private readonly bool _logRequestPayload;
 
         public PerformanceBehaviour(ILogger<PerformanceBehaviour<TRequest, TResponse>> logger,
-            ICurrentUserService currentUserService)
+            ICurrentUserService currentUserService,
+            IConfiguration configuration)
         {
             _timer = new Stopwatch();
             _logger = logger;
             _currentUserService = currentUserService;
+            _logRequestPayload = configuration.GetValue<bool?>("CqrsSettings:LogRequestPayload") ?? false;
         }
 
         public async Task<TResponse> Handle(
@@ -33,7 +37,7 @@ namespace GrpcServer.Application.Common.Behaviours
         {
             _timer.Start();
 
-            var response = await next();
+            var response = await next(cancellationToken);
 
             _timer.Stop();
 
@@ -45,7 +49,14 @@ namespace GrpcServer.Application.Common.Behaviours
                 var userId = _currentUserService.UserId;
                 var userName = _currentUserService.UserName;
 
-                _logger.LogWarning("GrpcServer Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                if (_logRequestPayload)
+                {
+                    _logger.LogWarning("GrpcServer Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                }
+                else
+                {
+                    _logger.LogWarning("GrpcServer Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
+                }
             }
             return response;
         }

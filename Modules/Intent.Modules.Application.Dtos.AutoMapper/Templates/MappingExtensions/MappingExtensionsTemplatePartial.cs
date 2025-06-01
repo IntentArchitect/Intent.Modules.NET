@@ -25,7 +25,14 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public MappingExtensionsTemplate(IOutputTarget outputTarget, DTOModel model) : base(TemplateId, outputTarget, model)
         {
+            FulfillsRole(TemplateRoles.Application.EntityDtoMappingExtensions);
             AddNugetDependency(NugetPackages.AutoMapper(outputTarget));
+            IsDiscoverable = ExecutionContext.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileInDto();
+        }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileInDto(); 
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

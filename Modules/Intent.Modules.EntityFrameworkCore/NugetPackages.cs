@@ -29,23 +29,23 @@ namespace Intent.Modules.EntityFrameworkCore
         public void RegisterPackages()
         {
             NugetRegistry.Register(ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnlyPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, 0) => new PackageVersion("7.0.10"),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.10"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{ErikEJEntityFrameworkCoreSqlServerDateOnlyTimeOnlyPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Analyzers", "5.0.17")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "5.0.0")
@@ -54,7 +54,7 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("System.Collections.Immutable", "5.0.0")
                             .WithNugetDependency("System.ComponentModel.Annotations", "5.0.0")
                             .WithNugetDependency("System.Diagnostics.DiagnosticSource", "5.0.1"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "1.1.1")
                             .WithNugetDependency("Microsoft.Bcl.HashCode", "1.1.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "3.1.32")
@@ -69,30 +69,30 @@ namespace Intent.Modules.EntityFrameworkCore
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreCosmosPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
-                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.43.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
+                            .WithNugetDependency("Microsoft.Azure.Cosmos", "3.48.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.12.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.3.3")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreCosmosPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreDesignPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -100,163 +100,163 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Humanizer.Core", "2.8.26")
                             .WithNugetDependency("Microsoft.CSharp", "4.7.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.CSharp", "4.7.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreDesignPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreInMemoryPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreInMemoryPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreProxiesPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Castle.Core", "4.4.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Castle.Core", "4.4.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreProxiesPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "2.0.1")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.Data.SqlClient", "1.1.3")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlServerPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerNetTopologySuitePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.SqlServer", "5.0.17")
                             .WithNugetDependency("NetTopologySuite", "2.1.0")
                             .WithNugetDependency("NetTopologySuite.IO.SqlServerBytes", "2.0.0"),
-                        ( >= 2, 0) => new PackageVersion("3.1.32")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.SqlServer", "3.1.32")
                             .WithNugetDependency("NetTopologySuite.IO.SqlServerBytes", "2.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlServerNetTopologySuitePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreToolsPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.3", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.CSharp.Workspaces", "4.8.0")
                             .WithNugetDependency("Microsoft.CodeAnalysis.Workspaces.MSBuild", "4.8.0")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.0")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyModel", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
-                            .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.20"),
-                        ( >= 2, 0) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("System.Text.Json", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 2, >= 0) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Design", "5.0.17"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreToolsPackageName}'"),
                     }
                 );
             NugetRegistry.Register(NpgsqlEntityFrameworkCorePostgreSQLPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -270,15 +270,15 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.11", locked: true),
-                        ( >= 7, 0) => new PackageVersion("7.0.18"),
-                        ( >= 6, 0) => new PackageVersion("7.0.18"),
-                        ( >= 2, 1) => new PackageVersion("5.0.10")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.11", locked: true),
+                        ( >= 7, >= 0) => new PackageVersion("7.0.18"),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.18"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.10")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "5.0.10")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "5.0.10")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.10")
                             .WithNugetDependency("Npgsql", "5.0.10"),
-                        ( >= 2, 0) => new PackageVersion("3.1.18")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.18")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.18")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Abstractions", "3.1.18")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.18")
@@ -287,9 +287,9 @@ namespace Intent.Modules.EntityFrameworkCore
                     }
                 );
             NugetRegistry.Register(NpgsqlEntityFrameworkCorePostgreSQLNetTopologySuitePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.0.4", locked: true)
                             .WithNugetDependency("Humanizer.Core", "2.14.1")
                             .WithNugetDependency("Microsoft.Build.Framework", "17.8.3")
                             .WithNugetDependency("Microsoft.Build.Locator", "1.7.8")
@@ -303,47 +303,47 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.0")
                             .WithNugetDependency("Mono.TextTemplating", "3.0.0")
                             .WithNugetDependency("System.Text.Json", "9.0.0"),
-                        ( >= 8, 0) => new PackageVersion("8.0.11", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.0.18"),
-                        ( >= 2, 1) => new PackageVersion("5.0.10")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.11", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.18"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.10")
                             .WithNugetDependency("Npgsql.EntityFrameworkCore.PostgreSQL", "5.0.10")
                             .WithNugetDependency("Npgsql.NetTopologySuite", "5.0.10"),
-                        ( >= 2, 0) => new PackageVersion("3.1.18")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.18")
                             .WithNugetDependency("Npgsql.EntityFrameworkCore.PostgreSQL", "3.1.18")
                             .WithNugetDependency("Npgsql.NetTopologySuite", "4.1.9"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{NpgsqlEntityFrameworkCorePostgreSQLNetTopologySuitePackageName}'"),
                     }
                 );
             NugetRegistry.Register(OracleEntityFrameworkCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.23.80", locked: true)
+                        ( >= 9, >= 0) => new PackageVersion("9.23.80", locked: true)
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.0")
                             .WithNugetDependency("Oracle.ManagedDataAccess.Core", "23.8.0"),
-                        ( >= 8, 0) => new PackageVersion("8.23.80", locked: true),
-                        ( >= 6, 0) => new PackageVersion("7.21.13"),
-                        ( >= 2, 1) => new PackageVersion("5.21.90")
+                        ( >= 8, >= 0) => new PackageVersion("8.23.80", locked: true),
+                        ( >= 6, >= 0) => new PackageVersion("7.21.13"),
+                        ( >= 2, >= 1) => new PackageVersion("5.21.90")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17")
                             .WithNugetDependency("Oracle.ManagedDataAccess.Core", "3.21.90"),
-                        ( >= 2, 0) => new PackageVersion("3.19.180")
+                        ( >= 2, >= 0) => new PackageVersion("3.19.180")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.32")
                             .WithNugetDependency("Oracle.ManagedDataAccess.Core", "2.19.180"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{OracleEntityFrameworkCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(PomeloEntityFrameworkCoreMySqlPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.3")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.3")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.13")
                             .WithNugetDependency("MySqlConnector", "2.3.5"),
-                        ( >= 7, 0) => new PackageVersion("7.0.0"),
-                        ( >= 6, 0) => new PackageVersion("7.0.0"),
-                        ( >= 2, 1) => new PackageVersion("5.0.4")
+                        ( >= 7, >= 0) => new PackageVersion("7.0.0"),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.0"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.10")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "5.0.2")
                             .WithNugetDependency("MySqlConnector", "1.3.13"),
-                        ( >= 2, 0) => new PackageVersion("3.2.7")
+                        ( >= 2, >= 0) => new PackageVersion("3.2.7")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.19")
                             .WithNugetDependency("MySqlConnector", "0.69.10")
                             .WithNugetDependency("Pomelo.JsonObject", "2.2.1"),
@@ -351,23 +351,23 @@ namespace Intent.Modules.EntityFrameworkCore
                     }
                 );
             NugetRegistry.Register(PomeloEntityFrameworkCoreMySqlNetTopologySuitePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("8.0.3")
+                        ( >= 8, >= 0) => new PackageVersion("8.0.3")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.13")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "8.0.1")
                             .WithNugetDependency("MySqlConnector", "2.3.5")
                             .WithNugetDependency("NetTopologySuite", "2.5.0")
                             .WithNugetDependency("Pomelo.EntityFrameworkCore.MySql", "8.0.3"),
-                        ( >= 7, 0) => new PackageVersion("7.0.0"),
-                        ( >= 6, 0) => new PackageVersion("7.0.0"),
-                        ( >= 2, 1) => new PackageVersion("5.0.4")
+                        ( >= 7, >= 0) => new PackageVersion("7.0.0"),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.0"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.4")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.10")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection", "5.0.2")
                             .WithNugetDependency("MySqlConnector", "1.3.13")
                             .WithNugetDependency("NetTopologySuite", "2.2.0")
                             .WithNugetDependency("Pomelo.EntityFrameworkCore.MySql", "5.0.4"),
-                        ( >= 2, 0) => new PackageVersion("3.2.7")
+                        ( >= 2, >= 0) => new PackageVersion("3.2.7")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "3.1.19")
                             .WithNugetDependency("MySqlConnector", "0.69.10")
                             .WithNugetDependency("NetTopologySuite", "2.0.0")

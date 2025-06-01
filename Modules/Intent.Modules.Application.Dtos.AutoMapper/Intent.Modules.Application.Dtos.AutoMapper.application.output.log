@@ -34,6 +34,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>4d085217-0ea3-4fd7-bddf-15e5e631a712</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4bcec9d0-d5d0-4203-9df5-9e8f37f2fb70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoMappingProfile/DtoMappingProfileTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoMappingProfile/DtoMappingProfileTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4d085217-0ea3-4fd7-bddf-15e5e631a712</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#4bcec9d0-d5d0-4203-9df5-9e8f37f2fb70</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/DtoMappingProfile/DtoMappingProfileTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DtoMappingProfile/DtoMappingProfileTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4d085217-0ea3-4fd7-bddf-15e5e631a712</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplate.T4Template.PreProcessed#ae21031c-9ce7-4769-922f-b595fe6fb665</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/MappingExtensions/MappingExtensionsTemplate.cs</ApplicationRelativeFilePath>

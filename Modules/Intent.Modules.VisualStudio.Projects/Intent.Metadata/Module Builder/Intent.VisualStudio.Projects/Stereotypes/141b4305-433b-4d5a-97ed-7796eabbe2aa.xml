@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="141b4305-433b-4d5a-97ed-7796eabbe2aa" version="3.1.0">
+  <comment>Configures Javascript project-level settings.</comment>
   <name>JavaScript Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,15 +26,12 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>(unspecified)</defaultValue>
       <valueOptions>
         <option>(unspecified)</option>
         <option>false</option>
         <option>true</option>
       </valueOptions>
-      <lookupTypes />
-      <isActiveFunction />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="fd5c8c5e-b005-4f5b-9796-6e384dbf5662">
@@ -41,14 +39,12 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>(unspecified)</defaultValue>
       <valueOptions>
         <option>(unspecified)</option>
         <option>false</option>
         <option>true</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="21436a87-591f-41b9-8024-c397d33a9159">
@@ -57,8 +53,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(unspecified)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="7d8108b4-32ef-447a-b5a7-53be87c4721b">
       <name>Startup command</name>
@@ -66,8 +60,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(unspecified)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="2d30620f-f358-4313-94f8-aa1068789c40">
       <name>Test command</name>
@@ -75,8 +67,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(unspecified)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="bd6bcd2c-1afd-4255-8bb8-84151af05d05">
       <name>Clean command</name>
@@ -84,8 +74,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(unspecified)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="ce4dbe58-6ed7-47ac-b3c1-a85e932af6c5">
       <name>Publish command</name>
@@ -93,8 +81,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(unspecified)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

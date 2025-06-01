@@ -14,6 +14,8 @@ namespace MudBlazor.ExampleApp.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Customer?> FindByIdAsync(Guid id, Func<IQueryable<Customer>, IQueryable<Customer>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Customer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

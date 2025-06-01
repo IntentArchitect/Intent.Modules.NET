@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="4b54a612-2664-4493-a1f7-dc0623aa03da" version="3.1.0">
+  <comment>Configure validation rules to enforce various common or custom constraints on a field.</comment>
   <name>Validations</name>
   <targetMode>filter-function</targetMode>
   <targetTypes>
@@ -35,10 +36,7 @@ return "";</displayFunction>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "string" : false;</isRequiredFunction>
     </property>
@@ -48,9 +46,6 @@ return type ? type.getName() == "string" : false;</isRequiredFunction>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="490e08cd-5fb4-4bfd-80cf-fda3b88f745e">
       <hint>e.g. "Foo", customer =&gt; customer.Forename, etc.</hint>
@@ -58,57 +53,38 @@ return type ? type.getName() == "string" : false;</isRequiredFunction>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="c94dc001-4ec7-42a0-a1e0-5b75502e7bec">
       <name>Min Length</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "string" : false;</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="cbd52384-0f1e-4f41-9e98-314231b731e1">
       <name>Max Length</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "string" : false;</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="f9802e6b-b033-4280-ad83-e4b064943d87">
       <name>Min</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "int" || type.getName() == "long" || type.getName() == "decimal" : false;</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="aca206a8-cb7e-4537-b3f5-c5c301863c14">
       <name>Max</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "int" || type.getName() == "long" || type.getName() == "decimal" : false;</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="ad0c1113-ee22-4275-8177-576494ecfa45">
       <hint />
@@ -116,9 +92,6 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="9023c463-1cce-4f11-baa5-96561697fc7f">
       <hint>e.g. surname =&gt; surname == "Foo"</hint>
@@ -126,9 +99,6 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="13d364d0-975e-47e9-ae0c-a3137326ee60">
       <hint>Message as text without quotes</hint>
@@ -136,9 +106,6 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Predicate != "" &amp;&amp; Predicate != null</isActiveFunction>
     </property>
     <property id="85282cb5-5e12-4eb0-9568-7ccee0685e12">
@@ -146,10 +113,7 @@ return type ? type.getName() == "int" || type.getName() == "long" || type.getNam
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let type = element.typeReference.getType();
 return type ? type.getName() == "string" : false;</isActiveFunction>
     </property>
@@ -160,10 +124,7 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="e94008f2-3d5b-4157-ba72-69b3d6812617">
@@ -172,10 +133,7 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="60e7953f-29b8-4e56-a2c9-c02fae7de91e">
       <hint>Creates a `.MustAsync(…)` call and method.</hint>
@@ -183,10 +141,7 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="9ce77ae5-9ad5-4436-8ae0-c6c296de8492">
       <name>CascadeMode</name>
@@ -198,7 +153,6 @@ return type ? type.getName() == "string" : false;</isActiveFunction>
         <option>Continue</option>
         <option>Stop</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return false;</isRequiredFunction>
     </property>
   </properties>

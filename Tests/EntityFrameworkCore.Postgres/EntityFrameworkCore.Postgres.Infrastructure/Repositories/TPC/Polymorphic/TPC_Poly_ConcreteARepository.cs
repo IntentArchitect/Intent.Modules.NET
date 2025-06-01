@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.TPC.Polymorph
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPC_Poly_ConcreteA?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPC_Poly_ConcreteA>, IQueryable<TPC_Poly_ConcreteA>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPC_Poly_ConcreteA>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

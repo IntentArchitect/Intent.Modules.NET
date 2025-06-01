@@ -11,6 +11,7 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.Comm
 {
     public interface IConnStrDbContext
     {
+        DbSet<ConnstrDomainPackageAuditLog> ConnstrDomainPackageAuditLogs { get; }
         DbSet<ConnstrEntity> ConnstrEntities { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

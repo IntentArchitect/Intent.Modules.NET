@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ec96e452-9084-49bb-a883-aa42eb327fe7" version="3.1.0">
+  <comment>Configures Dapr-specific messaging settings for the message.</comment>
   <name>Dapr Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,9 +26,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="a15b6899-7366-4fd7-b018-47a482e05432">
       <hint />
@@ -36,8 +34,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(message name)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

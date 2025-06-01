@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="7bf5b988-bcc6-4e1f-8384-093fa04cbba5" version="3.1.0">
+  <comment>Configures settings related to MVC behavior for the service.</comment>
   <name>MVC Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,8 +27,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

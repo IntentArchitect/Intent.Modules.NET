@@ -28,7 +28,14 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
 
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(configuration.GetSection("AzureAd"));
+                .AddMicrosoftIdentityWebApi(options =>
+                {
+                    options.TokenValidationParameters.RoleClaimType = "roles";
+                    options.TokenValidationParameters.NameClaimType = "name";
+                }, identityOptions =>
+                {
+                    configuration.GetSection("AzureAd").Bind(identityOptions);
+                });
             services.Configure<OpenIdConnectOptions>(
                 OpenIdConnectDefaults.AuthenticationScheme,
                 options =>
@@ -46,8 +53,8 @@ namespace Application.Identity.MSAL.TestApplication.Api.Configuration
         private static void ConfigureAuthorization(AuthorizationOptions options)
         {
             //Configure policies and other authorization options here. For example:
-            //options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("role", "employee"));
-            //options.AddPolicy("AdminOnly", policy => policy.RequireClaim("role", "admin"));
+            //options.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("roles", "employee"));
+            //options.AddPolicy("AdminOnly", policy => policy.RequireClaim("roles", "admin"));
         }
     }
 

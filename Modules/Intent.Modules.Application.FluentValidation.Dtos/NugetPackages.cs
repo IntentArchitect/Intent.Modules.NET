@@ -16,13 +16,13 @@ namespace Intent.Modules.Application.FluentValidation.Dtos
         public void RegisterPackages()
         {
             NugetRegistry.Register(FluentValidationPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("11.11.0"),
-                        ( >= 7, 0) => new PackageVersion("11.11.0"),
-                        ( >= 6, 0) => new PackageVersion("11.11.0"),
-                        ( >= 2, 1) => new PackageVersion("11.11.0"),
-                        ( >= 2, 0) => new PackageVersion("11.11.0")
+                        ( >= 8, >= 0) => new PackageVersion("12.0.0"),
+                        ( >= 7, >= 0) => new PackageVersion("11.11.0"),
+                        ( >= 6, >= 0) => new PackageVersion("11.11.0"),
+                        ( >= 2, >= 1) => new PackageVersion("11.11.0"),
+                        ( >= 2, >= 0) => new PackageVersion("11.11.0")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{FluentValidationPackageName}'"),
                     }

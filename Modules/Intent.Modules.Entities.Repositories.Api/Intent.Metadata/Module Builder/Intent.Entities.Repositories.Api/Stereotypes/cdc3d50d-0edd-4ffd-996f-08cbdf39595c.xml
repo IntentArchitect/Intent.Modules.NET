@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="cdc3d50d-0edd-4ffd-996f-08cbdf39595c" version="3.1.0">
+  <comment>Indicates that a repository should be generated for the entity, potentially overriding the default generation behavior.</comment>
   <hint>Manually override an Entity to have a corresponding Repository</hint>
   <name>Repository</name>
   <targetMode>of-type</targetMode>

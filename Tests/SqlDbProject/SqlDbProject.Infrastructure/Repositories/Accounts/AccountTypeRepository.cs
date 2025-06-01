@@ -29,6 +29,14 @@ namespace SqlDbProject.Infrastructure.Repositories.Accounts
             return await FindAsync(x => x.AccountTypeId == accountTypeId, cancellationToken);
         }
 
+        public async Task<AccountType?> FindByIdAsync(
+            int accountTypeId,
+            Func<IQueryable<AccountType>, IQueryable<AccountType>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.AccountTypeId == accountTypeId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AccountType>> FindByIdsAsync(
             int[] accountTypeIds,
             CancellationToken cancellationToken = default)

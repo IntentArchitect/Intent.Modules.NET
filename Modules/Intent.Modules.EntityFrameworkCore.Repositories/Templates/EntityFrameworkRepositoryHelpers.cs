@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Intent.EntityFrameworkCore.Api;
 using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -16,6 +17,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.EntityFrameworkCore.Repositories.Api;
+using Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories;
+using Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories.Interfaces;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
 using Intent.Modules.EntityFrameworkCore.Settings;
 using Intent.Modules.EntityFrameworkCore.Templates;
@@ -59,7 +62,7 @@ internal static class EntityFrameworkRepositoryHelpers
                             hasStoredProcStereotype = true;
                         }
 
-                        if (interfaceMethod != null && (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true) 
+                        if (interfaceMethod != null && (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true)
                             || hasStoredProcStereotype))
                         {
                             template.CSharpFile.AddUsing("System.Threading");
@@ -402,18 +405,45 @@ internal static class EntityFrameworkRepositoryHelpers
 
         var provider = template.ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum();
 
+        if (storedProcedure.InternalElement.Package.AsDomainPackageModel().TryGetDatabaseSettings(out var stereotype))
+        {
+            // Check per Package
+            switch (stereotype.DatabaseProvider().AsEnum())
+            {
+                case Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer:
+                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer;
+                    break;
+                case Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL:
+                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql;
+                    break;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.MySQL:
+                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql;
+                    break;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle:
+                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle;
+                    break;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default:
+                    break;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory:
+                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum), stereotype.DatabaseProvider().AsEnum(), "Unsupported provider");
+            }
+        }
+
+
         IDbParameterFactory parameterFactory = provider switch
         {
             //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory => expr,
             DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer => new SqlDbParameterFactory(template),
-            //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => expr,
+            DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql => new PostgresDbParameterFactory(template),
             //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql => expr,
             //DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos => expr,
-            _ => throw new NotSupportedException($"{provider} is not supported at this time. Please reach out to us at " +
-                                                 $"https://github.com/IntentArchitect/Support should you need support added.")
+            _ => new DefaultDbParameterFactory(template)
         };
 
-        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails != null &&  x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
+        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails != null && x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
         {
             method.AddStatement($"throw new {template.UseType("System.NotSupportedException")}(\"" +
                                 $"One or more parameters have a direction of both which is not presently supported, " +
@@ -423,7 +453,7 @@ internal static class EntityFrameworkRepositoryHelpers
             return;
         }
 
-        var parameters = new List<(string SpParameterName, string VariableName, string OutputKeyword)>();
+        var parameters = new List<SqlParameter>();
 
         foreach (var parameter in storedProcedure.Parameters)
         {
@@ -443,7 +473,7 @@ internal static class EntityFrameworkRepositoryHelpers
                 ? spParameterName.EnsureSuffixedWith("Parameter")
                 : sourceExpression;
 
-            parameters.Add((spParameterName, variableName, output));
+            parameters.Add(new SqlParameter(spParameterName, variableName, output));
 
             if (isOutputParameter)
             {
@@ -467,80 +497,90 @@ internal static class EntityFrameworkRepositoryHelpers
             }
         }
 
-        if (returnsScalar)
+        if (parameterFactory is DefaultDbParameterFactory)
         {
-            var sql = $"\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" @{x.SpParameterName}{x.OutputKeyword}"))}\"";
-
-            method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure.TypeReference)}>",
-                s =>
-                {
-                    s.AddArgument(sql);
-
-                    foreach (var parameter in parameters)
-                    {
-                        s.AddArgument($"{parameter.VariableName}");
-                    }
-                });
-
-            if (applyReturnStatement)
-            {
-                AddReturnStatement(outputs.Select(x => x.Expression), method);
-            }
-        }
-        else if (returnTypeElement == null)
-        {
-            var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
-
-            template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-            method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
-
-            if (applyReturnStatement)
-            {
-                AddReturnStatement(outputs.Select(x => x.Expression), method);
-            }
+            method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}();");
+            
+            resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
+            return;
         }
         else
         {
-            var sql = $"$\"EXECUTE {spName}{string.Join(",", parameters.Select(x => $" {{{x.VariableName}}}{x.OutputKeyword}"))}\"";
-
-            template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-            var assignment = assignResultToVariable
-                ? $"var {resultVariableName} = "
-                : string.Empty;
-            var (openingBracket, closingBracket) = assignResultToVariable && !returnsCollection
-                ? ("(", ")")
-                : (string.Empty, string.Empty);
-            method.AddMethodChainStatement($"{assignment}{openingBracket}await GetSet()", chainStatement =>
+            if (returnsScalar)
             {
-                if (template is not RepositoryTemplate repositoryTemplate ||
-                    repositoryTemplate.Model.Id != returnTypeElement.Id)
-                {
-                    // If we do this too early the DbSets have not yet been generated:
-                    template.CSharpFile.AfterBuild(_ =>
+                var sql = parameterFactory.GenerateScalarSqlStatement(spName, parameters);
+
+                method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure.TypeReference)}>",
+                    s =>
                     {
-                        chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
-                    }, 1000);
-                }
+                        s.AddArgument(sql);
 
-                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-                chainStatement
-                    .AddChainStatement($"FromSqlInterpolated({sql})")
-                    .AddChainStatement("IgnoreQueryFilters()")
-                    .AddChainStatement($"ToArrayAsync(cancellationToken){closingBracket}");
-
-                if (!returnsCollection)
-                {
-                    template.CSharpFile.AddUsing("System.Linq");
-                    chainStatement.AddChainStatement(storedProcedure.TypeReference.IsNullable
-                        ? "SingleOrDefault()"
-                        : "Single()");
-                }
+                        foreach (var parameter in parameters)
+                        {
+                            s.AddArgument($"{parameter.VariableName}");
+                        }
+                    });
 
                 if (applyReturnStatement)
                 {
                     AddReturnStatement(outputs.Select(x => x.Expression), method);
                 }
-            });
+            }
+            else if (returnTypeElement == null)
+            {
+                var sql = parameterFactory.GenerateTypeElementSqlStatement(spName, parameters);
+
+                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+                method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
+
+                if (applyReturnStatement)
+                {
+                    AddReturnStatement(outputs.Select(x => x.Expression), method);
+                }
+            }
+            else
+            {
+                var sql = parameterFactory.GenerateTableTypeSqlStatement(spName, parameters);
+
+                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+                var assignment = assignResultToVariable
+                    ? $"var {resultVariableName} = "
+                    : string.Empty;
+                var (openingBracket, closingBracket) = assignResultToVariable && !returnsCollection
+                    ? ("(", ")")
+                    : (string.Empty, string.Empty);
+                method.AddMethodChainStatement($"{assignment}{openingBracket}await GetSet()", chainStatement =>
+                {
+                    if (template is not RepositoryTemplate repositoryTemplate ||
+                        repositoryTemplate.Model.Id != returnTypeElement.Id)
+                    {
+                        // If we do this too early the DbSets have not yet been generated:
+                        template.CSharpFile.AfterBuild(_ =>
+                        {
+                            chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
+                        }, 1000);
+                    }
+
+                    template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+                    chainStatement
+                        .AddChainStatement($"FromSqlInterpolated({sql})")
+                        .AddChainStatement("IgnoreQueryFilters()")
+                        .AddChainStatement($"ToArrayAsync(cancellationToken){closingBracket}");
+
+                    if (!returnsCollection)
+                    {
+                        template.CSharpFile.AddUsing("System.Linq");
+                        chainStatement.AddChainStatement(storedProcedure.TypeReference.IsNullable
+                            ? "SingleOrDefault()"
+                            : "Single()");
+                    }
+
+                    if (applyReturnStatement)
+                    {
+                        AddReturnStatement(outputs.Select(x => x.Expression), method);
+                    }
+                });
+            }
         }
 
         resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression);
@@ -665,157 +705,6 @@ internal static class EntityFrameworkRepositoryHelpers
             1 => CSharpType.CreateTask(new CSharpTypeName(tupleProperties[0].TypeName), template),
             _ => CSharpType.CreateTask(new CSharpTypeTuple(tupleProperties.Select(s => new CSharpTupleElement(new CSharpTypeName(s.TypeName), s.Name)).ToList()), template)
         };
-    }
-
-    private interface IDbParameterFactory
-    {
-        CSharpStatement CreateForOutput(string invocationPrefix,
-            string valueVariableName,
-            Parameter parameter);
-
-        CSharpStatement CreateForInput(
-            string invocationPrefix,
-            string valueVariableName,
-            Parameter parameter);
-
-        CSharpStatement CreateForTableType(
-            string invocationPrefix,
-            Parameter parameter);
-    }
-
-    /// <summary>
-    /// Microsoft SQL Server implementation of <see cref="IDbParameterFactory"/>.
-    /// </summary>
-    private class SqlDbParameterFactory : IDbParameterFactory
-    {
-        private readonly ICSharpFileBuilderTemplate _template;
-        private string? _parameterTypeName;
-        private string? _parameterDirectionTypeName;
-        private string? _dbTypeTypeName;
-
-        public SqlDbParameterFactory(ICSharpFileBuilderTemplate template)
-        {
-            _template = template;
-        }
-
-        private string ParameterTypeName => _parameterTypeName ??= _template.UseType("Microsoft.Data.SqlClient.SqlParameter");
-        private string ParameterDirectionTypeName => _parameterDirectionTypeName ??= _template.UseType("System.Data.ParameterDirection");
-        private string DbTypeTypeName => _dbTypeTypeName ??= _template.UseType("System.Data.SqlDbType");
-
-        public CSharpStatement CreateForOutput(string invocationPrefix,
-            string valueVariableName,
-            Parameter parameter)
-        {
-            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
-
-            statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Output");
-            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
-            if (parameter.TypeReference.HasStringType())
-            {
-                var size = parameter.StoredProcedureDetails?.Size;
-                if (size.HasValue)
-                {
-                    statement.AddObjectInitStatement("Size", size.ToString());
-                }
-            }
-            if (parameter.TypeReference.HasDecimalType())
-            {
-                var precision = parameter.StoredProcedureDetails?.Precision;
-                var scale = parameter.StoredProcedureDetails?.Scale;
-                if (_template.ExecutionContext.Settings.GetDatabaseSettings().TryGetDecimalPrecisionAndScale(out var constraints))
-                {
-                    precision ??= constraints.Precision;
-                    scale ??= constraints.Scale;
-                }
-                else
-                {
-                    // Built-in defaults for EF SQL Server
-                    precision ??= 18;
-                    scale ??= 2;
-                }
-
-                statement.AddObjectInitStatement("Precision", precision.ToString());
-                statement.AddObjectInitStatement("Scale", scale.ToString());
-            }
-            statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
-            statement.WithSemicolon();
-
-            return statement;
-        }
-
-        public CSharpStatement CreateForInput(
-            string invocationPrefix,
-            string valueVariableName,
-            Parameter parameter)
-        {
-            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
-
-            statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Input");
-            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.{GetSqlDbType(parameter)}");
-            statement.AddObjectInitStatement("ParameterName", $"\"@{valueVariableName}\"");
-            statement.AddObjectInitStatement("Value", valueVariableName);
-            statement.WithSemicolon();
-
-            return statement;
-        }
-
-        public CSharpStatement CreateForTableType(
-            string invocationPrefix,
-            Parameter parameter)
-        {
-            var dataContractModel = parameter.TypeReference.Element.AsDataContractModel();
-            var userDefinedTableName = dataContractModel.GetUserDefinedTableTypeSettings()?.Name();
-            if (string.IsNullOrWhiteSpace(userDefinedTableName))
-            {
-                userDefinedTableName = dataContractModel.Name;
-            }
-
-            // Add using for the extension method:
-            _template.GetDataContractExtensionMethodsName(dataContractModel);
-
-            var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
-
-            statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
-            statement.AddObjectInitStatement("SqlDbType", $"{DbTypeTypeName}.Structured");
-            statement.AddObjectInitStatement("Value", $"{parameter.InternalElement.Name.ToLocalVariableName()}.ToDataTable()");
-            statement.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
-            statement.WithSemicolon();
-
-            return statement;
-        }
-
-        private static string GetSqlDbType(Parameter parameter)
-        {
-            // https://learn.microsoft.com/dotnet/framework/data/adonet/sql-server-data-type-mappings
-            return parameter.TypeReference.Element.Name.ToLowerInvariant() switch
-            {
-                "binary" => "VarBinary",
-                "bool" => "Bit",
-                "byte" => "TinyInt",
-                "date" => "Date",
-                "datetime" => "DateTime2",
-                "datetimeoffset" => "DateTimeOffset",
-                "decimal" => "Decimal",
-                "double" => "Float",
-                "float" => "Real",
-                "guid" => "UniqueIdentifier",
-                "int" => "Int",
-                "long" => "BigInt",
-                "short" => "SmallInt",
-                "string" => GetStringSqlType(parameter),
-                _ => throw new ArgumentOutOfRangeException(nameof(parameter), parameter.TypeReference.Element.Name, null)
-            };
-        }
-
-        private static string GetStringSqlType(Parameter parameter)
-        {
-            var sqlStringType = parameter.StoredProcedureDetails?.SqlStringType;
-            return sqlStringType switch
-            {
-                null => "VarChar",
-                var value => value
-            };
-        }
     }
 
     private class MappingResolver : IMappingTypeResolver

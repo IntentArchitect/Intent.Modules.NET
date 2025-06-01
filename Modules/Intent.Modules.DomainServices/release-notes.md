@@ -1,3 +1,7 @@
+### Version 1.1.11
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.1.10
 
 - Improvement: Added support for `Asyncronous` stereotype on Domain Service operations.

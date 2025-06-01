@@ -45,14 +45,14 @@
           <mappedEnd>
             <expression>{Id}</expression>
             <path>
-              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
-              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" />
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="2468788c-590c-4155-a4d1-bb544f25ba96" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
                 <path>
-                  <target id="bad493a9-cf01-4473-9e1c-325059e7ca74" name="UpdateBrandCommand" type="element" specialization="Command" />
-                  <target id="ed2479c5-b14f-49ba-8ac3-c59a8f3869f0" name="Id" type="element" specialization="DTO-Field" />
+                  <target id="bad493a9-cf01-4473-9e1c-325059e7ca74" name="UpdateBrandCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="ed2479c5-b14f-49ba-8ac3-c59a8f3869f0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>
@@ -66,14 +66,14 @@
           <mappedEnd>
             <expression>{Name}</expression>
             <path>
-              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" />
-              <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" />
+              <target id="46aaf509-5305-4e74-abda-3fbadfb12219" name="Brand" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="39177fb7-d0c9-4396-aa76-63fa379e922a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
             </path>
             <sources>
               <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
                 <path>
-                  <target id="bad493a9-cf01-4473-9e1c-325059e7ca74" name="UpdateBrandCommand" type="element" specialization="Command" />
-                  <target id="1fddd81c-034c-45ef-a49d-6072eb6da7e3" name="Name" type="element" specialization="DTO-Field" />
+                  <target id="bad493a9-cf01-4473-9e1c-325059e7ca74" name="UpdateBrandCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1fddd81c-034c-45ef-a49d-6072eb6da7e3" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
                 </path>
               </source>
             </sources>

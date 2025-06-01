@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Intent.Configuration;
 using Intent.Engine;
+using Intent.IArchitect.CrossPlatform.IO;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Templates;
 using Microsoft.DotNet.Cli.Sln.Internal;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
+using Path = Intent.IArchitect.CrossPlatform.IO.Path;
 
 namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 {
@@ -135,10 +140,27 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
                 outputType: "VisualStudioSolution",
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.UserControlledWeave,
-                fileName: $"{Model.Name}",
-                fileLocation: Application.OutputRootDirectory);
+                fileName: GetSolutionFilename(),
+                fileLocation: GetSolutionLocation(Application.OutputRootDirectory));
         }
 
+        private string GetSolutionLocation(string defaultPath)
+        {
+            if (Model.HasVisualStudioSolutionOptions() && !string.IsNullOrWhiteSpace(Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation()))
+            {
+                return Path.Combine(defaultPath, Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation());
+            }
+            return defaultPath;
+        }
+
+        private string GetSolutionFilename()
+        {
+            if (Model.HasVisualStudioSolutionOptions() && !string.IsNullOrWhiteSpace(Model.GetVisualStudioSolutionOptions().SolutionName()))
+            {
+                return Model.GetVisualStudioSolutionOptions().SolutionName();
+            }
+            return $"{Model.Name}";
+        }
         public ITemplateBindingContext BindingContext { get; }
 
         private class VisualStudioSolutionTemplateModel

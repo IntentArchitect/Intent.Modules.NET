@@ -367,6 +367,20 @@
           </metadata>
           <childElements />
         </childElement>
+        <childElement id="203b2036-81d4-4e38-87d1-953068d223ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.Eventing.Contracts.AssemblyAttributes</name>
+          <display>Intent.Eventing.Contracts.AssemblyAttributes</display>
+          <externalReference>Intent.Eventing.Contracts</externalReference>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>858d06ec-24e3-447c-b9e7-ce56d3af8902</parentFolderId>
+          <stereotypes />
+          <metadata>
+            <entry key="status" value="assigned" />
+          </metadata>
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
   </childElements>

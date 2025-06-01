@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.NotSchema
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TableFolder?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TableFolder>, IQueryable<TableFolder>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TableFolder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

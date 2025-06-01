@@ -1,3 +1,7 @@
+### Version 2.0.1
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 2.0.0
 
 - Improvement: Migrated to using new `Intent.Metadata.Security` package.

@@ -102,6 +102,8 @@
         <isNullable>true</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+        <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
@@ -150,6 +152,8 @@
         <isNullable>true</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+        <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>

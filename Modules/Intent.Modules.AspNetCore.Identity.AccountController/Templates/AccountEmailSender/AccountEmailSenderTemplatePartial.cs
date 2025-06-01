@@ -26,6 +26,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
 
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate()) return;
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface(GetTemplate<AccountEmailSenderInterfaceTemplate>(AccountEmailSenderInterfaceTemplate.TemplateId)));
         }
 

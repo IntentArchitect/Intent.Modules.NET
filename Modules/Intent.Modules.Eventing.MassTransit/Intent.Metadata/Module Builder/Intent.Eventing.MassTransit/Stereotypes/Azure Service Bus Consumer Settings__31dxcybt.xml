@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="a592112c-5f85-4755-b07c-cfa293fce8df" version="3.1.0">
+  <comment>Configures settings for consuming messages from Azure Service Bus, including behavior and performance-related options.</comment>
   <name>Azure Service Bus Consumer Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -28,8 +29,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return EndpointType == "Subscription Endpoint";</isRequiredFunction>
     </property>
     <property id="20b3004c-94ce-4aa8-bee7-a45d2bc94d68">
@@ -37,13 +36,11 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Receive Endpoint</defaultValue>
       <valueOptions>
         <option>Receive Endpoint</option>
         <option>Subscription Endpoint</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="2084d89a-d4d7-4c2c-815b-1eba6eb53f50">
       <hint>Specify the number of messages to prefetch from the message broker. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -52,9 +49,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="6f645454-16eb-4a6b-97ca-2192d26b0eae">
       <hint>Sets the queue in session mode, requiring a session for inbound messages. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -62,10 +56,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="3b7d1adc-528b-4e29-8705-187b87deb246">
       <hint>Format - d.hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -74,8 +65,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="e2fb328a-79d4-4de1-b206-656a30fbcfbd">
       <hint>Format - d.hh:mm:ss [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -84,8 +73,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="a6667529-102d-4e86-8623-c71464606f58">
       <hint>Specify whether this queue requires duplicate detection.</hint>
@@ -93,10 +80,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="4ad6dc3a-2b32-47b3-9f9f-a2c7529d0a0a">
@@ -106,8 +90,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return RequiresDuplicateDetection;</isActiveFunction>
     </property>
     <property id="dbdcb5ed-3e63-46f9-941f-b7c578fe05db">
@@ -116,10 +98,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="94ed3877-3876-4fa2-bc45-ae679ec6cd21">
       <hint>Move messages to the dead letter queue on expiration (time to live exceeded).</hint>
@@ -127,10 +106,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="23748e16-ae82-41e6-9bc5-bfeae97ba89e">
       <hint>Sets the maximum size of the queue in megabytes (1024 MB is lowest setting).</hint>
@@ -139,8 +115,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return EndpointType == "Receive Endpoint";</isActiveFunction>
     </property>
     <property id="8482cf1b-82b7-4d47-a5b1-564e699df9ea">
@@ -150,8 +124,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="67d129a7-691b-4999-a8be-bc326d7a28a5">
       <hint>Number of concurrent messages delivered to consumers. [Documentation](https://masstransit.io/documentation/configuration/transports/azure-service-bus#receive-settings)</hint>
@@ -160,9 +132,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="69347757-81c6-4e36-b089-a073083e8b2b">
       <hint>Sets the maximum number of concurrent calls per session.</hint>
@@ -171,8 +140,6 @@
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

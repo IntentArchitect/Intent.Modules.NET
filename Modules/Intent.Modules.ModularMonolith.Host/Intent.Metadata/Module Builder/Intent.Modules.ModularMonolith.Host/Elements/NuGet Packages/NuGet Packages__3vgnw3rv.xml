@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b286c337-45a8-4f25-b66a-19085a58f834" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</parentFolderId>
+  <packageId>f77da7df-9c2c-4e65-af0b-df4ddc4c0cfe</packageId>
+  <packageName>Intent.ModularMonolith.Host</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

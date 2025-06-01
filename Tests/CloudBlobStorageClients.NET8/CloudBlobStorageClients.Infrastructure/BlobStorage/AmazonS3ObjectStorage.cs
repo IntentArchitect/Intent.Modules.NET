@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Amazon.S3;
@@ -39,7 +40,7 @@ public class AmazonS3ObjectStorage : IObjectStorage
         return new Uri(url);
     }
 
-    public async IAsyncEnumerable<Uri> ListAsync(string bucketName, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<Uri> ListAsync(string bucketName, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         var request = new ListObjectsV2Request
         {
@@ -72,7 +73,7 @@ public class AmazonS3ObjectStorage : IObjectStorage
         return await GetAsync(bucketName, key, cancellationToken);
     }
 
-    public async IAsyncEnumerable<Uri> BulkUploadAsync(string bucketName, IEnumerable<BulkObjectItem> objects, CancellationToken cancellationToken = default)
+    public async IAsyncEnumerable<Uri> BulkUploadAsync(string bucketName, IEnumerable<BulkObjectItem> objects, [EnumeratorCancellation] CancellationToken cancellationToken = default)
     {
         foreach (var blob in objects)
         {

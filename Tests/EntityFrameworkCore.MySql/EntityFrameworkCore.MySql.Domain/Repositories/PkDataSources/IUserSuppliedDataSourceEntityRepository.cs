@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.PkDataSources;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.PkDataSources
     {
         [IntentManaged(Mode.Fully)]
         Task<UserSuppliedDataSourceEntity?> FindByIdAsync(long id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<UserSuppliedDataSourceEntity?> FindByIdAsync(long id, Func<IQueryable<UserSuppliedDataSourceEntity>, IQueryable<UserSuppliedDataSourceEntity>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<UserSuppliedDataSourceEntity>> FindByIdsAsync(long[] ids, CancellationToken cancellationToken = default);
     }

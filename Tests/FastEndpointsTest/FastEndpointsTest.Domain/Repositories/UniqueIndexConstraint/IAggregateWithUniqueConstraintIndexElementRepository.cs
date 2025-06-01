@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FastEndpointsTest.Domain.Entities.UniqueIndexConstraint;
@@ -17,6 +18,8 @@ namespace FastEndpointsTest.Domain.Repositories.UniqueIndexConstraint
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<AggregateWithUniqueConstraintIndexElement?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AggregateWithUniqueConstraintIndexElement?> FindByIdAsync(Guid id, Func<IQueryable<AggregateWithUniqueConstraintIndexElement>, IQueryable<AggregateWithUniqueConstraintIndexElement>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AggregateWithUniqueConstraintIndexElement>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

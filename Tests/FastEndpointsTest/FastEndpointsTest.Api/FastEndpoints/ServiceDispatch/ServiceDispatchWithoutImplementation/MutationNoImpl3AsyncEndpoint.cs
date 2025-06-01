@@ -32,7 +32,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override void Configure()
         {
-            Post("mutation-async-param");
+            Post("api/service-dispatch-without-implementation/mutation-async-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchWithoutImplementation");
@@ -60,7 +60,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
     public class MutationNoImpl3AsyncRequestModel
     {
-        [FromQuery]
+        [QueryParam]
         public string Param { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -54,9 +55,19 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
         {
             base.BeforeTemplateExecution();
 
+
             if (ExecutionContext.Settings.GetIntegrationHttpClientSettings().AuthorizationSetup().IsClientAccessTokenManagement())
             {
-                ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
+                var dotNetVersion = OutputTarget.GetMaxNetAppVersion();
+                if (dotNetVersion.Major >= 8)
+                {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:TokenEndpoint", "https://localhost:{sts_port}/connect/token"));
+                }
+                else
+                {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Address", "https://localhost:{sts_port}/connect/token"));
+                }
+
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientId", "clientId"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:ClientSecret", "secret"));
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("IdentityClients:default:Scope", "api"));

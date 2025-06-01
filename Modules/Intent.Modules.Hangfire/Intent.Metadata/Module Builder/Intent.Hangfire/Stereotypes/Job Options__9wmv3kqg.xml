@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="268b1f8f-71ac-4a27-ad87-bdaeffb06022" version="3.1.0">
+  <comment>Configures options for defining and controlling a Hangfire background job.</comment>
   <name>Job Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,10 +26,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="153f01ba-f229-4a2e-8f44-0ecd39924073">
       <hint>The cron schedule on which the job will execute</hint>
@@ -38,9 +36,6 @@
       <optionsSource>n/a</optionsSource>
       <placeholder>(example: */10 * * * * ?)</placeholder>
       <defaultValue>* * * * *</defaultValue>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="e5a5f7ad-80f9-471c-9e0f-835f8286ffab">
@@ -49,7 +44,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Minutes</defaultValue>
       <valueOptions>
         <option>Milliseconds</option>
@@ -59,7 +53,6 @@
         <option>Days</option>
         <option>Ticks</option>
       </valueOptions>
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="8220c0e1-203d-43f5-9155-ae73a87bf324">
@@ -68,10 +61,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>5</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return false;</isActiveFunction>
     </property>
     <property id="0aa4b661-211b-40e2-a917-abfc4fef1b03">
@@ -80,11 +70,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="722cc50a-5dfd-4eb0-91c2-287ddd077d04">
       <hint>The amount of time (in seconds) before a concurrent job waiting execution is cancelled</hint>
@@ -92,11 +78,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>1</defaultValue>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="545f4c0d-b389-4b8d-a092-e65ead77f445">
       <hint>The number of times a job will be reprocessed before reverting to Failed/Deleted</hint>
@@ -104,10 +86,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>10</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="78be64bd-7eb8-44aa-b5f8-180ec74c42fb">
       <hint>The state a job will be set to when the retry attempts is exceeded</hint>
@@ -115,13 +94,11 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Fail</defaultValue>
       <valueOptions>
         <option>Fail</option>
         <option>Delete</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="7e719fad-42a3-4282-8328-e086d856dee7">
       <hint>The queue on which the job is executed. If no queue is supplied, the default queue is used.</hint>
@@ -130,8 +107,6 @@
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
       <placeholder>Default</placeholder>
-      <defaultValue />
-      <valueOptions />
       <lookupTypes>
         <type>18b0f37e-43da-4d94-b65a-8cff601339ac</type>
       </lookupTypes>

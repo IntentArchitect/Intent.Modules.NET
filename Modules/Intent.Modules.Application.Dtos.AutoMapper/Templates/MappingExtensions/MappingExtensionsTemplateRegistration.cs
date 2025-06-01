@@ -35,9 +35,13 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.Services(application).GetDTOModels()
+            if (application.GetSettings().GetAutoMapperSettings().ProfileLocation().IsProfileInDto())
+            {
+                return _metadataManager.Services(application).GetDTOModels()
                 .Where(x => x.HasMapFromDomainMapping())
                 .ToList();
+            }
+            return new List<DTOModel>();
         }
     }
 }

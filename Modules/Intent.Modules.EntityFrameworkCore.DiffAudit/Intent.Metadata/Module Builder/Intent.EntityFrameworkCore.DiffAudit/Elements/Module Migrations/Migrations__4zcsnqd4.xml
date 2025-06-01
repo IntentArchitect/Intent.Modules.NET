@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f47b0e48-0e53-427a-9842-aeea96c1a8b3" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e4873852-59e4-4522-84c9-c5980e197fcc</parentFolderId>
+  <packageId>e4873852-59e4-4522-84c9-c5980e197fcc</packageId>
+  <packageName>Intent.EntityFrameworkCore.DiffAudit</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

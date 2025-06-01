@@ -22,6 +22,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
         public AzureServiceBusMessageDispatcherInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("Azure.Messaging.ServiceBus")
@@ -30,6 +31,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
                     @interface.AddMethod("Task", "DispatchAsync", method =>
                     {
                         method.Async();
+                        method.AddParameter("IServiceProvider", "scopedServiceProvider");
                         method.AddParameter("ServiceBusReceivedMessage", "message");
                         method.AddParameter("CancellationToken", "cancellationToken");
                     });

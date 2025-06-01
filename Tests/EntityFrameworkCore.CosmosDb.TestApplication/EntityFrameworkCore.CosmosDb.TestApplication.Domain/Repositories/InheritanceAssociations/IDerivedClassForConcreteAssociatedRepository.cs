@@ -20,6 +20,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Inher
         [IntentManaged(Mode.Fully)]
         Task<DerivedClassForConcreteAssociated?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<DerivedClassForConcreteAssociated?> FindByIdAsync(Guid id, Func<IQueryable<DerivedClassForConcreteAssociated>, IQueryable<DerivedClassForConcreteAssociated>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<DerivedClassForConcreteAssociated>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

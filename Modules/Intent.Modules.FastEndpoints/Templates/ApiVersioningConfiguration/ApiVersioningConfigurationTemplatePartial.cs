@@ -79,6 +79,8 @@ namespace Intent.Modules.FastEndpoints.Templates.ApiVersioningConfiguration
 
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate()) return;
+
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
                 .ToRegister("ConfigureApiVersioning")
                 .HasDependency(this));

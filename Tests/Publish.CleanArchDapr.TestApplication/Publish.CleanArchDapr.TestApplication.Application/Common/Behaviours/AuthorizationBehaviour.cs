@@ -87,7 +87,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Common.Behaviours
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

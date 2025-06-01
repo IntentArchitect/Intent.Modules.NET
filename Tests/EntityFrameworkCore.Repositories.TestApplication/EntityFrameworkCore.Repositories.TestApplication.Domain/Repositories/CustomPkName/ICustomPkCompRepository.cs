@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Repositories.TestApplication.Domain.Entities.CustomPkName;
@@ -17,5 +18,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.C
         Task<TProjection?> FindByIdProjectToAsync<TProjection>((Guid MyId, string MyId2) id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<CustomPkComp?> FindByIdAsync((Guid MyId, string MyId2) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<CustomPkComp?> FindByIdAsync((Guid MyId, string MyId2) id, Func<IQueryable<CustomPkComp>, IQueryable<CustomPkComp>> queryOptions, CancellationToken cancellationToken = default);
     }
 }

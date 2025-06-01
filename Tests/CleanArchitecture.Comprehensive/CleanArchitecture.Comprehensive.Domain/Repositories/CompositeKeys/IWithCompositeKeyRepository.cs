@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Domain.Entities.CompositeKeys;
@@ -17,5 +18,7 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CompositeKeys
         Task<TProjection?> FindByIdProjectToAsync<TProjection>((Guid Key1Id, Guid Key2Id) id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<WithCompositeKey?> FindByIdAsync((Guid Key1Id, Guid Key2Id) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<WithCompositeKey?> FindByIdAsync((Guid Key1Id, Guid Key2Id) id, Func<IQueryable<WithCompositeKey>, IQueryable<WithCompositeKey>> queryOptions, CancellationToken cancellationToken = default);
     }
 }

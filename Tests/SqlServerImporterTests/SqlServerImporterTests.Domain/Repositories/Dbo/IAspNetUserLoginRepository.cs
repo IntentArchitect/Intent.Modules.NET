@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -17,5 +18,7 @@ namespace SqlServerImporterTests.Domain.Repositories.Dbo
         Task<TProjection?> FindByIdProjectToAsync<TProjection>((string LoginProvider, string ProviderKey) id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<AspNetUserLogin?> FindByIdAsync((string LoginProvider, string ProviderKey) id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AspNetUserLogin?> FindByIdAsync((string LoginProvider, string ProviderKey) id, Func<IQueryable<AspNetUserLogin>, IQueryable<AspNetUserLogin>> queryOptions, CancellationToken cancellationToken = default);
     }
 }

@@ -29,6 +29,14 @@ namespace CleanArchitecture.Dapr.Api.Filters
         {
             if (!HasAuthorize(context))
             {
+                var securityScheme = new OpenApiSecurityScheme();
+                operation.Security = new List<OpenApiSecurityRequirement>
+                {
+                    new OpenApiSecurityRequirement
+                    {
+                        { securityScheme, Array.Empty<string>() }
+                    }
+                };
                 return;
             }
             operation.Security.Add(new OpenApiSecurityRequirement

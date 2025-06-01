@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionConsumer;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -11,12 +12,12 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetAzureFunctionConsumerName<T>(this IIntentTemplate<T> template) where T : AzureFunctionSubscriptionModel
+        public static string GetAzureFunctionConsumerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
             return template.GetTypeName(AzureFunctionConsumerTemplate.TemplateId, template.Model);
         }
 
-        public static string GetAzureFunctionConsumerName(this IIntentTemplate template, AzureFunctionSubscriptionModel model)
+        public static string GetAzureFunctionConsumerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
         {
             return template.GetTypeName(AzureFunctionConsumerTemplate.TemplateId, model);
         }

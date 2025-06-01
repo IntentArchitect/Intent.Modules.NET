@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
+using MassTransit.EventingPackage2;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
 using MassTransit.RabbitMQ.Services.External;
 using MediatR;
@@ -26,6 +27,9 @@ namespace MassTransit.RabbitMQ.Application.ExternalMessagePublish.PublishExterna
         public async Task Handle(PublishExternalMessageCommand request, CancellationToken cancellationToken)
         {
             _eventBus.Publish(new MessageWithTopologyEvent
+            {
+            });
+            _eventBus.Publish(new MessageInPackage2Event
             {
             });
         }

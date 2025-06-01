@@ -25,6 +25,14 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Rep
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<BespokeUser?> FindByIdAsync(
+            string id,
+            Func<IQueryable<BespokeUser>, IQueryable<BespokeUser>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<BespokeUser>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

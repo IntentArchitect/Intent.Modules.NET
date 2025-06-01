@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="efde089e-21e6-4da1-b086-72d7f6caf389" version="3.1.0">
-  <comment />
+  <comment>Marks the entity as the data store for ASP.NET Core Identity.</comment>
   <name>Identity User</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

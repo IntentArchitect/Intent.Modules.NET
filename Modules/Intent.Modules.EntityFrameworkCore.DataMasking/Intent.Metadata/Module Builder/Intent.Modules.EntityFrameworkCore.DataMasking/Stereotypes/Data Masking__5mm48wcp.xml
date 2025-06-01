@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="2c878051-d640-47d6-98bf-243fda0e60fb" version="3.1.0">
+  <comment>Configures masking for the attribute, including masking type and permission-based visibility.</comment>
   <name>Data Masking</name>
   <targetMode>that-reference</targetMode>
   <targetTypes>
@@ -27,14 +28,12 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Fixed Length</defaultValue>
       <valueOptions>
         <option>Variable Length</option>
         <option>Partial Mask</option>
         <option>Fixed Length</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="add377ef-ccbe-4dcf-9d6d-33d9d44a944c">
       <hint>The character used for masking</hint>
@@ -44,8 +43,6 @@
       <optionsSource>n/a</optionsSource>
       <placeholder>*</placeholder>
       <defaultValue>*</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="ff9109e1-9a0f-487b-b30f-6ca5e78e447f">
       <hint>The length of the masked data, regardless of original length</hint>
@@ -53,10 +50,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>5</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return DataMaskType === `Fixed Length`;</isActiveFunction>
     </property>
     <property id="f1d91382-6677-4f47-8f5a-e54b7b0e629e">
@@ -65,10 +59,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>3</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return DataMaskType === `Partial Mask`;</isActiveFunction>
     </property>
     <property id="ceb868dc-02b4-4e76-aff4-b80e1d03f60e">
@@ -77,10 +68,7 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>3</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return DataMaskType === `Partial Mask`;</isActiveFunction>
     </property>
     <property id="d525f5b5-10a3-43dc-85f5-6cbc527e4c76">
@@ -90,8 +78,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let securityElementsDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
 return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Roles !== null &amp;&amp; Roles !== undefined &amp;&amp; Roles.trim() !== ''));</isActiveFunction>
     </property>
@@ -102,8 +88,6 @@ return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Roles !
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>let securityElementsDefined = lookupTypesOf("Security Configuration")[0]?.getChildren()?.length &gt; 0;
 return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Policy !== null &amp;&amp; Policy !== undefined &amp;&amp; Policy.trim() !== ''));</isActiveFunction>
     </property>
@@ -112,8 +96,6 @@ return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Policy 
       <type>string</type>
       <controlType>multi-select</controlType>
       <optionsSource>lookup-element</optionsSource>
-      <placeholder />
-      <valueOptions />
       <lookupTypes>
         <type>d6ce4e4c-fdd1-4fa1-82d8-f3405e114ec5</type>
       </lookupTypes>
@@ -124,8 +106,6 @@ return !securityElementsDefined || (securityElementsDefined &amp;&amp;  (Policy 
       <type>string</type>
       <controlType>multi-select</controlType>
       <optionsSource>lookup-element</optionsSource>
-      <placeholder />
-      <valueOptions />
       <lookupTypes>
         <type>9f37c60e-ad88-4484-98ca-6c9aa7ca3134</type>
       </lookupTypes>

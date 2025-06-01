@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.Indexes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<SortDirectionStereotype?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<SortDirectionStereotype>, IQueryable<SortDirectionStereotype>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<SortDirectionStereotype>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

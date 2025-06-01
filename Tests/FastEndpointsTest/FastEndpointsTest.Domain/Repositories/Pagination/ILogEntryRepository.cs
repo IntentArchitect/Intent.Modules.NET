@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FastEndpointsTest.Domain.Entities.Pagination;
@@ -17,6 +18,8 @@ namespace FastEndpointsTest.Domain.Repositories.Pagination
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<LogEntry?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<LogEntry?> FindByIdAsync(Guid id, Func<IQueryable<LogEntry>, IQueryable<LogEntry>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<LogEntry>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

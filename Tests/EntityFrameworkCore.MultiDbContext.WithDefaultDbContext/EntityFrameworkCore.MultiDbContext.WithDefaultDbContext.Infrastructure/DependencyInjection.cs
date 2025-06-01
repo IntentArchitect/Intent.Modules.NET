@@ -36,6 +36,9 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             services.AddTransient<ICustomAlternateRepository, CustomAlternateRepository>();
             services.AddTransient<ICustomAppDefaultRepository, CustomAppDefaultRepository>();
             services.AddTransient<ICustomDefaultRepository, CustomDefaultRepository>();
+            services.AddTransient<IAlternateConnStrDefaultDbDomainPackageAuditLogRepository, AlternateConnStrDefaultDbDomainPackageAuditLogRepository>();
+            services.AddTransient<IAppDbContextDomainPackageAuditLogRepository, AppDbContextDomainPackageAuditLogRepository>();
+            services.AddTransient<IDefaultDomainPackageAuditLogRepository, DefaultDomainPackageAuditLogRepository>();
             services.AddTransient<IEntityAlternateRepository, EntityAlternateRepository>();
             services.AddTransient<IEntityAppDefaultRepository, EntityAppDefaultRepository>();
             services.AddTransient<IEntityDefaultRepository, EntityDefaultRepository>();

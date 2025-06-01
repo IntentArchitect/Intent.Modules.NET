@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: CreateAccountCommand(...): guid</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="6f39f2c9-4819-408b-8c13-03ba4eed1c46">
       <typeId>3baeb46c-bd48-4768-8180-a6bd38fadaee</typeId>
       <isNavigable>true</isNavigable>

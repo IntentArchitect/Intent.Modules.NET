@@ -35,5 +35,13 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         {
             return await FindAsync(x => x.MyId == id.MyId && x.MyId2 == id.MyId2, cancellationToken);
         }
+
+        public async Task<CustomPkComp?> FindByIdAsync(
+            (Guid MyId, string MyId2) id,
+            Func<IQueryable<CustomPkComp>, IQueryable<CustomPkComp>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.MyId == id.MyId && x.MyId2 == id.MyId2, queryOptions, cancellationToken);
+        }
     }
 }

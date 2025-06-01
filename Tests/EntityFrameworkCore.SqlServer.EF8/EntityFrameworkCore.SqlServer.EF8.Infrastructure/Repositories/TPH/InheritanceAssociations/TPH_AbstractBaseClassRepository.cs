@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.TPH.Inhe
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPH_AbstractBaseClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPH_AbstractBaseClass>, IQueryable<TPH_AbstractBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPH_AbstractBaseClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

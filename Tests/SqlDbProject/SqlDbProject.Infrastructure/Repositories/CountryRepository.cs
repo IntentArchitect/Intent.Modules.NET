@@ -28,6 +28,14 @@ namespace SqlDbProject.Infrastructure.Repositories
             return await FindAsync(x => x.CountryIso == countryIso, cancellationToken);
         }
 
+        public async Task<Country?> FindByIdAsync(
+            string countryIso,
+            Func<IQueryable<Country>, IQueryable<Country>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.CountryIso == countryIso, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Country>> FindByIdsAsync(
             string[] countryIsos,
             CancellationToken cancellationToken = default)

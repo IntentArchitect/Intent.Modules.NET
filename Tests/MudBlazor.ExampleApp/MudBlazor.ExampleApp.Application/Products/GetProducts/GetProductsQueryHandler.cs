@@ -1,10 +1,10 @@
-using System.Linq.Dynamic.Core;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using MudBlazor.ExampleApp.Application.Common.Pagination;
 using MudBlazor.ExampleApp.Domain.Entities;
 using MudBlazor.ExampleApp.Domain.Repositories;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -12,7 +12,7 @@ using MudBlazor.ExampleApp.Domain.Repositories;
 namespace MudBlazor.ExampleApp.Application.Products.GetProducts
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, Common.Pagination.PagedResult<ProductDto>>
+    public class GetProductsQueryHandler : IRequestHandler<GetProductsQuery, PagedResult<ProductDto>>
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
@@ -25,9 +25,7 @@ namespace MudBlazor.ExampleApp.Application.Products.GetProducts
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<ProductDto>> Handle(
-            GetProductsQuery request,
-            CancellationToken cancellationToken)
+        public async Task<PagedResult<ProductDto>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
             IQueryable<Product> FilterProducts(IQueryable<Product> queryable)
             {

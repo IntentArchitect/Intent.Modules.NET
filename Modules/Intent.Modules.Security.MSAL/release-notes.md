@@ -1,3 +1,13 @@
+### Version 4.2.8
+
+- Improvement: Replaced IdentityModel with Duende.IdentityModel
+- Improvement: Updated NuGet package versions.
+- Fixed: Explicitly set `RoleClaimType` when calling `AddMicrosoftIdentityWebApi`
+
+### Version 4.2.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.6
 
 - Improvement: Updated NuGet package versions.

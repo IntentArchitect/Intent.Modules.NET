@@ -139,6 +139,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>efcb1e28-b1e8-443a-827f-18ae8765e02c</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OpenApiImporterTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b90c920d-5503-427c-8abc-ec63b22f061a</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#b90c920d-5503-427c-8abc-ec63b22f061a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

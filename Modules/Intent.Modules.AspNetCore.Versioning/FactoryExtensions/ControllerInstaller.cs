@@ -28,6 +28,12 @@ public class ControllerInstaller : FactoryExtensionBase
     protected override void OnAfterTemplateRegistrations(IApplication application)
     {
         var templates = application.FindTemplateInstances<ControllerTemplate>(TemplateDependency.OnTemplate(ControllerTemplate.TemplateId));
+        if (templates.Any())
+        {
+            var template = templates.First();
+            template.AddNugetDependency(NugetPackages.AspVersioningMvc(template.OutputTarget));
+            template.AddNugetDependency(NugetPackages.AspVersioningMvcApiExplorer(template.OutputTarget));
+        }
         foreach (var template in templates)
         {
             template.CSharpFile.OnBuild(file =>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="fc095295-eb25-470a-9ee5-19129919db2b" version="3.1.0">
+  <comment>Configures the topic name for the message.</comment>
   <name>Message Topology Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -27,9 +28,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(message name)</placeholder>
-      <defaultValue />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

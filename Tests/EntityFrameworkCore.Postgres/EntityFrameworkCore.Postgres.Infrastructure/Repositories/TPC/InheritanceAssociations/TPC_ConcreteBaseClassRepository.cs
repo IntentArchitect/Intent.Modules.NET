@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.TPC.Inheritan
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPC_ConcreteBaseClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPC_ConcreteBaseClass>, IQueryable<TPC_ConcreteBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPC_ConcreteBaseClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

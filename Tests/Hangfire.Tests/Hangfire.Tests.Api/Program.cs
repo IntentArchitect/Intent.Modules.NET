@@ -1,6 +1,7 @@
 using System;
 using Hangfire.Tests.Api.Configuration;
 using Hangfire.Tests.Api.Filters;
+using Hangfire.Tests.Api.Logging;
 using Hangfire.Tests.Application;
 using Hangfire.Tests.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -32,7 +33,8 @@ namespace Hangfire.Tests.Api
                 // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services));
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 builder.Services.AddControllers(
                     opt =>

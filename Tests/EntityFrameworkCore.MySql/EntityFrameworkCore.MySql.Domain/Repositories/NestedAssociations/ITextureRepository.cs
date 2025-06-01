@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.NestedAssociations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.NestedAssociations
     {
         [IntentManaged(Mode.Fully)]
         Task<Texture?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Texture?> FindByIdAsync(Guid id, Func<IQueryable<Texture>, IQueryable<Texture>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Texture>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

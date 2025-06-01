@@ -38,6 +38,7 @@ namespace AzureFunctions.NET6.Application.Common.Behaviours
                     throw new ValidationException(failures);
                 }
             }
+
             return await next();
         }
     }

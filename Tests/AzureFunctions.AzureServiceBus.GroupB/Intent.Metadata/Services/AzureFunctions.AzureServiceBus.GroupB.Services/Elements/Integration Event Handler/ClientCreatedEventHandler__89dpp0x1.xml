@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="36242578-736b-43e2-8f4c-573e0be908b8" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>ClientCreatedEventHandler</name>
+  <display>ClientCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ff9ca47-8693-4c62-9979-5205e19f177e</parentFolderId>
+  <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

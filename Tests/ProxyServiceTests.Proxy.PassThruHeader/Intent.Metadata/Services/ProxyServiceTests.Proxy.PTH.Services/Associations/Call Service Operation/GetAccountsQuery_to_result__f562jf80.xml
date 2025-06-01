@@ -22,6 +22,9 @@
     <name>result</name>
     <display>[call] result: GetAccountsQuery(...): AccountDto[*]</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="d554aac6-a312-450d-9195-487ed6e551f6">
       <typeId>083aec6d-ac8d-4022-adf5-5e9aac416cdb</typeId>
       <isNavigable>true</isNavigable>

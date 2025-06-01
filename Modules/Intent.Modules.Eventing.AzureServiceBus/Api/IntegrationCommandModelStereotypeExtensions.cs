@@ -11,7 +11,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Eventing.AzureServiceBus.Api
 {
-    public static class IntegrationCommandModelStereotypeExtensions
+    [IntentManaged(Mode.Fully, Signature = Mode.Ignore)]
+    internal static class IntegrationCommandModelStereotypeExtensions
     {
         public static AzureServiceBus GetAzureServiceBus(this IntegrationCommandModel model)
         {

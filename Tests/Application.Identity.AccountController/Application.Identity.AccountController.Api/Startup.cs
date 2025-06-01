@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.Api.Configuration;
 using Application.Identity.AccountController.Api.Filters;
+using Application.Identity.AccountController.Api.Services;
 using Application.Identity.AccountController.Application;
 using Application.Identity.AccountController.Application.Account;
 using Application.Identity.AccountController.Infrastructure;
@@ -46,6 +47,7 @@ namespace Application.Identity.AccountController.Api
             services.AddInfrastructure(Configuration);
             services.ConfigureSwagger(Configuration);
             services.AddTransient<IAccountEmailSender, AccountEmailSender>();
+            services.AddTransient<ITokenService, TokenService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

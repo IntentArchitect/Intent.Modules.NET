@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FastEndpointsTest.Domain.Entities.Enums;
@@ -17,6 +18,8 @@ namespace FastEndpointsTest.Domain.Repositories.Enums
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<ClassWithEnums?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ClassWithEnums?> FindByIdAsync(Guid id, Func<IQueryable<ClassWithEnums>, IQueryable<ClassWithEnums>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassWithEnums>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -5,8 +5,8 @@ using System.Text.Json;
 using System.Text.Unicode;
 using Intent.Engine;
 using Intent.Modules.AI.ChatDrivenDomain.Plugins;
-using Intent.Modules.AI.ChatDrivenDomain.Settings;
-using Intent.Modules.AI.ChatDrivenDomain.Utils;
+using Intent.Modules.Common.AI;
+using Intent.Modules.Common.AI.Settings;
 using Intent.Plugins;
 using Intent.Utils;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,12 +14,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using OllamaSharp;
+using SoftwareFactoryLoggingProvider = Intent.Modules.AI.ChatDrivenDomain.Utils.SoftwareFactoryLoggingProvider;
 
 namespace Intent.Modules.AI.ChatDrivenDomain.Tasks;
 
 public class ChatCompletionTask : IModuleTask
 {
     private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
+    private readonly IUserSettingsProvider _userSettingsProvider;
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -27,9 +29,10 @@ public class ChatCompletionTask : IModuleTask
         WriteIndented = false
     };
 
-    public ChatCompletionTask(IApplicationConfigurationProvider applicationConfigurationProvider)
+    public ChatCompletionTask(IApplicationConfigurationProvider applicationConfigurationProvider, IUserSettingsProvider userSettingsProvider)
     {
         _applicationConfigurationProvider = applicationConfigurationProvider;
+        _userSettingsProvider = userSettingsProvider;
     }
 
     public string TaskTypeId => "Intent.Modules.ChatDrivenDomain.Tasks.ChatCompletionTask";
@@ -44,7 +47,10 @@ public class ChatCompletionTask : IModuleTask
         {
             var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions)!;
             var modelMutationPlugin = new ModelMutationPlugin(inputModel);
-            var kernel = BuildSemanticKernel(modelMutationPlugin);
+            var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel((builder) =>
+            {
+                builder.Plugins.AddFromObject(modelMutationPlugin);
+            });
 
             var requestFunction = kernel.CreateFunctionFromPrompt(
                 """
@@ -120,7 +126,7 @@ public class ChatCompletionTask : IModuleTask
                 DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
                 """, new OpenAIPromptExecutionSettings()
                 {
-                    MaxTokens = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings().MaxTokens(),
+                    MaxTokens = int.TryParse(_userSettingsProvider.GetAISettings().MaxTokens(), out var maxTokens) ? maxTokens : null,
                     ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
                 });
 
@@ -144,63 +150,6 @@ public class ChatCompletionTask : IModuleTask
             Logging.Log.Failure(e);
             return Fail(e.GetBaseException().Message);
         }
-    }
-
-    private Kernel BuildSemanticKernel(ModelMutationPlugin modelMutationPlugin)
-    {
-        var settings = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings();
-        var model = string.IsNullOrWhiteSpace(settings.Model()) ? "gpt-4o" : settings.Model();
-        var apiKey = settings.APIKey();
-
-        var builder = Kernel.CreateBuilder();
-        builder.Services.AddLogging(b => b.AddProvider(new SoftwareFactoryLoggingProvider()).SetMinimumLevel(LogLevel.Trace));
-        
-        // Register the ModelMutationPlugin with the kernel
-        builder.Plugins.AddFromObject(modelMutationPlugin);
-
-        switch (settings.Provider().AsEnum())
-        {
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.OpenAi:
-                if (string.IsNullOrWhiteSpace(apiKey))
-                {
-                    apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-                }
-
-                builder.Services.AddOpenAIChatCompletion(
-                    modelId: model,
-                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the OPENAI_API_KEY environment variable."));
-                break;
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.AzureOpenAi:
-                if (string.IsNullOrWhiteSpace(apiKey))
-                {
-                    apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-                }
-
-                builder.Services.AddAzureOpenAIChatCompletion(
-                    deploymentName: settings.DeploymentName(),
-                    endpoint: settings.APIUrl(),
-                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the AZURE_OPENAI_API_KEY environment variable."),
-                    modelId: model);
-                break;
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.Ollama:
-#pragma warning disable SKEXP0070
-                builder.Services.AddOllamaChatCompletion(
-                    new OllamaApiClient(
-                        new HttpClient
-                        {
-                            Timeout = TimeSpan.FromMinutes(10),
-                            BaseAddress = new Uri(settings.APIUrl())
-                        },
-                        model)
-                );
-#pragma warning restore SKEXP0070
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-
-        var kernel = builder.Build();
-        return kernel;
     }
 
     private static string Fail(string reason)

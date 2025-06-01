@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.2</name>
+      <name>1.12.0</name>
       <display>1.10.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="0e72d235-63d0-4a92-b7f6-48859f6d5847" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5383504c-07bd-4a55-ac92-ba4259d99541" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e1d24ee7-c5ee-4329-8d1c-ee84a6c3bdd6</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="a179ce28-d474-482f-b9dd-2a7a525eb10a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.2</name>
+      <name>1.12.0</name>
       <display>1.10.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,10 +83,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9fb1aaa1-6a07-4ccd-b683-f98ebd7637e9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7c123c68-f6f1-49a3-8cb7-8efca101c9e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a179ce28-d474-482f-b9dd-2a7a525eb10a</parentFolderId>
@@ -97,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="a8927697-b028-46e1-b044-6c84caeea259" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.2</name>
+      <name>1.12.0</name>
       <display>1.10.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -119,10 +119,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="392016ed-08af-4176-9290-294a4c995336" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="203953b7-57c3-4ec1-856e-f3265cdc8d41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a8927697-b028-46e1-b044-6c84caeea259</parentFolderId>
@@ -133,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="d702b91e-4090-4bec-affe-a029491efa59" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.2</name>
+      <name>1.12.0</name>
       <display>1.10.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -155,21 +155,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="98b3279d-2850-40dd-a144-fcd42f575b51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be020f69-c5c6-473c-844a-93776591b137" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d702b91e-4090-4bec-affe-a029491efa59</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="edad11f4-58e7-40bd-8625-b6573a35a730" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Grpc.Core</name>
-          <isAbstract>false</isAbstract>
-          <value>2.44.0</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d702b91e-4090-4bec-affe-a029491efa59</parentFolderId>

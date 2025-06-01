@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -31,18 +32,21 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                     @class.AddGenericParameter("TRequest", out var TRequest)
                     .AddGenericParameter("TResponse", out var TResponse)
                     .AddGenericTypeConstraint(TRequest, cfg => cfg.AddType("notnull"))
-                    .ImplementsInterface(UseType($"MediatR.IPipelineBehavior<{TRequest}, {TResponse}>"))
-                    .AddConstructor(ctor =>
+                    .ImplementsInterface(UseType($"MediatR.IPipelineBehavior<{TRequest}, {TResponse}>"));
+
+                    @class.AddConstructor(ctor =>
                     {
                         ctor.AddObjectInitStatement("_timer", "new Stopwatch();");
-                        ctor.AddParameter(UseType($"Microsoft.Extensions.Logging.ILogger<PerformanceBehaviour<{TRequest},{TResponse}>>"), "logger", cfg => cfg.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType($"Microsoft.Extensions.Logging.ILogger<PerformanceBehaviour<{TRequest},{TResponse}>>"), "logger",
+                            cfg => cfg.IntroduceReadonlyField());
                         ctor.AddParameter(GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface"), "currentUserService", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
+
+                        ctor.AddStatement(@"_logRequestPayload = configuration.GetValue<bool?>(""CqrsSettings:LogRequestPayload"") ?? false;");
                     });
 
-                    @class.AddField(UseType("System.Diagnostics.Stopwatch"), "_timer", cfg =>
-                    {
-                        cfg.PrivateReadOnly();
-                    });
+                    @class.AddField(UseType("System.Diagnostics.Stopwatch"), "_timer", cfg => cfg.PrivateReadOnly());
+                    @class.AddField("bool", "_logRequestPayload", cfg => cfg.PrivateReadOnly());
 
                     @class.AddMethod(UseType($"System.Threading.Tasks.Task<{TResponse}>"), "Handle", method =>
                     {
@@ -53,24 +57,43 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddInvocationStatement("_timer.Start", cfg => cfg.SeparatedFromNext());
-                        method.AddObjectInitStatement("var response", "await next();", cfg => cfg.SeparatedFromNext());
+
+                        var cancellationToken = Project.TryGetMaxNetAppVersion(out var version) &&
+                                                version.Major is <= 2 or > 6
+                            ? "cancellationToken"
+                            : string.Empty;
+                        method.AddObjectInitStatement("var response", $"await next({cancellationToken});", cfg => cfg.SeparatedFromNext());
                         method.AddInvocationStatement("_timer.Stop", cfg => cfg.SeparatedFromNext());
                         method.AddObjectInitStatement("var elapsedMilliseconds", "_timer.ElapsedMilliseconds;", cfg => cfg.SeparatedFromNext());
 
-                        method.AddIfStatement("elapsedMilliseconds > 500", @if =>
+                        method.AddIfStatement("elapsedMilliseconds > 500", elapsedIf =>
                         {
-                            @if.AddObjectInitStatement("var requestName", "typeof(TRequest).Name;");
-                            @if.AddObjectInitStatement("var userId", "_currentUserService.UserId;");
-                            @if.AddObjectInitStatement("var userName", "_currentUserService.UserName;", cfg => cfg.SeparatedFromNext());
+                            elapsedIf.AddObjectInitStatement("var requestName", "typeof(TRequest).Name;");
+                            elapsedIf.AddObjectInitStatement("var userId", "_currentUserService.UserId;");
+                            elapsedIf.AddObjectInitStatement("var userName", "_currentUserService.UserName;", cfg => cfg.SeparatedFromNext());
 
-                            @if.AddInvocationStatement("_logger.LogWarning", cfg =>
+                            elapsedIf.AddIfStatement("_logRequestPayload", logIf =>
                             {
-                                cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}} {{@Request}}\"")
-                                    .AddArgument("requestName")
-                                    .AddArgument("elapsedMilliseconds")
-                                    .AddArgument("userId")
-                                    .AddArgument("userName")
-                                    .AddArgument("request");
+                                logIf.AddInvocationStatement("_logger.LogWarning", cfg =>
+                                {
+                                    cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}} {{@Request}}\"")
+                                        .AddArgument("requestName")
+                                        .AddArgument("elapsedMilliseconds")
+                                        .AddArgument("userId")
+                                        .AddArgument("userName")
+                                        .AddArgument("request");
+                                });
+                            });
+                            elapsedIf.AddElseStatement(@else =>
+                            {
+                                @else.AddInvocationStatement("_logger.LogWarning", cfg =>
+                                {
+                                    cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}}\"")
+                                        .AddArgument("requestName")
+                                        .AddArgument("elapsedMilliseconds")
+                                        .AddArgument("userId")
+                                        .AddArgument("userName");
+                                });
                             });
                         });
 
@@ -96,6 +119,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
         }
         public override void BeforeTemplateExecution()
         {
+            this.ApplyAppSetting("CqrsSettings:LogRequestPayload", true);
+            
             ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister($"typeof({ClassName}<,>)")
                 .ForInterface("typeof(IPipelineBehavior<,>)")
                 .WithPriority(1)

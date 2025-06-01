@@ -38,6 +38,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Common.Behaviours
                     throw new ValidationException(failures);
                 }
             }
+
             return await next();
         }
     }

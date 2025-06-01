@@ -33,6 +33,7 @@ namespace CosmosDB.Application.Invoices
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Client, InvoiceClientDto>()
+                .ForMember(d => d.Type, opt => opt.MapFrom(src => src.ClientType))
                 .ForMember(d => d.Id, opt => opt.MapFrom(src => src.Identifier));
         }
     }

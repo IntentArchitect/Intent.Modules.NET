@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ccebec0d-83a5-44ab-a6e8-0e50f9ca15c0" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
   <name>Microsoft.NET.Test.Sdk</name>
-  <display>Microsoft.NET.Test.Sdk</display>
+  <display>Microsoft.NET.Test.Sdk [locked]</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
@@ -16,7 +16,7 @@
       <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
       <properties>
         <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
-        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
         <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
         <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
       </properties>
@@ -26,8 +26,8 @@
   <childElements>
     <childElement id="19f2e215-a2a7-4de9-8a5c-9c3757383e08" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment>This doesnt seem to update from NuGet goes to 15.5.0</comment>
-      <name>15.5.0</name>
-      <display>15.5.0 ( &gt;= Any,Version=v0.0 )</display>
+      <name>17.13.0</name>
+      <display>17.13.0 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -50,9 +50,9 @@
       <childElements>
         <childElement id="9ee2cb1f-544f-4ec7-bd29-9877acca2ca4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CodeCoverage</name>
-          <display>Microsoft.CodeCoverage (1.0.3)</display>
+          <display>Microsoft.CodeCoverage (17.13.0)</display>
           <isAbstract>false</isAbstract>
-          <value>1.0.3</value>
+          <value>17.13.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19f2e215-a2a7-4de9-8a5c-9c3757383e08</parentFolderId>

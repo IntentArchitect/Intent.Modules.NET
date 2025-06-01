@@ -1,4 +1,8 @@
-﻿### Version 3.0.1
+﻿### Version 3.0.2
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
+### Version 3.0.1
 
 - Fixed: The Dapr controllers for receiving PubSub events did not perform saving persistence changes or flush event bus events.
 

@@ -28,6 +28,14 @@ namespace SqlDbProject.Infrastructure.Repositories
             return await FindAsync(x => x.PolicyStatusId == policyStatusId, cancellationToken);
         }
 
+        public async Task<PolicyStatus?> FindByIdAsync(
+            Guid policyStatusId,
+            Func<IQueryable<PolicyStatus>, IQueryable<PolicyStatus>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.PolicyStatusId == policyStatusId, queryOptions, cancellationToken);
+        }
+
         public async Task<List<PolicyStatus>> FindByIdsAsync(
             Guid[] policyStatusIds,
             CancellationToken cancellationToken = default)

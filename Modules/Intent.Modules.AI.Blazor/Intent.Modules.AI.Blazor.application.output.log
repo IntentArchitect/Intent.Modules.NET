@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<outputLog>
+  <ApplicationId>6d81061b-aaf4-4ae0-b8a5-e97ed0aa2a39</ApplicationId>
+  <FileLogs>
+    <FileLog>
+      <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#583e5710-4b0b-4636-bd71-a5b9bb7c8168</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../Intent.Modules.NET.sln</ApplicationRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.AI.Blazor.imodspec</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.AI.Blazor.imodspec</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6161ed7e-68be-4788-8bdf-9942f39626b5</ProjectId>
+      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#6161ed7e-68be-4788-8bdf-9942f39626b5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Intent.Modules.AI.Blazor.csproj</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Intent.Modules.AI.Blazor.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>475db390-c8f5-4575-a5bc-46df5e64e0d0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#f9e99bc0-f22e-4de6-bb26-1d211a947467</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>modelers/AI Prompts.designer.settings</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AI Prompts.designer.settings</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+  </FileLogs>
+</outputLog>

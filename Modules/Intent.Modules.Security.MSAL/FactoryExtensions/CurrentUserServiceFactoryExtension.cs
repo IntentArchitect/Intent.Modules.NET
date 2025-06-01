@@ -3,6 +3,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Plugins.FactoryExtensions;
@@ -28,11 +29,16 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             {
                 return;
             }
-            template.AddNugetDependency(NugetPackages.IdentityModel(template.OutputTarget));
+
+            application.EventDispatcher.Publish(new RemoveNugetPackageEvent(
+                NugetPackages.IdentityModelPackageName, template.OutputTarget));
+
+            template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
+            
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System.Security.Claims");
-                file.AddUsing("IdentityModel");
+                file.AddUsing("Duende.IdentityModel");
                 file.AddUsing("Microsoft.AspNetCore.Authorization");
                 file.AddUsing("Microsoft.AspNetCore.Http");
 

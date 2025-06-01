@@ -1,5 +1,4 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
@@ -7,6 +6,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -14,7 +14,7 @@ using MediatR;
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginatedWithOrder
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetCustomersPaginatedWithOrderQueryHandler : IRequestHandler<GetCustomersPaginatedWithOrderQuery, Common.Pagination.PagedResult<CustomerDto>>
+    public class GetCustomersPaginatedWithOrderQueryHandler : IRequestHandler<GetCustomersPaginatedWithOrderQuery, PagedResult<CustomerDto>>
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<CustomerDto>> Handle(
+        public async Task<PagedResult<CustomerDto>> Handle(
             GetCustomersPaginatedWithOrderQuery request,
             CancellationToken cancellationToken)
         {

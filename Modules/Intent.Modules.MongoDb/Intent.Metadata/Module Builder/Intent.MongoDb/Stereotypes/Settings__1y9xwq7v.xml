@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="a482271c-a3f0-4391-9c9f-98d06d71e85a" version="3.1.0">
+  <comment>Configures properties of the MongoDB Index.</comment>
   <name>Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -7,7 +8,7 @@
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>always</applyMode>
-  <icon type="FontAwesome" source="cogs" />
+  <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAj5JREFUeF7t3DFOwzAUxvGXioGBI3SAA5AdIgbuwAHgECBBF5ZCj8EBuAVEYkRBMCHRgZGxA2JoUCUGlvQ5fK1lo3/X+DXOL1+a1HZbGC9JoJCqKTYAxRAACKAoIJaTQABFAbGcBK4bcFSXbc99TMdVs9OzJtvmbgJXCXhel0eFtVs5aM2L+f1k//nV62tUwFFdvpnZttepFLa31p5cVU83Xl8A7BBKFfDOzIbeWU1h+9zs9Lpqbr2+RE2g15kctwMonjUAcwJM8S48rho3RMuM3eJVPgcCGBb3zm8iAIqAZw/lcNAONsLeJk6ryd7jVNlTyCW8+PbQ5/U+rpqDPgU5t3UBcz64GH0HUFQGEEBRQCwngQCKAmI5CQRQFBDLSSCAooBYTgIBFAXEcjeBF/XucZ99tFbMQiZj+rxnym1dwFUOqKYM8de+RQUc1SXTmgFnKqsR6a7jSXVinaUdSgJZXBSgZ2Ysb/vtxF14eWqi3oVTvIRDlrAtI4wKyLyw+BkIoA6Y3IO0up476iUc5p9XKxeQwQTxLpxXHuL31k1g/C7ltUcAxfMFIICigFhOAgEUBcRyEgigKCCWk0AARQGxnASuG/BnDK/PbviZw7rmRFL8oU1XMjY/vz4uD19mXnLcS3iVk0opjkh3ATGx7kXH2Q7gfwQUjynJ8qifgUkKiJ0CMCfAFNcHZjWtmeJjDP+ZIF6CWQGyuCjsbLM+MMyJVgsB9zEGpuUCAIoJARBAUUAsJ4EAigJiOQkUAb8BCvJSYFwDz3sAAAAASUVORK5CYII=" />
   <displayIcon>false</displayIcon>
   <displayIconFunction>return false;</displayIconFunction>
   <displayAsAnnotation>false</displayAsAnnotation>
@@ -24,33 +25,25 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="3a85c8df-015b-4f56-9505-9eba91459fd4">
       <name>Unique</name>
       <type>boolean</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="b101af66-8713-4b15-9844-eab6e6084b3e">
       <name>Sort Order</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Ascending</defaultValue>
       <valueOptions>
         <option>Ascending</option>
         <option>Descending</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

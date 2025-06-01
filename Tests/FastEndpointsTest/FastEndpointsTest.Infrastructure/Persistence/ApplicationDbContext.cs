@@ -39,6 +39,7 @@ namespace FastEndpointsTest.Infrastructure.Persistence
         public DbSet<CompositeSingleA> CompositeSingleAs { get; set; }
         public DbSet<CompositeSingleAA> CompositeSingleAAs { get; set; }
         public DbSet<CompositeSingleBB> CompositeSingleBBs { get; set; }
+        public DbSet<SimpleProduct> SimpleProducts { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountHolder> AccountHolders { get; set; }
         public DbSet<Camera> Cameras { get; set; }
@@ -79,6 +80,7 @@ namespace FastEndpointsTest.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new CompositeSingleAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleAAConfiguration());
             modelBuilder.ApplyConfiguration(new CompositeSingleBBConfiguration());
+            modelBuilder.ApplyConfiguration(new SimpleProductConfiguration());
             modelBuilder.ApplyConfiguration(new AccountConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
             modelBuilder.ApplyConfiguration(new CameraConfiguration());
@@ -113,8 +115,7 @@ namespace FastEndpointsTest.Infrastructure.Persistence
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)

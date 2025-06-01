@@ -1,3 +1,17 @@
+### Version 1.1.1
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
+### Version 1.1.0
+
+- Improvement: Updated NuGet package versions.
+
+> ?? **NOTE**
+>
+> This module update may cause a compilation breaks if you have written any custom code which uses FluentValidation features which are not supported on v12.
+> Any generated code will be compliant.
+> For details on what the breaking changes are check out the [upgrade guide](https://docs.fluentvalidation.net/en/latest/upgrading-to-12.html).
+
 ### Version 1.0.4
 
 - Fixed: Validation classes for Model Definitions will generate correctly when Model Definitions are placed inside Components.

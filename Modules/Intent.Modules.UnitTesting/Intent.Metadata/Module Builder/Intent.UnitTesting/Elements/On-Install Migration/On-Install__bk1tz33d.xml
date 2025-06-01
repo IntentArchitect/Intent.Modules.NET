@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3260a798-7dc8-470e-ab25-93d9f9a8bd5c" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>37886284-997b-4abb-b113-c0059e246040</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

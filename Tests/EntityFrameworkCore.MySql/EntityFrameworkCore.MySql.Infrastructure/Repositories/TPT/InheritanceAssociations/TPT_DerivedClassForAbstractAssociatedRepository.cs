@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPT.InheritanceA
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_DerivedClassForAbstractAssociated?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_DerivedClassForAbstractAssociated>, IQueryable<TPT_DerivedClassForAbstractAssociated>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_DerivedClassForAbstractAssociated>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

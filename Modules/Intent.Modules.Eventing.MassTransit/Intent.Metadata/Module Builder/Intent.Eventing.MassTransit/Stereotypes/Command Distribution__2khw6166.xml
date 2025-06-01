@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="5cae1c25-cc30-4af8-8955-30af001c981d" version="3.1.0">
-  <hint />
+  <comment>Configures the destination queue name when publishing.</comment>
   <name>Command Distribution</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -32,10 +32,6 @@ return "";</displayFunction>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(uses convention)</placeholder>
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
-      <isRequiredFunction />
     </property>
   </properties>
 </stereotypeDefinition>

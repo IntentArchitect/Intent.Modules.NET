@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b20e9df4-1f8d-4297-bc0c-944d873f93e8" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>CustomerCreatedIEHandler</name>
+  <display>CustomerCreatedIEHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</parentFolderId>
+  <packageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</packageId>
+  <packageName>Module2.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

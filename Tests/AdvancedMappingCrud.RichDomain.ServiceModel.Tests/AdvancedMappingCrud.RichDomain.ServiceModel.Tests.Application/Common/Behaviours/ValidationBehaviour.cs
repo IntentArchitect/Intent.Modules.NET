@@ -38,7 +38,8 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.B
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

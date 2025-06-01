@@ -34,6 +34,14 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Dom
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<DomainServiceTest?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<DomainServiceTest>, IQueryable<DomainServiceTest>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<DomainServiceTest>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

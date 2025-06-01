@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPT.Polymorphic
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_Poly_TopLevel?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_Poly_TopLevel>, IQueryable<TPT_Poly_TopLevel>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_Poly_TopLevel>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

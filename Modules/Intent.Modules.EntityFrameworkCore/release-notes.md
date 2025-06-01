@@ -1,3 +1,14 @@
+### Version 5.0.23
+
+- Improvement: Updated NuGet package versions.
+- Improvement: Added documentation and topics related to modeling many-to-many relationships.
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Fixed: OnInstall of the module will now configure the Domain package to avoid SF execution errors under certain conditions.
+
+### Version 5.0.22
+
+- Improvement: Added documentation for modeling Entities as one-to-one relationships.
+
 ### Version 5.0.21
 
 - Improvement: `Primary Key` stereotype uses `Data Source` to determine whether a `PK` column should have the `Identity` specification or not.

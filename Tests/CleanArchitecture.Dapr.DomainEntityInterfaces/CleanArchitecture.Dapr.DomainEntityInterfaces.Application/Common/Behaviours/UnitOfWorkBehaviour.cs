@@ -29,7 +29,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Application.Common.Behav
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next();
+            var response = await next(cancellationToken);
             await _daprStateStoreDataSource.SaveChangesAsync(cancellationToken);
 
             return response;

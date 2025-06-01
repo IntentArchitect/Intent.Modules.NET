@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="dfba20f5-b4a2-4cbb-9d1c-31fa8000682e">
+  <sourceEnd id="f8e42502-61ff-453a-8209-3e19a2f0ff7a" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="0747bd1f-1785-43fd-8d96-01ac2547a871">
+      <typeId>629ae4fb-4771-40d7-8f01-27e7297eebe6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Services</typePackageName>
+      <typePackageId>446bb1f6-1ca4-4bf6-a437-c3f91cf15726</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="dfba20f5-b4a2-4cbb-9d1c-31fa8000682e" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="887d9070-1b40-4825-9620-b0ab9bb0379e">
+      <typeId>bc78aa8f-6ea3-4c83-8179-24b537131c59</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFramework.Application.LinqExtensions.Tests.Domain</typePackageName>
+      <typePackageId>07142643-252f-4030-b002-c12b5c4e9836</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="629ae4fb-4771-40d7-8f01-27e7297eebe6" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="6ee95f25-fa06-4768-88ae-56edabd68494" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="bc78aa8f-6ea3-4c83-8179-24b537131c59" location="[EntityFramework.Application.LinqExtensions.Tests].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="bc78aa8f-6ea3-4c83-8179-24b537131c59" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="88a70f2e-dd9d-4a35-a29c-5554595312f7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="629ae4fb-4771-40d7-8f01-27e7297eebe6" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="a7f1f6bc-d609-4a74-a7b9-38681cad3b03" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

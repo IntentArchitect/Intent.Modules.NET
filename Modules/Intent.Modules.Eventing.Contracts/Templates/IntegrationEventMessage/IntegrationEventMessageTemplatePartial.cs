@@ -37,18 +37,7 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
             AddTypeSource(TemplateRoles.Application.Contracts.Enum);
             AddTypeSource(IntegrationEventDtoTemplate.TemplateId);
 
-            var classNamespace = Model.InternalElement.Package.Name.ToCSharpNamespace();
-            var extendedNamespace = Model.GetParentFolders().Where(x =>
-            {
-                if (string.IsNullOrWhiteSpace(x.Name))
-                {
-                    return false;
-                }
-
-                return !x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider();
-            })
-            .Select(x => x.Name);
-            var completeNamespace = string.Join(".", classNamespace.Split(".").Concat(extendedNamespace));
+            var completeNamespace = GetNamespace(model);
 
             CSharpFile = new CSharpFile(
                     @namespace: completeNamespace,
@@ -80,11 +69,31 @@ namespace Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage
                     }
                 });
         }
+        
         private static bool NeedsNullabilityAssignment(IResolvedTypeInfo typeInfo)
         {
             return !(typeInfo.IsPrimitive
                      || typeInfo.IsNullable
                      || (typeInfo.TypeReference != null && typeInfo.TypeReference.Element.IsEnumModel()));
+        }
+        
+        // Keep GetNamespace() in sync with:
+        // - Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf.AzureEventGridTfTemplate
+        private static string GetNamespace(MessageModel model)
+        {
+            var classNamespace = model.InternalElement.Package.Name.ToCSharpNamespace();
+            var extendedNamespace = model.GetParentFolders().Where(x =>
+                {
+                    if (string.IsNullOrWhiteSpace(x.Name))
+                    {
+                        return false;
+                    }
+
+                    return !x.HasFolderOptions() || x.GetFolderOptions().NamespaceProvider();
+                })
+                .Select(x => x.Name);
+            var completeNamespace = string.Join(".", classNamespace.Split(".").Concat(extendedNamespace));
+            return completeNamespace;
         }
 
         [IntentManaged(Mode.Fully)]

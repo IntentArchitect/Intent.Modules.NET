@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f928c35e-4a52-4d00-96f1-16512ad34e57">
+  <sourceEnd id="17caa7ed-7701-482e-b1c0-e7b8eda4b20f" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AzureFunctions.AzureServiceBus.GroupA.Services.SpecificQueueMessageHandler</display>
+    <order>0</order>
+    <typeReference id="a623ae04-9740-420e-b229-e5ca33e413f5">
+      <typeId>b142d75d-46bd-40bd-8700-b73152b53cc0</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Services</typePackageName>
+      <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f928c35e-4a52-4d00-96f1-16512ad34e57" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: SpecificQueueTwoMessage</display>
+    <order>1</order>
+    <typeReference id="9708b4a5-3690-42c8-963c-c7aa855ce0a0">
+      <typeId>59b0e3ed-6ce4-46a5-94c0-40122edee1a8</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cfe</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

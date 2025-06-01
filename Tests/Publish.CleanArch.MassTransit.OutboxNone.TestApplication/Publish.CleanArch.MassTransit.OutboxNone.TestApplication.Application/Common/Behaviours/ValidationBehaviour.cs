@@ -38,7 +38,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.C
                     throw new ValidationException(failures);
                 }
             }
-            return await next();
+
+            return await next(cancellationToken);
         }
     }
 }

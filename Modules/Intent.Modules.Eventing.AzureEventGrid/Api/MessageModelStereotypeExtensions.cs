@@ -11,7 +11,8 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Eventing.AzureEventGrid.Api
 {
-    public static class MessageModelStereotypeExtensions
+    [IntentManaged(Mode.Fully, Signature = Mode.Ignore)]
+    internal static class MessageModelStereotypeExtensions
     {
         public static AzureEventGrid GetAzureEventGrid(this MessageModel model)
         {

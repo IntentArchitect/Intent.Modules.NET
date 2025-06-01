@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8294a44c-b8a7-4d6e-8019-4afb80eb113c" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>74b088b3-db70-4c76-9df5-e9e906984bdf</parentFolderId>
+  <packageId>446bb1f6-1ca4-4bf6-a437-c3f91cf15726</packageId>
+  <packageName>EntityFramework.Application.LinqExtensions.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>8294a44c-b8a7-4d6e-8019-4afb80eb113c</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

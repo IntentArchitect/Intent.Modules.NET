@@ -36,6 +36,14 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<StandaloneDerived?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<StandaloneDerived>, IQueryable<StandaloneDerived>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<StandaloneDerived>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

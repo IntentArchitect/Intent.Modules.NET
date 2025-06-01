@@ -16,10 +16,11 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
     {
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAccessTokenManagement(options =>
+            var clientCredentialsBuilder = services.AddClientCredentialsTokenManagement();
+            foreach (var clientCredentials in configuration.GetSection("IdentityClients").GetChildren())
             {
-                configuration.GetSection("IdentityClients").Bind(options.Client.Clients);
-            }).ConfigureBackchannelHttpClient();
+                clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
+            }
 
             services
                 .AddHttpClient<IBugFixesService, BugFixesServiceHttpClient>(http =>
@@ -56,7 +57,7 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Configuration
                 {
                     ApplyAppSettings(http, configuration, "CleanArchitecture.Comprehensive.Services", "SecureServicesService");
                 })
-                .AddClientAccessTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ??
+                .AddClientCredentialsTokenHandler(configuration.GetValue<string>("HttpClients:SecureServicesService:IdentityClientKey") ??
                     configuration.GetValue<string>("HttpClients:CleanArchitecture.Comprehensive.Services:IdentityClientKey") ??
                     "default");
 

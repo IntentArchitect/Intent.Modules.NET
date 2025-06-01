@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -29,6 +30,9 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             _domainEventService = domainEventService;
         }
 
+        public DbSet<AppDbContextDomainPackageAuditLog> AppDbContextDomainPackageAuditLogs { get; set; }
+        public DbSet<DefaultDomainPackageAuditLog> DefaultDomainPackageAuditLogs { get; set; }
+
         public DbSet<EntityAppDefault> EntityAppDefaults { get; set; }
         public DbSet<EntityDefault> EntityDefaults { get; set; }
 
@@ -39,6 +43,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             await DispatchEventsAsync(cancellationToken);
             SetAuditableFields();
             SetSoftDeleteProperties();
+            LogDiffAudit();
             return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
 
@@ -47,6 +52,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             DispatchEventsAsync().GetAwaiter().GetResult();
             SetAuditableFields();
             SetSoftDeleteProperties();
+            LogDiffAudit();
             return base.SaveChanges(acceptAllChangesOnSuccess);
         }
 
@@ -55,6 +61,8 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AppDbContextDomainPackageAuditLogConfiguration());
+            modelBuilder.ApplyConfiguration(new DefaultDomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new EntityAppDefaultConfiguration());
             modelBuilder.ApplyConfiguration(new EntityDefaultConfiguration());
         }
@@ -79,8 +87,7 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
             {
                 var domainEventEntity = ChangeTracker
                     .Entries<IHasDomainEvent>()
-                    .Select(x => x.Entity.DomainEvents)
-                    .SelectMany(x => x)
+                    .SelectMany(x => x.Entity.DomainEvents)
                     .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
 
                 if (domainEventEntity is null)
@@ -150,6 +157,99 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
                 entity.SetDeleted(true);
                 entry.State = EntityState.Modified;
             }
+        }
+
+        private void LogDiffAudit()
+        {
+            var diffAuditEntries = ChangeTracker.Entries()
+                .Where(entry => entry.State is EntityState.Added or EntityState.Deleted or EntityState.Modified &&
+                                entry.Entity is IDiffAudit)
+                .Select(entry => new
+                {
+                    entry.State,
+                    entry.Entity,
+                    entry.Properties
+                })
+                .ToArray();
+
+            if (!diffAuditEntries.Any())
+            {
+                return;
+            }
+
+            var auditEntries = new List<DefaultDomainPackageAuditLog>();
+
+            var userIdentifier = _currentUserService.UserId ?? throw new InvalidOperationException("UserId is null");
+            var timestamp = DateTimeOffset.UtcNow;
+
+            foreach (var entry in diffAuditEntries)
+            {
+                var entityName = entry.Entity.GetType().Name;
+                var primaryKey = entry.Properties.FirstOrDefault(p => p.Metadata.IsPrimaryKey());
+
+                switch (entry.State)
+                {
+                    case EntityState.Added:
+                        auditEntries.Add(new DefaultDomainPackageAuditLog
+                        {
+                            TableName = entityName,
+                            Key = primaryKey?.CurrentValue?.ToString(),
+                            ColumnName = "EntityCreated",
+                            OldValue = null,
+                            NewValue = null,
+                            ChangedBy = userIdentifier,
+                            ChangedDate = timestamp,
+                        });
+
+                        foreach (var prop in entry.Properties)
+                        {
+                            auditEntries.Add(new DefaultDomainPackageAuditLog
+                            {
+                                TableName = entityName,
+                                Key = primaryKey?.CurrentValue?.ToString(),
+                                ColumnName = prop.Metadata.Name,
+                                OldValue = null,
+                                NewValue = prop.CurrentValue?.ToString(),
+                                ChangedBy = userIdentifier,
+                                ChangedDate = timestamp,
+                            });
+                        }
+                        break;
+                    case EntityState.Deleted:
+                        auditEntries.Add(new DefaultDomainPackageAuditLog
+                        {
+                            TableName = entityName,
+                            Key = primaryKey?.CurrentValue?.ToString(),
+                            ColumnName = "EntityDeleted",
+                            OldValue = null,
+                            NewValue = null,
+                            ChangedBy = userIdentifier,
+                            ChangedDate = timestamp,
+                        });
+                        break;
+                    case EntityState.Modified:
+                        foreach (var prop in entry.Properties)
+                        {
+                            if (!Equals(prop.OriginalValue, prop.CurrentValue))
+                            {
+                                auditEntries.Add(new DefaultDomainPackageAuditLog
+                                {
+                                    TableName = entityName,
+                                    Key = primaryKey?.CurrentValue?.ToString(),
+                                    ColumnName = prop.Metadata.Name,
+                                    OldValue = prop.OriginalValue?.ToString(),
+                                    NewValue = prop.CurrentValue?.ToString(),
+                                    ChangedBy = userIdentifier,
+                                    ChangedDate = timestamp,
+                                });
+                            }
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            DefaultDomainPackageAuditLogs.AddRange(auditEntries);
         }
     }
 }

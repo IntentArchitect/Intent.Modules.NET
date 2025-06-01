@@ -3,6 +3,7 @@ using Serilog;
 using Serilog.Events;
 using SqlDbProject.Api.Configuration;
 using SqlDbProject.Api.Filters;
+using SqlDbProject.Api.Logging;
 using SqlDbProject.Application;
 using SqlDbProject.Infrastructure;
 
@@ -28,7 +29,8 @@ namespace SqlDbProject.Api
                 // Add services to the container.
                 builder.Host.UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services));
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()));
 
                 builder.Services.AddControllers(
                     opt =>

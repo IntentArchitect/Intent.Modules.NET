@@ -34,6 +34,14 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Ag
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<OptionalToOneSource?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<OptionalToOneSource>, IQueryable<OptionalToOneSource>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<OptionalToOneSource>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -34,5 +34,8 @@
       <DependentUpon>appsettings.json</DependentUpon>
     </Content>
   </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Logging\" />
+    </ItemGroup>
 
 </Project>

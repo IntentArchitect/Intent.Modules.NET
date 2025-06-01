@@ -9,6 +9,7 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Eventing.AzureEventGrid.Templates;
+using Intent.Modules.Integration.IaC.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +19,7 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionConsumer
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class AzureFunctionConsumerTemplateRegistration : FilePerModelTemplateRegistration<AzureFunctionSubscriptionModel>
+    public class AzureFunctionConsumerTemplateRegistration : FilePerModelTemplateRegistration<IntegrationEventHandlerModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,32 +31,15 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
         public override string TemplateId => AzureFunctionConsumerTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, AzureFunctionSubscriptionModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IntegrationEventHandlerModel model)
         {
             return new AzureFunctionConsumerTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<AzureFunctionSubscriptionModel> GetModels(IApplication application)
+        public override IEnumerable<IntegrationEventHandlerModel> GetModels(IApplication application)
         {
-            var handlerModels = _metadataManager.Services(application).GetIntegrationEventHandlerModels();
-
-            var results = handlerModels
-                .SelectMany(x => x.IntegrationEventSubscriptions(), (handlerModel, subscription) => new
-                {
-                    Handler = handlerModel,
-                    MessageModel = subscription.Element?.AsMessageModel()!
-                })
-                .Where(p => p.MessageModel is not null)
-                .GroupBy(x => x.MessageModel.GetTopicConfigurationName())
-                .Select(grouping => new AzureFunctionSubscriptionModel(
-                    HandlerModel: grouping.First().Handler,
-                    MessageModels: grouping.Select(x => x.MessageModel).ToArray(),
-                    TopicName: grouping.Key))
-                .OrderBy(x => x.TopicName)
-                .ToArray();
-
-            return results;
+            return _metadataManager.Services(application).GetIntegrationEventHandlerModels();
         }
     }
 }

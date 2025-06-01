@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override void Configure()
         {
-            Post("mutation-async");
+            Post("api/service-dispatch-without-implementation/mutation-async");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchWithoutImplementation");

@@ -33,6 +33,14 @@ namespace RichDomain.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<IDerivedFromAbstractClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<DerivedFromAbstractClass>, IQueryable<DerivedFromAbstractClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<IDerivedFromAbstractClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

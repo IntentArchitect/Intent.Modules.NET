@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Entities.PrivateSetters.TestApplication.Domain.Entities.Aggregational;
@@ -17,6 +18,8 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Repositories.Aggregatio
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<OptionalToManyDest?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<OptionalToManyDest?> FindByIdAsync(Guid id, Func<IQueryable<OptionalToManyDest>, IQueryable<OptionalToManyDest>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<OptionalToManyDest>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

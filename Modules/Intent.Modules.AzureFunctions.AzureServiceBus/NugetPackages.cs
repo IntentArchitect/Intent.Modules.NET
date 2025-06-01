@@ -16,9 +16,9 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerExtensionsServiceBusPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("5.22.2")
+                        ( >= 2, >= 0) => new PackageVersion("5.22.2")
                             .WithNugetDependency("Azure.Identity", "1.12.0")
                             .WithNugetDependency("Azure.Messaging.ServiceBus", "7.18.1")
                             .WithNugetDependency("Google.Protobuf", "3.27.1")

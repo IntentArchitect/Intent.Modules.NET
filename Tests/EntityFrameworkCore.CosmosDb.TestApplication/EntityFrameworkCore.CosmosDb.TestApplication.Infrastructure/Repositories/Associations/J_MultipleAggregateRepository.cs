@@ -35,6 +35,14 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Repositori
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<J_MultipleAggregate?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<J_MultipleAggregate>, IQueryable<J_MultipleAggregate>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<J_MultipleAggregate>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

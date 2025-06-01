@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="647586e0-09df-444a-9dc4-f13637b0c3ac" version="3.1.0">
+  <comment>Configures settings related to MVC behavior for the operation.</comment>
   <name>MVC Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,7 +26,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>GET</defaultValue>
       <valueOptions>
         <option>DELETE</option>
@@ -34,7 +34,6 @@
         <option>POST</option>
         <option>PUT</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="55641304-6fd1-451e-95f9-bbbc3f9e16f4">
       <name>Route</name>
@@ -42,8 +41,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="ffbf2921-a1f3-4c23-a584-9055f7cd0402">
       <hint>For the `Name` property of the `Http&lt;Verb&gt;` attribute.</hint>
@@ -52,15 +49,12 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="8d37a88a-b540-402e-bca2-c4d8ff11c905">
       <name>Return Type</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>View</defaultValue>
       <valueOptions>
         <option>(Operation Return Type)</option>
@@ -68,7 +62,6 @@
         <option>View</option>
         <option>Ok</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="88f938a7-7ac3-473c-b489-a62184ae1409">
@@ -77,10 +70,7 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return properties["Return Type"].value == "View";</isActiveFunction>
-      <isRequiredFunction />
     </property>
     <property id="54484630-53f0-415c-a338-ef20bfcf0500">
       <name>RedirectTo Controller</name>
@@ -88,7 +78,6 @@
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
       <placeholder>(same controller)</placeholder>
-      <valueOptions />
       <lookupTypes>
         <type>b16578a5-27b1-4047-a8df-f0b783d706bd</type>
       </lookupTypes>
@@ -99,8 +88,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>lookup-children</optionsSource>
-      <placeholder />
-      <valueOptions />
       <lookupTypes>
         <type>e042bb67-a1df-480c-9935-b26210f78591</type>
         <type>e030c97a-e066-40a7-8188-808c275df3cb</type>
@@ -117,8 +104,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return properties["Return Type"].value == "RedirectToAction";</isActiveFunction>
     </property>
     <property id="4a40f0aa-b871-48c3-ae6b-73db5c448e42">
@@ -127,9 +112,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(optional)</placeholder>
-      <defaultValue />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return properties["Return Type"].value == "RedirectToAction";</isActiveFunction>
     </property>
   </properties>

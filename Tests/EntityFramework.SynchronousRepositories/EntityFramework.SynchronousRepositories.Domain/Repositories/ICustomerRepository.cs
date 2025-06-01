@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFramework.SynchronousRepositories.Domain.Entities;
@@ -20,9 +21,13 @@ namespace EntityFramework.SynchronousRepositories.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Customer?> FindByIdAsync(Guid id, Func<IQueryable<Customer>, IQueryable<Customer>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Customer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Customer? FindById(Guid id);
+        [IntentManaged(Mode.Fully)]
+        Customer? FindById(Guid id, Func<IQueryable<Customer>, IQueryable<Customer>> queryOptions);
         [IntentManaged(Mode.Fully)]
         List<Customer> FindByIds(Guid[] ids);
     }

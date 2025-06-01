@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b87a6078-db6c-4f94-b68c-1c56a81e192a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ab58dcc-ee4a-4973-a2b1-a39e24f91c1b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.8.3)</display>
+          <display>Microsoft.Identity.Web (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>eac5341b-b0c7-4a28-9aa4-412f6fcc5ddd</parentFolderId>
@@ -64,8 +64,8 @@
       </childElements>
     </childElement>
     <childElement id="0528715f-11a6-4481-b431-782d4e7ac71a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -86,11 +86,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2f6b375e-7cab-47ce-9f24-8c917467df9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="412b0ac1-9252-43e2-a916-7ab5699ee8be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.8.3)</display>
+          <display>Microsoft.Identity.Web (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0528715f-11a6-4481-b431-782d4e7ac71a</parentFolderId>
@@ -103,8 +103,8 @@
       </childElements>
     </childElement>
     <childElement id="428d9067-6289-484d-b1cf-7fd92e25973a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -125,11 +125,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2208523a-0cfa-4f6b-84e4-bc93cfcf06d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="48288255-bed9-413f-a16d-5d3e33fa7d96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.8.3)</display>
+          <display>Microsoft.Identity.Web (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>428d9067-6289-484d-b1cf-7fd92e25973a</parentFolderId>
@@ -142,8 +142,8 @@
       </childElements>
     </childElement>
     <childElement id="a9597a76-e537-4bfa-8607-931b554ad2ac" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -164,11 +164,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="db8a91ea-b615-44f9-9e4e-fc938f66cdb7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="30d3aa7f-ecee-4ff5-9d76-42085f7377a0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web</name>
-          <display>Microsoft.Identity.Web (3.8.3)</display>
+          <display>Microsoft.Identity.Web (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a9597a76-e537-4bfa-8607-931b554ad2ac</parentFolderId>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FastEndpoints;
 using FastEndpoints.ApiExplorer;
+using FastEndpoints.Swagger.Swashbuckle;
 using FastEndpointsTest.Api.Configuration;
 using FastEndpointsTest.Api.FastEndpoints;
 using FastEndpointsTest.Application;

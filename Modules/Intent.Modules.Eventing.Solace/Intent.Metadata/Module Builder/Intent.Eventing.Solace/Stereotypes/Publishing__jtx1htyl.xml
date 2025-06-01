@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="56e898f3-74db-486d-86f9-3e885e7509e6" version="3.1.0">
+  <comment>Configures the details required to publish the message to Solace.</comment>
   <name>Publishing</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -27,19 +28,12 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
-      <isRequiredFunction />
     </property>
     <property id="4a323650-3f88-4b07-a789-6bb3123194e9">
       <name>Priority</name>
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

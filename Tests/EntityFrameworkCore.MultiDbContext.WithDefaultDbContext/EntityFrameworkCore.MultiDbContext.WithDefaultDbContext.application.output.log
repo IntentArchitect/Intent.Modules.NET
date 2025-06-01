@@ -115,6 +115,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>e237bf36-21cb-4211-80b6-80e856c70593</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>321f5606-f11b-4359-ae51-2f07852a34fa</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -780,6 +788,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e374750d-4120-4654-bd64-6951857de1e8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DiffAudit.DiffAuditInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Common/Interfaces/IDiffAudit.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDiffAudit.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e374750d-4120-4654-bd64-6951857de1e8</ProjectId>
       <CorrelationId>Intent.Entities.SoftDelete.SoftDeleteInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Common/Interfaces/ISoftDelete.cs</ApplicationRelativeFilePath>
@@ -800,6 +816,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>222dafaa-7024-4a02-95da-edd5292f66bd</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#f1b1d87f-fc71-49d1-ac9b-438c26b78646</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Entities/AlternateConnStrDefaultDbDomainPackageAuditLog.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AlternateConnStrDefaultDbDomainPackageAuditLog.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>222dafaa-7024-4a02-95da-edd5292f66bd</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#bdb08c6c-0cae-47a0-902b-739db6edfff6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Entities/AppDbContextDomainPackageAuditLog.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AppDbContextDomainPackageAuditLog.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>222dafaa-7024-4a02-95da-edd5292f66bd</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#79187437-4f83-4423-9fb1-daa584601014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Entities/DefaultDomainPackageAuditLog.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainPackageAuditLog.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -836,6 +876,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#f1b1d87f-fc71-49d1-ac9b-438c26b78646</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/IAlternateConnStrDefaultDbDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAlternateConnStrDefaultDbDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#bdb08c6c-0cae-47a0-902b-739db6edfff6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/IAppDbContextDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAppDbContextDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.CustomRepositoryInterface#8fcdae88-2f0b-41bf-81de-d899c3b0934f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/ICustomAlternateRepository.cs</ApplicationRelativeFilePath>
@@ -856,6 +912,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/ICustomDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>341ccd92-3789-427c-95e0-6062ff2abf96</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#79187437-4f83-4423-9fb1-daa584601014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain/Repositories/IDefaultDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDefaultDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -940,6 +1004,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>0de747d6-dd7f-4a22-8dae-8c675cb008c0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#f1b1d87f-fc71-49d1-ac9b-438c26b78646</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Persistence/Configurations/AlternateConnStrDefaultDbDomainPackageAuditLogConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AlternateConnStrDefaultDbDomainPackageAuditLogConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0de747d6-dd7f-4a22-8dae-8c675cb008c0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bdb08c6c-0cae-47a0-902b-739db6edfff6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Persistence/Configurations/AppDbContextDomainPackageAuditLogConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AppDbContextDomainPackageAuditLogConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0de747d6-dd7f-4a22-8dae-8c675cb008c0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#79187437-4f83-4423-9fb1-daa584601014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Persistence/Configurations/DefaultDomainPackageAuditLogConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainPackageAuditLogConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0de747d6-dd7f-4a22-8dae-8c675cb008c0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a3ccf494-b77a-4c38-89d0-15c39668dfab</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Persistence/Configurations/EntityAlternateConfiguration.cs</ApplicationRelativeFilePath>
@@ -972,6 +1060,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#f1b1d87f-fc71-49d1-ac9b-438c26b78646</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/AlternateConnStrDefaultDbDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AlternateConnStrDefaultDbDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#bdb08c6c-0cae-47a0-902b-739db6edfff6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/AppDbContextDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AppDbContextDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.CustomRepository#8fcdae88-2f0b-41bf-81de-d899c3b0934f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/CustomAlternateRepository.cs</ApplicationRelativeFilePath>
@@ -992,6 +1096,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/CustomDefaultRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CustomDefaultRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1ccbab94-2666-49dd-9032-480a443e0b05</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#79187437-4f83-4423-9fb1-daa584601014</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure/Repositories/DefaultDomainPackageAuditLogRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DefaultDomainPackageAuditLogRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

@@ -50,6 +50,7 @@ namespace Intent.Modules.FastEndpoints.FactoryExtensions
 
                 if (HasSwashbuckleInstalled(startupTemplate))
                 {
+                    startupTemplate.AddNugetDependency(NugetPackages.FastEndpointsSwaggerSwashbuckle(startupTemplate.OutputTarget));
                     startupTemplate.AddUsing("FastEndpoints.ApiExplorer");
                     startup.AddServiceConfiguration(c => $"{c.Services}.AddFastEndpointsApiExplorer();");
                 }

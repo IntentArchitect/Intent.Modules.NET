@@ -33,6 +33,14 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Infrastructu
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<FamilyComplexSkipped?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<FamilyComplexSkipped>, IQueryable<FamilyComplexSkipped>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<FamilyComplexSkipped>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

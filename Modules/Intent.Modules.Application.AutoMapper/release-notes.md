@@ -1,3 +1,7 @@
+### Version 5.2.1
+
+- Improvement: Added support for `Profile location` setting.
+
 ### Version 5.2.0
 
 - Improvement: Updated NuGet package version, AutoMapper -> 14.0.

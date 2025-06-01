@@ -17,22 +17,22 @@ namespace Intent.Modules.AspNetCore.Identity
         public void RegisterPackages()
         {
             NugetRegistry.Register(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.4"),
-                        ( >= 8, 0) => new PackageVersion("8.0.15")
-                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.15")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.15"),
-                        ( >= 7, 0) => new PackageVersion("7.0.20"),
-                        ( >= 6, 0) => new PackageVersion("6.0.36")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "9.0.5"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.16")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.16")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "8.0.16"),
+                        ( >= 7, >= 0) => new PackageVersion("7.0.20"),
+                        ( >= 6, >= 0) => new PackageVersion("6.0.36")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "6.0.36")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "6.0.36"),
-                        ( >= 2, 1) => new PackageVersion("5.0.17")
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "5.0.17")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "5.0.17"),
-                        ( >= 2, 0) => new PackageVersion("2.3.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.AspNetCore.Identity", "2.3.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "2.1.14")
                             .WithNugetDependency("Microsoft.Extensions.Identity.Stores", "2.3.0"),
@@ -40,16 +40,16 @@ namespace Intent.Modules.AspNetCore.Identity
                     }
                 );
             NugetRegistry.Register(MicrosoftExtensionsIdentityStoresPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4"),
-                        ( >= 2, 0) => new PackageVersion("9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.4")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.4"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Caching.Abstractions", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Identity.Core", "9.0.5")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsIdentityStoresPackageName}'"),
                     }
                 );

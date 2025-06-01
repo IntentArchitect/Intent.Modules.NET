@@ -124,7 +124,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             return this.GetReturnStatement(Model);
         }
 
-        private IElement? TryGetRequestTemplate(IEndpointModel model)
+        private static IElement? TryGetRequestTemplate(IEndpointModel model)
         {
             if ((model.InternalElement.SpecializationType == "Command" ||
                  model.InternalElement.SpecializationType == "Query") &&
@@ -380,7 +380,7 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
                 inv => inv.AddArgument(new CSharpLambdaBlock("x").WithExpressionBody(versionSet)));
         }
 
-        private static void AddHttpInputAttributesToProperty(CSharpProperty property, IEndpointParameterModel parameter)
+        private void AddHttpInputAttributesToProperty(CSharpProperty property, IEndpointParameterModel parameter)
         {
             if (parameter.Source is HttpInputSource.FromHeader)
             {
@@ -391,7 +391,14 @@ namespace Intent.Modules.FastEndpoints.Templates.Endpoint
             if (parameter.Source is null or HttpInputSource.FromQuery)
             {
                 property.File.Template.AddNugetDependency(NugetPackages.FastEndpointsAttributes(property.File.Template.OutputTarget));
-                property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQuery"));
+                if (TryGetTemplate<ITemplate>(TemplateRoles.Application.Contracts.Dto, parameter.TypeReference.Element, out _))
+                {
+                    property.AddAttribute(property.File.Template.UseType("FastEndpoints.FromQuery"));
+                }
+                else
+                {
+                    property.AddAttribute(property.File.Template.UseType("FastEndpoints.QueryParam"));
+                }
 
                 if (!string.IsNullOrWhiteSpace(parameter.QueryStringName))
                 {

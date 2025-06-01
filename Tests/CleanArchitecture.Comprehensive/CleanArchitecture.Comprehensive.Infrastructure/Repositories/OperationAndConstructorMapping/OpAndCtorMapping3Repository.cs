@@ -34,6 +34,14 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.OperationA
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<OpAndCtorMapping3?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<OpAndCtorMapping3>, IQueryable<OpAndCtorMapping3>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<OpAndCtorMapping3>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

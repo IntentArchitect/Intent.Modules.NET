@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="600ea351-52b9-4b32-982f-614fb5b26ed1" version="3.1.0">
+  <comment>Configures the details required to subscribe to a message in Solace.</comment>
   <name>Subscribing</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,8 +27,6 @@
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
-      <placeholder />
-      <valueOptions />
       <lookupTypes>
         <type>7c61be7b-8260-40ec-9722-8798b8261bb1</type>
       </lookupTypes>
@@ -38,9 +37,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

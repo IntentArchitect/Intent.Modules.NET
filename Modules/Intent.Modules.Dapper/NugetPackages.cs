@@ -17,23 +17,23 @@ namespace Intent.Modules.Dapper
         public void RegisterPackages()
         {
             NugetRegistry.Register(DapperPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("2.1.66"),
-                        ( >= 2, 0) => new PackageVersion("2.1.66")
+                        ( >= 8, >= 0) => new PackageVersion("2.1.66"),
+                        ( >= 2, >= 0) => new PackageVersion("2.1.66")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.1")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{DapperPackageName}'"),
                     }
                 );
             NugetRegistry.Register(SystemDataSqlClientPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("4.9.0")
+                        ( >= 8, >= 0) => new PackageVersion("4.9.0")
                             .WithNugetDependency("runtime.native.System.Data.SqlClient.sni", "4.4.0"),
-                        ( >= 6, 0) => new PackageVersion("4.9.0")
+                        ( >= 6, >= 0) => new PackageVersion("4.9.0")
                             .WithNugetDependency("runtime.native.System.Data.SqlClient.sni", "4.4.0"),
-                        ( >= 2, 0) => new PackageVersion("4.9.0"),
+                        ( >= 2, >= 0) => new PackageVersion("4.9.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemDataSqlClientPackageName}'"),
                     }
                 );

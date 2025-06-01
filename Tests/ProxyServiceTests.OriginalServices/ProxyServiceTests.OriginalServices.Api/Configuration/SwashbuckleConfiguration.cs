@@ -45,6 +45,8 @@ namespace ProxyServiceTests.OriginalServices.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+
+                    options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();
 
                     var securityScheme = new OpenApiSecurityScheme()

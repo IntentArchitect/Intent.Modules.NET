@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="8b8706e7-67f1-4fc6-b743-31656f43b966" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
-  <name>Api</name>
-  <display>Api (2)</display>
+  <name>Hosting</name>
+  <display>Hosting (1)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <order>2</order>
@@ -24,7 +24,7 @@
   <childElements>
     <childElement id="56f1a702-b5cd-492f-ae62-8ee660dcf374" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
       <name>Azure Functions</name>
-      <display>Azure Functions (3)</display>
+      <display>Azure Functions (4)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.5" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -89,7 +89,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.6" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -115,7 +115,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.4" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.6" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -126,41 +126,13 @@
           <metadata />
           <childElements />
         </childElement>
-      </childElements>
-    </childElement>
-    <childElement id="be6aa51c-1a52-4703-b2ae-2a1779745b23" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>OpenAPI</name>
-      <display>OpenAPI (1)</display>
-      <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>8b8706e7-67f1-4fc6-b743-31656f43b966</parentFolderId>
-      <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
-      <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
-      <stereotypes>
-        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
-          <addedByDefault>true</addedByDefault>
-          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
-          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
-          <properties>
-            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0zZDI3NWI1NC0xNDk5LTQ1MmUtOGQ0Ny1lZTQ5ZTc2ZTc2YzAiIHgxPSIyMC44IiB5MT0iNDEuNCIgeDI9IjIwLjgiIHkyPSI0LjMiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA1Mikgc2NhbGUoMSAtMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYTFkNDNkIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjIiIHN0b3AtY29sb3I9IiM5Y2NkM2IiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNSIgc3RvcC1jb2xvcj0iIzhlYmIzNyIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii44IiBzdG9wLWNvbG9yPSIjNzg5ZDMwIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzZhOGEyYyIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50LTIzZDI3NWI1NC0xNDk5LTQ1MmUtOGQ0Ny1lZTQ5ZTc2ZTc2YzAiIHgxPSIzOC40IiB5MT0iMzUuNCIgeDI9IjM4LjQiIHkyPSIzNS40IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDAgNTIpIHNjYWxlKDEgLTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ExZDQzZCIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii4yIiBzdG9wLWNvbG9yPSIjOWNjZDNiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiM4ZWJiMzciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuOCIgc3RvcC1jb2xvcj0iIzc4OWQzMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2YThhMmMiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0zM2QyNzViNTQtMTQ5OS00NTJlLThkNDctZWU0OWU3NmU3NmMwIiB4MT0iMzIuMiIgeTE9IjgiIHgyPSIzMi4yIiB5Mj0iMzQuOSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiM4YTg3OGEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDM0MTQzIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMjguNy4yLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogMS4yLjAgQnVpbGQgMTU0KSAgLS0+CiAgPGc+CiAgICA8ZyBpZD0iTGF5ZXJfMSI+CiAgICAgIDxnIGlkPSJMYXllcl8xLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMSI+CiAgICAgICAgPGcgaWQ9IkxheWVyXzEtMiI+CiAgICAgICAgICA8ZyBpZD0iTGF5ZXJfMS0yLTIiIGRhdGEtbmFtZT0iTGF5ZXJfMS0yIj4KICAgICAgICAgICAgPHBhdGggZD0iTTMzLDIyaDBjMC0uMS4zLS40LjMtLjRsNS01LDEsMWgwdjE1LjZsLTYuOSw2LjloLTEzLjZsLTcuNiw3LjYtOC44LTguOCw3LjMtNy4zdi0uNWgwdi0xMy42bDYuOS02LjloMTUuN2wxLjIsMS4yLTUsNS0uMy4zLS4yLjJjLS42LS4zLTEuMy0uNS0yLS43LS42LS4xLTEuMy0uMi0yLS4ycy0xLjIsMC0xLjguMmgwYy00LjMuOC03LjYsNC43LTcuNiw5LjJzNC4yLDkuNCw5LjQsOS40LDYuMi0xLjUsNy45LTMuOGgwYzEuMy0xLjYsMi42LTUuMSwxLjEtOS41aDBaIiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0zZDI3NWI1NC0xNDk5LTQ1MmUtOGQ0Ny1lZTQ5ZTc2ZTc2YzApIi8+CiAgICAgICAgICAgIDxwb2x5Z29uIHBvaW50cz0iMzguNCAxNi42IDM4LjQgMTYuNiAzOC40IDE2LjYgMzguNCAxNi42IiBmaWxsPSJ1cmwoI2xpbmVhci1ncmFkaWVudC0yM2QyNzViNTQtMTQ5OS00NTJlLThkNDctZWU0OWU3NmU3NmMwKSIvPgogICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgICAgPC9nPgogICAgICA8cGF0aCBkPSJNNDUuNSw5LjVjMCwyLjctMi4yLDQuOS00LjksNC45cy0uMSwwLS4yLDB0MCwwYy0uOCwwLTEuNC0uMi0xLjctLjRoMHMtMS41LDEuNS0xLjUsMS41bC03LjgsNy44Yy4zLjYuNSwxLjMuNiwyLjF2LjZjMCwzLTIuMyw1LjUtNS4zLDUuNmgtLjNjLTEuNywwLTMuMi0uNy00LjItMS45LS45LTEtMS40LTIuMy0xLjQtMy44LDAtMy4xLDIuNS01LjcsNS42LTUuN2gxYy42LjEsMS4xLjMsMS42LjZsNy43LTcuNywxLjUtMS41Yy0uMi0uNC0uMy0uOC0uNC0xLjIsMC0uMywwLS41LDAtLjgsMC0yLjcsMi4yLTQuOSw0LjktNC45czQuOSwyLjIsNC45LDQuOVoiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LTMzZDI3NWI1NC0xNDk5LTQ1MmUtOGQ0Ny1lZTQ5ZTc2ZTc2YzApIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
-            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="OpenAPI support for Azure Functions." isActive="true" />
-            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
-            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
-          </properties>
-        </stereotype>
-      </stereotypes>
-      <metadata />
-      <childElements>
-        <childElement id="88913392-6b40-4bf9-a703-fdab04dd1462" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
-          <name>Intent.AzureFunctions.OpenApi</name>
-          <display>Intent.AzureFunctions.OpenApi</display>
+        <childElement id="31374f92-33cc-485a-aa62-91165d466907" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Application.Dtos.Pagination</name>
+          <display>Intent.Application.Dtos.Pagination</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <isMapped>false</isMapped>
-          <parentFolderId>be6aa51c-1a52-4703-b2ae-2a1779745b23</parentFolderId>
+          <parentFolderId>56f1a702-b5cd-492f-ae62-8ee660dcf374</parentFolderId>
           <packageId>da621866-ec56-4cb0-815a-ce21261712a6</packageId>
           <packageName>Intent.ApplicationTemplate.AzureFunctions</packageName>
           <stereotypes>
@@ -169,11 +141,11 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.0.2" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="4.1.0" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
-                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="[]" isActive="false" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>

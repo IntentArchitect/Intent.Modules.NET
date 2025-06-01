@@ -31,11 +31,17 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
                     @class.AddGenericParameter("TRequest", out var TRequest);
                     @class.AddGenericTypeConstraint(TRequest, c => c.AddType("notnull"));
                     @class.ImplementsInterface(UseType($"MediatR.Pipeline.IRequestPreProcessor<{TRequest}>"));
+                    
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter(UseType($"Microsoft.Extensions.Logging.ILogger<LoggingBehaviour<{TRequest}>>"), "logger", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(GetTypeName("Intent.Application.Identity.CurrentUserServiceInterface"), "currentUserService", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter(UseType("Microsoft.Extensions.Configuration.IConfiguration"), "configuration");
+
+                        ctor.AddStatement(@"_logRequestPayload = configuration.GetValue<bool?>(""CqrsSettings:LogRequestPayload"") ?? false;");
                     });
+
+                    @class.AddField("bool", "_logRequestPayload", cfg => cfg.PrivateReadOnly());
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "Process", method =>
                     {
@@ -46,18 +52,36 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
                         method.AddObjectInitStatement("var userId", "_currentUserService.UserId;");
                         method.AddObjectInitStatement("var userName", "_currentUserService.UserName;", cfg => cfg.SeparatedFromNext());
 
-                        method.AddInvocationStatement("_logger.LogInformation", cfg =>
+                        method.AddIfStatement("_logRequestPayload", logIf =>
                         {
-                            cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Request: {{Name}} {{@UserId}} {{@UserName}} {{@Request}}\"")
-                                .AddArgument("requestName")
-                                .AddArgument("userId")
-                                .AddArgument("userName")
-                                .AddArgument("request");
-
-                            method.AddReturn("Task.CompletedTask");
+                            logIf.AddInvocationStatement("_logger.LogInformation", cfg =>
+                            {
+                                cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Request: {{Name}} {{@UserId}} {{@UserName}} {{@Request}}\"")
+                                    .AddArgument("requestName")
+                                    .AddArgument("userId")
+                                    .AddArgument("userName")
+                                    .AddArgument("request");
+                            });
                         });
+                        method.AddElseStatement(@else =>
+                        {
+                            @else.AddInvocationStatement("_logger.LogInformation", cfg =>
+                            {
+                                cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Request: {{Name}} {{@UserId}} {{@UserName}}\"")
+                                    .AddArgument("requestName")
+                                    .AddArgument("userId")
+                                    .AddArgument("userName");
+                            });
+                        });
+                        
+                        method.AddReturn("Task.CompletedTask");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            this.ApplyAppSetting("CqrsSettings:LogRequestPayload", true);
         }
 
         [IntentManaged(Mode.Fully)]

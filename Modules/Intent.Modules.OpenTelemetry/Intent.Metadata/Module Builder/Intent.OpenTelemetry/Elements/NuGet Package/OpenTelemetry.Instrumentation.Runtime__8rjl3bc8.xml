@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="3b828d6f-e21b-45c5-b290-736f69a55227" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.1</name>
+      <name>1.12.0</name>
       <display>1.9.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bd114d7a-7b6d-47d1-8845-1b58a10537e2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c1455762-bc2d-4962-92cb-a7ef2c4863d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3b828d6f-e21b-45c5-b290-736f69a55227</parentFolderId>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="7f49a773-f2c1-4090-b924-f635584346a8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>1.11.1</name>
+      <name>1.12.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -79,10 +79,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8604d19d-bdb6-4ba5-824c-7d455a8cfa48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b2d1aa3e-37b3-4ff3-9569-532960b73747" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Api</name>
           <isAbstract>false</isAbstract>
-          <value>1.11.2</value>
+          <value>1.12.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>7f49a773-f2c1-4090-b924-f635584346a8</parentFolderId>

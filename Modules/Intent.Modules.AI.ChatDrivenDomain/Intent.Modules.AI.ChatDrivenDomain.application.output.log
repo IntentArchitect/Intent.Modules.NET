@@ -40,13 +40,5 @@
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
-    <FileLog>
-      <ProjectId>355bebc8-41ed-4e39-8882-43df0aaa4924</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#65b68a93-9d50-4c16-a613-f37104dbe59f</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
   </FileLogs>
 </outputLog>

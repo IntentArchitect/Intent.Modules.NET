@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="41adb04f-ad7d-4969-8954-265e1ba8a783" version="3.1.0">
+  <comment>Designates the attribute to store row versioning information for managing optimistic concurrency.</comment>
   <name>Row Version</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

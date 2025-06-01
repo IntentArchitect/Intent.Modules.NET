@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ea495988-41a8-41f2-944e-24632a06fa70" version="3.1.0">
+  <comment>Marks the property as a unique identifier for the message, used for deduplication, partitioning, or correlation.</comment>
   <name>Key</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
