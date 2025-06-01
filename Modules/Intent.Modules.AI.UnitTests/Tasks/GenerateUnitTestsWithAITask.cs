@@ -106,12 +106,14 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     private string GetTestPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
+        var mockFramework = GetMockFramework();
+
         var prompt = @$"
 ## Role and Context
 You are a senior C# developer specializing in clean architecture with MediatR, FluentValidation, and Entity Framework Core. You're implementing testing logic in a system that strictly follows the repository pattern.
 
 ## Primary Objective
-Create or update the existing test class file with a set of unit tests that comprehensively test the `Handle` method using xUnit and Moq in the {targetFileName} class.
+Create or update the existing test class file with a set of unit tests that comprehensively test the `Handle` method using xUnit and {mockFramework} in the {targetFileName} class.
 
 ## Code File Modification Rules
 1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
@@ -228,6 +230,20 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
                                               }
                                               """),
             jsonSchemaIsStrict: true);
+    }
+
+    private string GetMockFramework() 
+    {
+        var defaultMock = "Moq";
+
+        var unitTestGroup = _applicationConfigurationProvider.GetSettings().GetGroup("d62269ea-8e64-44a0-8392-e1a69da7c960");
+
+        if(unitTestGroup is null)
+        {
+            return defaultMock;
+        }
+
+        return unitTestGroup.GetSetting("115c28bc-a4c8-4b30-bd00-2e320fee77dc")?.Value ?? defaultMock;
     }
 
     public class FileChangesResult
