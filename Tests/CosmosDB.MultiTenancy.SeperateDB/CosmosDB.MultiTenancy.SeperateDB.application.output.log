@@ -115,6 +115,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>8cd9895e-b06a-419d-ad60-e313d94bff61</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8a052d10-0bdd-46f3-899e-42f690960c62</ProjectId>
       <CorrelationId>Intent.CosmosDB.CosmosDBMultiTenantMiddleware</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

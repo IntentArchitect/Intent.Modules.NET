@@ -38,7 +38,7 @@ namespace AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application.Common.Behav
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

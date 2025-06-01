@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.NotSchema;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.NotSchema
     {
         [IntentManaged(Mode.Fully)]
         Task<ViewFolder?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ViewFolder?> FindByIdAsync(Guid id, Func<IQueryable<ViewFolder>, IQueryable<ViewFolder>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ViewFolder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

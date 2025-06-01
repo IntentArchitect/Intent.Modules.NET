@@ -16,9 +16,9 @@ namespace Intent.Modules.AspNetCore.Swashbuckle
         public void RegisterPackages()
         {
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 0) => new PackageVersion("8.1.1")
+                        ( >= 2, >= 0) => new PackageVersion("8.1.1")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5")
                             .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "8.1.1")
                             .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "8.1.1")

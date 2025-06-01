@@ -7,6 +7,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ServiceToServiceInvocations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
@@ -18,6 +19,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.DomainS
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.MappingTests;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.ServiceToServiceInvocations;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Services;
@@ -72,6 +74,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IConcreteEntityBRepository, ConcreteEntityBRepository>();
             services.AddTransient<IFilteredIndexRepository, FilteredIndexRepository>();
             services.AddTransient<INestingParentRepository, NestingParentRepository>();
+            services.AddTransient<IODataCustomerRepository, ODataCustomerRepository>();
+            services.AddTransient<IODataProductRepository, ODataProductRepository>();
             services.AddTransient<Domain.Repositories.OperationMapping.IUserRepository, Repositories.OperationMapping.UserRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             services.AddMassTransitConfiguration(configuration);

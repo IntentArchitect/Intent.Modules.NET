@@ -20,9 +20,26 @@ The application setting **`Database Settings - Lazy loading with proxies`** allo
 
 ### Modeling Owned Relationships
 
-Any relationships modeled as **owned** (i.e., represented by black diamonds) are automatically configured by Entity Framework to eager load. In the example below, loading an `Order` entity will always eager load the `OrderItems` collection because it is marked as `Owned`.
+**Entity Framework** automatically configures any relationships modeled as owned (i.e., represented by black diamonds) to eager load. In the example below, loading an `Order` entity will always eager load the `OrderItems` collection because it is marked as `Owned`.
 
 ![Owned Relationships](images/owned-relationship.png)
+
+### Model Owned Entities with Repositories
+
+Modeling a relationship like the following will result in only `Order` having a Repository and not `OrderItem`.
+
+![Entities with only the aggregate having a repository](images/repository-composite-normal.png)
+
+Owned entities are essentially a part of the owner Entity and cannot exist without it. It's also referred to as [aggregates](https://martinfowler.com/bliki/DDD_Aggregate.html). 
+
+This means that `Order` will have a Repository where you can access and manipulate one in the Database and `OrderItem` will not, and so you will need to load up an `Order` to gain access to an `OrderItem`.
+
+To provide a Repository to `OrderItem` you can apply a `Repository` stereotype on it so that you can access it directly.
+
+![Owned Repository Stereotype](images/owned-repository-stereotype.png)
+
+> [!NOTE]
+> It is generally considered safer to access a composite entity through its aggregate root. Its normally for non-functional reasons that you would want to access the composite directly if you're using a relational database.
 
 ### Extending Entity Repositories to Use `Includes`
 

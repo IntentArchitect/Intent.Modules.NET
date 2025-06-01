@@ -1,10 +1,16 @@
+### Version 1.2.16
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.2.15
 
-- Improvement: Added support for extending an entity repository as well as generating custom entity-less repositories.
+- Fixed: Fixed incorrect code when modeling a ValueObject collection as an Entity Attribute.
+- Fixed: Full Document names are now used when there are ambiguous references (multiple entities with the same name)
 
 ### Version 1.2.14
 
 - Improvement: Updated NuGet package versions.
+- Improvement: Added support for extending an entity repository as well as generating custom entity-less repositories.
 
 ### Version 1.2.13
 

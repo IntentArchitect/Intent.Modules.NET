@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.ValueObj
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<DictionaryWithKvPSerialized?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<DictionaryWithKvPSerialized>, IQueryable<DictionaryWithKvPSerialized>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<DictionaryWithKvPSerialized>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

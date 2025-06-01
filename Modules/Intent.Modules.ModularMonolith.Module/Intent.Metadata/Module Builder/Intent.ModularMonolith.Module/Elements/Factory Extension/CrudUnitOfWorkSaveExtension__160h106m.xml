@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="99e44611-afd4-4287-96a3-dcf0f7f483dc" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>CrudUnitOfWorkSaveExtension</name>
+  <display>CrudUnitOfWorkSaveExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1066fdf3-c24e-431f-be22-1cf7d9ea5ba6</parentFolderId>
+  <packageId>1066fdf3-c24e-431f-be22-1cf7d9ea5ba6</packageId>
+  <packageName>Intent.ModularMonolith.Module</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

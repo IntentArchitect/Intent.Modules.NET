@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.Associations
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<P_SourceNameDiff?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<P_SourceNameDiff>, IQueryable<P_SourceNameDiff>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<P_SourceNameDiff>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

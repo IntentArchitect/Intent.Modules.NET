@@ -191,6 +191,18 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 continue;
                             }
 
+                            if (headerParameter.HeaderName.Equals("content-length", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // if file endpoing upload, it will be handled futher down
+                                if (FileTransferHelper.IsFileUploadOperation(endpoint))
+                                {
+                                    continue;
+                                }
+
+                                AddRequestContentLength(true, method, headerParameter.Name.ToParameterName(), headerParameter.TypeReference.IsNullable);
+                                continue;
+                            }
+
                             if (headerParameter.TypeReference.IsNullable)
                             {
                                 method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
@@ -222,6 +234,11 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             else
                             {
                                 method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(\"application/octet-stream\");");
+                            }
+                            if (fieldInfo.HasContentLength())
+                            {
+                                // don't add the httpRequest.Content check here, as it will always be instantiated 
+                                AddRequestContentLength(false, method, fieldInfo.ContentLengthField.ToParameterName(), true);
                             }
 
                             if (fieldInfo.HasFilename())
@@ -405,6 +422,22 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     {
         base.AfterTemplateRegistration();
         PagedResultTypeSource.ApplyTo(this, _pagedResultTemplateId);
+    }
+
+    private static void AddRequestContentLength(bool addcontentNullablityCheck, CSharpClassMethod method, string headerParameterName, bool isNullable)
+    {
+        var statementText = $"httpRequest.Content.Headers.ContentLength = {headerParameterName};";
+        var ifStatement = addcontentNullablityCheck ? "httpRequest.Content != null" : "";
+
+        if (isNullable)
+        {
+            ifStatement = ifStatement == string.Empty ? $"{headerParameterName} != null" : $"&& {headerParameterName} != null";
+        }
+
+        method.AddIfStatement(ifStatement, stmt =>
+        {
+            stmt.AddStatement(statementText);
+        });
     }
 
     private string GetReadToEndMethodCall()

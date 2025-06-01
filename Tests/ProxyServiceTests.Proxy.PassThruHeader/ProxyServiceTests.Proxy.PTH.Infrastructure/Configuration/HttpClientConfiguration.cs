@@ -48,6 +48,12 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure.Configuration
                 {
                     config.AddFromHeader("Authorization");
                 });
+
+            services
+                .AddHttpClient<IFileService, FileServiceHttpClient>(http =>
+                {
+                    ApplyAppSettings(http, configuration, "ProxyServiceTests.OriginalServices.Services", "FileService");
+                });
         }
 
         private static void ApplyAppSettings(

@@ -97,6 +97,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2a9ca40d-e166-43e4-85a4-1af4bd87d15c</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>OcelotTest.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>6c9d5b5c-355f-4de2-8101-4b4dc7a62939</ProjectId>
       <CorrelationId>Intent.ApiGateway.Ocelot.OcelotJson</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

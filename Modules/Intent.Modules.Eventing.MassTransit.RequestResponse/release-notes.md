@@ -1,3 +1,7 @@
+### Version 1.1.5
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.1.4
 
 - Fixed: `Create` method on `DtoContracts` will now used the default values from the original `Command/Query`.

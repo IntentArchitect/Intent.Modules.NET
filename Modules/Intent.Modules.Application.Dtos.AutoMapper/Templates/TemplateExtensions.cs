@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Dtos.AutoMapper.Templates.DtoMappingProfile;
 using Intent.Modules.Application.Dtos.AutoMapper.Templates.MappingExtensions;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -11,6 +12,15 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetDtoMappingProfileName<T>(this IIntentTemplate<T> template) where T : DTOModel
+        {
+            return template.GetTypeName(DtoMappingProfileTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDtoMappingProfileName(this IIntentTemplate template, DTOModel model)
+        {
+            return template.GetTypeName(DtoMappingProfileTemplate.TemplateId, model);
+        }
         public static string GetMappingExtensionsName<T>(this IIntentTemplate<T> template) where T : DTOModel
         {
             return template.GetTypeName(MappingExtensionsTemplate.TemplateId, template.Model);

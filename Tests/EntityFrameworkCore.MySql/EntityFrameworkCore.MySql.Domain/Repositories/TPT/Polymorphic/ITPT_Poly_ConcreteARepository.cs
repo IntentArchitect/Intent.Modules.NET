@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MySql.Domain.Entities.TPT.Polymorphic;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.MySql.Domain.Repositories.TPT.Polymorphic
     {
         [IntentManaged(Mode.Fully)]
         Task<TPT_Poly_ConcreteA?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPT_Poly_ConcreteA?> FindByIdAsync(Guid id, Func<IQueryable<TPT_Poly_ConcreteA>, IQueryable<TPT_Poly_ConcreteA>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPT_Poly_ConcreteA>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

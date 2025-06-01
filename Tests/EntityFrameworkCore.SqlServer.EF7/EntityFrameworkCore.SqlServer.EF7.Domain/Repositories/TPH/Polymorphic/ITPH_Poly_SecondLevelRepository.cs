@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.TPH.Polymorphic;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.TPH.Polymorphic
     {
         [IntentManaged(Mode.Fully)]
         Task<TPH_Poly_SecondLevel?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPH_Poly_SecondLevel?> FindByIdAsync(Guid id, Func<IQueryable<TPH_Poly_SecondLevel>, IQueryable<TPH_Poly_SecondLevel>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPH_Poly_SecondLevel>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

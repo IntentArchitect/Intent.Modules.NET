@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cc0b7146-e0a5-4a33-ba08-3c88c62a21fe" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MetadataLoaderExtension</name>
+  <display>MetadataLoaderExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>484120b4-6231-4c94-aa60-61efe5c783a7</parentFolderId>
+  <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
+  <packageName>Intent.Eventing.AzureEventGrid</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -10,6 +10,7 @@
     "IdentityClients:default:Scope": "api",
     "HttpClients:AzureFunctions.NET6.Services:Uri": "https://localhost:{app_port}/",
     "HttpClients:AzureFunctions.NET6.Services:IdentityClientKey": "default",
-    "HttpClients:AzureFunctions.NET6.Services:Timeout": "00:01:00"
+    "HttpClients:AzureFunctions.NET6.Services:Timeout": "00:01:00",
+    "CqrsSettings:LogRequestPayload": true
   }
 }

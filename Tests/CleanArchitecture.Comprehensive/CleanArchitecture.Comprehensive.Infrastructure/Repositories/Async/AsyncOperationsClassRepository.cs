@@ -35,6 +35,14 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.Async
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AsyncOperationsClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<AsyncOperationsClass>, IQueryable<AsyncOperationsClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AsyncOperationsClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

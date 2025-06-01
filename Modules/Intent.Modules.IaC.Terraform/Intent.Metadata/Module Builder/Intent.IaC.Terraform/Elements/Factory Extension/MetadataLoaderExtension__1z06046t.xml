@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2d76791c-4815-45d3-bae7-e02335209228" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>MetadataLoaderExtension</name>
+  <display>MetadataLoaderExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</parentFolderId>
+  <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
+  <packageName>Intent.IaC.Terraform</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -78,8 +78,8 @@
       </childElements>
     </childElement>
     <childElement id="8968705f-065c-4bb5-a0b2-eeda81b1cd97" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.15</name>
-      <display>8.0.14 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>8.0.16</name>
+      <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -100,24 +100,30 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6233707c-3bff-4001-92b3-025583314081" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b78016a8-f20e-4dca-8792-2f74c79a7554" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (8.0.16)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.15</value>
+          <value>8.0.16</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8968705f-065c-4bb5-a0b2-eeda81b1cd97</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89fec2b5-1208-4be5-bc3a-8cfe007bea01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="50fb89a9-c9c3-48b8-838d-23e12f3a6c4f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>8968705f-065c-4bb5-a0b2-eeda81b1cd97</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -125,8 +131,8 @@
       </childElements>
     </childElement>
     <childElement id="948749a4-eebf-4b02-84aa-381dc1767df8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.4</name>
-      <display>9.0.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>9.0.5</name>
+      <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -147,13 +153,16 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3ad15ecc-5d63-4b7d-aada-50d51bf2fd87" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d279c95-ff2b-48eb-9611-e2d444a0eca7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
+          <display>Microsoft.Net.Http.Headers (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.4</value>
+          <value>9.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>948749a4-eebf-4b02-84aa-381dc1767df8</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />

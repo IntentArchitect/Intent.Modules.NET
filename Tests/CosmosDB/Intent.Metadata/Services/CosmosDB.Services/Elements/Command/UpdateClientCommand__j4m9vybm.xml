@@ -125,7 +125,7 @@
         <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7436efa7-7895-4cfe-803b-549e14340a15" name="Type" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+          <target id="7436efa7-7895-4cfe-803b-549e14340a15" name="ClientType" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>f806aae9-cddd-4090-8ae4-d6f20cdc3dc8</parentFolderId>

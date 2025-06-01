@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Security.JWT</id>
-  <version>4.2.7</version>
+  <version>4.2.8-pre.2</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Configures API Service security authorization using JWT bearer tokens</summary>
   <description>Configures API Service security authorization using JWT bearer tokens</description>
@@ -42,7 +42,20 @@
   <metadata>
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.Security.JWT/Intent.Security.JWT.pkg.config" externalReference="dc5bde69-a694-4347-9683-d746710568e7" />
   </metadata>
-  <moduleSettings />
+  <moduleSettings>
+    <group id="2c1a1918-97eb-4b21-8a15-021dd72db73c" title="JWT Security Settings" externalReference="2c1a1918-97eb-4b21-8a15-021dd72db73c">
+      <settings>
+        <setting id="c2fba79a-6285-4ec8-ad76-585f089d8aa5" title="JWT Bearer Authentication Type" type="select">
+          <hint>Configure how you JWT Token is authenticated</hint>
+          <defaultValue>oidc</defaultValue>
+          <options>
+            <option value="oidc" description="OIDC JWT Auth" />
+            <option value="manual" description="Manual JWT Auth" />
+          </options>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <moduleSettingsExtensions />
   <migrations />
 </package>

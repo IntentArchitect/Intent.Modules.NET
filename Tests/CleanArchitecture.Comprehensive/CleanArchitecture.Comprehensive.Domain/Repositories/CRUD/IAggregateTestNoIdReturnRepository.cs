@@ -20,6 +20,8 @@ namespace CleanArchitecture.Comprehensive.Domain.Repositories.CRUD
         [IntentManaged(Mode.Fully)]
         Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<AggregateTestNoIdReturn?> FindByIdAsync(Guid id, Func<IQueryable<AggregateTestNoIdReturn>, IQueryable<AggregateTestNoIdReturn>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<AggregateTestNoIdReturn>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

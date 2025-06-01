@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionConsumer;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
@@ -12,6 +12,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Eventing.AzureServiceBus.Templates;
 using Intent.Modules.Eventing.Contracts.Templates;
+using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -22,12 +24,12 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionConsumer
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class AzureFunctionConsumerTemplate : CSharpTemplateBase<AzureFunctionSubscriptionModel>, ICSharpFileBuilderTemplate
+    public partial class AzureFunctionConsumerTemplate : CSharpTemplateBase<IntegrationEventHandlerModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureServiceBus.AzureFunctionConsumer";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionConsumerTemplate(IOutputTarget outputTarget, AzureFunctionSubscriptionModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionConsumerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsServiceBus(outputTarget));
 
@@ -44,6 +46,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                         ctor.AddParameter(this.GetAzureServiceBusMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("Task", "Run", method =>
@@ -54,11 +57,18 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                         {
                             param.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.ServiceBusTrigger"), attr =>
                             {
-
-                                attr.AddArgument($@"""%AzureServiceBus:{Model.QueueOrTopicConfigurationName}%""");
-                                if (Model.NeedsSubscription)
+                                var sub = IntegrationManager.Instance
+                                    .GetAggregatedAzureServiceBusSubscriptions(ExecutionContext.GetApplicationConfig().Id)
+                                    .FirstOrDefault(p => p.EventHandlerModel.Equals(Model));
+                                if (sub is null)
                                 {
-                                    attr.AddArgument($@"""%AzureServiceBus:{Model.SubscriptionName}%""");
+                                    throw new InvalidOperationException($"Subscription could not be found for IntegrationEventHandler ['{Model.Id}', '{Model.Name}']");
+                                }
+                                
+                                attr.AddArgument($@"""%{sub.SubscriptionItem.QueueOrTopicConfigurationName}%""");
+                                if (sub.SubscriptionItem.ChannelType == AzureServiceBusChannelType.Topic)
+                                {
+                                    attr.AddArgument($@"""%{sub.SubscriptionItem.QueueOrTopicSubscriptionConfigurationName}%""");
                                 }
                                 attr.AddArgument(@"Connection = ""AzureServiceBus:ConnectionString""");
                             });
@@ -68,6 +78,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                         method.AddTryBlock(block =>
                         {
                             var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
+                                .AddArgument("_serviceProvider")
                                 .AddArgument("message")
                                 .AddArgument("cancellationToken"));
                             dispatch.AddMetadata("service-dispatch-statement", true);
@@ -87,11 +98,11 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
 
         private string GetFunctionName()
         {
-            var functionName = $"{Model.HandlerModel.Name.RemoveSuffix("Handler")}Consumer";
+            var functionName = $"{Model.Name.RemoveSuffix("Handler")}Consumer";
 
             if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionNames())
             {
-                var path = string.Join("_", Model.HandlerModel.GetParentFolderNames());
+                var path = string.Join("_", Model.GetParentFolderNames());
                 if (!string.IsNullOrWhiteSpace(path))
                 {
                     return $"{path}_{functionName}";
@@ -103,7 +114,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
 
         private string GetRelativeLocation()
         {
-            var path = string.Join("/", Model.HandlerModel.GetParentFolderNames());
+            var path = string.Join("/", Model.GetParentFolderNames());
             return path;
         }
 
@@ -113,7 +124,7 @@ namespace Intent.Modules.AzureFunctions.AzureServiceBus.Templates.AzureFunctionC
                 {
                     OutputTarget.GetNamespace()
                 }
-                .Concat(Model.HandlerModel.GetParentFolders()
+                .Concat(Model.GetParentFolders()
                     .Where(x =>
                     {
                         if (string.IsNullOrWhiteSpace(x.Name))

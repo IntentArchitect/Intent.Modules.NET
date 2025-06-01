@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="252ec526-6da6-4c0b-b14d-e6ea3c43ea03">
+  <sourceEnd id="68969898-02ea-4251-b55e-b078aff0a14c" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Accounts.CreateAccountCommand</display>
+    <order>0</order>
+    <typeReference id="167c43fb-e77e-49fe-91cc-158c09e437f1">
+      <typeId>a343716f-4eec-4ef1-9ca7-673d827fff7f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="252ec526-6da6-4c0b-b14d-e6ea3c43ea03" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>account</name>
+    <display>[create] account: Account</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5d61e259-ef7c-44c6-9fd6-e47ff341f72f">
+      <typeId>b6b74caa-042f-47ae-8a89-2cc6adef9448</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a343716f-4eec-4ef1-9ca7-673d827fff7f" location="[Module2].[Services].[CreateAccountCommand]" />
+        <target applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="b6b74caa-042f-47ae-8a89-2cc6adef9448" location="[Module2].[Services].[Account]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateAccountCommand}</expression>
+            <path>
+              <target id="b6b74caa-042f-47ae-8a89-2cc6adef9448" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateAccountCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="a343716f-4eec-4ef1-9ca7-673d827fff7f" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="b6b74caa-042f-47ae-8a89-2cc6adef9448" name="Account" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5c871904-778d-481f-a57a-98a9fde9db67" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="a343716f-4eec-4ef1-9ca7-673d827fff7f" name="CreateAccountCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="75881b1a-c86a-4ba4-a7d1-3a2b44c72128" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

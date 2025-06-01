@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.TPT.Inheritan
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_DerivedClassForAbstract?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_DerivedClassForAbstract>, IQueryable<TPT_DerivedClassForAbstract>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_DerivedClassForAbstract>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ExplicitKeys;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.ExplicitKeys
     {
         [IntentManaged(Mode.Fully)]
         Task<PK_PrimaryKeyLong?> FindByIdAsync(long primaryKeyLong, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<PK_PrimaryKeyLong?> FindByIdAsync(long primaryKeyLong, Func<IQueryable<PK_PrimaryKeyLong>, IQueryable<PK_PrimaryKeyLong>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PK_PrimaryKeyLong>> FindByIdsAsync(long[] primaryKeyLongs, CancellationToken cancellationToken = default);
     }

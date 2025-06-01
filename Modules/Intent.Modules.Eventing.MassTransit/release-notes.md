@@ -1,3 +1,8 @@
+### Version 7.0.2
+
+- Improvement: Updated NuGet package versions.
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 7.0.1
 
 - Improvement: Updated NuGet package versions.

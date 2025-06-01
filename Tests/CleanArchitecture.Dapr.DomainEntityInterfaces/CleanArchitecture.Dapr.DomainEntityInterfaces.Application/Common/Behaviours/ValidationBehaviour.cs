@@ -34,7 +34,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Application.Common.Behav
                 }
             }
 
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

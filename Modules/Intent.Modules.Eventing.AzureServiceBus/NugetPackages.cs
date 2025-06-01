@@ -16,13 +16,13 @@ namespace Intent.Modules.Eventing.AzureServiceBus
         public void RegisterPackages()
         {
             NugetRegistry.Register(AzureMessagingServiceBusPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, 0) => new PackageVersion("7.19.0")
+                        ( >= 8, >= 0) => new PackageVersion("7.19.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("Azure.Core.Amqp", "1.3.1")
                             .WithNugetDependency("Microsoft.Azure.Amqp", "2.6.9"),
-                        ( >= 2, 0) => new PackageVersion("7.19.0")
+                        ( >= 2, >= 0) => new PackageVersion("7.19.0")
                             .WithNugetDependency("Azure.Core", "1.44.1")
                             .WithNugetDependency("Azure.Core.Amqp", "1.3.1")
                             .WithNugetDependency("Microsoft.Azure.Amqp", "2.6.9"),

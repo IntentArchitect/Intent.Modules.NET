@@ -54,6 +54,17 @@
         <property name="c6b0e60f-000b-4afb-a226-e3622119e996" display="OperationId" value="{MethodName}" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="d0dce09b-f93f-4b45-aeaf-106397bee14d" name="OpenAPI Operation">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.AzureFunctions.OpenApi</definitionPackageName>
+      <definitionPackageId>c3808b69-f250-4ea9-b9c6-5636d3d52860</definitionPackageId>
+      <properties>
+        <property name="92bdc81f-b974-4a0d-afff-711a13fd1c3c" display="Summary" value="Function with ignore in api" isActive="true" />
+        <property name="58aa6166-08de-4810-ab34-8b6a09622a3d" display="Description" value="Function with ignore in api" isActive="true" />
+        <property name="6f0ead5b-056b-4561-bb6e-e623ec73b677" display="Tags" value="FunctionWithIgnoreInApi V1" isActive="true" />
+        <property name="ba97d5c1-0a11-4964-ac9b-925572e2c395" display="Deprecated" value="false" isActive="true" />
+      </properties>
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements />

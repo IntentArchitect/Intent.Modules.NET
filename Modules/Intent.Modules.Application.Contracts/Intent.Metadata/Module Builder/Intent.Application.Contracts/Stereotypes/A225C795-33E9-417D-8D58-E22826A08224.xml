@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="A225C795-33E9-417D-8D58-E22826A08224" version="3.1.0">
+  <comment>Marks the operation as synchronous by removing the async keyword and using a non-Task return type.</comment>
   <name>Asynchronous</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

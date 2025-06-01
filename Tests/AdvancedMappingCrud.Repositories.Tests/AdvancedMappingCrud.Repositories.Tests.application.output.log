@@ -108,6 +108,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController#a373fb38-8fdd-4233-a483-705245aa525d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OData/SimpleKey/ODataCustomersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataCustomersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.OData.EntityFramework.ODataAggregateController#59af4d1d-5f00-4dcc-96fd-7efad78f57c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OData/SimpleKey/ODataProductsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataProductsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#70bb4e42-9973-49d0-a7e0-971554cf8c12</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/OperationMapping/UserController.cs</ApplicationRelativeFilePath>
@@ -220,6 +236,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</ProjectId>
+      <CorrelationId>Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/ExcludeODataDocumentFilter.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExcludeODataDocumentFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e66243e8-f160-47cf-bb2c-ca9b3c4837ec</ProjectId>
       <CorrelationId>Intent.AspNetCore.ODataQuery.ODataQuerySwaggerFilter</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/ODataQueryFilter.cs</ApplicationRelativeFilePath>
@@ -232,6 +256,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Filters/TypeSchemaFilter.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TypeSchemaFilter.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e99d3cb-bd4f-4ed4-b968-8d2c1dcf3e00</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -272,6 +304,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/AdvancedMappingCrud.Repositories.Tests.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4420,6 +4460,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#a373fb38-8fdd-4233-a483-705245aa525d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OData/SimpleKey/ODataCustomer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataCustomer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#d6941757-a600-422f-939d-28dd827d584a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OData/SimpleKey/ODataOrder.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataOrder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#2c4aba34-44e8-4a44-9d54-6ed82d1c92ec</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OData/SimpleKey/ODataOrderLine.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataOrderLine.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#59af4d1d-5f00-4dcc-96fd-7efad78f57c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OData/SimpleKey/ODataProduct.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataProduct.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#f2539c2c-8b1b-46a7-a267-30bddad4d56f</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/OperationMapping/SubTask.cs</ApplicationRelativeFilePath>
@@ -4844,6 +4916,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a373fb38-8fdd-4233-a483-705245aa525d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/OData/SimpleKey/IODataCustomerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/IODataCustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#59af4d1d-5f00-4dcc-96fd-7efad78f57c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/OData/SimpleKey/IODataProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/IODataProductRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/OperationMapping/IUserRepository.cs</ApplicationRelativeFilePath>
@@ -5204,6 +5292,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#a373fb38-8fdd-4233-a483-705245aa525d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OData/SimpleKey/ODataCustomerConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataCustomerConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#59af4d1d-5f00-4dcc-96fd-7efad78f57c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OData/SimpleKey/ODataProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#bcb3f612-45b6-4661-8519-aa0090d82807</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/OperationMapping/UserConfiguration.cs</ApplicationRelativeFilePath>
@@ -5456,6 +5560,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/MultiKeyParentRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MultiKeyParentRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#a373fb38-8fdd-4233-a483-705245aa525d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/OData/SimpleKey/ODataCustomerRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataCustomerRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#59af4d1d-5f00-4dcc-96fd-7efad78f57c8</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/OData/SimpleKey/ODataProductRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OData/SimpleKey/ODataProductRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

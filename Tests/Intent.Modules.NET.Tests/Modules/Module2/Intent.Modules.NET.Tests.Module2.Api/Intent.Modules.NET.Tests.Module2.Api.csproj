@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Intent.Modules.NET.Tests.Infrastructure.Core\Intent.Modules.NET.Tests.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Module2.Infrastructure\Intent.Modules.NET.Tests.Module2.Infrastructure.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Module2.Application\Intent.Modules.NET.Tests.Module2.Application.csproj" />
+    <ProjectReference Include="..\Intent.Modules.NET.Tests.Module2.Application.Contracts\Intent.Modules.NET.Tests.Module2.Application.Contracts.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+      <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    </ItemGroup>
+  </Project>

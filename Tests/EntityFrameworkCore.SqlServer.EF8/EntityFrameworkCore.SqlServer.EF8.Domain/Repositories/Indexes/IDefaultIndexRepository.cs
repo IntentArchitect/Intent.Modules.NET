@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.Indexes;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.Indexes
     {
         [IntentManaged(Mode.Fully)]
         Task<DefaultIndex?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<DefaultIndex?> FindByIdAsync(Guid id, Func<IQueryable<DefaultIndex>, IQueryable<DefaultIndex>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DefaultIndex>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

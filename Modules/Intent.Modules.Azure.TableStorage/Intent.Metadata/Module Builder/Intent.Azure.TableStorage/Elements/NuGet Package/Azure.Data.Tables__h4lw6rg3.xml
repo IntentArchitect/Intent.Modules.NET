@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="becf96ad-c109-411d-bbf7-20a9a5f83a12" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.10.0</name>
+      <name>12.11.0</name>
       <display>12.9.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8c1a3428-aa97-4a58-bfe6-b46f32f14bcd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="97d0ff91-cc93-41fb-8400-5462e3caa7a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
           <value>1.44.1</value>
@@ -58,21 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="92894ade-b0d7-4863-9627-c198dbd67d22" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <isAbstract>false</isAbstract>
-          <value>6.0.10</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>becf96ad-c109-411d-bbf7-20a9a5f83a12</parentFolderId>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
       </childElements>
     </childElement>
     <childElement id="4840df87-433c-42d4-9a1d-c2ce26f93bd2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.10.0</name>
+      <name>12.11.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -90,7 +79,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5055c66f-f894-422c-b35d-4fcbd15ae7bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d366ff70-fc69-419e-aede-8896e4e80a7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
           <isAbstract>false</isAbstract>
           <value>1.44.1</value>

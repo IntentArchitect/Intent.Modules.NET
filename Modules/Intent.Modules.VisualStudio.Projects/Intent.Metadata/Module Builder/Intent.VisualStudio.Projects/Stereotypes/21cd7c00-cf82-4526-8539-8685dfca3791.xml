@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="21cd7c00-cf82-4526-8539-8685dfca3791" version="3.1.0">
+  <comment>Configures .NET Framework legacy version identifier.</comment>
   <name>.NET Framework Version Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,9 +26,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>true</isRequiredFunction>
     </property>
   </properties>

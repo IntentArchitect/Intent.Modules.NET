@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="4f512aad-6872-4473-8055-cfb7e85115a5" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.1.2</name>
-      <display>7.0.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>7.1.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,66 +49,84 @@
       <childElements>
         <childElement id="f3f86cdc-07b1-4aad-b25d-f16a7f35aeb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
+          <display>Microsoft.Bcl.AsyncInterfaces (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e6515730-9a8e-4d78-963e-a16d38300ed8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Diagnostics.DiagnosticSource</name>
+          <display>System.Diagnostics.DiagnosticSource (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="89598d30-baa8-4bbc-8f5b-eb7a2130f2ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c7782ebc-b2ad-4f4d-aee6-55cb26ea6ab9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
+          <display>System.Memory (4.5.5)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f8a7fc07-b31d-42e2-8e68-3ea1ba1b0fcd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Channels</name>
+          <display>System.Threading.Channels (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="829045b6-180f-4020-a10d-c291786972e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.RateLimiting</name>
+          <display>System.Threading.RateLimiting (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f512aad-6872-4473-8055-cfb7e85115a5</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -117,7 +135,7 @@
     </childElement>
     <childElement id="62af1a70-4de1-4c3c-b1f4-6e54368396e8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>7.1.2</name>
-      <display>7.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>7.1.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -140,22 +158,28 @@
       <childElements>
         <childElement id="509ccd44-042a-47ad-8c40-5783c20ba376" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
+          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>62af1a70-4de1-4c3c-b1f4-6e54368396e8</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a75950d7-b3e0-46f4-a2f6-d788a656d396" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.RateLimiting</name>
+          <display>System.Threading.RateLimiting (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>62af1a70-4de1-4c3c-b1f4-6e54368396e8</parentFolderId>
+          <packageId>022dbddc-276c-406b-81e6-5034ad64db72</packageId>
+          <packageName>Intent.AzureFunctions</packageName>
           <stereotypes />
           <metadata />
           <childElements />

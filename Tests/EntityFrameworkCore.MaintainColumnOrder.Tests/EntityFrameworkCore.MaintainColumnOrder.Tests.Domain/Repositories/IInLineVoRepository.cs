@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Entities;
@@ -17,6 +18,8 @@ namespace EntityFrameworkCore.MaintainColumnOrder.Tests.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<InLineVo?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<InLineVo?> FindByIdAsync(Guid id, Func<IQueryable<InLineVo>, IQueryable<InLineVo>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<InLineVo>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

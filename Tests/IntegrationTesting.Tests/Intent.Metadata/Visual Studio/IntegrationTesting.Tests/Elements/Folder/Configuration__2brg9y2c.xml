@@ -3,10 +3,22 @@
   <name>Configuration</name>
   <display>Configuration</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>467a385c-5fdb-4746-9170-7c7ae233fe80</parentFolderId>
-  <stereotypes />
+  <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+  <packageName>IntegrationTesting.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="3e76a753-d8eb-4d12-bb6b-0f132ca15b46" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,20 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="a247ffaa-d80d-43e9-89ca-d4f201c889f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
-      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
-      <externalReference>Intent.AspNetCore</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +45,24 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a247ffaa-d80d-43e9-89ca-d4f201c889f6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>Intent.AspNetCore</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +109,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>7d81f521-d4d0-40f4-b28f-e7245c61f754</parentFolderId>
+      <packageId>ed2e9f22-69ec-440e-9501-bb8da652ab6f</packageId>
+      <packageName>IntegrationTesting.Tests</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

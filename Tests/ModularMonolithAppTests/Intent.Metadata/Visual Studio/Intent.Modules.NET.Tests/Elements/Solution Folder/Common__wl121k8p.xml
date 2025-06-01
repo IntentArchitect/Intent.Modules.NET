@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2daadf0c-2f40-4ba1-81b1-366c3262ff72" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Common</name>
+  <display>Common</display>
+  <externalReference>83c43b5e-bbc7-4ac5-8980-57df122f2b18</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>35f90acd-253f-4eba-8251-a11921d97b47</parentFolderId>
+  <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+  <packageName>Intent.Modules.NET.Tests</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

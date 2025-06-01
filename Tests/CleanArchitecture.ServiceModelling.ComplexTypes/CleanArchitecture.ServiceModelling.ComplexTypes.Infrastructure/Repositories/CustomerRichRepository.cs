@@ -33,6 +33,14 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Infrastructure.Reposit
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<CustomerRich?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<CustomerRich>, IQueryable<CustomerRich>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CustomerRich>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

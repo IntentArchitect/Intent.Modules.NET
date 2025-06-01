@@ -25,8 +25,8 @@
   <metadata />
   <childElements>
     <childElement id="3cb82721-daea-4a86-a294-7f08127f0269" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -47,11 +47,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="616231d2-f937-4900-a5ee-b8d7b1a9f0fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d9138423-a7b2-4665-8b9e-ea858894fb1f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificate</name>
-          <display>Microsoft.Identity.Web.Certificate (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificate (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -61,11 +61,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6c412937-f33b-467f-9502-4c24b69bffa5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2efc5046-a31a-43c7-bbd9-2e57185354df" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificateless</name>
-          <display>Microsoft.Identity.Web.Certificateless (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificateless (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -75,11 +75,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1baca6c3-b7c3-4781-b6fd-6c8fec210afe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0952086f-17d4-4fdd-9088-1d8329f8f0a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -89,11 +89,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cf5dbf42-907e-4a77-90ef-51e5ec9da30f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f62da01-2d70-491a-9227-20d635bb022e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
-          <display>Microsoft.Identity.Web.TokenCache (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenCache (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -103,11 +103,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b9ed35a4-aa5f-49e1-9b7c-1955edda0d6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3c47a06b-e35e-4bd1-bc6d-959f117b81ed" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -117,11 +117,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7d45eb08-2667-4d0d-8740-3b77066eb25d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bdcc2149-a3c4-4e72-a517-afdc84fc09d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
-          <display>Microsoft.IdentityModel.Validators (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Validators (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -131,7 +131,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9b0ab07e-1255-464c-add0-ccf4125a2e4c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2d9c4589-d7f4-4963-9148-3f476b707f44" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
           <display>System.Formats.Asn1 (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -145,25 +145,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2310171-0ca6-4e5d-834c-5c2a682aaab7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3595c796-06db-4ba2-b578-fb4d2851f576" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
-          <display>System.IdentityModel.Tokens.Jwt (8.8.0)</display>
+          <display>System.IdentityModel.Tokens.Jwt (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="988f770f-3943-4fb1-b603-703d76e07ce8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (8.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.5</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3cb82721-daea-4a86-a294-7f08127f0269</parentFolderId>
@@ -176,8 +162,8 @@
       </childElements>
     </childElement>
     <childElement id="e7e8737e-15eb-4336-a011-0aa014d9ea2c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -198,11 +184,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b15f9a32-674c-430d-bcff-f0a17fc2a183" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9ffc44e4-1d30-4647-88d8-eceb29dcfb01" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificate</name>
-          <display>Microsoft.Identity.Web.Certificate (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificate (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -212,11 +198,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c2409edb-4694-4b3f-8dc6-243ab2c8ce84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d7fda9d0-37dd-469e-8594-ddbf5b82d3ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificateless</name>
-          <display>Microsoft.Identity.Web.Certificateless (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificateless (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -226,11 +212,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="397854c0-1c05-4265-95b0-22dd2c99fea2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d1b9393a-9cfd-4980-a7f5-20ebcc78b88d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -240,11 +226,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5c45c5bc-82f0-43c0-85cf-4108bc55f696" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3cbccdee-7f08-41be-b4fb-fecb1e80493e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
-          <display>Microsoft.Identity.Web.TokenCache (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenCache (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -254,11 +240,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="95e629f7-d94a-4680-aa70-7210cc833944" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="955a3b12-c5e6-44ec-b66e-4802c13010e5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -268,11 +254,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2f41cfa8-efad-4f7a-98e4-18465ff6b774" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="77065b53-6d92-479e-ae40-0161d4758b59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
-          <display>Microsoft.IdentityModel.Validators (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Validators (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -282,7 +268,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3c41cc7f-08ee-4df4-9e9a-ef09b8d84bc5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6d310012-db64-4647-ae75-76d2346ab153" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
           <display>System.Formats.Asn1 (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -296,25 +282,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="65af6529-f584-4b49-ac2d-657cbd4f8c26" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a6ba022-d48c-415c-82a9-e5ff1bbc9532" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
-          <display>System.IdentityModel.Tokens.Jwt (8.8.0)</display>
+          <display>System.IdentityModel.Tokens.Jwt (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fc10f538-91c0-4dbe-9a4b-2f18f4f259f7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (8.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.5</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e7e8737e-15eb-4336-a011-0aa014d9ea2c</parentFolderId>
@@ -327,8 +299,8 @@
       </childElements>
     </childElement>
     <childElement id="3c077cf7-4efe-4300-91b2-d210dcacbb6f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -349,11 +321,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6dc76f05-1f2d-4702-b174-35c8531bbfe1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a1a0ea49-6008-47e8-932c-5e75b725f907" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificate</name>
-          <display>Microsoft.Identity.Web.Certificate (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificate (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -363,11 +335,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="639298d0-f4cf-42cd-b543-a3057c58111a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24884b39-969c-476a-9020-06f68981a82c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificateless</name>
-          <display>Microsoft.Identity.Web.Certificateless (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificateless (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -377,11 +349,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="89b65f0c-8100-42b8-bdc3-e7327eee4baa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cad69d6c-4b5e-4170-a1e8-88c0570069ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -391,11 +363,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e5956d25-0c55-44c6-9ab1-d647284728b7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="45e560c8-efb2-4665-9a98-80cf1224dccd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
-          <display>Microsoft.Identity.Web.TokenCache (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenCache (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -405,11 +377,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dc759033-aeb6-4fe3-ab4c-02872241c1c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a76a258f-5d84-4d45-8a31-39a161c69d54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -419,11 +391,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b462496a-4da1-4fc0-8599-c83f2565ba88" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3f6c75be-1083-4e1d-8796-0d15085885e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
-          <display>Microsoft.IdentityModel.Validators (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Validators (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -433,7 +405,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b33a7535-c0bd-48b2-88e0-5eebf77ace90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f6f6356-5458-4366-b3be-baa035d3c3b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
           <display>System.Formats.Asn1 (6.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -447,25 +419,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4b8c6733-1d97-4d70-8003-94cb0537efe6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b6d1134a-57a0-4074-a835-d841f84c2424" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
-          <display>System.IdentityModel.Tokens.Jwt (8.8.0)</display>
+          <display>System.IdentityModel.Tokens.Jwt (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="63780efd-e27f-4433-8e65-ccdb32efcd6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (8.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>8.0.5</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3c077cf7-4efe-4300-91b2-d210dcacbb6f</parentFolderId>
@@ -478,8 +436,8 @@
       </childElements>
     </childElement>
     <childElement id="3983c377-ddac-406d-8ad7-17dc41ce75e6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -500,11 +458,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1b66e72c-156d-4250-9c8f-6bf8cf47279a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="463ea77b-a830-401f-90ad-70e55156f9cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.DataProtection</name>
-          <display>Microsoft.AspNetCore.DataProtection (2.1.0)</display>
+          <display>Microsoft.AspNetCore.DataProtection (3.8.4)</display>
           <isAbstract>false</isAbstract>
-          <value>2.1.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -514,11 +472,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c39c0b44-d704-4086-94e9-9eec23a1523e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="be9582f7-055b-4160-a902-bf000bef8f72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Caching.Memory</name>
-          <display>Microsoft.Extensions.Caching.Memory (2.1.0)</display>
+          <display>Microsoft.Extensions.Caching.Memory (3.8.4)</display>
           <isAbstract>false</isAbstract>
-          <value>2.1.0</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -528,11 +486,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="86235d90-b3f1-4aa1-9fb7-6966e22c76fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dff13829-0a2d-4fc8-b799-ec19d2ea4eff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
-          <display>Microsoft.Extensions.Hosting (2.1.1)</display>
+          <display>Microsoft.Extensions.Hosting (3.8.4)</display>
           <isAbstract>false</isAbstract>
-          <value>2.1.1</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -542,11 +500,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="967485d2-3d07-4b40-b2fc-bd2fcfc824c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="acae4106-3cae-42e0-8397-56bbc9e519ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
-          <display>Microsoft.Extensions.Http (3.1.3)</display>
+          <display>Microsoft.Extensions.Http (3.8.4)</display>
           <isAbstract>false</isAbstract>
-          <value>3.1.3</value>
+          <value>3.8.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -556,11 +514,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4fa3c42a-f43d-4141-a97d-5384d1f7bba9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d426fcab-b280-4462-b220-3129a611cb0b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificate</name>
-          <display>Microsoft.Identity.Web.Certificate (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificate (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -570,11 +528,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="31528520-b0ed-4986-80e6-b08e901d88ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7a22468c-9418-4c27-bb92-684781701cb8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificateless</name>
-          <display>Microsoft.Identity.Web.Certificateless (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificateless (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -584,11 +542,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="43553ad8-730f-4104-9e64-0970d93f3f7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="579acbc5-53e8-496e-b4e7-4b2d06a5bc3c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -598,11 +556,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2de3867b-1c51-46c6-a0b6-37ab9bb5072f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4212e536-bc4c-4160-95b1-bef777f307eb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
-          <display>Microsoft.Identity.Web.TokenCache (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenCache (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -612,11 +570,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9e466e5f-92e8-4beb-a963-1618a7c26ad5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea202e6b-3d48-4df1-9abd-3f5b60014629" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -626,11 +584,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f80e8e6c-dd5c-4270-99e7-da2fe1ba4033" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5c020d13-a487-4112-8cec-121ebe8bb690" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
-          <display>Microsoft.IdentityModel.Validators (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Validators (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -640,7 +598,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2513f620-825a-4af1-81b1-f90e61ae36ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3f8a51d1-9098-4abf-961c-ee847f7af4ba" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
           <display>System.Formats.Asn1 (8.0.1)</display>
           <isAbstract>false</isAbstract>
@@ -654,11 +612,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5c7b899a-6451-4853-8a32-dbabca22ce2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ab57d125-f5bb-48ee-9780-82f9aeb20bc1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
-          <display>System.IdentityModel.Tokens.Jwt (8.8.0)</display>
+          <display>System.IdentityModel.Tokens.Jwt (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3983c377-ddac-406d-8ad7-17dc41ce75e6</parentFolderId>
@@ -668,7 +626,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="faa28d0f-bd0a-4e55-92d0-8b7a02f64b7a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5e212a00-19a9-45a2-9d87-a86290b74bf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Security.Cryptography.Xml</name>
           <display>System.Security.Cryptography.Xml (4.7.1)</display>
           <isAbstract>false</isAbstract>
@@ -682,7 +640,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="91ccec03-6574-4d7f-8440-3eb68579eaf1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="75cea32b-d461-4359-96cd-280234dbe1b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <display>System.Text.Json (8.0.5)</display>
           <isAbstract>false</isAbstract>
@@ -699,8 +657,8 @@
       </childElements>
     </childElement>
     <childElement id="0e5bbf81-b9b2-475e-b270-f1b895c85840" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.8.3</name>
-      <display>3.8.3 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <name>3.9.1</name>
+      <display>3.9.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -721,11 +679,11 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9843788a-34c2-4734-8509-69d45becb469" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="455c5073-a6f4-4393-b677-439b64eba6ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificate</name>
-          <display>Microsoft.Identity.Web.Certificate (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificate (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -735,11 +693,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fbd6db78-4180-42b3-aa93-9d147dcea161" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="38da9a41-e891-4290-8e58-e828a34de96a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.Certificateless</name>
-          <display>Microsoft.Identity.Web.Certificateless (3.8.3)</display>
+          <display>Microsoft.Identity.Web.Certificateless (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -749,11 +707,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6f841c63-41a5-406f-b91c-62defc70cd72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8b5783b3-b916-460b-836a-512cc95fd596" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenAcquisition</name>
-          <display>Microsoft.Identity.Web.TokenAcquisition (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenAcquisition (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -763,11 +721,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7f65aea5-0c99-451a-9696-e8b608178d3b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b2d9376a-67dc-423f-9173-a973d044caa8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Identity.Web.TokenCache</name>
-          <display>Microsoft.Identity.Web.TokenCache (3.8.3)</display>
+          <display>Microsoft.Identity.Web.TokenCache (3.9.1)</display>
           <isAbstract>false</isAbstract>
-          <value>3.8.3</value>
+          <value>3.9.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -777,11 +735,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb8d7fca-d007-4707-831f-6dc57f652672" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6ea4e0f7-a181-4c8e-8f7d-eba487d585cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -791,11 +749,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="94322446-e68c-48b8-8203-b1ba2e96b3b8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2cddb425-cf6c-4236-a3ac-13365f757a62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Validators</name>
-          <display>Microsoft.IdentityModel.Validators (8.8.0)</display>
+          <display>Microsoft.IdentityModel.Validators (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
@@ -805,7 +763,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c3afa38f-0ba3-407d-b0e7-2ee572b8fb4d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e59677b8-cc2e-4634-ab10-901080a05244" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Formats.Asn1</name>
           <display>System.Formats.Asn1 (9.0.0)</display>
           <isAbstract>false</isAbstract>
@@ -819,25 +777,11 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ae4e49f4-177c-4c34-bc8f-979c533985cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea750e42-7a92-4cd9-b54e-bd99c8761b30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IdentityModel.Tokens.Jwt</name>
-          <display>System.IdentityModel.Tokens.Jwt (8.8.0)</display>
+          <display>System.IdentityModel.Tokens.Jwt (8.10.0)</display>
           <isAbstract>false</isAbstract>
-          <value>8.8.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fd3cf70c-ffd3-4d30-a721-3f1db85ce9a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Json</name>
-          <display>System.Text.Json (9.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.0</value>
+          <value>8.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>0e5bbf81-b9b2-475e-b270-f1b895c85840</parentFolderId>

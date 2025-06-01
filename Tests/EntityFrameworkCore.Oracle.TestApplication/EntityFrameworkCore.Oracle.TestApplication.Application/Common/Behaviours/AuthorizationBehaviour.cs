@@ -87,7 +87,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Common.Behaviou
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

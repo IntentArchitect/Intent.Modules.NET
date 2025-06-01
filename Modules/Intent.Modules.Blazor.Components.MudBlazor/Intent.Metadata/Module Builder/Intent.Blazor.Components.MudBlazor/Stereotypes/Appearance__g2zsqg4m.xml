@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="b218f7cb-d150-401d-a17a-9e22fadf863f" version="3.1.0">
+  <comment>Defines visual presentation settings for the component, allowing customization of its appearance and style.</comment>
   <name>Appearance</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,10 +26,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return element.hasStereotype("8e1b7033-fd27-495a-a2a7-36b5168f04f5") // Icon</isActiveFunction>
     </property>
     <property id="de8a25d2-a144-4806-b5ad-e6c195abfa43">
@@ -38,16 +36,6 @@
       <optionsSource>lookup-children</optionsSource>
       <placeholder>(default)</placeholder>
       <defaultValue>93828c49-ea2f-46d2-b661-df6fc2c4a0e2</defaultValue>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
       <lookupInternalTargetPropertyId>return "00f38c60-da37-4e7d-acdf-ad79ffb4a9e6" // Variant (Enum);</lookupInternalTargetPropertyId>
     </property>
     <property id="d527d5a7-fd00-4486-a204-5c6fc93099a5">
@@ -56,16 +44,6 @@
       <controlType>select</controlType>
       <optionsSource>lookup-children</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions>
-        <option>Default</option>
-        <option>Primary</option>
-        <option>Secondary</option>
-        <option>Tertiary</option>
-        <option>Info</option>
-        <option>Success</option>
-        <option>Warning</option>
-      </valueOptions>
-      <lookupTypes />
       <lookupInternalTargetPropertyId>return "f357cbb8-2a8f-4765-93ec-3a5c15ca8313" // Color (Enum);</lookupInternalTargetPropertyId>
     </property>
     <property id="9243cf9b-c6de-47d4-a914-382ab7ddf920">
@@ -74,8 +52,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

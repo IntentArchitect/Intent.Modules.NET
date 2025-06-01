@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPT.InheritanceA
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_ConcreteBaseClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_ConcreteBaseClass>, IQueryable<TPT_ConcreteBaseClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_ConcreteBaseClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

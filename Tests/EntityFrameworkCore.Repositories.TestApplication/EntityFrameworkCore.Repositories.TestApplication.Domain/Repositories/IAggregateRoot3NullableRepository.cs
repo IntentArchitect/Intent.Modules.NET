@@ -20,6 +20,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories
         [IntentManaged(Mode.Fully)]
         Task<AggregateRoot3Nullable?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<AggregateRoot3Nullable?> FindByIdAsync(Guid id, Func<IQueryable<AggregateRoot3Nullable>, IQueryable<AggregateRoot3Nullable>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<AggregateRoot3Nullable>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

@@ -43,13 +43,13 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.HttpClients
             var relativeUri = $"api/file-uploads/upload-file";
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+            httpRequest.Content = new StreamContent(command.Content);
+            httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");
 
             if (contentLength != null)
             {
-                httpRequest.Headers.Add("Content-Length", contentLength.ToString());
+                httpRequest.Content.Headers.ContentLength = contentLength;
             }
-            httpRequest.Content = new StreamContent(command.Content);
-            httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(command.ContentType ?? "application/octet-stream");
 
             if (command.Filename != null)
             {

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ba9b721c-96a9-4687-9460-035aa373e31e" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Duende.AccessTokenManagement</name>
+  <display>Duende.AccessTokenManagement [locked]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3b53a755-d712-4a45-b9fe-a92b07cd61b3</parentFolderId>
+  <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+  <packageName>Intent.Integration.HttpClients</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="true" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="ae59f45a-fd07-4a25-b455-123c10df1e44" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.2.0</name>
+      <display>3.2.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ba9b721c-96a9-4687-9460-035aa373e31e</parentFolderId>
+      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+      <packageName>Intent.Integration.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="6bfbf6a5-d655-43ce-8ac3-9799d7ec132b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Duende.IdentityModel</name>
+          <display>Duende.IdentityModel (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4f4c9175-22a4-48a5-8239-e74abae032a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="351ecf65-d122-415f-b2ce-e64d260fa6f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d1fc9844-ac1a-4491-9b5e-2adc600575a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="99c67b47-f491-4d45-95c8-3589d10dfbc5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f53eedca-61f8-4229-afa0-983e6bafb12c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (9.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4c1a2b27-f37d-4a74-9f55-818549aa7105" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ae59f45a-fd07-4a25-b455-123c10df1e44</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b7214043-1297-4d21-99aa-66d31e79d37c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>3.2.0</name>
+      <display>3.2.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ba9b721c-96a9-4687-9460-035aa373e31e</parentFolderId>
+      <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+      <packageName>Intent.Integration.HttpClients</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="a05529b0-f252-4f0f-81ab-db6ee9e31fe8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Duende.IdentityModel</name>
+          <display>Duende.IdentityModel (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b49493bb-5bea-4abd-9305-6df2bd4f4318" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
+          <display>Microsoft.Extensions.Caching.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="9e058527-797f-400b-a469-f614fde0a893" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
+          <display>Microsoft.Extensions.DependencyInjection.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ee1689bd-b686-44f1-94fc-afb558e4b706" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d2c68020-dfd3-405b-9e2c-24d1e737a19a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging.Abstractions</name>
+          <display>Microsoft.Extensions.Logging.Abstractions (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cd8a41a3-fac1-4fe1-8ccd-407f1d4861b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <display>Microsoft.Extensions.Options (8.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0bbcc877-441b-4f65-aed5-d4fbd3e1ec7d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IdentityModel.Tokens.Jwt</name>
+          <display>System.IdentityModel.Tokens.Jwt (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b7214043-1297-4d21-99aa-66d31e79d37c</parentFolderId>
+          <packageId>078cefb0-8647-40bf-9099-a7c96c4d8e85</packageId>
+          <packageName>Intent.Integration.HttpClients</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

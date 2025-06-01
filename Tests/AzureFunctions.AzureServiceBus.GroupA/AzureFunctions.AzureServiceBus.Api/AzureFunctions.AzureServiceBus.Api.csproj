@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AzureFunctions.AzureServiceBus.Application\AzureFunctions.AzureServiceBus.Application.csproj" />
+    <ProjectReference Include="..\AzureFunctions.AzureServiceBus.Domain\AzureFunctions.AzureServiceBus.Domain.csproj" />
+    <ProjectReference Include="..\AzureFunctions.AzureServiceBus.Infrastructure\AzureFunctions.AzureServiceBus.Infrastructure.csproj" />
+  </ItemGroup>
+    <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+    <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.23.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="2.0.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.3.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.0.2" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.OpenApi" Version="1.5.1" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.22.2" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.3" />
+      <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.OpenApi" Version="1.5.1" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.14.0" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.5" />
+    </ItemGroup>
+
+</Project>

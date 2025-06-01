@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="b7a34ab9-8f7f-415f-92bd-c85cfe02f29d" version="3.1.0">
+  <comment>Configures options for defining and controlling a Quartz background job.</comment>
   <name>Scheduling</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -25,10 +26,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>true</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="e147ef25-fdc3-4bdb-b920-76ed7f3b47c2">
       <hint>Cron expression for interval. [Quatz documentation](https://www.quartz-scheduler.net/documentation/quartz-3.x/how-tos/crontrigger.html)</hint>
@@ -37,8 +35,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(example: */10 * * * * ?)</placeholder>
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="81666ced-cb50-49d7-a85d-5a4be8d3b462">
@@ -47,10 +43,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -17,6 +18,8 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Domain.Reposi
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Basket?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Basket?> FindByIdAsync(Guid id, Func<IQueryable<Basket>, IQueryable<Basket>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Basket>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

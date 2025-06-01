@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Api.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Api.Filters;
 using AdvancedMappingCrud.Repositories.Tests.Application;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OData.ModelBuilder;
 using Serilog;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -42,6 +44,20 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api
             .AddOData(options =>
             {
                 options.Filter().OrderBy().Expand().SetMaxTop(200);
+                var odataBuilder = new ODataConventionModelBuilder();
+                odataBuilder.EntitySet<ODataCustomer>("ODataCustomers");
+                odataBuilder.EntitySet<ODataOrder>("ODataOrders");
+                odataBuilder.EntitySet<ODataOrderLine>("ODataOrderLines");
+                odataBuilder.EntitySet<ODataProduct>("ODataProducts");
+                odataBuilder.EntitySet<ODataCustomer>("ODataCustomers").EntityType.Ignore(m => m.DomainEvents);
+                odataBuilder.EntitySet<ODataProduct>("ODataProducts").EntityType.Ignore(m => m.DomainEvents);
+                options.Select()
+                    .Expand()
+                    .Filter()
+                    .OrderBy()
+                    .SetMaxTop(100)
+                    .Count()
+                    .AddRouteComponents("odata", odataBuilder.GetEdmModel());
             });
             services.AddApplication(Configuration);
             services.ConfigureApplicationSecurity(Configuration);

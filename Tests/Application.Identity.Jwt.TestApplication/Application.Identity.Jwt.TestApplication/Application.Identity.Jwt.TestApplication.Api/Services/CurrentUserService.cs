@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Application.Identity.Jwt.TestApplication.Application.Common.Interfaces;
-using IdentityModel;
+using Duende.IdentityModel;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

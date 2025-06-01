@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="48744906-7393-46f3-96de-52f54201df5e" type="Domain Event Handler" typeId="d80e61c5-7e4c-4175-9df1-0413f664824c">
+  <name>CustomerCreatedHandler</name>
+  <display>CustomerCreatedHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6021a7a5-fb82-4779-a8d7-88c845e77123</parentFolderId>
+  <packageId>e665bbb9-639a-45b1-af30-377f7d721f36</packageId>
+  <packageName>Module1.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

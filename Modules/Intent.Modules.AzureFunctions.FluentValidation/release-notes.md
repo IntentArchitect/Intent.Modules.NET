@@ -1,3 +1,13 @@
+### Version 5.1.0
+
+- Improvement: Updated NuGet package versions.
+
+> ?? **NOTE**
+>
+> This module update may cause a compilation breaks if you have written any custom code which uses FluentValidation features which are not supported on v12.
+> Any generated code will be compliant.
+> For details on what the breaking changes are check out the [upgrade guide](https://docs.fluentvalidation.net/en/latest/upgrading-to-12.html).
+
 ### Version 5.0.1
 
 - Improvement: Updated NuGet package versions.

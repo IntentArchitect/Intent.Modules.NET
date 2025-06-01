@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="aac9e56f-d806-4bbc-aaed-fe2462eca1d9" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>Modular Monolith</name>
+  <display>Modular Monolith</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c567d33-5bc4-4cec-986a-03c1e63841e0</parentFolderId>
+  <packageId>7c567d33-5bc4-4cec-986a-03c1e63841e0</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

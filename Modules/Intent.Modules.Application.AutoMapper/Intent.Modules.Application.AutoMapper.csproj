@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Intent.Architect.Persistence" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
     <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.8.3" />
     <PackageReference Include="Intent.Modules.Modelers.Domain" Version="3.3.10" />
@@ -23,6 +24,10 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="docs\images\" />
   </ItemGroup>
 
 </Project>

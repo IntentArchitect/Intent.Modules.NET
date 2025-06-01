@@ -34,6 +34,14 @@ namespace FastEndpointsTest.Infrastructure.Repositories.DDD
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<DataContractClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<DataContractClass>, IQueryable<DataContractClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<DataContractClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Hangfire</id>
-  <version>1.0.1</version>
+  <version>1.0.3-pre.1</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Perform time based and fire-and-forget background processing jobs using Hangfire</summary>
   <description>Perform time based and fire-and-forget background processing jobs using Hangfire</description>
@@ -45,7 +45,7 @@
           <hint>The storage provider for the Hangfire jobs</hint>
           <defaultValue>InMemory</defaultValue>
           <options>
-            <option value="None" description="Settings Option" />
+            <option value="None" description="None" />
             <option value="InMemory" description="In Memory" />
             <option value="SQLServer" description="SQL Server" />
           </options>

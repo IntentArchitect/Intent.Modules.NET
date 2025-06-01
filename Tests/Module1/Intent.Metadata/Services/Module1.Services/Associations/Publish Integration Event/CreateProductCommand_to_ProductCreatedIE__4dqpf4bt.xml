@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="df050f02-4c39-463e-9151-afdbad9744cd">
+  <sourceEnd id="9d9f1ee7-9040-43a4-a025-4de27f9b134d" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : Products.CreateProductCommand</display>
+    <order>0</order>
+    <typeReference id="e4438561-7f48-4e2e-b731-515493b13866">
+      <typeId>1aaad2bd-4499-472f-af53-cc0537565b6b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Services</typePackageName>
+      <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="df050f02-4c39-463e-9151-afdbad9744cd" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] ProductCreatedIE</display>
+    <order>2</order>
+    <typeReference id="aca2b377-2ffa-4429-8bd2-2e52f1ebc5e1">
+      <typeId>0e80666c-52e3-42d2-90b7-1a5f3d7d3505</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Eventing.Messages</typePackageName>
+      <typePackageId>d5b1e63a-4b96-4ed0-9512-e181dde34be4</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1aaad2bd-4499-472f-af53-cc0537565b6b" location="[Module1].[Services].[CreateProductCommand]" />
+        <target applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0e80666c-52e3-42d2-90b7-1a5f3d7d3505" location="[Module1].[Services].[ProductCreatedIE]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{product.Id}</expression>
+            <path>
+              <target id="0e80666c-52e3-42d2-90b7-1a5f3d7d3505" name="ProductCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="67e6401c-45c6-41cb-93a0-5357bda6c27f" name="Id" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="product.Id" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="1aaad2bd-4499-472f-af53-cc0537565b6b" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1128c558-d7e0-4989-ab90-96eafe1d65f3" name="product" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="79eb9919-8964-4836-844e-1bdfdcccd19c" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{product.Name}</expression>
+            <path>
+              <target id="0e80666c-52e3-42d2-90b7-1a5f3d7d3505" name="ProductCreatedIE" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="a7f17b6f-4b98-459c-8299-2c064804a536" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="product.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="1aaad2bd-4499-472f-af53-cc0537565b6b" name="CreateProductCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="1128c558-d7e0-4989-ab90-96eafe1d65f3" name="product" type="association" specialization="Create Entity Action Target End" specializationId="328f54e5-7bad-4b5f-90ca-03ce3105d016" />
+                  <target id="c5e21245-7693-44ac-b823-d987b4aac733" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

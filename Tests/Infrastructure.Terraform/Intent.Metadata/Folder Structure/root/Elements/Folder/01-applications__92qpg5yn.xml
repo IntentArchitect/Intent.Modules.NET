@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="74597f83-40fa-4d83-8174-4f31b847175e" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>01-applications</name>
+  <display>01-applications</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>34ddaba7-0a9a-438f-bc63-475216a7bedb</parentFolderId>
+  <packageId>34ddaba7-0a9a-438f-bc63-475216a7bedb</packageId>
+  <packageName>root</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="50cc9e82-5478-48c8-8657-d46489cf8445" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74597f83-40fa-4d83-8174-4f31b847175e</parentFolderId>
+      <packageId>34ddaba7-0a9a-438f-bc63-475216a7bedb</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="18eac0d2-4092-4867-99a3-e5ea35d6f90b" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureFunctionAppTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureFunctionAppTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74597f83-40fa-4d83-8174-4f31b847175e</parentFolderId>
+      <packageId>34ddaba7-0a9a-438f-bc63-475216a7bedb</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="18504508-5206-4138-a1be-5e28ec4b9a13" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureMainTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureMainTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74597f83-40fa-4d83-8174-4f31b847175e</parentFolderId>
+      <packageId>34ddaba7-0a9a-438f-bc63-475216a7bedb</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c9e8809c-5a6c-4a07-9fb8-492a997433ca" type="Template Output" typeId="09de2192-2507-41a2-8044-286c7ecadec2">
+      <name>Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf</name>
+      <display>Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf</display>
+      <externalReference>Intent.IaC.Terraform</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>74597f83-40fa-4d83-8174-4f31b847175e</parentFolderId>
+      <packageId>34ddaba7-0a9a-438f-bc63-475216a7bedb</packageId>
+      <packageName>root</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

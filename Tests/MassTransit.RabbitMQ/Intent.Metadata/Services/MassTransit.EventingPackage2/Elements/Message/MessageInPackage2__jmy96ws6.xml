@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4bccd0f0-51fd-4e98-8b44-0c8078f68ceb" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>MessageInPackage2</name>
+  <display>MessageInPackage2</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ab31e622-f8da-4990-a146-e513922b26c1</parentFolderId>
+  <packageId>ab31e622-f8da-4990-a146-e513922b26c1</packageId>
+  <packageName>MassTransit.EventingPackage2</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

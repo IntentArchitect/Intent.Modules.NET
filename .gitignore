@@ -248,4 +248,8 @@ ModelManifest.xml
 !*.application.output.log
 !*.application.deviations.log
 .intent/
+
 .idea/
+.terraform/
+.terraform.*
+terraform.tfstate

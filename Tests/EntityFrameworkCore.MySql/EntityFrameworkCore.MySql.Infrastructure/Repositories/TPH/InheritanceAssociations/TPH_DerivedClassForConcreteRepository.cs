@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.TPH.InheritanceA
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPH_DerivedClassForConcrete?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPH_DerivedClassForConcrete>, IQueryable<TPH_DerivedClassForConcrete>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPH_DerivedClassForConcrete>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

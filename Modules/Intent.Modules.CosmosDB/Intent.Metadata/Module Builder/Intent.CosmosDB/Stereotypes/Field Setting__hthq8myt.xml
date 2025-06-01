@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="fb47f1e4-447b-4a67-947d-590fc24c20c1" version="3.1.0">
+  <comment>Configures the field name used for serialization.</comment>
   <hint>Field settings for Document DB documents.</hint>
   <name>Field Setting</name>
   <targetMode>of-type</targetMode>
@@ -28,9 +29,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

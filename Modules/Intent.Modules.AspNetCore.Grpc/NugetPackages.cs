@@ -18,58 +18,58 @@ namespace Intent.Modules.AspNetCore.Grpc
         public void RegisterPackages()
         {
             NugetRegistry.Register(GrpcAspNetCorePackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.70.0")
-                            .WithNugetDependency("Grpc.Tools", "2.70.0"),
-                        ( >= 8, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.70.0")
-                            .WithNugetDependency("Grpc.Tools", "2.70.0"),
-                        ( >= 7, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.70.0")
-                            .WithNugetDependency("Grpc.Tools", "2.70.0"),
-                        ( >= 6, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.70.0")
-                            .WithNugetDependency("Grpc.Tools", "2.70.0"),
+                        ( >= 9, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.71.0")
+                            .WithNugetDependency("Grpc.Tools", "2.71.0"),
+                        ( >= 8, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.71.0")
+                            .WithNugetDependency("Grpc.Tools", "2.71.0"),
+                        ( >= 7, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.71.0")
+                            .WithNugetDependency("Grpc.Tools", "2.71.0"),
+                        ( >= 6, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server.ClientFactory", "2.71.0")
+                            .WithNugetDependency("Grpc.Tools", "2.71.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{GrpcAspNetCorePackageName}'"),
                     }
                 );
             NugetRegistry.Register(GrpcAspNetCoreServerReflectionPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.70.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.70.0"),
-                        ( >= 8, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.70.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.70.0"),
-                        ( >= 7, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.70.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.70.0"),
-                        ( >= 6, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Protobuf", "3.27.0")
-                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.70.0")
-                            .WithNugetDependency("Grpc.Reflection", "2.70.0"),
+                        ( >= 9, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.71.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.71.0"),
+                        ( >= 8, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.71.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.71.0"),
+                        ( >= 7, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.71.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.71.0"),
+                        ( >= 6, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Protobuf", "3.30.2")
+                            .WithNugetDependency("Grpc.AspNetCore.Server", "2.71.0")
+                            .WithNugetDependency("Grpc.Reflection", "2.71.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{GrpcAspNetCoreServerReflectionPackageName}'"),
                     }
                 );
             NugetRegistry.Register(GrpcStatusProtoPackageName,
-                (framework) => framework switch
+                (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, 1) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Api.CommonProtos", "2.15.0")
-                            .WithNugetDependency("Grpc.Core.Api", "2.70.0"),
-                        ( >= 2, 0) => new PackageVersion("2.70.0")
-                            .WithNugetDependency("Google.Api.CommonProtos", "2.15.0")
-                            .WithNugetDependency("Grpc.Core.Api", "2.70.0"),
+                        ( >= 2, >= 1) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Api.CommonProtos", "2.16.0")
+                            .WithNugetDependency("Grpc.Core.Api", "2.71.0"),
+                        ( >= 2, >= 0) => new PackageVersion("2.71.0")
+                            .WithNugetDependency("Google.Api.CommonProtos", "2.16.0")
+                            .WithNugetDependency("Grpc.Core.Api", "2.71.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{GrpcStatusProtoPackageName}'"),
                     }
                 );

@@ -1,5 +1,4 @@
 using System;
-using System.Linq.Dynamic.Core;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Cosmos.Tests.Application.Common.Pagination;
@@ -7,6 +6,7 @@ using AdvancedMappingCrud.Cosmos.Tests.Domain.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using static System.Linq.Dynamic.Core.DynamicQueryableExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.QueryHandler", Version = "1.0")]
@@ -14,7 +14,7 @@ using MediatR;
 namespace AdvancedMappingCrud.Cosmos.Tests.Application.BasicOrderBies.GetBasicOrderBy
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetBasicOrderByQueryHandler : IRequestHandler<GetBasicOrderByQuery, Common.Pagination.PagedResult<BasicOrderByDto>>
+    public class GetBasicOrderByQueryHandler : IRequestHandler<GetBasicOrderByQuery, PagedResult<BasicOrderByDto>>
     {
         private readonly IBasicOrderByRepository _basicOrderByRepository;
         private readonly IMapper _mapper;
@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.BasicOrderBies.GetBasicOr
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task<Common.Pagination.PagedResult<BasicOrderByDto>> Handle(
+        public async Task<PagedResult<BasicOrderByDto>> Handle(
             GetBasicOrderByQuery request,
             CancellationToken cancellationToken)
         {

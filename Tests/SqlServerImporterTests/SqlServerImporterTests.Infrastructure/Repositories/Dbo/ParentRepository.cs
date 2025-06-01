@@ -33,5 +33,13 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
         {
             return await FindAsync(x => x.Id == id.Id && x.Id2 == id.Id2, cancellationToken);
         }
+
+        public async Task<Parent?> FindByIdAsync(
+            (Guid Id, Guid Id2) id,
+            Func<IQueryable<Parent>, IQueryable<Parent>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id.Id && x.Id2 == id.Id2, queryOptions, cancellationToken);
+        }
     }
 }

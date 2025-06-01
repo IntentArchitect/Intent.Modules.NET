@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="6053631a-6d19-409a-8e26-426bf471fae7">
+  <sourceEnd id="304f528a-25f1-45e1-b1c1-c3f8bef7407d" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : SimpleProductsService.UpdateSimpleProduct</display>
+    <order>0</order>
+    <typeReference id="c15028a4-2b38-4dbd-b40e-d3161350407a">
+      <typeId>62840dcd-d620-4d19-95ea-c07bda389a9a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Services</typePackageName>
+      <typePackageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="6053631a-6d19-409a-8e26-426bf471fae7" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>simpleProduct</name>
+    <display>[update] simpleProduct: SimpleProduct</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a6118489-f202-4493-954c-15e547fc7b10">
+      <typeId>208b1ea5-ef50-433d-a846-1148d0146ab2</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>FastEndpoints.Domain</typePackageName>
+      <typePackageId>aed8e754-17fc-48c7-8f7c-d521812022bc</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="62840dcd-d620-4d19-95ea-c07bda389a9a" location="[FastEndpointsTest].[Services].[UpdateSimpleProduct]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="208b1ea5-ef50-433d-a846-1148d0146ab2" location="[FastEndpointsTest].[Services].[SimpleProduct]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="208b1ea5-ef50-433d-a846-1148d0146ab2" name="SimpleProduct" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5a41eda7-5ba9-458a-863d-c7143d13d830" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="62840dcd-d620-4d19-95ea-c07bda389a9a" name="UpdateSimpleProduct" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="9af18976-dc01-47c7-b46b-0251cb5d715f" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="62840dcd-d620-4d19-95ea-c07bda389a9a" location="[FastEndpointsTest].[Services].[UpdateSimpleProduct]" />
+        <target applicationId="3a41b4eb-4b1f-4028-91a4-9225b2873c35" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="208b1ea5-ef50-433d-a846-1148d0146ab2" location="[FastEndpointsTest].[Services].[SimpleProduct]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="208b1ea5-ef50-433d-a846-1148d0146ab2" name="SimpleProduct" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1f86fc8a-a878-4a00-9380-258c3febacec" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="62840dcd-d620-4d19-95ea-c07bda389a9a" name="UpdateSimpleProduct" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d820a869-b93b-4bbf-9e7c-40c6185602d1" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="a10e931b-b234-415b-a18f-92b02411ac81" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Value}</expression>
+            <path>
+              <target id="208b1ea5-ef50-433d-a846-1148d0146ab2" name="SimpleProduct" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="8aa64865-2480-4527-b1d5-73f05a40971c" name="Value" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Value" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="62840dcd-d620-4d19-95ea-c07bda389a9a" name="UpdateSimpleProduct" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="d820a869-b93b-4bbf-9e7c-40c6185602d1" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="988dce7c-e78b-4639-ab8b-a868480e950f" name="Value" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

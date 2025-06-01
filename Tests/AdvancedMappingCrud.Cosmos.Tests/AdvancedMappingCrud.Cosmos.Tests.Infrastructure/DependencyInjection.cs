@@ -20,6 +20,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure
             services.AddCosmosRepository();
             services.AddScoped<IBasicOrderByRepository, BasicOrderByCosmosDBRepository>();
             services.AddScoped<ICustomerRepository, CustomerCosmosDBRepository>();
+            services.AddScoped<IEmbeddedParentRepository, EmbeddedParentCosmosDBRepository>();
             services.AddScoped<IExplicitETagRepository, ExplicitETagCosmosDBRepository>();
             services.AddScoped<IOrderRepository, OrderCosmosDBRepository>();
             services.AddScoped<IParentRepository, ParentCosmosDBRepository>();

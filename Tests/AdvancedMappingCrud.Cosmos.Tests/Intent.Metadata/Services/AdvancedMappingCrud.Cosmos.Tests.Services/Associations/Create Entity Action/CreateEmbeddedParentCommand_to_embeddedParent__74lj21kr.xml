@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="8f086e67-ee68-49b2-aa5a-7e359d55eba3">
+  <sourceEnd id="64968944-9692-475a-a8a5-d2348bb5d08e" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : EmbeddedParents.CreateEmbeddedParentCommand</display>
+    <order>0</order>
+    <typeReference id="c57ee7f3-0f4e-4f66-8506-cfe0e3a9ef38">
+      <typeId>d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+      <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="8f086e67-ee68-49b2-aa5a-7e359d55eba3" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>embeddedParent</name>
+    <display>[create] embeddedParent: EmbeddedParent</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="755b3ba3-7576-4d82-8017-af65f19dcc0b">
+      <typeId>56b8e8e8-e7a1-403c-bb38-6991f3505e76</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Domain</typePackageName>
+      <typePackageId>3598535c-7008-4c5a-8d70-4ec48535c07d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[CreateEmbeddedParentCommand]" />
+        <target applicationId="a0f944aa-6954-42a5-9b76-df879ecdc886" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="56b8e8e8-e7a1-403c-bb38-6991f3505e76" location="[AdvancedMappingCrud.Cosmos.Tests].[Services].[EmbeddedParent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateEmbeddedParentCommand}</expression>
+            <path>
+              <target id="56b8e8e8-e7a1-403c-bb38-6991f3505e76" name="EmbeddedParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateEmbeddedParentCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" name="CreateEmbeddedParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="56b8e8e8-e7a1-403c-bb38-6991f3505e76" name="EmbeddedParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f8d02fcc-e579-4c11-bdfe-71076fbc02c6" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" name="CreateEmbeddedParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="081f07b0-4e46-4713-84a4-540d2cab2a8b" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Children}</expression>
+            <path>
+              <target id="56b8e8e8-e7a1-403c-bb38-6991f3505e76" name="EmbeddedParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7b4b9d35-35cc-4083-8537-7ed43cf878fe" name="Children" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Children" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" name="CreateEmbeddedParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8c60f4df-5772-48c9-9537-0d3f553d682d" name="Children" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Children.Name}</expression>
+            <path>
+              <target id="56b8e8e8-e7a1-403c-bb38-6991f3505e76" name="EmbeddedParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7b4b9d35-35cc-4083-8537-7ed43cf878fe" name="Children" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="4a397a51-1f9c-4b37-8787-8e096d7983d3" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Children.Name" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" name="CreateEmbeddedParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8c60f4df-5772-48c9-9537-0d3f553d682d" name="Children" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d98df16d-fba5-4c86-8240-9b058759e468" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Children.Age}</expression>
+            <path>
+              <target id="56b8e8e8-e7a1-403c-bb38-6991f3505e76" name="EmbeddedParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7b4b9d35-35cc-4083-8537-7ed43cf878fe" name="Children" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+              <target id="5342352f-aaa3-4cfc-956c-84c941e5fd5a" name="Age" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Children.Age" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d2b7b99c-3f09-402f-ae7b-bf92cd56f6a5" name="CreateEmbeddedParentCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="8c60f4df-5772-48c9-9537-0d3f553d682d" name="Children" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="92875544-ed1b-4598-a811-47f7e4d4ea3a" name="Age" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

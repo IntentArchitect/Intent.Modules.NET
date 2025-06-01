@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7f3c9752-62b6-4435-9981-f09ac462c63e">
+  <sourceEnd id="3e1af72b-2ee2-40df-a051-29ae50a907b2" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetMyCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="4d73e39e-eb73-483e-8a11-ba2e513bd8c4">
+      <typeId>4821920f-7868-49c0-9c57-b7555f4a53fb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Services</typePackageName>
+      <typePackageId>9321e8a2-e49e-4c32-80e7-110f1bb4fd07</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7f3c9752-62b6-4435-9981-f09ac462c63e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>myCustomer</name>
+    <display>[query] myCustomer: MyCustomer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="8493bf76-b21e-473f-af96-ebcc0d9d4198">
+      <typeId>c74de081-ad52-4e7c-9284-5296089e5994</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module2.Domain</typePackageName>
+      <typePackageId>e7481924-45ec-4dc4-9ad6-9cc4ee3effca</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4821920f-7868-49c0-9c57-b7555f4a53fb" location="[Module2].[Services].[GetMyCustomerByIdQuery]" />
+        <target applicationId="42bb3d2c-d940-43c9-8d76-95250d6ee17e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c74de081-ad52-4e7c-9284-5296089e5994" location="[Module2].[Services].[MyCustomer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="c74de081-ad52-4e7c-9284-5296089e5994" name="MyCustomer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="07e3aff4-42e7-481c-8b3a-9d84b4c373f5" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="4821920f-7868-49c0-9c57-b7555f4a53fb" name="GetMyCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="4c61aeb6-27bc-4297-9421-b66c5492cfbd" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

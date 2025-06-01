@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c9a05c64-bdf3-4229-ae37-3997659ecf23">
+  <sourceEnd id="64bd3143-549c-4b36-a610-b3f2afb46102" type="Domain Event Handler Association Source End" typeId="79f048d4-4c09-4405-be8f-95473a981556">
+    <display>: CustomerCreatedHandler</display>
+    <order>0</order>
+    <typeReference id="5c1b0948-121d-4bbd-a9f6-2bb9c19cd09d">
+      <typeId>48744906-7393-46f3-96de-52f54201df5e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Services</typePackageName>
+      <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c9a05c64-bdf3-4229-ae37-3997659ecf23" type="Domain Event Handler Association Target End" typeId="f45dfee9-f62b-45ac-bfce-a3878e04b73f">
+    <name>handler</name>
+    <display>handles : CustomerCreated</display>
+    <order>0</order>
+    <typeReference id="890ce306-9b32-4a1d-bd97-52f56ed7d5ff">
+      <typeId>d88d3e01-fc34-4bd3-8194-a7f78a90ae88</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Domain</typePackageName>
+      <typePackageId>a985b685-fee6-4413-b291-34a1cb171158</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Handler Association</associationType>
+  <associationTypeId>90831494-f069-44eb-b488-ab2dba7518ea</associationTypeId>
+  <stereotypes />
+</association>

@@ -31,7 +31,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
         public override void Configure()
         {
-            Post("mutation-param");
+            Post("api/service-dispatch-without-implementation/mutation-param");
             Description(b =>
             {
                 b.WithTags("ServiceDispatchWithoutImplementation");
@@ -59,7 +59,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ServiceDispatch.ServiceDispatchWit
 
     public class MutationNoImpl1RequestModel
     {
-        [FromQuery]
+        [QueryParam]
         public string Param { get; set; }
     }
 }

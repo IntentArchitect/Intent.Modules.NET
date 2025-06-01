@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF8.Domain.Entities.ValueObjects;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF8.Domain.Repositories.ValueObjects
     {
         [IntentManaged(Mode.Fully)]
         Task<PersonWithAddressSerialized?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<PersonWithAddressSerialized?> FindByIdAsync(Guid id, Func<IQueryable<PersonWithAddressSerialized>, IQueryable<PersonWithAddressSerialized>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<PersonWithAddressSerialized>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -175,7 +175,7 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             block.AddStatement($"queryable = queryable.Where({expression})", x => x.WithSemicolon());
         }
 
-        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement == null || x.SourceElement.TypeReference.IsNullable))
+        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement != null && x.SourceElement.TypeReference.IsNullable))
         {
             block.AddIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null", inside =>
             {

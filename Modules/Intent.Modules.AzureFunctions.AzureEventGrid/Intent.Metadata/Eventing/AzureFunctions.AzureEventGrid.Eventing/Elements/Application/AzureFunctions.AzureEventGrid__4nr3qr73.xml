@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="55438f43-e2c6-40df-a390-61e0a438c214" type="Application" typeId="f40a4942-5d2d-4174-8ec1-af66cbd464db">
+  <name>AzureFunctions.AzureEventGrid</name>
+  <display>AzureFunctions.AzureEventGrid</display>
+  <externalReference>259354b5-82fe-4c0a-bb30-1fda60b4d935</externalReference>
+  <isAbstract>false</isAbstract>
+  <order>1</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3c66c235-cc1f-4df9-8b57-a51f7989dcaf</parentFolderId>
+  <diagram>
+    <targetPackageId>7cfffe8e-be9a-411e-bb66-853b2b96b908</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

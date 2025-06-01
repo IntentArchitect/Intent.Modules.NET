@@ -19,6 +19,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.SoftD
         [IntentManaged(Mode.Fully)]
         Task<ClassWithSoftDelete?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<ClassWithSoftDelete?> FindByIdAsync(Guid id, Func<IQueryable<ClassWithSoftDelete>, IQueryable<ClassWithSoftDelete>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<ClassWithSoftDelete>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

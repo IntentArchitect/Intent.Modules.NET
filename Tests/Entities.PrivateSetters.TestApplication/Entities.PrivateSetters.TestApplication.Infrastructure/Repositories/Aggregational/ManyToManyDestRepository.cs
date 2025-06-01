@@ -34,6 +34,14 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Ag
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<ManyToManyDest?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<ManyToManyDest>, IQueryable<ManyToManyDest>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<ManyToManyDest>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

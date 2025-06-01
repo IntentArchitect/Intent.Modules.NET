@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionConsumer;
+using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
@@ -24,12 +24,12 @@ using Intent.Templates;
 namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionConsumer
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class AzureFunctionConsumerTemplate : CSharpTemplateBase<AzureFunctionSubscriptionModel>, ICSharpFileBuilderTemplate
+    public partial class AzureFunctionConsumerTemplate : CSharpTemplateBase<IntegrationEventHandlerModel>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public AzureFunctionConsumerTemplate(IOutputTarget outputTarget, AzureFunctionSubscriptionModel model) : base(TemplateId, outputTarget, model)
+        public AzureFunctionConsumerTemplate(IOutputTarget outputTarget, IntegrationEventHandlerModel model) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.MicrosoftAzureFunctionsWorkerExtensionsEventGrid(outputTarget));
 
@@ -46,6 +46,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         ctor.AddParameter(this.GetAzureEventGridMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"ILogger<{@class.Name}>", "logger", param => param.IntroduceReadonlyField());
                         ctor.AddParameter(this.GetEventBusInterfaceName(), "eventBus", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter("IServiceProvider", "serviceProvider", param => param.IntroduceReadonlyField());
                     });
 
                     @class.AddMethod("Task", "Run", method =>
@@ -61,6 +62,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         method.AddTryBlock(block =>
                         {
                             var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
+                                .AddArgument("_serviceProvider")
                                 .AddArgument("message")
                                 .AddArgument("cancellationToken"));
                             dispatch.AddMetadata("service-dispatch-statement", true);
@@ -78,34 +80,15 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                 });
         }
 
-        public override void AfterTemplateRegistration()
-        {
-            var messageNames = Model.MessageModels
-                .Select(x => GetFullyQualifiedTypeName(GetTemplate<IClassProvider>(
-                    templateId: "Application.Eventing.Message",
-                    modelId: x.Id,
-                    options: new TemplateDiscoveryOptions { TrackDependency = false })))
-                .ToArray();
-
-            ExecutionContext.EventDispatcher.Publish(new InfrastructureRegisteredEvent(
-                infrastructureComponent: Infrastructure.AzureEventGrid.Subscription,
-                properties: new Dictionary<string, string>
-                {
-                    [Infrastructure.AzureEventGrid.Property.MessageNames] = string.Join(";", messageNames),
-                    [Infrastructure.AzureEventGrid.Property.HandlerFunctionName] = GetFunctionName(),
-                    [Infrastructure.AzureEventGrid.Property.TopicName] = Model.TopicName
-                }));
-
-            base.AfterTemplateRegistration();
-        }
-
+        // Keep GetFunctionName() in sync with:
+        // - Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf.AzureEventGridTfTemplate
         private string GetFunctionName()
         {
-            var functionName = $"{Model.HandlerModel.Name.RemoveSuffix("Handler")}Consumer";
+            var functionName = $"{Model.Name.RemoveSuffix("Handler")}Consumer";
 
             if (!ExecutionContext.Settings.GetAzureFunctionsSettings().SimpleFunctionNames())
             {
-                var path = string.Join("_", Model.HandlerModel.GetParentFolderNames());
+                var path = string.Join("_", Model.GetParentFolderNames());
                 if (!string.IsNullOrWhiteSpace(path))
                 {
                     return $"{path}_{functionName}";
@@ -117,7 +100,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
 
         private string GetRelativeLocation()
         {
-            var path = string.Join("/", Model.HandlerModel.GetParentFolderNames());
+            var path = string.Join("/", Model.GetParentFolderNames());
             return path;
         }
 
@@ -127,7 +110,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                 {
                     OutputTarget.GetNamespace()
                 }
-                .Concat(Model.HandlerModel.GetParentFolders()
+                .Concat(Model.GetParentFolders()
                     .Where(x =>
                     {
                         if (string.IsNullOrWhiteSpace(x.Name))

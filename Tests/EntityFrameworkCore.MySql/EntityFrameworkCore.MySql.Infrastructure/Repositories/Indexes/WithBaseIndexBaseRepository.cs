@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories.Indexes
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<WithBaseIndexBase?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<WithBaseIndexBase>, IQueryable<WithBaseIndexBase>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<WithBaseIndexBase>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

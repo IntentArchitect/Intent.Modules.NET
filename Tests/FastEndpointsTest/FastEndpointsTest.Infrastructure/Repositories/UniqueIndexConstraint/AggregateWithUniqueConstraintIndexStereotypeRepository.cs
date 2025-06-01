@@ -36,6 +36,14 @@ namespace FastEndpointsTest.Infrastructure.Repositories.UniqueIndexConstraint
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AggregateWithUniqueConstraintIndexStereotype?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<AggregateWithUniqueConstraintIndexStereotype>, IQueryable<AggregateWithUniqueConstraintIndexStereotype>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AggregateWithUniqueConstraintIndexStereotype>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

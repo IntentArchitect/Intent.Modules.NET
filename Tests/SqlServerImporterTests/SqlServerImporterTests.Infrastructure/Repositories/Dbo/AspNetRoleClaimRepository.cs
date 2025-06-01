@@ -34,6 +34,14 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<AspNetRoleClaim?> FindByIdAsync(
+            int id,
+            Func<IQueryable<AspNetRoleClaim>, IQueryable<AspNetRoleClaim>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<AspNetRoleClaim>> FindByIdsAsync(int[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

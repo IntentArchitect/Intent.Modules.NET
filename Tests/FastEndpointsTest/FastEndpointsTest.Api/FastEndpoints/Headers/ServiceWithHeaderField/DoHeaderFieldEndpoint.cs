@@ -30,7 +30,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.Headers.ServiceWithHeaderField
 
         public override void Configure()
         {
-            Post("do-header-field");
+            Post("api/service-with-header-field/do-header-field");
             Description(b =>
             {
                 b.WithTags("ServiceWithHeaderField");

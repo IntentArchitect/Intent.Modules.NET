@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2f5a3b9d-da4b-41be-9502-3bc9a6f82f5b">
+  <sourceEnd id="8a77f9bf-2d2a-48d3-94ec-91e10402fd7a" type="Send Integration Command Source End" typeId="c5f4f98f-e464-48de-b202-c0724bacebb7">
+    <display>sent by : Org.CreateOrgCommand</display>
+    <order>0</order>
+    <typeReference id="d75123ca-ff39-4a74-acdd-cb1aea83c11c">
+      <typeId>068e9692-ba9d-465b-afab-376a83ee4a0d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Services</typePackageName>
+      <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2f5a3b9d-da4b-41be-9502-3bc9a6f82f5b" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
+    <display>[send] CreateOrgIntegrationCommand</display>
+    <order>4</order>
+    <typeReference id="b98574a9-2ddf-4efe-9b91-7c7cc1b41480">
+      <typeId>c61289e8-ea3a-4dba-bc4f-c67efb4393c0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages</typePackageName>
+      <typePackageId>4f999ce2-cab3-4fc5-933f-67cd41301cff</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="068e9692-ba9d-465b-afab-376a83ee4a0d" location="[AzureFunctions.AzureServiceBus.GroupA].[Services].[CreateOrgCommand]" />
+        <target applicationId="00b3b7e9-f22e-4961-ad56-c9c60f5b1f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" location="[AzureFunctions.AzureServiceBus.GroupA].[Services].[CreateOrgIntegrationCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="8a06ffd7-e2a4-4b7c-8b29-e3cffa76481b" name="Name" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="25dcd9b8-5d41-43c1-90f8-2490f4cac192" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Type}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="f8f93773-c944-4fb4-a49c-70be2df234e8" name="Type" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Type" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6f9a15ba-88a5-46bd-b41f-726b1514e393" name="Type" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Founded}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="5727871b-b0d5-42cf-ab0f-e2b2f36eefe6" name="Founded" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Founded" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="655fcf58-738d-4552-9250-b2f8a06d82a9" name="Founded" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Departments}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="8460bded-00e6-4b0c-bfdd-6b6081407734" name="Departments" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="Departments" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f4fb0535-2af8-4e17-8ed1-e68edbc428e4" name="Departments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Departments.Name}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="8460bded-00e6-4b0c-bfdd-6b6081407734" name="Departments" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="6908bd2c-82a9-4466-97c9-ef5c1ed6f604" name="Name" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="Departments.Name" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f4fb0535-2af8-4e17-8ed1-e68edbc428e4" name="Departments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ba695027-3b05-450e-8b2f-291d4b4facda" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Departments.Code}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="8460bded-00e6-4b0c-bfdd-6b6081407734" name="Departments" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="a5a7f20a-d07f-49f7-af1f-0677a9b7997f" name="Code" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="Departments.Code" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f4fb0535-2af8-4e17-8ed1-e68edbc428e4" name="Departments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="202ce6ec-5ffe-4e15-9643-e406aa61abe6" name="Code" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Departments.Description}</expression>
+            <path>
+              <target id="c61289e8-ea3a-4dba-bc4f-c67efb4393c0" name="CreateOrgIntegrationCommand" type="element" specialization="Integration Command" specializationId="7f01ca8e-0e3c-4735-ae23-a45169f71625" />
+              <target id="8460bded-00e6-4b0c-bfdd-6b6081407734" name="Departments" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+              <target id="3dfde118-d1d5-48b8-b589-d42b6543b865" name="Description" type="element" specialization="Eventing DTO-Field" specializationId="93eea5d7-a6a6-4fb8-9c87-d2e4c913fbe7" />
+            </path>
+            <sources>
+              <source identifier="Departments.Description" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="068e9692-ba9d-465b-afab-376a83ee4a0d" name="CreateOrgCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f4fb0535-2af8-4e17-8ed1-e68edbc428e4" name="Departments" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="25f9bd4d-9886-497b-b22d-3bb43f8a5e9a" name="Description" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Send Integration Command</associationType>
+  <associationTypeId>389a7478-a8f1-4acc-adff-a73ce4aa7e6d</associationTypeId>
+  <stereotypes />
+</association>

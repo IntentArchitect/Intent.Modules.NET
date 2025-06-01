@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cb7b9267-981b-4214-8cff-606c9f2db1c6" type="Query" typeId="e71b0662-e29d-4db2-868b-8a12464b25d0">
+  <name>GetEmbeddedParentsQuery</name>
+  <display>GetEmbeddedParentsQuery: EmbeddedParentDto[*]</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <typeReference id="199ff024-335b-4625-8fa0-809f62c454b1">
+    <typeId>60246354-3bc6-46bf-bb85-f90a9f76675d</typeId>
+    <isNavigable>true</isNavigable>
+    <isNullable>false</isNullable>
+    <isCollection>true</isCollection>
+    <isRequired>true</isRequired>
+    <typePackageName>AdvancedMappingCrud.Cosmos.Tests.Services</typePackageName>
+    <typePackageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</typePackageId>
+    <stereotypes />
+    <genericTypeParameters />
+  </typeReference>
+  <isMapped>false</isMapped>
+  <parentFolderId>1b49bcc6-cdb7-4ecb-9e60-15c683f36126</parentFolderId>
+  <packageId>d4ef5a60-8502-49fd-810c-bacd2efcf605</packageId>
+  <packageName>AdvancedMappingCrud.Cosmos.Tests.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
+  <stereotypes />
+  <metadata>
+    <entry key="baseName" value="EmbeddedParents" />
+  </metadata>
+  <childElements />
+</class>

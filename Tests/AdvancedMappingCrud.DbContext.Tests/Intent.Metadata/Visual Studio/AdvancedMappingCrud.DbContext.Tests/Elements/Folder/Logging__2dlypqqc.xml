@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cd1ed322-f58a-495c-b759-14939ebaea0d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Logging</name>
+  <display>Logging</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>43bf6301-655c-49fc-b80f-cf91357fb666</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="f22ef7a0-4687-4e2d-bddf-81be4e80818f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</name>
+      <display>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</display>
+      <externalReference>Intent.Modules.AspNetCore.Logging.Serilog</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cd1ed322-f58a-495c-b759-14939ebaea0d</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

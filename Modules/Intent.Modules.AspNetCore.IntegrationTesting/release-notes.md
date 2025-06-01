@@ -1,4 +1,13 @@
-﻿### Version 2.0.0
+### Version 2.0.2
+
+- Improvement: Updated NuGet package versions.
+
+### Version 2.0.1
+
+- Improvement: Updated NuGet package versions.
+- Fixed: `Content-length` parameter now set correctly when creating a proxy service.
+
+### Version 2.0.0
 
 - Improvement: Upgraded to XUnit v3. 
 

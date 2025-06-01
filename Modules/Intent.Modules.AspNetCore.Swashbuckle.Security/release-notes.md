@@ -1,3 +1,7 @@
+### Version 4.0.10
+
+- Improvement: Swashbuckle interface no longer shows the lock icon for unsecure endpoints.
+
 ### Version 4.0.9
 
 - Improvement: Improved generated code quality by making `AuthorizeCheckOperationFilter.HasAuthorize` static

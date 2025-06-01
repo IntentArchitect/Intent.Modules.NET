@@ -103,7 +103,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T16:16:45.0017058Z</approvedAt>
       <deviationsHash>670E7C085ED9C3BA208F35E309DB637C3582E06E09F240721253C22754B78883</deviationsHash>
-      <fileHash>62E7B78890ACF93AAAEA2BDB7A198D07746DDBF07CA6BB0D452DB55B0CB2DB95</fileHash>
+      <fileHash>B3E9956E01B761C5DF2AE3BD820CA8C8C36E14558A68C5575EFE82AE6CDD9EE4</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#3407a825-1331-4f3f-89a4-901903ed97ce</correlationId>
@@ -199,15 +199,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#00D1A9C2-B5F0-4AF3-8072-F6C62B433612</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Api/SQLServerDatabaseProjectModel.cs</path>
-      <count>13</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-08-15T11:53:38.6773408Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:30:39.760777Z</approvedAt>
-      <deviationsHash>923B09E869FFA09E4B762B608C9726D26B8F64D8FDA7E2F5D7FCD8D188824802</deviationsHash>
-      <fileHash>A8597228A4104C60096007B1296809A8FB37F9C10639FCE95A7C164215182779</fileHash>
+      <count>3</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-05-08T10:09:27.0972585Z</updatedAt>
+      <deviationsHash>2A09238A88F75A640CA2731349A9E0149D9BE440F73D601008C8DB3C515FF63D</deviationsHash>
+      <fileHash>E8B97F6393EE0866D6BF438F49035E4E032033DDA25FC56E90DC159C10C57B77</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.Api.ApiElementModel#d421c322-7a51-4094-89fa-e5d8a0a97b27</correlationId>
@@ -430,15 +427,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.ProjectItemTemplate.Partial#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>
       <path>Intent.Modules.VisualStudio.Projects/Templates/SqlServerDatabase/SqlProject/SqlProjectTemplatePartial.cs</path>
-      <count>4</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-08-15T11:53:38.677578Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:30:39.7992573Z</approvedAt>
-      <deviationsHash>C2A68A2D774AD7441FC2090920DF871D181BA3F1315DB59B8277407F2CA9AC53</deviationsHash>
-      <fileHash>A43EDDD5788E5802B3E540D30ED0469AD5C677695AFFC63F706CC2A8CE4862BB</fileHash>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-05-08T10:09:27.0975313Z</updatedAt>
+      <deviationsHash>0CBC0EC0AFC3D47B1EB1FB5B35A6A9735DA09E4AA6E5498376C365348E8B975A</deviationsHash>
+      <fileHash>05D9B9DB20229A7D00FA7A47D2069ECFD43E3738B35057192C3CDDDD2E8794B0</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.Custom#90bf72bb-3741-4c8e-8954-2a9a65d37740</correlationId>

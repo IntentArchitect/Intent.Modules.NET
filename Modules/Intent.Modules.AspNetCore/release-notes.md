@@ -1,3 +1,7 @@
+### Version 6.1.1
+
+- Fixed: `ProblemDetailsConfiguration` CanRun behaviour didn't respect base implementation.
+
 ### Version 6.1.0
 
 - Improvement: When Top level Statements are enabled, the Program class can be exposed for Type reference purposes.

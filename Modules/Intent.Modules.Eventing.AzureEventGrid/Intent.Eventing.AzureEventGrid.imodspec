@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureEventGrid</id>
-  <version>1.0.1</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.3-pre.2</version>
+  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>
@@ -66,12 +66,14 @@
     </template>
   </templates>
   <decorators></decorators>
-  <factoryExtensions></factoryExtensions>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Eventing.AzureEventGrid.MetadataLoaderExtension" externalReference="cc0b7146-e0a5-4a33-ba08-3c88c62a21fe" />
+  </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.AzureFunctions.AzureEventGrid" version="1.0.0" />
+        <package id="Intent.AzureFunctions.AzureEventGrid" version="1.0.2-pre.1" />
       </install>
     </detect>
   </interoperability>

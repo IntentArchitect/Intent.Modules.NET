@@ -25,6 +25,14 @@ namespace EntityFrameworkCore.MySql.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<ViewExplicitSchema?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<ViewExplicitSchema>, IQueryable<ViewExplicitSchema>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<ViewExplicitSchema>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

@@ -175,7 +175,7 @@ public class DbContextDataAccessProvider : IDataAccessProvider
 
         if (orderBy != null)
         {
-            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
+            invocation.AddChainStatement(new CSharpInvocationStatement(AddOrderBy())
                 .AddArgument(GetOrderByValue(orderByIsNullable, orderBy))
                 .WithoutSemicolon());
         }
@@ -199,11 +199,17 @@ public class DbContextDataAccessProvider : IDataAccessProvider
         }
         if (orderBy != null)
         {
-            invocation.AddChainStatement(new CSharpInvocationStatement(_template.UseType($"System.Linq.Dynamic.Core.OrderBy"))
+            invocation.AddChainStatement(new CSharpInvocationStatement(AddOrderBy())
                 .AddArgument(GetOrderByValue(orderByIsNullable, orderBy))
                 .WithoutSemicolon());
         }
         return invocation.AddChainStatement($"ToPagedListAsync({pageNo}, {pageSize}, cancellationToken)");
+    }
+
+    private string AddOrderBy()
+    {
+        _template.AddUsing("static System.Linq.Dynamic.Core.DynamicQueryableExtensions");
+        return "OrderBy";
     }
 
     private string GetPkFilterEquals(List<PrimaryKeyFilterMapping> pkMaps)

@@ -45,6 +45,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Configuration
                     {
                         options.IncludeXmlComments(applicationXmlFile);
                     }
+
+                    options.DocumentFilter<ExcludeODataDocumentFilter>();
+                    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                     options.OperationFilter<BinaryContentFilter>();
                     options.OperationFilter<ODataQueryFilter>();
                     options.OperationFilter<AuthorizeCheckOperationFilter>();

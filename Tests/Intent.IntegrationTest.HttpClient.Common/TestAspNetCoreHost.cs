@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Xunit.Abstractions;
 
@@ -41,7 +42,15 @@ public static class TestAspNetCoreHost
                         options.RequireHttpsMetadata = false;
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
-                            ValidateAudience = false
+                            ValidateAudience = false,
+                            ValidateIssuer = false,
+                            RequireSignedTokens = false,
+                            SignatureValidator = (token, parameters) =>
+                            {
+                                var handler = new JsonWebTokenHandler();
+                                var jwt = handler.ReadJsonWebToken(token);
+                                return jwt;
+                            }
                         };
                         options.TokenValidationParameters.RoleClaimType = "role";
                         options.SaveToken = true;

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.AspNetCore.OData.EntityFramework</id>
+  <version>1.0.1-pre.1</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>Provide the ability to expose OData endpoints for a Domain Model.</summary>
+  <description>Enable the application to expose OData endpoints that operate directly over the Domain Model, allowing clients to query, filter, and manipulate domain entities using standard OData protocols.</description>
+  <authors>Intent Architect</authors>
+  <iconUrl>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABPCAYAAAB8kULjAAAAAXNSR0IArs4c6QAABZVJREFUeF7tnHlsVUUUh7/XFgqWplBBoFLTxbC31CgiiNDiBqmof2iNqWI0QKxoVDTRYBCXGKNgiUTALSgG44JGEyS4IAVEQInaQkkRRG2KbWLZpK3Q0vaZw7Xa1ve8y9x58B4zf5Fwzplzvs67M/c3dyYQXMgLBJiLae4JBCkNGIDuuf3jYQAqwBNXA9AAVCSg6G5GoG6AiSmQ0FuxF5fuLQ1wsim0U48k6JnsMqCieetxaP4jdBDbEZhXAhlTFTNw6b7rdfj5EwgGuzoGApB1HeTMdBlQ0fzXT6F8uUeAVy2HMXcrZuDSvex++OElCLZ3AxgHF90LBS+6DKhoXvEyrC8xAD1jNAA9o7McDUAD0CIQMM9AZ0MhpiaRMSWQea2zwv2yOrWMWRtmGVMY+WXML59BhddljF9QYjWO7UI6Vgv3qy4DUJGkAWgAKhJQdDcjUDfA9AIYMFqxF5fuNZuhfucpvbybmgADciF9ksuAiub1lVBT5lFMKFgMo+9SzMCl++ZHYOerodWY3Nkw6TmXARXNK1dA2YMeARo5y4gJiuPPADQAOwgYNcbhWIgpNSZ/MeSc5bPwrhWw0ess7HDQnLVm5k1E8U9vABqAigQU3c0INAAVCSi6247Ac0dAnyGKvbh0P/wjNNSEVmOS0yF1mMuAiuaNB+BQlUcxYeIzMKJYMQOX7tuehN0rQ6sxo+6A8QtcBlQ0r3obtjzmEaBRY4yYoDj+DEAD0KgxLsdATKkxVy4F2YeIZNs4F8qXhp6F8+ZAfmkks7H2Z76c43EWTpsQ+XVX3Td/r7tC7MrJunTwuMgClHVp7VaPACObavT1ZvsmEn0lRTZjA1CRtxaAgXiIi7cya2+DYJtilmewuy8AZbesd39IvgCSBkJSGpwzwKr6z9+hsRaaauFYDTQf+e/segbzsU1NDWAAkgZBViGkT4Hz8qBvNsT37NpvWwsc3gP1FVD9BexfA81HbXOLCgMlgGnjYfzjMHAs9EoFOYpl12REHqyEb5+F6vV21l3/X+Jn3wB597jzU7WW77W/D3M6yjPA7Ouh8B3rIKITcN2LkJ/01ieg8k1oP+msxKjcWO9eWnwiDCuCKUsgsa+zwsNZHT8Emx6GqlXQ3mofK+oByuyacQ0ULIF+F9oX7MRC1N61t8GBTfbWUQ9Q5HQRWDOnWaeG/Gp12+HDafYTS3QDDMCoGXD1KyA/Yz+brBO/mgc7nv//qFENMC4Bbt4AQ67wE92/sRoOwBvDw59UF8uoBpiSBTP364EnUU8cgXUzrJPq4ZoAHHoTXBzmQx9d2e37KPyvw/EyRk6ty/NPV2trhh0L4ev5unrQE9cxwKkrrWegrib3I8j24brbdfWgJ65jgEVlkJ6vJ4mOqHtXw5oivX34Hd0xwFs2wRDN5zNiGuCNH1vvoTrbnndh7a06e/A/tuMReMlDMHmR/wl0RJT34fJlUPaAvj50RHYMcNA4KN6uIwUrptxWJPDkVFA0NccA5e3jzipIydRTXlMdrBoLjb/pia8rqmOAsoi99FG4/Gl/34M7CpN7Ej6fpatMfXEdA5QUUofD9Pehf46/Ccnoe28yHNnnb9xIRHMFMKEX5MyGCQssBdqPJnL/hvus3f9obK4ASoEiouYvgpEzIK6HWskCT6TybU/ByUa1WKfL2zVASVTu75u+GjIU7pMRBXrna7Blnr0OeLrgOOnXE8COwJfNh9xZkDQYRO5y0uRKO9kP2f0WfLcYjh904nXm2igBFIn//IkwshgGTwD58CecUt16Ao7+BPLh0N4PQC41jIWmBLADgDwXBV6/odadBiL9d1atZRvzWLV1D4L8O1qfd6H+4L4A7By4Rx+Q2brzVmdLE4jeF4ufePgOMBZ+lm5qMADd0AphawAagIoEFN2DlP4FnA8ilu/LBR8AAAAASUVORK5CYII=</iconUrl>
+  <projectUrl>https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.OData.EntityFramework/README.md</projectUrl>
+  <templates>
+    <template id="Intent.AspNetCore.OData.EntityFramework.ExcludeODataDocumentFilter" externalReference="b8b9d695-08b8-4f1c-859c-2aebe6e7d361">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Startup</role>
+      <location>Filters</location>
+    </template>
+    <template id="Intent.AspNetCore.OData.EntityFramework.ODataAggregateController" externalReference="72c5b5d8-3c53-4a2b-b6a7-ec0eb4feec11">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution.ODataController</role>
+      <location>ODataControllers</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.AspNetCore.OData.EntityFramework.StartupExtension" externalReference="c1a9d5c7-94b7-4b21-8f61-87c748315715" />
+    <factoryExtension id="Intent.AspNetCore.OData.EntityFramework.SwaggerConfigExtension" externalReference="97ff1bd7-faee-4fd9-83cf-384bebf19a60" />
+  </factoryExtensions>
+  <moduleSettings></moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Common" version="3.7.3" />
+    <dependency id="Intent.Common.CSharp" version="3.8.5" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Entities" version="5.1.12" />
+    <dependency id="Intent.EntityFrameworkCore" version="5.0.20" />
+    <dependency id="Intent.Metadata.RDBMS" version="3.6.2" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags>csharp dotnet aspnet odata entityframework domain</tags>
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.AspNetCore.OData.EntityFramework/Intent.AspNetCore.OData.EntityFramework.pkg.config" externalReference="f80db930-cd05-493f-a2a6-f487326ec7c5" />
+    <install src="modelers/Domain Designer Settings.designer.settings" externalReference="20b4965e-80e6-437c-918d-aaceb7b39245" target="Domain" />
+  </metadata>
+  <migrations />
+</package>

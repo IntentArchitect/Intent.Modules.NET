@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FastEndpointsTest.Domain.Entities.DDD;
@@ -17,6 +18,8 @@ namespace FastEndpointsTest.Domain.Repositories.DDD
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<AccountHolder?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<AccountHolder?> FindByIdAsync(Guid id, Func<IQueryable<AccountHolder>, IQueryable<AccountHolder>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<AccountHolder>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

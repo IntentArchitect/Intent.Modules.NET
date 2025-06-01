@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
@@ -17,6 +18,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.DomainServi
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<ClassicDomainServiceTest?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ClassicDomainServiceTest?> FindByIdAsync(Guid id, Func<IQueryable<ClassicDomainServiceTest>, IQueryable<ClassicDomainServiceTest>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<ClassicDomainServiceTest>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

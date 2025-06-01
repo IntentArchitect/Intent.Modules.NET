@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="1f60bd15-005b-4184-8c12-c44c20158001" version="3.1.0">
+  <comment>Configures Azure Service Bus message queue/topic name.</comment>
   <name>Azure Service Bus</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

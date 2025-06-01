@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.SqlServer.EF8.Infrastructure.Repositories.TPC.Inhe
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPC_FkAssociatedClass?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPC_FkAssociatedClass>, IQueryable<TPC_FkAssociatedClass>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPC_FkAssociatedClass>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

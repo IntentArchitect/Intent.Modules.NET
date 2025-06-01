@@ -41,8 +41,11 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure
             services.AddTransient<ICustomDb1Repository, CustomDb1Repository>();
             services.AddTransient<ICustomDb2Repository, CustomDb2Repository>();
             services.AddTransient<ICustomDb3Repository, CustomDb3Repository>();
+            services.AddTransient<IDb1DomainPackageAuditLogRepository, Db1DomainPackageAuditLogRepository>();
             services.AddTransient<IDb1EntityRepository, Db1EntityRepository>();
+            services.AddTransient<IDb2DomainPackageAuditLogRepository, Db2DomainPackageAuditLogRepository>();
             services.AddTransient<IDb2EntityRepository, Db2EntityRepository>();
+            services.AddTransient<IDb3DomainPackageAuditLogRepository, Db3DomainPackageAuditLogRepository>();
             services.AddTransient<IDb3EntityRepository, Db3EntityRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();
             return services;

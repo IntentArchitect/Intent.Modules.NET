@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a1ebde22-a6c3-4028-95fa-6178ab127668" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>433b1a34-b38f-4936-868f-a37be4d9944d</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>60a22b78-005c-44d9-9a7c-286afa665554</parentFolderId>
+  <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

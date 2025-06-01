@@ -1,3 +1,8 @@
+### Version 4.1.4
+
+- Improvement: Updates Multiple DB Contexts to all have Domain Eventing infrastructure.
+- Improvement: In the `DbContext`'s `DispatchEventsAsync` method, changed `.Select(x => x.Entity.DomainEvents).SelectMany(x => x)` to more simply be just `.SelectMany(x => x.Entity.DomainEvents)`.
+
 ### Version 4.1.3
 
 - Improvement: Updated module icon

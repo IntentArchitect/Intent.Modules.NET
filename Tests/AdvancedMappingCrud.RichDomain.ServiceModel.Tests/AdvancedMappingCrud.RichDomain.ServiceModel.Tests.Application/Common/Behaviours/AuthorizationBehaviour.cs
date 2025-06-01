@@ -87,7 +87,7 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Application.Common.B
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

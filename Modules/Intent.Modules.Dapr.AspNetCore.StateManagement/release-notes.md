@@ -1,3 +1,7 @@
+### Version 1.2.11
+
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 1.2.10
 
 - Improvement: Added support for extending an entity repository as well as generating custom entity-less repositories.

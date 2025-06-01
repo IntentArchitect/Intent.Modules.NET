@@ -1,3 +1,7 @@
+### Version 4.0.14
+
+- Improvement: Added support for `Profile location` setting.
+
 ### Version 4.0.13
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="711d8079-1e21-4237-a327-56c1cd6ba308" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <comment />
   <name>TemporalInterface</name>
   <display>TemporalInterface: Single File</display>
   <isAbstract>false</isAbstract>

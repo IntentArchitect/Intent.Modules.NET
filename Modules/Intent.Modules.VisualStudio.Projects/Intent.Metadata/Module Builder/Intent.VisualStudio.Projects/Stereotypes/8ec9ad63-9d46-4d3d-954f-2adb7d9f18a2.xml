@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="8ec9ad63-9d46-4d3d-954f-2adb7d9f18a2" version="3.1.0">
+  <comment>Configures Javascript project-level settings.</comment>
   <name>JavaScript Project Options</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -26,8 +27,6 @@
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
       <placeholder>(default)</placeholder>
-      <valueOptions />
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

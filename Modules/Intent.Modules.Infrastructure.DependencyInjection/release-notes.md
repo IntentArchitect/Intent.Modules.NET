@@ -1,3 +1,11 @@
+### Version 4.1.7
+
+- Improvement: Updated NuGet package versions.
+
+### Version 4.1.6
+
+- Improvement: Updated `ServiceConfigurationRequest` and `ContainerRegistrationRequest` , don't process if they already handled.
+
 ### Version 4.1.5
 
 - Improvement: Updated NuGet package versions.

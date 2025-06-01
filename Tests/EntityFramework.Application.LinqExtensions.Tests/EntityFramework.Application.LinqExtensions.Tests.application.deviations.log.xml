@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#241c7e76-9428-4f77-b3f0-262d3b992c2b</correlationId>
+      <path>EntityFramework.Application.LinqExtensions.Tests.Application/Customers/GetCustomers/GetCustomersQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-05-18T14:39:18.6701145Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-05-18T14:39:34.37441Z</approvedAt>
+      <deviationsHash>AC33032FC5146701E431C5F0C81B8F9339E935202E6D4390EC91C7EA63DE848C</deviationsHash>
+      <fileHash>F9B2DC577F70D5350875B690B7A606B37F6CC665A210448A436527A94421E36A</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#1ae612ec-323a-4836-826f-b99fd0ab389d</correlationId>
+      <path>EntityFramework.Application.LinqExtensions.Tests.Application/Customers/GetCustomersWithStatus/GetCustomersWithStatusQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-05-18T14:39:18.6701273Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-05-18T14:39:35.9060482Z</approvedAt>
+      <deviationsHash>E2D71D177388B2476B301A2956A1E55E32ADFD916575FFBF502DF4740FDD5E00</deviationsHash>
+      <fileHash>D0BDD63D8C02C2C10D9AFB225B896963ECDFD7222962EB513F42A233CED3326F</fileHash>
+    </file>
+  </files>
+</deviationsLog>

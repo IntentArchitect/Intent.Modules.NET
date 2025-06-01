@@ -28,6 +28,14 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Repositories.TPT.Inhe
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TPT_ConcreteBaseClassAssociated?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TPT_ConcreteBaseClassAssociated>, IQueryable<TPT_ConcreteBaseClassAssociated>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TPT_ConcreteBaseClassAssociated>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

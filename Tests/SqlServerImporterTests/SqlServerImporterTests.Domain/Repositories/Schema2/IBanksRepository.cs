@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -17,6 +18,8 @@ namespace SqlServerImporterTests.Domain.Repositories.Schema2
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Banks?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Banks?> FindByIdAsync(Guid id, Func<IQueryable<Banks>, IQueryable<Banks>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Banks>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

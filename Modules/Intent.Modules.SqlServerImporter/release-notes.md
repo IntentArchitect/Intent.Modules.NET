@@ -1,3 +1,8 @@
+### Version 1.1.5
+
+- Fixed: Elements are prefixed with "db" if their name would result in invalid C# code.
+- Fixed: Now handles the use case of multiple elements being created with the same name
+
 ### Version 1.1.4
 
 - Fixed: Importing tables with the same name under different schemas would result in an error.

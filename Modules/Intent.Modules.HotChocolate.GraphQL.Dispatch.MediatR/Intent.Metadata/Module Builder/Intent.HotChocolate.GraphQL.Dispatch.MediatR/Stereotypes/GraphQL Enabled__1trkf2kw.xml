@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ea187e1a-7df2-48d1-b523-4720a4b69b5b" version="3.1.0">
+  <comment>Marks the endpoint as GraphQL-enabled, allowing clients to request precisely the data they need.</comment>
   <name>GraphQL Enabled</name>
   <targetMode>of-type</targetMode>
   <targetTypes>

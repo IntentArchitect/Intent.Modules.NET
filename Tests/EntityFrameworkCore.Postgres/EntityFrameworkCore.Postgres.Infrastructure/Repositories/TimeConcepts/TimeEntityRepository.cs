@@ -26,6 +26,14 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.TimeConcepts
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<TimeEntity?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<TimeEntity>, IQueryable<TimeEntity>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<TimeEntity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

@@ -14,6 +14,8 @@ namespace SqlDbProject.Domain.Repositories.Accounts
         [IntentManaged(Mode.Fully)]
         Task<Currency?> FindByIdAsync(int currencyIso, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<Currency?> FindByIdAsync(int currencyIso, Func<IQueryable<Currency>, IQueryable<Currency>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<Currency>> FindByIdsAsync(int[] currencyIsos, CancellationToken cancellationToken = default);
     }
 }

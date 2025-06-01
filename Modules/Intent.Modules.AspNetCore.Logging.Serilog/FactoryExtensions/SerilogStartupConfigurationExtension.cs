@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks.Dataflow;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.Logging.Serilog.Settings;
+using Intent.Modules.AspNetCore.Logging.Serilog.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
@@ -86,7 +87,8 @@ namespace Intent.Modules.AspNetCore.Logging.Serilog.FactoryExtensions
                     {
                         lambdaBlock.WithExpressionBody(new CSharpMethodChainStatement("configuration")
                             .AddChainStatement("ReadFrom.Configuration(context.Configuration)")
-                            .AddChainStatement("ReadFrom.Services(services)"));
+                            .AddChainStatement("ReadFrom.Services(services)")
+                            .AddChainStatement($"Destructure.With(new {programTemplate.GetBoundedLoggingDestructuringPolicyTemplateName()}())"));
                     });
             }, 10);
         }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="ec293aa6-7120-4870-800f-7db01391376f" version="3.1.0">
+  <comment>Configures the output queue name.</comment>
   <name>Queue Output Binding</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -27,9 +28,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
   </properties>

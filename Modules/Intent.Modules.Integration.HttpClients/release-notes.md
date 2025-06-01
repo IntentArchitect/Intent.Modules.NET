@@ -1,3 +1,28 @@
+### Version 6.0.0
+
+> ⚠️ **Breaking Change Notice**
+>
+> This release introduces a **breaking change** to configuration.
+>
+> A new entry, `TokenEndpoint`, is now required under the `IdentityClients` section of your configuration files.
+> Set `TokenEndpoint` to the same value that was previously used for `Address`.
+> You may remove the `Address` entry if it is no longer needed.
+>
+> **Action Required:** Update all relevant configuration files to reflect this change.
+>
+> **Note:** If you're using .NET 7 or earlier, this change does not apply and will fall back to IdentityModel.
+
+- Improvement: Replaced IdentityModel with Duende.IdentityModel
+- Improvement: Replaced IdentityModel.AspNetCore with Duende.AccessTokenManagement
+
+### Version 5.3.6
+
+- Improvement: Updated NuGet package versions.
+
+### Version 5.3.5
+
+- Fixed: `Content-length` parameter now set correctly when creating a proxy service.
+
 ### Version 5.3.4
 
 - Improvement: Updated NuGet package versions.

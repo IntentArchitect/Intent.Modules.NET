@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="15463493-bc23-4ad9-a9d8-91504c6024ed" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>SpecificChannelService</name>
+  <display>SpecificChannelService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5ff9ca47-8693-4c62-9979-5205e19f177e</parentFolderId>
+  <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+  <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="12c0be34-6014-4b0b-a374-a0e5412b76fa" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificQueueOne</name>
+      <display>SendSpecificQueueOne(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="4ab08e96-ba39-40d0-8004-cbcba120aa23">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
+      <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="specific-channel/send-specific-queue-one" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="31b71ba2-9ccd-43a5-b96e-91c09c7d465c" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5de6807f-e68a-43a7-84ef-d9d493660012">
+            <typeId>9a5baa79-3caa-4f8f-b246-010cbc5f22f8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>12c0be34-6014-4b0b-a374-a0e5412b76fa</parentFolderId>
+          <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5a45614a-35c2-4c20-bcec-1d238fbd49d6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificQueueTwo</name>
+      <display>SendSpecificQueueTwo(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="6c84bdbf-9520-4a47-942a-1531eabdc7f1">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
+      <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="specific-channel/send-specific-queue-two" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="1d4eb96d-a390-49b1-8f16-facbdadb7e12" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="11889900-0770-470f-9d47-a2a85648fc9d">
+            <typeId>9a5baa79-3caa-4f8f-b246-010cbc5f22f8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5a45614a-35c2-4c20-bcec-1d238fbd49d6</parentFolderId>
+          <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="879956cf-71f5-4e0f-a6ba-e64d66cd2cb0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificTopicOne</name>
+      <display>SendSpecificTopicOne(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="316fddd0-9e0b-4e9a-9cc8-87627e69ad6a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
+      <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="specific-channel/send-specific-topic-one" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="80d4488a-8861-49d3-b1f6-c18f260ae2d1" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a8944435-329c-460b-abba-fa6ec14a983a">
+            <typeId>9a5baa79-3caa-4f8f-b246-010cbc5f22f8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>879956cf-71f5-4e0f-a6ba-e64d66cd2cb0</parentFolderId>
+          <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="6746be4a-1b9b-4c25-883f-1dfcf179b43f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>SendSpecificTopicTwo</name>
+      <display>SendSpecificTopicTwo(dto: PayloadDto): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="575bb8d7-3228-4a35-853f-b8ba744ee74a">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
+      <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+      <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.AzureFunctions</definitionPackageName>
+          <definitionPackageId>022dbddc-276c-406b-81e6-5034ad64db72</definitionPackageId>
+          <properties>
+            <property name="a6411e1f-8199-4b18-b1a1-fd2aa73b1da6" display="Trigger" value="Http Trigger" isActive="true" />
+            <property name="bb4eeea4-a572-416e-8af9-8b56743879ea" display="Authorization Level" value="Function" isActive="true" />
+            <property name="ba0f1189-f620-4874-8b6a-af71bf30f3ba" display="Queue Name" isActive="false" />
+            <property name="8267af60-0b1f-4394-8148-89b2ef9c16bf" display="Schedule Expression" isActive="false" />
+            <property name="ef3822f1-53c5-4942-a1a0-2433f1a8a4dc" display="EventHub Name" isActive="false" />
+            <property name="c0726eed-bffd-420e-9960-5e1f1ec2b44a" display="Connection" isActive="false" />
+            <property name="a83b939c-86c5-498e-8e64-006a9e4cdc83" display="Return Type Mediatype" value="Default" isActive="false" />
+            <property name="02abfe51-f96a-4ce0-be98-e007ea84f374" display="Route" isActive="false" />
+            <property name="2e05aa2c-ccb6-4a55-861e-194b5dbb4aba" display="Method" isActive="false" />
+            <property name="38ed3faa-6770-484e-8bb9-84ae9db0153b" display="Include Message Envelope" value="false" isActive="false" />
+          </properties>
+        </stereotype>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="specific-channel/send-specific-topic-two" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4206495f-1b48-4daf-a7cf-37525d161b7e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>dto</name>
+          <display>in : dto: PayloadDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c16264d6-d263-4a43-b847-1a3a4de9e12b">
+            <typeId>9a5baa79-3caa-4f8f-b246-010cbc5f22f8</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AzureFunctions.AzureServiceBus.GroupB.Services</typePackageName>
+            <typePackageId>5ff9ca47-8693-4c62-9979-5205e19f177e</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>6746be4a-1b9b-4c25-883f-1dfcf179b43f</parentFolderId>
+          <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
+          <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="d01df110-1208-4af8-a913-92a49d219552" name="Parameter Settings">
+              <addedByDefault>false</addedByDefault>
+              <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+              <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+              <properties>
+                <property name="d2630e0f-f930-404f-b453-1e8052a712f5" display="Source" value="Default" isActive="true" />
+                <property name="7a331e9b-f13c-4b33-9013-bd59b4a4999c" display="Header Name" isActive="false" />
+                <property name="c8caa58e-972a-42f2-983e-652ceee762b2" display="Query String Name" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

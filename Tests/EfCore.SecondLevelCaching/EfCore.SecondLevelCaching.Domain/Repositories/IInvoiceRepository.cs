@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EfCore.SecondLevelCaching.Domain.Entities;
@@ -17,6 +18,8 @@ namespace EfCore.SecondLevelCaching.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Invoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Invoice?> FindByIdAsync(Guid id, Func<IQueryable<Invoice>, IQueryable<Invoice>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Invoice>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
         Task<List<Invoice>> FindAllAsyncCacheable(CancellationToken cancellationToken = default);

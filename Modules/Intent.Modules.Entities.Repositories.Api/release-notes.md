@@ -1,3 +1,8 @@
+### Version 5.1.6
+
+- Improvement: Added `FindById` overload with `queryOptions` on repositories.
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+
 ### Version 5.1.5
 
 - Improvement: Moved custom repository creation to this module leveraged by any database provider.

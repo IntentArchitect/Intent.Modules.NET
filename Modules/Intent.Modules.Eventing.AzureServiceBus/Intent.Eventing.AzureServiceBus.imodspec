@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureServiceBus</id>
-  <version>1.0.2</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.4-pre.1</version>
+  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</description>
   <authors>Intent Architect</authors>
@@ -68,12 +68,13 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Eventing.AzureServiceBus.EventBusInterfaceExtension" externalReference="beda5d3a-d0a4-4d44-b5a0-e419b6ac3c41" />
+    <factoryExtension id="Intent.Eventing.AzureServiceBus.MetadataLoaderExtension" externalReference="616fbd83-0d92-499a-bb08-dc72aaf0afaf" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <interoperability>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.AzureFunctions.AzureServiceBus" version="1.0.0" />
+        <package id="Intent.AzureFunctions.AzureServiceBus" version="1.0.2-pre.1" />
       </install>
     </detect>
   </interoperability>
@@ -84,7 +85,7 @@
     <dependency id="Intent.Eventing.Contracts" version="5.2.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
     <dependency id="Intent.Modelers.Services" version="3.9.3" />
-    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
+    <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.1-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

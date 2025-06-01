@@ -87,7 +87,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Behavi
             }
 
             // User is authorized / authorization not required
-            return await next();
+            return await next(cancellationToken);
         }
     }
 }

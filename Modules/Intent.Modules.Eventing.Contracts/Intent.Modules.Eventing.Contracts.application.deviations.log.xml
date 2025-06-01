@@ -14,5 +14,15 @@
       <deviationsHash>FA459B5FF891F696AE6F4A705B33E63122D105D6519718247054260960F2C49B</deviationsHash>
       <fileHash>0090F6BDEFDF4868A00D5BDD80E155AF5832C57EACC099A3562ED2F63A2C7C41</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f1467209-d74e-4e04-85fa-11883ef28bce</correlationId>
+      <path>Intent.Modules.Eventing.Contracts/Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-05-29T16:34:18.7723958Z</updatedAt>
+      <deviationsHash>A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883</deviationsHash>
+      <fileHash>7A574EF55FC59F7DAE33B0DC25EB1C6CA70EF1A0D060C9F6B1076FDD77BD7F14</fileHash>
+    </file>
   </files>
 </deviationsLog>

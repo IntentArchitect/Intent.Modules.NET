@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf" type="Integration Event Handler" typeId="c0582230-22f5-4f74-8eb0-ec6fc9364900">
+  <name>ClientCreatedEventHandler</name>
+  <display>ClientCreatedEventHandler</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6433daa4-2629-48a7-bbd6-fe222f161a69</parentFolderId>
+  <packageId>6433daa4-2629-48a7-bbd6-fe222f161a69</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.GroupB.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

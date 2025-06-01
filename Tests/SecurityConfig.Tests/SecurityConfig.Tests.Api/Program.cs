@@ -2,6 +2,7 @@ using System;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using SecurityConfig.Tests.Api.Logging;
 using Serilog;
 using Serilog.Events;
 
@@ -35,7 +36,8 @@ namespace SecurityConfig.Tests.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()))
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

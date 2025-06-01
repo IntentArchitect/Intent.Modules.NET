@@ -33,6 +33,14 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Infrastructure.Repositories
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<CustomConstructor?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<CustomConstructor>, IQueryable<CustomConstructor>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<CustomConstructor>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

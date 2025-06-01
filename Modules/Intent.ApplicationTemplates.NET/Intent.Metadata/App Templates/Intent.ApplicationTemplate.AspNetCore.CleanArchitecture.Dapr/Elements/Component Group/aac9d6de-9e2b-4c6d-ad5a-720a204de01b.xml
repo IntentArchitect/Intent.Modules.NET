@@ -202,9 +202,9 @@
           <properties>
             <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudGI1NGYzZjUxLWU2ODItNGUyNC1iN2Q5LWVlMDBjMjVkYzEwNCIgeDE9IjI3IiB5MT0iNDcuNyIgeDI9IjI3IiB5Mj0iMi41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmNmQyOSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNWFkMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMaWdodG5pbmctdjQiPgogICAgICA8cGF0aCBpZD0iX3gzQ19MaWdodG5pbmdfeDNFXyIgZD0iTTMwLjgsMTdsNy4zLTE0LjVoLTE4LjZMNywyNy4yaDE0LjhsLTEwLjMsMjAuM2gzLjVsMzItMzAuNWgtMTYuMlpNMjcuNCwyMy45aC0xNC44TDIxLjYsNmgxMC45bC03LjMsMTQuNWgxMy4ybC0xOCwxNy4xLDctMTMuN1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50YjU0ZjNmNTEtZTY4Mi00ZTI0LWI3ZDktZWUwMGMyNWRjMTA0KSIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Domain Events and handlers using MediatR." isActive="true" />
-            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="true" isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;ebfe5a66-e026-4261-84e4-c23091a705f3&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -251,7 +251,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.26" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="5.0.27" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />

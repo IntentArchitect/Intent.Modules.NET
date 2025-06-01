@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -39,8 +44,9 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                         {
                             param.WithThisModifier();
                         });
+                        var dbContextName = GetDbContextName();
                         method.AddStatement(new CSharpMethodChainStatement($"services.AddIdentityWithoutCookieAuth<{this.GetIdentityUserClass()}, {this.GetIdentityRoleClass()}>()")
-                            .AddChainStatement($@"AddEntityFrameworkStores<{this.GetTypeName("Infrastructure.Data.DbContext")}>()")
+                            .AddChainStatement($@"AddEntityFrameworkStores<{dbContextName}>()")
                             .AddChainStatement($@"AddDefaultTokenProviders()"));
                         method.AddStatement(new CSharpInvocationStatement("services.Configure<IdentityOptions>")
                             .AddArgument(new CSharpLambdaBlock("options")
@@ -64,6 +70,27 @@ namespace Intent.Modules.AspNetCore.Identity.Templates.AspNetCoreIdentityConfigu
                             .WithArgumentsOnNewLines());
                     });
                 });
+        }
+
+        private string GetDbContextName()
+        {
+            if (!this.TryGetTypeName("Infrastructure.Data.DbContext", out var result))
+            {
+                if (!this.TryGetTypeName("Intent.EntityFrameworkCore.DbContext", out result))
+                {
+                    var domainDesigner = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, Designers.Domain);
+                    DomainPackageModel? domainModel = domainDesigner?.GetDomainPackageModels()?.FirstOrDefault();
+
+                    if (domainModel is not null)
+                    {
+                        throw new ElementException(domainModel.UnderlyingPackage, "Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
+                    }
+
+                    throw new Exception("Unable to find DB Context template. The 'Intent.AspNetCore.Identity' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
+
+                }
+            }
+            return result;
         }
 
         public override void BeforeTemplateExecution()

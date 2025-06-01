@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.ExplicitKeys;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.ExplicitKeys
     {
         [IntentManaged(Mode.Fully)]
         Task<FK_B_CompositeForeignKey?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<FK_B_CompositeForeignKey?> FindByIdAsync(Guid id, Func<IQueryable<FK_B_CompositeForeignKey>, IQueryable<FK_B_CompositeForeignKey>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<FK_B_CompositeForeignKey>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

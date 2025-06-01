@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.TPC.InheritanceAssociations;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.TPC.InheritanceAssoci
     {
         [IntentManaged(Mode.Fully)]
         Task<TPC_ConcreteBaseClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<TPC_ConcreteBaseClass?> FindByIdAsync(Guid id, Func<IQueryable<TPC_ConcreteBaseClass>, IQueryable<TPC_ConcreteBaseClass>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<TPC_ConcreteBaseClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="60ea0f98-2640-432b-9ee9-631f5889bfdf">
+  <sourceEnd id="9d42f5f1-d3a9-4ecf-8bb3-6eae73f7aa57" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="358a84e9-105d-4d98-953e-a173767e49da">
+      <typeId>3ea0ebf8-4ed2-43eb-b6c7-6df4387af95c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Services</typePackageName>
+      <typePackageId>e665bbb9-639a-45b1-af30-377f7d721f36</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="60ea0f98-2640-432b-9ee9-631f5889bfdf" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customers</name>
+    <display>[query] customers: Customer[*]</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="ddb74e93-14c7-4799-9c4d-0daa8eb8d1df">
+      <typeId>f2f592d4-380a-494f-b799-7a74b6cce2f5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Module1.Domain</typePackageName>
+      <typePackageId>a985b685-fee6-4413-b291-34a1cb171158</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3ea0ebf8-4ed2-43eb-b6c7-6df4387af95c" location="[Module1].[Services].[GetCustomersQuery]" />
+        <target applicationId="4d989763-0499-4e06-a75d-af159dea70cd" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f2f592d4-380a-494f-b799-7a74b6cce2f5" location="[Module1].[Services].[Customer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

@@ -34,6 +34,14 @@ namespace Entities.PrivateSetters.TestApplication.Infrastructure.Repositories.Ag
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<OptionalToManySource?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<OptionalToManySource>, IQueryable<OptionalToManySource>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<OptionalToManySource>> FindByIdsAsync(
             Guid[] ids,
             CancellationToken cancellationToken = default)

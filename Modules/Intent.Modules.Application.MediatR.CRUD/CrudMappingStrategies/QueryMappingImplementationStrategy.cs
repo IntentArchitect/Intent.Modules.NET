@@ -34,10 +34,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public void BindToTemplate(ICSharpFileBuilderTemplate template)
         {
-            _template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
             if (_model.TypeReference?.Element != null && _model.TypeReference.Element.Name.Contains("PagedResult") && _model.Properties.Any(x => x.Name.ToLower() == "orderby"))
             {
-                _template.UseType("System.Linq.Dynamic.Core.OrderBy");
+                _template.AddUsing("static System.Linq.Dynamic.Core.DynamicQueryableExtensions");
                 _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
             }
             template.CSharpFile.AfterBuild(_ => ApplyStrategy());

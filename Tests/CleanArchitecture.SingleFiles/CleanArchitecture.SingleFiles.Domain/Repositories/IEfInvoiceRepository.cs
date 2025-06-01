@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace CleanArchitecture.SingleFiles.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<EfInvoice?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<EfInvoice?> FindByIdAsync(Guid id, Func<IQueryable<EfInvoice>, IQueryable<EfInvoice>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<EfInvoice>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

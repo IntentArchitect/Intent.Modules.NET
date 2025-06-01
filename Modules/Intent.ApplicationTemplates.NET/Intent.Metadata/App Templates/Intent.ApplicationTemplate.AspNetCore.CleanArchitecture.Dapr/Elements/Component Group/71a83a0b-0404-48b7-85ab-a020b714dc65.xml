@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="71a83a0b-0404-48b7-85ab-a020b714dc65" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
   <name>Integration</name>
-  <display>Integration (2)</display>
+  <display>Integration (3)</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <order>8</order>
+  <order>7</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3d474ae5-467a-493b-add4-e223d61b188a</parentFolderId>
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.2.17" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="2.2.18" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -122,6 +122,60 @@
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
                 <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="[]" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d6171bdf-824f-4088-b018-ab19cd2a602f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>SignalR</name>
+      <display>SignalR (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>71a83a0b-0404-48b7-85ab-a020b714dc65</parentFolderId>
+      <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC1kYTBjMTZkNi1lM2M1LTRkNDEtYTE5Yy02ZjI5NDk4M2U4M2QiIHgxPSIyNSIgeTE9Ii43IiB4Mj0iMjUiIHkyPSI0OC4xIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E4ZTdmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjMDBhYmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzI5ZSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE1NCkgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8ZyBpZD0idXVpZC1iYmMwZmM0Mi1jZmY1LTQ4ZDgtOGE2Zi0zYTA1YTNlNGIxYjUiPgogICAgICAgIDxwYXRoIGQ9Ik00OC43LDI1YzAsOC00LDE1LjEtMTAuMiwxOS41bC04LjgtOC44YzUuNy0uMiwxMC4zLTQuNywxMC4zLTEwLjdzLTQuOC0xMC44LTEwLjgtMTAuOGgtOC42di00LjNsLTEwLjgsMTAuOGgxOS40YzIuNCwwLDQuMywxLjksNC4zLDQuM3MtMS45LDQuMy00LjMsNC4zaC02bC0yLjcsNi41LDEwLjYsMTAuNiwyLjIsMi4yYy0xLjgsMC00LjYuMS04LjUuMS0xMy4xLDAtMjMuNy0xMC42LTIzLjctMjMuN1MxMS45LDEuMywyNSwxLjNzMjMuNywxMC42LDIzLjcsMjMuN1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LWRhMGMxNmQ2LWUzYzUtNGQ0MS1hMTljLTZmMjk0OTgzZTgzZCkiLz4KICAgICAgPC9nPgogICAgICA8cG9seWxpbmUgcG9pbnRzPSIzNC40IDQ5LjQgMzMuNSA0OC41IDMyLjQgNDcuNSAzMS4zIDQ2LjMiIGZpbGw9Im5vbmUiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Server to Client side communication using SignalR." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b7250329-f3f3-4937-af46-c76f3459f245" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore.SignalR</name>
+          <display>Intent.AspNetCore.SignalR</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d6171bdf-824f-4088-b018-ab19cd2a602f</parentFolderId>
+          <packageId>3d474ae5-467a-493b-add4-e223d61b188a</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.CleanArchitecture.Dapr</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.5" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
               </properties>
             </stereotype>
           </stereotypes>

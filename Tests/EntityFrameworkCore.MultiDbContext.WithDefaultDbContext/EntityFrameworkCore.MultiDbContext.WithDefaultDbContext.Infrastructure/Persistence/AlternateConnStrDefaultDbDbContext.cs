@@ -1,3 +1,8 @@
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Application.Common.Interfaces;
+using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Common;
 using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Common.Interfaces;
 using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Domain.Entities;
 using EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure.Persistence.Configurations;
@@ -11,17 +16,37 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
 {
     public class AlternateConnStrDefaultDbDbContext : DbContext, IUnitOfWork
     {
-        public AlternateConnStrDefaultDbDbContext(DbContextOptions<AlternateConnStrDefaultDbDbContext> options) : base(options)
+        private readonly IDomainEventService _domainEventService;
+        public AlternateConnStrDefaultDbDbContext(DbContextOptions<AlternateConnStrDefaultDbDbContext> options,
+            IDomainEventService domainEventService) : base(options)
         {
+            _domainEventService = domainEventService;
         }
 
+        public DbSet<AlternateConnStrDefaultDbDomainPackageAuditLog> AlternateConnStrDefaultDbDomainPackageAuditLogs { get; set; }
+
         public DbSet<EntityAlternate> EntityAlternates { get; set; }
+
+        public override async Task<int> SaveChangesAsync(
+            bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = default)
+        {
+            await DispatchEventsAsync(cancellationToken);
+            return await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
+
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        {
+            DispatchEventsAsync().GetAwaiter().GetResult();
+            return base.SaveChanges(acceptAllChangesOnSuccess);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new AlternateConnStrDefaultDbDomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new EntityAlternateConfiguration());
         }
 
@@ -37,6 +62,25 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Infrastructure
                 new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
                 new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
+        }
+
+        private async Task DispatchEventsAsync(CancellationToken cancellationToken = default)
+        {
+            while (true)
+            {
+                var domainEventEntity = ChangeTracker
+                    .Entries<IHasDomainEvent>()
+                    .SelectMany(x => x.Entity.DomainEvents)
+                    .FirstOrDefault(domainEvent => !domainEvent.IsPublished);
+
+                if (domainEventEntity is null)
+                {
+                    break;
+                }
+
+                domainEventEntity.IsPublished = true;
+                await _domainEventService.Publish(domainEventEntity, cancellationToken);
+            }
         }
     }
 }

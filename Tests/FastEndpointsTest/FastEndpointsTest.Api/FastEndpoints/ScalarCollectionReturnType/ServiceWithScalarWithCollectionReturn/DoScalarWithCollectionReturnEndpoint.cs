@@ -29,7 +29,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ScalarCollectionReturnType.Service
 
         public override void Configure()
         {
-            Get("do-scalar-with-collection-return");
+            Get("api/service-with-scalar-with-collection-return/do-scalar-with-collection-return");
             Description(b =>
             {
                 b.WithTags("ServiceWithScalarWithCollectionReturn");

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fce56a6e-41f8-4796-ac67-e5bfbdf61280" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AspNetCore.Controllers.Secured.Domain.Entities;
@@ -17,6 +18,8 @@ namespace AspNetCore.Controllers.Secured.Domain.Repositories
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<Buyer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Buyer?> FindByIdAsync(Guid id, Func<IQueryable<Buyer>, IQueryable<Buyer>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Buyer>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

@@ -75,6 +75,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>4fdbe7cf-5149-435d-a010-a7dc95639882</ProjectId>
+      <CorrelationId>Intent.Modules.AspNetCore.Logging.Serilog.BoundedLoggingDestructuringPolicyTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Api/Logging/BoundedLoggingDestructuringPolicy.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>BoundedLoggingDestructuringPolicy.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4fb9b6f7-a41f-462a-aa07-a07a19c58536</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -112,6 +120,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Api/Subscribe.MassTransit.OutboxEF.Api.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Subscribe.MassTransit.OutboxEF.Api.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d2f445c3-2185-4f69-9492-742b7fa349e6</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxEF.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

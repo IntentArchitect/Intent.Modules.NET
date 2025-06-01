@@ -32,7 +32,7 @@ namespace CosmosDB.EntityInterfaces.Application.Common.Behaviours
             RequestHandlerDelegate<TResponse> next,
             CancellationToken cancellationToken)
         {
-            var response = await next();
+            var response = await next(cancellationToken);
 
             await _cosmosDBDataSource.SaveChangesAsync(cancellationToken);
 

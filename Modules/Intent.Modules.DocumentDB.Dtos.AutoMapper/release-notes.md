@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Improvement: Added support for `Profile location` setting.
+
 ### Version 1.0.3
 
 - Fixed: On certain fields being mapped, primitive types that are nullable aren't accessed through the `.Value` property.

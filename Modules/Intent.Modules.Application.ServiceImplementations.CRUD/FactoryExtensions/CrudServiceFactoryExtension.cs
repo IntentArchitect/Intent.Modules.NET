@@ -37,8 +37,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Fac
 
             foreach (var template in templates)
             {
-                template.AddKnownType("System.Linq.Dynamic.Core.PagedResult");
-
                 var strategies = new List<IImplementationStrategy>
                 {
                     new OperationMappingImplementationStrategy(template),

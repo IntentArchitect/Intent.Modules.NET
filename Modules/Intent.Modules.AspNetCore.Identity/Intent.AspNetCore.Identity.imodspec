@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.Identity</id>
-  <version>4.1.5</version>
+  <version>4.1.6-pre.3</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</summary>
   <description>Introduces AspNetCore Identity for User Authentication and Account Management using Entity Framework Core.</description>
@@ -15,7 +15,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution;Startup</role>
       <location>Configuration</location>
     </template>
     <template id="Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions" externalReference="d59668e1-415c-497d-871a-4db5a469a75d">
@@ -23,7 +23,7 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution;Startup</role>
       <location>Configuration</location>
     </template>
   </templates>
@@ -38,7 +38,7 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.20" />
     <dependency id="Intent.Metadata.RDBMS" version="3.5.11" />
-    <dependency id="Intent.Modelers.Domain" version="3.5.1" />
+	<dependency id="Intent.Modelers.Domain" version="3.5.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>

@@ -20,6 +20,8 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Repositories.Assoc
         [IntentManaged(Mode.Fully)]
         Task<D_MultipleDependent?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
+        Task<D_MultipleDependent?> FindByIdAsync(Guid id, Func<IQueryable<D_MultipleDependent>, IQueryable<D_MultipleDependent>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
         Task<List<D_MultipleDependent>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }
 }

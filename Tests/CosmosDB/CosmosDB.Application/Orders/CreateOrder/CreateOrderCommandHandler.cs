@@ -14,7 +14,7 @@ using MediatR;
 namespace CosmosDB.Application.Orders.CreateOrder
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, string>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
@@ -27,7 +27,7 @@ namespace CosmosDB.Application.Orders.CreateOrder
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+        public async Task<string> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var order = new Order
             {
@@ -37,6 +37,8 @@ namespace CosmosDB.Application.Orders.CreateOrder
             };
 
             _orderRepository.Add(order);
+            await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return order.Id;
         }
     }
 }

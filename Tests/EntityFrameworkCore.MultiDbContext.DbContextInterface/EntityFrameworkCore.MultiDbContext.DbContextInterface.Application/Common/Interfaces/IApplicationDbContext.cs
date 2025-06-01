@@ -11,7 +11,9 @@ namespace EntityFrameworkCore.MultiDbContext.DbContextInterface.Application.Comm
 {
     public interface IApplicationDbContext
     {
+        DbSet<AppDbDomainPackageAuditLog> AppDbDomainPackageAuditLogs { get; }
         DbSet<AppDbEntity> AppDbEntities { get; }
+        DbSet<DefaultDomainPackageAuditLog> DefaultDomainPackageAuditLogs { get; }
         DbSet<DefaultEntity> DefaultEntities { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

@@ -1,5 +1,6 @@
 using System;
 using HashiCorpVault.Api.Configuration;
+using HashiCorpVault.Api.Logging;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -37,7 +38,8 @@ namespace HashiCorpVault.Api
             Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, configuration) => configuration
                     .ReadFrom.Configuration(context.Configuration)
-                    .ReadFrom.Services(services))
+                    .ReadFrom.Services(services)
+                    .Destructure.With(new BoundedLoggingDestructuringPolicy()))
                 .ConfigureAppConfiguration((context, config) =>
                 {
                     var configuration = config.Build();

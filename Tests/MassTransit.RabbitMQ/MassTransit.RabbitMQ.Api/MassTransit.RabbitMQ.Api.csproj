@@ -13,13 +13,13 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
-    <PackageReference Include="IdentityModel" Version="7.0.0" />
+    <PackageReference Include="Duende.IdentityModel" Version="7.0.0" />
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
-    <PackageReference Include="OpenTelemetry" Version="1.11.2" />
-    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.11.2" />
-    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.11.2" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.11.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.16" />
+    <PackageReference Include="OpenTelemetry" Version="1.12.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.12.0" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.12.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.12.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
   </ItemGroup>

@@ -35,5 +35,13 @@ namespace CleanArchitecture.Comprehensive.Infrastructure.Repositories.CompositeK
         {
             return await FindAsync(x => x.Key1Id == id.Key1Id && x.Key2Id == id.Key2Id, cancellationToken);
         }
+
+        public async Task<WithCompositeKey?> FindByIdAsync(
+            (Guid Key1Id, Guid Key2Id) id,
+            Func<IQueryable<WithCompositeKey>, IQueryable<WithCompositeKey>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Key1Id == id.Key1Id && x.Key2Id == id.Key2Id, queryOptions, cancellationToken);
+        }
     }
 }

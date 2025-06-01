@@ -41,8 +41,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             if (operationModel.ReturnType?.Element != null && operationModel.ReturnType.Element.Name.Contains("PagedResult") && operationModel.Parameters.Any(x => x.Name.ToLower() == "orderby"))
             {
-                _template.UseType("System.Linq.Dynamic.Core.OrderBy");
-                _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+                AddOrderBy();
 
                 template.CSharpFile.AfterBuild(file => 
                 {
@@ -60,6 +59,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             }
             template.CSharpFile.AfterBuild(_ => ApplyStrategy(operationModel));
         }
+        private string AddOrderBy()
+        {
+            _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+            _template.AddUsing("static System.Linq.Dynamic.Core.DynamicQueryableExtensions");
+            return "OrderBy";
+        }
+
 
         public void ApplyStrategy(OperationModel operationModel)
         {

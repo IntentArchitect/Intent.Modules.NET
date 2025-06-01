@@ -61,6 +61,7 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                                 var genericTypeParameters = model.GenericTypes.Any()
                                     ? $"<{string.Join(", ", model.GenericTypes)}>"
                                     : string.Empty;
+
                                 @interface.AddMethod($"Task<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}{(OutputTarget.GetProject().NullableEnabled ? "?" : "")}>", "FindByIdAsync", method =>
                                 {
                                     method.AddAttribute("[IntentManaged(Mode.Fully)]");
@@ -73,8 +74,10 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInt
                                     {
                                         method.AddParameter($"({string.Join(", ", pks.Select(pk => $"{entityTemplate.UseType(pk.Type)} {pk.Name.ToPascalCase()}"))})", "id");
                                     }
+
                                     method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                                 });
+
                                 if (pks.Length == 1)
                                 {
                                     @interface.AddMethod($"Task<List<{GetTypeName(TemplateRoles.Domain.Entity.Interface, Model)}{genericTypeParameters}>>", "FindByIdsAsync", method =>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="704d7028-f21c-4cc4-8f5f-1d088131a415">
+  <sourceEnd id="d2ef2fc0-3388-46d7-9621-af0c3476754a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: ODataCustomer</display>
+    <order>0</order>
+    <typeReference id="8860ee8e-ab64-4a26-bbb2-bf05bcf3204b">
+      <typeId>a373fb38-8fdd-4233-a483-705245aa525d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="704d7028-f21c-4cc4-8f5f-1d088131a415" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ODataOrders</name>
+    <display>ODataOrders: ODataOrder[*]</display>
+    <order>3</order>
+    <typeReference id="2fbafce0-9e25-4c28-9f7b-6c1ae7859334">
+      <typeId>d6941757-a600-422f-939d-28dd827d584a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

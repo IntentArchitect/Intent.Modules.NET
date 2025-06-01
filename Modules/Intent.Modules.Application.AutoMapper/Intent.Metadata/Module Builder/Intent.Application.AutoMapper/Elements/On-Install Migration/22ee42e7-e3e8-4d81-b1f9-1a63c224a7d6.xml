@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="22ee42e7-e3e8-4d81-b1f9-1a63c224a7d6" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cdace8da-389b-4ece-9d61-cf17bc0e940f</parentFolderId>
+  <packageId>bbd2c56f-b591-4434-ac25-2b08337570c3</packageId>
+  <packageName>Intent.Application.AutoMapper</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

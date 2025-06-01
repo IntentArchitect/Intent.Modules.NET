@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="c090804e-8e1c-4121-8209-488982ce6a22" version="3.1.0">
+  <comment>Configures caching using either a caching policy or explicit configuration settings.</comment>
   <name>Caching</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -33,36 +34,22 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="7ec3af88-3e9e-4574-bbbb-f793482e0a2d">
       <name>Policy</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>lookup-element</optionsSource>
-      <placeholder />
-      <valueOptions />
       <lookupTypes>
         <type>1425f74f-3aa9-4dfd-8676-baa7e8d00a17</type>
       </lookupTypes>
-      <isActiveFunction />
-      <isRequiredFunction />
     </property>
     <property id="bfc1f7b7-0848-4e90-8534-07aea3ae048c">
       <name>Override</name>
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions>
-        <option>Policy</option>
-        <option>Custom</option>
-      </valueOptions>
-      <lookupTypes />
     </property>
     <property id="fc4ee53b-4485-4004-9407-8e78fa34451a">
       <hint>Time to cache for in seconds</hint>
@@ -70,9 +57,6 @@
       <type>string</type>
       <controlType>number</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
     </property>
     <property id="740cbede-5de3-4cee-bb9d-d6f3a131e5dd">
@@ -81,9 +65,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
     </property>
     <property id="4b650ffb-0fd9-4576-89c1-afc3d7410eef">
@@ -92,9 +73,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
     </property>
     <property id="9e317ac8-58d5-40a1-bc63-3388537d2612">
@@ -103,9 +81,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Override === true &amp;&amp; NoCaching === false;</isActiveFunction>
     </property>
     <property id="13ebf11c-f242-4989-8e7f-0e70be5d9254">
@@ -114,10 +89,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return Override === true ;</isActiveFunction>
     </property>
   </properties>

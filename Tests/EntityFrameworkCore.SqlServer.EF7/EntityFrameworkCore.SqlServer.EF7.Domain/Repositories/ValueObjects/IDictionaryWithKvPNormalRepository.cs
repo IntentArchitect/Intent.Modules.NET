@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.SqlServer.EF7.Domain.Entities.ValueObjects;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.SqlServer.EF7.Domain.Repositories.ValueObjects
     {
         [IntentManaged(Mode.Fully)]
         Task<DictionaryWithKvPNormal?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<DictionaryWithKvPNormal?> FindByIdAsync(Guid id, Func<IQueryable<DictionaryWithKvPNormal>, IQueryable<DictionaryWithKvPNormal>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<DictionaryWithKvPNormal>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

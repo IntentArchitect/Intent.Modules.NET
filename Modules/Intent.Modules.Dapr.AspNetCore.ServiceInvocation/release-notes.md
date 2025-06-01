@@ -1,3 +1,12 @@
+### Version 2.2.19
+
+- Improvement: Updated NuGet package versions.
+
+### Version 2.2.18
+
+- Improvement: Updated NuGet package versions.
+- Fixed: `Content-length` parameter now set correctly when creating a proxy service.
+
 ### Version 2.2.17
 
 - Improvement: Updated NuGet package versions.

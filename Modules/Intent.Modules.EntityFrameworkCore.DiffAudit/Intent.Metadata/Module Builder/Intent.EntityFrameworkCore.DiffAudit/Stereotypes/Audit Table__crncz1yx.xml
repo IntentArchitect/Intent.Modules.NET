@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stereotypeDefinition id="92e433aa-4858-4129-849f-ef0f9f0bf9e6" version="3.1.0">
+  <comment>Marks and configures the entity as an audit table, adding the required attribtues.</comment>
+  <name>Audit Table</name>
+  <targetMode>of-type</targetMode>
+  <targetTypes>
+    <type id="04e12b51-ed12-42a3-9667-a6aa81bb6d10">Class</type>
+  </targetTypes>
+  <targetReferenceTypes />
+  <applyMode>manually</applyMode>
+  <icon type="UrlImagePath" source="data:image/png;base64,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" />
+  <displayIcon>false</displayIcon>
+  <displayIconFunction>return true;</displayIconFunction>
+  <displayFunction />
+  <displayAsAnnotation>false</displayAsAnnotation>
+  <displayAsText>true</displayAsText>
+  <autoAdd>false</autoAdd>
+  <allowMultipleApplies>false</allowMultipleApplies>
+  <parentFolderId>606f1c2a-22a2-4dc2-a64d-694047786905</parentFolderId>
+  <order>0</order>
+  <packageId>e4873852-59e4-4522-84c9-c5980e197fcc</packageId>
+  <packageName>Intent.EntityFrameworkCore.DiffAudit</packageName>
+  <onAppliedScript>/// &amp;lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&amp;gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.DiffAudit
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/diff-audit/audit-table/class-on-apply/class-on-apply.ts
+ */
+function execute(element) {
+    const auditTableStereotypeId = "92e433aa-4858-4129-849f-ef0f9f0bf9e6";
+    let package = element.getPackage();
+    let auditTables = package.getChildren(element.specialization).filter(x =&gt; x.hasStereotype(auditTableStereotypeId));
+    auditTables.forEach(at =&gt; {
+        if (at !== undefined &amp;&amp; at !== null &amp;&amp; at.getName() != element.getName()) {
+            at.delete();
+        }
+    });
+    if (element.hasStereotype(auditTableStereotypeId)) {
+        ensureAttributes(element, true);
+    }
+    else {
+        removeAttribute(element, "Id");
+        removeAttribute(element, "TableName");
+        removeAttribute(element, "Key");
+        removeAttribute(element, "ColumnName");
+        removeAttribute(element, "OldValue");
+        removeAttribute(element, "NewValue");
+        removeAttribute(element, "ChangedBy");
+        removeAttribute(element, "ChangedDate");
+    }
+}
+function ensureAttributes(element, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    ensureAttribute(element, intTypeId, false, "Id", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "TableName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "Key", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "ColumnName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "OldValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "NewValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "ChangedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "ChangedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+}
+function removeAttribute(element, name) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null || !el.hasMetadata("set-by-infrastructure")) {
+        return;
+    }
+    el.delete();
+}
+execute(element);</onAppliedScript>
+  <onChangedScript>/// &amp;lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&amp;gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.DiffAudit
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/diff-audit/audit-table/class-on-apply/class-on-apply.ts
+ */
+function execute(element) {
+    const auditTableStereotypeId = "92e433aa-4858-4129-849f-ef0f9f0bf9e6";
+    let package = element.getPackage();
+    let auditTables = package.getChildren(element.specialization).filter(x =&gt; x.hasStereotype(auditTableStereotypeId));
+    auditTables.forEach(at =&gt; {
+        if (at !== undefined &amp;&amp; at !== null &amp;&amp; at.getName() != element.getName()) {
+            at.delete();
+        }
+    });
+    if (element.hasStereotype(auditTableStereotypeId)) {
+        ensureAttributes(element, true);
+    }
+    else {
+        removeAttribute(element, "Id");
+        removeAttribute(element, "TableName");
+        removeAttribute(element, "Key");
+        removeAttribute(element, "ColumnName");
+        removeAttribute(element, "OldValue");
+        removeAttribute(element, "NewValue");
+        removeAttribute(element, "ChangedBy");
+        removeAttribute(element, "ChangedDate");
+    }
+}
+function ensureAttributes(element, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    ensureAttribute(element, intTypeId, false, "Id", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "TableName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "Key", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "ColumnName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "OldValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "NewValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "ChangedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "ChangedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+}
+function removeAttribute(element, name) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null || !el.hasMetadata("set-by-infrastructure")) {
+        return;
+    }
+    el.delete();
+}
+execute(element);</onChangedScript>
+  <onRemovedScript>/// &amp;lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&amp;gt;
+/**
+ * Used by Intent.Modules.NET\Modules\Intent.Modules.EntityFramework.DiffAudit
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/DesignerMacros/src/diff-audit/audit-table/class-on-removed/class-on-removed.ts
+ */
+function execute(element) {
+    const auditTableStereotypeId = "92e433aa-4858-4129-849f-ef0f9f0bf9e6";
+    let package = element.getPackage();
+    var auditTable = createElement(element.specialization, "AuditTable", package.id);
+    ensureAttributes(auditTable, true);
+    auditTable.addStereotype(auditTableStereotypeId);
+    if (element.hasStereotype(auditTableStereotypeId)) {
+        ensureAttributes(element, true);
+    }
+    else {
+        removeAttribute(element, "Id");
+        removeAttribute(element, "TableName");
+        removeAttribute(element, "Key");
+        removeAttribute(element, "ColumnName");
+        removeAttribute(element, "OldValue");
+        removeAttribute(element, "NewValue");
+        removeAttribute(element, "ChangedBy");
+        removeAttribute(element, "ChangedDate");
+    }
+}
+function ensureAttributes(element, enforceFieldTypes) {
+    const dateTimeOffsetTypeId = "f1ba4df3-a5bc-427e-a591-4f6029f89bd7";
+    const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+    const intTypeId = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+    ensureAttribute(element, intTypeId, false, "Id", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "TableName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "Key", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "ColumnName", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "OldValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, true, "NewValue", enforceFieldTypes);
+    ensureAttribute(element, stringTypeId, false, "ChangedBy", enforceFieldTypes);
+    ensureAttribute(element, dateTimeOffsetTypeId, false, "ChangedDate", enforceFieldTypes);
+}
+function ensureAttribute(element, typeId, isNullable, name, enforceFieldType) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null) {
+        el = createElement("Attribute", name, element.id);
+        el.setMetadata("set-by-infrastructure", "true");
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+    if (enforceFieldType) {
+        el.typeReference.setIsNullable(isNullable);
+        el.typeReference.setType(typeId);
+    }
+}
+function removeAttribute(element, name) {
+    let el = element.getChildren("Attribute").filter(x =&gt; x.getName() == name)[0];
+    if (el == null || !el.hasMetadata("set-by-infrastructure")) {
+        return;
+    }
+    el.delete();
+}
+execute(element);</onRemovedScript>
+  <properties />
+</stereotypeDefinition>

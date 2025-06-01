@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="840fd6d4-b161-4af9-bcf5-6372092ac050" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Interfaces</name>
+  <display>Interfaces</display>
+  <externalReference>1f40e7d0-1598-4b2e-a18c-54c6d7b88942</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>1b7da57e-f6dc-47ad-afcd-c8dc6f25f771</parentFolderId>
+  <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+  <packageName>Module1</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="27b7f47a-07b5-4161-8d96-c4c7258678ba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.CurrentUserServiceInterface</name>
+      <display>Intent.Application.Identity.CurrentUserServiceInterface</display>
+      <externalReference>38cc214b-aae9-4bc4-afc7-366cc7d33149</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>840fd6d4-b161-4af9-bcf5-6372092ac050</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c5a5da08-605e-444c-8cd3-2f3bad40f262" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.CommandInterface</name>
+      <display>Intent.Application.MediatR.CommandInterface</display>
+      <externalReference>749a891e-a3d6-4ea6-891e-327150176288</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>840fd6d4-b161-4af9-bcf5-6372092ac050</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="8c74109c-871e-4608-9973-a4d0ad19b998" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.MediatR.QueryInterface</name>
+      <display>Intent.Application.MediatR.QueryInterface</display>
+      <externalReference>8a42040b-54de-4ec5-9372-67954ace6155</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>840fd6d4-b161-4af9-bcf5-6372092ac050</parentFolderId>
+      <packageId>8750a0dd-82b4-4aa3-88c9-896ed342ba24</packageId>
+      <packageName>Module1</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

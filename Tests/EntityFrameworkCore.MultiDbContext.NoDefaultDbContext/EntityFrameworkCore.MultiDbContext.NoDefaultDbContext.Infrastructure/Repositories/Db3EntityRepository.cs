@@ -33,6 +33,14 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
             return await FindAsync(x => x.Id == id, cancellationToken);
         }
 
+        public async Task<Db3Entity?> FindByIdAsync(
+            Guid id,
+            Func<IQueryable<Db3Entity>, IQueryable<Db3Entity>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id == id, queryOptions, cancellationToken);
+        }
+
         public async Task<List<Db3Entity>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default)
         {
             // Force materialization - Some combinations of .net9 runtime and EF runtime crash with "Convert ReadOnlySpan to List since expression trees can't handle ref struct"

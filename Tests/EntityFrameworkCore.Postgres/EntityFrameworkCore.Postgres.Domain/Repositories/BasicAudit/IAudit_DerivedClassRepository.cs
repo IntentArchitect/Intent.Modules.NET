@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using EntityFrameworkCore.Postgres.Domain.Entities.BasicAudit;
@@ -15,6 +16,8 @@ namespace EntityFrameworkCore.Postgres.Domain.Repositories.BasicAudit
     {
         [IntentManaged(Mode.Fully)]
         Task<Audit_DerivedClass?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<Audit_DerivedClass?> FindByIdAsync(Guid id, Func<IQueryable<Audit_DerivedClass>, IQueryable<Audit_DerivedClass>> queryOptions, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<List<Audit_DerivedClass>> FindByIdsAsync(Guid[] ids, CancellationToken cancellationToken = default);
     }

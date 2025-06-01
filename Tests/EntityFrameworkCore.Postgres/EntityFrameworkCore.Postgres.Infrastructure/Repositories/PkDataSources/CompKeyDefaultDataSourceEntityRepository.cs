@@ -27,5 +27,13 @@ namespace EntityFrameworkCore.Postgres.Infrastructure.Repositories.PkDataSources
         {
             return await FindAsync(x => x.Id1 == id.Id1 && x.Id2 == id.Id2, cancellationToken);
         }
+
+        public async Task<CompKeyDefaultDataSourceEntity?> FindByIdAsync(
+            (long Id1, long Id2) id,
+            Func<IQueryable<CompKeyDefaultDataSourceEntity>, IQueryable<CompKeyDefaultDataSourceEntity>> queryOptions,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAsync(x => x.Id1 == id.Id1 && x.Id2 == id.Id2, queryOptions, cancellationToken);
+        }
     }
 }

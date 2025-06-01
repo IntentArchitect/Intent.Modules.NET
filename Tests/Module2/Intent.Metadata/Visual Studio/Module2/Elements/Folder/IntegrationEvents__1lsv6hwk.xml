@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6ea23e17-77fc-4537-9659-d2f3df6452d3" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationEvents</name>
+  <display>IntegrationEvents</display>
+  <externalReference>9d46239c-9571-4409-a493-ed2795c6915a</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>f411c188-d744-433f-9f11-7ed2430bf8d3</parentFolderId>
+  <packageId>7483bc51-4845-4361-8ea5-95051d12d710</packageId>
+  <packageName>Module2</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="6af08a0d-b67b-47c8-9575-5bb2112f3656" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
+      <externalReference>b6570608-4273-4fcd-b93b-7e7dd3170eca</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6ea23e17-77fc-4537-9659-d2f3df6452d3</parentFolderId>
+      <packageId>7483bc51-4845-4361-8ea5-95051d12d710</packageId>
+      <packageName>Module2</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="c8d4e714-a067-46b9-9689-a2c59199050b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
+      <externalReference>6d912cc0-2fe3-472f-ae47-50486be87567</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6ea23e17-77fc-4537-9659-d2f3df6452d3</parentFolderId>
+      <packageId>7483bc51-4845-4361-8ea5-95051d12d710</packageId>
+      <packageName>Module2</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="bc90870a-7df5-43ff-bee7-b8c5eb38a4b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+      <externalReference>95a05978-d509-49a1-b9cb-248ba96fa94c</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6ea23e17-77fc-4537-9659-d2f3df6452d3</parentFolderId>
+      <packageId>7483bc51-4845-4361-8ea5-95051d12d710</packageId>
+      <packageName>Module2</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

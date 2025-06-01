@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <stereotypeDefinition id="5d85edfb-490c-42c2-81ef-c57c0300eb5a" version="3.1.0">
+  <comment>Configures .NET Core project-level settings.</comment>
   <name>.NET Core Settings</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
@@ -28,10 +29,7 @@
       <type>string</type>
       <controlType>checkbox</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
       <defaultValue>false</defaultValue>
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="ef3e7b17-ba1d-4818-82a2-5a8ad3875d40">
       <hint />
@@ -41,7 +39,6 @@
       <optionsSource>lookup-element</optionsSource>
       <placeholder>(required)</placeholder>
       <defaultValue>16d99e3e-7b91-42f8-ae3b-2686edde94b7</defaultValue>
-      <valueOptions />
       <lookupTypes>
         <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>
         <type>6453c4bd-78b8-4589-a223-9f57a348a1a1</type>
@@ -56,8 +53,6 @@
       <controlType>multi-select</controlType>
       <optionsSource>lookup-element</optionsSource>
       <placeholder>(required)</placeholder>
-      <defaultValue />
-      <valueOptions />
       <lookupTypes>
         <type>65fb2757-ce97-41a8-9c53-b03d53c2c03f</type>
         <type>6453c4bd-78b8-4589-a223-9f57a348a1a1</type>
@@ -71,9 +66,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="bb694bf2-6758-492d-ae65-5a8626704786">
       <hint />
@@ -81,9 +73,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="3710062e-9beb-40e2-8f33-111efecf43a5">
       <hint />
@@ -91,9 +80,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="f2956d24-b6da-427b-8728-c4f44714ce69">
       <hint />
@@ -101,9 +87,6 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="42cdb74e-d5fd-4969-94ca-585d0527b862">
       <hint />
@@ -117,7 +100,6 @@
         <option>false</option>
         <option>true</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="6111c054-9a40-4f92-9f7c-3a8372af14b8">
       <hint />
@@ -131,16 +113,12 @@
         <option>false</option>
         <option>true</option>
       </valueOptions>
-      <lookupTypes />
     </property>
     <property id="f236ad27-a4ab-490a-92d4-b6faf2d1e033">
       <name>Assembly Name</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
     </property>
     <property id="96c39bf5-320f-4d4c-9545-76c52cb29e91">
       <hint />
@@ -154,7 +132,6 @@
         <option>disable</option>
         <option>enable</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

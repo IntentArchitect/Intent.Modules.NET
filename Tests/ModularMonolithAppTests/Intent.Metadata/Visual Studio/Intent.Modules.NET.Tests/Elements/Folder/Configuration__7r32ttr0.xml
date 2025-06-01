@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c7d31070-6496-40e6-a888-3987c0ea573d" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Configuration</name>
+  <display>Configuration</display>
+  <externalReference>36673243-d368-4825-af4a-eac8c8156b3e</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8495815a-1f23-4629-ac36-cb6c8dd105cd</parentFolderId>
+  <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+  <packageName>Intent.Modules.NET.Tests</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="31bdf1fb-844b-411c-aa0d-68459066a36d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.ApplicationSecurityConfiguration</name>
+      <display>Intent.Application.Identity.ApplicationSecurityConfiguration</display>
+      <externalReference>fdabb536-8299-4ae0-b675-f9546dd49c19</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f4a6db6f-4b00-4a5e-a621-5e2d887d5f0e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.ProblemDetailsConfiguration</name>
+      <display>Intent.AspNetCore.ProblemDetailsConfiguration</display>
+      <externalReference>cb96ee68-6a03-4f8a-a512-6ddfe57cfa00</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="f9b72c80-cdc5-4ec5-b560-c1e95e423b53" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</name>
+      <display>Intent.AspNetCore.Swashbuckle.SwashbuckleConfiguration</display>
+      <externalReference>c04705a3-bece-484e-95c3-7bdee51c84ca</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="025d734b-6729-427c-b98a-144c5b2f310a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</display>
+      <externalReference>13f861b3-39de-4d8c-8a86-c4d2568307d8</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="94cd6d8c-69f5-47b8-b8f0-6ce369679605" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</name>
+      <display>Intent.AspNetCore.Versioning.ApiVersionSwaggerGenOptions</display>
+      <externalReference>8a455c85-8995-4d9f-bcf7-ed56c43dc647</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6e49e943-c6d7-4b93-b19a-78861f6e1b01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.ModularMonolith.Host.ModuleConfiguration</name>
+      <display>Intent.ModularMonolith.Host.ModuleConfiguration</display>
+      <externalReference>c3909425-bab4-472e-9880-b9204400839f</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c7d31070-6496-40e6-a888-3987c0ea573d</parentFolderId>
+      <packageId>35f90acd-253f-4eba-8251-a11921d97b47</packageId>
+      <packageName>Intent.Modules.NET.Tests</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
