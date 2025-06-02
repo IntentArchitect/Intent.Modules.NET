@@ -1,6 +1,10 @@
+### Version 1.1.6
+
+- Fixed: Primary Keys with Identity properties are now correctly imported due to a recent Stereotype update.
+
 ### Version 1.1.5
 
-- Fixed: Elements are prefixed with "db" if their name would result in invalid C# code.
+- Fixed: Elements are prefixed with "db" if their name results in invalid C# code.
 - Fixed: Now handles the use case of multiple elements being created with the same name
 
 ### Version 1.1.4
@@ -15,7 +19,7 @@
 
 ### Version 1.1.2
 
-- Improvement: Additional in-application support topics added.
+- Improvement: Additional in-application support topics are added.
 
 ### Version 1.1.1
 
