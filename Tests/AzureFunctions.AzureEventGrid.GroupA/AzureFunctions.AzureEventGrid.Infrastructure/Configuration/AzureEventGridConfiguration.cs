@@ -20,7 +20,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
             services.Configure<PublisherOptions>(options =>
             {
-                options.Add<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!);
+                options.Add<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Source"]!);
             });
             services.Configure<SubscriptionOptions>(options =>
             {

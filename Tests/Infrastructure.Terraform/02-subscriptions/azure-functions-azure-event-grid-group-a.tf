@@ -11,6 +11,8 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
   name                 = "specific-topic-sub"
   scope                = data.azurerm_eventgrid_topic.specific_topic.id
 
+  event_delivery_schema = "CloudEventSchemaV1_0"
+
   azure_function_endpoint {
     function_id                       = "${var.azure_functions_azure_event_grid_group_a_id}/functions/SpecificTopicMessageConsumer"
     max_events_per_batch              = 1

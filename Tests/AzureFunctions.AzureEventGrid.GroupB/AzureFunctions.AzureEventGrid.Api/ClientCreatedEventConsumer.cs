@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
+using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
@@ -38,7 +39,7 @@ namespace AzureFunctions.AzureEventGrid.Api
         }
 
         [Function("ClientCreatedEventConsumer")]
-        public async Task Run([EventGridTrigger] EventGridEvent message, CancellationToken cancellationToken)
+        public async Task Run([EventGridTrigger] CloudEvent message, CancellationToken cancellationToken)
         {
             //IntentIgnore
             _logger.LogInformation("Processing ClientCreatedEventConsumer");

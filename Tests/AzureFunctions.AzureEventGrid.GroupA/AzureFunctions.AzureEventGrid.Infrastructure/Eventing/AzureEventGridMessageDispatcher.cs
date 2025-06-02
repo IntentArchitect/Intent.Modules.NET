@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -18,25 +18,19 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public class AzureEventGridMessageDispatcher : IAzureEventGridMessageDispatcher
     {
-        [IntentIgnore]
-        private readonly ILogger<AzureEventGridMessageDispatcher> _logger;
         private readonly Dictionary<string, DispatchHandler> _handlers;
 
-        [IntentManaged(Mode.Merge)]
-        public AzureEventGridMessageDispatcher(IOptions<SubscriptionOptions> options, ILogger<AzureEventGridMessageDispatcher> logger)
+        public AzureEventGridMessageDispatcher(IOptions<SubscriptionOptions> options)
         {
-            _logger = logger;
             _handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);
         }
 
         public async Task DispatchAsync(
             IServiceProvider scopedServiceProvider,
-            EventGridEvent message,
+            CloudEvent message,
             CancellationToken cancellationToken)
         {
-            var messageTypeName = message.EventType;
-            //IntentIgnore
-            _logger.LogInformation("Dispatching message: {Type}, {Message}", messageTypeName, message);
+            var messageTypeName = message.Type;
 
             if (_handlers.TryGetValue(messageTypeName, out var handlerAsync))
             {
@@ -46,12 +40,12 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 
         public static async Task InvokeDispatchHandler<TMessage, THandler>(
             IServiceProvider serviceProvider,
-            EventGridEvent message,
+            CloudEvent message,
             CancellationToken cancellationToken)
             where TMessage : class
             where THandler : IIntegrationEventHandler<TMessage>
         {
-            var messageObj = message.Data.ToObjectFromJson<TMessage>()!;
+            var messageObj = message.Data?.ToObjectFromJson<TMessage>();
             var handler = serviceProvider.GetRequiredService<THandler>();
             await handler.HandleAsync(messageObj, cancellationToken);
         }

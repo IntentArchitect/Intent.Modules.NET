@@ -20,8 +20,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
             services.Configure<PublisherOptions>(options =>
             {
-                options.Add<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!);
-                options.Add<SpecificTopicTwoMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!);
+                options.Add<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
+                options.Add<SpecificTopicTwoMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
             });
             services.Configure<SubscriptionOptions>(options =>
             {

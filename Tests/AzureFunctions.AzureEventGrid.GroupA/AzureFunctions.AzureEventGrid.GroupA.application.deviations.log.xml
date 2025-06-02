@@ -27,18 +27,5 @@
       <deviationsHash>B6ACCB1E0E859F6055C249B1B31B798EF4BBAB4BEA37A3A3571C4A4B96615F88</deviationsHash>
       <fileHash>731FD5B05E05A8F069863803FB4D6177D5D3C2ECD1B60CB7D1A276D3AA31487E</fileHash>
     </file>
-    <file>
-      <correlationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridMessageDispatcher.cs</path>
-      <count>3</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T08:24:33.4679126Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-05-29T12:51:20.8619848Z</approvedAt>
-      <deviationsHash>B1A64D588978AD3752BD015EC9DFE8111E971039DE5BFB5003082337E5A51D21</deviationsHash>
-      <fileHash>A7E01EBA9A471EDB3A792081612A6021143697E37FA46AE52AF88DDD766A72DF</fileHash>
-    </file>
   </files>
 </deviationsLog>

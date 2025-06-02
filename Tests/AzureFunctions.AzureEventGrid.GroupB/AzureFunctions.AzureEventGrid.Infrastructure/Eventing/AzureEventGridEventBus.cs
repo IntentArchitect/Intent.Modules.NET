@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure;
+using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
@@ -32,14 +33,14 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, null));
+            _messageQueue.Add(new MessageEntry(message, null, null));
         }
 
-        public void Publish<T>(T message, string subject)
+        public void Publish<T>(T message, string subject, IDictionary<string, object>? extensionAttributes = null)
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, subject));
+            _messageQueue.Add(new MessageEntry(message, subject, extensionAttributes));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -53,7 +54,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             {
                 var publisherEntry = _lookup[entry.Message.GetType().FullName!];
                 var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));
-                var eventGridEvent = CreateEventGridEvent(entry.Message, entry.Subject);
+                var eventGridEvent = CreateCloudEvent(entry, publisherEntry);
                 await client.SendEventAsync(eventGridEvent, cancellationToken);
             }
         }
@@ -66,13 +67,24 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             }
         }
 
-        private static EventGridEvent CreateEventGridEvent(object message, string? subject)
+        private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, PublisherEntry publisherEntry)
         {
-            var eventGridEvent = new EventGridEvent(subject: subject ?? "Event", eventType: message.GetType().FullName, dataVersion: "1.0", data: message);
-            return eventGridEvent;
+            var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message)
+            {
+                Subject = messageEntry.Subject,
+            };
+            if (messageEntry.ExtensionAttributes is not null)
+            {
+                foreach (var extensionAttribute in messageEntry.ExtensionAttributes)
+                {
+                    cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
+                }
+            }
+
+            return cloudEvent;
         }
 
-        private record MessageEntry(object Message, string? Subject);
+        private record MessageEntry(object Message, string? Subject, IDictionary<string, object>? ExtensionAttributes);
 
     }
 }

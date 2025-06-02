@@ -11,6 +11,8 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
   name                 = "client-created-event-sub"
   scope                = data.azurerm_eventgrid_topic.client_created_event.id
 
+  event_delivery_schema = "CloudEventSchemaV1_0"
+
   azure_function_endpoint {
     function_id                       = "${var.azure_functions_azure_event_grid_group_b_id}/functions/ClientCreatedEventConsumer"
     max_events_per_batch              = 1
