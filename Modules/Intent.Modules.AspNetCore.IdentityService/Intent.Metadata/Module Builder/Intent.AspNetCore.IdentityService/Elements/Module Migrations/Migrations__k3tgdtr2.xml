@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="3255c2f7-43bb-405a-83ac-eb3f6c478894" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a1a75470-3437-43b1-be57-f2187693929b</parentFolderId>
+  <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+  <packageName>Intent.AspNetCore.IdentityService</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
