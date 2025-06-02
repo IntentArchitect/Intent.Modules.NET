@@ -47,7 +47,7 @@ namespace Intent.Modules.UnitTesting.Migrations
                 var applicationProjectName = GetExistingApplicationProjectName(package);
                 var unitTestProject = package.GetElementsOfType(CSharpProjectSpecializationId).FirstOrDefault(p => p.Name == $"{applicationProjectName}.UnitTests");
 
-                if(unitTestProject is null)
+                if (unitTestProject is null)
                 {
                     return;
                 }
@@ -56,7 +56,7 @@ namespace Intent.Modules.UnitTesting.Migrations
                 bool savePackage = false;
                 if (unitTestProject != null)
                 {
-                    foreach(var element in unitTestProject.ChildElements.ToList())
+                    foreach (var element in unitTestProject.ChildElements.ToList())
                     {
                         unitTestProject.ChildElements.Remove(element);
                     }
