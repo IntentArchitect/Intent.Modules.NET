@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.Terraform" version="1.0.0-pre.0" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.AspNetCore6.0.CleanArchitecture" version="5.0.20" />
   <applications>
     <application id="a3039e69-7ab0-4ab4-8784-54706aa3fcd8" name="Standard.AspNetCore.TestApplication" relativePath="Standard.AspNetCore.TestApplication/Standard.AspNetCore.TestApplication.application.config" />
     <application id="859f5adf-c40e-40fb-9e68-e41da908d768" name="AzureFunctions.TestApplication" relativePath="AzureFunctions.TestApplication/AzureFunctions.TestApplication.application.config" />
@@ -156,5 +156,7 @@
     <application id="aae2c2d6-97d5-4a41-a5c3-7aed9e289b2b" name="AzureFunctions.AzureEventGrid.GroupB" relativePath="AzureFunctions.AzureEventGrid.GroupB/AzureFunctions.AzureEventGrid.GroupB.application.config" />
     <application id="f3921aeb-ec7e-49d2-9a3a-a839ad54ca60" name="AzureFunctions.AzureServiceBus.GroupB" relativePath="AzureFunctions.AzureServiceBus.GroupB/AzureFunctions.AzureServiceBus.GroupB.application.config" />
     <application id="0383bf92-fdf9-4f70-99fc-3db21db75e11" name="Infrastructure.Terraform" relativePath="Infrastructure.Terraform/Infrastructure.Terraform.application.config" />
+    <application id="6aa59527-73f3-4d76-9157-7dd26fe48db3" name="AspNetCore.AzureServiceBus.GroupA" relativePath="AspNetCore.AzureServiceBus.GroupA/AspNetCore.AzureServiceBus.GroupA.application.config" />
+    <application id="16bf1a1d-fd8e-4797-a81e-bbe58bf9cc08" name="AspNetCore.AzureServiceBus.GroupB" relativePath="AspNetCore.AzureServiceBus.GroupB/AspNetCore.AzureServiceBus.GroupB.application.config" />
   </applications>
 </solution>
