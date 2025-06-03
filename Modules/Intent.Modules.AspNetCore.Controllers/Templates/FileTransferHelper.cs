@@ -116,7 +116,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates
                 {
                     method.AddIfStatement($"Request.ContentLength != null && Request.ContentLength > {maxFileSizeValue}", stmt =>
                     {
-                        stmt.AddStatement("return BadRequest(new { error = \"File to large.\" });");
+                        stmt.AddStatement("return BadRequest(new { error = \"File too large.\" });");
                     });
                 }
 
