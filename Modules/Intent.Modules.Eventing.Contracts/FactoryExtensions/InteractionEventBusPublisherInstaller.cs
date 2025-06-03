@@ -5,9 +5,11 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -113,6 +115,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                                 method.AddStatement("var domainEvent = notification.DomainEvent;");
                             }
 
+                            //method.AddStatements(method.CreateInteractionStatements(processingHandler.Model));
                             AddPublishingLogic(template, method, "domainEvent", processingHandler.Model.PublishedIntegrationEvents());
                         }
 
@@ -140,24 +143,27 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                 {
                     foreach (var processingHandler in template.CSharpFile.GetProcessingHandlers())
                     {
-                        if (processingHandler.Model.PublishedIntegrationEvents().Any())
-                        {
-                            var method = processingHandler.Method;
-                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-                            var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
-                                                    throw new Exception("Expected at least one parameter on Integration Event Handler method.");
+                        var method = processingHandler.Method;
+                        //method.AddStatements(method.CreateInteractionStatements(processingHandler.Model));
 
-                            AddPublishingLogic(template, method, eventVariableName, processingHandler.Model.PublishedIntegrationEvents());
-                        }
+                        //if (processingHandler.Model.PublishedIntegrationEvents().Any())
+                        //{
+                        //    var method = processingHandler.Method;
+                        //    method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                        //    var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
+                        //                            throw new Exception("Expected at least one parameter on Integration Event Handler method.");
 
-                        if (processingHandler.Model.SentIntegrationCommands().Any())
-                        {
-                            var method = processingHandler.Method;
-                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-                            var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
-                                                    throw new Exception("Expected at least one parameter on Integration Event Handler method.");
-                            AddSendingLogic(template, method, eventVariableName, processingHandler.Model.SentIntegrationCommands());
-                        }
+                        //    AddPublishingLogic(template, method, eventVariableName, processingHandler.Model.PublishedIntegrationEvents());
+                        //}
+
+                        //if (processingHandler.Model.SentIntegrationCommands().Any())
+                        //{
+                        //    var method = processingHandler.Method;
+                        //    method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                        //    var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
+                        //                            throw new Exception("Expected at least one parameter on Integration Event Handler method.");
+                        //    AddSendingLogic(template, method, eventVariableName, processingHandler.Model.SentIntegrationCommands());
+                        //}
                     }
                 });
             }

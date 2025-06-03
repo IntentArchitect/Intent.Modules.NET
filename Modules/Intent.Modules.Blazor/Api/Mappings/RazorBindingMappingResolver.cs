@@ -41,23 +41,3 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
     }
 }
 
-public class TypeConvertingMappingResolver : IMappingTypeResolver
-{
-    private readonly ICSharpTemplate _template;
-
-    public TypeConvertingMappingResolver(ICSharpTemplate template)
-    {
-        _template = template;
-    }
-
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-    {
-        if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
-            || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
-        {
-            return new TypeConvertingCSharpMapping(mappingModel, _template);
-        }
-
-        return null;
-    }
-}

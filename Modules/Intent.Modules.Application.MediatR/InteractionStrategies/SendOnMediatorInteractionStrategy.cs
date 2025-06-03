@@ -26,10 +26,12 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return interaction.IsServiceInvocationTargetEndModel() && (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel());
         }
 
-        public IEnumerable<CSharpStatement> GetStatements(CSharpClass handlerClass, IAssociationEnd interaction, CSharpClassMappingManager csharpMapping)
+        public IEnumerable<CSharpStatement> CreateInteractionStatements(CSharpClassMethod method, IAssociationEnd interaction)
         {
+            var handlerClass = method.Class;
             _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
-            _csharpMapping = csharpMapping;
+            _csharpMapping = method.GetMappingManager();
+            _csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
             var @class = handlerClass;
             var ctor = @class.Constructors.First();
             var template = handlerClass.File.Template;
@@ -42,11 +44,17 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             }
 
             var requestName = interaction.TypeReference.Element.Name.ToLocalVariableName();
+
             var statements = new List<CSharpStatement>();
             statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(requestName), _csharpMapping.GenerateCreationStatement(interaction.Mappings.Single())).WithSemicolon().SeparatedFromPrevious());
             var response = interaction.TypeReference.Element?.TypeReference?.Element;
             if (response != null)
             {
+                var responseStaticElementId = "9acdd519-a45a-469d-89f1-00896a31ca61";
+                _csharpMapping.SetFromReplacement(interaction, response.Name.ToLocalVariableName());
+                _csharpMapping.SetToReplacement(interaction, response.Name.ToLocalVariableName());
+                _csharpMapping.SetFromReplacement(new StaticMetadata(responseStaticElementId), "");
+                _csharpMapping.SetToReplacement(new StaticMetadata(responseStaticElementId), "");
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken")));
             }
             else
@@ -56,4 +64,37 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return statements;
         }
     }
+}
+
+public class CommandQueryMappingResolver : IMappingTypeResolver
+{
+    private readonly ICSharpFileBuilderTemplate _template;
+
+    public CommandQueryMappingResolver(ICSharpFileBuilderTemplate template)
+    {
+        _template = template;
+    }
+
+    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    {
+        if (mappingModel.Model.SpecializationType == "Command" || mappingModel.Model.SpecializationType == "Query")
+        {
+            return new ConstructorMapping(mappingModel, _template);
+        }
+        //if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
+        //{
+        //    return new ObjectInitializationMapping(mappingModel, _template);
+        //}
+        //if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
+        //    || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
+        //{
+        //    return new TypeConvertingCSharpMapping(mappingModel, _template);
+        //}
+        return null;
+    }
+}
+
+public record StaticMetadata(string id) : IMetadataModel
+{
+    public string Id { get; } = id;
 }

@@ -12,6 +12,7 @@ using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Templates;
+using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.Contracts.InteractionStrategies
 {
@@ -25,10 +26,12 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.IsOperationModel();
         }
 
-        public IEnumerable<CSharpStatement> GetStatements(CSharpClass handlerClass, IAssociationEnd interaction, CSharpClassMappingManager csharpMapping)
+        public IEnumerable<CSharpStatement> CreateInteractionStatements(CSharpClassMethod method, IAssociationEnd interaction)
         {
+            var handlerClass = method.Class;
             _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
-            _csharpMapping = csharpMapping;
+            _csharpMapping = method.GetMappingManager();
+            _csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
             try
             {
                 var statements = new List<CSharpStatement>();
@@ -85,5 +88,25 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
             }
         }
+    }
+}
+
+[IntentManaged(Mode.Ignore)]
+public class CallServiceOperationMappingResolver : IMappingTypeResolver
+{
+    private readonly ICSharpFileBuilderTemplate _template;
+
+    public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
+    {
+        _template = template;
+    }
+
+    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    {
+        if (mappingModel.Model.SpecializationType == "Operation")
+        {
+            return new MethodInvocationMapping(mappingModel, _template);
+        }
+        return null;
     }
 }
