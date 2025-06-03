@@ -6,11 +6,13 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <Nullable>enable</Nullable>
+    <UserSecretsId>275751b1-6893-4fd5-8d2e-3b8b121a5062</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupA.Application\AspNetCore.AzureServiceBus.GroupA.Application.csproj" />
     <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupA.Infrastructure\AspNetCore.AzureServiceBus.GroupA.Infrastructure.csproj" />
+    <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupA.Domain\AspNetCore.AzureServiceBus.GroupA.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

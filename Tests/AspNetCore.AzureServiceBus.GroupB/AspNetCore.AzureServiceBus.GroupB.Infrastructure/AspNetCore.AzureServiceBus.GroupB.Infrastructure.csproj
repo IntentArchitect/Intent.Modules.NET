@@ -9,9 +9,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupB.Application\AspNetCore.AzureServiceBus.GroupB.Application.csproj" />
+    <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupB.Domain\AspNetCore.AzureServiceBus.GroupB.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.19.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.15" />
   </ItemGroup>
   </Project>

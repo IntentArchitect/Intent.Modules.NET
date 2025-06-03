@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using AspNetCore.AzureServiceBus.GroupA.Application.Common.Exceptions;
+using AspNetCore.AzureServiceBus.GroupA.Domain.Common.Exceptions;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -21,6 +22,14 @@ namespace AspNetCore.AzureServiceBus.GroupA.Api.Filters
                     break;
                 case UnauthorizedAccessException:
                     context.Result = new UnauthorizedResult();
+                    context.ExceptionHandled = true;
+                    break;
+                case NotFoundException exception:
+                    context.Result = new NotFoundObjectResult(new ProblemDetails
+                    {
+                        Detail = exception.Message
+                    })
+                    .AddContextInformation(context);
                     context.ExceptionHandled = true;
                     break;
                 default:

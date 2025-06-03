@@ -169,6 +169,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>c49f62de-90b0-4f33-b830-edc44b5f98a9</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.Behaviours.UnitOfWorkBehaviour</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Behaviours/UnitOfWorkBehaviour.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UnitOfWorkBehaviour.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>ba4603e1-8b6e-4355-94cd-02dd918bc12e</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -226,10 +234,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0bea4136-3b35-4e18-9659-f34cc63256e0</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.PagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Application/Common/Pagination/PagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>PagedResultMappingExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -278,6 +302,62 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/AspNetCore.AzureServiceBus.GroupA.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ccdd8cc9-9d54-4d40-80c6-bc8a1d3716b0</ProjectId>
+      <CorrelationId>Intent.Entities.CollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/CollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f32f271-a036-4ecf-893b-3654141625cf</ProjectId>
+      <CorrelationId>Intent.Entities.NotFoundException</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/Exceptions/NotFoundException.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NotFoundException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f3ab074f-ef89-4308-a095-ff23f1f84a28</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.UnitOfWorkInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/Interfaces/IUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IUnitOfWork.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>ccdd8cc9-9d54-4d40-80c6-bc8a1d3716b0</ProjectId>
+      <CorrelationId>Intent.Entities.UpdateHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Common/UpdateHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UpdateHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEFRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.PagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb6d5540-3816-4bd4-aad9-7a89e99e182a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.RepositoryInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -342,6 +422,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Eventing/IAzureServiceBusMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IAzureServiceBusMessageDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69c7e47a-bb1e-4b7f-88c5-18f5d236a99f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbContext#DefaultConnection</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Persistence/ApplicationDbContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationDbContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>69c7e47a-bb1e-4b7f-88c5-18f5d236a99f</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fc809330-a78f-4d46-a560-3cbdd9fdbc37</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.RepositoryBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupA.Infrastructure/Repositories/RepositoryBase.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RepositoryBase.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

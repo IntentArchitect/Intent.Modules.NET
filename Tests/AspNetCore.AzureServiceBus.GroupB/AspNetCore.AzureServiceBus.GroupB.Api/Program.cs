@@ -1,6 +1,7 @@
 using AspNetCore.AzureServiceBus.GroupB.Api.Configuration;
 using AspNetCore.AzureServiceBus.GroupB.Api.Filters;
 using AspNetCore.AzureServiceBus.GroupB.Api.Logging;
+using AspNetCore.AzureServiceBus.GroupB.Api.Services;
 using AspNetCore.AzureServiceBus.GroupB.Application;
 using AspNetCore.AzureServiceBus.GroupB.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -43,6 +44,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Api
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
+                builder.Services.AddHostedService<AzureServiceBusHostedService>();
 
                 var app = builder.Build();
 

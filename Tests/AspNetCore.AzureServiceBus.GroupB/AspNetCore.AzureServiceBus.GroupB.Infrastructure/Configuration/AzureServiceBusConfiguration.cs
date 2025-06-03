@@ -21,7 +21,9 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Configuration
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
             services.Configure<SubscriptionOptions>(options =>
             {
-                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>();
+                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(
+                    configuration["AzureServiceBus:ClientCreated"]!,
+                    configuration["AzureServiceBus:ClientCreatedSubscription"]);
             });
             return services;
         }

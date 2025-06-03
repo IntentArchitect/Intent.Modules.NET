@@ -11,8 +11,12 @@
   <ItemGroup>
     <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
     <PackageReference Include="MediatR" Version="12.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.15" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
   </ItemGroup>
 
-</Project>
+  <ItemGroup>
+    <ProjectReference Include="..\AspNetCore.AzureServiceBus.GroupA.Domain\AspNetCore.AzureServiceBus.GroupA.Domain.csproj" />
+  </ItemGroup>
+  </Project>
