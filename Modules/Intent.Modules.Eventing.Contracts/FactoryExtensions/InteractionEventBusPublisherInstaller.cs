@@ -5,7 +5,6 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.EventInteractions;
-using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Application.MediatR.CRUD.Eventing.MappingTypeResolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -48,6 +47,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
+            return;
+
             // PUBLISH EVENTS FROM COMMAND:
             var templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>("Application.Command.Handler");
             foreach (var template in templates)

@@ -1,6 +1,5 @@
 using System.Linq;
 using Intent.Engine;
-using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -9,6 +8,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -36,28 +36,68 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            InteractionStrategyProvider.Instance.Register(new PublishIntegrationMessageInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new DispatchIntegrationMessageInteractionStrategy());
             var templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Eventing.EventHandler)
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
             {
-                var @class = template.CSharpFile.Classes.First();
-
                 foreach (var handler in template.CSharpFile.GetProcessingHandlers())
                 {
                     var method = handler.Method;
 
                     var mappingManager = method.GetMappingManager();
-                    //mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
-                    //mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
                     mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
                     mappingManager.SetFromReplacement(handler.Model, "message");
                     mappingManager.SetFromReplacement(handler.Model.InternalElement, "message");
 
-                    //// SEND COMMANDS FROM INTEGRATION EVENT HANDLER:
                     method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                    method.AddStatements(method.CreateInteractionStatements(handler.Model));
+                    method.ImplementInteraction(handler.Model);
                 }
+            }
+
+            templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Command)
+                .Concat(application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Query))
+                .OfType<ICSharpFileBuilderTemplate>();
+            foreach (var template in templates)
+            {
+                foreach (var handler in template.CSharpFile.GetProcessingHandlers())
+                {
+                    var method = handler.Method;
+
+                    var mappingManager = method.GetMappingManager();
+                    mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
+                    // TODO: These can go to the handler template:
+                    mappingManager.SetFromReplacement(handler.Model, "request");
+                    mappingManager.SetFromReplacement(handler.Model.InternalElement, "request");
+
+                    //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                    method.ImplementInteraction(handler.Model);
+                }
+            }
+
+            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
+            foreach (var template in templates)
+            {
+                template.CSharpFile.AfterBuild(file =>
+                {
+                    foreach (var handler in template.CSharpFile.GetProcessingHandlers())
+                    {
+                        var method = handler.Method;
+                        method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                        if (!method.Statements.Any(x => x.ToString().Equals("var domainEvent = notification.DomainEvent;")))
+                        {
+                            method.AddStatement("var domainEvent = notification.DomainEvent;");
+                        }
+
+                        var mappingManager = method.GetMappingManager();
+                        mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
+                        mappingManager.SetFromReplacement(handler.Model, "domainEvent");
+                        mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
+
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                        method.ImplementInteraction(handler.Model);
+                    }
+                });
             }
         }
 

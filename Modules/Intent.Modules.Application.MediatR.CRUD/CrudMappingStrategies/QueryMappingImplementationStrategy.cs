@@ -12,6 +12,7 @@ using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
@@ -50,7 +51,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public void ApplyStrategy()
         {
-            var csharpMapping = new CSharpClassMappingManager(_template); // TODO: Improve this template resolution system - it's not clear which template should be passed in initially.
+            var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
+            var handleMethod = @class.FindMethod("Handle");
+            var csharpMapping = handleMethod.GetMappingManager();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
@@ -65,10 +68,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
-
-            var @class = _template.CSharpFile.Classes.First(x => x.FindMethod("Handle") is not null);
-            var handleMethod = @class.FindMethod("Handle");
-            handleMethod.AddMetadata("mapping-manager", csharpMapping);
 
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();

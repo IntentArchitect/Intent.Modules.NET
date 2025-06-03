@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Application.Contracts.InteractionStrategies
 {
@@ -26,10 +27,10 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.IsOperationModel();
         }
 
-        public IEnumerable<CSharpStatement> CreateInteractionStatements(CSharpClassMethod method, IAssociationEnd interaction)
+        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
         {
-            var handlerClass = method.Class;
-            _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
+            var @class = method.Class;
+            _template = (ICSharpFileBuilderTemplate)@class.File.Template;
             _csharpMapping = method.GetMappingManager();
             _csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
             try
@@ -38,13 +39,13 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 var serviceModel = ((IElement)interaction.TypeReference.Element).ParentElement;
                 if (interaction.Mappings.Any() is false || !_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.Interface, serviceModel, out var serviceInterfaceTemplate))
                 {
-                    return Array.Empty<CSharpStatement>();
+                    return;
                 }
 
                 // So that the mapping system can resolve the name of the operation from the interface itself:
                 _template.AddTypeSource(serviceInterfaceTemplate.Id);
 
-                string? serviceField = handlerClass.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
+                string? serviceField = @class.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
 
                 var methodInvocation = _csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
                 CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
@@ -81,7 +82,7 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
 
                 //WireupDomainServicesForOperations(handlerClass, callServiceOperation, statements);
 
-                return statements;
+                method.AddStatements(statements);
             }
             catch (Exception ex)
             {
@@ -106,6 +107,11 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
         if (mappingModel.Model.SpecializationType == "Operation")
         {
             return new MethodInvocationMapping(mappingModel, _template);
+        }
+
+        if (mappingModel.Model.SpecializationType == "DTO-Field" )
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
         }
         return null;
     }

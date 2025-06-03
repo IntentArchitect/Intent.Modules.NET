@@ -9,6 +9,7 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
@@ -49,8 +50,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-            
-            var csharpMapping = new CSharpClassMappingManager(_template);
+
+            var csharpMapping = handleMethod.GetMappingManager();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
@@ -62,7 +63,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(_model, "request");
-            handleMethod.AddMetadata("mapping-manager", csharpMapping);
 
             handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, _model));
 

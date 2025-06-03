@@ -26,7 +26,7 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return interaction.IsServiceInvocationTargetEndModel() && (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel());
         }
 
-        public IEnumerable<CSharpStatement> CreateInteractionStatements(CSharpClassMethod method, IAssociationEnd interaction)
+        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
         {
             var handlerClass = method.Class;
             _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
@@ -61,7 +61,7 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             {
                 statements.Add(new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken"));
             }
-            return statements;
+            method.AddStatements(statements);
         }
     }
 }
@@ -81,10 +81,10 @@ public class CommandQueryMappingResolver : IMappingTypeResolver
         {
             return new ConstructorMapping(mappingModel, _template);
         }
-        //if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
-        //{
-        //    return new ObjectInitializationMapping(mappingModel, _template);
-        //}
+        if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
+        }
         //if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
         //    || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
         //{
