@@ -1,3 +1,7 @@
+### Version 5.0.8
+
+- Improvement: Updated dependency version and added interop module reference.
+
 ### Version 5.0.7
 
 - Improvement: Updated module icon
