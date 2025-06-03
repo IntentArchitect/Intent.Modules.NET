@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -23,6 +24,8 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 {
     // This is for disambiguating the extension method
     using Intent.Modelers.Services.Api;
+    using Intent.Modelers.Services.CQRS.Api;
+    using System.Collections.Generic;
 
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ApplicationServiceInteractionInstaller : FactoryExtensionBase
@@ -47,9 +50,12 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
             foreach (var template in templates)
             {
                 var @class = template.CSharpFile.Classes.First();
+                var mappingManager = new CSharpClassMappingManager(template);
+
                 foreach (var handler in template.CSharpFile.GetProcessingHandlers())
                 {
                     var method = handler.Method;
+
                     var integrationData = handler.Model switch
                     {
                         SubscribeIntegrationEventTargetEndModel eventTargetEndModel => new
@@ -68,54 +74,57 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         },
                         _ => throw new NotSupportedException($"{handler.Model.GetType().FullName} is not supported")
                     };
-
-                    // SEND COMMANDS FROM INTEGRATION EVENT HANDLER:
-                    var ctor = @class.Constructors.First();
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                    var mappingManager = new CSharpClassMappingManager(template);
                     mappingManager.AddMappingResolver(new CallServiceOperationMappingResolver(template));
                     mappingManager.AddMappingResolver(new CreateCommandMappingResolver(template));
                     mappingManager.SetFromReplacement(integrationData.Model, "message");
                     mappingManager.SetFromReplacement(integrationData.ElementModel, "message");
+                    var interaction = new StandardInteractions(template, mappingManager);
 
-                    foreach (var sendCommand in integrationData.SentCommandDestinations.Where(x => x.Mappings.Any()))
-                    {
-                        if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
-                        {
-                            ctor.AddParameter(template.UseType("MediatR.ISender"), "mediator", param =>
-                            {
-                                param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
-                            });
-                        }
+                    //// SEND COMMANDS FROM INTEGRATION EVENT HANDLER:
+                    var ctor = @class.Constructors.First();
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                    var statements = interaction.GetStatements(@class, handler.Model);
+                    method.AddStatements(statements);
 
-                        method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
-                        method.AddStatement(string.Empty);
-                        method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
-                    }
+                    //foreach (var sendCommand in integrationData.SentCommandDestinations.Where(x => x.Mappings.Any()))
+                    //{
+                    //    if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
+                    //    {
+                    //        ctor.AddParameter(template.UseType("MediatR.ISender"), "mediator", param =>
+                    //        {
+                    //            param.IntroduceReadonlyField((_, s) => s.ThrowArgumentNullException());
+                    //        });
+                    //    }
 
-                    foreach (var calledOperation in integrationData.CalledServiceOperations.Where(x => x.Mappings.Any()))
-                    {
-                        var serviceInterfaceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
-                        var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type == serviceInterfaceType)?.Name;
-                        if (serviceFieldName == null)
-                        {
-                            ctor.AddParameter(serviceInterfaceType, serviceInterfaceType.AsClassName().ToPrivateMemberName(), param =>
-                            {
-                                param.IntroduceReadonlyField((field, s) =>
-                                {
-                                    s.ThrowArgumentNullException();
-                                    serviceFieldName = field.Name;
-                                });
-                            });
-                        }
+                    //    method.AddStatement(new CSharpAssignmentStatement("var command", mappingManager.GenerateCreationStatement(sendCommand.Mappings.Single())).WithSemicolon());
+                    //    method.AddStatement(string.Empty);
+                    //    method.AddStatement(new CSharpInvocationStatement("await _mediator.Send").AddArgument("command").AddArgument("cancellationToken"));
+                    //}
 
-                        var operationInvocation = mappingManager.GenerateUpdateStatements(calledOperation.Mappings.Single()).First();
-                        (operationInvocation as CSharpInvocationStatement)?.AddArgument("cancellationToken");
-                        method.AddStatement(new CSharpAccessMemberStatement($"await {serviceFieldName}", operationInvocation));
-                    }
+                    //foreach (var calledOperation in integrationData.CalledServiceOperations.Where(x => x.Mappings.Any()))
+                    //{
+                    //    var serviceInterfaceType = template.GetTypeName(TemplateRoles.Application.Services.Interface, calledOperation.Element.AsOperationModel().ParentService.InternalElement);
+                    //    var serviceFieldName = @class.Fields.FirstOrDefault(x => x.Type == serviceInterfaceType)?.Name;
+                    //    if (serviceFieldName == null)
+                    //    {
+                    //        ctor.AddParameter(serviceInterfaceType, serviceInterfaceType.AsClassName().ToPrivateMemberName(), param =>
+                    //        {
+                    //            param.IntroduceReadonlyField((field, s) =>
+                    //            {
+                    //                s.ThrowArgumentNullException();
+                    //                serviceFieldName = field.Name;
+                    //            });
+                    //        });
+                    //    }
+
+                    //    var operationInvocation = mappingManager.GenerateUpdateStatements(calledOperation.Mappings.Single()).First();
+                    //    (operationInvocation as CSharpInvocationStatement)?.AddArgument("cancellationToken");
+                    //    method.AddStatement(new CSharpAccessMemberStatement($"await {serviceFieldName}", operationInvocation));
+                    //}
                 }
             }
         }
+
     }
 
     [IntentManaged(Mode.Ignore)]
