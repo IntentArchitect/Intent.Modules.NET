@@ -15,12 +15,14 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Eventing
     public class AzureServiceBusEventBus : IEventBus
     {
         private readonly IConfiguration _configuration;
+        private readonly ServiceBusClient _serviceBusClient;
         private readonly List<object> _messageQueue = [];
         private readonly Dictionary<string, string> _lookup;
 
-        public AzureServiceBusEventBus(IConfiguration configuration, IOptions<PublisherOptions> options)
+        public AzureServiceBusEventBus(IConfiguration configuration, ServiceBusClient serviceBusClient, IOptions<PublisherOptions> options)
         {
             _configuration = configuration;
+            _serviceBusClient = serviceBusClient;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);
         }
 
@@ -45,13 +47,10 @@ namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Eventing
                 return;
             }
             using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);
-            var connectionString = _configuration["AzureServiceBus:ConnectionString"];
-            await using var serviceBusClient = new ServiceBusClient(connectionString);
-
             foreach (var message in _messageQueue)
             {
                 var queueOrTopicName = _lookup[message.GetType().FullName!];
-                await using var sender = serviceBusClient.CreateSender(queueOrTopicName);
+                await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);
                 var serviceBusMessage = CreateServiceBusMessage(message);
                 await sender.SendMessageAsync(serviceBusMessage, cancellationToken);
             }

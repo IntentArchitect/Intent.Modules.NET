@@ -1,7 +1,9 @@
 using AspNetCore.AzureServiceBus.GroupA.Eventing.Messages;
 using AspNetCore.AzureServiceBus.GroupB.Application.Common.Eventing;
 using AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing;
+using Azure.Messaging.ServiceBus;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,6 +18,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
             services.AddScoped<IEventBus, AzureServiceBusEventBus>();
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();

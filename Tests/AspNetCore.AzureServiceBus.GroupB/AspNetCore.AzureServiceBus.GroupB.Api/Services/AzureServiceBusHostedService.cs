@@ -11,30 +11,31 @@ namespace AspNetCore.AzureServiceBus.GroupB.Api.Services;
 public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
 {
     private readonly IAzureServiceBusMessageDispatcher _dispatcher;
-    private readonly IServiceProvider _serviceProvider;
+    private readonly ServiceBusClient _serviceBusClient;
+    private readonly IServiceProvider _rootServiceProvider;
     private readonly ILogger<AzureServiceBusHostedService> _logger;
     private readonly SubscriptionOptions _subscriptionOptions;
     private readonly List<ServiceBusProcessor> _processors = [];
 
     public AzureServiceBusHostedService(
+        IServiceProvider rootServiceProvider,
         IAzureServiceBusMessageDispatcher dispatcher,
-        IServiceProvider serviceProvider,
+        ServiceBusClient serviceBusClient,
         ILogger<AzureServiceBusHostedService> logger,
         IOptions<SubscriptionOptions> subscriptionOptions)
     {
         _dispatcher = dispatcher;
-        _serviceProvider = serviceProvider;
+        _serviceBusClient = serviceBusClient;
+        _rootServiceProvider = rootServiceProvider;
         _logger = logger;
         _subscriptionOptions = subscriptionOptions.Value;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var configuration =_serviceProvider.GetRequiredService<IConfiguration>();
-        await using var serviceBusClient = new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]);
         foreach (var subscription in _subscriptionOptions.Entries)
         {
-            var processor = CreateProcessor(subscription, serviceBusClient);
+            var processor = CreateProcessor(subscription, _serviceBusClient);
             processor.ProcessMessageAsync += args => ProcessMessageAsync(args, stoppingToken);
             processor.ProcessErrorAsync += ProcessErrorAsync;
 
@@ -48,17 +49,23 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
 
     private ServiceBusProcessor CreateProcessor(SubscriptionEntry subscription, ServiceBusClient serviceBusClient)
     {
+        var options = new ServiceBusProcessorOptions
+        {
+            AutoCompleteMessages = false,
+            MaxConcurrentCalls = 1,
+            PrefetchCount = 0
+        };
+        
         return subscription.SubscriptionName != null
-            ? serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, subscription.SubscriptionName)
-            : serviceBusClient.CreateProcessor(subscription.QueueOrTopicName);
+            ? serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, subscription.SubscriptionName, options)
+            : serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, options);
     }
 
     private async Task ProcessMessageAsync(ProcessMessageEventArgs args, CancellationToken cancellationToken)
     {
         try
         {
-            // Create scope for this specific message processing
-            using var scope = _serviceProvider.CreateScope();
+            using var scope = _rootServiceProvider.CreateScope();
             var scopedServiceProvider = scope.ServiceProvider;
             
             var unitOfWork = scopedServiceProvider.GetRequiredService<IUnitOfWork>();
@@ -79,7 +86,7 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error processing ServiceBus message");
-            throw; // Let ServiceBus handle retry/dead letter
+            throw;
         }
     }
 
