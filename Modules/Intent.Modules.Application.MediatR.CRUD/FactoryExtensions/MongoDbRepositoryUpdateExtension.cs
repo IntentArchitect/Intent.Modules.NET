@@ -29,6 +29,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
         {
             // Putting here for now, but is wrong place
             InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)

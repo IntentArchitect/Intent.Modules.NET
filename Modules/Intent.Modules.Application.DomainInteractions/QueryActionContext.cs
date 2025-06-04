@@ -41,7 +41,7 @@ namespace Intent.Modules.Application.DomainInteractions
             _template = method.File.Template;
             _handlerClass = method.Class;
             _entity = queryAction.TypeReference.Element.AsClassModel();
-            if (actionType == ActionType.Update && _entity == null) 
+            if (_actionType == ActionType.Update && _entity == null) 
             {
                 _entity = OperationModelExtensions.AsOperationModel(queryAction.TypeReference.Element).ParentClass;
             }

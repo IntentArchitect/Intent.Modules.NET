@@ -20,6 +20,7 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
+using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Templates;
 using Intent.Utils;
 using JetBrains.Annotations;
@@ -59,7 +60,6 @@ public class DomainInteractionsManager
 
     //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
 
-    private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
     private const string ApplicationServiceSpecializationId = "b16578a5-27b1-4047-a8df-f0b783d706bd";
     private const string EntitySpecializationId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10";
     private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
@@ -88,10 +88,10 @@ public class DomainInteractionsManager
             //    statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Query, queryAction.InternalAssociationEnd)));
             //}
 
-            foreach (var createAction in model.CreateEntityActions())
-            {
-                statements.AddRange(domainInteractionManager.CreateEntity(method, createAction));
-            }
+            //foreach (var createAction in model.CreateEntityActions())
+            //{
+            //    statements.AddRange(domainInteractionManager.CreateEntity(method, createAction));
+            //}
 
             foreach (var updateAction in model.UpdateEntityActions())
             {
@@ -132,7 +132,7 @@ public class DomainInteractionsManager
 
                         return x;
                     }).ToList();
-                    WireupDomainServicesForProcessingAction(handlerClass, actions.InternalElement.Mappings.Single(), processingStatements);
+                    handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
                     processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
                     statements.AddRange(processingStatements);
 
@@ -143,10 +143,10 @@ public class DomainInteractionsManager
                 }
             }
 
-            foreach (var entity in method.TrackedEntities().Values.Where(x => x.IsNew))
-            {
-                statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
-            }
+            //foreach (var entity in method.TrackedEntities().Values.Where(x => x.IsNew))
+            //{
+            //    statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
+            //}
 
             return statements;
         }
@@ -183,7 +183,7 @@ public class DomainInteractionsManager
             CSharpStatement queryInvocation = null;
             var prerequisiteStatement = new List<CSharpStatement>();
 
-            if (MustAccessEntityThroughAggregate(dataAccess))
+            if (dataAccess.MustAccessEntityThroughAggregate())
             {
                 if (!TryGetFindAggregateStatements(queryContext.Method, queryMapping, foundEntity, out var findAggStatements))
                 {
@@ -463,7 +463,7 @@ public class DomainInteractionsManager
             {
                 var constructionStatement = _csharpMapping.GenerateCreationStatement(mapping);
 
-                WireupDomainServicesForConstructors(handlerClass, createAction, constructionStatement);
+                handlerClass.WireupDomainServicesForConstructors(createAction, constructionStatement);
 
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), constructionStatement).WithSemicolon());
             }
@@ -514,7 +514,7 @@ public class DomainInteractionsManager
                 if (updateMapping != null)
                 {
                     var updateStatements = _csharpMapping.GenerateUpdateStatements(updateMapping);
-                    WireupDomainServicesForOperations(method.Class, updateAction, updateStatements);
+                    method.Class.WireupDomainServicesForOperations(updateAction, updateStatements);
                     AdjustOperationInvocationForAsyncAndReturn(method, updateMapping, updateStatements);
 
                     statements.AddRange(updateStatements);
@@ -838,168 +838,6 @@ public class DomainInteractionsManager
         return false;
     }
 
-    private void WireupDomainServicesForConstructors(CSharpClass handlerClass, CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
-    {
-        var constructor = createAction.Element.AsClassConstructorModel();
-        if (constructor != null)
-        {
-            WireupDomainService(constructionStatement as CSharpInvocationStatement, constructor.Parameters, handlerClass);
-        }
-    }
-
-    private void WireupDomainServicesForOperations(CSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
-    {
-        Func<CSharpInvocationStatement, Intent.Modelers.Domain.Api.OperationModel> getOperation;
-        if (OperationModelExtensions.IsOperationModel(updateAction.Element))
-        {
-            var operation = OperationModelExtensions.AsOperationModel(updateAction.Element);
-            if (operation == null)
-            {
-                return;
-            }
-            if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
-            {
-                return;
-            }
-            getOperation = (x) => operation;
-        }
-        else
-        {
-            var updateMappings = updateAction.Mappings.GetUpdateEntityMapping();
-            var mappedOperations = updateMappings.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
-
-            if (!mappedOperations.Any())
-            {
-                return;
-            }
-            if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
-            {
-                return;
-            }
-
-            getOperation = (invocation) =>
-            {
-                string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
-                return mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
-            };
-        }
-
-        foreach (var updateStatement in updateStatements)
-        {
-            if (updateStatement is not CSharpInvocationStatement invocation)
-            {
-                continue;
-            }
-            var operation = getOperation(invocation);
-
-            if (operation == null)
-            {
-                continue;
-            }
-            WireupDomainService(invocation, operation.Parameters, handlerClass);
-        }
-    }
-
-    private void WireupDomainServicesForProcessingAction(CSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
-    {
-        var mappedOperations = mapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
-
-        if (!mappedOperations.Any())
-        {
-            return;
-        }
-        if (!mappedOperations.Any(o => o.Parameters.Any(p => p.TypeReference.Element.SpecializationTypeId == DomainServiceSpecializationId)))
-        {
-            return;
-        }
-
-
-        foreach (var updateStatement in processingActions)
-        {
-            if (updateStatement is not CSharpInvocationStatement invocation)
-            {
-                continue;
-            }
-            string operationName = invocation.Expression.Reference is ICSharpMethodDeclaration iCSharpMethodDeclaration ? iCSharpMethodDeclaration.Name.ToCSharpIdentifier() : null;
-            var operation = mappedOperations.FirstOrDefault(operation => operation.Name == operationName);
-
-            if (operation == null)
-            {
-                continue;
-            }
-            WireupDomainService(invocation, operation.Parameters, handlerClass);
-        }
-    }
-
-    private void WireupDomainServicesForOperations(CSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
-    {
-        var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.TypeReference.Element);
-        if (operation == null)
-        {
-            return;
-        }
-        if (operation.Parameters.All(p => p.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId))
-        {
-            return;
-        }
-
-        foreach (var statement in statements)
-        {
-            SubstituteServiceParameters(statement);
-        }
-
-        return;
-
-        void SubstituteServiceParameters(CSharpStatement statement)
-        {
-            switch (statement)
-            {
-                case CSharpAssignmentStatement assign:
-                    SubstituteServiceParameters(assign.Rhs);
-                    return;
-                case CSharpAccessMemberStatement access:
-                    {
-                        SubstituteServiceParameters(access.Member);
-                        return;
-                    }
-                default:
-                    break;
-            }
-
-            var invocation = statement as CSharpInvocationStatement;
-            if (invocation is null)
-            {
-                return;
-            }
-
-            WireupDomainService(invocation, operation.Parameters, handlerClass);
-        }
-    }
-
-    private void WireupDomainService(CSharpInvocationStatement invocation, IList<Intent.Modelers.Domain.Api.ParameterModel> parameters, CSharpClass handlerClass)
-    {
-        if (invocation is null)
-        {
-            return;
-        }
-
-        for (var i = 0; i < parameters.Count; i++)
-        {
-            var arg = parameters[i];
-            if (arg.TypeReference.Element.SpecializationTypeId != DomainServiceSpecializationId)
-            {
-                continue;
-            }
-
-            if (!_template.TryGetTypeName(TemplateRoles.Domain.DomainServices.Interface, arg.TypeReference.Element.Id, out var domainServiceInterface))
-            {
-                continue;
-            }
-            var fieldName = handlerClass.InjectService(domainServiceInterface, domainServiceInterface.Substring(1).ToParameterName());
-            //Change `default` or `parameterName: default` into `_domainService` (fieldName)
-            invocation.Statements[i].Replace(invocation.Statements[i].GetText("").Replace("default", fieldName));
-        }
-    }
 
     private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
     {
