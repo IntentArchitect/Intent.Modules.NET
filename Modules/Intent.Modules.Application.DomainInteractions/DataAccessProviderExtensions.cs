@@ -177,7 +177,7 @@ public static class DataAccessProviderExtensions
         return returnsPagedResult;
     }
 
-    private static bool IsResultPaginated(ITypeReference returnType)
+    public static bool IsResultPaginated(this ITypeReference returnType)
     {
         return returnType.Element?.Name == "PagedResult";
     }
