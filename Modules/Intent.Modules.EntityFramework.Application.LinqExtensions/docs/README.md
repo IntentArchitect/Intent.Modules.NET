@@ -1,13 +1,13 @@
 ﻿# Intent.EntityFramework.Application.LinqExtensions
 
-These module add LINQ Extension methods which can be using in conjunction with the EF repositories, in the application layer, without adding the `EntityFramework` NuGet dependency in your application layer.
+These module adds LINQ Extension methods which can be using in conjunction with the EF repositories, in the application layer, without adding the `EntityFramework` NuGet dependency in your application layer.
 
-The following LINQ extension methods
+The following LINQ extension methods are added
 
 - AsNoTracking
 - AsTracking
 
-These can then be used as follows:
+Usage Example:
 
 ```csharp
 

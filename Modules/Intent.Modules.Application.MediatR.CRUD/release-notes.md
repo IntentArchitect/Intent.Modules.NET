@@ -1,5 +1,10 @@
 ### Version 6.0.31
 
+- Improvement: Replaced the `System.Linq.Dynamic.Core` using clause with `static System.Linq.Dynamic.Core.DynamicQueryableExtensions` to better disambiguate `PagedResult`.
+  > [!NOTE]
+  >
+  > Intent Architect should automatically remove the using clause `System.Linq.Dynamic.Core`, provided you have previously run the **Software Factory**. If it is not automatically removed simply remove it.
+  
 - Improvement: Improved code generated when using a literal as a query filter
 - Fixed: CRUD implementations where failing in some circumstances with reserved words.
 

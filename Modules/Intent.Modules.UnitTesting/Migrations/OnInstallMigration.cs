@@ -6,10 +6,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Model;
-using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Metadata;
 using Intent.Modules.Common.VisualStudio;
+using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
 
@@ -48,10 +47,12 @@ namespace Intent.Modules.UnitTesting.Migrations
         
 
         private readonly IApplicationConfigurationProvider _configurationProvider;
+        private readonly IPersistenceLoader _persistenceLoader;
 
-        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
+        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider, IPersistenceLoader persistenceLoader)
         {
             _configurationProvider = configurationProvider;
+            _persistenceLoader = persistenceLoader;
         }
 
         [IntentFully]
@@ -59,7 +60,7 @@ namespace Intent.Modules.UnitTesting.Migrations
 
         public void OnInstall()
         {
-            var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
+            var app = _persistenceLoader.LoadApplication(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(VisualStudioDesignerId);
             var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
 
@@ -70,46 +71,33 @@ namespace Intent.Modules.UnitTesting.Migrations
                 var unitTestProject = CreateUnitTestProject(package, testFolder);
                 AddUnitTestRole(package, unitTestProject);
 
-                package.Save(true);
+                package.Save();
             }
         }
-        private static ElementPersistable CreateTestFolder(PackageModelPersistable package)
+        private static IElementPersistable CreateTestFolder(IPackageModelPersistable package)
         {
             var testFolderName = "5 - Tests";
             var elements = package.GetElementsOfType(SolutionFolderSpecializationId);
 
             if (!elements.Any(x => x.Name == testFolderName))
             {
-                package.AddElement(new ElementPersistable
-                {
-                    Name = testFolderName,
-                    Display = testFolderName,
-                    IsAbstract = false,
-                    SortChildren = SortChildrenOptions.SortByTypeAndName,
-                    IsMapped = false,
-                    ParentFolderId = package.Id,
-                    PackageId = package.Id,
-                    PackageName = package.Name,
-                    SpecializationTypeId = SolutionFolderSpecializationId,
-                    SpecializationType = SolutionFolderSpecializationType,
-                    Package = package,
-                    Id = Guid.NewGuid().ToString()
-                });
+                package.Classes.Add(Guid.NewGuid().ToString(), SolutionFolderSpecializationType, SolutionFolderSpecializationId, testFolderName, package.Id);
             }
 
             return package.GetElementsOfType(SolutionFolderSpecializationId).First(n => n.Name == testFolderName);
         }
 
-        private static ExistingProjectSettings GetExistingProjectSettings(PackageModelPersistable package)
+        private static ExistingProjectSettings GetExistingProjectSettings(IPackageModelPersistable package)
         {
             var applicationRole = package.GetElementsOfType(RoleSpecializationId).FirstOrDefault(r => r.Name == "Application");
 
             var applicationProjectName = $"{package.Name}.Application";
             var targetFramework = string.Empty;
 
-            if (applicationRole != null && package.TryGetElementById(applicationRole.Parent.Id, out var applicationProjectInterface))
+            var applicationProjectInterface = package.Classes.FirstOrDefault(p => p.Id == applicationRole.Parent.Id);
+            if (applicationRole != null && applicationProjectInterface != null)
             {
-                if (applicationProjectInterface is ElementPersistable applicationProject)
+                if (applicationProjectInterface is IElementPersistable applicationProject)
                 {
                     applicationProjectName = applicationProject.Name;
 
@@ -129,63 +117,34 @@ namespace Intent.Modules.UnitTesting.Migrations
             return new ExistingProjectSettings(applicationProjectName, targetFramework);
         }
 
-        private static ElementPersistable CreateUnitTestProject(PackageModelPersistable package, ElementPersistable testFolder)
+        private static IElementPersistable CreateUnitTestProject(IPackageModelPersistable package, IElementPersistable testFolder)
         {
             var applicationProjectSettings = GetExistingProjectSettings(package);
 
             if (!package.GetElementsOfType(CSharpProjectSpecializationId).Any(p => p.Name == $"{applicationProjectSettings.ProjectName}.UnitTests"))
             {
-                var projectElement = new ElementPersistable
-                {
-                    Name = $"{applicationProjectSettings.ProjectName}.UnitTests",
-                    Display = $"{applicationProjectSettings.ProjectName}.UnitTests",
-                    IsAbstract = false,
-                    SortChildren = SortChildrenOptions.SortByTypeAndName,
-                    IsMapped = false,
-                    ParentFolderId = testFolder.Id,
-                    Package = package,
-                    SpecializationTypeId = CSharpProjectSpecializationId,
-                    SpecializationType = CSharpProjectSpecializationType,
-                    Id = Guid.NewGuid().ToString(),
-                };
+                var testProject = testFolder.ChildElements.Add(Guid.NewGuid().ToString(), CSharpProjectSpecializationType, CSharpProjectSpecializationId,
+                    $"{applicationProjectSettings.ProjectName}.UnitTests", testFolder.Id);
+
+                testFolder.ChildElements.Update(testProject.Id, testProject);
 
                 if (!string.IsNullOrWhiteSpace(applicationProjectSettings.FrameworkVersion))
                 {
-                    var testNetSettings = new StereotypePersistable
-                    {
-                        DefinitionId = NetSettingsStereoTypeId,
-                        Name = NetSettingsStereoType,
-                        DefinitionPackageId = VSProjectsPackageId,
-                        DefinitionPackageName = VSProjectsPackageName,
-                        Properties =
-                        [
-                            new StereotypePropertyPersistable
-                            {
-                                DefinitionId = TargetFrameworkPropertyId,
-                                Name = TargetFrameworkPropertyName,
-                                Value = applicationProjectSettings.FrameworkVersion,
-                                IsActive = true
-                            },
-                            new StereotypePropertyPersistable
-                            {
-                                DefinitionId = SDKPropertyId,
-                                Name = SDKPropertyName,
-                                Value = SDKPropertyValue,
-                                IsActive = true
-                            }
-                        ]
-                    };
-
-                    projectElement.Stereotypes.Add(testNetSettings);
+                    testProject.Stereotypes.Add(NetSettingsStereoTypeId, NetSettingsStereoType, VSProjectsPackageId, VSProjectsPackageName,
+                        stereo =>
+                        {
+                            stereo.Properties.Add(TargetFrameworkPropertyId, TargetFrameworkPropertyName, applicationProjectSettings.FrameworkVersion);
+                            stereo.Properties.Add(SDKPropertyId, SDKPropertyName, SDKPropertyValue);
+                        });
+                    
+                    testFolder.ChildElements.Update(testProject.Id, testProject);
                 }
-
-                testFolder.AddElement(projectElement);
             }
 
             return package.GetElementsOfType(CSharpProjectSpecializationId).FirstOrDefault(p => p.Name == $"{applicationProjectSettings.ProjectName}.UnitTests");
         }
 
-        private static void AddUnitTestRole(PackageModelPersistable package, ElementPersistable unitTestProject)
+        private static void AddUnitTestRole(IPackageModelPersistable package, IElementPersistable unitTestProject)
         {
             var unitTestRole = package.GetElementsOfType(RoleSpecializationId).FirstOrDefault(r => r.Name == UnitTestsRoleName);
 
@@ -194,20 +153,7 @@ namespace Intent.Modules.UnitTesting.Migrations
                 return;
             }
 
-            unitTestRole = new ElementPersistable
-            {
-                Name = UnitTestsRoleName,
-                Display = UnitTestsRoleName,
-                IsAbstract = false,
-                IsMapped = false,
-                ParentFolderId = unitTestProject.Id,
-                Package = package,
-                SpecializationTypeId = RoleSpecializationId,
-                SpecializationType = RoleSpecializationType,
-                Id = Guid.NewGuid().ToString()
-            };
-
-            unitTestProject.AddElement(unitTestRole);
+            unitTestProject.ChildElements.Add(Guid.NewGuid().ToString(), RoleSpecializationType, RoleSpecializationId, UnitTestsRoleName, unitTestProject.Id);
         }
 
         private record ExistingProjectSettings(string ProjectName, string FrameworkVersion);

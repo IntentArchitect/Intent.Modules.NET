@@ -53,7 +53,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         {
             if (Request.ContentLength != null && Request.ContentLength > 1000000)
             {
-                return BadRequest(new { error = "File to large." });
+                return BadRequest(new { error = "File too large." });
             }
             var mimeTypeFilter = new HashSet<string>(@"text/plain,image/png".Split(','));
 

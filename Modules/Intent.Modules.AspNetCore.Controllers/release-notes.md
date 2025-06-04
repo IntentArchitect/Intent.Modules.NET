@@ -1,4 +1,8 @@
-﻿### Version 7.1.2
+﻿### Version 7.1.3
+
+- Fixed: The `File too large` error message was incorrectly written as `File to large`.
+
+### Version 7.1.2
 
 - Fixed: Traditional service controllers would not respect the "Default API Security" being set to "Secured by default".
 
