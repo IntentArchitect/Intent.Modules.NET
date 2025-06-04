@@ -37,5 +37,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="59150ee1-3f6a-45ee-a2c1-c2faf9a73821" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService</display>
+      <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ac43253-d279-488e-9fa9-5a87878f8165</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

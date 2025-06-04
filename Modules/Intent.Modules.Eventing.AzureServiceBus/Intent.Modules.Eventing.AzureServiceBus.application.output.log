@@ -114,6 +114,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#e423eece-40e1-4f53-8950-c0a66609488d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#e423eece-40e1-4f53-8950-c0a66609488d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusHostedService/AzureServiceBusHostedServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3e66bb6c-0744-460a-9144-620e960acee9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzureServiceBusMessageDispatcher/AzureServiceBusMessageDispatcherTemplatePartial.cs</ApplicationRelativeFilePath>

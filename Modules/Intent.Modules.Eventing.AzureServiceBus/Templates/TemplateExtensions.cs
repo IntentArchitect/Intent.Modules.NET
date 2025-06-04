@@ -3,6 +3,7 @@ using Intent.Modelers.Services.EventInteractions;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfiguration;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEventBus;
+using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHostedService;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcher;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcherInterface;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.IntegrationEventHandler;
@@ -26,6 +27,11 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
         public static string GetAzureServiceBusEventBusName(this IIntentTemplate template)
         {
             return template.GetTypeName(AzureServiceBusEventBusTemplate.TemplateId);
+        }
+
+        public static string GetAzureServiceBusHostedServiceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureServiceBusHostedServiceTemplate.TemplateId);
         }
 
         public static string GetAzureServiceBusMessageDispatcherName(this IIntentTemplate template)
