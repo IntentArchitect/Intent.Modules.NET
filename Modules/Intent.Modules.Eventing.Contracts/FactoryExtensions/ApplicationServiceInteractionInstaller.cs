@@ -26,6 +26,11 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            InteractionStrategyProvider.Instance.Register(new DispatchIntegrationMessageInteractionStrategy());
+        }
+
         /// <summary>
         /// This is an example override which would extend the
         /// <see cref="ExecutionLifeCycleSteps.Start"/> phase of the Software Factory execution.
@@ -36,7 +41,6 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
         /// </remarks>
         protected override void OnBeforeTemplateExecution(IApplication application)
         {
-            InteractionStrategyProvider.Instance.Register(new DispatchIntegrationMessageInteractionStrategy());
             var templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Eventing.EventHandler)
                 .OfType<ICSharpFileBuilderTemplate>();
             foreach (var template in templates)
@@ -46,34 +50,33 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var method = handler.Method;
 
                     var mappingManager = method.GetMappingManager();
-                    mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
+                    // TODO: These can go to the handler template:
                     mappingManager.SetFromReplacement(handler.Model, "message");
                     mappingManager.SetFromReplacement(handler.Model.InternalElement, "message");
 
                     method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                    method.ImplementInteraction(handler.Model);
+                    method.ImplementInteractions(handler.Model);
                 }
             }
 
-            templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Command)
-                .Concat(application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Query))
-                .OfType<ICSharpFileBuilderTemplate>();
-            foreach (var template in templates)
-            {
-                foreach (var handler in template.CSharpFile.GetProcessingHandlers())
-                {
-                    var method = handler.Method;
+            //templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Command)
+            //    .Concat(application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Query))
+            //    .OfType<ICSharpFileBuilderTemplate>();
+            //foreach (var template in templates)
+            //{
+            //    foreach (var handler in template.CSharpFile.GetProcessingHandlers())
+            //    {
+            //        var method = handler.Method;
 
-                    var mappingManager = method.GetMappingManager();
-                    mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
-                    // TODO: These can go to the handler template:
-                    mappingManager.SetFromReplacement(handler.Model, "request");
-                    mappingManager.SetFromReplacement(handler.Model.InternalElement, "request");
+            //        var mappingManager = method.GetMappingManager();
+            //        // TODO: These can go to the handler template:
+            //        mappingManager.SetFromReplacement(handler.Model, "request");
+            //        mappingManager.SetFromReplacement(handler.Model.InternalElement, "request");
 
-                    //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                    method.ImplementInteraction(handler.Model);
-                }
-            }
+            //        //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+            //        method.ImplementInteractions(handler.Model);
+            //    }
+            //}
 
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
             foreach (var template in templates)
@@ -90,37 +93,16 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         }
 
                         var mappingManager = method.GetMappingManager();
-                        mappingManager.AddMappingResolver(new TypeConvertingMappingResolver(template));
+                        // TODO: These can go to the handler template:
                         mappingManager.SetFromReplacement(handler.Model, "domainEvent");
                         mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
 
                         method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                        method.ImplementInteraction(handler.Model);
+                        method.ImplementInteractions(handler.Model);
                     }
                 });
             }
         }
 
-    }
-
-    public class TypeConvertingMappingResolver : IMappingTypeResolver
-    {
-        private readonly ICSharpTemplate _template;
-
-        public TypeConvertingMappingResolver(ICSharpTemplate template)
-        {
-            _template = template;
-        }
-
-        public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-        {
-            if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
-                || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
-            {
-                return new TypeConvertingCSharpMapping(mappingModel, _template);
-            }
-
-            return null;
-        }
     }
 }

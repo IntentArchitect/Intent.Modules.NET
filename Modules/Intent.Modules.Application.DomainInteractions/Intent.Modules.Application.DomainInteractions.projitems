@@ -11,25 +11,23 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\CompositeDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\DbContextDataAccessProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\IDataAccessProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\QueryInteractionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MappingExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\CommandQueryMappingResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\DataContractInheritedChildrenMapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\DataContractMappingTypeResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityCreationMappingTypeResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityUpdateMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EnumCollectionMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\InheritedChildrenMapping.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ServiceOperationMappingTypeResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\StandardDomainMappingTypeResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ValueObjectMappingTypeResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueryActionContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SharedNuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TemplateExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityCreationMappingTypeResolver.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\EntityUpdateMappingTypeResolver.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\StandardDomainMappingTypeResolver.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Mapping\Resolvers\ValueObjectMappingTypeResolver.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)DataAccessProviders\" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 {
@@ -30,7 +31,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
         public bool IsMatch()
         {
-            return _model.HasDomainInteractions();
+            return true;
         }
 
         public void BindToTemplate(ICSharpFileBuilderTemplate template)
@@ -64,11 +65,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             csharpMapping.SetFromReplacement(_model, "request");
 
-            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, _model));
+            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(handleMethod, _model));
+            handleMethod.ImplementInteractions(_model);
 
             if (_model.TypeReference.Element != null)
             {
-                var returnStatement = domainInteractionManager.GetReturnStatements(@class, _model.TypeReference);
+                var returnStatement = domainInteractionManager.GetReturnStatements(handleMethod, _model.TypeReference);
                 handleMethod.AddStatements(returnStatement);
             }
         }

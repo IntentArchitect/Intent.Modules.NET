@@ -11,9 +11,11 @@ using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
@@ -80,7 +82,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
                         method.AddMetadata("mapping-manager", csharpMapping);
 
-                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, handledDomainEvents));
+                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, model));
+                        method.ImplementInteractions(model);
                     }
                 })
                 .AfterBuild(file =>

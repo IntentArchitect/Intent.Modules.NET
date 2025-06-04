@@ -1,0 +1,537 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Intent.Exceptions;
+using Intent.Metadata.Models;
+using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
+using Intent.Templates;
+using Intent.Utils;
+
+namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
+{
+    public class QueryInteractionStrategy : IInteractionStrategy
+    {
+        //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
+        public bool IsMatch(IAssociationEnd interaction)
+        {
+            return interaction.IsQueryEntityActionTargetEndModel();
+        }
+
+        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
+        {
+            if (method == null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
+
+            try
+            {
+                var associationEnd = interaction;
+                var foundEntity = interaction.TypeReference.Element.AsClassModel();
+                var queryMapping = interaction.Mappings.GetQueryEntityMapping();
+                if (queryMapping == null)
+                {
+                    throw new ElementException(interaction, "Query Entity Mapping has not been specified.");
+                }
+
+                var entityVariableName = associationEnd.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
+
+                var _template = method.File.Template;
+                var _csharpMapping = method.GetMappingManager();
+                var queryContext = new QueryActionContext(method, ActionType.Query, interaction);
+                _csharpMapping.SetFromReplacement(foundEntity, entityVariableName);
+                _csharpMapping.SetFromReplacement(associationEnd, entityVariableName);
+                _csharpMapping.SetToReplacement(foundEntity, entityVariableName);
+                _csharpMapping.SetToReplacement(associationEnd, entityVariableName);
+
+                var dataAccess = InjectDataAccessProvider(method, foundEntity, queryContext);
+                CSharpStatement queryInvocation = null;
+                var prerequisiteStatement = new List<CSharpStatement>();
+
+                if (MustAccessEntityThroughAggregate(dataAccess))
+                {
+                    if (!TryGetFindAggregateStatements(method, queryMapping, foundEntity, out var findAggStatements))
+                    {
+                        return;
+                    }
+
+                    prerequisiteStatement.AddRange(findAggStatements);
+
+                    if (associationEnd.TypeReference.IsCollection)
+                    {
+                        queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                        prerequisiteStatement.AddRange(requiredStatements);
+                    }
+                    else
+                    {
+                        queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                        prerequisiteStatement.AddRange(requiredStatements);
+                    }
+                }
+                else
+                {
+                    // USE THE FindByIdAsync/FindByIdsAsync METHODS:
+                    if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement)?.IsPrimaryKey() == true)
+                                                      && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
+                    {
+                        var idFields = queryMapping.MappedEnds
+                        .OrderBy(x => ((IElement)x.TargetElement).Order)
+                            .Select(x => new PrimaryKeyFilterMapping(
+                                _csharpMapping.GenerateSourceStatementForMapping(queryMapping, x),
+                                Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement).Name.ToPropertyName(),
+                                x))
+                            .ToList();
+
+                        if (associationEnd.TypeReference.IsCollection && idFields.All(x => x.Mapping.SourceElement.TypeReference.IsCollection))
+                        {
+                            queryInvocation = dataAccess.FindByIdsAsync(idFields);
+                        }
+                        else
+                        {
+                            queryInvocation = dataAccess.FindByIdAsync(idFields);
+                        }
+                    }
+                    // USE THE FindAllAsync/FindAsync METHODS WITH EXPRESSION:
+                    else
+                    {
+                        //var expression = CreateQueryFilterExpression(queryMapping, out var requiredStatements);
+
+                        if (TryGetPaginationValues(associationEnd, _csharpMapping, out var pageNo, out var pageSize, out var orderBy, out var orderByIsNUllable))
+                        {
+                            queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNUllable, out var requiredStatements);
+                            prerequisiteStatement.AddRange(requiredStatements);
+                        }
+                        else if (associationEnd.TypeReference.IsCollection)
+                        {
+                            queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
+                            prerequisiteStatement.AddRange(requiredStatements);
+                        }
+                        else
+                        {
+                            queryInvocation = dataAccess.FindAsync(queryMapping, out var requiredStatements);
+                            prerequisiteStatement.AddRange(requiredStatements);
+                        }
+                    }
+                }
+
+                var statements = new List<CSharpStatement>();
+                statements.AddRange(prerequisiteStatement);
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
+
+                if (!associationEnd.TypeReference.IsNullable && !associationEnd.TypeReference.IsCollection && !IsResultPaginated(associationEnd.OtherEnd().TypeReference.Element.TypeReference))
+                {
+                    var queryFields = queryMapping.MappedEnds
+                        .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
+                        .ToList();
+                    if (queryFields.Count == 0)
+                    {
+                        throw new ElementException(associationEnd, "Query for single entity has no mappings specified. Either indicate mappings or set Is Collection to true if trying to fetch all entities as a collection.");
+                    }
+
+                    statements.Add(CreateIfNullThrowNotFoundStatement(
+                        template: _template,
+                        variable: entityVariableName,
+                        message: $"Could not find {foundEntity.Name} '{queryFields.AsSingleOrTuple()}'"));
+
+                }
+
+                method.TrackedEntities().Add(associationEnd.Id, new EntityDetails(foundEntity.InternalElement, entityVariableName, dataAccess, false, queryContext.ImplementWithProjections() && dataAccess.IsUsingProjections ? queryContext.GetDtoProjectionReturnType() : null, associationEnd.TypeReference.IsCollection));
+
+                method.AddStatements(statements);
+            }
+            catch (ElementException ex)
+            {
+                throw;
+            }
+            catch (Exception ex)
+            {
+                throw new ElementException(interaction, "An error occurred while generating the domain interactions logic", ex);
+            }
+        }
+
+        private IDataAccessProvider InjectDataAccessProvider(CSharpClassMethod method, ClassModel foundEntity, QueryActionContext queryContext = null)
+        {
+            if (TryInjectRepositoryForEntity(method, foundEntity, queryContext, out var dataAccess))
+            {
+                return dataAccess;
+            }
+            if (TryInjectDataAccessForComposite(method, foundEntity, out dataAccess))
+            {
+                return dataAccess;
+            }
+            if (TryInjectDbContext(method, foundEntity, queryContext, out dataAccess))
+            {
+                return dataAccess;
+            }
+            throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
+        }
+
+        public bool TryInjectRepositoryForEntity(CSharpClassMethod method, ClassModel foundEntity, QueryActionContext context, out IDataAccessProvider dataAccessProvider)
+        {
+            var _template = method.File.Template;
+            if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
+            {
+                dataAccessProvider = null;
+                return false;
+            }
+
+            //This is being done for Dapper
+            bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
+
+
+            dataAccessProvider = new RepositoryDataAccessProvider(method.Class.InjectService(repositoryInterface), (ICSharpFileBuilderTemplate)_template, method.GetMappingManager(), hasUnitOfWork, context, foundEntity);
+            return true;
+        }
+
+        private bool TryInjectDbContext(CSharpClassMethod method, ClassModel entity, QueryActionContext queryContext, out IDataAccessProvider dataAccessProvider)
+        {
+            var handlerClass = method.Class;
+            var _template = handlerClass.File.Template;
+            if (!_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) ||
+                !SettingGenerateDbContextInterface())
+            {
+                dataAccessProvider = null;
+                return false;
+            }
+
+            if (queryContext?.ImplementWithProjections() == true)
+            {
+                handlerClass.InjectService(_template.UseType("AutoMapper.IMapper"));
+            }
+
+            var dbContextField = handlerClass.InjectService(dbContextInterface, "dbContext");
+            dataAccessProvider = new DbContextDataAccessProvider(dbContextField, entity, _template, method.GetMappingManager(), queryContext);
+            return true;
+        }
+
+        public bool TryInjectDataAccessForComposite(CSharpClassMethod method, ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
+        {
+            if (!foundEntity.IsAggregateRoot())
+            {
+                var handlerClass = method.Class;
+                var _template = handlerClass.File.Template;
+                _template.AddUsing("System.Linq");
+                //var aggregateAssociations = foundEntity.AssociatedClasses
+                //    .Where(p => p.TypeReference?.Element?.AsClassModel()?.IsAggregateRoot() == true &&
+                //                p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
+                //    .Distinct()
+                //    .ToList();
+                var aggregateAssociations = GetAssociationsToAggregateRoot(foundEntity);
+                var aggregateEntity = aggregateAssociations.First().Class;
+
+                if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
+                {
+                    bool requiresExplicitUpdate = RepositoryRequiresExplicitUpdate(_template, aggregateEntity);
+                    var repositoryName = handlerClass.InjectService(repositoryInterface);
+                    dataAccessProvider = new CompositeDataAccessProvider(
+                        saveChangesAccessor: $"{repositoryName}.UnitOfWork",
+                        accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                        explicitUpdateStatement: requiresExplicitUpdate ? $"{repositoryName}.Update({aggregateEntity.Name.ToLocalVariableName()});" : null,
+                        method: method
+                        );
+
+                    return true;
+                }
+                else if (_template.TryGetTypeName(TemplateRoles.Application.Common.DbContextInterface, out var dbContextInterface) &&
+                    SettingGenerateDbContextInterface())
+                {
+                    var dbContextField = handlerClass.InjectService(dbContextInterface, "dbContext");
+                    dataAccessProvider = new CompositeDataAccessProvider(
+                        saveChangesAccessor: dbContextField,
+                        accessor: $"{aggregateAssociations.Last().Name.ToLocalVariableName()}.{aggregateAssociations.Last().OtherEnd().Name}",
+                        explicitUpdateStatement: null,
+                        method: method
+                    );
+                    return true;
+                }
+            }
+            dataAccessProvider = null;
+            return false;
+        }
+
+        private static List<AssociationEndModel> GetAssociationsToAggregateRoot(ClassModel entity)
+        {
+            var compositionalAssociations = entity.AssociatedClasses
+                .Where(p => p.IsSourceEnd() && p is { IsCollection: false, IsNullable: false })
+                .Distinct()
+                .ToList();
+
+            if (compositionalAssociations.Count == 1)
+            {
+                if (compositionalAssociations.Single().Class.IsAggregateRoot())
+                {
+                    return compositionalAssociations;
+                }
+
+                var list = GetAssociationsToAggregateRoot(compositionalAssociations.Single().Class);
+                list.AddRange(compositionalAssociations);
+                return list;
+            }
+            if (compositionalAssociations.Count > 1)
+            {
+                Logging.Log.Warning($"{entity.Name} has multiple owning relationships.");
+            }
+            return [];
+        }
+
+        private bool MustAccessEntityThroughAggregate(IDataAccessProvider dataAccess)
+        {
+            return dataAccess is CompositeDataAccessProvider;
+        }
+
+        private bool RepositoryRequiresExplicitUpdate(ICSharpTemplate _template, IMetadataModel forEntity)
+        {
+            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
+                       TemplateRoles.Repository.Interface.Entity,
+                       forEntity,
+                       out var repositoryInterfaceTemplate) &&
+                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
+                   requiresUpdate;
+        }
+
+        private bool TryGetFindAggregateStatements(CSharpClassMethod method, IElementToElementMapping queryMapping, ClassModel foundEntity, out List<CSharpStatement> statements)
+        {
+            return TryGetFindAggregateStatements(method, queryMapping, (IElement)queryMapping.SourceElement, foundEntity, out statements);
+        }
+
+        private bool TryGetFindAggregateStatements(CSharpClassMethod method, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
+        {
+            return TryGetFindAggregateStatements(method, null, requestElement, foundEntity, out statements);
+        }
+
+        private bool TryGetFindAggregateStatements(CSharpClassMethod method, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
+        {
+            statements = new List<CSharpStatement>();
+            var aggregateEntity = GetAssociationsToAggregateRoot(foundEntity).First().Class;
+            var aggregateVariableName = aggregateEntity.Name.ToLocalVariableName();
+            var aggregateDataAccess = InjectDataAccessProvider(method, aggregateEntity);
+
+            var idFields = GetAggregatePKFindCriteria(requestElement, aggregateEntity, foundEntity);
+            if (!idFields.Any())
+            {
+                Logging.Log.Warning($"Unable to determine how to load Aggregate : {aggregateEntity.Name} for {requestElement.Name}. Try adding a '{aggregateEntity.Name}Id' property to your request.");
+            }
+
+            statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(aggregateVariableName), aggregateDataAccess.FindByIdAsync(idFields)));
+
+            statements.Add(CreateIfNullThrowNotFoundStatement(
+                template: method.File.Template,
+                variable: aggregateVariableName,
+                message: $"Could not find {aggregateEntity.Name} '{{{idFields.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'"));
+
+            // Traverse from aggregate root to target entity collection:
+            var currentVariable = aggregateVariableName;
+            foreach (var associationEndModel in GetAssociationsToAggregateRoot(foundEntity).SkipLast(1))
+            {
+                var targetEntity = associationEndModel.OtherEnd().Class;
+                var primaryKeys = targetEntity.Attributes.Where(x => x.IsPrimaryKey());
+                var requestProperties = primaryKeys.Select(x => (
+                    Property: x.Name,
+                    ValueExpression: new CSharpStatement($"request.{targetEntity.Name}{x.Name}")
+                )).ToList();
+
+                var expression = requestProperties.Count == 1
+                    ? $"x => x.{requestProperties[0].Property} == {requestProperties[0].ValueExpression}"
+                    : $"x => {string.Join(" && ", requestProperties.Select(pkMap => $"x.{pkMap.Property} == {pkMap.ValueExpression}"))}";
+
+                statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(targetEntity.Name.ToLocalVariableName()),
+                    $"{currentVariable}.{associationEndModel.OtherEnd().Name.ToPropertyName()}.SingleOrDefault({expression})").WithSemicolon().SeparatedFromPrevious());
+
+                currentVariable = targetEntity.Name.ToLocalVariableName();
+
+                statements.Add(CreateIfNullThrowNotFoundStatement(
+                    template: method.File.Template,
+                    variable: currentVariable,
+                    message: $"Could not find {targetEntity.Name} '{{{requestProperties.Select(x => x.ValueExpression).AsSingleOrTuple()}}}'").SeparatedFromNext());
+            }
+
+            return true;
+        }
+
+
+        // This is likely to cause bugs since it doesn't align exactly with the logic that "enabled/disables" the IApplicationDbContext template
+        public bool SettingGenerateDbContextInterface()
+        {
+            return true;
+            //GetDatabaseSettings().GenerateDbContextInterface()
+            //return bool.TryParse(_template.ExecutionContext.Settings.GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9").GetSetting("85dea0e8-8981-4c7b-908e-d99294fc37f1")?.Value.ToPascalCase(), out var result) && result;
+        }
+
+        public CSharpStatement CreateIfNullThrowNotFoundStatement(
+            ICSharpTemplate template,
+            string variable,
+            string message)
+        {
+            var ifStatement = new CSharpIfStatement($"{variable} is null");
+            ifStatement.SeparatedFromPrevious(false);
+            ifStatement.AddStatement($@"throw new {template.GetNotFoundExceptionName()}($""{message}"");");
+
+            return ifStatement;
+        }
+
+        private List<PrimaryKeyFilterMapping> GetAggregatePKFindCriteria(IElement requestElement, ClassModel aggregateEntity, ClassModel compositeEntity)
+        {
+            //There is no mapping to the aggregate's PK, try to match is heuristically
+            var aggPks = aggregateEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Where(x => x.IsPrimaryKey()).ToList();
+            var keyMappings = new List<AggregateKeyMapping>();
+            var aggregatePrefix = aggregateEntity.Name.ToPascalCase();
+            for (int i = 0; i < aggPks.Count; i++)
+            {
+                var aggPk = aggPks[i];
+                var names = new List<string>();
+                if (!compositeEntity.Attributes.Any(c => c.Name == aggPk.Name))
+                {
+                    names.Add(aggPk.Name);
+                }
+                names.Add($"{aggregatePrefix}{aggPk.Name}");
+                //May have renamed the FK attribute and as such it maybe a valid name
+                var fkAttributes = compositeEntity.Attributes.Where(a => a.IsForeignKey() == true && a.GetForeignKeyAssociation().OtherEnd().Class.Id == aggregateEntity.Id).ToList();
+                if (fkAttributes.Count > i)
+                {
+                    names.Add(fkAttributes[i].Name);
+                }
+
+                var match = requestElement.ChildElements.FirstOrDefault(f => names.Contains(f.Name))?.Name;
+                keyMappings.Add(new AggregateKeyMapping(aggPk, match));
+            }
+
+            if (keyMappings.All(x => !string.IsNullOrEmpty(x.Match)))
+            {
+                return keyMappings.Select(x => new PrimaryKeyFilterMapping($"request.{x.Match}", $"{x.Key.Name}", new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
+            }
+            return new List<PrimaryKeyFilterMapping>();
+        }
+
+        private bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
+        {
+            orderByIsNullable = false;
+            var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
+            var returnsPagedResult = IsResultPaginated(handler.TypeReference);
+
+            var pageIndexVar = handler.ChildElements.SingleOrDefault(IsPageIndexParam)?.Name;
+            var pageNoVar = handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name;
+            var pageSizeVar = handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name;
+            var accessVariable = mappingManager.GetFromReplacement(handler);
+
+            if (!returnsPagedResult)
+            {
+                pageNo = "";
+                pageSize = "";
+                orderBy = null;
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(pageNoVar) && string.IsNullOrEmpty(pageIndexVar))
+            {
+                throw new ElementException(handler, "Paged endpoints require a 'PageNo' or 'PageIndex' property");
+            }
+            if (string.IsNullOrEmpty(pageSizeVar))
+            {
+                throw new ElementException(handler, "Paged endpoints require a 'PageSize' property");
+            }
+
+            pageNo = $"{(accessVariable != null ? $"{accessVariable}." : "")}{pageNoVar ?? $"{pageIndexVar} + 1"}";
+            pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{pageSizeVar}";
+
+            var orderByVar = handler.ChildElements.SingleOrDefault(IsOrderByParam);
+            if (orderByVar == null)
+            {
+                orderBy = null;
+            }
+            else
+            {
+                orderByIsNullable = orderByVar.TypeReference.IsNullable;
+                orderBy = $"{(accessVariable != null ? $"{accessVariable}." : "")}{handler.ChildElements.Single(IsOrderByParam)?.Name}";
+            }
+
+            return returnsPagedResult;
+        }
+
+        private bool IsResultPaginated(ITypeReference returnType)
+        {
+            return returnType.Element?.Name == "PagedResult";
+        }
+
+        private bool IsPageNumberParam(IElement param)
+        {
+            if (param.TypeReference.Element.Name != "int")
+            {
+                return false;
+            }
+
+            switch (param.Name.ToLower())
+            {
+                case "page":
+                case "pageno":
+                case "pagenum":
+                case "pagenumber":
+                    return true;
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
+        private bool IsPageIndexParam(IElement param)
+        {
+            if (param.TypeReference.Element.Name != "int")
+            {
+                return false;
+            }
+
+            switch (param.Name.ToLower())
+            {
+                case "pageindex":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        private bool IsPageSizeParam(IElement param)
+        {
+            if (param.TypeReference.Element.Name != "int")
+            {
+                return false;
+            }
+
+            switch (param.Name.ToLower())
+            {
+                case "size":
+                case "pagesize":
+                    return true;
+                default:
+                    break;
+            }
+
+            return false;
+        }
+
+        private bool IsOrderByParam(IElement param)
+        {
+            if (param.TypeReference.Element.Name != "string")
+            {
+                return false;
+            }
+
+            switch (param.Name.ToLower())
+            {
+                case "orderby":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+    }
+
+
+}

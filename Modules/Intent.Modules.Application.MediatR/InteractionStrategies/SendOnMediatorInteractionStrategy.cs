@@ -30,6 +30,9 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
         {
             var handlerClass = method.Class;
             _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
+            _template.AddTypeSource(TemplateRoles.Application.Query);
+            _template.AddTypeSource(TemplateRoles.Application.Command);
+            _template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             _csharpMapping = method.GetMappingManager();
             _csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
             var @class = handlerClass;
@@ -79,7 +82,7 @@ public class CommandQueryMappingResolver : IMappingTypeResolver
     {
         if (mappingModel.Model.SpecializationType == "Command" || mappingModel.Model.SpecializationType == "Query")
         {
-            return new ConstructorMapping(mappingModel, _template);
+            return new ConstructorMapping(mappingModel, _template);     
         }
         if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
         {

@@ -52,5 +52,4 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.projitems" Label="Shared" />
-
 </Project>

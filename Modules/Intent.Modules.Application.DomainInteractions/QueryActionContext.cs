@@ -29,15 +29,17 @@ namespace Intent.Modules.Application.DomainInteractions
         private readonly IAssociationEnd _associationEnd;
         private readonly IElement _serviceEndPoint;
         private readonly IElement? _returnType;
-        private readonly ICSharpFileBuilderTemplate _template;
+        private readonly ICSharpTemplate _template;
+        private readonly CSharpClassMethod _method;
         private readonly ActionType _actionType;
         private readonly bool _isPaginated;
 
-        public QueryActionContext(ICSharpFileBuilderTemplate template, CSharpClass handlerClass, ActionType actionType, IAssociationEnd queryAction)
+        public QueryActionContext(CSharpClassMethod method, ActionType actionType, IAssociationEnd queryAction)
         {
+            _method = method;
             _actionType = actionType;
-            _template = template;
-            _handlerClass = handlerClass;
+            _template = method.File.Template;
+            _handlerClass = method.Class;
             _entity = queryAction.TypeReference.Element.AsClassModel();
             if (actionType == ActionType.Update && _entity == null) 
             {
@@ -86,6 +88,14 @@ namespace Intent.Modules.Application.DomainInteractions
             get
             {
                 return _associationEnd;
+            }
+        }
+
+        public CSharpClassMethod Method
+        {
+            get
+            {
+                return _method;
             }
         }
 

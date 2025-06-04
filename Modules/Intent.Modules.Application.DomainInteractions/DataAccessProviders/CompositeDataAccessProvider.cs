@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -21,11 +22,11 @@ public class CompositeDataAccessProvider : IDataAccessProvider
     private readonly CSharpClassMappingManager _mappingManager;
 
     public CompositeDataAccessProvider(string saveChangesAccessor, string accessor, string? explicitUpdateStatement,
-        ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager)
+        CSharpClassMethod method)
     {
         _explicitUpdateStatement = explicitUpdateStatement;
-        _template = template;
-        _mappingManager = mappingManager;
+        _template = (ICSharpFileBuilderTemplate?)method.File.Template;
+        _mappingManager = method.GetMappingManager();
         _saveChangesAccessor = saveChangesAccessor;
         _accessor = accessor;
     }

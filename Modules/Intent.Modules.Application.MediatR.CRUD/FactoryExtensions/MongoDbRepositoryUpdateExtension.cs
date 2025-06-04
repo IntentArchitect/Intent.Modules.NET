@@ -4,9 +4,11 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -22,6 +24,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
+
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            // Putting here for now, but is wrong place
+            InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
+        }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {

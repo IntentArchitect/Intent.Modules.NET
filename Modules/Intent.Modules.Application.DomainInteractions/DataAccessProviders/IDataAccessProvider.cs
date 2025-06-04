@@ -10,22 +10,6 @@ using Intent.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions;
 
-public interface IDataAccessProvider
-{
-    bool IsUsingProjections { get; }
-    CSharpStatement SaveChangesAsync();
-    CSharpStatement AddEntity(string entityName);
-    CSharpStatement Update(string entityName);
-    CSharpStatement Remove(string entityName);
-    CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps);
-    CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps);
-    CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
-    CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNUllable, out IList<CSharpStatement> prerequisiteStatements);
-    CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
-}
-
-public record PrimaryKeyFilterMapping(CSharpStatement ValueExpression, CSharpStatement Property, IElementToElementMappedEnd Mapping);
-
 internal record ElementToElementMappedEndStub : IElementToElementMappedEnd
 {
     private readonly ICanBeReferencedType _sourceElement;

@@ -9,11 +9,13 @@ using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
 namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.CrudMappingStrategies
@@ -79,7 +81,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             method.Statements.Clear();
             method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
-            var csharpMapping = new CSharpClassMappingManager(_template); // TODO: Improve this template resolution system - it's not clear which template should be passed in initially.
+            var csharpMapping = method.GetMappingManager();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
@@ -90,9 +92,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
-            method.AddMetadata("mapping-manager", csharpMapping);
 
-            method.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, operationModel));
+            method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, operationModel));
+            method.ImplementInteractions(operationModel);
 
             //foreach (var queryAction in operationModel.QueryEntityActions())
             //{
@@ -136,7 +138,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             if (operationModel.TypeReference.Element != null)
             {
-                var returnStatement = domainInteractionManager.GetReturnStatements(@class, operationModel.TypeReference);
+                var returnStatement = domainInteractionManager.GetReturnStatements(method, operationModel.TypeReference);
                 method.AddStatements(returnStatement);
             }
         }
