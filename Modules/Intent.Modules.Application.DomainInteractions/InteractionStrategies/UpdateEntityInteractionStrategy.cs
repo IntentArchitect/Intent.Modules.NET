@@ -21,18 +21,19 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
     public class UpdateEntityInteractionStrategy : IInteractionStrategy
     {
         //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
-        public bool IsMatch(IAssociationEnd interaction)
+        public bool IsMatch(IElement interaction)
         {
             return interaction.IsUpdateEntityActionTargetEndModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
+        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
         {
             if (method == null)
             {
                 throw new ArgumentNullException(nameof(method));
             }
 
+            var interaction = (IAssociationEnd)interactionElement;
             method.AddStatements(method.GetQueryStatements(interaction, new QueryActionContext(method, ActionType.Update, interaction)));
             method.AddStatement(string.Empty);
 

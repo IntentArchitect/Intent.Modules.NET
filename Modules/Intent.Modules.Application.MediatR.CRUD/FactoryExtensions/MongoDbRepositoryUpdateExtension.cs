@@ -32,6 +32,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
             InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new DeleteEntityInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new ProcessingActionInteractionStrategy());
         }
 
         protected override void OnAfterTemplateRegistrations(IApplication application)

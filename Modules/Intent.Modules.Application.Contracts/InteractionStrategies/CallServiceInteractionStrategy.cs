@@ -21,13 +21,14 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
     private ICSharpFileBuilderTemplate _template;
     private CSharpClassMappingManager _csharpMapping;
 
-    public bool IsMatch(IAssociationEnd interaction)
+    public bool IsMatch(IElement interaction)
     {
         return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.IsOperationModel();
     }
 
-    public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
+    public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
     {
+        var interaction = (IAssociationEnd)interactionElement;
         var @class = method.Class;
         _template = (ICSharpFileBuilderTemplate)@class.File.Template;
         _csharpMapping = method.GetMappingManager();

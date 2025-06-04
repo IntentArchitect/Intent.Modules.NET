@@ -16,18 +16,19 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 {
     public class DispatchIntegrationMessageInteractionStrategy : IInteractionStrategy
     {
-        public bool IsMatch(IAssociationEnd interaction)
+        public bool IsMatch(IElement interaction)
         {
             return interaction.IsPublishIntegrationEventTargetEndModel() || interaction.IsSendIntegrationCommandTargetEndModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
+        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
         {
             if (method == null)
             {
                 throw new ArgumentNullException(nameof(method));
             }
 
+            var interaction = (IAssociationEnd)interactionElement;
             var handlerClass = method.Class;
             var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
             var @class = handlerClass;

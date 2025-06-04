@@ -118,31 +118,31 @@ public class DomainInteractionsManager
             //    statements.AddRange(domainInteractionManager.DeleteEntity(method, deleteAction));
             //}
 
-            foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
-            {
-                try
-                {
-                    var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
-                    .Select(x =>
-                    {
-                        if (x is CSharpAssignmentStatement)
-                        {
-                            x.WithSemicolon();
-                        }
+            //foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
+            //{
+            //    try
+            //    {
+            //        var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+            //        .Select(x =>
+            //        {
+            //            if (x is CSharpAssignmentStatement)
+            //            {
+            //                x.WithSemicolon();
+            //            }
 
-                        return x;
-                    }).ToList();
+            //            return x;
+            //        }).ToList();
 
-                    handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
-                    processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
-                    statements.AddRange(processingStatements);
+            //        handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
+            //        processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
+            //        statements.AddRange(processingStatements);
 
-                }
-                catch (Exception ex)
-                {
-                    throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
+            //    }
+            //}
 
             //foreach (var entity in method.TrackedEntities().Values.Where(x => x.IsNew))
             //{

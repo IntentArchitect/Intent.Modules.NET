@@ -395,7 +395,7 @@ public static class DataAccessProviderExtensions
     }
 
     // This is likely to cause bugs since it doesn't align exactly with the logic that "enabled/disables" the IApplicationDbContext template
-    public static bool SettingGenerateDbContextInterface()
+    private static bool SettingGenerateDbContextInterface()
     {
         return true;
         //GetDatabaseSettings().GenerateDbContextInterface()

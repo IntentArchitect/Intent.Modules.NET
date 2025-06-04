@@ -18,12 +18,12 @@ using Microsoft.VisualBasic;
 
 namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 {
-    public class DeleteEntityInteractionStrategy : IInteractionStrategy
+    public class ProcessingActionInteractionStrategy : IInteractionStrategy
     {
         //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsDeleteEntityActionTargetEndModel();
+            return interaction.IsProcessingActionModel();
         }
 
         public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
@@ -33,31 +33,30 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
                 throw new ArgumentNullException(nameof(method));
             }
 
-            var interaction = (IAssociationEnd)interactionElement;
-            method.AddStatements(method.GetQueryStatements(interaction, new QueryActionContext(method, ActionType.Delete, interaction)));
-            method.AddStatement(string.Empty);
-
-            var deleteAction = interaction.AsDeleteEntityActionTargetEndModel();
+            var _csharpMapping = method.GetMappingManager();
+            var handlerClass = method.Class;
+            var actions = interactionElement.AsProcessingActionModel();
             try
             {
-                var entityDetails = method.TrackedEntities()[deleteAction.Id];
-                var statements = new List<CSharpStatement>();
-                if (entityDetails.IsCollection)
-                {
-                    statements.Add(new CSharpForEachStatement(entityDetails.VariableName.Singularize(), entityDetails.VariableName)
-                        .AddStatement(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName.Singularize()))
-                        .SeparatedFromPrevious());
-                }
-                else
-                {
-                    statements.Add(entityDetails.DataAccessProvider.Remove(entityDetails.VariableName)
-                        .SeparatedFromPrevious());
-                }
-                method.AddStatements(statements);
+                var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+                    .Select(x =>
+                    {
+                        if (x is CSharpAssignmentStatement)
+                        {
+                            x.WithSemicolon();
+                        }
+
+                        return x;
+                    }).ToList();
+
+                handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
+                processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
+                method.AddStatements(processingStatements);
+
             }
             catch (Exception ex)
             {
-                throw new ElementException(deleteAction.InternalAssociationEnd, "An error occurred while generating the domain interactions logic", ex);
+                throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
             }
         }
 

@@ -21,13 +21,14 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
         private ICSharpFileBuilderTemplate _template;
         private CSharpClassMappingManager _csharpMapping;
 
-        public bool IsMatch(IAssociationEnd interaction)
+        public bool IsMatch(IElement interaction)
         {
             return interaction.IsServiceInvocationTargetEndModel() && (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel());
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IAssociationEnd interaction)
+        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
         {
+            var interaction = (IAssociationEnd)interactionElement;
             var handlerClass = method.Class;
             _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
             _template.AddTypeSource(TemplateRoles.Application.Query);
@@ -82,7 +83,7 @@ public class CommandQueryMappingResolver : IMappingTypeResolver
     {
         if (mappingModel.Model.SpecializationType == "Command" || mappingModel.Model.SpecializationType == "Query")
         {
-            return new ConstructorMapping(mappingModel, _template);     
+            return new ConstructorMapping(mappingModel, _template);
         }
         if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
         {
