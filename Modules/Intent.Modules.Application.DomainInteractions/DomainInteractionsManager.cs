@@ -93,13 +93,13 @@ public class DomainInteractionsManager
             //    statements.AddRange(domainInteractionManager.CreateEntity(method, createAction));
             //}
 
-            foreach (var updateAction in model.UpdateEntityActions())
-            {
-                statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Update, updateAction.InternalAssociationEnd)));
+            //foreach (var updateAction in model.UpdateEntityActions())
+            //{
+            //    statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Update, updateAction.InternalAssociationEnd)));
 
-                statements.Add(string.Empty);
-                statements.AddRange(domainInteractionManager.UpdateEntity(method, updateAction));
-            }
+            //    statements.Add(string.Empty);
+            //    statements.AddRange(domainInteractionManager.UpdateEntity(method, updateAction));
+            //}
 
             //foreach (var callAction in model.ServiceInvocationActions())
             //{
