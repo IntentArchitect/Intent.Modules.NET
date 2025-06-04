@@ -67,11 +67,11 @@ namespace Intent.Modules.ModularMonolith.Host
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("8.1.1")
+                        ( >= 2, >= 0) => new PackageVersion("8.1.4")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "8.1.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "8.1.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "8.1.1"),
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "8.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "8.1.4")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "8.1.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SwashbuckleAspNetCorePackageName}'"),
                     }
                 );
