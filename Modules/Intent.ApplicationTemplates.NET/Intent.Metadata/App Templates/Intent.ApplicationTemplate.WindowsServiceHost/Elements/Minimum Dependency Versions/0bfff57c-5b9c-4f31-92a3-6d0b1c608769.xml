@@ -59,7 +59,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.14</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.14</value>
+      <value>3.8.15</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -87,7 +87,7 @@
       <name>Intent.EntityFrameworkCore.DesignTimeDbContextFactory</name>
       <display>Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.2.7</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.7</value>
+      <value>4.2.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -115,7 +115,7 @@
       <name>Intent.Metadata.Security</name>
       <display>Intent.Metadata.Security 1.0.3</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.3</value>
+      <value>1.0.4</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.7</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.7</value>
+      <value>4.7.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
@@ -227,7 +227,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.7</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.7</value>
+      <value>4.9.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>0bfff57c-5b9c-4f31-92a3-6d0b1c608769</parentFolderId>
