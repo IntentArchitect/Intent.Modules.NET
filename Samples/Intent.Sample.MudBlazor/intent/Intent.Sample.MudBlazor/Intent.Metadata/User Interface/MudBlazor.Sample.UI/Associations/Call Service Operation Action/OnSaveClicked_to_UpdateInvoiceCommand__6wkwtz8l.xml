@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e0beaf63-8be8-468c-842f-73e9ba3178e5">
+  <sourceEnd id="bbf6238e-54bc-41f9-842a-d183949931c0" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnSaveClicked</display>
+    <order>0</order>
+    <typeReference id="f0fb275e-969c-491f-9557-17794c2f772d">
+      <typeId>06df0671-4756-47a5-844f-42ef066a53e9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.UI</typePackageName>
+      <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e0beaf63-8be8-468c-842f-73e9ba3178e5" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>UpdateInvoiceCommand</name>
+    <display>[call] InvoiceService.UpdateInvoiceCommand(id: guid, command: UpdateInvoiceCommand): void</display>
+    <order>0</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="1e527739-5960-417c-b3e7-cb52da80cb67">
+      <typeId>fca08b5d-81a2-4d0c-a23b-b3febfce2245</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.UI</typePackageName>
+      <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="1f24d8f7-3210-4019-afff-a621626dbad8" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceEdit]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="fca08b5d-81a2-4d0c-a23b-b3febfce2245" location="[MudBlazor.ExampleApp].[User Interface].[UpdateInvoiceCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnSaveClicked.UpdateInvoiceCommand}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="OnSaveClicked.UpdateInvoiceCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="06df0671-4756-47a5-844f-42ef066a53e9" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="e0beaf63-8be8-468c-842f-73e9ba3178e5" name="UpdateInvoiceCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{InvoiceId}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="2f77b53e-5314-407a-b657-cc34f3af9a45" name="id" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="InvoiceId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="63880a17-bc71-42a7-a26a-6dfd8ef5645f" name="InvoiceId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Id}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="3b07d974-682d-468e-865c-9875147e69bf" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Id" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="e61ce565-d42d-4534-89cd-3f6476fae6fc" name="Id" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.InvoiceNo}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="4b63732a-d9ea-42d6-b0c2-122736c70687" name="InvoiceNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.InvoiceNo" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d3151319-fb7d-4a95-af1e-fe97e56db9f3" name="InvoiceNo" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.InvoiceDate}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="fdb89f23-53a1-4064-95c7-f4804d3a6b31" name="InvoiceDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.InvoiceDate" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="b6db1426-2e3b-4a01-b448-a0f7d3a3fd10" name="InvoiceDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.DueDate}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="6f9dbc9c-431d-460a-a4de-23e6586a1ec1" name="DueDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.DueDate" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="0132217b-4380-4344-8d6c-4f8d6dc9bf58" name="DueDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.Reference}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="86949d1d-10c2-4232-94e6-af04781a9169" name="Reference" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.Reference" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="8cff2fe6-df3f-4e62-9a33-8f90fb86e732" name="Reference" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.CustomerId}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="32045855-e6ea-4a86-957e-925f66ca0135" name="CustomerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.CustomerId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="9161aba8-74dc-4e9b-8108-e9e4203011a7" name="CustomerId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines.Id}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="41ef58f9-363a-4025-ad6c-50444c7b5403" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines.Id" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="11a30ee1-b78b-48b3-b848-74be69bd8988" name="Id" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines.ProductId}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="a569300b-a724-4d12-a5cb-dc962a64ca4e" name="ProductId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines.ProductId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="906a0cde-6671-4eb0-9ec8-6cb7671a08a6" name="ProductId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines.Units}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="4db5d35a-00fb-4af2-838f-322fcc62a7b6" name="Units" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines.Units" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="a546d0ca-4125-4ed9-a56f-699522c38e9a" name="Units" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines.UnitPrice}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="079e9088-80e8-453c-9874-b708eda9b53d" name="UnitPrice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines.UnitPrice" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="cfdb377a-8833-41ff-ab5d-5376674a1356" name="UnitPrice" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Model.OrderLines.Discount}</expression>
+            <path>
+              <target id="fca08b5d-81a2-4d0c-a23b-b3febfce2245" name="UpdateInvoiceCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="4d38d8d3-3a11-4ff2-84c8-50de34c0ea95" name="command" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+              <target id="c077e365-d088-4ab2-b893-4056cd62d019" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="50763e65-c288-4466-a36a-b899ce0a8b01" name="Discount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Model.OrderLines.Discount" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="1f24d8f7-3210-4019-afff-a621626dbad8" name="InvoiceEdit" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="6b3162a1-23e8-4761-b5ca-9f36747417a7" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                  <target id="56496544-5d3c-43d6-8dfd-f44e4181add5" name="Discount" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

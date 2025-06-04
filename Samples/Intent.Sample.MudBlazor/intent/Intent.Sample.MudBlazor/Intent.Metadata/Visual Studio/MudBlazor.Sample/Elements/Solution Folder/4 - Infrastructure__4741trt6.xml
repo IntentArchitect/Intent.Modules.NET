@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ae75343d-29a7-4927-be4c-476c96b60d22" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>4 - Infrastructure</name>
+  <display>4 - Infrastructure</display>
+  <externalReference>03755119-cb3c-4cca-a0d0-532c2b817667</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>72b24fdb-6647-4d7b-a6f8-da92b15a0f3a</parentFolderId>
+  <packageId>72b24fdb-6647-4d7b-a6f8-da92b15a0f3a</packageId>
+  <packageName>MudBlazor.Sample</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

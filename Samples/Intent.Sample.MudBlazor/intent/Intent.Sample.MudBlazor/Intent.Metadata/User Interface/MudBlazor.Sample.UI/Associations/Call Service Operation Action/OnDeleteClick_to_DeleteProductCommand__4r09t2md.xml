@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fcd39d44-5212-4212-9290-8de2300d43d8">
+  <sourceEnd id="6452893b-89a7-4955-ac1c-59f459d21552" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+    <display>: OnDeleteClick</display>
+    <order>0</order>
+    <typeReference id="ae2171bd-c25b-4bff-a998-218eb79ef3e4">
+      <typeId>c79fe734-fabb-4ab0-bddd-0121608dd19e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.UI</typePackageName>
+      <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fcd39d44-5212-4212-9290-8de2300d43d8" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+    <name>DeleteProductCommand</name>
+    <display>[call] ProductsService.DeleteProductCommand(id: guid): void</display>
+    <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
+    <typeReference id="9a872a1f-cf75-44d1-8451-5f814518063f">
+      <typeId>75e7fd65-1e6e-468f-859c-23ac3864250a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.UI</typePackageName>
+      <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="a9d3ff59-2597-4ac9-a07f-790425796442" location="[MudBlazor.ExampleApp].[User Interface].[ProductEditDialog]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="75e7fd65-1e6e-468f-859c-23ac3864250a" location="[MudBlazor.ExampleApp].[User Interface].[DeleteProductCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{OnDeleteClick.DeleteProductCommand}</expression>
+            <path>
+              <target id="75e7fd65-1e6e-468f-859c-23ac3864250a" name="DeleteProductCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+            </path>
+            <sources>
+              <source identifier="OnDeleteClick.DeleteProductCommand" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
+                <path>
+                  <target id="a9d3ff59-2597-4ac9-a07f-790425796442" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="c79fe734-fabb-4ab0-bddd-0121608dd19e" name="OnDeleteClick" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="fcd39d44-5212-4212-9290-8de2300d43d8" name="DeleteProductCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ProductId}</expression>
+            <path>
+              <target id="75e7fd65-1e6e-468f-859c-23ac3864250a" name="DeleteProductCommand" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="0206a557-b875-4040-a41b-cb1d87050df3" name="id" type="element" specialization="Parameter" specializationId="f11273c1-217f-4f42-b690-3d8b488f95a8" />
+            </path>
+            <sources>
+              <source identifier="ProductId" mappingType="Data Mapping" mappingTypeId="ce70308a-e29d-4644-8410-f9e6bbd214fc">
+                <path>
+                  <target id="a9d3ff59-2597-4ac9-a07f-790425796442" name="ProductEditDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                  <target id="8559048b-8d42-49e4-811b-ef2269e659f5" name="ProductId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Call Service Operation Action</associationType>
+  <associationTypeId>fe5a5cd8-aabd-472f-8d42-f5c233e658dc</associationTypeId>
+  <stereotypes />
+</association>

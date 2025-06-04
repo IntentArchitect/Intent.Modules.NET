@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="fcb431d1-08a2-4595-a07d-e412a7f38bdf" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <comment>Comments can be left by the developers here explaining why the system is designed the way it is.</comment>
+  <name>Reasons Why...</name>
+  <display>Reasons Why...</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</parentFolderId>
+  <packageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</packageId>
+  <packageName>AspNetCoreCleanArchitecture.Sample.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

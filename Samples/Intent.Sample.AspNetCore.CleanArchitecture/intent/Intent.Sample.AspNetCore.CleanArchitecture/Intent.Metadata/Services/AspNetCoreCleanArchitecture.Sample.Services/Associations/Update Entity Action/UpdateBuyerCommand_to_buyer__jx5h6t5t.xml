@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f76ba8f4-6a19-4716-a339-67c6e0cb0f87">
+  <sourceEnd id="4b251322-133b-464b-b793-2fd8ab70928d" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Buyers.UpdateBuyerCommand</display>
+    <order>0</order>
+    <typeReference id="973824bb-1b83-4d57-a27e-486e0399b7c9">
+      <typeId>d3c46a01-5aba-42bc-8694-930f4dee10f5</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Services</typePackageName>
+      <typePackageId>da3dbc0e-1888-43c5-9658-498ed66e5340</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f76ba8f4-6a19-4716-a339-67c6e0cb0f87" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>buyer</name>
+    <display>[update] buyer: Buyer</display>
+    <order>6</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="40017da1-a6b9-483d-91dd-7d782bf6c512">
+      <typeId>8415a47a-3494-4686-b2fa-f93e0b622028</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d3c46a01-5aba-42bc-8694-930f4dee10f5" location="[CleanArchitecture.ExampleApp].[Services].[UpdateBuyerCommand]" />
+        <target applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8415a47a-3494-4686-b2fa-f93e0b622028" location="[CleanArchitecture.ExampleApp].[Services].[Buyer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ef81bc3c-310d-45e0-8924-0cbc438dd5c0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="877df8b6-9862-4ff6-bd87-5df4646ca401" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d3c46a01-5aba-42bc-8694-930f4dee10f5" location="[CleanArchitecture.ExampleApp].[Services].[UpdateBuyerCommand]" />
+        <target applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8415a47a-3494-4686-b2fa-f93e0b622028" location="[CleanArchitecture.ExampleApp].[Services].[Buyer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c2e94453-c57d-4ec3-aa2e-65b426d1683f" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="e9627e0d-c26e-4883-992b-17b17e457950" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Surname}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3ad4c369-e26e-4a70-b3f6-88bdc7a62e8a" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Surname" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="27397f3b-4e56-4e5d-b68a-6040f6545f12" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Email}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="5a7ae750-1a23-409a-b108-bfa902d98d6f" name="Email" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Email" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="43106a1f-bfcc-41c4-bcc9-8c70ef084e19" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{IsActive}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="4cae3374-82cf-4e26-a6b7-e4bac4f85b8d" name="IsActive" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="IsActive" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="fa197beb-c227-4346-b987-9696ffd4ebd5" name="IsActive" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line1}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48670dd3-363b-4819-bff7-72ca3f62513c" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="b38a248b-12d5-4202-8764-aafa8ae7de21" name="Line1" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.Line1" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="93471f81-5f33-4472-b1cf-41274cb73d8b" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="4946949b-1cca-4ba9-8850-951be518781b" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.Line2}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48670dd3-363b-4819-bff7-72ca3f62513c" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="e2565b67-3a01-415d-ba5a-9c30c5868ac1" name="Line2" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.Line2" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="93471f81-5f33-4472-b1cf-41274cb73d8b" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="e72122e3-8d10-4df8-989a-7e297577fb01" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.City}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48670dd3-363b-4819-bff7-72ca3f62513c" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="57c3b718-24a6-4965-bc91-1b39f301af24" name="City" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.City" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="93471f81-5f33-4472-b1cf-41274cb73d8b" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="ab5faccb-465f-446f-9b3b-7c01c9a3b235" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Address.PostalCode}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="48670dd3-363b-4819-bff7-72ca3f62513c" name="Address" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="8fe136ce-1dd7-4265-a6b6-c3ba3f4fbfee" name="PostalCode" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Address.PostalCode" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="d3c46a01-5aba-42bc-8694-930f4dee10f5" name="UpdateBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="93471f81-5f33-4472-b1cf-41274cb73d8b" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="a0bb4289-4fae-4ba7-843d-de24d8e4fe2f" name="PostalCode" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

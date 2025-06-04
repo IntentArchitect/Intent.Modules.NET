@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a74e984f-c4f2-412a-99a2-c4f3716cc6b8" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</parentFolderId>
+  <packageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</packageId>
+  <packageName>AspNetCoreCleanArchitecture.Sample.Domain</packageName>
+  <diagram>
+    <targetPackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

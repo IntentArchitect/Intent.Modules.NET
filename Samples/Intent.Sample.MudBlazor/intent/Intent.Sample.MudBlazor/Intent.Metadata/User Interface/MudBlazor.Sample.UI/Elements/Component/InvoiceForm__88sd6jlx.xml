@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f1bada77-b6a5-4800-9132-023187d93f1c" type="Component" typeId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b">
+  <name>InvoiceForm</name>
+  <display>InvoiceForm</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3719034d-2681-458e-aee0-da28b85bc718</parentFolderId>
+  <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+  <packageName>MudBlazor.Sample.UI</packageName>
+  <stereotypes />
+  <mappings>
+    <mapping type="View Binding" typeId="c33f86ad-423a-4a6f-a80c-a3206eafe5cd">
+      <source applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+      <target applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="d91ff90c-c145-4c5e-a126-7283f698ee43" location="[Intent.Sample.MudBlazor].[User Interface].[[view]]" />
+      <mappedEnds>
+        <mappedEnd>
+          <expression>{Model}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
+              <typeReference>
+                <isNavigable>true</isNavigable>
+                <isNullable>false</isNullable>
+                <isCollection>false</isCollection>
+                <isRequired>true</isRequired>
+                <stereotypes />
+                <genericTypeParameters />
+              </typeReference>
+            </target>
+          </path>
+          <sources>
+            <source identifier="Model" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{HeaderText}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="3901298c-0a63-419f-aede-0a1558918d83" name="Header" type="element" specialization="Card Header" specializationId="61bd2c09-fb56-4f0a-9d45-7a04c649a965" />
+            <target id="567bcac4-196d-4d48-87fe-fbf452f3fdef" name="Header" type="element" specialization="Text" specializationId="922150d2-42e6-4805-a002-f9580cdf7f6f" />
+          </path>
+          <sources>
+            <source identifier="HeaderText" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="0a86f1d6-c38f-472f-a074-9088e596aa5f" name="HeaderText" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.InvoiceNo}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="bef0e23e-6975-4908-adcc-5cb897f46fc2" name="Invoice No" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.InvoiceNo" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d3151319-fb7d-4a95-af1e-fe97e56db9f3" name="InvoiceNo" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.CustomerId}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="7763bbb3-c86c-4285-977f-5ab856ed433a" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+          </path>
+          <sources>
+            <source identifier="Model.CustomerId" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="9161aba8-74dc-4e9b-8108-e9e4203011a7" name="CustomerId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="7763bbb3-c86c-4285-977f-5ab856ed433a" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="080c5b13-b667-4858-bd53-f5fc6bbf9701" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions.Id}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="7763bbb3-c86c-4285-977f-5ab856ed433a" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+            <target id="d4276bd9-c19c-4669-b927-f03ddba06db1" name="Value" type="static-mappable" specialization="Value" specializationId="d4276bd9-c19c-4669-b927-f03ddba06db1" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions.Id" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="080c5b13-b667-4858-bd53-f5fc6bbf9701" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="f83ec447-895a-4508-a58d-bafebf628536" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{CustomerOptions.Name}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="7763bbb3-c86c-4285-977f-5ab856ed433a" name="Customer" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+            <target id="c2b8c690-ab61-4f08-9431-ca4ce313a48c" name="Text" type="static-mappable" specialization="Text" specializationId="c2b8c690-ab61-4f08-9431-ca4ce313a48c" />
+          </path>
+          <sources>
+            <source identifier="CustomerOptions.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="080c5b13-b667-4858-bd53-f5fc6bbf9701" name="CustomerOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="3e7fb122-6d64-459e-a375-aa7de21c332d" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.InvoiceDate}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="994b6875-3dee-4a80-af69-cac1adfcabbb" name="Invoice Date" type="element" specialization="Date Picker" specializationId="9451fcdc-9406-4323-b354-2eaaabbf9ac5" />
+          </path>
+          <sources>
+            <source identifier="Model.InvoiceDate" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="b6db1426-2e3b-4a01-b448-a0f7d3a3fd10" name="InvoiceDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.DueDate}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="2345b28f-6d98-4d2c-92a8-b413b5fedace" name="Due Date" type="element" specialization="Date Picker" specializationId="9451fcdc-9406-4323-b354-2eaaabbf9ac5" />
+          </path>
+          <sources>
+            <source identifier="Model.DueDate" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="0132217b-4380-4344-8d6c-4f8d6dc9bf58" name="DueDate" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines.ProductId}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="0d6f9a07-3cde-45ea-b261-87055a94d113" name="Product" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="06912075-32de-41e5-a0ae-eb8986c83d45" name="Select" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines.ProductId" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="906a0cde-6671-4eb0-9ec8-6cb7671a08a6" name="ProductId" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{ProductOptions}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="0d6f9a07-3cde-45ea-b261-87055a94d113" name="Product" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="06912075-32de-41e5-a0ae-eb8986c83d45" name="Select" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+          </path>
+          <sources>
+            <source identifier="ProductOptions" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="0b86b3b5-ad78-4ba0-a938-1070039a05e8" name="ProductOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{ProductOptions.Id}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="0d6f9a07-3cde-45ea-b261-87055a94d113" name="Product" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="06912075-32de-41e5-a0ae-eb8986c83d45" name="Select" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+            <target id="d4276bd9-c19c-4669-b927-f03ddba06db1" name="Value" type="static-mappable" specialization="Value" specializationId="d4276bd9-c19c-4669-b927-f03ddba06db1" />
+          </path>
+          <sources>
+            <source identifier="ProductOptions.Id" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="0b86b3b5-ad78-4ba0-a938-1070039a05e8" name="ProductOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="a17d7e61-8ac1-4cc3-861d-f0771fd6edc6" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{ProductOptions.Name}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="0d6f9a07-3cde-45ea-b261-87055a94d113" name="Product" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="06912075-32de-41e5-a0ae-eb8986c83d45" name="Select" type="element" specialization="Select" specializationId="78e0bdf7-424f-4820-95d5-b756b0ebc87a" />
+            <target id="a8b732b9-c130-4644-8451-0b86ea3f1838" name="Options" type="static-mappable" specialization="Options" specializationId="a8b732b9-c130-4644-8451-0b86ea3f1838" />
+            <target id="c2b8c690-ab61-4f08-9431-ca4ce313a48c" name="Text" type="static-mappable" specialization="Text" specializationId="c2b8c690-ab61-4f08-9431-ca4ce313a48c" />
+          </path>
+          <sources>
+            <source identifier="ProductOptions.Name" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="0b86b3b5-ad78-4ba0-a938-1070039a05e8" name="ProductOptions" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="b934d161-2435-419b-a46b-e0612423c9b6" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines.Units}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="33915430-b599-4982-911c-acaadb728390" name="Units" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="c0a0c0b4-6de7-42f4-b3f7-1ff926751525" name="Units" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines.Units" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="a546d0ca-4125-4ed9-a56f-699522c38e9a" name="Units" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines.UnitPrice}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="68078e8a-3516-4161-84b1-7606673bbbd6" name="Unit Price" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="953fa807-4376-44ca-b6a9-8446f2e6dda9" name="Price" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines.UnitPrice" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="cfdb377a-8833-41ff-ab5d-5376674a1356" name="UnitPrice" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines.Discount}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="1d64088e-b28f-47d1-8743-1e91aa806545" name="Discount" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="6864eedd-3579-47a3-837b-2c14065cd247" name="Discount" type="element" specialization="Text Input" specializationId="4803bf60-c626-4cbe-94ed-0f1eafff9fe3" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines.Discount" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="56496544-5d3c-43d6-8dfd-f44e4181add5" name="Discount" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{Model.OrderLines.Units} * {Model.OrderLines.UnitPrice}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="ff3d813b-0a9e-4681-8651-3e795c882b16" name="Total" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+          </path>
+          <sources>
+            <source identifier="Model.OrderLines.UnitPrice" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="cfdb377a-8833-41ff-ab5d-5376674a1356" name="UnitPrice" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+            <source identifier="Model.OrderLines.Units" mappingType="Data Mapping" mappingTypeId="ee19a932-0cea-4b90-bd3c-857d7942d390">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                <target id="a546d0ca-4125-4ed9-a56f-699522c38e9a" name="Units" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnDeleteLineClick}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="e618d662-cdd4-4fbf-9e67-d02876044a0e" name="" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="d0afb05c-8a35-45d8-bcce-21f83076f7d6" name="Delete" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="OnDeleteLineClick" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="921e30e9-2302-4fe0-b1da-806bbd914db5" name="OnDeleteLineClick" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>context</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="17a3b085-01e9-4f90-bc9c-91d2785348af" name="OrderLinesTable" type="element" specialization="Table" specializationId="eee93c29-3d58-4e42-aea9-c00451d17469" />
+            <target id="e618d662-cdd4-4fbf-9e67-d02876044a0e" name="" type="element" specialization="Column" specializationId="d372c640-e649-4e67-84a8-4446f45288db" />
+            <target id="d0afb05c-8a35-45d8-bcce-21f83076f7d6" name="Delete" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+            <target id="c2f60769-a277-4b1d-a6e8-b78995268fd3" name="orderLine" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+          </path>
+          <sources />
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{AddLineClicked}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="a540926f-2534-4175-a579-c98874f36a74" name="Content" type="element" specialization="Card Content" specializationId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2" />
+            <target id="fd3d04d2-e421-4c06-81e2-0fb1af056525" name="Add Line" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="AddLineClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="1a4e7a0f-8677-4679-87d7-8fa2da30b457" name="AddLineClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnSaveClicked}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="8c35b067-261a-49bf-abd6-64fe4748fa26" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="4818550b-0948-46a5-b80e-72772deae2a4" name="Save" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="OnSaveClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="b7616237-5a19-4062-aa21-3306bd8804da" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+        <mappedEnd>
+          <expression>{OnCancelClicked}</expression>
+          <path>
+            <target id="d91ff90c-c145-4c5e-a126-7283f698ee43" name="[view]" type="element" specialization="Component View" specializationId="624513a6-cba8-4dde-8ebe-6b19f00f0364" />
+            <target id="41fa4271-ce40-45e4-9b55-3c0a4d2516cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
+            <target id="0572c1e4-beb0-40e7-9002-b44590b83cfb" name="Card" type="element" specialization="Card" specializationId="dfe420aa-426a-4517-bcd1-83cf5ec074fe" />
+            <target id="8c35b067-261a-49bf-abd6-64fe4748fa26" name="Actions" type="element" specialization="Card Actions" specializationId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6" />
+            <target id="3e072ed5-d431-43d1-be6d-b50a5362a102" name="Cancel" type="element" specialization="Button" specializationId="4474d808-f6fd-405f-a9c7-6998cd000ede" />
+            <target id="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" name="On Click" type="static-mappable" specialization="On Click" specializationId="b80f61a7-3b9e-4b75-806f-71d4f8b9900a" />
+          </path>
+          <sources>
+            <source identifier="OnCancelClicked" mappingType="Event Mapping" mappingTypeId="95ce3c3e-ddf4-440b-a9b2-6b152a5fc1b8">
+              <path>
+                <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                <target id="d4f736b5-f904-4656-a3b0-d8482f14b411" name="OnCancelClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+              </path>
+            </source>
+          </sources>
+        </mappedEnd>
+      </mappedEnds>
+    </mapping>
+  </mappings>
+  <metadata />
+  <childElements>
+    <childElement id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>Model</name>
+      <display>Model: InvoiceModel = new()</display>
+      <isAbstract>false</isAbstract>
+      <value>new()</value>
+      <genericTypes />
+      <typeReference id="a959353e-2b29-4340-9bef-38d58bbecd62">
+        <typeId>03d2501b-e4a1-4678-8c9d-d629df051d0d</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.Sample.UI</typePackageName>
+        <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0a86f1d6-c38f-472f-a074-9088e596aa5f" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>HeaderText</name>
+      <display>HeaderText: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="efb0e8ef-1e5e-4540-9fa1-e5a2a08c3677">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="080c5b13-b667-4858-bd53-f5fc6bbf9701" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>CustomerOptions</name>
+      <display>CustomerOptions: CustomerLookupDto[*] = []</display>
+      <isAbstract>false</isAbstract>
+      <value>[]</value>
+      <genericTypes />
+      <typeReference id="f10b3ecf-7b90-4b9c-9891-f6ee1ee0812b">
+        <typeId>980e6440-efdf-4d0f-b38b-42ecc1a8221e</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.Sample.Services</typePackageName>
+        <typePackageId>6999c4e1-fe09-4011-ace3-ad5ba38326e5</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0b86b3b5-ad78-4ba0-a938-1070039a05e8" type="Property" typeId="356fbe17-bc63-4e16-b915-feefbc063cbe">
+      <name>ProductOptions</name>
+      <display>ProductOptions: ProductDto[*] = []</display>
+      <isAbstract>false</isAbstract>
+      <value>[]</value>
+      <genericTypes />
+      <typeReference id="cf10446d-4cb8-4432-b341-642fff7952b3">
+        <typeId>9ce6a637-ea45-40f4-bf70-bc8bb4ec2a32</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.Sample.Services</typePackageName>
+        <typePackageId>6999c4e1-fe09-4011-ace3-ad5ba38326e5</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="66a7556c-fae5-42f2-a59f-28f84577a83d" type="Event Emitter" typeId="d6739ffc-30e6-4170-a105-bf28e69aa578">
+      <name>SaveClicked</name>
+      <display>SaveClicked&lt;void&gt;</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="351d4bc5-5bab-4fb7-8b26-32b21c9e7176">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="fc29589a-1d56-4ab9-a040-b76bb2b644de" type="Event Emitter" typeId="d6739ffc-30e6-4170-a105-bf28e69aa578">
+      <name>CancelClicked</name>
+      <display>CancelClicked&lt;void&gt;</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9bfb2b1e-ca1a-4b31-83a2-6a89492d0352">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="12ba7bea-ceb9-44d4-8819-835fe36af7b3" name="[Bindable]">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties />
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="bf34f12d-1bb0-4449-97a6-98c51a227d06" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnInitializedAsync</name>
+      <display>OnInitializedAsync(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b3f5ce0d-166f-4e3b-a316-7e693de679b8">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b7616237-5a19-4062-aa21-3306bd8804da" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnSaveClicked</name>
+      <display>OnSaveClicked(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="cd0d6cce-1125-49d1-a3c0-3ed727a6afc4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="9b4ba0ce-358a-4739-b2c0-90fa736e2f60" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>SaveClicked</name>
+          <display>[call] SaveClicked</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3de3fbe4-e675-494b-981c-a9f980142ec7">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b7616237-5a19-4062-aa21-3306bd8804da</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <target applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnSaveClicked.SaveClicked}</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="66a7556c-fae5-42f2-a59f-28f84577a83d" name="SaveClicked" type="element" specialization="Event Emitter" specializationId="d6739ffc-30e6-4170-a105-bf28e69aa578" />
+                  </path>
+                  <sources>
+                    <source identifier="OnSaveClicked.SaveClicked" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="b7616237-5a19-4062-aa21-3306bd8804da" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="9b4ba0ce-358a-4739-b2c0-90fa736e2f60" name="SaveClicked" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="d4f736b5-f904-4656-a3b0-d8482f14b411" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnCancelClicked</name>
+      <display>OnCancelClicked(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="fd19e655-545c-422d-9bbf-0ace3c30cb13">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="ef6c0cb6-998c-4db7-aac8-03b7411119c9" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>CancelClicked</name>
+          <display>[call] CancelClicked</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4b7a5b39-42e5-4e17-a818-e9321f193e66">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>d4f736b5-f904-4656-a3b0-d8482f14b411</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <target applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnCancelClicked.CancelClicked}</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="fc29589a-1d56-4ab9-a040-b76bb2b644de" name="CancelClicked" type="element" specialization="Event Emitter" specializationId="d6739ffc-30e6-4170-a105-bf28e69aa578" />
+                  </path>
+                  <sources>
+                    <source identifier="OnCancelClicked.CancelClicked" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="d4f736b5-f904-4656-a3b0-d8482f14b411" name="OnCancelClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="ef6c0cb6-998c-4db7-aac8-03b7411119c9" name="CancelClicked" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="1a4e7a0f-8677-4679-87d7-8fa2da30b457" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>AddLineClicked</name>
+      <display>AddLineClicked(): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="f90fedc9-1738-45e0-aaaf-6524f4f2bdb9">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="20b78abf-2e9a-40b9-ad31-237c5c8f1cdc" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Model.OrderLines.Add()</name>
+          <display>[call] Model.OrderLines.Add()</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a31b71ac-1214-4c04-9806-006caa4b13e6">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1a4e7a0f-8677-4679-87d7-8fa2da30b457</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <target applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{AddLineClicked.Model_OrderLines_Add__}</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="40626900-37dc-4986-aaa7-714434fe13a6" name="Add()" type="static-mappable" specialization="Add()" specializationId="40626900-37dc-4986-aaa7-714434fe13a6" />
+                  </path>
+                  <sources>
+                    <source identifier="AddLineClicked.Model_OrderLines_Add__" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="1a4e7a0f-8677-4679-87d7-8fa2da30b457" name="AddLineClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="20b78abf-2e9a-40b9-ad31-237c5c8f1cdc" name="Model.OrderLines.Add()" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+                <mappedEnd>
+                  <expression>new()</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="40626900-37dc-4986-aaa7-714434fe13a6" name="Add()" type="static-mappable" specialization="Add()" specializationId="40626900-37dc-4986-aaa7-714434fe13a6" />
+                    <target id="8eca5952-2a80-448c-b03c-0170c8a16371" name="item" type="static-mappable" specialization="item" specializationId="8eca5952-2a80-448c-b03c-0170c8a16371">
+                      <typeReference>
+                        <typeId>8632b904-55fd-4b92-a573-398881dec181</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>MudBlazor.Sample.UI</typePackageName>
+                        <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                  </path>
+                  <sources />
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="921e30e9-2302-4fe0-b1da-806bbd914db5" type="Component Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>OnDeleteLineClick</name>
+      <display>OnDeleteLineClick(orderLine: InvoiceLineModel): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="76bab4b4-29c5-4410-8476-c0cb27ac83c5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f1bada77-b6a5-4800-9132-023187d93f1c</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="c2f60769-a277-4b1d-a6e8-b78995268fd3" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>orderLine</name>
+          <display>in : orderLine: InvoiceLineModel</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ac668ec8-6102-47d1-842a-cc0b0803e483">
+            <typeId>8632b904-55fd-4b92-a573-398881dec181</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>MudBlazor.Sample.UI</typePackageName>
+            <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>921e30e9-2302-4fe0-b1da-806bbd914db5</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3f93e595-3767-4858-92db-b406b40f56df" type="Invocation" typeId="18f87cd6-d8d8-4518-8931-58653d537467">
+          <name>Model.OrderLines.Remove()</name>
+          <display>[call] Model.OrderLines.Remove()</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="2576276b-9915-4421-a22e-7e0f1bb4ce84">
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>921e30e9-2302-4fe0-b1da-806bbd914db5</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <traits>
+            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+          </traits>
+          <stereotypes />
+          <mappings>
+            <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
+              <source applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <target applicationId="654bce17-519b-4e11-bef7-58c9195b9238" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="f1bada77-b6a5-4800-9132-023187d93f1c" location="[Intent.Sample.MudBlazor].[User Interface].[InvoiceForm]" />
+              <mappedEnds>
+                <mappedEnd>
+                  <expression>{OnDeleteLineClick.Model_OrderLines_Remove__}</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="f6bfb740-ca91-409b-a5d1-884c31385a68" name="Remove()" type="static-mappable" specialization="Remove()" specializationId="f6bfb740-ca91-409b-a5d1-884c31385a68" />
+                  </path>
+                  <sources>
+                    <source identifier="OnDeleteLineClick.Model_OrderLines_Remove__" mappingType="Invokable Mapping" mappingTypeId="720f119b-39b3-4f11-8d96-27fa82d1f4e2">
+                      <path>
+                        <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="921e30e9-2302-4fe0-b1da-806bbd914db5" name="OnDeleteLineClick" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="3f93e595-3767-4858-92db-b406b40f56df" name="Model.OrderLines.Remove()" type="element" specialization="Invocation" specializationId="18f87cd6-d8d8-4518-8931-58653d537467" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+                <mappedEnd>
+                  <expression>{OnDeleteLineClick.orderLine}</expression>
+                  <path>
+                    <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                    <target id="ca7b60fd-1073-461a-88a3-6d1c1957b2a2" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="d6ad38e0-bc46-4ae9-8732-22eab76cdf8c" name="OrderLines" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
+                    <target id="f6bfb740-ca91-409b-a5d1-884c31385a68" name="Remove()" type="static-mappable" specialization="Remove()" specializationId="f6bfb740-ca91-409b-a5d1-884c31385a68" />
+                    <target id="cce5f491-3ab2-40ed-8f72-081de4975ca9" name="item" type="static-mappable" specialization="item" specializationId="cce5f491-3ab2-40ed-8f72-081de4975ca9">
+                      <typeReference>
+                        <typeId>8632b904-55fd-4b92-a573-398881dec181</typeId>
+                        <isNavigable>true</isNavigable>
+                        <isNullable>false</isNullable>
+                        <isCollection>false</isCollection>
+                        <isRequired>true</isRequired>
+                        <typePackageName>MudBlazor.Sample.UI</typePackageName>
+                        <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+                        <stereotypes />
+                        <genericTypeParameters />
+                      </typeReference>
+                    </target>
+                  </path>
+                  <sources>
+                    <source identifier="OnDeleteLineClick.orderLine" mappingType="Data Mapping" mappingTypeId="7ef3f515-1714-4ba4-8a33-084532aeb4dd">
+                      <path>
+                        <target id="f1bada77-b6a5-4800-9132-023187d93f1c" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
+                        <target id="921e30e9-2302-4fe0-b1da-806bbd914db5" name="OnDeleteLineClick" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                        <target id="c2f60769-a277-4b1d-a6e8-b78995268fd3" name="orderLine" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                      </path>
+                    </source>
+                  </sources>
+                </mappedEnd>
+              </mappedEnds>
+            </mapping>
+          </mappings>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

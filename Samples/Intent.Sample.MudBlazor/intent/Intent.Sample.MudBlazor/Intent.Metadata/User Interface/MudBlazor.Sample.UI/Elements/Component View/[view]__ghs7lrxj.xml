@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="952cefd1-fc36-40e2-9ea8-0a37d4bb83ad" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <externalReference>4cd6c2f9-9d07-47f5-94c5-cb49410f1ccb</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>727af709-121a-4241-8e0d-5ba948439324</parentFolderId>
+  <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+  <packageName>MudBlazor.Sample.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="6e67d040-c9da-4ff1-8a0a-43d07d46f7e2" type="Card" typeId="dfe420aa-426a-4517-bcd1-83cf5ec074fe">
+      <name>Welcome Card</name>
+      <display>Welcome Card</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>952cefd1-fc36-40e2-9ea8-0a37d4bb83ad</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="80fd6320-1bc9-4a95-8b95-59640877e978" display="xs" value="12" isActive="true" />
+            <property name="9561bc34-a1f1-4167-938a-84e2a3a9446f" display="sm" isActive="true" />
+            <property name="3a6d24b8-6761-40e2-8277-b8a21e158fb9" display="md" isActive="true" />
+            <property name="d45056ab-9ce5-467d-a05f-24f43bd79ff3" display="lg" isActive="true" />
+            <property name="6cd2eeb6-9dc4-46f2-ac0f-ac370fd0d894" display="xl" isActive="true" />
+            <property name="475fd55a-540c-4a64-bb7d-174c0171f9be" display="xxl" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="fe78759b-5668-49bb-a3e6-1b5796bcf9f2" type="Card Header" typeId="61bd2c09-fb56-4f0a-9d45-7a04c649a965">
+          <name>Header</name>
+          <display>Header</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6e67d040-c9da-4ff1-8a0a-43d07d46f7e2</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="2f45d641-841d-402f-8993-54bc4320ace9" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Head</name>
+              <display>Head = ###Welcome!</display>
+              <externalReference>72a6938d-d404-493f-aadd-d2b231fabdb1</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>###Welcome!</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>fe78759b-5668-49bb-a3e6-1b5796bcf9f2</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="991793ee-9128-42d4-8f16-1d228a0f03d9" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Text</name>
+              <display>Text = This is a simple sample Blazor application, code-automated by Intent Architect.</display>
+              <externalReference>c2ebf3f0-a5be-4e70-82d7-baffdd4abd1e</externalReference>
+              <isAbstract>false</isAbstract>
+              <value>This is a simple sample Blazor application, code-automated by Intent Architect.</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>fe78759b-5668-49bb-a3e6-1b5796bcf9f2</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="36fa2d48-f4f0-4887-b044-15ee601e6bbf" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Text1</name>
+              <display>Text1 = We look forward to your feedback :)</display>
+              <isAbstract>false</isAbstract>
+              <value>We look forward to your feedback :)</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>fe78759b-5668-49bb-a3e6-1b5796bcf9f2</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="310114f3-dfb0-403f-aab9-8b112d1d4209" type="Card Actions" typeId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6">
+          <name>Actions</name>
+          <display>Actions</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>6e67d040-c9da-4ff1-8a0a-43d07d46f7e2</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="9be1f920-05a1-4027-90ae-b7fec8adc157" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Give Feedback</name>
+              <display>Give Feedback</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>310114f3-dfb0-403f-aab9-8b112d1d4209</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="edfca156-96df-48d3-80a0-8bb814a37d01" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="ml-2 mb-3" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" value="" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="https://form.jotform.com/242683172056558" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="0e8cf4a7-7c95-48a4-981e-25ae142683e8" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="ff100b23-b335-4cc0-a033-ed90e8ec0ca0" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Log an Issue</name>
+              <display>Log an Issue</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>310114f3-dfb0-403f-aab9-8b112d1d4209</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="e8b57d00-fe09-4d21-bc2c-f73eaec19f84" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="ml-2 mb-3" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="https://intentarchitect.com/#/redirect/?category=clientResource&amp;subCategory=home.needHelp" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="4ee1a2d3-5db1-40f3-843d-0803d84aed16" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ba0959f7-5075-433d-a8b5-3dbf794e2ace" type="Card" typeId="dfe420aa-426a-4517-bcd1-83cf5ec074fe">
+      <name>Invoices Card</name>
+      <display>Invoices Card</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>952cefd1-fc36-40e2-9ea8-0a37d4bb83ad</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="80fd6320-1bc9-4a95-8b95-59640877e978" display="xs" value="12" isActive="true" />
+            <property name="9561bc34-a1f1-4167-938a-84e2a3a9446f" display="sm" isActive="true" />
+            <property name="3a6d24b8-6761-40e2-8277-b8a21e158fb9" display="md" isActive="true" />
+            <property name="d45056ab-9ce5-467d-a05f-24f43bd79ff3" display="lg" value="4" isActive="true" />
+            <property name="6cd2eeb6-9dc4-46f2-ac0f-ac370fd0d894" display="xl" isActive="true" />
+            <property name="475fd55a-540c-4a64-bb7d-174c0171f9be" display="xxl" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="acba53aa-8477-449b-b6ce-c5df947767d4" type="Card Header" typeId="61bd2c09-fb56-4f0a-9d45-7a04c649a965">
+          <name>Header</name>
+          <display>Header</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba0959f7-5075-433d-a8b5-3dbf794e2ace</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="2d293642-02bc-44c5-97af-ad2227680fc6" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Header</name>
+              <display>Header = #####Invoices</display>
+              <isAbstract>false</isAbstract>
+              <value>#####Invoices</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>acba53aa-8477-449b-b6ce-c5df947767d4</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="87a6e6c6-2b75-4a80-976d-df61f8895476" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Description</name>
+              <display>Description = Create and update invoices for your customers.</display>
+              <isAbstract>false</isAbstract>
+              <value>Create and update invoices for your customers.</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>acba53aa-8477-449b-b6ce-c5df947767d4</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="0d719d12-575e-4251-a2d4-f8c21acce6db" type="Card Content" typeId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2">
+          <name>Content</name>
+          <display>Content</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba0959f7-5075-433d-a8b5-3dbf794e2ace</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="d1d67408-fc08-4d6d-afde-b32c92ee4e59" type="Image" typeId="329f635b-a55c-465f-b966-fe8411a5f57c">
+              <name>Image</name>
+              <display>Image = https://blog.filestack.com/wp-content/uploads/2023/12/Untitled-design-48-1024x576.png</display>
+              <isAbstract>false</isAbstract>
+              <value>https://blog.filestack.com/wp-content/uploads/2023/12/Untitled-design-48-1024x576.png</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>0d719d12-575e-4251-a2d4-f8c21acce6db</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="e7e01d30-761c-4d74-aab2-86d60f4c3da4" display="Fluid" value="true" isActive="true" />
+                    <property name="17f49bf9-0511-469e-8fe3-58ce147af1bc" display="Width" isActive="true" />
+                    <property name="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f" display="Height" isActive="true" />
+                    <property name="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f" display="Elevation" value="25" isActive="true" />
+                    <property name="5a21da28-5f76-40b4-946b-0306be8d8dc1" display="Class" value="rounded-lg" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="6b5a75c2-3992-4e0e-baab-eb22ead2fade" type="Card Actions" typeId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6">
+          <name>Actions</name>
+          <display>Actions</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ba0959f7-5075-433d-a8b5-3dbf794e2ace</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="1922b095-6e7c-4e35-8e55-a1c7651d39ac" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Manage Invoices</name>
+              <display>Manage Invoices</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>6b5a75c2-3992-4e0e-baab-eb22ead2fade</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="35ce5616-161f-406e-9130-924e367d7836" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="ml-2 mb-3" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToInvoiceList}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="9257f134-f2a4-446e-aa94-a37565b130c6" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7a7f5473-3c82-4186-8d92-8f77924c8dda" type="Card" typeId="dfe420aa-426a-4517-bcd1-83cf5ec074fe">
+      <name>Customers Card</name>
+      <display>Customers Card</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>952cefd1-fc36-40e2-9ea8-0a37d4bb83ad</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="80fd6320-1bc9-4a95-8b95-59640877e978" display="xs" value="12" isActive="true" />
+            <property name="9561bc34-a1f1-4167-938a-84e2a3a9446f" display="sm" isActive="true" />
+            <property name="3a6d24b8-6761-40e2-8277-b8a21e158fb9" display="md" isActive="true" />
+            <property name="d45056ab-9ce5-467d-a05f-24f43bd79ff3" display="lg" value="4" isActive="true" />
+            <property name="6cd2eeb6-9dc4-46f2-ac0f-ac370fd0d894" display="xl" isActive="true" />
+            <property name="475fd55a-540c-4a64-bb7d-174c0171f9be" display="xxl" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="428d629b-c754-44e2-b35d-e29cf33fec88" type="Card Header" typeId="61bd2c09-fb56-4f0a-9d45-7a04c649a965">
+          <name>Header</name>
+          <display>Header</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a7f5473-3c82-4186-8d92-8f77924c8dda</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="735b8b51-1014-4b20-af35-b36a4b869988" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Header</name>
+              <display>Header = #####Customers</display>
+              <isAbstract>false</isAbstract>
+              <value>#####Customers</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>428d629b-c754-44e2-b35d-e29cf33fec88</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="816e75e2-489e-48df-98fd-7864c89fdafe" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Description</name>
+              <display>Description = Manage you customer information.</display>
+              <isAbstract>false</isAbstract>
+              <value>Manage you customer information.</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>428d629b-c754-44e2-b35d-e29cf33fec88</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="f9a34f79-17ef-4f00-907a-83447f3790ea" type="Card Content" typeId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2">
+          <name>Content</name>
+          <display>Content</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a7f5473-3c82-4186-8d92-8f77924c8dda</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="d9088883-bce6-4e92-b1fd-7851c632fb33" type="Image" typeId="329f635b-a55c-465f-b966-fe8411a5f57c">
+              <name>Image</name>
+              <display>Image = https://assets.blog.engoo.com/wp-content/uploads/sites/7/2023/02/22020504/shutterstock_1718979418-1024x576.jpg</display>
+              <isAbstract>false</isAbstract>
+              <value>https://assets.blog.engoo.com/wp-content/uploads/sites/7/2023/02/22020504/shutterstock_1718979418-1024x576.jpg</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>f9a34f79-17ef-4f00-907a-83447f3790ea</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="e7e01d30-761c-4d74-aab2-86d60f4c3da4" display="Fluid" value="true" isActive="true" />
+                    <property name="17f49bf9-0511-469e-8fe3-58ce147af1bc" display="Width" isActive="true" />
+                    <property name="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f" display="Height" isActive="true" />
+                    <property name="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f" display="Elevation" value="25" isActive="true" />
+                    <property name="5a21da28-5f76-40b4-946b-0306be8d8dc1" display="Class" value="rounded-lg" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="5bbfb364-734a-4ecf-9665-75cc78d031ee" type="Card Actions" typeId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6">
+          <name>Actions</name>
+          <display>Actions</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a7f5473-3c82-4186-8d92-8f77924c8dda</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="744cc129-d49d-4f26-9e7d-d82017b9b9a1" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Manage Customers</name>
+              <display>Manage Customers</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>5bbfb364-734a-4ecf-9665-75cc78d031ee</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="35ce5616-161f-406e-9130-924e367d7836" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="ml-2 mb-3" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToCustomerList1}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="f6575b79-a490-42bc-aa0b-c76bf8a981d6" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="ebf1cc78-7c6f-4212-b2e9-79503f298b78" type="Card" typeId="dfe420aa-426a-4517-bcd1-83cf5ec074fe">
+      <name>Products Card</name>
+      <display>Products Card</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>952cefd1-fc36-40e2-9ea8-0a37d4bb83ad</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7936f4ce-2243-4fb1-ad9e-5af331a0f1d2" name="Layout">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Modelers.UI</definitionPackageName>
+          <definitionPackageId>5c4628ec-679e-4f3d-afda-137c978deae0</definitionPackageId>
+          <properties>
+            <property name="80fd6320-1bc9-4a95-8b95-59640877e978" display="xs" value="12" isActive="true" />
+            <property name="9561bc34-a1f1-4167-938a-84e2a3a9446f" display="sm" isActive="true" />
+            <property name="3a6d24b8-6761-40e2-8277-b8a21e158fb9" display="md" isActive="true" />
+            <property name="d45056ab-9ce5-467d-a05f-24f43bd79ff3" display="lg" value="4" isActive="true" />
+            <property name="6cd2eeb6-9dc4-46f2-ac0f-ac370fd0d894" display="xl" isActive="true" />
+            <property name="475fd55a-540c-4a64-bb7d-174c0171f9be" display="xxl" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="9a0a89ea-d7f9-4fc9-9f77-451e720c642a" type="Card Header" typeId="61bd2c09-fb56-4f0a-9d45-7a04c649a965">
+          <name>Header</name>
+          <display>Header</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ebf1cc78-7c6f-4212-b2e9-79503f298b78</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="aefe97dc-c83a-4223-bc6c-1138c9566810" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Header</name>
+              <display>Header = #####Products</display>
+              <isAbstract>false</isAbstract>
+              <value>#####Products</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>9a0a89ea-d7f9-4fc9-9f77-451e720c642a</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+            <childElement id="691d9f2b-8bdb-4921-8f88-36d81786266f" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+              <name>Description</name>
+              <display>Description = Manage you available pruducts.</display>
+              <isAbstract>false</isAbstract>
+              <value>Manage you available pruducts.</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>9a0a89ea-d7f9-4fc9-9f77-451e720c642a</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes />
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="b292b450-2f49-4377-bd69-95e01a536eeb" type="Card Content" typeId="57319385-c7e0-43eb-a2d8-b7cb1ddce2e2">
+          <name>Content</name>
+          <display>Content</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ebf1cc78-7c6f-4212-b2e9-79503f298b78</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="6f6ddf1d-b720-40e8-8af2-31be93aa750d" type="Image" typeId="329f635b-a55c-465f-b966-fe8411a5f57c">
+              <name>Image</name>
+              <display>Image = https://www.hbi.de/wp-content/uploads/2024/07/Blogbanner-1024x576.png</display>
+              <isAbstract>false</isAbstract>
+              <value>https://www.hbi.de/wp-content/uploads/2024/07/Blogbanner-1024x576.png</value>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>b292b450-2f49-4377-bd69-95e01a536eeb</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="54eaa54d-6bed-4de6-8ee3-4c90ecd76a30" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="e7e01d30-761c-4d74-aab2-86d60f4c3da4" display="Fluid" value="true" isActive="true" />
+                    <property name="17f49bf9-0511-469e-8fe3-58ce147af1bc" display="Width" isActive="true" />
+                    <property name="c7f28cef-4c5b-4b41-ae40-50a21ba6dd0f" display="Height" isActive="true" />
+                    <property name="989f2cf7-ca7d-4623-9fa0-c1b90d20f77f" display="Elevation" value="25" isActive="true" />
+                    <property name="5a21da28-5f76-40b4-946b-0306be8d8dc1" display="Class" value="rounded-lg" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+        <childElement id="cfd433b5-aeca-426d-96f9-d7d311091ed5" type="Card Actions" typeId="8dd9e894-be78-41ec-89f2-d2bd2d26d8d6">
+          <name>Actions</name>
+          <display>Actions</display>
+          <isAbstract>false</isAbstract>
+          <sort-children>manually</sort-children>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ebf1cc78-7c6f-4212-b2e9-79503f298b78</parentFolderId>
+          <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+          <packageName>MudBlazor.Sample.UI</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements>
+            <childElement id="7682dba2-d277-4558-ae52-00cf3b6c4ba2" type="Button" typeId="4474d808-f6fd-405f-a9c7-6998cd000ede">
+              <name>Manage Products</name>
+              <display>Manage Products</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>cfd433b5-aeca-426d-96f9-d7d311091ed5</parentFolderId>
+              <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+              <packageName>MudBlazor.Sample.UI</packageName>
+              <traits>
+                <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+              </traits>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="b218f7cb-d150-401d-a17a-9e22fadf863f" name="Appearance">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="eecbc26c-443b-4d97-a706-a4e21fc13552" display="Icon Only" value="false" isActive="true" />
+                    <property name="de8a25d2-a144-4806-b5ad-e6c195abfa43" display="Variant" value="93828c49-ea2f-46d2-b661-df6fc2c4a0e2" isActive="true" />
+                    <property name="d527d5a7-fd00-4486-a204-5c6fc93099a5" display="Color" value="35ce5616-161f-406e-9130-924e367d7836" isActive="true" />
+                    <property name="9243cf9b-c6de-47d4-a914-382ab7ddf920" display="Class" value="ml-2 mb-3" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="a7de29e5-4bee-4e5d-93f0-740569ac6130" name="Interaction">
+                  <addedByDefault>true</addedByDefault>
+                  <definitionPackageName>Intent.Modelers.UI.Core</definitionPackageName>
+                  <definitionPackageId>a2a95421-3e55-43c7-96ad-355610b43c4d</definitionPackageId>
+                  <properties>
+                    <property name="7cee794d-e1a7-4590-b65a-6e56914a2a97" display="Type" value="Default" isActive="true" />
+                    <property name="2265736b-4381-42dc-9dbf-b757188837bc" display="Form" isActive="false" />
+                    <property name="d05f7b5b-fe45-4cbb-b938-380a4b68c0df" display="On Click" isActive="true" />
+                    <property name="86aeb4ba-54e8-4327-bcb0-166fb9b9968c" display="Link To" value="{NavigateToProductList}" isActive="true" />
+                    <property name="8bde99c0-4d3e-47d2-92f1-e299b05e5543" display="Disabled" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="8e1b7033-fd27-495a-a2a7-36b5168f04f5" name="Icon">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor.Components.MudBlazor</definitionPackageName>
+                  <definitionPackageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</definitionPackageId>
+                  <properties>
+                    <property name="7bda044e-8be7-4ac4-98cd-41e97132942f" display="Icon Value" value="30ceb16e-07c0-4901-ac73-8a91f57be3c6" isActive="true" />
+                    <property name="6a70b142-c60d-4015-97aa-be0bcab7d128" display="Icon Color" isActive="true" />
+                    <property name="13f1151e-7611-4bde-8374-1598b5d3335c" display="Variant" value="41f2ef78-a358-43bd-9b84-926dc185c8d1" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
+          </childElements>
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

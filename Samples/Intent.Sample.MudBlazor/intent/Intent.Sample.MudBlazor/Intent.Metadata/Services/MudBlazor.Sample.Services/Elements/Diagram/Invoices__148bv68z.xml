@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c43b7610-91e2-4057-9869-50cfef72e491" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Invoices</name>
+  <display>Invoices</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>64ca5712-60a7-4bdd-87da-2722adebaca0</parentFolderId>
+  <packageId>6999c4e1-fe09-4011-ace3-ad5ba38326e5</packageId>
+  <packageName>MudBlazor.Sample.Services</packageName>
+  <diagram>
+    <targetPackageId>c43b7610-91e2-4057-9869-50cfef72e491</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

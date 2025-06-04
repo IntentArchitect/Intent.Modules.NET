@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7cd5913f-6b28-48e9-bbae-84ef8338c079">
+  <sourceEnd id="aa35c9c8-bc5b-4c52-ae56-fc612d1e5c2f" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Customers.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="fa7b283d-c9e5-4ad4-afa0-d612e118931c">
+      <typeId>a37f2263-5311-49b2-be17-8e122889d8a3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.Services</typePackageName>
+      <typePackageId>6999c4e1-fe09-4011-ace3-ad5ba38326e5</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7cd5913f-6b28-48e9-bbae-84ef8338c079" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>customer</name>
+    <display>[delete] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="b2a17584-6ed2-4b28-9758-c1aa01e40157">
+      <typeId>cbf4da3c-e210-4397-ab6d-374818fd4e8b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>MudBlazor.Sample.Domain</typePackageName>
+      <typePackageId>868c151a-b40a-4599-8e3f-de8a371e1e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a37f2263-5311-49b2-be17-8e122889d8a3" location="[MudBlazor.ExampleApp].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="cbf4da3c-e210-4397-ab6d-374818fd4e8b" location="[MudBlazor.ExampleApp].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="cbf4da3c-e210-4397-ab6d-374818fd4e8b" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b0706a4f-1a4d-449b-9279-536d3b2b58c7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="a37f2263-5311-49b2-be17-8e122889d8a3" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="f82ad368-f840-4d78-aedc-c91586a9760b" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

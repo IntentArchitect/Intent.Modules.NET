@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="bef40c8c-b7e1-45b1-a5b7-785f6a53544e">
+  <sourceEnd id="28011637-dd01-4fd1-bb6b-24d87b830730" type="Comment Source End" typeId="7e98213c-4a9c-4d6f-98fc-f185948cc9e8">
+    <display>: Reasons Why...</display>
+    <order>0</order>
+    <typeReference id="feadf69f-c1ec-4ac4-b5ef-595657d8dd51">
+      <typeId>fcb431d1-08a2-4595-a07d-e412a7f38bdf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="bef40c8c-b7e1-45b1-a5b7-785f6a53544e" type="Comment Target End" typeId="b7edce45-ccf0-47ed-b79f-86d5145c9f62">
+    <display>: Order</display>
+    <order>0</order>
+    <typeReference id="5225fe9a-5350-4d75-be42-d7baf0c049dd">
+      <typeId>5503145d-1237-433f-9aff-1161f0277280</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Comment Association</associationType>
+  <associationTypeId>5264c135-e856-468d-8bd7-154b75842256</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="365b034b-d59d-41e2-8d7a-241cf6f28b37">
+  <sourceEnd id="d9c6f6b6-dd59-4852-b535-f1c7fbe03226" type="Delete Entity Action Source End" typeId="8c2d9fed-bd14-44b2-9f98-8a801aaf157e">
+    <display>deleted by : Buyers.DeleteBuyerCommand</display>
+    <order>0</order>
+    <typeReference id="0a2eb98f-b91e-484f-b27b-750c32b3928d">
+      <typeId>50a87e3b-23a7-4d8a-8098-73af52c67907</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Services</typePackageName>
+      <typePackageId>da3dbc0e-1888-43c5-9658-498ed66e5340</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="365b034b-d59d-41e2-8d7a-241cf6f28b37" type="Delete Entity Action Target End" typeId="4a04cfc2-5841-438c-9c16-fb58b784b365">
+    <name>buyer</name>
+    <display>[delete] buyer: Buyer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="d7ee0b1b-2093-4eef-bc9d-825174c3e1b0">
+      <typeId>8415a47a-3494-4686-b2fa-f93e0b622028</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="50a87e3b-23a7-4d8a-8098-73af52c67907" location="[CleanArchitecture.ExampleApp].[Services].[DeleteBuyerCommand]" />
+        <target applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8415a47a-3494-4686-b2fa-f93e0b622028" location="[CleanArchitecture.ExampleApp].[Services].[Buyer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="8415a47a-3494-4686-b2fa-f93e0b622028" name="Buyer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ef81bc3c-310d-45e0-8924-0cbc438dd5c0" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="50a87e3b-23a7-4d8a-8098-73af52c67907" name="DeleteBuyerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b94dca3f-45e4-4668-be1d-322c99b144f6" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Delete Entity Action</associationType>
+  <associationTypeId>bfc823fb-60ab-451d-ba62-12671fe7e28e</associationTypeId>
+  <stereotypes />
+</association>

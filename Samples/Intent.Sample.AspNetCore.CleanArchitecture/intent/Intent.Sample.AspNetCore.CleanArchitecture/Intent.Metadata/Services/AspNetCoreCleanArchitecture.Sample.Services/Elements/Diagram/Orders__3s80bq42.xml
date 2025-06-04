@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="71dfba36-c362-4cb1-b753-65ad9a534e36" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>845cbf2a-3145-44b2-a730-92f0d035f085</parentFolderId>
+  <packageId>da3dbc0e-1888-43c5-9658-498ed66e5340</packageId>
+  <packageName>AspNetCoreCleanArchitecture.Sample.Services</packageName>
+  <diagram>
+    <targetPackageId>71dfba36-c362-4cb1-b753-65ad9a534e36</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

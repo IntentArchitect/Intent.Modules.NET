@@ -1,0 +1,51 @@
+@page "/products"
+@using MudBlazor.Sample.Client.HttpClients.Contracts.Services.Products
+
+<MudDataGrid T="ProductDto"
+             @ref="DataGrid"
+             ServerData="LoadDataGridData"
+             Hover="true"
+             RowClick="(e) => OnRowClick(e.Item.Id.ToString())">
+    <ToolBarContent>
+        <MudButton Variant="Variant.Filled"
+                   StartIcon="@Icons.Material.Filled.AddCircle"
+                   Class="my-2 mr-2"
+                   Color="Color.Secondary"
+                   OnClick="() => AddProductClick()"
+                   Disabled="@_addProductClickProcessing">
+            @if (_addProductClickProcessing) 
+            {
+                <MudProgressCircular Class="ms-n1"
+                                     Size="Size.Small"
+                                     Indeterminate="true" />
+            }
+            <MudText>Add Product</MudText>
+        </MudButton>
+        <MudSpacer />
+        <MudTextField T="string"
+                      Value="SearchText"
+                      ValueChanged="(value) => OnSearch(value)"
+                      Placeholder="Search"
+                      DebounceInterval="400"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      Adornment="Adornment.Start" />
+    </ToolBarContent>
+    <Columns>
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Name"
+                        Property="x => x.Name" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Description"
+                        Property="x => x.Description" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Price"
+                        Property="x => x.Price" />
+        <PropertyColumn Class="cursor-pointer"
+                        Title="Image Url"
+                        Property="x => x.ImageUrl" />
+    </Columns>
+    <PagerContent>
+        <MudDataGridPager T="ProductDto"
+                          PageSizeOptions="new int[] { 10, 25, 50, 100 }" />
+    </PagerContent>
+</MudDataGrid>

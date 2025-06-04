@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f7f939e6-f492-4116-8ce6-7733aaca9dcb" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ced5e440-e2c8-4236-a90b-fffb6de8219f</parentFolderId>
+  <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+  <packageName>MudBlazor.Sample.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="63f58445-079b-4002-bed1-afe81ad71c87" type="Display Component" typeId="866a90f7-4044-43b9-bb05-7270c7889796">
+      <name>InvoiceForm</name>
+      <display>InvoiceForm</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="abdf0b02-d8a9-44df-9ebe-21b1a600ac49">
+        <typeId>f1bada77-b6a5-4800-9132-023187d93f1c</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>MudBlazor.Sample.UI</typePackageName>
+        <typePackageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f7f939e6-f492-4116-8ce6-7733aaca9dcb</parentFolderId>
+      <packageId>c9f326a4-1bbc-40b8-b713-911acae45d7f</packageId>
+      <packageName>MudBlazor.Sample.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

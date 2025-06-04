@@ -1,0 +1,110 @@
+@page "/"
+
+<PageTitle>Home</PageTitle>
+<MudGrid>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h3">Welcome!</MudText>
+                    <MudText>This is a simple sample Blazor application, code-automated by Intent Architect.</MudText>
+                    <MudText>We look forward to your feedback :)</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardActions>
+                <MudButton Href="https://form.jotform.com/242683172056558"
+                           Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.SentimentVerySatisfied"
+                           Class="ml-2 mb-3"
+                           Color="Color.Primary">
+                    <MudText>Give Feedback</MudText>
+                </MudButton>
+                <MudButton Href="https://intentarchitect.com/#/redirect/?category=clientResource&subCategory=home.needHelp"
+                           Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.SentimentDissatisfied"
+                           Class="ml-2 mb-3"
+                           Color="Color.Warning">
+                    <MudText>Log an Issue</MudText>
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12"
+             lg="4">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h5">Invoices</MudText>
+                    <MudText>Create and update invoices for your customers.</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudImage Src="https://blog.filestack.com/wp-content/uploads/2023/12/Untitled-design-48-1024x576.png"
+                          Fluid="true"
+                          Elevation="25"
+                          Class="rounded-lg" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Href="/invoices"
+                           Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.Person"
+                           Class="ml-2 mb-3"
+                           Color="Color.Secondary">
+                    <MudText>Manage Invoices</MudText>
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12"
+             lg="4">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h5">Customers</MudText>
+                    <MudText>Manage you customer information.</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudImage Src="https://assets.blog.engoo.com/wp-content/uploads/sites/7/2023/02/22020504/shutterstock_1718979418-1024x576.jpg"
+                          Fluid="true"
+                          Elevation="25"
+                          Class="rounded-lg" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Href="/customers"
+                           Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.Receipt"
+                           Class="ml-2 mb-3"
+                           Color="Color.Secondary">
+                    <MudText>Manage Customers</MudText>
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12"
+             lg="4">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h5">Products</MudText>
+                    <MudText>Manage you available pruducts.</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudImage Src="https://www.hbi.de/wp-content/uploads/2024/07/Blogbanner-1024x576.png"
+                          Fluid="true"
+                          Elevation="25"
+                          Class="rounded-lg" />
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton Href="/products"
+                           Variant="Variant.Filled"
+                           StartIcon="@Icons.Material.Filled.ShoppingCart"
+                           Class="ml-2 mb-3"
+                           Color="Color.Secondary">
+                    <MudText>Manage Products</MudText>
+                </MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>

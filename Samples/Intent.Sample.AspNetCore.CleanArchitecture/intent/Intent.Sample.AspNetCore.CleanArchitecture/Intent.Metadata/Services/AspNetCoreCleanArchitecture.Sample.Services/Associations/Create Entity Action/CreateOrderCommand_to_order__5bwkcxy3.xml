@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1d687f02-0bc1-42cb-b267-61421c7ae6ba">
+  <sourceEnd id="c61dab9b-e2db-407d-be1d-92e5fa3b8839" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : Orders.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="77700d68-01cb-471d-828c-7c155c38b946">
+      <typeId>d16f2df0-ab15-4f39-8abf-22fbe0c1cc52</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Services</typePackageName>
+      <typePackageId>da3dbc0e-1888-43c5-9658-498ed66e5340</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1d687f02-0bc1-42cb-b267-61421c7ae6ba" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>order</name>
+    <display>[create] order: Order</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bc7bb983-9cfe-4757-bee8-a3f8f1eee3ff">
+      <typeId>5503145d-1237-433f-9aff-1161f0277280</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" location="[CleanArchitecture.ExampleApp].[Services].[CreateOrderCommand]" />
+        <target applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5503145d-1237-433f-9aff-1161f0277280" location="[CleanArchitecture.ExampleApp].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrderCommand}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateOrderCommand" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderNo}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b68befe2-e5ac-4113-b2a4-0dad84c901b8" name="OrderNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="23997deb-e47c-47e9-8c62-326efe9958dd" name="OrderNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderDate}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1bb17de9-7528-43a7-b8f3-bc8cebab4536" name="OrderDate" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderDate" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="c6cb9e1f-eadd-4834-a1a0-6ad18e17bc6f" name="OrderDate" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{BuyerId}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="bbb4c702-34fd-4565-bebc-c919d79f4a55" name="BuyerId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="BuyerId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="483fe58a-b928-46fb-8b6d-ca77b4e789f2" name="BuyerId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderLines}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="59040c50-e9d0-42ad-8fc6-16d9dc21fdbd" name="OrderLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="OrderLines" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="248478df-0d51-4024-a011-8fc927e16849" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderLines.ProductId}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="59040c50-e9d0-42ad-8fc6-16d9dc21fdbd" name="OrderLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="0cb864a4-9264-4534-9d61-d4a73163faa0" name="ProductId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderLines.ProductId" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="248478df-0d51-4024-a011-8fc927e16849" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="8e6d3e04-4cfe-4cf3-9921-4d34f5bfb2a6" name="ProductId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderLines.Units}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="59040c50-e9d0-42ad-8fc6-16d9dc21fdbd" name="OrderLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="7235cb38-3872-41b2-8dd7-6358fb51bb99" name="Units" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderLines.Units" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="248478df-0d51-4024-a011-8fc927e16849" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="7ce5fbe5-de4e-483a-b8e5-5b6b89d3cb97" name="Units" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderLines.UnitPrice}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="59040c50-e9d0-42ad-8fc6-16d9dc21fdbd" name="OrderLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a18a3cd6-9e77-481e-91e8-bf80c1c75569" name="UnitPrice" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderLines.UnitPrice" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="248478df-0d51-4024-a011-8fc927e16849" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="56f00c62-d5d5-445a-ba1c-abbfa7a29adb" name="UnitPrice" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderLines.Discount}</expression>
+            <path>
+              <target id="5503145d-1237-433f-9aff-1161f0277280" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="59040c50-e9d0-42ad-8fc6-16d9dc21fdbd" name="OrderLines" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="a4567166-61aa-4992-a378-9eaaba1065cd" name="Discount" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderLines.Discount" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="d16f2df0-ab15-4f39-8abf-22fbe0c1cc52" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="248478df-0d51-4024-a011-8fc927e16849" name="OrderLines" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="d0ce68f8-c26d-46b5-9d0b-7ea580a1fceb" name="Discount" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

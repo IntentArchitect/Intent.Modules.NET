@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c217618b-1431-4000-a18a-d49df92929d5" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3022ce06-58b0-40dd-9ee6-b4af6ac0c6fb</parentFolderId>
+  <packageId>6999c4e1-fe09-4011-ace3-ad5ba38326e5</packageId>
+  <packageName>MudBlazor.Sample.Services</packageName>
+  <diagram>
+    <targetPackageId>c217618b-1431-4000-a18a-d49df92929d5</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

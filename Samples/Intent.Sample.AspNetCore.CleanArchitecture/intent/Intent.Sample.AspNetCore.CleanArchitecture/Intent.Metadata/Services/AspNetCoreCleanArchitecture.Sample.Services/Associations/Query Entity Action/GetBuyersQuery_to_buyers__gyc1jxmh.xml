@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="102245d8-6e8f-4e2a-877d-661538973291">
+  <sourceEnd id="e3997daa-1f4c-4e3a-9b69-7a70e178cdbc" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetBuyersQuery</display>
+    <order>0</order>
+    <typeReference id="0d3c9db8-3665-4c56-a2ac-84bf923698fd">
+      <typeId>00cb3db6-170f-4c7c-b1b9-9cbd3bee3be3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Services</typePackageName>
+      <typePackageId>da3dbc0e-1888-43c5-9658-498ed66e5340</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="102245d8-6e8f-4e2a-877d-661538973291" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>buyers</name>
+    <display>[query] buyers: Buyer[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="987dd8e7-0b3a-49c8-94e3-3ae32d6b23eb">
+      <typeId>8415a47a-3494-4686-b2fa-f93e0b622028</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AspNetCoreCleanArchitecture.Sample.Domain</typePackageName>
+      <typePackageId>dfe13c46-b346-44bd-a847-d6edf1ab6a99</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="00cb3db6-170f-4c7c-b1b9-9cbd3bee3be3" location="[CleanArchitecture.ExampleApp].[Services].[GetBuyersQuery]" />
+        <target applicationId="c0cae2f4-bec4-471a-b21b-67c0e06dd58a" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="8415a47a-3494-4686-b2fa-f93e0b622028" location="[CleanArchitecture.ExampleApp].[Services].[Buyer]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

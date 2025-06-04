@@ -1,0 +1,7 @@
+@page "/invoices/{InvoiceId:guid}"
+@using MudBlazor.Sample.Client.Pages.Invoices.Components
+
+<InvoiceForm Model="Model"
+             HeaderText="Update Invoice"
+             SaveClicked="() => OnSaveClicked()"
+             CancelClicked="() => OnCancelClicked()" />

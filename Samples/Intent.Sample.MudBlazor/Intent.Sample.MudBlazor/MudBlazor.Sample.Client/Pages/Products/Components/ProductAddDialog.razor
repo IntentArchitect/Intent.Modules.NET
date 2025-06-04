@@ -1,0 +1,60 @@
+@using MudBlazor.Sample.Client.Common.Validation
+@using MudBlazor.Sample.Client.HttpClients.Contracts.Services.Products
+@inject IValidatorProvider ValidatorProvider
+
+<MudDialog>
+    <DialogContent>
+        @if (Model is not null) 
+        {
+            <MudForm @ref="@_form"
+                     Model="Model"
+                     Validation="@(ValidatorProvider.GetValidationFunc<ProductDto>())">
+                <MudGrid>
+                    <MudItem xs="12"
+                             lg="6">
+                        <MudTextField @bind-Value="Model.Name"
+                                      Label="Name"
+                                      For="@(() => Model.Name)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.Description"
+                                      Label="Description"
+                                      For="@(() => Model.Description)" />
+                    </MudItem>
+                    <MudItem xs="12"
+                             lg="4">
+                        <MudTextField @bind-Value="Model.Price"
+                                      Label="Price"
+                                      For="@(() => Model.Price)" />
+                    </MudItem>
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="Model.ImageUrl"
+                                      Label="Image Url"
+                                      For="@(() => Model.ImageUrl)" />
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        }
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled"
+                   Class="my-2 mr-2"
+                   Color="Color.Primary"
+                   OnClick="() => OnSaveClicked()"
+                   Disabled="@_onSaveClickedProcessing">
+            @if (_onSaveClickedProcessing) 
+            {
+                <MudProgressCircular Class="ms-n1"
+                                     Size="Size.Small"
+                                     Indeterminate="true" />
+            }
+            <MudText>Save</MudText>
+        </MudButton>
+        <MudButton Variant="Variant.Filled"
+                   Class="my-2 mr-2"
+                   Color="Color.Default"
+                   OnClick="() => OnCancelClicked()">
+            <MudText>Cancel</MudText>
+        </MudButton>
+    </DialogActions>
+</MudDialog>
