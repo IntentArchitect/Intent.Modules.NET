@@ -56,6 +56,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
                         resource.AddSetting("name", message.TopicName);
                         resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);
                         resource.AddRawSetting("resource_group_name", Terraform.azurerm_resource_group.main_rg.name);
+                        resource.AddSetting("input_schema", "CloudEventSchemaV1_0");
                     });
                 }
             }

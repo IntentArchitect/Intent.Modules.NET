@@ -13,6 +13,7 @@ internal class AzureEventGridMessage
         this.MethodType = MethodType;
         TopicName = GetTopicName(MessageModel);
         var baseConfigName = GetTopicConfigurationBaseName(MessageModel);
+        TopicConfigurationSourceName = $"{baseConfigName}:Source"; 
         TopicConfigurationKeyName = $"{baseConfigName}:Key";
         TopicConfigurationEndpointName = $"{baseConfigName}:Endpoint";
         TopicSubscriptionConfigurationName = MethodType == AzureEventGridMethodType.Subscribe  
@@ -24,6 +25,7 @@ internal class AzureEventGridMessage
     public string ApplicationId { get; init; }
     public AzureEventGridMethodType MethodType { get; init; }
     public string TopicName { get; init; }
+    public string TopicConfigurationSourceName { get; init; }
     public string TopicConfigurationKeyName { get; init; }
     public string TopicConfigurationEndpointName { get; init; }
     public string? TopicSubscriptionConfigurationName { get; init; }

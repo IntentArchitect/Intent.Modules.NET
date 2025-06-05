@@ -8,9 +8,8 @@ data "azurerm_eventgrid_topic" "specific_topic" {
 }
 
 resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_a" {
-  name                 = "specific-topic-sub"
-  scope                = data.azurerm_eventgrid_topic.specific_topic.id
-
+  name                  = "specific-topic-sub"
+  scope                 = data.azurerm_eventgrid_topic.specific_topic.id
   event_delivery_schema = "CloudEventSchemaV1_0"
 
   azure_function_endpoint {
@@ -19,7 +18,7 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
     preferred_batch_size_in_kilobytes = 64
   }
 
-  included_event_types = [
+  included_event_types  = [
     "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessage",
     "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessage"
   ]
