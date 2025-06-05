@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.DomainEvents</id>
-  <version>5.0.7</version>
+  <version>5.0.8</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates C# Domain Events from the Domain and supporting base types and interfaces.</summary>
   <description>Generates C# Domain Events from the Domain and supporting base types and interfaces.</description>
@@ -52,7 +52,7 @@
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.4.1" />
-    <dependency id="Intent.Modelers.Domain.Events" version="4.0.1" />
+    <dependency id="Intent.Modelers.Domain.Events" version="4.3.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -61,6 +61,13 @@
   </files>
   <metadata />
   <moduleSettings />
+  <interoperability>
+    <detect id="Intent.Application.MediatR">
+      <install>
+        <package id="Intent.MediatR.DomainEvents" version="5.0.27" />
+      </install>
+    </detect>
+  </interoperability>
   <moduleSettingsExtensions>
     <groupExtension id="260ae5b7-bced-4fff-8d10-922e3eb2fcbd" groupId="c4d1e35c-7c0d-4926-afe0-18f17563ce17" externalReference="260ae5b7-bced-4fff-8d10-922e3eb2fcbd">
       <settings>

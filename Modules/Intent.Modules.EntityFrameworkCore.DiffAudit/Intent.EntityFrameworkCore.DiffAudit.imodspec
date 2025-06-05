@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DiffAudit</id>
-  <version>1.0.1-pre.0</version>
+  <version>1.0.1</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Applies diff auditing to selected domain entities (i.e when an entity is created, modified or removed and by who).</summary>
   <description>Applies diff auditing to selected domain entities (i.e when an entity is created, modified or removed and by who). Will store all log entries in a Audit log table.</description>

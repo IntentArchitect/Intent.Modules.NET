@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <applicationTemplate>
   <id>Intent.ApplicationTemplate.Terraform</id>
-  <version>1.0.0-pre.0</version>
+  <version>1.0.0-pre.1</version>
   <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <displayName>Terraform Infrastructure Provisioning</displayName>
   <shortDescription>Infrastructure as Code application that provisions cloud infrastructure for your Intent Architect solution using Terraform.</shortDescription>
@@ -23,7 +23,7 @@
           <description>Infrastructure as Code (IaC) to build your cloud resources programmatically for your Intent Architect solution.</description>
           <icon type="UrlImagePath" source="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=" />
           <modules>
-            <module id="Intent.IaC.Terraform" version="1.0.0-beta.0">
+            <module id="Intent.IaC.Terraform" version="1.0.0-beta.1">
               <includedByDefault>true</includedByDefault>
               <required>true</required>
             </module>
