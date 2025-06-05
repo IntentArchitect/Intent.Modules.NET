@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,14 +26,24 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
         public IdentityServiceManagerInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
-                .AddUsing($"{this.GetNamespace().Replace(".Interfaces","")}.Identity")
                 .AddUsing("System.Security.Claims")
                 .AddInterface($"IIdentityServiceManager", @interface =>
                 {
-                    @interface.AddGenericParameter("TUser", out var tUser)
-                    .AddGenericTypeConstraint(tUser, c => c
-                            .AddType("class")
-                            .AddType("new()"));
+                    var dtoModels = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).GetDTOModels();
+                    var loginRequestDto = dtoModels.FirstOrDefault(x => x.Name == "LoginRequestDto");
+
+                    if (loginRequestDto is null)
+                    {
+                        var package = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).Packages.FirstOrDefault();
+                        if (package is null)
+                        {
+                            throw new Exception("No package found. Please create a package and uninstall and re-install the Intent.AspNetCore.IdentityService module.");
+                        }
+                        throw new ElementException(package, "No LoginRequestDto found. Please uninstall and re-install the Intent.AspNetCore.IdentityService module.");
+                    }
+
+                    var typeName = GetFullyQualifiedTypeName("Intent.Application.Dtos.DtoModel", loginRequestDto);
+                    UseType(typeName);
 
                     @interface
                     .AddMethod("Task", "RegisterAsync", method =>
@@ -44,7 +58,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         method.AddParameter("bool?", "useCookies");
                         method.AddParameter("bool?", "useSessionCookies");
                     })
-                    .AddMethod("ClaimsPrincipal", "RefreshAsync", method =>
+                    .AddMethod("Task", "RefreshAsync", method =>
                     {
                         method.Async();
                         method.AddParameter("RefreshRequestDto", "refreshRequest");

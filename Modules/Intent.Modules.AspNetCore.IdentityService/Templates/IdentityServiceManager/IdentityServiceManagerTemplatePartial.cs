@@ -1,10 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,32 +28,47 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.Identity")
+                .AddUsing("Microsoft.AspNetCore.Authentication")
                 .AddUsing("Microsoft.AspNetCore.WebUtilities")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Microsoft.AspNetCore.Authentication.BearerToken")
                 .AddUsing("System.Text.Encodings.Web")
                 .AddUsing("System.Text")
+                .AddUsing("System.Diagnostics")
                 .AddClass($"IdentityServiceManager", @class =>
                 {
-                    @class.AddGenericParameter("TUser", out var tUser)
-                    .AddGenericTypeConstraint(tUser, c => c
-                            .AddType("class")
-                            .AddType("new()"));
-
                     var interfaceTypeName = GetTypeName("Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface");
-                    @class.ImplementsInterface($"{interfaceTypeName}<TUser>");
+                    var dtoModels = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).GetDTOModels();
+                    var loginRequestDto = dtoModels.FirstOrDefault(x => x.Name == "LoginRequestDto");
+
+                    if (loginRequestDto is null)
+                    {
+                        var package = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).Packages.FirstOrDefault();
+                        if (package is null)
+                        {
+                            throw new Exception("No package found. Please create a package and uninstall and re-install the Intent.AspNetCore.IdentityService module.");
+                        }
+                        throw new ElementException(package, "No LoginRequestDto found. Please uninstall and re-install the Intent.AspNetCore.IdentityService module.");
+                    }
+
+                    var typeName = GetFullyQualifiedTypeName("Intent.Application.Dtos.DtoModel", loginRequestDto);
+                    UseType(typeName);
+
+                    @class.ImplementsInterface(interfaceTypeName);
+
+                    @class.AddField("string", "confirmEmailEndpointName", c => c.PrivateConstant("\"ConfirmEmailAsync\""));
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("UserManager<TUser>", "userManager", param =>
+                        ctor.AddParameter("UserManager<IdentityUser>", "userManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("SignInManager<TUser>", "signInManager", param =>
+                        ctor.AddParameter("SignInManager<IdentityUser>", "signInManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("UserStore<TUser>", "userStore", param =>
+                        ctor.AddParameter("IUserStore<IdentityUser>", "userStore", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -60,7 +80,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("IEmailSender<TUser>", "emailSender", param =>
+                        ctor.AddParameter($"{GetFullyQualifiedTypeName(EmailSenderInterfaceTemplate.TemplateId)}<IdentityUser>", "emailSender", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -73,6 +93,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             param.IntroduceReadonlyField();
                         });
                     });
+
+                    GetTypeName("Intent.Application.Identity.ForbiddenAccessException");
+                    GetTypeName("Intent.Entities.NotFoundException");
 
                     @class.AddMethod("string", "ConfirmEmailAsync", m =>
                     {
@@ -160,7 +183,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
                     });
 
-                    @class.AddMethod("ClaimsPrincipal", "RefreshAsync", m =>
+                    @class.AddMethod("Task", "RefreshAsync", m =>
                     {
                         m.Async();
                         m.AddParameter("RefreshRequestDto", "refreshRequest");
@@ -168,12 +191,14 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddStatement("var refreshTokenProtector = _bearerTokenOptions.Get(IdentityConstants.BearerScheme).RefreshTokenProtector;");
                         m.AddStatement("var refreshTicket = refreshTokenProtector.Unprotect(refreshRequest.RefreshToken);");
 
-                        m.AddIfStatement("refreshTicket?.Properties?.ExpiresUtc is not { } expiresUtc || _timeProvider.GetUtcNow() >= expiresUtc || await _signInManager.ValidateSecurityStampAsync(refreshTicket.Principal) is not TUser user", i =>
+                        m.AddIfStatement("refreshTicket?.Properties?.ExpiresUtc is not { } expiresUtc || _timeProvider.GetUtcNow() >= expiresUtc || await _signInManager.ValidateSecurityStampAsync(refreshTicket.Principal) is not IdentityUser user", i =>
                         {
-                            i.AddStatement("throw new ChallangeException();");
+                            i.AddStatement("await _httpContextAccessor.HttpContext.ChallengeAsync();");
+                        }).AddElseStatement(e =>
+                        {
+                            e.AddStatement("var newPrincipal = await _signInManager.CreateUserPrincipalAsync(user);");
+                            e.AddStatement("await _httpContextAccessor.HttpContext.SignInAsync(IdentityConstants.BearerScheme, newPrincipal);");
                         });
-
-                        m.AddReturn("await _signInManager.CreateUserPrincipalAsync(user);");
                     });
 
                     @class.AddMethod("Task", "RegisterAsync", m =>
@@ -181,12 +206,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.Async();
                         m.AddParameter("RegisterRequestDto", "registration");
 
-                        m.AddIfStatement("!_userManager.SupportsUserEmail", i => i.AddStatement("throw new NotSupportedException($\"{nameof(IdentityServiceManager<TUser>)} requires a user store with email support.\");"));
+                        m.AddIfStatement("!_userManager.SupportsUserEmail", i => i.AddStatement("throw new NotSupportedException($\"{nameof(IdentityServiceManager)} requires a user store with email support.\");"));
 
-                        m.AddStatement("var emailStore = (IUserEmailStore<TUser>)_userStore;");
+                        m.AddStatement("var emailStore = (IUserEmailStore<IdentityUser>)_userStore;");
                         m.AddStatement("var email = registration.Email;");
 
-                        m.AddStatement("var user = new TUser();");
+                        m.AddStatement("var user = new IdentityUser();");
                         m.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         m.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");
                         m.AddStatement("var result = await _userManager.CreateAsync(user, registration.Password);");
@@ -214,7 +239,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddStatement("var user = await _userManager.FindByEmailAsync(resetRequest.Email);");
 
-                        m.AddIfStatement("user is null || !(await _userManager.IsEmailConfirmedAsync(user))", i => i.AddStatement("throw new Exception(IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken()));"));
+                        m.AddIfStatement("user is null || !(await _userManager.IsEmailConfirmedAsync(user))", i => i.AddStatement("throw new Exception(\"Invalid Token\");"));
 
                         m.AddStatement("IdentityResult result;");
 
@@ -224,10 +249,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             t.AddStatement("result = await _userManager.ResetPasswordAsync(user, code, resetRequest.NewPassword);");
                         }).AddCatchBlock(c =>
                         {
-                            c.AddStatement("result = IdentityResult.Failed(_userManager.ErrorDescriber.InvalidToken());");
+                            c.AddStatement("throw new Exception(\"Invalid Token\");");
                         });
-
-                        m.AddIfStatement("!result.Succeeded", i => i.AddStatement("throw new Exception(result);"));
                     });
 
                     @class.AddMethod("InfoResponseDto", "UpdateInfoAsync", m =>
@@ -262,9 +285,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddIfStatement("tfaRequest.Enable == true", i =>
                         {
-                            i.AddIfStatement("tfaRequest.ResetSharedKey", iIf => iIf.AddStatement("CreateValidationProblem(\"RequiresTwoFactor\", \"No 2fa token was provided by the request. A valid 2fa token is required to enable 2fa.\");"))
-                            .AddElseIfStatement("string.IsNullOrEmpty(tfaRequest.TwoFactorCode)", ieIf => ieIf.AddStatement("return CreateValidationProblem(\"RequiresTwoFactor\",\"No 2fa token was provided by the request. A valid 2fa token is required to enable 2fa.\");"))
-                            .AddElseIfStatement("!await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, tfaRequest.TwoFactorCode)", ieIf => ieIf.AddStatement("return CreateValidationProblem(\"InvalidTwoFactorCode\",\"The 2fa token provided by the request was invalid. A valid 2fa token is required to enable 2fa.\");"));
+                            i.AddIfStatement("tfaRequest.ResetSharedKey", iIf => iIf.AddStatement("throw new Exception(CreateValidationProblem(\"RequiresTwoFactor\", \"No 2fa token was provided by the request. A valid 2fa token is required to enable 2fa.\"));"))
+                            .AddElseIfStatement("string.IsNullOrEmpty(tfaRequest.TwoFactorCode)", ieIf => ieIf.AddStatement("throw new Exception(CreateValidationProblem(\"RequiresTwoFactor\",\"No 2fa token was provided by the request. A valid 2fa token is required to enable 2fa.\"));"))
+                            .AddElseIfStatement("!await _userManager.VerifyTwoFactorTokenAsync(user, _userManager.Options.Tokens.AuthenticatorTokenProvider, tfaRequest.TwoFactorCode)", ieIf => ieIf.AddStatement("throw new Exception(CreateValidationProblem(\"InvalidTwoFactorCode\",\"The 2fa token provided by the request was invalid. A valid 2fa token is required to enable 2fa.\"));"));
                             i.AddStatement("await _userManager.SetTwoFactorEnabledAsync(user, true);");
                         })
                         .AddElseIfStatement("tfaRequest.Enable == false || tfaRequest.ResetSharedKey", e =>
@@ -297,7 +320,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddObjectInitializerBlock("var response = new TwoFactorResponseDto", c =>
                         {
                             c.AddInitStatement("SharedKey ", "key");
-                            c.AddInitStatement("RecoveryCodes", "recoveryCodes");
+                            c.AddInitStatement("RecoveryCodes", "recoveryCodes.ToList()");
                             c.AddInitStatement("RecoveryCodesLeft", "recoveryCodes?.Length ?? await _userManager.CountRecoveryCodesAsync(user)");
                             c.AddInitStatement("IsTwoFactorEnabled ", "await _userManager.GetTwoFactorEnabledAsync(user)");
                             c.AddInitStatement("IsMachineRemembered ", "await _signInManager.IsTwoFactorClientRememberedAsync(user)");
@@ -326,7 +349,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             "}");
                     });
 
-                    @class.AddMethod("Dictionary<string, string[]>", "CreateValidationProblem", c =>
+                    @class.AddMethod("string", "CreateValidationProblem", c =>
                     {
                         c.Private()
                         .Static();
@@ -353,10 +376,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             f.AddStatement("errorDictionary[error.Code] = newDescriptions;");
                         });
 
-                        c.AddReturn("errorDictionary;");
+                        c.AddReturn("string.Join(\"; \", errorDictionary.Select(kvp => $\"{kvp.Key}={string.Join(\",\", kvp.Value)}\"))");
                     });
 
-                    @class.AddMethod("Dictionary<string, string[]>", "CreateValidationProblem", c =>
+                    @class.AddMethod("string", "CreateValidationProblem", c =>
                     {
                         c.Private()
                         .Static();
@@ -364,11 +387,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         c.AddParameter("string", "errorCode");
                         c.AddParameter("string", "errorDescription");
 
-                        c.AddStatement("var errorDictionary = new Dictionary<string, string[]>(1);");
-
-                        c.AddStatement("errorDictionary.Add(errorCode, [errorDescription]);");
-
-                        c.AddReturn("errorDictionary;");
+                        c.AddReturn("$\"{errorCode}={errorDescription}\"");
                     });
 
                     @class.AddMethod("Task", "SendConfirmationEmailAsync", c =>
@@ -376,8 +395,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         c.Private()
                         .Async();
                        
-                        c.AddParameter("TUser", "user");
-                        c.AddParameter("UserManager<TUser>", "userManager");
+                        c.AddParameter("IdentityUser", "user");
+                        c.AddParameter("UserManager<IdentityUser>", "userManager");
                         c.AddParameter("HttpContext ", "context");
                         c.AddParameter("string", "email");
                         c.AddParameter("bool", "isChange = false");

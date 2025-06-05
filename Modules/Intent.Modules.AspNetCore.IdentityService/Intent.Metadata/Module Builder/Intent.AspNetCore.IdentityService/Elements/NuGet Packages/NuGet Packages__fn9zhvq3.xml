@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="598a95c5-0038-4288-9932-a92e3e715240" type="NuGet Packages" typeId="4c75c84d-c745-4f0f-b1f4-82eeca01dfc7">
+  <name>NuGet Packages</name>
+  <display>NuGet Packages</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a1a75470-3437-43b1-be57-f2187693929b</parentFolderId>
+  <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+  <packageName>Intent.AspNetCore.IdentityService</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

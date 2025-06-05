@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
@@ -25,8 +26,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
         [IntentFully]
         public string ModuleId => "Intent.AspNetCore.IdentityService";
 
-
-
         public void OnInstall()
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
@@ -50,16 +49,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                 var updateInfoEndpointId = Guid.NewGuid().ToString();
                 var updateTwoFactorEndpointId = Guid.NewGuid().ToString();
 
-
-                var confirmEmailDtoId = Guid.NewGuid().ToString();
-                var forgotPasswordDtoId = Guid.NewGuid().ToString();
-                var infoResponseDtoId = Guid.NewGuid().ToString();
-                var loginDtoId = Guid.NewGuid().ToString();
-                var refreshTokenDtoId = Guid.NewGuid().ToString();
-                var registerDtoId = Guid.NewGuid().ToString();
-                var resetPasswordDtoId = Guid.NewGuid().ToString();
-                var tokenResultDtoId = Guid.NewGuid().ToString();
-                var updateInfoDtoId = Guid.NewGuid().ToString();
                 package.Classes.Add(new ElementPersistable
                 {
                     Id = identityFolderId,
@@ -92,12 +81,23 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                 }
                             }
                         }
-                    },
-                    ChildElements = new List<ElementPersistable>
-                    {
+                    }
+                });
+
+                var identityFolder = package.Classes.First(f => f.Id == identityFolderId);
+
+                identityFolder.ChildElements.Add(
                         new ElementPersistable
                         {
                             Id = identityServiceId,
+                            GenericTypes = new List<GenericType>
+                            {
+                                new GenericType
+                                {
+                                    Id = Guid.NewGuid().ToString(),
+                                    Name = "TUser"
+                                }
+                            },
                             Name = "IdentityService",
                             Display = "IdentityService",
                             IsAbstract = false,
@@ -105,7 +105,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                             IsMapped = false,
                             ParentFolderId = identityFolderId,
                             PackageId = package.Id,
-                            PackageName= package.Name,
+                            PackageName = package.Name,
                             SpecializationType = "Service",
                             SpecializationTypeId = "b16578a5-27b1-4047-a8df-f0b783d706bd",
                             Stereotypes = new List<StereotypePersistable>
@@ -121,6 +121,14 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     {
                                         new StereotypePropertyPersistable { DefinitionId = "1e223bd0-7a72-435a-8741-a612d88e4a12", Name = "Route", Value="", IsActive = true}
                                     }
+                                },
+                                new StereotypePersistable
+                                {
+                                    DefinitionId = "8ef84001-167a-4cbb-8950-e519937e7981",
+                                    AddedByDefault = false,
+                                    DefinitionPackageName = "Intent.AspNetCore.IdentityService",
+                                    DefinitionPackageId = "a1a75470-3437-43b1-be57-f2187693929b",
+                                    Name = "Identity Service"
                                 }
                             },
                             ChildElements = new List<ElementPersistable>
@@ -155,7 +163,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         new StereotypePropertyPersistable { DefinitionId = "d2630e0f-f930-404f-b453-1e8052a712f5", Name = "Source",  Value="From Query", IsActive = true },
                                         new StereotypePropertyPersistable { DefinitionId = "7a331e9b-f13c-4b33-9013-bd59b4a4999c", Name = "Header Name", IsActive = false },
                                         new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
-                                    }, StringTypeReference())
+                                    }, StringTypeReference(true))
                                 }),
                                 CreateEndpoint(forgotPasswordEndpointId, "ForgotPasswordAsync", "ForgotPasswordAsync(resetRequest: ForgotPasswordRequestDto): void",
                                 identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
@@ -212,7 +220,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
                                     new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="login", IsActive = true },
                                     new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
+                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="204 (No Content)", IsActive = true }
                                 },
                                 new List<ElementPersistable>
                                 {
@@ -263,31 +271,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }, BoolTypeReference(true))
                                 }),
                                 CreateEndpoint(refreshTokenEndpointId, "RefreshAsync", "RefreshAsync(refreshRequest: RefreshRequestDto): AccessTokenResponseDto",
-                                identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, CreateDto(package, "496ef602-f83d-45dd-bf8c-fbef43187d1b", "AccessTokenResponseDto",
-                                "AccessTokenResponseDto", identityFolderId, new List<ElementPersistable>
-                                {
-                                    CreateDtoField("TokenType", "TokenType: string", "496ef602-f83d-45dd-bf8c-fbef43187d1b", package.Id, package.Name, StringTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("AccessToken", "AccessToken: string", "496ef602-f83d-45dd-bf8c-fbef43187d1b", package.Id, package.Name, StringTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("ExpiresIn", "ExpiresIn: long", "496ef602-f83d-45dd-bf8c-fbef43187d1b", package.Id, package.Name, LongTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                    CreateDtoField("RefreshToken", "RefreshToken: string", "496ef602-f83d-45dd-bf8c-fbef43187d1b", package.Id, package.Name, StringTypeReference(), new List<StereotypePersistable>
-                                    {
-                                        CreateValidationsStereotype(true, false)
-                                    }),
-                                })), new List<StereotypePropertyPersistable>
+                                identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
                                     new StereotypePropertyPersistable { DefinitionId = "5dd3e07d-76eb-45d4-9956-4325fb068acc", Name = "Route", Value="refresh", IsActive = true },
                                     new StereotypePropertyPersistable { DefinitionId = "4490e212-1e99-43ce-b3dd-048ed2a6bae8", Name = "Return Type Mediatype", Value="Default",IsActive = true },
-                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="200 (Ok)", IsActive = true }
+                                    new StereotypePropertyPersistable { DefinitionId = "e3870725-34b3-4684-85f2-ec4a667207fb", Name = "Success Response Code", Value="204 (No Content)", IsActive = true }
                                 },
                                 new List<ElementPersistable>
                                 {
@@ -501,8 +490,30 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         })))
                                 })
                             }
-                        }
-                    }
+                        });
+
+                CreateDto(package, "f8e130d6-188b-4b27-90d5-1d25fa818183", "AccessTokenResponseDto", "AccessTokenResponseDto", identityFolderId, new List<ElementPersistable>
+                {
+                    CreateDtoField("TokenType", "TokenType: string", "f8e130d6-188b-4b27-90d5-1d25fa818183", package.Id, package.Name, StringTypeReference(),
+                                        new List<StereotypePersistable>
+                                        {
+                                           CreateValidationsStereotype(false, false)
+                                        }),
+                    CreateDtoField("AccessToken", "AccessToken: string", "f8e130d6-188b-4b27-90d5-1d25fa818183", package.Id, package.Name, StringTypeReference(),
+                                        new List<StereotypePersistable>
+                                        {
+                                           CreateValidationsStereotype(false, false)
+                                        }),
+                    CreateDtoField("ExpiresIn", "ExpiresIn: long", "f8e130d6-188b-4b27-90d5-1d25fa818183", package.Id, package.Name, LongTypeReference(),
+                                        new List<StereotypePersistable>
+                                        {
+                                           CreateValidationsStereotype(false, false)
+                                        }),
+                    CreateDtoField("RefreshToken", "RefreshToken: string", "f8e130d6-188b-4b27-90d5-1d25fa818183", package.Id, package.Name, StringTypeReference(),
+                                        new List<StereotypePersistable>
+                                        {
+                                           CreateValidationsStereotype(false, false)
+                                        })
                 });
 
                 package.Save();
@@ -562,7 +573,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
 
         private string CreateDto(PackageModelPersistable package, string id, string name, string display, string parentFolderId, List<ElementPersistable> dtoFields)
         {
-            package.AddElement(new ElementPersistable
+            var folder = package.ChildElements.First(f => f.Id == parentFolderId);
+            folder.ChildElements.Add(new ElementPersistable
             {
                 Id = id,
                 Name = name,
@@ -678,7 +690,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             TypeId = "d384db9c-a279-45e1-801e-e4e8099625f2",
             IsNavigable = true,
             IsNullable = isNullable,
-            IsCollection = false,
+            IsCollection = true,
             IsRequired = true,
             TypePackageName = "Intent.Common.Types",
             TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67"

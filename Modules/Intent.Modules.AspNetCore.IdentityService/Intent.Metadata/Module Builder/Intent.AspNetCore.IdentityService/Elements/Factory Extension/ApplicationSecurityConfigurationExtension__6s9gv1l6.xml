@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="2fd52862-66dd-4908-9438-bb9c74f009ca" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ApplicationSecurityConfigurationExtension</name>
+  <display>ApplicationSecurityConfigurationExtension</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a1a75470-3437-43b1-be57-f2187693929b</parentFolderId>
+  <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+  <packageName>Intent.AspNetCore.IdentityService</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
