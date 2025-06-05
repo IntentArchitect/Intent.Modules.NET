@@ -9,23 +9,14 @@ using System.Xml.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.InteractionStrategies;
-using Intent.Templates;
-using Intent.Utils;
-using JetBrains.Annotations;
-using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
-using AttributeModel = Intent.Modelers.Domain.Api.AttributeModel;
 
 namespace Intent.Modules.Application.DomainInteractions;
 // Disambiguation
@@ -252,8 +243,8 @@ public class DomainInteractionsManager
             var dto = returnType.Element.AsDTOModel();
 
             var mappedPks = dto.Fields
-                .Where(x => x.Mapping != null && Intent.Modelers.Domain.Api.AttributeModelExtensions.IsAttributeModel(x.Mapping.Element) && Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).IsPrimaryKey(isUserSupplied))
-                .Select(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.Mapping.Element).InternalElement.ParentElement.Id)
+                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
+                .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
                 .Distinct()
                 .ToList();
             if (mappedPks.Any())

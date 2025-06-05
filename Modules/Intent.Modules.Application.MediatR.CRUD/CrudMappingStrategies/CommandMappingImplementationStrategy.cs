@@ -65,7 +65,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
 
             csharpMapping.SetFromReplacement(_model, "request");
 
-            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(handleMethod, _model));
+            //handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(handleMethod, _model));
             handleMethod.ImplementInteractions(_model);
 
             if (_model.TypeReference.Element != null)

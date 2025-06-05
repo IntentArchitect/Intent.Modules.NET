@@ -93,7 +93,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
 
-            method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, operationModel));
+            //method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, operationModel));
             method.ImplementInteractions(operationModel);
 
             //foreach (var queryAction in operationModel.QueryEntityActions())

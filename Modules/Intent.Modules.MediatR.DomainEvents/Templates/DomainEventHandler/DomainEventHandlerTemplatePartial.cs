@@ -70,19 +70,16 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                     {
                         var @class = file.Classes.First();
                         var method = (CSharpClassMethod)@class.GetReferenceForModel(handledDomainEvents);
-                        var csharpMapping = new CSharpClassMappingManager(this);
+                        var csharpMapping = method.GetMappingManager();
                         csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(this));
                         csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(this));
-                        var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
 
                         csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
-                        method.AddMetadata("mapping-manager", csharpMapping);
 
-                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, model));
                         method.ImplementInteractions(model);
                     }
                 })
