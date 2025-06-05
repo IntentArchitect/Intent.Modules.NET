@@ -2,6 +2,7 @@ using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,16 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddScoped<IEventBus, AzureEventGridEventBus>();
             services.AddSingleton<AzureEventGridMessageDispatcher>();
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
+
+            // Register behaviors
+            services.AddScoped<AzureEventGridPipeline>();
+            services.AddScoped<IAzureEventGridBehavior, LoggingGridBehavior>();
+            services.AddScoped<IAzureEventGridBehavior>(sp => 
+                new RetryGridBehavior(
+                    sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<RetryGridBehavior>>(),
+                    maxRetries: 3,
+                    delayMilliseconds: 1000));
+
             services.Configure<PublisherOptions>(options =>
             {
                 options.Add<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);

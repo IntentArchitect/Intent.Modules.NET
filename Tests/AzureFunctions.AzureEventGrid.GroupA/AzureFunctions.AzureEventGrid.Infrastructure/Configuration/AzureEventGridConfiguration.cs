@@ -2,6 +2,7 @@ using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +19,9 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddScoped<IEventBus, AzureEventGridEventBus>();
             services.AddSingleton<AzureEventGridMessageDispatcher>();
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
+            
+            services.AddScoped<AzureEventGridPipeline>();
+            
             services.Configure<PublisherOptions>(options =>
             {
                 options.Add<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Source"]!);

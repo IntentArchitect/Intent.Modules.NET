@@ -10,6 +10,7 @@ using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
@@ -21,11 +22,13 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public class AzureEventGridEventBus : IEventBus
     {
+        private readonly AzureEventGridPipeline _pipeline;
         private readonly List<MessageEntry> _messageQueue = [];
         private readonly Dictionary<string, PublisherEntry> _lookup;
 
-        public AzureEventGridEventBus(IOptions<PublisherOptions> options)
+        public AzureEventGridEventBus(IOptions<PublisherOptions> options, AzureEventGridPipeline pipeline)
         {
+            _pipeline = pipeline;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
         }
 
@@ -33,14 +36,14 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, null, null));
+            _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Publish<T>(T message, string subject, IDictionary<string, object>? extensionAttributes = null)
+        public void Publish<T>(T message, IDictionary<string, object>? extensionAttributes)
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, subject, extensionAttributes));
+            _messageQueue.Add(new MessageEntry(message, extensionAttributes));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -54,8 +57,12 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             {
                 var publisherEntry = _lookup[entry.Message.GetType().FullName!];
                 var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));
-                var eventGridEvent = CreateCloudEvent(entry, publisherEntry);
-                await client.SendEventAsync(eventGridEvent, cancellationToken);
+                var cloudEvent = CreateCloudEvent(entry, publisherEntry);
+                await _pipeline.ExecuteAsync(cloudEvent, async (@event, token) =>
+                {
+                    await client.SendEventAsync(cloudEvent, token);
+                    return @event;
+                }, cancellationToken);
             }
         }
 
@@ -69,12 +76,13 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 
         private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, PublisherEntry publisherEntry)
         {
-            var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message)
-            {
-                Subject = messageEntry.Subject,
-            };
+            var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message);
             if (messageEntry.ExtensionAttributes is not null)
             {
+                if (messageEntry.ExtensionAttributes.TryGetValue("Subject", out var subject))
+                {
+                    cloudEvent.Subject = (string)subject;
+                }
                 foreach (var extensionAttribute in messageEntry.ExtensionAttributes)
                 {
                     cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
@@ -84,7 +92,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             return cloudEvent;
         }
 
-        private record MessageEntry(object Message, string? Subject, IDictionary<string, object>? ExtensionAttributes);
+        private record MessageEntry(object Message, IDictionary<string, object>? ExtensionAttributes);
 
     }
 }

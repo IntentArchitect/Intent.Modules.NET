@@ -31,11 +31,10 @@ namespace AzureFunctions.AzureEventGrid.Application.CreateClient
             {
                 Name = request.Name
             },
-                "group-a",
-                new Dictionary<string, object>
-                {
-                    ["a"] = "b"
-                });
+            new Dictionary<string, object>
+            {
+                ["a"] = "b"
+            });
         }
     }
 }

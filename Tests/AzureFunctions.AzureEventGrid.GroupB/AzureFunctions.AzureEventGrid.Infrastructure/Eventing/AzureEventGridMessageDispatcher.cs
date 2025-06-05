@@ -7,6 +7,7 @@ using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -45,9 +46,14 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             where TMessage : class
             where THandler : IIntegrationEventHandler<TMessage>
         {
-            var messageObj = message.Data?.ToObjectFromJson<TMessage>();
-            var handler = serviceProvider.GetRequiredService<THandler>();
-            await handler.HandleAsync(messageObj, cancellationToken);
+            var pipeline = serviceProvider.GetRequiredService<AzureEventGridPipeline>();
+            await pipeline.ExecuteAsync(message, async (@event, token) =>
+            {
+                var messageObj = message.Data?.ToObjectFromJson<TMessage>();
+                var handler = serviceProvider.GetRequiredService<THandler>();
+                await handler.HandleAsync(messageObj, token);
+                return @event;
+            }, cancellationToken);
         }
     }
 }
