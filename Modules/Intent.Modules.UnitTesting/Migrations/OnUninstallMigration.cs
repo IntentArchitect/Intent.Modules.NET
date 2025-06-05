@@ -3,8 +3,10 @@ using System.Linq;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.Persistence;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.VisualBasic;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration", Version = "1.0")]
@@ -22,10 +24,12 @@ namespace Intent.Modules.UnitTesting.Migrations
         private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
 
         private readonly IApplicationConfigurationProvider _configurationProvider;
+        private readonly IPersistenceLoader _persistenceLoader;
 
-        public OnUninstallMigration(IApplicationConfigurationProvider configurationProvider)
+        public OnUninstallMigration(IApplicationConfigurationProvider configurationProvider, IPersistenceLoader persistenceLoader)
         {
             _configurationProvider = configurationProvider;
+            _persistenceLoader = persistenceLoader;
         }
 
         [IntentFully]
@@ -33,7 +37,7 @@ namespace Intent.Modules.UnitTesting.Migrations
 
         public void OnUninstall()
         {
-            var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
+            var app = _persistenceLoader.LoadApplication(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(VisualStudioDesignerId);
             var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
 
@@ -42,42 +46,53 @@ namespace Intent.Modules.UnitTesting.Migrations
             {
                 var applicationProjectName = GetExistingApplicationProjectName(package);
                 var unitTestProject = package.GetElementsOfType(CSharpProjectSpecializationId).FirstOrDefault(p => p.Name == $"{applicationProjectName}.UnitTests");
-                var parentFolderId = unitTestProject.ParentFolderId;
 
+                if (unitTestProject is null)
+                {
+                    return;
+                }
+
+                var parentFolderId = unitTestProject?.ParentFolderId;
                 bool savePackage = false;
                 if (unitTestProject != null)
                 {
-                    unitTestProject.ChildElements.RemoveRange(0, unitTestProject.ChildElements.Count);
-                    package.RemoveElement(unitTestProject);
+                    foreach (var element in unitTestProject.ChildElements.ToList())
+                    {
+                        unitTestProject.ChildElements.Remove(element);
+                    }
+
+                    package.Classes.Remove(unitTestProject);
+
                     savePackage = true;
                 }
 
                 // if no projects which have the folder as a parent
                 if (!package.GetElementsOfType(CSharpProjectSpecializationId).Any(p => p.ParentFolderId == parentFolderId))
                 {
-                    var folder = package.GetElementsOfType(SolutionFolderSpecializationId).FirstOrDefault(s => s.Id == parentFolderId && s.ChildElements.Count == 0);
+                    var folder = package.GetElementsOfType(SolutionFolderSpecializationId).FirstOrDefault(s => s.Id == parentFolderId && !s.ChildElements.Any());
 
                     if (folder != null)
                     {
-                        package.RemoveElement(folder);
+                        package.Classes.Remove(folder);
                         savePackage = true;
                     }
                 }
 
                 if (savePackage)
                 {
-                    package.Save(true);
+                    package.Save();
                 }
             }
         }
 
-        private static string GetExistingApplicationProjectName(PackageModelPersistable package)
+        private static string GetExistingApplicationProjectName(IPackageModelPersistable package)
         {
             var applicationRole = package.GetElementsOfType(RoleSpecializationId).FirstOrDefault(r => r.Name == "Application");
 
             var applicationProjectName = $"{package.Name}.Application";
 
-            if (applicationRole != null && package.TryGetElementById(applicationRole.Parent.Id, out var applicationProjectInterface))
+            var applicationProjectInterface = package.Classes.FirstOrDefault(p => p.Id == applicationRole.Parent.Id);
+            if (applicationRole != null && applicationProjectInterface != null)
             {
                 if (applicationProjectInterface is ElementPersistable applicationProject)
                 {

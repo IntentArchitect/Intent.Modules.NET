@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="92d363f9-4306-47cd-b130-7a7c1ddb4bc0" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</parentFolderId>
+  <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
+  <packageName>Intent.IaC.Terraform</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1f879ee4-739a-493b-81b0-8da8fdabc045" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Deployment Process</name>
+      <display>Deployment Process</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>92d363f9-4306-47cd-b130-7a7c1ddb4bc0</parentFolderId>
+      <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
+      <packageName>Intent.IaC.Terraform</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Learn more about the generated Terraform files and how they are deployed." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-iac-terraform/intent-iac-terraform.html#deployment-process" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="terraform deploy resource azure" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="6abf7933-22be-46af-9731-20dd16c0f0e8" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Generated Structure</name>
+      <display>Generated Structure</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>92d363f9-4306-47cd-b130-7a7c1ddb4bc0</parentFolderId>
+      <packageId>162f3923-2af9-46bd-b4c5-0a74fe4c0c95</packageId>
+      <packageName>Intent.IaC.Terraform</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="Learn more about the generated Terraform files and how its structured." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPgogICA8Y2lyY2xlIGN4PSI1MTIiIGN5PSI1MTIiIHI9IjUxMiIgc3R5bGU9ImZpbGw6IzVjNGVlNSIvPgogICA8cGF0aCBkPSJNNTk3LjMzIDQyNy4wOXYxNjEuNTRsMTM5Ljk1LTgwLjczVjM0Ni4yWk00NDIgMzQ2LjJsMTQwIDgwLjg5djE2MS41NGwtMTQwLTgwLjgxWk0yODYuNzIgMjU2djE2MS42MmwxMzkuOTUgODAuODFWMzM2LjgxWk00NDIgNjg3LjE5IDU4MiA3NjhWNjA2LjM4bC0xNDAtODAuODFaIiBzdHlsZT0iZmlsbDojZmZmIi8+Cjwvc3ZnPgo=&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-iac-terraform/intent-iac-terraform.html#generated-structure" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="terraform deploy resource azure structure" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.Contracts</id>
   <version>6.0.0-alpha.0</version>
@@ -79,7 +79,7 @@
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Modelers.Eventing" version="6.0.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.8-pre.2" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.8" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

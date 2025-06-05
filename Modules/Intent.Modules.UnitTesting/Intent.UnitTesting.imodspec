@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.UnitTesting</id>
-  <version>1.0.0-beta.6</version>
-  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.7</version>
+  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>The module adds support for Unit Testing applications.</summary>
   <description>The module adds support for Unit Testing applications.</description>
   <authors>Intent Architect</authors>
