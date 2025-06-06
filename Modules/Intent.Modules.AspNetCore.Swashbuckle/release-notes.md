@@ -1,3 +1,7 @@
+### Version 5.1.8
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.1.7
 
 - Improvement: Updated NuGet package versions.
