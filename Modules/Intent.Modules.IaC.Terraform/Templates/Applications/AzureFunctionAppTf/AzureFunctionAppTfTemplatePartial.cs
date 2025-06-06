@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
@@ -127,7 +126,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                     appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", runtime);
 
                     var appKeys = new HashSet<string>();
-                    var azureServiceBusMessages = IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
+                    var azureServiceBusMessages = Intent.Modules.Integration.IaC.Shared.AzureServiceBus.IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
                     if (azureServiceBusMessages.Count != 0)
                     {
                         appSettings.AddRawSetting($@"""AzureServiceBus:ConnectionString""", Terraform.azurerm_servicebus_namespace.service_bus.default_primary_connection_string);
@@ -138,13 +137,13 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                         {
                             appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }
-                        if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
+                        if (message is { MethodType: Intent.Modules.Integration.IaC.Shared.AzureServiceBus.AzureServiceBusMethodType.Subscribe, ChannelType: Intent.Modules.Integration.IaC.Shared.AzureServiceBus.AzureServiceBusChannelType.Topic })
                         {
                             appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
                         }
                     }
 
-                    var azureEventGridMessages = IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(Model.Id);
+                    var azureEventGridMessages = Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(Model.Id);
                     foreach (var message in azureEventGridMessages)
                     {
                         if (appKeys.Add(message.TopicConfigurationKeyName))
