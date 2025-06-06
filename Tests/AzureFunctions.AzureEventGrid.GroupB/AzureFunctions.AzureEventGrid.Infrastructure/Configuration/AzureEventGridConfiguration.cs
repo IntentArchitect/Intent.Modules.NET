@@ -20,8 +20,12 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddSingleton<AzureEventGridMessageDispatcher>();
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
 
+            services.AddScoped<CloudEventContext>();
+            services.AddScoped<ICloudEventContext, CloudEventContext>(sp => sp.GetRequiredService<CloudEventContext>());
             services.AddScoped<AzureEventGridPublisherPipeline>();
             services.AddScoped<AzureEventGridConsumerPipeline>();
+
+            services.AddScoped<IAzureEventGridConsumerBehavior, InboundCloudEventBehavior>();
 
             services.Configure<PublisherOptions>(options =>
             {
