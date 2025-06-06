@@ -16,7 +16,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
 
-public class CallServiceInteractionStrategy : IInteractionStrategy
+public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 {
     private ICSharpFileBuilderTemplate _template;
     private CSharpClassMappingManager _csharpMapping;
