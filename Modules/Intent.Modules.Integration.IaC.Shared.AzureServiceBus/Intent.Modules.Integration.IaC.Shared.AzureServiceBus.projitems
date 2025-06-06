@@ -14,5 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusItemBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMethodType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
   </ItemGroup>
 </Project>

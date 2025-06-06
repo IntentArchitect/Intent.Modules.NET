@@ -11,5 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMessage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMethodType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
   </ItemGroup>
 </Project>

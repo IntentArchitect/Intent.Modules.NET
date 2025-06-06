@@ -1,7 +1,6 @@
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
-using Intent.Modules.Integration.IaC.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -20,7 +19,8 @@ namespace Intent.Modules.IaC.Terraform.FactoryExtensions
 
         protected override void OnAfterMetadataLoad(IApplication application)
         {
-            IntegrationManager.Initialize(application);
+            Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Initialize(application);
+            Intent.Modules.Integration.IaC.Shared.AzureServiceBus.IntegrationManager.Initialize(application);
         }
     }
 }

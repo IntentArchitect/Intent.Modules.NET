@@ -388,8 +388,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.DiffAudit", "Intent.Modules.EntityFrameworkCore.DiffAudit\Intent.Modules.EntityFrameworkCore.DiffAudit.csproj", "{7B7833A2-DC67-45E4-9D2F-6B7093AE1DC6}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared", "Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.shproj", "{FDB2A66D-CABE-4CC0-9F2F-9037A7D8EFA5}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AzureEventGrid", "Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.shproj", "{80F5653B-3622-4253-AB64-BB55DE49D761}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AzureServiceBus", "Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.shproj", "{992BB1F9-CDD6-4A3D-BF90-6554358DD319}"
@@ -1202,7 +1200,6 @@ Global
 		{B25B64FE-817E-461E-B0CD-D1F4A80FB598} = {AAC9E56F-D806-4BBC-AAED-FE2462ECA1D9}
 		{46E706DB-FF84-459C-994B-08BC1CF93D64} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{7B7833A2-DC67-45E4-9D2F-6B7093AE1DC6} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
-		{FDB2A66D-CABE-4CC0-9F2F-9037A7D8EFA5} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{80F5653B-3622-4253-AB64-BB55DE49D761} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{992BB1F9-CDD6-4A3D-BF90-6554358DD319} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
