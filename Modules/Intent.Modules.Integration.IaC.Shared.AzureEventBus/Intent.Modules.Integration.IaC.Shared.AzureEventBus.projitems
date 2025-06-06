@@ -3,12 +3,11 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>fdb2a66d-cabe-4cc0-9f2f-9037a7d8efa5</SharedGUID>
+    <SharedGUID>429c4b87-cddc-420a-8389-1b1eef503fb9</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AzureEventBus</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
   </ItemGroup>
 </Project>

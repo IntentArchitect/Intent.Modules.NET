@@ -3,12 +3,13 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>fdb2a66d-cabe-4cc0-9f2f-9037a7d8efa5</SharedGUID>
+    <SharedGUID>80f5653b-3622-4253-ab64-bb55de49d761</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared</Import_RootNamespace>
+    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AzureEventGrid</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMethodType.cs" />
   </ItemGroup>
 </Project>

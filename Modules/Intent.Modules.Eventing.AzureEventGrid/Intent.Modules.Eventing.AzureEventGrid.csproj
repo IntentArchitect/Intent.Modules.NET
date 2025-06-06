@@ -28,4 +28,9 @@
 
   <Import Project="..\Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems" Label="Shared" />
 
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\IntegrationCommandModelStereotypeExtensions.cs" Link="AzureServiceBusApi\IntegrationCommandModelStereotypeExtensions.cs" />
+    <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs" Link="AzureServiceBusApi\MessageModelStereotypeExtensions.cs" />
+  </ItemGroup>
+
 </Project>

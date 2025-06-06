@@ -28,4 +28,8 @@
 
   <Import Project="..\Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems" Label="Shared" />
 
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\MessageModelStereotypeExtensions.cs" Link="AzureEventGridApi\MessageModelStereotypeExtensions.cs" />
+  </ItemGroup>
+
 </Project>

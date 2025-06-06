@@ -390,6 +390,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFramew
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared", "Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.shproj", "{FDB2A66D-CABE-4CC0-9F2F-9037A7D8EFA5}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AzureEventGrid", "Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.shproj", "{80F5653B-3622-4253-AB64-BB55DE49D761}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Integration.IaC.Shared.AzureServiceBus", "Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.shproj", "{992BB1F9-CDD6-4A3D-BF90-6554358DD319}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1199,6 +1203,8 @@ Global
 		{46E706DB-FF84-459C-994B-08BC1CF93D64} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{7B7833A2-DC67-45E4-9D2F-6B7093AE1DC6} = {CB4522ED-5D9E-4388-8859-20415CC7F7E6}
 		{FDB2A66D-CABE-4CC0-9F2F-9037A7D8EFA5} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{80F5653B-3622-4253-AB64-BB55DE49D761} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
+		{992BB1F9-CDD6-4A3D-BF90-6554358DD319} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
@@ -1233,6 +1239,7 @@ Global
 		Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems*{76452c1d-da77-4b8e-a5c2-b8b3a1a315ba}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{7b7833a2-dc67-45e4-9d2f-6b7093ae1dc6}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{80081361-cc7d-430c-8861-8b2ac9d6e8a7}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems*{80f5653b-3622-4253-ab64-bb55de49d761}*SharedItemsImports = 13
 		Intent.Modules.Dapr.Shared\Intent.Modules.Dapr.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{84b0552e-7c31-4f40-9023-c2afb16304e2}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{87be90b8-bd52-4284-8fc9-8a38ad6d283c}*SharedItemsImports = 13
@@ -1245,6 +1252,7 @@ Global
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{96929b04-8386-4f55-b348-15a592fa7c0c}*SharedItemsImports = 5
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{9814251b-ad1b-4598-8ed6-d825633d77d9}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.projitems*{992bb1f9-cdd6-4a3d-bf90-6554358dd319}*SharedItemsImports = 13
 		Intent.Modules.DocumentDB.Shared\Intent.Modules.DocumentDB.Shared.projitems*{99bacb3d-e9bd-4f8e-8646-59f298895049}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{99bacb3d-e9bd-4f8e-8646-59f298895049}*SharedItemsImports = 5
 		Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems*{99e1b9d5-0149-4ce6-90a9-de13b21590cf}*SharedItemsImports = 5

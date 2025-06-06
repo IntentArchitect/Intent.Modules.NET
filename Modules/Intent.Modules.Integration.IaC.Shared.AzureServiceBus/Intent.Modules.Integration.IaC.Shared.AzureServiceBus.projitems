@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>992bb1f9-cdd6-4a3d-bf90-6554358dd319</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AzureServiceBus</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusChannelType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusItemBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusMethodType.cs" />
+  </ItemGroup>
+</Project>
