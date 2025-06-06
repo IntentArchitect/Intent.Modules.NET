@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\IDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataAccessProviders\RepositoryDataAccessProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DomainInteractionsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\CallServiceInteractionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\ProcessingActionInteractionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\DeleteEntityInteractionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\UpdateEntityInteractionStrategy.cs" />
