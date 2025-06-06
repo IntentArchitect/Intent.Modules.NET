@@ -4,6 +4,7 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -37,6 +38,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                 .AddUsing("System.Diagnostics")
                 .AddClass($"IdentityServiceManager", @class =>
                 {
+                    GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
                     var interfaceTypeName = GetTypeName("Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface");
                     var dtoModels = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).GetDTOModels();
                     var loginRequestDto = dtoModels.FirstOrDefault(x => x.Name == "LoginRequestDto");
@@ -60,15 +62,15 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("UserManager<IdentityUser>", "userManager", param =>
+                        ctor.AddParameter("UserManager<ApplicationIdentityUser>", "userManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("SignInManager<IdentityUser>", "signInManager", param =>
+                        ctor.AddParameter("SignInManager<ApplicationIdentityUser>", "signInManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("IUserStore<IdentityUser>", "userStore", param =>
+                        ctor.AddParameter("IUserStore<ApplicationIdentityUser>", "userStore", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -80,7 +82,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"{GetFullyQualifiedTypeName(EmailSenderInterfaceTemplate.TemplateId)}<IdentityUser>", "emailSender", param =>
+                        ctor.AddParameter($"{GetFullyQualifiedTypeName(EmailSenderInterfaceTemplate.TemplateId)}<ApplicationIdentityUser>", "emailSender", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -89,6 +91,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             param.IntroduceReadonlyField();
                         });
                         ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor", param =>
+                        {
+                            param.IntroduceReadonlyField();
+                        });
+                        ctor.AddParameter("ITokenService", "tokenService", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -148,12 +154,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                     {
                         m.Async();
 
-                        m.AddIfStatement("await _userManager.GetUserAsync(_httpContextAccessor.HttpContext?.User) is not { } user", c => c.AddStatement("throw new NotFoundException();"));
+                        m.AddIfStatement("await _userManager.FindByIdAsync(_httpContextAccessor.HttpContext?.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value) is not { } user", c => c.AddStatement("throw new NotFoundException();"));
 
                         m.AddReturn("await CreateInfoResponseAsync(user, _userManager);");
                     });
 
-                    @class.AddMethod("Task", "LoginAsync", m =>
+                    @class.AddMethod("AccessTokenResponseDto", "LoginAsync", m =>
                     {
                         m.Async();
                         m.AddParameter("LoginRequestDto", "login");
@@ -164,7 +170,14 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddStatement("var isPersistent = (useCookies == true) && (useSessionCookies != true);");
                         m.AddStatement("_signInManager.AuthenticationScheme = useCookieScheme ? IdentityConstants.ApplicationScheme : IdentityConstants.BearerScheme;");
 
-                        m.AddStatement("var result = await _signInManager.PasswordSignInAsync(login.Email, login.Password, isPersistent, lockoutOnFailure: true);");
+                        m.AddStatement("var user = await _userManager.FindByEmailAsync(login.Email);");
+
+                        m.AddIfStatement("user is null", i =>
+                        {
+                            i.AddStatement("throw new ForbiddenAccessException();");
+                        });
+
+                        m.AddStatement("var result = await _signInManager.CheckPasswordSignInAsync(user, login.Password, lockoutOnFailure: true);");
 
                         m.AddIfStatement("result.RequiresTwoFactor", i =>
                         {
@@ -181,24 +194,64 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         {
                             i.AddStatement("throw new ForbiddenAccessException(result.ToString());");
                         });
+
+                        m.AddStatement("var claims = await _userManager.GetClaimsAsync(user);");
+                        m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
+                        m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
+
+                        m.AddStatement("user.RefreshToken = refreshToken.Token;");
+                        m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
+                        m.AddStatement("await _userManager.UpdateAsync(user);");
+
+                        m.AddObjectInitializerBlock("var response = new AccessTokenResponseDto", c =>
+                        {
+                            c.AddInitStatement("AccessToken", "token.Token");
+                            c.AddInitStatement("ExpiresIn", "token.Expiry");
+                            c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            c.AddInitStatement("TokenType", "\"Bearer\"");
+                            c.WithSemicolon();
+                        });
+
+                        m.AddReturn("response");
                     });
 
-                    @class.AddMethod("Task", "RefreshAsync", m =>
+                    @class.AddMethod("AccessTokenResponseDto", "RefreshAsync", m =>
                     {
                         m.Async();
                         m.AddParameter("RefreshRequestDto", "refreshRequest");
 
-                        m.AddStatement("var refreshTokenProtector = _bearerTokenOptions.Get(IdentityConstants.BearerScheme).RefreshTokenProtector;");
-                        m.AddStatement("var refreshTicket = refreshTokenProtector.Unprotect(refreshRequest.RefreshToken);");
+                        m.AddStatement("var username = _tokenService.GetUsernameFromRefreshToken(refreshRequest.RefreshToken);");
 
-                        m.AddIfStatement("refreshTicket?.Properties?.ExpiresUtc is not { } expiresUtc || _timeProvider.GetUtcNow() >= expiresUtc || await _signInManager.ValidateSecurityStampAsync(refreshTicket.Principal) is not IdentityUser user", i =>
+                        m.AddIfStatement("username is null", i =>
                         {
-                            i.AddStatement("await _httpContextAccessor.HttpContext.ChallengeAsync();");
-                        }).AddElseStatement(e =>
-                        {
-                            e.AddStatement("var newPrincipal = await _signInManager.CreateUserPrincipalAsync(user);");
-                            e.AddStatement("await _httpContextAccessor.HttpContext.SignInAsync(IdentityConstants.BearerScheme, newPrincipal);");
+                            i.AddStatement("throw new ForbiddenAccessException();");
                         });
+
+                        m.AddStatement("var user = await _userManager.FindByEmailAsync(username);");
+
+                        m.AddIfStatement("user == null || user.RefreshToken != refreshRequest.RefreshToken", i =>
+                        {
+                            i.AddStatement("throw new ForbiddenAccessException();");
+                        });
+
+                        m.AddStatement("var claims = await _userManager.GetClaimsAsync(user);");
+                        m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
+                        m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
+
+                        m.AddStatement("user.RefreshToken = refreshToken.Token;");
+                        m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
+                        m.AddStatement("await _userManager.UpdateAsync(user);");
+
+                        m.AddObjectInitializerBlock("var response = new AccessTokenResponseDto", c =>
+                        {
+                            c.AddInitStatement("AccessToken", "token.Token");
+                            c.AddInitStatement("ExpiresIn", "token.Expiry");
+                            c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            c.AddInitStatement("TokenType", "\"Bearer\"");
+                            c.WithSemicolon();
+                        });
+
+                        m.AddReturn("response");
                     });
 
                     @class.AddMethod("Task", "RegisterAsync", m =>
@@ -208,10 +261,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddIfStatement("!_userManager.SupportsUserEmail", i => i.AddStatement("throw new NotSupportedException($\"{nameof(IdentityServiceManager)} requires a user store with email support.\");"));
 
-                        m.AddStatement("var emailStore = (IUserEmailStore<IdentityUser>)_userStore;");
+                        m.AddStatement("var emailStore = (IUserEmailStore<ApplicationIdentityUser>)_userStore;");
                         m.AddStatement("var email = registration.Email;");
 
-                        m.AddStatement("var user = new IdentityUser();");
+                        m.AddStatement("var user = new ApplicationIdentityUser();");
                         m.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         m.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");
                         m.AddStatement("var result = await _userManager.CreateAsync(user, registration.Password);");
@@ -258,7 +311,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.Async();
                         m.AddParameter("InfoRequestDto", "infoRequest");
 
-                        m.AddIfStatement("await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User) is not { } user", c => c.AddStatement("throw new NotFoundException();"));
+                        m.AddIfStatement("await _userManager.FindByIdAsync(_httpContextAccessor.HttpContext?.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value) is not { } user", c => c.AddStatement("throw new NotFoundException();"));
 
                         m.AddIfStatement("!string.IsNullOrEmpty(infoRequest.NewPassword)", i =>
                         {
@@ -395,8 +448,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         c.Private()
                         .Async();
                        
-                        c.AddParameter("IdentityUser", "user");
-                        c.AddParameter("UserManager<IdentityUser>", "userManager");
+                        c.AddParameter("ApplicationIdentityUser", "user");
+                        c.AddParameter("UserManager<ApplicationIdentityUser>", "userManager");
                         c.AddParameter("HttpContext ", "context");
                         c.AddParameter("string", "email");
                         c.AddParameter("bool", "isChange = false");

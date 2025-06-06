@@ -47,19 +47,19 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 var confirmEmailMethod = @class.Methods.First(x => x.Name == "ConfirmEmailAsync");
                 confirmEmailMethod.AddAttribute("EndpointName(\"ConfirmEmailAsync\")");
 
-                var loginMethod = @class.Methods.First(x => x.Name == "LoginAsync");
-                loginMethod.Attributes.Remove(loginMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
-                loginMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
+                //var loginMethod = @class.Methods.First(x => x.Name == "LoginAsync");
+                //loginMethod.Attributes.Remove(loginMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
+                //loginMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
 
-                loginMethod.Statements.Remove(loginMethod.Statements.First(s => s.Text == "return NoContent();"));
-                loginMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
+                //loginMethod.Statements.Remove(loginMethod.Statements.First(s => s.Text == "return NoContent();"));
+                //loginMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
 
-                var refreshMethod = @class.Methods.First(x => x.Name == "RefreshAsync");
-                refreshMethod.Attributes.Remove(refreshMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
-                refreshMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
+                //var refreshMethod = @class.Methods.First(x => x.Name == "RefreshAsync");
+                //refreshMethod.Attributes.Remove(refreshMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
+                //refreshMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
 
-                refreshMethod.Statements.Remove(refreshMethod.Statements.First(s => s.Text == "return NoContent();"));
-                refreshMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
+                //refreshMethod.Statements.Remove(refreshMethod.Statements.First(s => s.Text == "return NoContent();"));
+                //refreshMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
 
             }, 99);
         }
@@ -111,14 +111,14 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                             {
                                 var method = @class.FindMethod("LoginAsync");
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.LoginAsync(login, useCookies, useSessionCookies);");
+                                method.AddStatement("return await _identityServiceManager.LoginAsync(login, useCookies, useSessionCookies);");
                                 break;
                             }
                         case "RefreshAsync":
                             {
                                 var method = @class.FindMethod("RefreshAsync");
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.RefreshAsync(refreshRequest);");
+                                method.AddStatement("return await _identityServiceManager.RefreshAsync(refreshRequest);");
                                 break;
                             }
                         case "RegisterAsync":

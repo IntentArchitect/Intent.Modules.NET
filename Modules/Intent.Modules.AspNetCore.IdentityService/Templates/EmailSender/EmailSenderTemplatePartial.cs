@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions;
 using Intent.Modules.Common;
@@ -32,7 +33,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                 .AddClass($"EmailSender", @class =>
                 {
                     GetTypeName(EmailSenderOptionsTemplate.TemplateId);
-                    @class.ImplementsInterface(GetTypeName(EmailSenderInterfaceTemplate.TemplateId) + "<IdentityUser>");
+                    GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
+                    @class.ImplementsInterface(GetTypeName(EmailSenderInterfaceTemplate.TemplateId) + "<ApplicationIdentityUser>");
 
                     @class.AddField("EmailSenderOptions", "_options", c => c.PrivateReadOnly());
 
@@ -46,7 +48,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                     @class.AddMethod("Task", "SendConfirmationLinkAsync", m =>
                     {
                         m.Async();
-                        m.AddParameter("IdentityUser", "user");
+                        m.AddParameter("ApplicationIdentityUser", "user");
                         m.AddParameter("string", "email");
                         m.AddParameter("string", "confirmationLink");
 
@@ -58,7 +60,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                     @class.AddMethod("Task", "SendPasswordResetCodeAsync", m =>
                     {
                         m.Async();
-                        m.AddParameter("IdentityUser", "user");
+                        m.AddParameter("ApplicationIdentityUser", "user");
                         m.AddParameter("string", "email");
                         m.AddParameter("string", "resetCode");
 
@@ -70,7 +72,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                     @class.AddMethod("Task", "SendPasswordResetLinkAsync", m =>
                     {
                         m.Async();
-                        m.AddParameter("IdentityUser", "user");
+                        m.AddParameter("ApplicationIdentityUser", "user");
                         m.AddParameter("string", "email");
                         m.AddParameter("string", "resetLink");
 

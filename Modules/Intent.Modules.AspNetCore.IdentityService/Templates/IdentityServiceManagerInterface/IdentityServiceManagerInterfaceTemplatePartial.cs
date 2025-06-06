@@ -51,14 +51,14 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         method.Async();
                         method.AddParameter("RegisterRequestDto", "registration");
                     })
-                    .AddMethod("Task", "LoginAsync", method =>
+                    .AddMethod("AccessTokenResponseDto", "LoginAsync", method =>
                     {
                         method.Async();
                         method.AddParameter("LoginRequestDto", "login");
                         method.AddParameter("bool?", "useCookies");
                         method.AddParameter("bool?", "useSessionCookies");
                     })
-                    .AddMethod("Task", "RefreshAsync", method =>
+                    .AddMethod("AccessTokenResponseDto", "RefreshAsync", method =>
                     {
                         method.Async();
                         method.AddParameter("RefreshRequestDto", "refreshRequest");

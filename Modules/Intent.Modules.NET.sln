@@ -1305,5 +1305,6 @@ Global
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{f2d877d3-cbe3-4165-853e-8dc4461b9b5d}*SharedItemsImports = 13
 		Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
 		Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
+		Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems*{fdb2a66d-cabe-4cc0-9f2f-9037a7d8efa5}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

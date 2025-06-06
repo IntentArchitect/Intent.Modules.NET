@@ -82,6 +82,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce631d18-b20f-43c8-95ad-22ffa58a1956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ce631d18-b20f-43c8-95ad-22ffa58a1956</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0c0f5777-732f-4dfa-92a9-131938f9195a</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/EmailSender/EmailSenderTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -166,6 +182,38 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d096fe6e-2b79-4f80-b1b4-5512ad845826</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenService/TokenServiceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenService/TokenServiceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#d096fe6e-2b79-4f80-b1b4-5512ad845826</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenService/TokenServiceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenService/TokenServiceTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5bcf965a-4787-4233-b04a-25d0f43430c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceInterface/TokenServiceInterfaceTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5bcf965a-4787-4233-b04a-25d0f43430c3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>TokenServiceInterface/TokenServiceInterfaceTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
