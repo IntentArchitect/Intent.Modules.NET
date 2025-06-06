@@ -6,13 +6,13 @@ using Azure.Messaging;
 
 namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 
-public class AzureEventGridPipeline
+public abstract class AzureEventGridPipelineBase<TBehavior>
 {
-    private readonly List<IAzureEventGridBehavior> _behaviors;
+    private readonly List<TBehavior> _behaviors;
 
-    public AzureEventGridPipeline(IEnumerable<IAzureEventGridBehavior> behaviors)
+    protected AzureEventGridPipelineBase(IEnumerable<TBehavior> behaviors)
     {
-        _behaviors = new List<IAzureEventGridBehavior>(behaviors);
+        _behaviors = new List<TBehavior>(behaviors);
     }
 
     public Task<CloudEvent> ExecuteAsync(CloudEvent message, Func<CloudEvent, CancellationToken, Task<CloudEvent>> finalHandler, CancellationToken cancellationToken = default)
@@ -29,9 +29,27 @@ public class AzureEventGridPipeline
         {
             var behavior = _behaviors[i];
             var next = pipeline;
-            pipeline = (message, cancellationToken) => behavior.HandleAsync(message, next, cancellationToken);
+            pipeline = (message, cancellationToken) => ExecuteBehavior(behavior, message, next, cancellationToken);
         }
 
         return pipeline;
     }
+
+    protected abstract Task<CloudEvent> ExecuteBehavior(TBehavior behavior, CloudEvent message, CloudEventBehaviorDelegate next, CancellationToken cancellationToken);
+}
+
+public class AzureEventGridPublisherPipeline : AzureEventGridPipelineBase<IAzureEventGridPublisherBehavior>
+{
+    public AzureEventGridPublisherPipeline(IEnumerable<IAzureEventGridPublisherBehavior> behaviors) : base(behaviors) { }
+
+    protected override Task<CloudEvent> ExecuteBehavior(IAzureEventGridPublisherBehavior behavior, CloudEvent message, CloudEventBehaviorDelegate next, CancellationToken cancellationToken)
+        => behavior.HandleAsync(message, next, cancellationToken);
+}
+
+public class AzureEventGridConsumerPipeline : AzureEventGridPipelineBase<IAzureEventGridConsumerBehavior>
+{
+    public AzureEventGridConsumerPipeline(IEnumerable<IAzureEventGridConsumerBehavior> behaviors) : base(behaviors) { }
+
+    protected override Task<CloudEvent> ExecuteBehavior(IAzureEventGridConsumerBehavior behavior, CloudEvent message, CloudEventBehaviorDelegate next, CancellationToken cancellationToken)
+        => behavior.HandleAsync(message, next, cancellationToken);
 }

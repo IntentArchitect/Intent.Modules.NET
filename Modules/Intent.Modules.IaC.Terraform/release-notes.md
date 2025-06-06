@@ -6,4 +6,4 @@
 
 > [!NOTE]
 > 
-> Event Grid Topics will be using `Cloud Event Schema` Version 1.0. 
+> Event Grid Topics will be using `Cloud Event Schema` Version 1.0. This is the [recommended schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) by Microsoft.

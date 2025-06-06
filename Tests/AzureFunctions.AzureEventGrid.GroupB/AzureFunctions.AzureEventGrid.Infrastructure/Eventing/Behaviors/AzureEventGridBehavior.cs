@@ -4,7 +4,12 @@ using Azure.Messaging;
 
 namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
 
-public interface IAzureEventGridBehavior
+public interface IAzureEventGridPublisherBehavior
+{
+    Task<CloudEvent> HandleAsync(CloudEvent cloudEvent, CloudEventBehaviorDelegate next, CancellationToken cancellationToken = default);
+}
+
+public interface IAzureEventGridConsumerBehavior
 {
     Task<CloudEvent> HandleAsync(CloudEvent cloudEvent, CloudEventBehaviorDelegate next, CancellationToken cancellationToken = default);
 }

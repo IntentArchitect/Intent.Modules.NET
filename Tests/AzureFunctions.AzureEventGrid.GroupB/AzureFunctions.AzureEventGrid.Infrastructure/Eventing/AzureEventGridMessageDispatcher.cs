@@ -46,7 +46,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             where TMessage : class
             where THandler : IIntegrationEventHandler<TMessage>
         {
-            var pipeline = serviceProvider.GetRequiredService<AzureEventGridPipeline>();
+            var pipeline = serviceProvider.GetRequiredService<AzureEventGridConsumerPipeline>();
             await pipeline.ExecuteAsync(message, async (@event, token) =>
             {
                 var messageObj = message.Data?.ToObjectFromJson<TMessage>();

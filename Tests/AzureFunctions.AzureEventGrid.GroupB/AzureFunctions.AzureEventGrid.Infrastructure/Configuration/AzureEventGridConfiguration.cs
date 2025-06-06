@@ -20,14 +20,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddSingleton<AzureEventGridMessageDispatcher>();
             services.AddSingleton<IAzureEventGridMessageDispatcher, AzureEventGridMessageDispatcher>();
 
-            // Register behaviors
-            services.AddScoped<AzureEventGridPipeline>();
-            services.AddScoped<IAzureEventGridBehavior, LoggingGridBehavior>();
-            services.AddScoped<IAzureEventGridBehavior>(sp => 
-                new RetryGridBehavior(
-                    sp.GetRequiredService<Microsoft.Extensions.Logging.ILogger<RetryGridBehavior>>(),
-                    maxRetries: 3,
-                    delayMilliseconds: 1000));
+            services.AddScoped<AzureEventGridPublisherPipeline>();
+            services.AddScoped<AzureEventGridConsumerPipeline>();
 
             services.Configure<PublisherOptions>(options =>
             {

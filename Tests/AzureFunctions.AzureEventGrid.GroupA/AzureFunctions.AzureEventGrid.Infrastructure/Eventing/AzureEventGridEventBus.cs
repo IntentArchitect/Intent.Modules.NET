@@ -83,7 +83,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
                 {
                     cloudEvent.Subject = (string)subject;
                 }
-                foreach (var extensionAttribute in messageEntry.ExtensionAttributes)
+
+                foreach (var extensionAttribute in messageEntry.ExtensionAttributes.Where(p => p.Key != "Subject"))
                 {
                     cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
                 }

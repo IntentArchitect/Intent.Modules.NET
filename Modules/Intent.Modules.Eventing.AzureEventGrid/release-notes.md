@@ -1,6 +1,15 @@
+### Version 1.1.0
+
+- Improvement: Moved from `EventGridEvent` to `CloudEvent` schema as this adds the ability to add metadata via the Extension Attributes. This is the [recommended schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) by Microsoft.
+- Improvement: `Subject` is no longer present on the `Publish` method, but instead you can specify a dictionary of `Extension Attributes`. You can still specify the `Subject` that way.
+
+> [!NOTE]
+> 
+> Ensure that your Event Grid Topics are set to use `CloudEvent` schema (v1.0).
+
 ### Version 1.0.3
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.0.2

@@ -22,11 +22,11 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public class AzureEventGridEventBus : IEventBus
     {
-        private readonly AzureEventGridPipeline _pipeline;
+        private readonly AzureEventGridPublisherPipeline _pipeline;
         private readonly List<MessageEntry> _messageQueue = [];
         private readonly Dictionary<string, PublisherEntry> _lookup;
 
-        public AzureEventGridEventBus(IOptions<PublisherOptions> options, AzureEventGridPipeline pipeline)
+        public AzureEventGridEventBus(IOptions<PublisherOptions> options, AzureEventGridPublisherPipeline pipeline)
         {
             _pipeline = pipeline;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
@@ -83,7 +83,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
                 {
                     cloudEvent.Subject = (string)subject;
                 }
-                foreach (var extensionAttribute in messageEntry.ExtensionAttributes)
+                foreach (var extensionAttribute in messageEntry.ExtensionAttributes.Where(p => p.Key != "Subject"))
                 {
                     cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
                 }
