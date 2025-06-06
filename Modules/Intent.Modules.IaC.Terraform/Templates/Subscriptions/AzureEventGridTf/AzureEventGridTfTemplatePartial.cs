@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.EventInteractions;
@@ -52,7 +51,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
             var appIdRef = $"{_sanitizedApplicationName.ToSnakeCase()}_id";
             builder.AddVariable(appIdRef, var => var.AddRawSetting("type", "string"));
 
-            var topicSubscriptions = IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(Model.Id)
+            var topicSubscriptions = Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(Model.Id)
                 .GroupBy(k => k.SubscriptionItem.TopicName);
             foreach (var topicSubscription in topicSubscriptions)
             {
