@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.EventInteractions;
@@ -119,12 +120,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
             return functionName;
         }
-        
+
         private bool SimpleFunctionNames()
         {
             const string azureFunctionsSettingsGroup = "90437e3f-cb10-4e44-b229-cc30c4807bea";
             const string simpleFunctionNamesSetting = "ff298d6c-705b-41d9-9286-be85480a0abd";
-            
+
             var value = ExecutionContext.GetApplicationConfig(Model.Id).ModuleSetting
                 .FirstOrDefault(x => x.Id == azureFunctionsSettingsGroup)?.GetSetting(simpleFunctionNamesSetting)?.Value;
             bool.TryParse(value, out var result);
