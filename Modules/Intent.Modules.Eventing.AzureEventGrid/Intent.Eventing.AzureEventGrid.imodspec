@@ -113,7 +113,7 @@
   <interoperability>
     <detect id="Intent.AzureFunctions">
       <install>
-        <package id="Intent.AzureFunctions.AzureEventGrid" version="1.0.2" />
+        <package id="Intent.AzureFunctions.AzureEventGrid" version="1.1.0-pre.0" />
       </install>
     </detect>
   </interoperability>

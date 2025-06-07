@@ -72,6 +72,7 @@ When you're publishing an Event Grid Message, you will need to configure it in y
   "EventGrid": {
     "Topics": {
       "ClientCreatedEvent":{
+        "Source": "client-created-event",
         "Key": "4L6y6Nk8LFHXm0KnbK7gYpLtD0OL6Ear9VnY5ihQio8DhtljnGAdJQQJ99BDACrIdLPXJ3w3AAABAZEGvWZM",
         "Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events"
       }
