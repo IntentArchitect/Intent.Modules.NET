@@ -59,14 +59,14 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 
             if (interaction.IsPublishIntegrationEventTargetEndModel())
             {
-                method.AddStatements([GetIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement))]);
+                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement("_eventBus.Publish").AddArgument(newMessageStatement));
             } else if (interaction.IsSendIntegrationCommandTargetEndModel())
             {
-                method.AddStatements([GetIntegrationDispatchStatement(method, new CSharpInvocationStatement("_eventBus.Send").AddArgument(newMessageStatement))]);
+                AddIntegrationDispatchStatements(method, new CSharpInvocationStatement("_eventBus.Send").AddArgument(newMessageStatement));
             }
         }
 
-        private static CSharpStatement GetIntegrationDispatchStatement(CSharpClassMethod method, CSharpStatement publishStatement)
+        private static void AddIntegrationDispatchStatements(CSharpClassMethod method, CSharpStatement publishStatement)
         {
             var notImplementedStatement = method.Statements.FirstOrDefault(p => p.GetText("").Contains("throw new NotImplementedException"));
             if (notImplementedStatement is not null)
@@ -81,6 +81,8 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
                 }
             }
 
+            method.AddStatement(ExecutionPhases.IntegrationEvents, publishStatement);
+
             //var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
             //if (returnClause != null)
             //{
@@ -90,7 +92,6 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             //{
             //    method.Statements.Add(publishStatement);
             //}
-            return publishStatement;
         }
     }
 }

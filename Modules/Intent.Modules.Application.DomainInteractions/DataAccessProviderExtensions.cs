@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -26,7 +28,7 @@ public static class DataAccessProviderExtensions
         var foundEntity = interaction.TypeReference.Element.AsClassModel();
         if (queryContext.ActionType == ActionType.Update && foundEntity == null)
         {
-            foundEntity = interaction.TypeReference.Element.AsOperationModel().ParentClass;
+            foundEntity = Intent.Modelers.Domain.Api.OperationModelExtensions.AsOperationModel(interaction.TypeReference.Element).ParentClass;
         }
         var _template = method.File.Template;
         var entityVariableName = interaction.Name.ToCSharpIdentifier(CapitalizationBehaviour.MakeFirstLetterLower);
@@ -131,7 +133,58 @@ public static class DataAccessProviderExtensions
         return statements;
     }
 
+    public static void AddSaveChangesStatements(this CSharpClassMethod method, ITypeReference returnType)
+    {
+        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
 
+        foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
+        {
+            if (entity.ElementModel.IsClassModel())
+            {
+                var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
+                if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
+                {
+                    method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
+                }
+            }
+            else
+            {
+                method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
+            }
+        }
+    }
+
+
+    private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+    {
+        if (returnType.Element.IsDTOModel())
+        {
+            var dto = returnType.Element.AsDTOModel();
+
+            var mappedPks = dto.Fields
+                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
+                .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
+                .Distinct()
+                .ToList();
+            if (mappedPks.Any())
+            {
+                return method.TrackedEntities().Values
+                    .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
+                    .ToList();
+            }
+            return new List<EntityDetails>();
+        }
+        return method.TrackedEntities().Values
+            .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
+                .SelectMany(c => c.Attributes)
+                .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+            .ToList();
+    }
+
+    private static bool HasDBGeneratedPk(AttributeModel attribute)
+    {
+        return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == "Default";
+    }
     private static bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
     {
         orderByIsNullable = false;

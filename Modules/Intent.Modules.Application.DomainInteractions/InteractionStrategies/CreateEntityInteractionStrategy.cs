@@ -78,6 +78,10 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
                 _csharpMapping.SetToReplacement(entity, entityVariableName);
 
                 method.AddStatements(statements);
+                if (interaction.OtherEnd().TypeReference.Element.TypeReference.Element != null)
+                {
+                    method.AddSaveChangesStatements(interaction.OtherEnd().TypeReference.Element.TypeReference);
+                }
             }
             catch (Exception ex)
             {

@@ -164,22 +164,6 @@ public class DomainInteractionsManager
         var entitiesReturningPk = GetEntitiesReturningPK(method, returnType);
         var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
 
-        foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
-        {
-            if (entity.ElementModel.IsClassModel())
-            {
-                var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
-                if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
-                {
-                    statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
-                }
-            }
-            else
-            {
-                statements.Add($"{entity.DataAccessProvider.SaveChangesAsync()}");
-            }
-        }
-
         if (returnType.Element.AsDTOModel()?.IsMapped == true &&
             method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.Element.AsDTOModel().Mapping.ElementId) &&
             _template.TryGetTypeName("Application.Contract.Dto", returnType.Element, out var returnDto))
