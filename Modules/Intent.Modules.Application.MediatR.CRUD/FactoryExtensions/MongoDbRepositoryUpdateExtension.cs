@@ -31,6 +31,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
             InteractionStrategyProvider.Instance.Register(new ODataQueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new CallEntityServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new DeleteEntityInteractionStrategy());

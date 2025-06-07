@@ -14,7 +14,7 @@ using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
 
 namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 {
-    public class DispatchIntegrationMessageInteractionStrategy : IInteractionStrategy
+    public class PublishIntegrationMessageInteractionStrategy : IInteractionStrategy
     {
         public bool IsMatch(IElement interaction)
         {
@@ -45,10 +45,10 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             var mapping = interaction.Mappings.SingleOrDefault();
             if (mapping != null)
             {
-                var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
-                                        throw new Exception("Expected at least one parameter on Integration Event Handler method.");
+                //var eventVariableName = method.Parameters.FirstOrDefault()?.Name ??
+                //                        throw new Exception("Expected at least one parameter on Integration Event Handler method.");
 
-                csharpMapping.SetFromReplacement(interaction.OtherEnd().TypeReference.Element, eventVariableName);
+                //csharpMapping.SetFromReplacement(interaction.OtherEnd().TypeReference.Element, eventVariableName);
                 newMessageStatement = csharpMapping.GenerateCreationStatement(interaction.Mappings.Single());
             }
             else

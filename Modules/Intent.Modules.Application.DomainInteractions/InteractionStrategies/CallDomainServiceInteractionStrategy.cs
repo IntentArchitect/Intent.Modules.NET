@@ -7,6 +7,8 @@ using Intent.Metadata.Models;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -23,7 +25,9 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsServiceInvocationTargetEndModel() && Intent.Modelers.Domain.Api.OperationModelExtensions.IsOperationModel(interaction.TypeReference.Element);
+        return interaction.IsServiceInvocationTargetEndModel()
+               && Intent.Modelers.Domain.Api.OperationModelExtensions.IsOperationModel(interaction.TypeReference.Element)
+               && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Domain Service";
     }
 
     public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
@@ -32,7 +36,6 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
         var @class = method.Class;
         _template = (ICSharpFileBuilderTemplate)@class.File.Template;
         _csharpMapping = method.GetMappingManager();
-        _csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
         try
         {
             var statements = new List<CSharpStatement>();
@@ -88,30 +91,5 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
         {
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
         }
-    }
-}
-
-[IntentManaged(Mode.Ignore)]
-public class CallServiceOperationMappingResolver : IMappingTypeResolver
-{
-    private readonly ICSharpFileBuilderTemplate _template;
-
-    public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
-    {
-        _template = template;
-    }
-
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-    {
-        if (mappingModel.Model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(mappingModel, _template);
-        }
-
-        if (mappingModel.Model.SpecializationType == "DTO-Field")
-        {
-            return new ObjectInitializationMapping(mappingModel, _template);
-        }
-        return null;
     }
 }

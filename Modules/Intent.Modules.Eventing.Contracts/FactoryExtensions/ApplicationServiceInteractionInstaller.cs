@@ -28,7 +28,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
 
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            InteractionStrategyProvider.Instance.Register(new DispatchIntegrationMessageInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new PublishIntegrationMessageInteractionStrategy());
         }
 
         /// <summary>

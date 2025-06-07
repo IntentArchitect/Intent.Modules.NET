@@ -15,6 +15,10 @@ public class CommandQueryMappingResolver : IMappingTypeResolver
 
     public ICSharpMapping ResolveMappings(MappingModel mappingModel)
     {
+        if (mappingModel.Mapping == null)
+        {
+            return null;
+        }
         if (mappingModel.Model.SpecializationType == "Command" || mappingModel.Model.SpecializationType == "Query")
         {
             return new ConstructorMapping(mappingModel, _template);

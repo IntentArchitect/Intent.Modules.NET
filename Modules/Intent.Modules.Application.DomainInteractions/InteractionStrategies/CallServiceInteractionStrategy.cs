@@ -7,6 +7,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Exceptions;
+using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -14,9 +15,9 @@ using Intent.Modules.Constants;
 using Intent.Templates;
 using Intent.RoslynWeaver.Attributes;
 
-namespace Intent.Modules.Application.Contracts.InteractionStrategies;
+namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
 
-public class CallServiceInteractionStrategy : IInteractionStrategy
+public class CallEntityServiceInteractionStrategy : IInteractionStrategy
 {
     private ICSharpFileBuilderTemplate _template;
     private CSharpClassMappingManager _csharpMapping;
@@ -24,7 +25,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
     public bool IsMatch(IElement interaction)
     {
         return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
-            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class";
+            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
 
     public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
@@ -47,8 +48,11 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
             _template.AddTypeSource(serviceInterfaceTemplate.Id);
 
             //if (serviceInterfaceTemplate.CSharpFile.Interfaces.Count == 1) {
-            string? serviceField = @class.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
-
+            var serviceField = method.TrackedEntities().Values.LastOrDefault()?.VariableName;
+            if (serviceField is null)
+            {
+                throw new ElementException(interactionElement, @"Call Service Operation performed without a prior call to ""Create"" or ""Query"" an Entity.");
+            }
             var methodInvocation = _csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
             CSharpStatement invoke = new CSharpAccessMemberStatement(serviceField, methodInvocation);
 

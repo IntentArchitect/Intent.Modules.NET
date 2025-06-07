@@ -51,6 +51,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
             var interactions = model.GetInteractions().ToList();
             if (interactions.Any())
             {
+                if (model.TypeReference?.Element != null && model.TypeReference.Element.Name.Contains("PagedResult") && model.Properties.Any(x => x.Name.ToLower() == "orderby"))
+                {
+                    _template.AddUsing("static System.Linq.Dynamic.Core.DynamicQueryableExtensions");
+                    _template.AddNugetDependency(SharedNuGetPackages.SystemLinqDynamicCore);
+                }
+
                 ((ICSharpFileBuilderTemplate)targetTemplate).CSharpFile.AfterBuild(_ =>
                 {
                     var t = (ICSharpFileBuilderTemplate)targetTemplate;
