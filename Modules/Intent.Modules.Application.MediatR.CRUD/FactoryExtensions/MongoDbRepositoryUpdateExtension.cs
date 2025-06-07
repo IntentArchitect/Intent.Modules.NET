@@ -28,6 +28,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
             // Putting here for now, but is wrong place
+            InteractionStrategyProvider.Instance.Register(new ODataQueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());

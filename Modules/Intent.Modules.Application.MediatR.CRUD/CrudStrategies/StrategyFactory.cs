@@ -42,7 +42,7 @@ internal static class StrategyFactory
     {
         var strategies = new ICrudImplementationStrategy[]
         {
-            new ODataGetAllImplementationStrategy(template, application),
+            //new ODataGetAllImplementationStrategy(template, application),
             //new QueryMappingImplementationStrategy(template),
 
             new GetAllImplementationStrategy(template, application),

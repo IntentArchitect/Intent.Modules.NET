@@ -41,10 +41,9 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                 ? template.GetTemplate<QueryModelsTemplate>(QueryModelsTemplate.TemplateId, template.Model)
                 : template;
 
-
             var model = targetTemplate.Model;
             var legacyStrategy = StrategyFactory.GetMatchedQueryStrategy(targetTemplate, application);
-            if (legacyStrategy is not null )
+            if (legacyStrategy is not null)
             {
                 legacyStrategy.BindToTemplate((ICSharpFileBuilderTemplate)targetTemplate);
             }
@@ -79,9 +78,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
 
                     csharpMapping.SetFromReplacement(model, "request");
 
-                    handleMethod.ImplementInteractions(model);
+                    handleMethod.ImplementInteractions(interactions);
 
-                    if (legacyStrategy is null && model.TypeReference.Element != null)
+                    if (model.TypeReference.Element != null
+                        && legacyStrategy is null
+                        && handleMethod.Statements.All(x => !x.TryGetMetadata("execution-phase", out var p) && p != ExecutionPhases.Response))
                     {
                         handleMethod.AddStatements(ExecutionPhases.Response, domainInteractionManager.GetReturnStatements(handleMethod, model.TypeReference));
                     }
