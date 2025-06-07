@@ -29,7 +29,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                 .AddUsing("System.Linq")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Azure.Messaging.EventGrid")
+                .AddUsing("Azure.Messaging")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"AzureEventGridMessageDispatcher", @class =>
@@ -40,7 +40,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"IOptions<{this.GetSubscriptionOptionsName()}>", "options");
+                        ctor.AddParameter($"IOptions<{this.GetAzureEventGridSubscriptionOptionsName()}>", "options");
 
                         ctor.AddStatement("_handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);");
                     });
@@ -48,12 +48,12 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                     @class.AddMethod("async Task", "DispatchAsync", method =>
                     {
                         method.AddParameter("IServiceProvider", "scopedServiceProvider");
-                        method.AddParameter("EventGridEvent", "message");
+                        method.AddParameter("CloudEvent", "cloudEvent");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        method.AddStatement("var messageTypeName = message.EventType;");
+                        method.AddStatement("var messageTypeName = cloudEvent.Type;");
                         method.AddIfStatement("_handlers.TryGetValue(messageTypeName, out var handlerAsync)",
-                            block => { block.AddStatement("await handlerAsync(scopedServiceProvider, message, cancellationToken);"); });
+                            block => { block.AddStatement("await handlerAsync(scopedServiceProvider, cloudEvent, cancellationToken);"); });
                     });
 
                     @class.AddMethod("Task", "InvokeDispatchHandler", method =>
@@ -62,14 +62,22 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                         method.AddGenericParameter("TMessage", out var tMessage);
                         method.AddGenericParameter("THandler", out var tHandler);
                         method.AddParameter("IServiceProvider", "serviceProvider");
-                        method.AddParameter("EventGridEvent", "message");
+                        method.AddParameter("CloudEvent", "cloudEvent");
                         method.AddParameter("CancellationToken", "cancellationToken");
                         method.AddGenericTypeConstraint(tMessage, c => c.AddType("class"));
                         method.AddGenericTypeConstraint(tHandler, c => c.AddType($"{this.GetIntegrationEventHandlerInterfaceName()}<{tMessage}>"));
 
-                        method.AddStatement($"var messageObj = message.Data.ToObjectFromJson<TMessage>()!;");
-                        method.AddStatement($"var handler = serviceProvider.GetRequiredService<{tHandler}>();");
-                        method.AddStatement("await handler.HandleAsync(messageObj, cancellationToken);");
+                        method.AddStatement($"var pipeline = serviceProvider.GetRequiredService<{this.GetAzureEventGridConsumerPipelineName()}>();");
+                        method.AddStatement(new CSharpAwaitExpression(new CSharpInvocationStatement("pipeline.ExecuteAsync")
+                            .AddArgument("cloudEvent")
+                            .AddArgument(new CSharpLambdaBlock("async (@event, token)")
+                                .AddStatement($"var messageObj = @event.Data?.ToObjectFromJson<TMessage>()!;")
+                                .AddStatement($"var handler = serviceProvider.GetRequiredService<{tHandler}>();")
+                                .AddStatement("await handler.HandleAsync(messageObj, token);")
+                                .AddReturn("@event")
+                            )
+                            .AddArgument("cancellationToken")
+                        ));
                     });
                 });
         }

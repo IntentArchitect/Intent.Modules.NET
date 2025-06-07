@@ -13,7 +13,7 @@ namespace AzureFunctions.AzureEventGrid.Application.Common.Eventing
     {
         void Publish<T>(T message)
             where T : class;
-        void Publish<T>(T message, IDictionary<string, object> extensionAttributes)
+        void Publish<T>(T message, IDictionary<string, object> additionalData)
             where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }

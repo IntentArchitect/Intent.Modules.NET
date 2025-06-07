@@ -8,6 +8,14 @@
   <authors>Intent Architect</authors>
   <iconUrl>data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOCAxOCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iNDU4OS43MiIgeTE9Ii01MTgwLjAyIiB4Mj0iNDU4OS43MiIgeTI9Ii01MTg0LjIxIiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KC41IDAgMCAtLjUgLTIyNzUuMzEgLTI1ODkuMzIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYzY5YWViIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNmY0YmIyIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSI0NTg3Ljk5IiB5MT0iLTUxODguNDciIHgyPSI0NTg3Ljk5IiB5Mj0iLTUxOTIuNjUiIGhyZWY9IiNhIi8+PC9kZWZzPjxwYXRoIGQ9Ik0xMi43IDguMTV2LS42SDguMThMNi4wNiA5LjY2SDQuNUw4LjEyIDZoMi40N3YtLjU3SDcuODdMMy42NSA5LjY2aC0uNnYuNmgxLjgxTDcgMTIuMzdoNS4xdi0uNkg3LjIybC0xLjUxLTEuNTFoMy42N3YtLjZINi45MmwxLjUtMS41MXoiIGZpbGw9IiMzMmJlZGQiLz48Y2lyY2xlIGN4PSI5Ljk4IiBjeT0iOS45NiIgcj0iLjg3IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMTAuODkiIGN5PSI1Ljc0IiByPSIuODciIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxMyIgY3k9IjcuODUiIHI9Ii44NyIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjEyLjEiIGN5PSIxMi4wNyIgcj0iLjg3IiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iMTAuODYiIGN5PSI1Ljc0IiByPSIxLjA1IiBmaWxsPSIjNTBlNmZmIi8+PGNpcmNsZSBjeD0iMTIuOTciIGN5PSI3Ljg1IiByPSIxLjA1IiBmaWxsPSJ1cmwoI2EpIi8+PGNpcmNsZSBjeD0iMTIuMSIgY3k9IjEyLjA3IiByPSIxLjA1IiBmaWxsPSJ1cmwoI2IpIi8+PGNpcmNsZSBjeD0iOS45OCIgY3k9IjkuOTYiIHI9IjEuMDUiIGZpbGw9IiM1MGU2ZmYiLz48ZyBmaWxsPSIjOTk5Ij48cGF0aCBkPSJNMS4wNyAxLjQzaDEuMjlWNWEuMjkuMjkgMCAwMS0uMjkuMjlILjc5QS4yOS4yOSAwIDAxLjUgNVYyYS41Ny41NyAwIDAxLjU3LS41N3oiLz48cGF0aCBkPSJNMS4wNyAxLjQzaDEuMjlWNWEuMjkuMjkgMCAwMS0uMjkuMjlILjc5QS4yOS4yOSAwIDAxLjUgNVYyYS41Ny41NyAwIDAxLjU3LS41N3oiIG9wYWNpdHk9Ii41Ii8+PC9nPjxnIGZpbGw9IiM5OTkiPjxwYXRoIGQ9Ik0xNS42NCAxLjQzaDEuMjlhLjU3LjU3IDAgMDEuNTcuNTd2M2EuMjkuMjkgMCAwMS0uMjkuMjloLTEuMjlhLjI5LjI5IDAgMDEtLjI4LS4yOVYxLjQzeiIvPjxwYXRoIGQ9Ik0xNS42NCAxLjQzaDEuMjlhLjU3LjU3IDAgMDEuNTcuNTd2M2EuMjkuMjkgMCAwMS0uMjkuMjloLTEuMjlhLjI5LjI5IDAgMDEtLjI4LS4yOVYxLjQzeiIgb3BhY2l0eT0iLjUiLz48L2c+PHBhdGggZD0iTTE3LjUgMnYxLjI1SC41VjJhLjU3LjU3IDAgMDEuNTctLjU3aDE1Ljg3YS41Ny41NyAwIDAxLjU2LjU3eiIgZmlsbD0iIzk0OTQ5NCIvPjxnIGZpbGw9IiM5OTkiPjxwYXRoIGQ9Ik0uNzkgMTIuNjhoMS4yOWEuMjkuMjkgMCAwMS4yOS4yOXYzLjZoLTEuM0EuNTcuNTcgMCAwMS41IDE2di0zYS4yOS4yOSAwIDAxLjI5LS4zMnoiLz48cGF0aCBkPSJNLjc5IDEyLjY4aDEuMjlhLjI5LjI5IDAgMDEuMjkuMjl2My42aC0xLjNBLjU3LjU3IDAgMDEuNSAxNnYtM2EuMjkuMjkgMCAwMS4yOS0uMzJ6IiBvcGFjaXR5PSIuNSIvPjwvZz48ZyBmaWxsPSIjOTk5Ij48cGF0aCBkPSJNMTUuOTIgMTIuNjhoMS4yOWEuMjkuMjkgMCAwMS4yOS4yOXYzYS41Ny41NyAwIDAxLS41Ny41N2gtMS4yOVYxM2EuMjkuMjkgMCAwMS4yOC0uMzJ6Ii8+PHBhdGggZD0iTTE1LjkyIDEyLjY4aDEuMjlhLjI5LjI5IDAgMDEuMjkuMjl2M2EuNTcuNTcgMCAwMS0uNTcuNTdoLTEuMjlWMTNhLjI5LjI5IDAgMDEuMjgtLjMyeiIgb3BhY2l0eT0iLjUiLz48L2c+PHBhdGggZD0iTS41IDE2di0xLjI1aDE3VjE2YS41Ny41NyAwIDAxLS41Ny41N0gxLjA3QS41Ny41NyAwIDAxLjUgMTZ6IiBmaWxsPSIjOTQ5NDk0Ii8+PC9zdmc+</iconUrl>
   <templates>
+    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridBehavior" externalReference="86085c3b-492f-468b-b853-170a7faf2c38">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureEventGridBehavior</role>
+      <location>Eventing/AzureEventGridBehaviors</location>
+    </template>
     <template id="Intent.Eventing.AzureEventGrid.AzureEventGridConfiguration" externalReference="260bfe0c-80fa-4805-bac7-097480a12ce7">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -40,6 +48,54 @@
       <role>Infrastructure.Eventing.AzureEventGridMessageDispatcherInterface</role>
       <location>Eventing</location>
     </template>
+    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridPipeline" externalReference="d47b3afb-dca2-4a76-95be-f4fd03acb889">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.AzureEventGridPipeline</role>
+      <location>Eventing/AzureEventGridBehaviors</location>
+    </template>
+    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions" externalReference="f1e5de5c-31b6-41e8-bc7e-33fcd4b385b1">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.AzureEventGridPublisherOptions</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions" externalReference="b5f73553-e070-4d25-adf4-1d9746dcd300">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.DependencyInjection.AzureEventGridSubscriptionOptions</role>
+      <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.AzureEventGrid.EventContext" externalReference="a4d91cc4-7965-4cce-aeb7-67b46305ec79">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.EventContext</role>
+      <location>Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureEventGrid.EventContextInterface" externalReference="99a44c79-b47b-4bbe-b2b9-35aec0263b7e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventContextInterface</role>
+      <location>Common/Eventing</location>
+    </template>
+    <template id="Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior" externalReference="dd384470-057d-43f4-b83c-efb07a0339b6">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Eventing.InboundCloudEventBehavior</role>
+      <location>Eventing/AzureEventGridBehaviors</location>
+    </template>
     <template id="Intent.Eventing.AzureEventGrid.IntegrationEventHandler" externalReference="f2148016-efbc-439d-8687-89b32fdc1366">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -47,22 +103,6 @@
       </config>
       <role>Application.Eventing.EventHandler</role>
       <location>IntegrationEvents/EventHandlers</location>
-    </template>
-    <template id="Intent.Eventing.AzureEventGrid.PublisherOptions" externalReference="f1e5de5c-31b6-41e8-bc7e-33fcd4b385b1">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.DependencyInjection.PublishOptions</role>
-      <location>Configuration</location>
-    </template>
-    <template id="Intent.Eventing.AzureEventGrid.SubscriptionOptions" externalReference="b5f73553-e070-4d25-adf4-1d9746dcd300">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure.DependencyInjection.SubscriptionOptions</role>
-      <location>Configuration</location>
     </template>
   </templates>
   <decorators></decorators>

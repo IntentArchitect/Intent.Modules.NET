@@ -29,14 +29,12 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
-                .AddUsing("System.Text.Json")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("System.Transactions")
                 .AddUsing("Azure")
+                .AddUsing("Azure.Messaging")
                 .AddUsing("Azure.Messaging.EventGrid")
                 .AddUsing("Microsoft.Extensions.Options")
-                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddClass($"AzureEventGridEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
@@ -48,12 +46,13 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         .AddPrimaryConstructor(ctor =>
                         {
                             ctor.AddParameter("object", "Message");
-                            ctor.AddParameter(outputTarget.GetProject().NullableEnabled ? "string?" : "string", "Subject");
+                            ctor.AddParameter(outputTarget.GetProject().NullableEnabled ? "IDictionary<string, object>?" : "IDictionary<string, object>", "AdditionalData");
                         }));
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"IOptions<{this.GetPublisherOptionsName()}>", "options");
+                        ctor.AddParameter($"IOptions<{this.GetAzureEventGridPublisherOptionsName()}>", "options");
+                        ctor.AddParameter(this.GetAzureEventGridPublisherPipelineName(), "pipeline", param => param.IntroduceReadonlyField());
 
                         ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);");
                     });
@@ -73,10 +72,10 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         method.AddGenericParameter("T", out var T);
                         method.AddGenericTypeConstraint(T, c => c.AddType("class"));
                         method.AddParameter(T, "message");
-                        method.AddParameter("string", "subject");
+                        method.AddParameter("IDictionary<string, object>", "additionalData");
 
                         method.AddStatement("ValidateMessage(message);");
-                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, subject));");
+                        method.AddStatement("_messageQueue.Add(new MessageEntry(message, additionalData));");
                     });
 
                     @class.AddMethod("Task", "FlushAllAsync", method =>
@@ -93,8 +92,15 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         {
                             fe.AddStatement("var publisherEntry = _lookup[entry.Message.GetType().FullName!];");
                             fe.AddStatement("var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));");
-                            fe.AddStatement("var eventGridEvent = CreateEventGridEvent(entry.Message, entry.Subject);");
-                            fe.AddStatement("await client.SendEventAsync(eventGridEvent, cancellationToken);");
+                            fe.AddStatement("var cloudEvent = CreateCloudEvent(entry, publisherEntry);");
+                            fe.AddStatement(new CSharpAwaitExpression(new CSharpInvocationStatement("_pipeline.ExecuteAsync")
+                                .AddArgument("cloudEvent")
+                                .AddArgument(new CSharpLambdaBlock("async (@event, token)")
+                                    .AddStatement("await client.SendEventAsync(@event, token);")
+                                    .AddStatement("return @event;")
+                                )
+                                .AddArgument("cancellationToken")
+                            ));
                         });
                     });
 
@@ -108,18 +114,30 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                         });
                     });
 
-                    @class.AddMethod("EventGridEvent", "CreateEventGridEvent", method =>
+                    @class.AddMethod("CloudEvent", "CreateCloudEvent", method =>
                     {
                         method.Private().Static();
-                        method.AddParameter("object", "message");
-                        method.AddParameter(outputTarget.GetProject().NullableEnabled ? "string?" : "string", "subject");
+                        method.AddParameter("MessageEntry", "messageEntry");
+                        method.AddParameter("PublisherEntry", "publisherEntry");
 
-                        method.AddAssignmentStatement("var eventGridEvent", new CSharpInvocationStatement("new EventGridEvent")
-                            .AddArgument("subject", @"subject ?? ""Event""")
-                            .AddArgument("eventType", "message.GetType().FullName")
-                            .AddArgument("dataVersion", @"""1.0""")
-                            .AddArgument("data", "message"));
-                        method.AddReturn("eventGridEvent");
+                        method.AddStatement(new CSharpAssignmentStatement(new CSharpVariableDeclaration("cloudEvent"), new CSharpInvocationStatement("new CloudEvent")
+                            .AddArgument("source", @"publisherEntry.Source")
+                            .AddArgument("type", "messageEntry.Message.GetType().FullName!")
+                            .AddArgument("jsonSerializableData", @"messageEntry.Message")));
+
+                        method.AddIfStatement("messageEntry.AdditionalData is not null", extensionAttributesBlock =>
+                        {
+                            extensionAttributesBlock.AddIfStatement(@"messageEntry.AdditionalData.TryGetValue(""Subject"", out var subject)", subjectFoundBlock =>
+                            {
+                                subjectFoundBlock.AddStatement("cloudEvent.Subject = (string)subject;");
+                            });
+                            extensionAttributesBlock.AddForEachStatement("extensionAttribute", @"messageEntry.AdditionalData.Where(p => p.Key != ""Subject"")", forEachAttributeBlock =>
+                            {
+                                forEachAttributeBlock.AddStatement("cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);");
+                            });
+                        });
+                        
+                        method.AddReturn("cloudEvent");
                     });
                 });
         }
@@ -132,12 +150,13 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                 template.CSharpFile.OnBuild(file =>
                 {
                     file.AddUsing("System");
+                    file.AddUsing("System.Collections.Generic");
                     var @interface = file.Interfaces.First();
                     
                     @interface.AddMethod("void", "Publish", m => m
                         .AddGenericParameter("T")
                         .AddParameter("T", "message")
-                        .AddParameter("string", "subject")
+                        .AddParameter("IDictionary<string, object>", "additionalData")
                         .AddGenericTypeConstraint("T", c => c.AddType("class")));
                 });
             }

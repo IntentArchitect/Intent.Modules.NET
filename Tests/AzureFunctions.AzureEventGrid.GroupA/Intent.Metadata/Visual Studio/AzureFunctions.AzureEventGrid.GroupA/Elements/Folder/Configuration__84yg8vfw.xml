@@ -37,32 +37,28 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="1dba0f89-1cc5-49b0-84ce-fbf72aef7f7e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureEventGrid.PublisherOptions</name>
-      <display>Intent.Eventing.AzureEventGrid.PublisherOptions</display>
+    <childElement id="d0cda75e-12e4-4d38-b4a0-3beba1114fc0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions</name>
+      <display>Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions</display>
       <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d24f1076-b086-431b-bf5f-b6d56a0ad534</parentFolderId>
-      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="965b530e-575e-45e6-bee6-75bf46a91dee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureEventGrid.SubscriptionOptions</name>
-      <display>Intent.Eventing.AzureEventGrid.SubscriptionOptions</display>
+    <childElement id="86882ab4-19cf-44ef-90fe-0023f2ed7f37" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions</name>
+      <display>Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions</display>
       <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>d24f1076-b086-431b-bf5f-b6d56a0ad534</parentFolderId>
-      <packageId>60a22b78-005c-44d9-9a7c-286afa665554</packageId>
-      <packageName>AzureFunctions.AzureEventGrid.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

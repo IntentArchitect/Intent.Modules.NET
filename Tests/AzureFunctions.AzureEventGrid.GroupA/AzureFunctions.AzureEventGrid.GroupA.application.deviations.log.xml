@@ -12,7 +12,17 @@
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2025-05-29T12:51:20.8538172Z</approvedAt>
       <deviationsHash>1461708A20D47B640D2C1B36512BD788FD7E991854A6C769AD503DFD1654F3BE</deviationsHash>
-      <fileHash>5A63191C63F53936C5ED25E1052293A195AAC74ED43BB6D9119F9FA1C6E4A678</fileHash>
+      <fileHash>AF226AE1045A9B3DCA4A351410956772DDAFA9CBA30E2E1863372A0B59064E44</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.CommandHandler#4af9acd7-dd01-4c7e-8390-4257615af688</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/CreateClient/CreateClientCommandHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-06-07T18:08:44.2464543Z</updatedAt>
+      <deviationsHash>EFAA8AE956313D10AC1BCB9C3C73CA0A4728046478C881BA89F60E08B970AB0A</deviationsHash>
+      <fileHash>B01F3ED81135B83A73017B46743668BC2B5B466933E7FA26EA87BB89019C5DAD</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#0dbad813-a470-45ec-8b8f-ead93d749ca0</correlationId>

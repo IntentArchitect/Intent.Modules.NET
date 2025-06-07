@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Azure.Messaging;
-using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
@@ -39,7 +38,7 @@ namespace AzureFunctions.AzureEventGrid.Api
         }
 
         [Function("SpecificTopicMessageConsumer")]
-        public async Task Run([EventGridTrigger] CloudEvent message, CancellationToken cancellationToken)
+        public async Task Run([EventGridTrigger] CloudEvent cloudEvent, CancellationToken cancellationToken)
         {
             //IntentIgnore
             _logger.LogInformation("Processing SpecificTopicMessageConsumer");
@@ -54,7 +53,7 @@ namespace AzureFunctions.AzureEventGrid.Api
                 using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                     new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
                 {
-                    await _dispatcher.DispatchAsync(_serviceProvider, message, cancellationToken);
+                    await _dispatcher.DispatchAsync(_serviceProvider, cloudEvent, cancellationToken);
 
                     // By calling SaveChanges at the last point in the transaction ensures that write-
                     // locks in the database are created and then released as quickly as possible. This

@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Azure;
 using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
-using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.Behaviors;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.AzureEventGridBehaviors;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -26,7 +23,8 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
         private readonly List<MessageEntry> _messageQueue = [];
         private readonly Dictionary<string, PublisherEntry> _lookup;
 
-        public AzureEventGridEventBus(IOptions<PublisherOptions> options, AzureEventGridPublisherPipeline pipeline)
+        public AzureEventGridEventBus(IOptions<AzureEventGridPublisherOptions> options,
+            AzureEventGridPublisherPipeline pipeline)
         {
             _pipeline = pipeline;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
@@ -39,11 +37,11 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Publish<T>(T message, IDictionary<string, object> extensionAttributes = null)
+        public void Publish<T>(T message, IDictionary<string, object> additionalData)
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, extensionAttributes));
+            _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -60,7 +58,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
                 var cloudEvent = CreateCloudEvent(entry, publisherEntry);
                 await _pipeline.ExecuteAsync(cloudEvent, async (@event, token) =>
                 {
-                    await client.SendEventAsync(cloudEvent, token);
+                    await client.SendEventAsync(@event, token);
                     return @event;
                 }, cancellationToken);
             }
@@ -77,22 +75,23 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
         private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, PublisherEntry publisherEntry)
         {
             var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message);
-            if (messageEntry.ExtensionAttributes is not null)
+
+            if (messageEntry.AdditionalData is not null)
             {
-                if (messageEntry.ExtensionAttributes.TryGetValue("Subject", out var subject))
+                if (messageEntry.AdditionalData.TryGetValue("Subject", out var subject))
                 {
                     cloudEvent.Subject = (string)subject;
                 }
-                foreach (var extensionAttribute in messageEntry.ExtensionAttributes.Where(p => p.Key != "Subject"))
+
+                foreach (var extensionAttribute in messageEntry.AdditionalData.Where(p => p.Key != "Subject"))
                 {
                     cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
                 }
             }
-
             return cloudEvent;
         }
 
-        private record MessageEntry(object Message, IDictionary<string, object>? ExtensionAttributes);
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }
