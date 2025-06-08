@@ -5,7 +5,6 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -17,7 +16,7 @@ using Intent.Templates;
 using Intent.Utils;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
-namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
+namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
 public static class DataAccessProviderExtensions
 {
@@ -65,14 +64,14 @@ public static class DataAccessProviderExtensions
         else
         {
             // USE THE FindByIdAsync/FindByIdsAsync METHODS:
-            if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement)?.IsPrimaryKey() == true)
+            if (queryMapping.MappedEnds.Any() && queryMapping.MappedEnds.All(x => x.TargetElement.AsAttributeModel()?.IsPrimaryKey() == true)
                                               && foundEntity.GetTypesInHierarchy().SelectMany(c => c.Attributes).Count(x => x.IsPrimaryKey()) == queryMapping.MappedEnds.Count)
             {
                 var idFields = queryMapping.MappedEnds
                 .OrderBy(x => ((IElement)x.TargetElement).Order)
                 .Select(x => new PrimaryKeyFilterMapping(
                         method.GetMappingManager().GenerateSourceStatementForMapping(queryMapping, x),
-                        Intent.Modelers.Domain.Api.AttributeModelExtensions.AsAttributeModel(x.TargetElement).Name.ToPropertyName(),
+                        x.TargetElement.AsAttributeModel().Name.ToPropertyName(),
                         x))
                     .ToList();
 
@@ -112,7 +111,7 @@ public static class DataAccessProviderExtensions
         statements.AddRange(prerequisiteStatement);
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
-        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection && !IsResultPaginated(interaction.OtherEnd().TypeReference.Element.TypeReference))
+        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated())
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
@@ -122,7 +121,7 @@ public static class DataAccessProviderExtensions
                 throw new ElementException(interaction, "Query for single entity has no mappings specified. Either indicate mappings or set Is Collection to true if trying to fetch all entities as a collection.");
             }
 
-            statements.Add(DataAccessProviderExtensions.CreateIfNullThrowNotFoundStatement(
+            statements.Add(CreateIfNullThrowNotFoundStatement(
                 template: _template,
                 variable: entityVariableName,
                 message: $"Could not find {foundEntity.Name} '{queryFields.AsSingleOrTuple()}'"));
@@ -133,63 +132,11 @@ public static class DataAccessProviderExtensions
         return statements;
     }
 
-    public static void AddSaveChangesStatements(this CSharpClassMethod method, ITypeReference returnType)
-    {
-        var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
-
-        foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
-        {
-            if (entity.ElementModel.IsClassModel())
-            {
-                var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
-                if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
-                {
-                    method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
-                }
-            }
-            else
-            {
-                method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
-            }
-        }
-    }
-
-
-    private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
-    {
-        if (returnType.Element.IsDTOModel())
-        {
-            var dto = returnType.Element.AsDTOModel();
-
-            var mappedPks = dto.Fields
-                .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
-                .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
-                .Distinct()
-                .ToList();
-            if (mappedPks.Any())
-            {
-                return method.TrackedEntities().Values
-                    .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
-                    .ToList();
-            }
-            return new List<EntityDetails>();
-        }
-        return method.TrackedEntities().Values
-            .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
-                .SelectMany(c => c.Attributes)
-                .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
-            .ToList();
-    }
-
-    private static bool HasDBGeneratedPk(AttributeModel attribute)
-    {
-        return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == "Default";
-    }
     private static bool TryGetPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageNo, out string pageSize, out string? orderBy, out bool orderByIsNullable)
     {
         orderByIsNullable = false;
         var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
-        var returnsPagedResult = IsResultPaginated(handler.TypeReference);
+        var returnsPagedResult = handler.TypeReference.IsResultPaginated();
 
         var pageIndexVar = handler.ChildElements.SingleOrDefault(IsPageIndexParam)?.Name;
         var pageNoVar = handler.ChildElements.SingleOrDefault(IsPageNumberParam)?.Name;
@@ -333,7 +280,7 @@ public static class DataAccessProviderExtensions
         }
 
         //This is being done for Dapper
-        bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(TemplateRoles.Domain.UnitOfWork, out _);
+        bool hasUnitOfWork = _template.TryGetTemplate<ITemplate>(UnitOfWork, out _);
 
 
         dataAccessProvider = new RepositoryDataAccessProvider(method.Class.InjectService(repositoryInterface), (ICSharpFileBuilderTemplate)_template, method.GetMappingManager(), hasUnitOfWork, context, foundEntity);
@@ -373,7 +320,7 @@ public static class DataAccessProviderExtensions
             //                p.IsSourceEnd() && !p.IsCollection && !p.IsNullable)
             //    .Distinct()
             //    .ToList();
-            var aggregateAssociations = GetAssociationsToAggregateRoot(foundEntity);
+            var aggregateAssociations = foundEntity.GetAssociationsToAggregateRoot();
             var aggregateEntity = aggregateAssociations.First().Class;
 
             if (_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, aggregateEntity, out var repositoryInterface))
@@ -421,7 +368,7 @@ public static class DataAccessProviderExtensions
                 return compositionalAssociations;
             }
 
-            var list = GetAssociationsToAggregateRoot(compositionalAssociations.Single().Class);
+            var list = compositionalAssociations.Single().Class.GetAssociationsToAggregateRoot();
             list.AddRange(compositionalAssociations);
             return list;
         }
@@ -458,12 +405,12 @@ public static class DataAccessProviderExtensions
 
     public static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElementToElementMapping queryMapping, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
-        return TryGetFindAggregateStatements(method, queryMapping, (IElement)queryMapping.SourceElement, foundEntity, out statements);
+        return method.TryGetFindAggregateStatements(queryMapping, (IElement)queryMapping.SourceElement, foundEntity, out statements);
     }
 
     public static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
-        return TryGetFindAggregateStatements(method, null, requestElement, foundEntity, out statements);
+        return method.TryGetFindAggregateStatements(null, requestElement, foundEntity, out statements);
     }
 
     private static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)

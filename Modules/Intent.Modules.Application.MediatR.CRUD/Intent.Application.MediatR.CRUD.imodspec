@@ -19,6 +19,7 @@
   </factoryExtensions>
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.2.0" />
+    <dependency id="Intent.Application.DomainInteractions" version="1.0.0-alpha.0" />
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.10" />
     <dependency id="Intent.Common.Types" version="4.0.0" />

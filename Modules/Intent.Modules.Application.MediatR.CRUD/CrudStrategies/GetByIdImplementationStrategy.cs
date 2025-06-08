@@ -5,7 +5,7 @@ using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Common.CSharp.Builder;

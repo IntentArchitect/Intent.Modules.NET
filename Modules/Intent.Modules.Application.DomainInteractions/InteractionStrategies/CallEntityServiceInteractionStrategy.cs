@@ -4,14 +4,13 @@ using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 
-namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
+namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
 public class CallEntityServiceInteractionStrategy : IInteractionStrategy
 {

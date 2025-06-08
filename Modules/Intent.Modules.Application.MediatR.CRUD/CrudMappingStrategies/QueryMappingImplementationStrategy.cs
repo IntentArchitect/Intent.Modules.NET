@@ -6,6 +6,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
@@ -60,7 +61,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
-            var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(_model, "request");
 
@@ -72,12 +72,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
-            handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(handleMethod, _model));
             handleMethod.ImplementInteractions(_model);
 
             if (_model.TypeReference.Element != null)
             {
-                handleMethod.AddStatements(domainInteractionManager.GetReturnStatements(handleMethod, _model.TypeReference));
+                handleMethod.AddStatements(ExecutionPhases.Response, handleMethod.GetReturnStatements(_model.TypeReference));
             }
         }
     }

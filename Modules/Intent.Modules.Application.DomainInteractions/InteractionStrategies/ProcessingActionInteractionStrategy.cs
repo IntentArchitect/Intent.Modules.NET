@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -56,58 +57,6 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             catch (Exception ex)
             {
                 throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
-            }
-        }
-
-        private bool RepositoryRequiresExplicitUpdate(ICSharpTemplate _template, IMetadataModel forEntity)
-        {
-            return _template.TryGetTemplate<ICSharpFileBuilderTemplate>(
-                       TemplateRoles.Repository.Interface.Entity,
-                       forEntity,
-                       out var repositoryInterfaceTemplate) &&
-                   repositoryInterfaceTemplate.CSharpFile.Interfaces[0].TryGetMetadata<bool>("requires-explicit-update", out var requiresUpdate) &&
-                   requiresUpdate;
-        }
-
-        private bool RequiresAggegateExplicitUpdate(EntityDetails entityDetails)
-        {
-            if (entityDetails.DataAccessProvider is CompositeDataAccessProvider cda)
-            {
-                return cda.RequiresExplicitUpdate();
-            }
-            return false;
-        }
-
-        private void AdjustOperationInvocationForAsyncAndReturn(CSharpClassMethod method, IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
-        {
-
-            if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))
-            {
-                foreach (var invocation in updateMapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))
-                {
-
-                    var operationName = ((IElement)invocation.TargetElement).Name;
-                    var variableName = $"{operationName.ToCamelCase()}Result";
-                    bool hasReturn = invocation.TargetElement.TypeReference?.Element != null;
-
-                    for (int i = 0; i < updateStatements.Count; i++)
-                    {
-                        if (updateStatements[i] is CSharpInvocationStatement s && s.Expression.Reference is ICSharpMethodDeclaration md && md.Name == operationName)
-                        {
-                            if (s.IsAsyncInvocation())
-                            {
-                                s.AddArgument("cancellationToken");
-                                updateStatements[i] = new CSharpAwaitExpression(updateStatements[i]);
-                            }
-                            if (hasReturn)
-                            {
-                                updateStatements[i] = new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), updateStatements[i]);
-                            }
-                        }
-                    }
-
-                    method.TrackedEntities().Add(invocation.TargetElement.Id, new EntityDetails((IElement)invocation.TargetElement.TypeReference.Element, variableName, null, false, null, invocation.TargetElement.TypeReference.IsCollection));
-                }
             }
         }
     }

@@ -4,13 +4,12 @@ using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 
-namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
+namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
 public static class DomainServiceInjectionExtensions
 {
@@ -27,10 +26,10 @@ public static class DomainServiceInjectionExtensions
 
     public static void WireupDomainServicesForOperations(this CSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
     {
-        Func<CSharpInvocationStatement, Intent.Modelers.Domain.Api.OperationModel> getOperation;
-        if (OperationModelExtensions.IsOperationModel(updateAction.Element))
+        Func<CSharpInvocationStatement, OperationModel> getOperation;
+        if (updateAction.Element.IsOperationModel())
         {
-            var operation = OperationModelExtensions.AsOperationModel(updateAction.Element);
+            var operation = updateAction.Element.AsOperationModel();
             if (operation == null)
             {
                 return;
@@ -44,7 +43,7 @@ public static class DomainServiceInjectionExtensions
         else
         {
             var updateMappings = updateAction.Mappings.GetUpdateEntityMapping();
-            var mappedOperations = updateMappings.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
+            var mappedOperations = updateMappings.MappedEnds.Where(me => me.TargetElement.IsOperationModel()).Select(me => me.TargetElement.AsOperationModel()).ToList();
 
             if (!mappedOperations.Any())
             {
@@ -80,7 +79,7 @@ public static class DomainServiceInjectionExtensions
 
     public static void WireupDomainServicesForProcessingAction(this CSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
     {
-        var mappedOperations = mapping.MappedEnds.Where(me => OperationModelExtensions.IsOperationModel(me.TargetElement)).Select(me => OperationModelExtensions.AsOperationModel(me.TargetElement)).ToList();
+        var mappedOperations = mapping.MappedEnds.Where(me => me.TargetElement.IsOperationModel()).Select(me => me.TargetElement.AsOperationModel()).ToList();
 
         if (!mappedOperations.Any())
         {
@@ -111,7 +110,7 @@ public static class DomainServiceInjectionExtensions
 
     private static void WireupDomainServicesForOperations(CSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
     {
-        var operation = OperationModelExtensions.AsOperationModel(callServiceOperation.TypeReference.Element);
+        var operation = callServiceOperation.TypeReference.Element.AsOperationModel();
         if (operation == null)
         {
             return;
@@ -154,7 +153,7 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
-    private static void WireupDomainService(ICSharpTemplate _template, CSharpInvocationStatement invocation, IList<Intent.Modelers.Domain.Api.ParameterModel> parameters, CSharpClass handlerClass)
+    private static void WireupDomainService(ICSharpTemplate _template, CSharpInvocationStatement invocation, IList<ParameterModel> parameters, CSharpClass handlerClass)
     {
         if (invocation is null)
         {

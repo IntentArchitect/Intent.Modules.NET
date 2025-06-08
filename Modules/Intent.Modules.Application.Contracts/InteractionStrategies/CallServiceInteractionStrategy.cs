@@ -24,7 +24,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
     public bool IsMatch(IElement interaction)
     {
         return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
-            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class";
+            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
 
     public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
@@ -46,7 +46,6 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
             // So that the mapping system can resolve the name of the operation from the interface itself:
             _template.AddTypeSource(serviceInterfaceTemplate.Id);
 
-            //if (serviceInterfaceTemplate.CSharpFile.Interfaces.Count == 1) {
             string? serviceField = @class.InjectService(_template.GetTypeName(serviceInterfaceTemplate));
 
             var methodInvocation = _csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
@@ -84,7 +83,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
 
             //WireupDomainServicesForOperations(handlerClass, callServiceOperation, statements);
 
-            method.AddStatements(statements);
+            method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
         catch (Exception ex)
         {
@@ -98,6 +97,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
     private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
     private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
 
+    // TODO: Create a roll called `InjectableService` and lookup templates from this single role:
     bool HasServiceDependency(IElement serviceModel, out ICSharpFileBuilderTemplate dependencyInfo)
     {
         switch (serviceModel.SpecializationTypeId)
@@ -121,25 +121,6 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = default;
                 return false;
         }
-    }
-}
-
-
-public static class CSharpClassMethodExtensions
-{
-    public static Dictionary<string, EntityDetails> TrackedEntities(this CSharpClassMethod method)
-    {
-        if (!method.TryGetMetadata<Dictionary<string, EntityDetails>>("tracked-entities", out var trackedEntities))
-        {
-            trackedEntities = new Dictionary<string, EntityDetails>();
-            if (method.HasMetadata("tracked-entities"))
-            {
-                method.Metadata.Remove("tracked-entities");
-            }
-            method.AddMetadata("tracked-entities", trackedEntities);
-        }
-
-        return trackedEntities;
     }
 }
 

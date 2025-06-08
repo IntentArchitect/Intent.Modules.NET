@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.MethodImplementationStrategies;
 using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImplementation;
@@ -24,8 +25,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
     public class OperationMappingImplementationStrategy : IImplementationStrategy
     {
         private readonly ICSharpFileBuilderTemplate _template;
-        private readonly DomainInteractionsManager _domainInteractionManager;
-        private readonly CSharpClassMappingManager _csharpMapping;
 
         public OperationMappingImplementationStrategy(ICSharpFileBuilderTemplate template)
         {
@@ -83,8 +82,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
             var csharpMapping = method.GetMappingManager();
-            //[REVISIT]
-            csharpMapping.ClearMappingResolvers();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
@@ -93,7 +90,6 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
             csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(_template));
-            var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
 
@@ -101,7 +97,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
             if (operationModel.TypeReference.Element != null)
             {
-                var returnStatement = domainInteractionManager.GetReturnStatements(method, operationModel.TypeReference);
+                var returnStatement = method.GetReturnStatements(operationModel.TypeReference);
                 method.AddStatements(ExecutionPhases.Response, returnStatement);
             }
         }

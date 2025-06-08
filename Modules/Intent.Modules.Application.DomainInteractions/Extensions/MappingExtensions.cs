@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.Extensions;
 
 public static class MappingExtensions
 {

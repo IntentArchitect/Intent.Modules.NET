@@ -14,6 +14,7 @@ using System.Linq;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -80,17 +81,15 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                     csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(t));
-                    var domainInteractionManager = new DomainInteractionsManager(t, csharpMapping);
-
                     csharpMapping.SetFromReplacement(model, "request");
 
                     handleMethod.ImplementInteractions(interactions);
 
                     if (model.TypeReference.Element != null
                         && legacyStrategy is null
-                        && handleMethod.Statements.All(x => !x.TryGetMetadata("execution-phase", out var p) && p != ExecutionPhases.Response))
+                        && !handleMethod.GetStatementsInPhase(ExecutionPhases.Response).Any())
                     {
-                        handleMethod.AddStatements(ExecutionPhases.Response, domainInteractionManager.GetReturnStatements(handleMethod, model.TypeReference));
+                        handleMethod.AddStatements(ExecutionPhases.Response, handleMethod.GetReturnStatements(model.TypeReference));
                     }
                 });
             }

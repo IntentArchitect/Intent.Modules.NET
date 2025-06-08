@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="633749a1-277b-4dbc-ba65-9ad3d2d179e1" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>DomainInteractionRegistration</name>
+  <display>DomainInteractionRegistration</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</parentFolderId>
+  <packageId>0e923f47-102b-4bd6-80c5-eb38e6d5cf82</packageId>
+  <packageName>Intent.Application.DomainInteractions</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

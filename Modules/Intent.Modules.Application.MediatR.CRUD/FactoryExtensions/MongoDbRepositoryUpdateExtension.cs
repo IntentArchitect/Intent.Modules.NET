@@ -25,19 +25,6 @@ namespace Intent.Modules.Application.MediatR.CRUD.FactoryExtensions
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
 
-        protected override void OnBeforeTemplateRegistrations(IApplication application)
-        {
-            // Putting here for now, but is wrong place
-            InteractionStrategyProvider.Instance.Register(new ODataQueryInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new QueryInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new CallEntityServiceInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new CreateEntityInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new DeleteEntityInteractionStrategy());
-            InteractionStrategyProvider.Instance.Register(new ProcessingActionInteractionStrategy());
-        }
-
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             if (application.InstalledModules.All(p => p.ModuleId != "Intent.MongoDb.Repositories"))

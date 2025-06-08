@@ -16,17 +16,14 @@ using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Types.Api;
-using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 
-namespace Intent.Modules.Application.DomainInteractions;
+namespace Intent.Modules.Application.DomainInteractions.Extensions;
+
 // Disambiguation
 using Intent.Modelers.Domain.Api;
-using System.ComponentModel.Design;
-using System.Drawing;
 
 public static class DomainInteractionExtensions
 {
-
     public static bool HasDomainInteractions(this IProcessingHandlerModel model)
     {
         return model.CreateEntityActions().Any()
@@ -36,124 +33,9 @@ public static class DomainInteractionExtensions
                || model.ServiceInvocationActions().Any()
                || model.CallServiceOperationActions().Any();
     }
-}
-
-public class DomainInteractionsManager
-{
-    private readonly ICSharpFileBuilderTemplate _template;
-    private readonly CSharpClassMappingManager _csharpMapping;
-
-    public DomainInteractionsManager(ICSharpFileBuilderTemplate template, CSharpClassMappingManager csharpMapping)
-    {
-        _template = template;
-        _csharpMapping = csharpMapping;
-    }
-
-    //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
-
-    private const string ApplicationServiceSpecializationId = "b16578a5-27b1-4047-a8df-f0b783d706bd";
-    private const string EntitySpecializationId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10";
-    private const string RepositorySpecializationId = "96ffceb2-a70a-4b69-869b-0df436c470c3";
-    private const string ServiceProxySpecializationId = "07d8d1a9-6b9f-4676-b7d3-8db06299e35c";
-
-    public IEnumerable<CSharpStatement> CreateInteractionStatements(CSharpClassMethod method, IProcessingHandlerModel model)
-    {
-        var handlerClass = method.Class;
-        var domainInteractionManager = this;
-        var statements = new List<CSharpStatement>();
-        try
-        {
-            //foreach (var queryAction in model.QueryEntityActions())
-            //{
-            //    if (queryAction.Mappings.GetQueryEntityMapping() == null)
-            //    {
-            //        continue;
-            //    }
-
-            //    if (!queryAction.Element.IsClassModel())
-            //    {
-            //        continue;
-            //    }
-
-            //    var foundEntity = queryAction.Element.AsClassModel();
-            //    statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Query, queryAction.InternalAssociationEnd)));
-            //}
-
-            //foreach (var createAction in model.CreateEntityActions())
-            //{
-            //    statements.AddRange(domainInteractionManager.CreateEntity(method, createAction));
-            //}
-
-            //foreach (var updateAction in model.UpdateEntityActions())
-            //{
-            //    statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Update, updateAction.InternalAssociationEnd)));
-
-            //    statements.Add(string.Empty);
-            //    statements.AddRange(domainInteractionManager.UpdateEntity(method, updateAction));
-            //}
-
-            //foreach (var callAction in model.ServiceInvocationActions())
-            //{
-            //    statements.AddRange(domainInteractionManager.InvokeService(handlerClass, callAction.InternalAssociationEnd));
-            //}
 
 
-            //foreach (var callAction in model.CallServiceOperationActions())
-            //{
-            //    statements.AddRange(domainInteractionManager.CallServiceOperation(handlerClass, callAction.InternalAssociationEnd));
-            //}
-
-            //foreach (var deleteAction in model.DeleteEntityActions())
-            //{
-            //    statements.AddRange(domainInteractionManager.QueryEntity(new QueryActionContext(method, ActionType.Delete, deleteAction.InternalAssociationEnd)));
-            //    statements.AddRange(domainInteractionManager.DeleteEntity(method, deleteAction));
-            //}
-
-            //foreach (var actions in model.ProcessingActions().Where(x => x.InternalElement.Mappings.Count() == 1))
-            //{
-            //    try
-            //    {
-            //        var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
-            //        .Select(x =>
-            //        {
-            //            if (x is CSharpAssignmentStatement)
-            //            {
-            //                x.WithSemicolon();
-            //            }
-
-            //            return x;
-            //        }).ToList();
-
-            //        handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
-            //        processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
-            //        statements.AddRange(processingStatements);
-
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        throw new ElementException(actions.InternalElement, "An error occurred while generating processing action logic", ex);
-            //    }
-            //}
-
-            //foreach (var entity in method.TrackedEntities().Values.Where(x => x.IsNew))
-            //{
-            //    statements.Add(entity.DataAccessProvider.AddEntity(entity.VariableName).SeparatedFromPrevious());
-            //}
-
-            return statements;
-        }
-        catch (ElementException ex)
-        {
-            throw;
-        }
-        catch (Exception ex)
-        {
-            throw new ElementException(model.InternalElement, "An error occurred while generating the domain interactions logic. See inner exception for more details", ex);
-        }
-    }
-
-
-    public IEnumerable<CSharpStatement> GetReturnStatements(CSharpClassMethod method, ITypeReference returnType)
+    public static IEnumerable<CSharpStatement> GetReturnStatements(this CSharpClassMethod method, ITypeReference returnType)
     {
         if (returnType.Element == null)
         {
@@ -161,6 +43,7 @@ public class DomainInteractionsManager
         }
         var statements = new List<CSharpStatement>();
 
+        var _template = method.File.Template;
         var entitiesReturningPk = GetEntitiesReturningPK(method, returnType);
         var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
 
@@ -220,7 +103,7 @@ public class DomainInteractionsManager
         return statements;
     }
 
-    private List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+    private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
     {
         if (returnType.Element.IsDTOModel())
         {
@@ -245,31 +128,7 @@ public class DomainInteractionsManager
                 .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
             .ToList();
     }
-
-    private bool HasDBGeneratedPk(AttributeModel attribute)
-    {
-        return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == "Default";
-    }
 }
-
-public static class CSharpClassMethodExtensions
-{
-    public static Dictionary<string, EntityDetails> TrackedEntities(this CSharpClassMethod method)
-    {
-        if (!method.TryGetMetadata<Dictionary<string, EntityDetails>>("tracked-entities", out var trackedEntities))
-        {
-            trackedEntities = new Dictionary<string, EntityDetails>();
-            if (method.HasMetadata("tracked-entities"))
-            {
-                method.Metadata.Remove("tracked-entities");
-            }
-            method.AddMetadata("tracked-entities", trackedEntities);
-        }
-
-        return trackedEntities;
-    }
-}
-
 
 internal static class AttributeModelExtensions
 {

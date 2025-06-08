@@ -4,19 +4,16 @@ using System.Linq;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Application.DomainInteractions.Extensions;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
-using Intent.Templates;
 using Intent.Utils;
-using Microsoft.VisualBasic;
 
-namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
+namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
     public class CreateEntityInteractionStrategy : IInteractionStrategy
     {
@@ -80,13 +77,67 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 
                 if (interaction.OtherEnd().TypeReference.Element.TypeReference.Element != null)
                 {
-                    method.AddSaveChangesStatements(interaction.OtherEnd().TypeReference.Element.TypeReference);
+                    AddSaveChangesStatements(method, interaction.OtherEnd().TypeReference.Element.TypeReference);
                 }
             }
             catch (Exception ex)
             {
                 throw new ElementException(interaction, "An error occurred while generating the domain interactions logic", ex);
             }
+        }
+
+
+        private static void AddSaveChangesStatements(CSharpClassMethod method, ITypeReference returnType)
+        {
+            var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
+
+            foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))
+            {
+                if (entity.ElementModel.IsClassModel())
+                {
+                    var primaryKeys = entity.ElementModel.AsClassModel().GetTypesInHierarchy().SelectMany(c => c.Attributes.Where(a => a.IsPrimaryKey()));
+                    if (primaryKeys.Any(p => HasDBGeneratedPk(p)))
+                    {
+                        method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
+                    }
+                }
+                else
+                {
+                    method.AddStatement(ExecutionPhases.Persistence, new CSharpStatement($"{entity.DataAccessProvider.SaveChangesAsync()}"));
+                }
+            }
+        }
+
+
+        private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+        {
+            if (returnType.Element.IsDTOModel())
+            {
+                var dto = returnType.Element.AsDTOModel();
+
+                var mappedPks = dto.Fields
+                    .Where(x => x.Mapping != null && x.Mapping.Element.IsAttributeModel() && x.Mapping.Element.AsAttributeModel().IsPrimaryKey(isUserSupplied))
+                    .Select(x => x.Mapping.Element.AsAttributeModel().InternalElement.ParentElement.Id)
+                    .Distinct()
+                    .ToList();
+                if (mappedPks.Any())
+                {
+                    return method.TrackedEntities().Values
+                        .Where(x => x.ElementModel.IsClassModel() && mappedPks.Contains(x.ElementModel.Id))
+                        .ToList();
+                }
+                return new List<EntityDetails>();
+            }
+            return method.TrackedEntities().Values
+                .Where(x => x.ElementModel.AsClassModel()?.GetTypesInHierarchy()
+                    .SelectMany(c => c.Attributes)
+                    .Count(a => a.IsPrimaryKey(isUserSupplied) && a.TypeReference.Element.Id == returnType.Element.Id) == 1)
+                .ToList();
+        }
+
+        private static bool HasDBGeneratedPk(AttributeModel attribute)
+        {
+            return attribute.IsPrimaryKey() && attribute.GetStereotypeProperty("Primary Key", "Data source", "Default") == "Default";
         }
     }
 }
