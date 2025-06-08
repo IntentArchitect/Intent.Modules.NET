@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
-using Intent.Modules.Common.CSharp.Builder;
-using Intent.Exceptions;
 using Intent.Modules.Application.DomainInteractions;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
-using Intent.Templates;
-using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Eventing.Contracts.InteractionStrategies;
 
@@ -25,7 +21,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
     public bool IsMatch(IElement interaction)
     {
         return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
-            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
+                                                               && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
 
     public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
@@ -34,7 +30,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
         var @class = method.Class;
         _template = (ICSharpFileBuilderTemplate)@class.File.Template;
         _csharpMapping = method.GetMappingManager();
-        _csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
+        //_csharpMapping.AddMappingResolver(new CallServiceOperationMappingResolver(_template));
         try
         {
             var statements = new List<CSharpStatement>();
@@ -88,7 +84,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
 
             //WireupDomainServicesForOperations(handlerClass, callServiceOperation, statements);
 
-            method.AddStatements(statements);
+            method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
         catch (Exception ex)
         {
@@ -125,30 +121,5 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = default;
                 return false;
         }
-    }
-}
-
-[IntentManaged(Mode.Ignore)]
-public class CallServiceOperationMappingResolver : IMappingTypeResolver
-{
-    private readonly ICSharpFileBuilderTemplate _template;
-
-    public CallServiceOperationMappingResolver(ICSharpFileBuilderTemplate template)
-    {
-        _template = template;
-    }
-
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
-    {
-        if (mappingModel.Model.SpecializationType == "Operation")
-        {
-            return new MethodInvocationMapping(mappingModel, _template);
-        }
-
-        if (mappingModel.Model.SpecializationType == "DTO-Field")
-        {
-            return new ObjectInitializationMapping(mappingModel, _template);
-        }
-        return null;
     }
 }

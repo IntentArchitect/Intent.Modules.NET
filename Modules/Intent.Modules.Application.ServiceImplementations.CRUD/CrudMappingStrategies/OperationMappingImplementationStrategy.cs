@@ -11,6 +11,7 @@ using Intent.Modules.Application.ServiceImplementations.Templates.ServiceImpleme
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
@@ -82,6 +83,8 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
             var csharpMapping = method.GetMappingManager();
+            //[REVISIT]
+            csharpMapping.ClearMappingResolvers();
             csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
@@ -89,57 +92,17 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
 			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
+            csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(_template));
             var domainInteractionManager = new DomainInteractionsManager(_template, csharpMapping);
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
 
-            //method.AddStatements(domainInteractionManager.CreateInteractionStatements(method, operationModel));
             method.ImplementInteractions(operationModel);
-
-            //foreach (var queryAction in operationModel.QueryEntityActions())
-            //{
-            //    var entity = queryAction.Element.AsClassModel();
-            //    method.AddStatements(domainInteractionManager.QueryEntity(entity, queryAction.InternalAssociationEnd));
-            //}
-
-            //foreach (var createAction in operationModel.CreateEntityActions())
-            //{
-            //    method.AddStatements(domainInteractionManager.CreateEntity(createAction));
-            //}
-
-            //foreach (var updateAction in operationModel.UpdateEntityActions())
-            //{
-            //    var entity = updateAction.Element.AsClassModel() 
-            //                 ?? updateAction.Element.AsOperationModel()?.ParentClass
-            //                 ?? throw new ElementException(updateAction.InternalAssociationEnd, "Target could not be cast to a Domain Class or Operation");
-
-            //    method.AddStatements(domainInteractionManager.QueryEntity(entity, updateAction.InternalAssociationEnd));
-
-            //    method.AddStatement(string.Empty);
-            //    method.AddStatements(domainInteractionManager.UpdateEntity(updateAction));
-            //}
-
-            //foreach (var callAction in operationModel.CallServiceOperationActions())
-            //{
-            //    method.AddStatements(domainInteractionManager.CallServiceOperation(callAction));
-            //}
-
-            //foreach (var deleteAction in operationModel.DeleteEntityActions())
-            //{
-            //    var foundEntity = deleteAction.Element.AsClassModel();
-            //    method.AddStatements(domainInteractionManager.QueryEntity(foundEntity, deleteAction.InternalAssociationEnd));
-            //    method.AddStatements(domainInteractionManager.DeleteEntity(deleteAction));
-            //}
-
-            //foreach (var entity in domainInteractionManager.TrackedEntities.Values.Where(x => x.IsNew))
-            //{
-            //    method.AddStatement(entity.DataAccessProvider.AddEntity(entity.VariableName));
-            //}
 
             if (operationModel.TypeReference.Element != null)
             {
                 var returnStatement = domainInteractionManager.GetReturnStatements(method, operationModel.TypeReference);
-                method.AddStatements(returnStatement);
+                method.AddStatements(ExecutionPhases.Response, returnStatement);
             }
         }
     }

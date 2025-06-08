@@ -54,29 +54,10 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     mappingManager.SetFromReplacement(handler.Model, "message");
                     mappingManager.SetFromReplacement(handler.Model.InternalElement, "message");
 
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                    //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                     method.ImplementInteractions(handler.Model);
                 }
             }
-
-            //templates = application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Command)
-            //    .Concat(application.FindTemplateInstances<ITemplate>(TemplateRoles.Application.Handler.Query))
-            //    .OfType<ICSharpFileBuilderTemplate>();
-            //foreach (var template in templates)
-            //{
-            //    foreach (var handler in template.CSharpFile.GetProcessingHandlers())
-            //    {
-            //        var method = handler.Method;
-
-            //        var mappingManager = method.GetMappingManager();
-            //        // TODO: These can go to the handler template:
-            //        mappingManager.SetFromReplacement(handler.Model, "request");
-            //        mappingManager.SetFromReplacement(handler.Model.InternalElement, "request");
-
-            //        //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-            //        method.ImplementInteractions(handler.Model);
-            //    }
-            //}
 
             templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
             foreach (var template in templates)
@@ -97,7 +78,7 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                         mappingManager.SetFromReplacement(handler.Model, "domainEvent");
                         mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
 
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                        //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                         method.ImplementInteractions(handler.Model);
                     }
                 });

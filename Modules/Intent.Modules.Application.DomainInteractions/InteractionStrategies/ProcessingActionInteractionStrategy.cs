@@ -51,7 +51,7 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
 
                 handlerClass.WireupDomainServicesForProcessingAction(actions.InternalElement.Mappings.Single(), processingStatements);
                 processingStatements.FirstOrDefault()?.SeparatedFromPrevious();
-                method.AddStatements(processingStatements);
+                method.AddStatements(ExecutionPhases.BusinessLogic, processingStatements);
             }
             catch (Exception ex)
             {

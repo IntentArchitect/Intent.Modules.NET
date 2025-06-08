@@ -69,7 +69,7 @@ public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), invoke));
 
-                //TrackedEntities.Add(interaction.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
+                method.TrackedEntities().Add(interaction.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
                      (methodDeclaration.ReturnTypeInfo.GetTaskGenericType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))

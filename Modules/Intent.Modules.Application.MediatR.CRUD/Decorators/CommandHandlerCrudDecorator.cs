@@ -16,6 +16,7 @@ using System.Linq;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]
@@ -72,6 +73,8 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                     handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
                     var csharpMapping = handleMethod.GetMappingManager();
+                    //[REVISIT]: This is a hack to get things working properly
+                    csharpMapping.ClearMappingResolvers();
                     csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(t));
@@ -80,11 +83,11 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                     csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new EnumCollectionMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(t));
+                    csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(t));
                     var domainInteractionManager = new DomainInteractionsManager(t, csharpMapping);
 
                     csharpMapping.SetFromReplacement(model, "request");
 
-                    //handleMethod.AddStatements(domainInteractionManager.CreateInteractionStatements(handleMethod, _model));
                     handleMethod.ImplementInteractions(interactions);
 
                     if (legacyStrategy is null && model.TypeReference.Element != null)

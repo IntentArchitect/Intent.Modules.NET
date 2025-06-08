@@ -68,7 +68,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
 
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(variableName), invoke));
 
-                //TrackedEntities.Add(interaction.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
+                method.TrackedEntities().Add(interaction.Id, new EntityDetails((IElement)operationModel.TypeReference.Element, variableName, null, false, null, operationModel.TypeReference.IsCollection));
             }
             else if (invStatement?.Expression.Reference is ICSharpMethodDeclaration methodDeclaration &&
                      (methodDeclaration.ReturnTypeInfo.GetTaskGenericType() is CSharpTypeTuple || methodDeclaration.ReturnTypeInfo is CSharpTypeTuple))
@@ -121,6 +121,25 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
                 dependencyInfo = default;
                 return false;
         }
+    }
+}
+
+
+public static class CSharpClassMethodExtensions
+{
+    public static Dictionary<string, EntityDetails> TrackedEntities(this CSharpClassMethod method)
+    {
+        if (!method.TryGetMetadata<Dictionary<string, EntityDetails>>("tracked-entities", out var trackedEntities))
+        {
+            trackedEntities = new Dictionary<string, EntityDetails>();
+            if (method.HasMetadata("tracked-entities"))
+            {
+                method.Metadata.Remove("tracked-entities");
+            }
+            method.AddMetadata("tracked-entities", trackedEntities);
+        }
+
+        return trackedEntities;
     }
 }
 

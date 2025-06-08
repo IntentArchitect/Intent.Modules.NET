@@ -70,14 +70,14 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
                     statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), $"new {entity.Name}();"));
                 }
 
-                statements.Add(dataAccess.AddEntity(entityVariableName).SeparatedFromPrevious());
+                method.AddStatements(statements);
+                method.AddStatement(ExecutionPhases.Persistence, dataAccess.AddEntity(entityVariableName).SeparatedFromPrevious());
 
                 _csharpMapping.SetFromReplacement(interaction, entityVariableName);
                 _csharpMapping.SetFromReplacement(entity, entityVariableName);
                 _csharpMapping.SetToReplacement(interaction, entityVariableName);
                 _csharpMapping.SetToReplacement(entity, entityVariableName);
 
-                method.AddStatements(statements);
                 if (interaction.OtherEnd().TypeReference.Element.TypeReference.Element != null)
                 {
                     method.AddSaveChangesStatements(interaction.OtherEnd().TypeReference.Element.TypeReference);
