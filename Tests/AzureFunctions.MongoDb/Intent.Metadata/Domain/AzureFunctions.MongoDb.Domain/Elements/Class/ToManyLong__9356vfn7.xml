@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d67eb383-d713-4fe8-ae0d-09a00295e984" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>ToManyLong</name>
+  <display>ToManyLong</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c04b6919-8c4c-436e-ac35-467f6fb5d763</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="af9d1d62-2d13-43ce-8f52-fcd03e7e32ab" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: long</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5addd0d9-f108-431a-bc0b-6b35a0a20eab">
+        <typeId>33013006-E404-48C2-AC46-24EF5A5774FD</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>d67eb383-d713-4fe8-ae0d-09a00295e984</parentFolderId>
+      <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+      <packageName>AzureFunctions.MongoDb.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

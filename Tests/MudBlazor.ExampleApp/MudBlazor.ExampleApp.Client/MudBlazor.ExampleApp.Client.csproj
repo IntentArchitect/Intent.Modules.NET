@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.16" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.5" />
-    <PackageReference Include="MudBlazor" Version="8.6.0" />
+    <PackageReference Include="MudBlazor" Version="8.7.0" />
   </ItemGroup>
 
   <ItemGroup>

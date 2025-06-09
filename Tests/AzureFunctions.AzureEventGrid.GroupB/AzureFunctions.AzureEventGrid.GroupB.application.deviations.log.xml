@@ -12,7 +12,7 @@
       <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
       <approvedAt>2025-05-29T12:51:38.6042582Z</approvedAt>
       <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
-      <fileHash>D2AEC902643498B60BE2AFF9784C2847638620F93885AF7376B3D7034C0E84ED</fileHash>
+      <fileHash>F2F13DC7FB18E8A1C28D7D1635E3BBECE41294E1513F1B67EC0EA9564B1428BB</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
@@ -26,19 +26,6 @@
       <approvedAt>2025-05-29T12:51:38.6132971Z</approvedAt>
       <deviationsHash>1FC81B0141D0685939607A2157888C4D4154AFBF4664B6C309D06F03ED7EB588</deviationsHash>
       <fileHash>2E045B4D1286564688D5BCBA2330CF6C4421D8153ABF2FD0367AE5EEA9DB78E4</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.AzureEventGrid.AzureEventGridMessageDispatcher</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridMessageDispatcher.cs</path>
-      <count>3</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T08:30:08.3054204Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-05-29T12:51:38.6149102Z</approvedAt>
-      <deviationsHash>B1A64D588978AD3752BD015EC9DFE8111E971039DE5BFB5003082337E5A51D21</deviationsHash>
-      <fileHash>A7E01EBA9A471EDB3A792081612A6021143697E37FA46AE52AF88DDD766A72DF</fileHash>
     </file>
   </files>
 </deviationsLog>

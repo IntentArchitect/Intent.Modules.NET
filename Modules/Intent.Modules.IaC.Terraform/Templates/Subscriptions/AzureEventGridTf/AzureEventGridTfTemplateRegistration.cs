@@ -36,7 +36,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                 .ToArray();
             foreach (var app in apps)
             {
-                if (!IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(app.Id).Any())
+                if (!Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(app.Id).Any())
                 {
                     continue;
                 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="41c6dea9-99ac-4cad-85dd-760bf049ce33">
+  <sourceEnd id="9ab10794-de86-49b4-a7fc-232c6d9e048b" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: DerivedOfT</display>
+    <order>0</order>
+    <typeReference id="bfca421f-88b9-4859-abab-c48bd1ed469f">
+      <typeId>9ba53068-2224-40f6-86bd-18228da8a91a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="41c6dea9-99ac-4cad-85dd-760bf049ce33" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends BaseTypeOfT&lt;int&gt;</display>
+    <order>0</order>
+    <typeReference id="f48b5304-2be8-4b7f-97f8-f4a9be3326fc">
+      <typeId>d42ed6bc-01b7-444b-a566-205e4d58af65</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters>
+        <genericTypeParameter id="a4f330ac-c212-456b-b0c8-97743bba7d44">
+          <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <genericTypeId>e3920fc2-a5f8-45fa-a1f8-012828c89300</genericTypeId>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </genericTypeParameter>
+      </genericTypeParameters>
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

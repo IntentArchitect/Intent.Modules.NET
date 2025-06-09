@@ -15,17 +15,19 @@ namespace AzureFunctions.AzureEventGrid.Application.IntegrationEvents.EventHandl
     public class ClientCreatedEventHandler : IIntegrationEventHandler<ClientCreatedEvent>
     {
         private readonly ILogger<ClientCreatedEventHandler> _logger;
+        private readonly IEventContext _eventContext;
 
         [IntentManaged(Mode.Merge)]
-        public ClientCreatedEventHandler(ILogger<ClientCreatedEventHandler> logger)
+        public ClientCreatedEventHandler(ILogger<ClientCreatedEventHandler> logger, IEventContext eventContext)
         {
             _logger = logger;
+            _eventContext = eventContext;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(ClientCreatedEvent message, CancellationToken cancellationToken = default)
         {
-            _logger.LogInformation("Received: {Message}", message);
+            _logger.LogInformation("Received: {Message}, Data: {Data}", message, _eventContext.AdditionalData);
         }
     }
 }

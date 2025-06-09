@@ -158,5 +158,6 @@
     <application id="0383bf92-fdf9-4f70-99fc-3db21db75e11" name="Infrastructure.Terraform" relativePath="Infrastructure.Terraform/Infrastructure.Terraform.application.config" />
     <application id="6aa59527-73f3-4d76-9157-7dd26fe48db3" name="AspNetCore.AzureServiceBus.GroupA" relativePath="AspNetCore.AzureServiceBus.GroupA/AspNetCore.AzureServiceBus.GroupA.application.config" />
     <application id="16bf1a1d-fd8e-4797-a81e-bbe58bf9cc08" name="AspNetCore.AzureServiceBus.GroupB" relativePath="AspNetCore.AzureServiceBus.GroupB/AspNetCore.AzureServiceBus.GroupB.application.config" />
+    <application id="5a489c24-afd9-43d1-bb80-25be7266b05c" name="AzureFunctions.MongoDb" relativePath="AzureFunctions.MongoDb/AzureFunctions.MongoDb.application.config" />
   </applications>
 </solution>

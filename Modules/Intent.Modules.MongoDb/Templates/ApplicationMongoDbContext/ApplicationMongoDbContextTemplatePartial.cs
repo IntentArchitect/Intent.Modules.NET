@@ -186,13 +186,18 @@ namespace Intent.Modules.MongoDb.Templates.ApplicationMongoDbContext
             return $"entity.{GetMapPathExpression(index)}";
         }
 
-        private static string GetMapPathExpression(DocumentStoreIndexModel index)
+        private string GetMapPathExpression(DocumentStoreIndexModel index)
         {
             return string.Join(".", GetMapPathExpression(index.Fields[0]));
         }
 
-        private static string GetMapPathExpression(IndexFieldModel field)
+        private string GetMapPathExpression(IndexFieldModel field)
         {
+            if (field.InternalElement.MappedElement.Path.Any(x => x.Element.AsAssociationEndModel()?.IsCollection == true))
+            {
+                AddUsing("System.Linq");
+            }
+
             return string.Join(".", field.InternalElement.MappedElement.Path
                 .Select(x => $"{x.Name}{(x.Element.AsAssociationEndModel()?.IsCollection == true ? ".First()" : string.Empty)}"));
         }

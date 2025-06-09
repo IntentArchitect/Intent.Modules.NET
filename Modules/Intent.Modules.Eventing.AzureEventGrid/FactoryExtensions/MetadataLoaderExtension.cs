@@ -2,6 +2,7 @@ using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 

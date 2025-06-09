@@ -8,8 +8,9 @@ data "azurerm_eventgrid_topic" "client_created_event" {
 }
 
 resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_b" {
-  name                 = "client-created-event-sub"
-  scope                = data.azurerm_eventgrid_topic.client_created_event.id
+  name                  = "client-created-event-sub"
+  scope                 = data.azurerm_eventgrid_topic.client_created_event.id
+  event_delivery_schema = "CloudEventSchemaV1_0"
 
   azure_function_endpoint {
     function_id                       = "${var.azure_functions_azure_event_grid_group_b_id}/functions/ClientCreatedEventConsumer"
@@ -17,5 +18,5 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
     preferred_batch_size_in_kilobytes = 64
   }
 
-  included_event_types = [ "AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.ClientCreatedEvent" ]
+  included_event_types  = [ "AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages.ClientCreatedEvent" ]
 }

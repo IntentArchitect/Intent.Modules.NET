@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0984b417-793e-40a1-8a1c-1e45859f0cbf" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>TextIndexEntitySingleChild</name>
+  <display>TextIndexEntitySingleChild</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>066f2c65-ff37-4306-a8f9-2c9f6ecea740</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="8b2c3ea5-6e97-4c80-b470-c90b0ce6a58a" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>FullText</name>
+      <display>FullText: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9a391795-76e1-4c6a-8878-cad85c9c18df">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0984b417-793e-40a1-8a1c-1e45859f0cbf</parentFolderId>
+      <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+      <packageName>AzureFunctions.MongoDb.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

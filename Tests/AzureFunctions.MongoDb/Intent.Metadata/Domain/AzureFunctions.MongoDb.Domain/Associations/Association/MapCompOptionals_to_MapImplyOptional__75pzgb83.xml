@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b1dff267-228e-4586-96cb-2abc874822b5">
+  <sourceEnd id="eb10f5c9-7a05-4441-894d-3163d14ca4f9" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapCompOptionals</name>
+    <display>MapCompOptionals: MapCompOptional[*]</display>
+    <order>0</order>
+    <typeReference id="5f608150-446f-4a12-bbfb-39f3bef99c46">
+      <typeId>6f023d45-d665-4d51-b82e-c21142f5f43e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b1dff267-228e-4586-96cb-2abc874822b5" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapImplyOptional</name>
+    <display>MapImplyOptional: MapImplyOptional</display>
+    <order>2</order>
+    <typeReference id="e9a39f6d-f9c1-4814-8534-fe4b803d41f7">
+      <typeId>7e1d7321-9217-4451-b9f4-69bb7fa8e143</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

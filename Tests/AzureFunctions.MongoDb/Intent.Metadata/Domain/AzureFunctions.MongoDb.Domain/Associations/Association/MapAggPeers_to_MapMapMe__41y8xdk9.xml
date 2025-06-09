@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="46c7c83a-e9c8-4b07-999b-db4699cbf87e">
+  <sourceEnd id="54854cea-fb77-410b-b66b-3d656e16c50c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapAggPeers</name>
+    <display>MapAggPeers: MapAggPeer[*]</display>
+    <order>0</order>
+    <typeReference id="877a2ad7-7080-476f-99fa-a3e167abf405">
+      <typeId>f5b9a2e5-0fac-4720-ac7c-f80aca732e1e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="46c7c83a-e9c8-4b07-999b-db4699cbf87e" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapMapMe</name>
+    <display>MapMapMe: MapMapMe</display>
+    <order>6</order>
+    <typeReference id="c0b46ae9-befa-40e4-b77e-265922b4da7a">
+      <typeId>19dba8eb-6e4b-4ff2-bb9d-a66c29bc17fe</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

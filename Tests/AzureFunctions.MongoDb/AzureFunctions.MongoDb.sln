@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{23F2BB4A-154E-449B-BCAC-B4048879E95D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.MongoDb.Api", "AzureFunctions.MongoDb.Api\AzureFunctions.MongoDb.Api.csproj", "{CA9E32AD-791E-4266-935B-29822353DE51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BCDB5D33-85ED-491F-8DC9-C270A52814C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.MongoDb.Application", "AzureFunctions.MongoDb.Application\AzureFunctions.MongoDb.Application.csproj", "{7FE75B1F-709E-446F-8567-DFBB4AC89818}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{847FD094-0E79-45F3-9AA2-E2CE2265309A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.MongoDb.Domain", "AzureFunctions.MongoDb.Domain\AzureFunctions.MongoDb.Domain.csproj", "{12E1926F-900B-4BD5-88F5-8DC190B301A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F2A59DFA-CAE2-4213-BE72-AA8B2BEA87E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctions.MongoDb.Infrastructure", "AzureFunctions.MongoDb.Infrastructure\AzureFunctions.MongoDb.Infrastructure.csproj", "{EB158201-8BBA-437E-B9E7-7DAB6730DB05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA9E32AD-791E-4266-935B-29822353DE51} = {23F2BB4A-154E-449B-BCAC-B4048879E95D}
+		{7FE75B1F-709E-446F-8567-DFBB4AC89818} = {BCDB5D33-85ED-491F-8DC9-C270A52814C7}
+		{12E1926F-900B-4BD5-88F5-8DC190B301A9} = {847FD094-0E79-45F3-9AA2-E2CE2265309A}
+		{EB158201-8BBA-437E-B9E7-7DAB6730DB05} = {F2A59DFA-CAE2-4213-BE72-AA8B2BEA87E1}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA9E32AD-791E-4266-935B-29822353DE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9E32AD-791E-4266-935B-29822353DE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9E32AD-791E-4266-935B-29822353DE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9E32AD-791E-4266-935B-29822353DE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE75B1F-709E-446F-8567-DFBB4AC89818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE75B1F-709E-446F-8567-DFBB4AC89818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE75B1F-709E-446F-8567-DFBB4AC89818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE75B1F-709E-446F-8567-DFBB4AC89818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12E1926F-900B-4BD5-88F5-8DC190B301A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E1926F-900B-4BD5-88F5-8DC190B301A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E1926F-900B-4BD5-88F5-8DC190B301A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E1926F-900B-4BD5-88F5-8DC190B301A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB158201-8BBA-437E-B9E7-7DAB6730DB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB158201-8BBA-437E-B9E7-7DAB6730DB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB158201-8BBA-437E-B9E7-7DAB6730DB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB158201-8BBA-437E-B9E7-7DAB6730DB05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

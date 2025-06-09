@@ -186,6 +186,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Eventing/IEventContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEventContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a5c87525-4c85-4ddb-81f2-735c1e5a60e9</ProjectId>
       <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
@@ -520,18 +528,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>d24f1076-b086-431b-bf5f-b6d56a0ad534</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.PublisherOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/PublisherOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/AzureEventGridPublisherOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridPublisherOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d24f1076-b086-431b-bf5f-b6d56a0ad534</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureEventGrid.SubscriptionOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/SubscriptionOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Configuration/AzureEventGridSubscriptionOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridSubscriptionOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -540,6 +548,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/DependencyInjection.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>caf74bc6-6e01-4867-8b08-87e0d6930e87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridBehavior</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/AzureEventGridBehavior.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridBehavior.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>caf74bc6-6e01-4867-8b08-87e0d6930e87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.AzureEventGridPipeline</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/AzureEventGridPipeline.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureEventGridPipeline.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>caf74bc6-6e01-4867-8b08-87e0d6930e87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridBehaviors/InboundCloudEventBehavior.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InboundCloudEventBehavior.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -556,6 +588,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/AzureEventGridMessageDispatcher.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridMessageDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a84caf03-590f-4ac6-a81b-d2fa75771f31</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.EventContext</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Infrastructure/Eventing/EventContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventContext.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

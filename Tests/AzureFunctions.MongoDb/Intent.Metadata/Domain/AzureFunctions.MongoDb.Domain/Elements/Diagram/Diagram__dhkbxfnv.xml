@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="1c67e4b4-74d6-4f17-b0f5-4d6b0daeb12b" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Diagram</name>
+  <display>Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c04b6919-8c4c-436e-ac35-467f6fb5d763</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
+  <diagram>
+    <targetPackageId>f6f056ad-635c-4da4-a1ed-871c5213f8b0</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

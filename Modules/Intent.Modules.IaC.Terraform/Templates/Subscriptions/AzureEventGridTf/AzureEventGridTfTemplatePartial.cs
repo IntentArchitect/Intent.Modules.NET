@@ -52,7 +52,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
             var appIdRef = $"{_sanitizedApplicationName.ToSnakeCase()}_id";
             builder.AddVariable(appIdRef, var => var.AddRawSetting("type", "string"));
 
-            var topicSubscriptions = IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(Model.Id)
+            var topicSubscriptions = Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(Model.Id)
                 .GroupBy(k => k.SubscriptionItem.TopicName);
             foreach (var topicSubscription in topicSubscriptions)
             {
@@ -68,6 +68,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                 {
                     resource.AddSetting("name", $"{subscription.SubscriptionItem.TopicName.ToKebabCase()}-sub");
                     resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.type}.{topicNameRef}.id");
+                    resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
                     resource.AddBlock("azure_function_endpoint", b =>
                     {
                         b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
@@ -119,12 +120,12 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
             return functionName;
         }
-        
+
         private bool SimpleFunctionNames()
         {
             const string azureFunctionsSettingsGroup = "90437e3f-cb10-4e44-b229-cc30c4807bea";
             const string simpleFunctionNamesSetting = "ff298d6c-705b-41d9-9286-be85480a0abd";
-            
+
             var value = ExecutionContext.GetApplicationConfig(Model.Id).ModuleSetting
                 .FirstOrDefault(x => x.Id == azureFunctionsSettingsGroup)?.GetSetting(simpleFunctionNamesSetting)?.Value;
             bool.TryParse(value, out var result);

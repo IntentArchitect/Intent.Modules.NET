@@ -25,7 +25,12 @@
   </ItemGroup>
 
   <Import Project="..\Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\MessageModelStereotypeExtensions.cs" Link="AzureEventGridApi\MessageModelStereotypeExtensions.cs" />
+  </ItemGroup>
+
+  <Import Project="..\Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.projitems" Label="Shared" />
   <Import Project="..\Intent.Modules.UnitOfWork.Persistence.Shared\Intent.Modules.UnitOfWork.Persistence.Shared.projitems" Label="Shared" />
-  <Import Project="..\Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems" Label="Shared" />
 
 </Project>

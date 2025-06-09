@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>80f5653b-3622-4253-ab64-bb55de49d761</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AzureEventGrid</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AzureEventGridMethodType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IntegrationManager.cs" />
+  </ItemGroup>
+</Project>
