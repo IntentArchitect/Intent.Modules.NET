@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="561cfe0d-9204-47a6-8a2f-935d5de98d35">
+  <sourceEnd id="e642ade1-aaa9-42e1-abba-f89fc1dcb17c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>TextIndexEntitySingleParent</name>
+    <display>TextIndexEntitySingleParent: TextIndexEntitySingleParent</display>
+    <order>0</order>
+    <typeReference id="71e98597-318d-415f-878b-be81d904e071">
+      <typeId>2383c45a-0afa-4142-ac30-23eedc578b95</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="561cfe0d-9204-47a6-8a2f-935d5de98d35" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>TextIndexEntitySingleChild</name>
+    <display>TextIndexEntitySingleChild: TextIndexEntitySingleChild</display>
+    <order>2</order>
+    <typeReference id="2d48e5a9-310e-4e8f-b034-2e2dcdd3292f">
+      <typeId>0984b417-793e-40a1-8a1c-1e45859f0cbf</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

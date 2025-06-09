@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>65792618-171d-4fb9-a0e3-cf2a06efc463</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
   <diagram>
     <targetPackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</targetPackageId>
   </diagram>

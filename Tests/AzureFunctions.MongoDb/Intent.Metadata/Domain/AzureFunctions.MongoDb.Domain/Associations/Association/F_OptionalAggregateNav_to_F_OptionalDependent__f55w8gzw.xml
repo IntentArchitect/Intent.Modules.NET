@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c36985be-53f4-44ec-b5c3-2eeb36d32916">
+  <sourceEnd id="da59b739-f6e7-4bc8-81a1-20ec9b929470" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>F_OptionalAggregateNav</name>
+    <display>F_OptionalAggregateNav: F_OptionalAggregateNav?</display>
+    <order>3</order>
+    <typeReference id="fd517e29-ccaa-434f-a15a-35c5d20f1963">
+      <typeId>bbe01ef2-8f01-4aeb-85b0-ca6f22f71a4f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c36985be-53f4-44ec-b5c3-2eeb36d32916" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>F_OptionalDependent</name>
+    <display>F_OptionalDependent: F_OptionalDependent?</display>
+    <order>3</order>
+    <typeReference id="e1b1f9f6-503c-459c-a20a-00bba6f9f6c2">
+      <typeId>938a40a6-b645-4a83-8d14-b4d1db9ffa46</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

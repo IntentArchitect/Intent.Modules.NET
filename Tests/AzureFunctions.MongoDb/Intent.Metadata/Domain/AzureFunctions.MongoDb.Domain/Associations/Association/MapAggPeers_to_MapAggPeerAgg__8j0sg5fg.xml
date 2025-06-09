@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d1a43b7b-bc1d-4405-b23c-048685c126b8">
+  <sourceEnd id="9ce69267-16d3-4ef9-b153-afe05ca9e149" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapAggPeers</name>
+    <display>MapAggPeers: MapAggPeer[*]</display>
+    <order>0</order>
+    <typeReference id="59e1f321-2315-49d0-8a91-ab71c7d51f47">
+      <typeId>f5b9a2e5-0fac-4720-ac7c-f80aca732e1e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d1a43b7b-bc1d-4405-b23c-048685c126b8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapAggPeerAgg</name>
+    <display>MapAggPeerAgg: MapAggPeerAgg</display>
+    <order>5</order>
+    <typeReference id="423ef8fb-a73b-4e5c-a2bd-7bf275b4fdad">
+      <typeId>94264039-a5ce-49f1-9927-304a755a8781</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

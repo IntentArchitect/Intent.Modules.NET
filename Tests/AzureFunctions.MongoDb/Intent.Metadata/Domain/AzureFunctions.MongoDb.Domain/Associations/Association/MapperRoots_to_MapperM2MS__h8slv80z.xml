@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="574324dd-2b7a-46ad-bdde-9780d46463db">
+  <sourceEnd id="ca626ab2-c937-45bf-9515-86693bdcc4c3" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapperRoots</name>
+    <display>MapperRoots: MapperRoot[*]</display>
+    <order>0</order>
+    <typeReference id="7817693c-fece-40c9-96aa-5b44582da296">
+      <typeId>0a2df6d3-bfb0-4c1e-8631-6285bbe0892b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="574324dd-2b7a-46ad-bdde-9780d46463db" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapperM2MS</name>
+    <display>MapperM2MS: MapperM2M[*]</display>
+    <order>9</order>
+    <typeReference id="7a9775d3-d529-42bd-b9f4-2ade24cd83a7">
+      <typeId>a2a2c652-e89f-49bf-a61b-bb9a4a2d340c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

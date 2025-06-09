@@ -2,6 +2,7 @@
 
 - Improvement: Updated NuGet package versions.
 - Fixed: Had a hard dependency against the module `Intent.AspNetCore`.
+- Fixed: Missed introduction of `System.Linq` using directive in DbContext.
 
 ### Version 1.0.22
 
