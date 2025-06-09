@@ -484,6 +484,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>17100853-a557-46b5-ad5b-43665cc2099d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Application/Common/Interfaces/DistributedCacheExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DistributedCacheExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>17100853-a557-46b5-ad5b-43665cc2099d</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Application/Common/Interfaces/ICommand.cs</ApplicationRelativeFilePath>
@@ -496,6 +504,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICurrentUserService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>17100853-a557-46b5-ad5b-43665cc2099d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Application/Common/Interfaces/IDistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IDistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1624,6 +1640,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Infrastructure/AzureFunctions.NET6.Infrastructure.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureFunctions.NET6.Infrastructure.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>3b72d144-acf1-4aa5-ac0f-da66c9102539</ProjectId>
+      <CorrelationId>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWork</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>../AzureFunctions.NET6/AzureFunctions.NET6.Infrastructure/Caching/DistributedCacheWithUnitOfWork.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>DistributedCacheWithUnitOfWork.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

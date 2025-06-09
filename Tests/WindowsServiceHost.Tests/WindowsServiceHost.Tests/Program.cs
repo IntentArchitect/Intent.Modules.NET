@@ -5,6 +5,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.Extensions.Logging.EventLog;
+using WindowsServiceHost.Tests.Caching;
+using WindowsServiceHost.Tests.Common.Interfaces;
 using WindowsServiceHost.Tests.Configuration;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -33,6 +35,7 @@ namespace WindowsServiceHost.Tests
             builder.Services.AddHostedService<WindowsBackgroundService>();
 
             // Add services to the container.
+            builder.Services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
 
             var app = builder.Build();
 

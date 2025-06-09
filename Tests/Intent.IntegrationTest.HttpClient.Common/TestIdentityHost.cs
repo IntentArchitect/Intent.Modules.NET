@@ -1,4 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
+using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Infrastructure.Caching;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -55,6 +57,10 @@ public static class TestIdentityHost
                 {
                     services.AddLogging((builder) => builder.AddXUnit(outputHelper));
                 }
+
+                services.AddDistributedMemoryCache();
+                services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
+                services.AddSingleton<Standard.AspNetCore.TestApplication.Application.Common.Interfaces.IDistributedCacheWithUnitOfWork, Standard.AspNetCore.TestApplication.Infrastructure.Caching.DistributedCacheWithUnitOfWork>();
             })
             .Configure((app) =>
             {

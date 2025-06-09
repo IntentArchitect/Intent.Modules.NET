@@ -7,6 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProxyServiceTests.Proxy.TMS.Application.Common.Interfaces;
 using ProxyServiceTests.Proxy.TMS.Application.Common.Validation;
 using ProxyServiceTests.Proxy.TMS.Application.Interfaces;
 using ProxyServiceTests.Proxy.TMS.Domain.Common.Interfaces;
@@ -22,11 +23,15 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
     public class DeleteAccountsController : ControllerBase
     {
         private readonly IDeleteAccountsService _appService;
+        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteAccountsController(IDeleteAccountsService appService, IUnitOfWork unitOfWork)
+        public DeleteAccountsController(IDeleteAccountsService appService,
+            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
+            IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -44,12 +49,17 @@ namespace ProxyServiceTests.Proxy.TMS.Api.Controllers
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                await _appService.DeleteAccountCommand(id, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.DeleteAccountCommand(id, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             return Ok();
         }

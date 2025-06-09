@@ -79,5 +79,33 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="ca98a578-9599-46dc-b8ea-e39a24f77c20" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface</name>
+      <display>Intent.AspNetCore.DistributedCaching.DistributedCacheWithUnitOfWorkInterface</display>
+      <externalReference>Intent.AspNetCore.DistributedCaching</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>81d0c9d8-db41-4f16-936d-1d198b25bcb0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2825b85a-47c2-459b-96ad-5b399e7c3c10" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions</name>
+      <display>Intent.AspNetCore.DistributedCaching.IDistributedCacheExtensions</display>
+      <externalReference>Intent.AspNetCore.DistributedCaching</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>81d0c9d8-db41-4f16-936d-1d198b25bcb0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>
