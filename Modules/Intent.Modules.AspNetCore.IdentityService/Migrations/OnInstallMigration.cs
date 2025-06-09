@@ -238,7 +238,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                 new List<ElementPersistable>
                                 {
 
-                                }),
+                                }, true),
                                 CreateEndpoint(loginEndpointId, "LoginAsync", "LoginAsync(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id,accessTokenResponseDtoId), new List<StereotypePropertyPersistable>
                                 {
@@ -449,7 +449,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         })
                                     }
                                     )))
-                                }),
+                                }, true),
                                 CreateEndpoint(updateTwoFactorEndpointId, "UpdateTwoFactorAsync", "UpdateTwoFactorAsync(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, CreateDto(package, "d26e5694-d249-43c8-95c9-2621a85b6ca4", "TwoFactorResponseDto",
                                 "TwoFactorResponseDto", identityFolderId, new List<ElementPersistable>
@@ -513,7 +513,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                                 CreateValidationsStereotype(true, false)
                                             })
                                         })))
-                                })
+                                }, true)
                             }
                         });
 
@@ -596,9 +596,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
         }
 
         private ElementPersistable CreateEndpoint(string id, string name, string display, string parentFolderId, string packageId, string packageName,
-            TypeReferencePersistable typeReference, List<StereotypePropertyPersistable> httpSettingsProperties, List<ElementPersistable> inParameters)
+            TypeReferencePersistable typeReference, List<StereotypePropertyPersistable> httpSettingsProperties, List<ElementPersistable> inParameters,
+            bool isSecure = false)
         {
-            return new ElementPersistable
+            var endpoint = new ElementPersistable
             {
                 Id = id,
                 SpecializationType = "Operation",
@@ -642,6 +643,26 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                 },
                 ChildElements = inParameters
             };
+
+            if (isSecure)
+            {
+                endpoint.Stereotypes.Add(new StereotypePersistable
+                {
+                    DefinitionId = "a9eade71-1d56-4be7-a80c-81046c0c978b",
+                    DefinitionPackageId = "a6fa1088-0064-43e3-a7fc-36c97b2b9285",
+                    DefinitionPackageName = "Intent.Metadata.Security",
+                    Name = "Secured",
+                    Properties = new List<StereotypePropertyPersistable>
+                    {
+                        new StereotypePropertyPersistable { DefinitionId = "2b39acef-6079-48c9-b85e-2b0981f9de70", Name = "Roles", IsActive = true},
+                        new StereotypePropertyPersistable { DefinitionId = "ae5251ff-40a1-4e46-be66-6b176f329f98", Name = "Policy", IsActive = true},
+                        new StereotypePropertyPersistable { DefinitionId = "28bbe8bb-8d31-44c7-b642-ff0e279ab85f", Name = "Security Roles", IsActive = false},
+                        new StereotypePropertyPersistable { DefinitionId = "68cbcd05-cd5c-49f3-a982-8ee9caf554bb", Name = "Security Policies", IsActive = false}
+                    }
+                });
+            }
+
+            return endpoint;
         }
 
         private ElementPersistable CreateInParameter(string id, string name, string display, string parentFolderId, string packageId, string packageName,

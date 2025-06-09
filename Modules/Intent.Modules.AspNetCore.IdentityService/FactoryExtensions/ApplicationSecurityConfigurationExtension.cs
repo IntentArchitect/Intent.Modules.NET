@@ -1,4 +1,3 @@
-using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender;
@@ -14,6 +13,8 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using System;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -51,6 +52,22 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 method.FindStatement(s => s.Text == "services.AddSingleton<ICurrentUserService, CurrentUserService>();").InsertBelow(ConfigureIdentityServiceManager(file, dbContextTemplate));
 
                 var lastConfigStatement = method.FindStatement(s => s.HasMetadata("add-authentication")) as CSharpStatement;
+                var optionsLambdaBlock = (((method.FindStatement(s => s.HasMetadata("add-authentication")) as CSharpMethodChainStatement).Statements.First() as CSharpInvocationStatement).Statements.Last() as CSharpLambdaBlock);
+                optionsLambdaBlock.Statements.Clear();
+
+                optionsLambdaBlock.Statements.Add(new CSharpStatement("options.Audience = configuration[\"JwtToken:Audience\"];"));
+                
+                var tokenValidationParameters = new CSharpObjectInitializerBlock("options.TokenValidationParameters = new TokenValidationParameters");
+                tokenValidationParameters.AddInitStatement("ValidateIssuer", "true");
+                tokenValidationParameters.AddInitStatement("ValidIssuer", "configuration[\"JwtToken:Issuer\"]");
+                tokenValidationParameters.AddInitStatement("ValidateAudience", "true");
+                tokenValidationParameters.AddInitStatement("ValidAudience", "configuration[\"JwtToken:Audience\"]");
+                tokenValidationParameters.AddInitStatement("ValidateIssuerSigningKey", "true");
+                tokenValidationParameters.AddInitStatement("IssuerSigningKey", "new SymmetricSecurityKey(Convert.FromBase64String(configuration[\"JwtToken:SigningKey\"]))");
+                tokenValidationParameters.AddInitStatement("RoleClaimType", "\"role\"").WithSemicolon();
+
+                optionsLambdaBlock.Statements.Add(tokenValidationParameters);
+                optionsLambdaBlock.Statements.Add(new CSharpStatement("options.SaveToken = true;"));
                 lastConfigStatement.FindAndReplace("JwtBearerDefaults.AuthenticationScheme", "options =>" +
                     "{" +
                         "options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;" +

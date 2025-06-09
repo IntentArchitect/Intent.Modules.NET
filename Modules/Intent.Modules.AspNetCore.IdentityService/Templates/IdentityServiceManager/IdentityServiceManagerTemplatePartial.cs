@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
@@ -13,6 +10,10 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -36,6 +37,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                 .AddUsing("System.Text.Encodings.Web")
                 .AddUsing("System.Text")
                 .AddUsing("System.Diagnostics")
+                .AddUsing("System.IdentityModel.Tokens.Jwt")
+                .AddUsing("System.Security.Claims")
                 .AddClass($"IdentityServiceManager", @class =>
                 {
                     GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
@@ -196,6 +199,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
 
                         m.AddStatement("var claims = await _userManager.GetClaimsAsync(user);");
+
+                        m.AddIfStatement("!claims.Any(c => c.Type == JwtRegisteredClaimNames.Sub)", i =>
+                        {
+                            i.AddStatement("claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));");
+                        });
+
                         m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
                         m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
 
@@ -235,6 +244,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
 
                         m.AddStatement("var claims = await _userManager.GetClaimsAsync(user);");
+
+                        m.AddIfStatement("!claims.Any(c => c.Type == JwtRegisteredClaimNames.Sub)", i =>
+                        {
+                            i.AddStatement("claims.Add(new Claim(JwtRegisteredClaimNames.Sub, user.Id));");
+                        });
+
                         m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
                         m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
 

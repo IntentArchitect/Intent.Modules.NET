@@ -1,14 +1,15 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.IdentityService.Templates.TokenServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -36,6 +37,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.TokenService
                 .AddUsing("Microsoft.IdentityModel.Tokens")
                 .AddClass($"TokenService", @class =>
                 {
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Issuer", "https://localhost:{sts_port}"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Audience", "api"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:SigningKey", "Base64EncodedSuperSecureSymetricKey"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:AuthTokenExpiryTimeSpan", "02:00:00"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:RefreshTokenExpiryTimeSpan", "3.00:00:00"));
+
                     @class.ImplementsInterface(this.GetTokenServiceInterfaceName());
 
                     @class.AddField("IDataProtector", "_protector", f => f.PrivateReadOnly());

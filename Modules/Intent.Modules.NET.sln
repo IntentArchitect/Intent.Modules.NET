@@ -1246,8 +1246,6 @@ Global
 		Intent.Modules.Enums.Shared\Intent.Modules.Enums.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Integration.HttpClients.Shared\Intent.Modules.Integration.HttpClients.Shared.projitems*{677abc38-c23b-4ca4-9117-f470dd3ea997}*SharedItemsImports = 5
 		Intent.Modules.Application.DomainInteractions\Intent.Modules.Application.DomainInteractions.projitems*{6eec0527-206c-4437-b8d7-8e1d6ede530f}*SharedItemsImports = 13
-		Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems*{76452c1d-da77-4b8e-a5c2-b8b3a1a315ba}*SharedItemsImports = 5
-		Intent.Modules.Integration.IaC.Shared.AzureServiceBus\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.projitems*{76452c1d-da77-4b8e-a5c2-b8b3a1a315ba}*SharedItemsImports = 5
 		Intent.Modules.EntityFrameworkCore.Shared\Intent.Modules.EntityFrameworkCore.Shared.projitems*{7b7833a2-dc67-45e4-9d2f-6b7093ae1dc6}*SharedItemsImports = 5
 		Intent.Modules.Security.Shared\Intent.Modules.Security.Shared.projitems*{80081361-cc7d-430c-8861-8b2ac9d6e8a7}*SharedItemsImports = 5
 		Intent.Modules.Integration.IaC.Shared.AzureEventGrid\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.projitems*{80f5653b-3622-4253-ab64-bb55de49d761}*SharedItemsImports = 13
@@ -1305,6 +1303,5 @@ Global
 		Intent.Modules.Contracts.Clients.Shared\Intent.Modules.Contracts.Clients.Shared.projitems*{f2d877d3-cbe3-4165-853e-8dc4461b9b5d}*SharedItemsImports = 13
 		Intent.Modules.Application.Shared\Intent.Modules.Application.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
 		Intent.Modules.FluentValidation.Shared\Intent.Modules.FluentValidation.Shared.projitems*{f70df819-b1a1-460c-ad99-567cf48a1a99}*SharedItemsImports = 5
-		Intent.Modules.Integration.IaC.Shared\Intent.Modules.Integration.IaC.Shared.projitems*{fdb2a66d-cabe-4cc0-9f2f-9037a7d8efa5}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
