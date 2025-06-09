@@ -1,5 +1,7 @@
+using AspNetCore.Controllers.Secured.Application.Common.Interfaces;
 using AspNetCore.Controllers.Secured.Domain.Common.Interfaces;
 using AspNetCore.Controllers.Secured.Domain.Repositories;
+using AspNetCore.Controllers.Secured.Infrastructure.Caching;
 using AspNetCore.Controllers.Secured.Infrastructure.Configuration;
 using AspNetCore.Controllers.Secured.Infrastructure.Persistence;
 using AspNetCore.Controllers.Secured.Infrastructure.Repositories;
@@ -22,6 +24,8 @@ namespace AspNetCore.Controllers.Secured.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddDistributedMemoryCache();
+            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IBuyerRepository, BuyerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();

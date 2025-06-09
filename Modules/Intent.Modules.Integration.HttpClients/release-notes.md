@@ -1,3 +1,7 @@
+### Version 6.0.1
+
+Fixed: Wouldn't start up due to missing an IDistributedCache registration. Added dependency on Intent.AspNetCore.DistributedCaching.
+
 ### Version 6.0.0
 
 > ⚠️ **Breaking Change Notice**
