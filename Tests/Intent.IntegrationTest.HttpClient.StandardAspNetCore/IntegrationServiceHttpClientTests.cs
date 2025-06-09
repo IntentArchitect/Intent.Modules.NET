@@ -1,4 +1,6 @@
-﻿using IdentityServer4.Models;
+﻿using CleanArchitecture.Comprehensive.Application.Common.Interfaces;
+using CleanArchitecture.Comprehensive.Infrastructure.Caching;
+using IdentityServer4.Models;
 using Intent.IntegrationTest.HttpClient.Common;
 using Intent.IntegrationTest.HttpClient.StandardAspNetCore.TestUtils;
 using Microsoft.Extensions.DependencyInjection;
@@ -181,10 +183,13 @@ public class IntegrationServiceHttpClientTests
     private static Action<IServiceCollection> GetDiServices()
     {
         var serviceMock = new IntegrationService();
+
         var mockUnitOfWork = new MockUnitOfWork();
         return x => x.AddTransient<Standard.AspNetCore.TestApplication.Application.Interfaces.IIntegrationService>(_ => serviceMock)
                 .AddTransient<IUnitOfWork>(_ => mockUnitOfWork)
                 .AddTransient<IValidationService, ValidationService>()
+                .AddDistributedMemoryCache()
+                .AddSingleton<Standard.AspNetCore.TestApplication.Application.Common.Interfaces.IDistributedCacheWithUnitOfWork, Standard.AspNetCore.TestApplication.Infrastructure.Caching.DistributedCacheWithUnitOfWork>()
                 .ConfigureApiVersioning();
     }
 

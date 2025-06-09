@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bb0fa718-d896-4f86-94fa-7ac001257e0b" type="Comment" typeId="c4c0c77f-720b-4e91-9c48-b58d2164d30a">
+  <name>Single Entities</name>
+  <display>Single Entities</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>066f2c65-ff37-4306-a8f9-2c9f6ecea740</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

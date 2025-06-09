@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="41dff290-0ef7-4119-95d2-d0cd789fe5f0">
+  <sourceEnd id="c9af1b54-d4d6-4cbc-87fb-e941919e2582" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MultikeyIndexEntitySingleParent</name>
+    <display>MultikeyIndexEntitySingleParent: MultikeyIndexEntityMultiParent</display>
+    <order>0</order>
+    <typeReference id="8686e027-12b1-4f00-b69e-c552223e154e">
+      <typeId>1680fec2-1c69-4d06-8213-f4465a66de0a</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="41dff290-0ef7-4119-95d2-d0cd789fe5f0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MultikeyIndexEntityMultiChild</name>
+    <display>MultikeyIndexEntityMultiChild: MultikeyIndexEntityMultiChild[*]</display>
+    <order>2</order>
+    <typeReference id="6a3b3b6f-83cf-4cab-824b-426a2cd0f012">
+      <typeId>b8a8a60c-e07f-4a0d-9802-e07aa8008e6b</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

@@ -9,6 +9,7 @@ using System.Transactions;
 using AdvancedMappingCrud.Repositories.Tests.Api.Controllers.FileTransfer;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Common.Interfaces;
@@ -28,12 +29,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
     public class UploadDownloadController : ControllerBase
     {
         private readonly IUploadDownloadService _appService;
+        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
-        public UploadDownloadController(IUploadDownloadService appService, IUnitOfWork unitOfWork, IEventBus eventBus)
+        public UploadDownloadController(IUploadDownloadService appService,
+            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
+            IUnitOfWork unitOfWork,
+            IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
+            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
@@ -78,12 +84,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             }
             var result = Guid.Empty;
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                result = await _appService.Upload(stream, filename, contentType, contentLength, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    result = await _appService.Upload(stream, filename, contentType, contentLength, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Created(string.Empty, result);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3cf03a1f-d9e2-42d6-9337-268e18e8980d">
+  <sourceEnd id="31a7617e-6b91-47a4-8754-960de87d11ed" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>J_MultipleAggregates</name>
+    <display>J_MultipleAggregates: I_MultipleAggregate[*]</display>
+    <order>0</order>
+    <typeReference id="aa0dd3e1-2e3d-4dea-90a7-7599ed8d1fee">
+      <typeId>c93124ee-3d2d-4a54-bbf1-30e1afc18a84</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3cf03a1f-d9e2-42d6-9337-268e18e8980d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>J_RequiredDependent</name>
+    <display>J_RequiredDependent: I_RequiredDependent</display>
+    <order>3</order>
+    <typeReference id="0e9206c8-a64f-439c-adc8-4a7a67f80cb6">
+      <typeId>c9dc6606-4818-4b39-aec0-292bdd0b8923</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

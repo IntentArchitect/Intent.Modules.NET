@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "CqrsSettings:LogRequestPayload": true,
+    "ConnectionStrings:MongoDbConnection": "mongodb://localhost/AzureFunctionsMongoDb"
+  }
+}

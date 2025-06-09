@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="681e1174-f1a7-4e9a-9603-f0a907c70e8c">
+  <sourceEnd id="4deabb61-df86-416b-9a2c-41f63726ddf2" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>AggregateA</name>
+    <display>AggregateA: AggregateA</display>
+    <order>0</order>
+    <typeReference id="6cbe4fe8-0e9a-46a6-af8b-75bf165301ba">
+      <typeId>6815df99-37d0-4686-be8b-0930887b792c</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="681e1174-f1a7-4e9a-9603-f0a907c70e8c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>NestedCompositionA</name>
+    <display>NestedCompositionA: NestedCompositionA</display>
+    <order>2</order>
+    <typeReference id="5e88e071-4553-48f0-b712-908dbe3bf70e">
+      <typeId>7e8b323a-420d-4e9a-8678-01ed92101a6e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

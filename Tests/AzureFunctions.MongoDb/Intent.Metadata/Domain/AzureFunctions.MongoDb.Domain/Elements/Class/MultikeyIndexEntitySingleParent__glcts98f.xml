@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="cbc925d3-d7a4-4ed1-88e7-cef597ed7f9c" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>MultikeyIndexEntitySingleParent</name>
+  <display>MultikeyIndexEntitySingleParent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>066f2c65-ff37-4306-a8f9-2c9f6ecea740</parentFolderId>
+  <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+  <packageName>AzureFunctions.MongoDb.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="aa9cc4d9-8934-4557-acf1-b97b3119e7dd" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5e204988-b9de-41c7-bf41-7eefd0ec5bcb">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cbc925d3-d7a4-4ed1-88e7-cef597ed7f9c</parentFolderId>
+      <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+      <packageName>AzureFunctions.MongoDb.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="is-managed-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="34474d68-df6b-4ac4-8fb7-5831c1abd541" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>SomeField</name>
+      <display>SomeField: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="b906a042-8983-4697-a94f-3e5a618a99b1">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>cbc925d3-d7a4-4ed1-88e7-cef597ed7f9c</parentFolderId>
+      <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+      <packageName>AzureFunctions.MongoDb.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d0c6372d-9548-44ee-b350-c273873dd447" type="Document Store Index" typeId="fcd2985d-6794-4c0f-a01f-7d278e566b6d">
+      <name>MultikeyIndexEntitySingleParents_MultiKey</name>
+      <display>MultikeyIndexEntitySingleParents_MultiKey</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>manually</sort-children>
+      <genericTypes />
+      <isMapped>true</isMapped>
+      <mappedClass isRoot="true">
+        <applicationId>5a489c24-afd9-43d1-bb80-25be7266b05c</applicationId>
+        <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
+        <mappingSettingsId>f2808fdb-111e-4fdc-857c-9454eac68b92</mappingSettingsId>
+        <autoSyncTypeReference>false</autoSyncTypeReference>
+        <mappedPath>
+          <target id="cbc925d3-d7a4-4ed1-88e7-cef597ed7f9c" name="MultikeyIndexEntitySingleParent" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+        </mappedPath>
+      </mappedClass>
+      <parentFolderId>cbc925d3-d7a4-4ed1-88e7-cef597ed7f9c</parentFolderId>
+      <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+      <packageName>AzureFunctions.MongoDb.Domain</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="a482271c-a3f0-4391-9c9f-98d06d71e85a" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.MongoDb</definitionPackageName>
+          <definitionPackageId>3f385f6e-90c2-4071-bde2-7d8943252fd5</definitionPackageId>
+          <properties>
+            <property name="e337c6cf-38f1-485d-b2c2-df9ecab0979c" display="Use Default Name" value="true" isActive="true" />
+            <property name="3a85c8df-015b-4f56-9505-9eba91459fd4" display="Unique" value="false" isActive="true" />
+            <property name="b101af66-8713-4b15-9844-eab6e6084b3e" display="Sort Order" value="Ascending" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e783c910-7b5f-47fe-b574-87f1bae3f38d" type="Index Field" typeId="e22a4f98-e62c-428c-8fc8-a6523f72d6e6">
+          <name>MultiKey</name>
+          <display>MultiKey</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>true</isMapped>
+          <mappedClass>
+            <mappingSettingsId>f2808fdb-111e-4fdc-857c-9454eac68b92</mappingSettingsId>
+            <autoSyncTypeReference>false</autoSyncTypeReference>
+            <mappedPath>
+              <target id="5b332f98-6611-4644-9bdb-f9ae559aa5c2" name="MultikeyIndexEntitySingleChild" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="e7addf87-3d68-475c-8543-e950fb246bbe" name="MultiKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </mappedPath>
+          </mappedClass>
+          <parentFolderId>d0c6372d-9548-44ee-b350-c273873dd447</parentFolderId>
+          <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+          <packageName>AzureFunctions.MongoDb.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

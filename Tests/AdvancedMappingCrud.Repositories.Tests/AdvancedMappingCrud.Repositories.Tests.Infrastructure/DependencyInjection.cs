@@ -10,6 +10,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.MappingTests;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OData.SimpleKey;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.OperationMapping;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Repositories.ServiceToServiceInvocations;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Caching;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Configuration;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories;
@@ -42,6 +43,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddDistributedMemoryCache();
+            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IServiceStoredProcRepository, ServiceStoredProcRepository>();
             services.AddTransient<IBasicRepository, BasicRepository>();

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c0039718-99a2-4d5c-aec0-b7fa80025bb8">
+  <sourceEnd id="fa230fd3-c74e-485c-bf44-7871a2ce913a" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>J_MultipleAggregates</name>
+    <display>J_MultipleAggregates: K_MultipleAggregateNav[*]</display>
+    <order>3</order>
+    <typeReference id="b80e7c51-62bc-4ba2-8983-0ee1eaddd192">
+      <typeId>dc8172e0-214c-4c4f-8aa4-bb40826e8e6f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c0039718-99a2-4d5c-aec0-b7fa80025bb8" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>J_MultipleDependents</name>
+    <display>J_MultipleDependents: K_MultipleDependent[*]</display>
+    <order>3</order>
+    <typeReference id="491d7d30-1c85-4a73-9f7f-9a579511eb45">
+      <typeId>8633d07b-5a37-4180-acf5-764fcc1ca1fa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

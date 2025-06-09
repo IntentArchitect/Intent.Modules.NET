@@ -21,6 +21,7 @@ using CleanArchitecture.Comprehensive.Domain.Repositories.OperationAndConstructo
 using CleanArchitecture.Comprehensive.Domain.Repositories.Operations;
 using CleanArchitecture.Comprehensive.Domain.Repositories.Pagination;
 using CleanArchitecture.Comprehensive.Domain.Repositories.UniqueIndexConstraint;
+using CleanArchitecture.Comprehensive.Infrastructure.Caching;
 using CleanArchitecture.Comprehensive.Infrastructure.Configuration;
 using CleanArchitecture.Comprehensive.Infrastructure.Persistence;
 using CleanArchitecture.Comprehensive.Infrastructure.Repositories;
@@ -62,6 +63,8 @@ namespace CleanArchitecture.Comprehensive.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddDistributedMemoryCache();
+            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IFinalRepository, FinalRepository>();
             services.AddTransient<IOneRepository, OneRepository>();

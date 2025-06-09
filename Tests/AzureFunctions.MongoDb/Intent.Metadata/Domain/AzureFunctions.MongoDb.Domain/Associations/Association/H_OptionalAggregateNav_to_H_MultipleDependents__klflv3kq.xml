@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f5ef94fe-bc04-491f-81ff-f41f31397988">
+  <sourceEnd id="f234a893-80bb-4e80-a215-c9d43e6b4a52" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>H_OptionalAggregateNav</name>
+    <display>H_OptionalAggregateNav: H_OptionalAggregateNav?</display>
+    <order>3</order>
+    <typeReference id="8e2af646-29ce-4616-89b9-779df0daf1d5">
+      <typeId>6a29cc9e-d989-4fd7-8e28-61dfce3a6e08</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f5ef94fe-bc04-491f-81ff-f41f31397988" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>H_MultipleDependents</name>
+    <display>H_MultipleDependents: H_MultipleDependent[*]</display>
+    <order>3</order>
+    <typeReference id="c9639aed-3e7b-4556-a9f8-a6b0ac0d8087">
+      <typeId>47315bde-bf1a-4fa6-b25a-dda52c78e583</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

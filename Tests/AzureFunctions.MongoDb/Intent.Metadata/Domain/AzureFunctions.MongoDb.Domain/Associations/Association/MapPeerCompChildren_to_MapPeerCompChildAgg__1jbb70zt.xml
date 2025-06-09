@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="05b61716-8112-4860-a8b6-3f1e75146b5a">
+  <sourceEnd id="51686b5e-a2ea-4b3b-b20c-81c637956679" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>MapPeerCompChildren</name>
+    <display>MapPeerCompChildren: MapPeerCompChild[*]</display>
+    <order>0</order>
+    <typeReference id="dc461d04-7574-4d1e-bb43-dbe25137924d">
+      <typeId>a9200d66-9ab3-49e9-b992-50936b48ec10</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="05b61716-8112-4860-a8b6-3f1e75146b5a" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>MapPeerCompChildAgg</name>
+    <display>MapPeerCompChildAgg: MapPeerCompChildAgg</display>
+    <order>2</order>
+    <typeReference id="168e9dd9-6dd1-4ff0-8f0e-0b3cdf69fed8">
+      <typeId>9214441c-9f58-4898-90b5-01414c575eaa</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
