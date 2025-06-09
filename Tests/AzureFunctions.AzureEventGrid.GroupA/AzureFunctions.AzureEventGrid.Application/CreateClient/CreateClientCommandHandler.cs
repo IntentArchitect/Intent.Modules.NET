@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
@@ -25,9 +26,14 @@ namespace AzureFunctions.AzureEventGrid.Application.CreateClient
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CreateClientCommand request, CancellationToken cancellationToken)
         {
+            //IntentIgnore
             _eventBus.Publish(new ClientCreatedEvent
             {
                 Name = request.Name
+            },
+            new Dictionary<string, object>
+            {
+                ["a"] = "b"
             });
         }
     }

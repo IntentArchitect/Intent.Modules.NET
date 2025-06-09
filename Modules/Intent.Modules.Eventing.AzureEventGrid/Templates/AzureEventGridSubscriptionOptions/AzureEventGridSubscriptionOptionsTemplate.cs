@@ -4,10 +4,10 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly:IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate",Version= "1.0")]
 
-namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
+namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridSubscriptionOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class SubscriptionOptionsTemplate
+    public partial class AzureEventGridSubscriptionOptionsTemplate
     {
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
@@ -17,10 +17,10 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
                      using System.Collections.Generic;
                      using System.Threading;
                      using System.Threading.Tasks;
-                     using Azure.Messaging.EventGrid;
-                     
+                     using Azure.Messaging;
+
                      [assembly: DefaultIntentManaged(Mode.Fully)]
-                     
+
                      namespace {{Namespace}}
                      {
                          public class {{ClassName}}
@@ -37,7 +37,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
                              }
                          }
                          
-                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, EventGridEvent message, CancellationToken cancellationToken);
+                         public delegate Task DispatchHandler(IServiceProvider serviceProvider, CloudEvent cloudEvent, CancellationToken cancellationToken);
                          
                          public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync);
                      }

@@ -25,14 +25,14 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridMessage
                 .AddUsing("System")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddUsing("Azure.Messaging.EventGrid")
+                .AddUsing("Azure.Messaging")
                 .AddInterface($"IAzureEventGridMessageDispatcher", @interface =>
                 {
                     @interface.AddMethod("Task", "DispatchAsync", method =>
                     {
                         method.Async();
                         method.AddParameter("IServiceProvider", "scopedServiceProvider");
-                        method.AddParameter("EventGridEvent", "message");
+                        method.AddParameter("CloudEvent", "cloudEvent");
                         method.AddParameter("CancellationToken", "cancellationToken");
                     });
                 });

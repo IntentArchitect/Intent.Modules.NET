@@ -68,6 +68,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                 {
                     resource.AddSetting("name", $"{subscription.SubscriptionItem.TopicName.ToKebabCase()}-sub");
                     resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.type}.{topicNameRef}.id");
+                    resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
                     resource.AddBlock("azure_function_endpoint", b =>
                     {
                         b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");

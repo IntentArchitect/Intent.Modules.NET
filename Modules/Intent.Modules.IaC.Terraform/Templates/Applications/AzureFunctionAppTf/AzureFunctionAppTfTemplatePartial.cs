@@ -6,6 +6,10 @@ using Intent.IaC.Terraform.Api;
 using Intent.Metadata.Models;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf;
+using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -145,6 +149,10 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                     {
                         if (appKeys.Add(message.TopicConfigurationKeyName))
                         {
+                            if (message.MethodType == AzureEventGridMethodType.Publish)
+                            {
+                                appSettings.AddRawSetting($@"""{message.TopicConfigurationSourceName}""", $@"""{message.TopicName.ToKebabCase()}""");
+                            }
                             appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");
                             appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");
                         }

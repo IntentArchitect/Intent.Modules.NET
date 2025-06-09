@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="b5f73553-e070-4d25-adf4-1d9746dcd300" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>SubscriptionOptions</name>
-  <display>SubscriptionOptions: Single File</display>
+<class id="86085c3b-492f-468b-b853-170a7faf2c38" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>AzureEventGridBehavior</name>
+  <display>AzureEventGridBehavior: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="b5f18c44-d1ad-41e1-93c3-8511eef3f95a">
+  <typeReference id="2ab873a6-8d11-4465-a387-fd36c5885223">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.DependencyInjection.SubscriptionOptions" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Configuration" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Infrastructure.Eventing.AzureEventGridBehavior" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Eventing/AzureEventGridBehaviors" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

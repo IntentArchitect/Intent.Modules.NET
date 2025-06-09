@@ -53,7 +53,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                     {
                         method.Async();
                         method.AddAttribute("Function", attr => attr.AddArgument($@"""{@class.Name}"""));
-                        method.AddParameter(UseType("Azure.Messaging.EventGrid.EventGridEvent"), "message", param =>
+                        method.AddParameter(UseType("Azure.Messaging.CloudEvent"), "cloudEvent", param =>
                         {
                             param.AddAttribute(UseType("Microsoft.Azure.Functions.Worker.EventGridTrigger"));
                         });
@@ -63,7 +63,7 @@ namespace Intent.Modules.AzureFunctions.AzureEventGrid.Templates.AzureFunctionCo
                         {
                             var dispatch = new CSharpAwaitExpression(new CSharpInvocationStatement("_dispatcher", "DispatchAsync")
                                 .AddArgument("_serviceProvider")
-                                .AddArgument("message")
+                                .AddArgument("cloudEvent")
                                 .AddArgument("cancellationToken"));
                             dispatch.AddMetadata("service-dispatch-statement", true);
 

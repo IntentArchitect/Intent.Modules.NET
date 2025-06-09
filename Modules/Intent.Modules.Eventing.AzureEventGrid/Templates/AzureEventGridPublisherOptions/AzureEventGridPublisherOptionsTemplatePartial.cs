@@ -10,15 +10,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureEventGrid.Templates.PublisherOptions
+namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridPublisherOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class PublisherOptionsTemplate : CSharpTemplateBase<object>
+    partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Eventing.AzureEventGrid.PublisherOptions";
+        public const string TemplateId = "Intent.Eventing.AzureEventGrid.AzureEventGridPublisherOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AzureEventGridPublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -26,7 +26,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.PublisherOptions
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"PublisherOptions",
+                className: $"AzureEventGridPublisherOptions",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

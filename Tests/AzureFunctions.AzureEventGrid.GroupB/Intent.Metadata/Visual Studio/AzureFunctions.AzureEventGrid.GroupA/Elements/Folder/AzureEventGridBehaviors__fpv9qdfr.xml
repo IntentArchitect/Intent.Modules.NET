@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="caf74bc6-6e01-4867-8b08-87e0d6930e87" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>AzureEventGridBehaviors</name>
+  <display>AzureEventGridBehaviors</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a84caf03-590f-4ac6-a81b-d2fa75771f31</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="9ab6ba06-f37f-4344-9ccc-4d84f6559de1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.AzureEventGridBehavior</name>
+      <display>Intent.Eventing.AzureEventGrid.AzureEventGridBehavior</display>
+      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>caf74bc6-6e01-4867-8b08-87e0d6930e87</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="5f8c2e80-40e5-47c2-aad0-a8d029d7137d" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.AzureEventGridPipeline</name>
+      <display>Intent.Eventing.AzureEventGrid.AzureEventGridPipeline</display>
+      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>caf74bc6-6e01-4867-8b08-87e0d6930e87</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9df654a5-dcf1-4140-940a-acf0bb3b90ba" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior</name>
+      <display>Intent.Eventing.AzureEventGrid.InboundCloudEventBehavior</display>
+      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>caf74bc6-6e01-4867-8b08-87e0d6930e87</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

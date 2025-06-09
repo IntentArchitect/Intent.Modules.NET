@@ -69,5 +69,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="3299c5ed-4325-4877-b8b2-c28c29dff137" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureEventGrid.EventContext</name>
+      <display>Intent.Eventing.AzureEventGrid.EventContext</display>
+      <externalReference>Intent.Eventing.AzureEventGrid</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>a84caf03-590f-4ac6-a81b-d2fa75771f31</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

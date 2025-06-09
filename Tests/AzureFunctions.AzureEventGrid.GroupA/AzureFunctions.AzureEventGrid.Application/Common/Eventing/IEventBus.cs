@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -12,7 +13,7 @@ namespace AzureFunctions.AzureEventGrid.Application.Common.Eventing
     {
         void Publish<T>(T message)
             where T : class;
-        void Publish<T>(T message, string subject)
+        void Publish<T>(T message, IDictionary<string, object> additionalData)
             where T : class;
         Task FlushAllAsync(CancellationToken cancellationToken = default);
     }

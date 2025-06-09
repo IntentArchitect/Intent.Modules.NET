@@ -10,15 +10,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
+namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridSubscriptionOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class SubscriptionOptionsTemplate : CSharpTemplateBase<object>
+    partial class AzureEventGridSubscriptionOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Eventing.AzureEventGrid.SubscriptionOptions";
+        public const string TemplateId = "Intent.Eventing.AzureEventGrid.AzureEventGridSubscriptionOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AzureEventGridSubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AzureMessagingEventGrid(outputTarget));
         }
@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.SubscriptionOptions
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"SubscriptionOptions",
+                className: $"AzureEventGridSubscriptionOptions",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

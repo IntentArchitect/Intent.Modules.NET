@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureEventGrid.Templates.PublisherOptions
+namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridPipeline
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class PublisherOptionsTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureEventGridPipelineTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => PublisherOptionsTemplate.TemplateId;
+        public override string TemplateId => AzureEventGridPipelineTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new PublisherOptionsTemplate(outputTarget);
+            return new AzureEventGridPipelineTemplate(outputTarget);
         }
     }
 }
