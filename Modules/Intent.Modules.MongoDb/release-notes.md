@@ -1,6 +1,7 @@
 ### Version 1.0.23
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Had a hard dependency against the module `Intent.AspNetCore`.
 
 ### Version 1.0.22
 

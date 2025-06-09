@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b029579e-1732-4a5d-aed3-09532d2f00d5" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7fe75b1f-709e-446f-8567-dfbb4ac89818</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
