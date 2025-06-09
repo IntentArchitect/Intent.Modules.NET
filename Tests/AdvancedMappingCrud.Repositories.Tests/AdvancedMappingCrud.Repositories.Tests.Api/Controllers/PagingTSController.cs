@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Eventing;
+using AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Pagination;
 using AdvancedMappingCrud.Repositories.Tests.Application.Common.Validation;
 using AdvancedMappingCrud.Repositories.Tests.Application.Interfaces;
@@ -26,16 +27,19 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
     {
         private readonly IPagingTSService _appService;
         private readonly IValidationService _validationService;
+        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IEventBus _eventBus;
 
         public PagingTSController(IPagingTSService appService,
             IValidationService validationService,
+            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
             IUnitOfWork unitOfWork,
             IEventBus eventBus)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
+            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
         }
@@ -55,12 +59,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             await _validationService.Handle(dto, cancellationToken);
             var result = Guid.Empty;
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                result = await _appService.CreatePagingTS(dto, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    result = await _appService.CreatePagingTS(dto, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return CreatedAtAction(nameof(FindPagingTSById), new { id = result }, result);
@@ -124,12 +133,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         {
             await _validationService.Handle(dto, cancellationToken);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                await _appService.UpdatePagingTS(id, dto, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.UpdatePagingTS(id, dto, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return NoContent();
@@ -147,12 +161,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeletePagingTS([FromRoute] Guid id, CancellationToken cancellationToken = default)
         {
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                await _appService.DeletePagingTS(id, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.DeletePagingTS(id, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             await _eventBus.FlushAllAsync(cancellationToken);
             return Ok();

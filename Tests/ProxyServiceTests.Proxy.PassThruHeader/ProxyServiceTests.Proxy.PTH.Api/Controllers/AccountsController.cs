@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProxyServiceTests.Proxy.PTH.Application.AccountsServices;
+using ProxyServiceTests.Proxy.PTH.Application.Common.Interfaces;
 using ProxyServiceTests.Proxy.PTH.Application.Common.Validation;
 using ProxyServiceTests.Proxy.PTH.Application.IntegrationServices.Contracts.OriginalServices.Services.Accounts;
 using ProxyServiceTests.Proxy.PTH.Application.Interfaces;
@@ -25,12 +26,17 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Controllers
     {
         private readonly IAccountsService _appService;
         private readonly IValidationService _validationService;
+        private readonly IDistributedCacheWithUnitOfWork _distributedCacheWithUnitOfWork;
         private readonly IUnitOfWork _unitOfWork;
 
-        public AccountsController(IAccountsService appService, IValidationService validationService, IUnitOfWork unitOfWork)
+        public AccountsController(IAccountsService appService,
+            IValidationService validationService,
+            IDistributedCacheWithUnitOfWork distributedCacheWithUnitOfWork,
+            IUnitOfWork unitOfWork)
         {
             _appService = appService ?? throw new ArgumentNullException(nameof(appService));
             _validationService = validationService ?? throw new ArgumentNullException(nameof(validationService));
+            _distributedCacheWithUnitOfWork = distributedCacheWithUnitOfWork ?? throw new ArgumentNullException(nameof(distributedCacheWithUnitOfWork));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
@@ -49,12 +55,17 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Controllers
             await _validationService.Handle(command, cancellationToken);
             var result = Guid.Empty;
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                result = await _appService.CreateAccountCommand(command, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    result = await _appService.CreateAccountCommand(command, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             return CreatedAtAction(nameof(GetAccountByIdQuery), new { id = result }, result);
         }
@@ -76,12 +87,17 @@ namespace ProxyServiceTests.Proxy.PTH.Api.Controllers
         {
             await _validationService.Handle(command, cancellationToken);
 
-            using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
             {
-                await _appService.UpdateAccountCommand(id, command, cancellationToken);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
-                transaction.Complete();
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.UpdateAccountCommand(id, command, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
             }
             return NoContent();
         }
