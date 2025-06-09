@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
@@ -10,10 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -462,7 +462,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                     {
                         c.Private()
                         .Async();
-                       
+
                         c.AddParameter("ApplicationIdentityUser", "user");
                         c.AddParameter("UserManager<ApplicationIdentityUser>", "userManager");
                         c.AddParameter("HttpContext ", "context");

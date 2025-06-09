@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender;
@@ -13,8 +15,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -56,7 +56,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 optionsLambdaBlock.Statements.Clear();
 
                 optionsLambdaBlock.Statements.Add(new CSharpStatement("options.Audience = configuration[\"JwtToken:Audience\"];"));
-                
+
                 var tokenValidationParameters = new CSharpObjectInitializerBlock("options.TokenValidationParameters = new TokenValidationParameters");
                 tokenValidationParameters.AddInitStatement("ValidateIssuer", "true");
                 tokenValidationParameters.AddInitStatement("ValidIssuer", "configuration[\"JwtToken:Issuer\"]");
