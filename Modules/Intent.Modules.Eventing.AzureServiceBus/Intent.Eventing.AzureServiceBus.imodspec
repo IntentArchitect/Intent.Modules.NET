@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureServiceBus</id>
-  <version>1.0.5-pre.0</version>
+  <version>1.1.0-pre.0</version>
   <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Service Bus, which can be modeled in Intent Architect's designers.</description>
@@ -48,15 +48,7 @@
       <role>Infrastructure.Eventing.AzureServiceBusMessageDispatcherInterface</role>
       <location>Eventing</location>
     </template>
-    <template id="Intent.Eventing.AzureServiceBus.IntegrationEventHandler" externalReference="6b82e377-cab9-4814-845c-02e4e5b3fe66">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application.Eventing.EventHandler</role>
-      <location>IntegrationEvents/EventHandlers</location>
-    </template>
-    <template id="Intent.Eventing.AzureServiceBus.PublisherOptions" externalReference="5aa7b10e-023d-4845-9516-ec42a2246598">
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions" externalReference="5aa7b10e-023d-4845-9516-ec42a2246598">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -64,13 +56,21 @@
       <role>Infrastructure.DependencyInjection.PublishOptions</role>
       <location>Configuration</location>
     </template>
-    <template id="Intent.Eventing.AzureServiceBus.SubscriptionOptions" externalReference="c6b62a06-5353-4688-a2dd-36d2a92bc8b7">
+    <template id="Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions" externalReference="c6b62a06-5353-4688-a2dd-36d2a92bc8b7">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Infrastructure.DependencyInjection.SubscriptionOptions</role>
       <location>Configuration</location>
+    </template>
+    <template id="Intent.Eventing.AzureServiceBus.IntegrationEventHandler" externalReference="6b82e377-cab9-4814-845c-02e4e5b3fe66">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Eventing.EventHandler</role>
+      <location>IntegrationEvents/EventHandlers</location>
     </template>
   </templates>
   <decorators></decorators>

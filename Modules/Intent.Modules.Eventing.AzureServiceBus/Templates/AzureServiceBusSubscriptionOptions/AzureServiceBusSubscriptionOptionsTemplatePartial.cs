@@ -10,15 +10,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions
+namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubscriptionOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class SubscriptionOptionsTemplate : CSharpTemplateBase<object>
+    partial class AzureServiceBusSubscriptionOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Eventing.AzureServiceBus.SubscriptionOptions";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AzureServiceBusSubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             AddNugetDependency(NugetPackages.AzureMessagingServiceBus(OutputTarget));
         }
@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"SubscriptionOptions",
+                className: $"AzureServiceBusSubscriptionOptions",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }

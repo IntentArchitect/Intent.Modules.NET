@@ -6,9 +6,9 @@ using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEventBus;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHostedService;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcher;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessageDispatcherInterface;
+using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusPublisherOptions;
+using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubscriptionOptions;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.IntegrationEventHandler;
-using Intent.Modules.Eventing.AzureServiceBus.Templates.PublisherOptions;
-using Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -44,6 +44,16 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
             return template.GetTypeName(AzureServiceBusMessageDispatcherInterfaceTemplate.TemplateId);
         }
 
+        public static string GetAzureServiceBusPublisherOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureServiceBusPublisherOptionsTemplate.TemplateId);
+        }
+
+        public static string GetAzureServiceBusSubscriptionOptionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(AzureServiceBusSubscriptionOptionsTemplate.TemplateId);
+        }
+
         public static string GetIntegrationEventHandlerName<T>(this IIntentTemplate<T> template) where T : IntegrationEventHandlerModel
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, template.Model);
@@ -52,16 +62,6 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
         public static string GetIntegrationEventHandlerName(this IIntentTemplate template, IntegrationEventHandlerModel model)
         {
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
-        }
-
-        public static string GetPublisherOptionsName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(PublisherOptionsTemplate.TemplateId);
-        }
-
-        public static string GetSubscriptionOptionsName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(SubscriptionOptionsTemplate.TemplateId);
         }
 
     }

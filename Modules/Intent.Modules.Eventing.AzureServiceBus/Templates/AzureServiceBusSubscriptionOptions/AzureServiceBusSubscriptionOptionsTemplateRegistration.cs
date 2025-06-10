@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureServiceBus.Templates.SubscriptionOptions
+namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubscriptionOptions
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class SubscriptionOptionsTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureServiceBusSubscriptionOptionsTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => SubscriptionOptionsTemplate.TemplateId;
+        public override string TemplateId => AzureServiceBusSubscriptionOptionsTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new SubscriptionOptionsTemplate(outputTarget);
+            return new AzureServiceBusSubscriptionOptionsTemplate(outputTarget);
         }
     }
 }

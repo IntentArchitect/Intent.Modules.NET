@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="5aa7b10e-023d-4845-9516-ec42a2246598" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>PublisherOptions</name>
-  <display>PublisherOptions: Single File</display>
+  <name>AzureServiceBusPublisherOptions</name>
+  <display>AzureServiceBusPublisherOptions: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="3455fc5b-d837-4eef-9197-057872beec07">

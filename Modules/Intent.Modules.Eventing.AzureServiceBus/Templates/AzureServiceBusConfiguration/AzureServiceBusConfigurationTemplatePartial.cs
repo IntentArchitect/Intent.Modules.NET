@@ -54,7 +54,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                             var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
                             if (publishers.Count != 0)
                             {
-                                method.AddInvocationStatement($"services.Configure<{this.GetPublisherOptionsName()}>", inv => inv
+                                method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusPublisherOptionsName()}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
                                     {
                                         foreach (var item in publishers)
@@ -68,7 +68,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                             var subscribers = IntegrationManager.Instance.GetAggregatedSubscribedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
                             if (subscribers.Count != 0)
                             {
-                                method.AddInvocationStatement($"services.Configure<{this.GetSubscriptionOptionsName()}>", inv => inv
+                                method.AddInvocationStatement($"services.Configure<{this.GetAzureServiceBusSubscriptionOptionsName()}>", inv => inv
                                     .AddArgument(new CSharpLambdaBlock("options"), arg =>
                                     {
                                         foreach (var item in subscribers)

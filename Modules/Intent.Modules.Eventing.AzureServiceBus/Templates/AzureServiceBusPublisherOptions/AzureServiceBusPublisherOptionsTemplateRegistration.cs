@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureServiceBus.Templates.PublisherOptions
+namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusPublisherOptions
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class PublisherOptionsTemplateRegistration : SingleFileTemplateRegistration
+    public class AzureServiceBusPublisherOptionsTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => PublisherOptionsTemplate.TemplateId;
+        public override string TemplateId => AzureServiceBusPublisherOptionsTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new PublisherOptionsTemplate(outputTarget);
+            return new AzureServiceBusPublisherOptionsTemplate(outputTarget);
         }
     }
 }

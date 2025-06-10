@@ -162,6 +162,54 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions/AzureServiceBusPublisherOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplate.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplate.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions/AzureServiceBusSubscriptionOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6b82e377-cab9-4814-845c-02e4e5b3fe66</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandler/IntegrationEventHandlerTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -174,54 +222,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IntegrationEventHandler/IntegrationEventHandlerTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PublisherOptions/PublisherOptionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions/PublisherOptionsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PublisherOptions/PublisherOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions/PublisherOptionsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#5aa7b10e-023d-4845-9516-ec42a2246598</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/PublisherOptions/PublisherOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions/PublisherOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionOptions/SubscriptionOptionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions/SubscriptionOptionsTemplate.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionOptions/SubscriptionOptionsTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions/SubscriptionOptionsTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b2da447-6ccd-488a-8050-21e4108b6933</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#c6b62a06-5353-4688-a2dd-36d2a92bc8b7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/SubscriptionOptions/SubscriptionOptionsTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions/SubscriptionOptionsTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

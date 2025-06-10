@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="c6b62a06-5353-4688-a2dd-36d2a92bc8b7" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>SubscriptionOptions</name>
-  <display>SubscriptionOptions: Single File</display>
+  <name>AzureServiceBusSubscriptionOptions</name>
+  <display>AzureServiceBusSubscriptionOptions: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="ec98ce31-3686-4d7a-ad79-a94109c505c0">

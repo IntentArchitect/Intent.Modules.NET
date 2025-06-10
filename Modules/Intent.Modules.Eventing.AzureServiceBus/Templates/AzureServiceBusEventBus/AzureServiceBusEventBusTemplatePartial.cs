@@ -44,7 +44,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                     @class.AddConstructor(ctor =>
                     {
                         ctor.AddParameter("IConfiguration", "configuration");
-                        ctor.AddParameter($"IOptions<{this.GetPublisherOptionsName()}>", "options");
+                        ctor.AddParameter($"IOptions<{this.GetAzureServiceBusPublisherOptionsName()}>", "options");
 
                         ctor.AddStatement("_configuration = configuration;");
                         ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);");

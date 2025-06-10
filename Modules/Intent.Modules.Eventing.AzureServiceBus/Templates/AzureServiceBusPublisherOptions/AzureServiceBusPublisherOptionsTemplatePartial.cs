@@ -10,15 +10,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.Eventing.AzureServiceBus.Templates.PublisherOptions
+namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusPublisherOptions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    partial class PublisherOptionsTemplate : CSharpTemplateBase<object>
+    partial class AzureServiceBusPublisherOptionsTemplate : CSharpTemplateBase<object>
     {
-        public const string TemplateId = "Intent.Eventing.AzureServiceBus.PublisherOptions";
+        public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public AzureServiceBusPublisherOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
         }
 
@@ -26,7 +26,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.PublisherOptions
         protected override CSharpFileConfig DefineFileConfig()
         {
             return new CSharpFileConfig(
-                className: $"PublisherOptions",
+                className: $"AzureServiceBusPublisherOptions",
                 @namespace: $"{this.GetNamespace()}",
                 relativeLocation: $"{this.GetFolderPath()}");
         }
