@@ -37,32 +37,28 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5f2123f6-9e9e-4ccb-8c53-42b3784f3fdd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureServiceBus.PublisherOptions</name>
-      <display>Intent.Eventing.AzureServiceBus.PublisherOptions</display>
+    <childElement id="28c63fc7-6d62-418b-9b67-2e18d8fc6094" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</display>
       <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e2978690-410e-465e-8a8d-0f4857d8f5c4</parentFolderId>
-      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
-      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="67f97f5a-f1d2-4a66-9c06-d252c086a0b4" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Eventing.AzureServiceBus.SubscriptionOptions</name>
-      <display>Intent.Eventing.AzureServiceBus.SubscriptionOptions</display>
+    <childElement id="d63e97c8-1da8-4a94-83e9-f9d6d7b33ea0" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</name>
+      <display>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</display>
       <externalReference>Intent.Eventing.AzureServiceBus</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>e2978690-410e-465e-8a8d-0f4857d8f5c4</parentFolderId>
-      <packageId>2f02f0ad-70ce-4c2e-bc6b-44498511e261</packageId>
-      <packageName>AspNetCore.AzureServiceBus.GroupA</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
