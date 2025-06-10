@@ -70,16 +70,16 @@ await _eventBus.FlushAllAsync();
 
 For every message subscribed to in the `Services Designer` will receive its own Integration Event handler.
 
-### Accessing Cloud Event Context
+### Accessing Event Context
 
-In your handlers, you can access Event Grid extension attributes through the `ICloudEventContext`:
+In your handlers, you can access Event Grid extension attributes through the `IEventContext`:
 
 ```csharp
 public class ClientCreatedIntegrationEventHandler : IIntegrationEventHandler<ClientCreatedEvent>
 {
-    private readonly ICloudEventContext _eventContext;
+    private readonly IEventContext _eventContext;
 
-    public ClientCreatedIntegrationEventHandler(ICloudEventContext eventContext)
+    public ClientCreatedIntegrationEventHandler(IEventContext eventContext)
     {
         _eventContext = eventContext;
     }

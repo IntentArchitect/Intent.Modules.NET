@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
@@ -12,8 +13,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
-using Intent.Modules.AI.ChatDrivenDomain.Settings;
-using Intent.Modules.AI.Prompts.Utils;
+using Intent.Modules.Common.AI;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
@@ -36,6 +36,7 @@ public class AutoImplementHandlerTask : IModuleTask
     private readonly ISolutionConfig _solution;
     private readonly IOutputRegistry _outputRegistry;
     private IApplicationConfig _applicationConfig;
+    private readonly IntentSemanticKernelFactory _intentSemanticKernelFactory;
 
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -46,16 +47,18 @@ public class AutoImplementHandlerTask : IModuleTask
         IApplicationConfigurationProvider applicationConfigurationProvider,
         IMetadataManager metadataManager,
         ISolutionConfig solution,
-        IOutputRegistry outputRegistry)
+        IOutputRegistry outputRegistry,
+        IUserSettingsProvider userSettingsProvider)
     {
         _applicationConfigurationProvider = applicationConfigurationProvider;
         _metadataManager = metadataManager;
         _solution = solution;
         _outputRegistry = outputRegistry;
+        _intentSemanticKernelFactory = new IntentSemanticKernelFactory(userSettingsProvider);
     }
 
     public string TaskTypeId => "Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt";
-    public string TaskTypeName => "Create Prompt for Handler";
+    public string TaskTypeName => "Auto-Implementation with AI Task";
     public int Order => 0;
 
     [Experimental("SKEXP0010")]
@@ -63,27 +66,31 @@ public class AutoImplementHandlerTask : IModuleTask
     {
         var applicationId = args[0];
         var elementId = args[1];
+        var userProvidedContext = args.Length > 2 && !string.IsNullOrWhiteSpace(args[2]) ? args[2] : "None";
+
         _applicationConfig = _solution.GetApplicationConfig(applicationId);
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
-        var kernel = BuildSemanticKernel();
+        var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
+
+        var element = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
+        var promptTemplate = GetPromptTemplate(element);
+
+        var inputFiles = GetInputFiles(element);
+
+        var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
+
         var chatResponseFormat = CreateJsonSchemaFormat();
         var executionSettings = new OpenAIPromptExecutionSettings
         {
             ResponseFormat = chatResponseFormat
         };
-
-        var queryModel = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
-        var promptTemplate = GetPromptTemplate(queryModel);
-        var inputFiles = GetInputFiles(queryModel);
-
-        var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
-            ["inputFilesJson"] = jsonInput
+            ["inputFilesJson"] = jsonInput,
+            ["userProvidedContext"] = userProvidedContext
         }).Result;
-
 
         FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
 
@@ -97,6 +104,7 @@ public class AutoImplementHandlerTask : IModuleTask
 
         return "success";
     }
+
 
     private string GetPromptTemplate(IElement model)
     {
@@ -136,6 +144,7 @@ Implement the `Handle` method in the {targetFileName} class following the implem
 2. **NEVER change existing method signatures or implementations**
 3. **ONLY add new members when necessary (repository methods)**
 4. **Preserve all existing attributes and code exactly as provided**
+5. **Don't add comments to existing code**
 
 ## Code File Modifications
 1. You may modify ONLY:
@@ -143,6 +152,9 @@ Implement the `Handle` method in the {targetFileName} class following the implem
    - Repository interfaces (adding new methods only)
    - Repository concrete classes (implementing new methods only)
 2. Preserve all existing code, attributes, and file paths exactly
+
+## Additional User Context (Optional)
+{{{{$userProvidedContext}}}}
 
 ## Input Code Files:
 ```json
@@ -168,122 +180,42 @@ Your response MUST include:
         return prompt;
     }
 
-    private FileChange[] GetInputFiles(IElement element)
+
+    private List<ICodebaseFile> GetInputFiles(IElement element)
     {
-        var basePath = Path.GetFullPath(Path.Combine(_applicationConfig.DirectoryPath, _applicationConfig.OutputLocation));
-        var correlations = MetadataOutputFileCorrelationsPersistable.TryLoad(_applicationConfig.FilePath);
-        var outputLog = OutputLogPersistable.TryLoad(Path.Combine(_applicationConfig.DirectoryPath, $"{Path.GetFileNameWithoutExtension(_applicationConfig.FilePath)}.{OutputLogPersistable.FileExtension}"));
-
-        var fileMap = correlations!.Files
-            .SelectMany(x => x.Models, (file, model) => (File: file, Model: model))
-            .GroupBy(x => x.Model.Id)
-            .ToDictionary(x => x.Key, x => x.Select(i => Path.Combine(basePath, i.File.RelativePath)).ToList());
-
-        var correlatedFiles = CorrelatedFiles(fileMap, element.Id);
-
-
-        var files = new List<FileChange>();
-        var queryHandlerFile = correlatedFiles.First(x => x.FileName.EndsWith("Handler"));
-        files.Add(new FileChange(Path.GetRelativePath(basePath, queryHandlerFile.Path), "The Handler Class", queryHandlerFile.FileText));
-        var otherCorrelatedFiles = correlatedFiles.Where(x => !x.FileName.EndsWith("Handler") && Path.GetExtension(x.Path) == ".cs");
-        files.AddRange(otherCorrelatedFiles.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "File supporting the Handler class", x.FileText)));
-        
+        var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
+        var inputFiles = filesProvider.GetFilesForMetadata(element).ToList();
         if (element.TypeReference.ElementId != null)
         {
-            var returnTypeFile = CorrelatedFiles(fileMap, element.TypeReference.ElementId);
-            files.AddRange(returnTypeFile.Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "The return type for the Handler class", x.FileText)));
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(element.TypeReference.Element));
         }
-        
-        files.AddRange(GetRelatedEntities(element)
-            .SelectMany(model => CorrelatedFiles(fileMap, model.Id)
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "Related entity persistence support file", x.FileText))));
-
-        if (outputLog != null)
+        foreach (var dto in element.ChildElements.Where(x => x.TypeReference.Element.IsDTOModel()).Select(x => x.TypeReference.Element))
         {
-            outputLog.Load();
-            var outputLogFileMap = outputLog!.FileLogs
-                .GroupBy(x => x.CorrelationId)
-                .ToDictionary(x => x.Key, x => x.Select(i => i.FilePath).ToList());
-
-                ;
-            files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface")
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Interface", x.FileText)));
-            files.AddRange(CorrelatedFiles(outputLogFileMap, "Intent.EntityFrameworkCore.Repositories.RepositoryBase")
-                .Select(x => new FileChange(Path.GetRelativePath(basePath, x.Path), "EF Repository Base Implementation", x.FileText)));
+            inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
+        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x.InternalElement)));
 
-        return files.ToArray();
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
+        inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
+
+        return inputFiles;
     }
-    /**
-## Adding code to the repository:
-* Ignore this unless you plant to use the repository method in the handler.
-* If there is no repository method that would be able to fetch out the required results in a performant way, then you may update the entity repository concrete and its interface with an appropriate method. You may need to introduce a Domain Object as the return type of these methods.
-* In this case, if you added any methods, then you must add the [IntentIgnore] attribute to that method.
-* Only add repository methods if one doesn't already exist that is appropriate and follows best practices.
-* The repository interfaces are in the Domain / Core layer and you so cannot reference types in the other layers. This is important for if you created Domain Objects as a return type for the new repository.
 
-     */
-
-    private Kernel BuildSemanticKernel()
+    private IEnumerable<ClassModel> GetRelatedDomainEntities(IElement element)
     {
-        var settings = _applicationConfigurationProvider.GetSettings().GetChatDrivenDomainSettings();
-        var model = string.IsNullOrWhiteSpace(settings.Model()) ? "gpt-4o" : settings.Model();
-        var apiKey = settings.APIKey();
-        // Create the Semantic Kernel instance with your LLM service.
-        // Replace <your-openai-key> with your actual OpenAI API key and adjust the model name as needed.
-        var builder = Kernel.CreateBuilder();
-        builder.Services.AddLogging(b => b.AddProvider(new SoftwareFactoryLoggingProvider()).SetMinimumLevel(LogLevel.Trace));
-
-        switch (settings.Provider().AsEnum())
+        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
+            ?.TypeReference.Element.AsClassModel();
+        if (queriedEntity == null)
         {
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.OpenAi:
-                if (string.IsNullOrWhiteSpace(apiKey))
-                {
-                    apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-                }
-
-                builder.Services.AddOpenAIChatCompletion(
-                    modelId: model,
-                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the OPENAI_API_KEY environment variable."));
-                break;
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.AzureOpenAi:
-                if (string.IsNullOrWhiteSpace(apiKey))
-                {
-                    apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
-                }
-
-                builder.Services.AddAzureOpenAIChatCompletion(
-                    deploymentName: settings.DeploymentName(),
-                    endpoint: settings.APIUrl(),
-                    apiKey: apiKey ?? throw new Exception("No API Key defined. Locate the ChatDrivenDomainSettings App Settings or set the AZURE_OPENAI_API_KEY environment variable."),
-                    modelId: model);
-                break;
-            case ChatDrivenDomainSettings.ProviderOptionsEnum.Ollama:
-#pragma warning disable SKEXP0070
-                builder.Services.AddOllamaChatCompletion(
-                    new OllamaApiClient(
-                        new HttpClient
-                        {
-                            Timeout = TimeSpan.FromMinutes(10),
-                            BaseAddress = new Uri(settings.APIUrl())
-                        },
-                        model)
-                );
-#pragma warning restore SKEXP0070
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            return [];
         }
-
-        // Create a JSON schema format based on the FileChange array.
-        // This helps ensure that the LLM returns a valid JSON array conforming to our expected structure.
-        var kernel = builder.Build();
-        return kernel;
+        var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
+        return relatedClasses;
     }
 
     private static ChatResponseFormat CreateJsonSchemaFormat()
     {
-        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "movie_result",
+        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "FileChangesResult",
             jsonSchema: BinaryData.FromString("""
                                               {
                                                   "type": "object",
@@ -306,31 +238,6 @@ Your response MUST include:
                                               }
                                               """),
             jsonSchemaIsStrict: true);
-    }
-
-    private static string Fail(string reason)
-    {
-        Logging.Log.Failure(reason);
-        var errorObject = new { errorMessage = reason };
-        var json = JsonSerializer.Serialize(errorObject, SerializerOptions);
-        return json;
-    }
-
-    private static List<(string Path, string FileName, string FileText)> CorrelatedFiles(Dictionary<string, List<string>> fileMap, string modelId)
-    {
-        return fileMap[modelId].Select(x => (Path: x, FileName: Path.GetFileNameWithoutExtension(x), FileText: File.ReadAllText(x))).ToList();
-    }
-
-    private IEnumerable<ClassModel> GetRelatedEntities(IElement element)
-    {
-        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
-            ?.TypeReference.Element.AsClassModel();
-        if (queriedEntity == null)
-        {
-            return [];
-        }
-        var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
-        return relatedClasses;
     }
 
     public class FileChangesResult

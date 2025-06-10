@@ -48,28 +48,6 @@ pool:
 
 steps:
 
-# added for troubleshooting Azure Emulator issue: https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/45#issuecomment-2213079024
-- task: PowerShell@2
-  name: 'PrintMachineInformation'
-  inputs:
-    targetType: 'inline'
-    pwsh: true
-    script: |
-      echo "CPU Information:"
-      lscpu
-      echo "Memory Information:"
-      free -h
-      echo "Disk Usage:"
-      df -h
-      echo "Operating System Information:"
-      uname -a
-      echo "Network Configuration:"
-      ip addr show
-      echo "Docker Version:"
-      docker --version
-      echo "Docker Info:"
-      docker info
-
 - task: CmdLine@2
   inputs:
     script: |
@@ -79,6 +57,13 @@ steps:
   persistCredentials: 'true'
   fetchDepth: '1'
   submodules: 'recursive'
+
+- task: PowerShell@2
+  displayName: 'Imodspec validation'
+  inputs:
+    pwsh: true
+    filePath: 'PipelineScripts/pre-build-validation.ps1'
+    arguments: 'true'
 
 - task: UseDotNet@2
   displayName: 'Install latest .NET 8 SDK'
@@ -90,13 +75,6 @@ steps:
   displayName: 'Install latest .NET 9 SDK'
   inputs:
     version: '9.x'
-
-- task: PowerShell@2
-  displayName: 'Imodspec validation'
-  inputs:
-    pwsh: true
-    filePath: 'PipelineScripts/pre-build-validation.ps1'
-    arguments: 'true'
 
 # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
 - task: NuGetAuthenticate@1
@@ -166,7 +144,7 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: ./PipelineScripts/pre-template-test-validation.ps1 "$(Build.ArtifactStagingDirectory)" "$(intent-module-solution)" "$(intent-solution)"
+    script: ./PipelineScripts/pre-template-test-validation.ps1 "$(Build.ArtifactStagingDirectory)" "$(Build.SourceBranch)" "$(intent-module-solution)" "$(intent-solution)"
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
@@ -184,7 +162,16 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: dotnet tool install Intent.SoftwareFactory.CLI --global --prerelease
+    script: |
+      $toolPath = "$(System.DefaultWorkingDirectory)/intent-cli-tool"
+      $nightly = '$(Build.SourceBranch)' -like 'refs/heads/development-*' ? '.nightly' : ''
+
+      if (Test-Path $toolPath)
+      {
+        Remove-Item -Recurse -Force $toolPath
+      }
+
+      dotnet tool install Intent.SoftwareFactory.CLI$nightly --prerelease --tool-path $toolPath
 
 - task: PowerShell@2
   displayName: 'Run SF CLI on module solution'
@@ -195,7 +182,10 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH"
+    script: |
+      $toolPath = "$(System.DefaultWorkingDirectory)/intent-cli-tool"
+
+      & "$toolPath/intent-cli" ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_MODULE_SOLUTION_PATH"
 
 - task: PowerShell@2
   displayName: 'Run SF CLI on tests solution'
@@ -206,7 +196,10 @@ steps:
   inputs:
     targetType: 'inline'
     pwsh: true
-    script: intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
+    script:  |
+      $toolPath = "$(System.DefaultWorkingDirectory)/intent-cli-tool"
+
+      & "$toolPath/intent-cli" ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH" --check-deviations
 
 - task: PowerShell@2
   displayName: 'Filter artifacts to publish'
@@ -259,7 +252,9 @@ steps:
     pwsh: true
     script: |
       $artifactsFolder = '$(Build.ArtifactStagingDirectory)'
-      $serverUrl = 'https://app-module-server-prod-zanorth-001.azurewebsites.net/'
+      $sourceBranch = '$(Build.SourceBranch)'
+      $isDevWithVersion = $sourceBranch -like 'refs/heads/development-*'
+      $serverUrl = $isDevWithVersion ? 'https://dev-modules.intentarchitect.com/' : 'https://app-module-server-prod-zanorth-001.azurewebsites.net/'
       $apiKey = '$(intent-architect-module-server-api-key)'
 
       $files = (Get-ChildItem "$artifactsFolder/*.*");
@@ -270,7 +265,7 @@ steps:
         Write-Host ""
         Write-Host "Processing $($file.Name) ($number of $($files.Length))..."
 
-        if ($file.Name -like "*-alpha.*.imod") {
+        if (-not $isDevWithVersion -and $file.Name -like "*-alpha.*.imod") {
             $expression = "module-server-client-cli `"upload-module`" `"$serverUrl`" `"$apiKey`" `"$($file.FullName)`" --unlisted"
 
             Write-Host "Invoking $($expression.Replace($apiKey, "****"))..."

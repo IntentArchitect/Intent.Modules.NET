@@ -41,7 +41,7 @@
     <factoryExtension id="Intent.UnitTesting.NuGetInstallFactoryExtension" externalReference="92e43c85-2541-4ca0-b3a7-f71965c0e7bc" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="d62269ea-8e64-44a0-8392-e1a69da7c960" title="Unit Test Settings" externalReference="d62269ea-8e64-44a0-8392-e1a69da7c960">
+    <group id="d62269ea-8e64-44a0-8392-e1a69da7c960" title="Unit Test Settings" externalReference="d62269ea-8e64-44a0-8392-e1a69da7c960" type="application-settings">
       <settings>
         <setting id="381ddc17-ca81-4f28-8636-5a4b547ff6d4" title="Unit Test Generation Mode" type="select">
           <hint>Controls whether unit test stubs are generated for all services or only those explicitly selected.</hint>

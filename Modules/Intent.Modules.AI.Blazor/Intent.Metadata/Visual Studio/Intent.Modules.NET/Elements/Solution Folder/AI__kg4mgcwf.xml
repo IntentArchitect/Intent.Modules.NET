@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="536094fc-736c-4658-91ae-418c14c440ca" type="Solution Folder" typeId="0dc2b846-c968-49eb-99b7-8776919313a8">
+  <name>AI</name>
+  <display>AI</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>583e5710-4b0b-4636-bd71-a5b9bb7c8168</parentFolderId>
+  <packageId>583e5710-4b0b-4636-bd71-a5b9bb7c8168</packageId>
+  <packageName>Intent.Modules.NET</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
