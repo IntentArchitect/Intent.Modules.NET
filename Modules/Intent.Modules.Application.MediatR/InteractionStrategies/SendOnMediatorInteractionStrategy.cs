@@ -26,7 +26,7 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
             return interaction.IsServiceInvocationTargetEndModel() && (interaction.TypeReference.Element.IsCommandModel() || interaction.TypeReference.Element.IsQueryModel());
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+        public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
             var interaction = (IAssociationEnd)interactionElement;
             var handlerClass = method.Class;

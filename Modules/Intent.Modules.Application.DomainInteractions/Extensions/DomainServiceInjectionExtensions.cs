@@ -15,7 +15,7 @@ public static class DomainServiceInjectionExtensions
 {
     private const string DomainServiceSpecializationId = "07f936ea-3756-48c8-babd-24ac7271daac";
 
-    public static void WireupDomainServicesForConstructors(this CSharpClass handlerClass, CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
+    public static void WireupDomainServicesForConstructors(this ICSharpClass handlerClass, CreateEntityActionTargetEndModel createAction, CSharpStatement constructionStatement)
     {
         var constructor = createAction.Element.AsClassConstructorModel();
         if (constructor != null)
@@ -24,7 +24,7 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
-    public static void WireupDomainServicesForOperations(this CSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
+    public static void WireupDomainServicesForOperations(this ICSharpClass handlerClass, UpdateEntityActionTargetEndModel updateAction, IList<CSharpStatement> updateStatements)
     {
         Func<CSharpInvocationStatement, OperationModel> getOperation;
         if (updateAction.Element.IsOperationModel())
@@ -77,7 +77,7 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
-    public static void WireupDomainServicesForProcessingAction(this CSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
+    public static void WireupDomainServicesForProcessingAction(this ICSharpClass handlerClass, IElementToElementMapping mapping, IList<CSharpStatement> processingActions)
     {
         var mappedOperations = mapping.MappedEnds.Where(me => me.TargetElement.IsOperationModel()).Select(me => me.TargetElement.AsOperationModel()).ToList();
 
@@ -108,7 +108,7 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
-    private static void WireupDomainServicesForOperations(CSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
+    private static void WireupDomainServicesForOperations(ICSharpClass handlerClass, IAssociationEnd callServiceOperation, List<CSharpStatement> statements)
     {
         var operation = callServiceOperation.TypeReference.Element.AsOperationModel();
         if (operation == null)
@@ -153,7 +153,7 @@ public static class DomainServiceInjectionExtensions
         }
     }
 
-    private static void WireupDomainService(ICSharpTemplate _template, CSharpInvocationStatement invocation, IList<ParameterModel> parameters, CSharpClass handlerClass)
+    private static void WireupDomainService(ICSharpTemplate _template, CSharpInvocationStatement invocation, IList<ParameterModel> parameters, ICSharpClass handlerClass)
     {
         if (invocation is null)
         {

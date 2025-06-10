@@ -22,7 +22,7 @@ public class CompositeDataAccessProvider : IDataAccessProvider
     private readonly CSharpClassMappingManager _mappingManager;
 
     public CompositeDataAccessProvider(string saveChangesAccessor, string accessor, string? explicitUpdateStatement,
-        CSharpClassMethod method)
+        ICSharpClassMethodDeclaration method)
     {
         _explicitUpdateStatement = explicitUpdateStatement;
         _template = (ICSharpFileBuilderTemplate?)method.File.Template;

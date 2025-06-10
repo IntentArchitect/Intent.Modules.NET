@@ -22,7 +22,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             return interaction.IsUpdateEntityActionTargetEndModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+        public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
             if (method == null)
             {
@@ -110,7 +110,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             return false;
         }
 
-        private void AdjustOperationInvocationForAsyncAndReturn(CSharpClassMethod method, IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
+        private void AdjustOperationInvocationForAsyncAndReturn(ICSharpClassMethodDeclaration method, IElementToElementMapping updateMapping, IList<CSharpStatement> updateStatements)
         {
 
             if (updateMapping.MappedEnds.Any(me => OperationModelExtensions.IsOperationModel(me.TargetElement)))

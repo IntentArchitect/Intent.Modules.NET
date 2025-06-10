@@ -23,7 +23,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
             return interaction.IsCreateEntityActionTargetEndModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+        public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
             var interaction = (IAssociationEnd)interactionElement;
             if (method == null)
@@ -87,7 +87,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         }
 
 
-        private static void AddSaveChangesStatements(CSharpClassMethod method, ITypeReference returnType)
+        private static void AddSaveChangesStatements(ICSharpClassMethodDeclaration method, ITypeReference returnType)
         {
             var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
 
@@ -109,7 +109,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         }
 
 
-        private static List<EntityDetails> GetEntitiesReturningPK(CSharpClassMethod method, ITypeReference returnType, bool? isUserSupplied = null)
+        private static List<EntityDetails> GetEntitiesReturningPK(ICSharpClassMethodDeclaration method, ITypeReference returnType, bool? isUserSupplied = null)
         {
             if (returnType.Element.IsDTOModel())
             {

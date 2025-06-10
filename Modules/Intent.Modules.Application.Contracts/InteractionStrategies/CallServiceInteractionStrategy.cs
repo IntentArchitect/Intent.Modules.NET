@@ -27,7 +27,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
             && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
 
-    public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+    public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
     {
         var interaction = (IAssociationEnd)interactionElement;
         var @class = method.Class;

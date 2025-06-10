@@ -27,7 +27,7 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             return interaction.IsProcessingActionModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+        public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
             if (method == null)
             {

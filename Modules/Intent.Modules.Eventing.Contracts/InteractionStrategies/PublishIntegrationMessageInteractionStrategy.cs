@@ -21,7 +21,7 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             return interaction.IsPublishIntegrationEventTargetEndModel() || interaction.IsSendIntegrationCommandTargetEndModel();
         }
 
-        public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+        public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
         {
             if (method == null)
             {
@@ -66,7 +66,7 @@ namespace Intent.Modules.Eventing.Contracts.InteractionStrategies
             }
         }
 
-        private static void AddIntegrationDispatchStatements(CSharpClassMethod method, CSharpStatement publishStatement)
+        private static void AddIntegrationDispatchStatements(ICSharpClassMethodDeclaration method, CSharpStatement publishStatement)
         {
             var notImplementedStatement = method.Statements.FirstOrDefault(p => p.GetText("").Contains("throw new NotImplementedException"));
             if (notImplementedStatement is not null)

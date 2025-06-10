@@ -20,7 +20,7 @@ public class ODataQueryInteractionStrategy : IInteractionStrategy
         return interaction.IsQueryEntityActionTargetEndModel() && interaction.AsQueryEntityActionTargetEndModel().OtherEnd().Element.HasStereotype(ODataQueryStereoType);
     }
 
-    public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+    public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
     {
         if (method == null)
         {

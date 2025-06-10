@@ -23,7 +23,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
                                                                && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
 
-    public void ImplementInteraction(CSharpClassMethod method, IElement interactionElement)
+    public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
     {
         var interaction = (IAssociationEnd)interactionElement;
         var @class = method.Class;

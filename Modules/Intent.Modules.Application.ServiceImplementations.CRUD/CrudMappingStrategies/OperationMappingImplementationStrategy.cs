@@ -35,7 +35,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
         {
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
-            return method is not null && operationModel.HasDomainInteractions();
+            return method is not null;
         }
 
         public void BindToTemplate(ICSharpFileBuilderTemplate template, OperationModel operationModel)
@@ -75,7 +75,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
             
-            _template.AddUsing("System.Linq");
+            //_template.AddUsing("System.Linq"); // Should not be a blanket add of this using clause.
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
             method.Statements.Clear();

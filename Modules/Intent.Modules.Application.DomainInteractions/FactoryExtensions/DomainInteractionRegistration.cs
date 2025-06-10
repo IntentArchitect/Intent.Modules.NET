@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Interactions;
@@ -30,6 +31,7 @@ namespace Intent.Modules.Application.DomainInteractions.FactoryExtensions
             InteractionStrategyProvider.Instance.Register(new UpdateEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new DeleteEntityInteractionStrategy());
             InteractionStrategyProvider.Instance.Register(new ProcessingActionInteractionStrategy());
+            InteractionStrategyProvider.Instance.Register(new CallDomainServiceInteractionStrategy());
         }
     }
 }

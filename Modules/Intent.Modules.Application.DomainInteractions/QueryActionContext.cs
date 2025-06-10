@@ -24,17 +24,17 @@ namespace Intent.Modules.Application.DomainInteractions
 
     public class QueryActionContext
     {
-        private readonly CSharpClass _handlerClass;
+        private readonly ICSharpClass _handlerClass;
         private readonly ClassModel _entity;
         private readonly IAssociationEnd _associationEnd;
         private readonly IElement _serviceEndPoint;
         private readonly IElement? _returnType;
         private readonly ICSharpTemplate _template;
-        private readonly CSharpClassMethod _method;
+        private readonly ICSharpClassMethodDeclaration _method;
         private readonly ActionType _actionType;
         private readonly bool _isPaginated;
 
-        public QueryActionContext(CSharpClassMethod method, ActionType actionType, IAssociationEnd queryAction)
+        public QueryActionContext(ICSharpClassMethodDeclaration method, ActionType actionType, IAssociationEnd queryAction)
         {
             _method = method;
             _actionType = actionType;
@@ -91,7 +91,7 @@ namespace Intent.Modules.Application.DomainInteractions
             }
         }
 
-        public CSharpClassMethod Method
+        public ICSharpClassMethodDeclaration Method
         {
             get
             {
@@ -99,7 +99,7 @@ namespace Intent.Modules.Application.DomainInteractions
             }
         }
 
-        public CSharpClass HandlerClass
+        public ICSharpClass HandlerClass
         {
             get
             {

@@ -21,7 +21,7 @@ namespace Intent.Modules.Application.DomainInteractions.Extensions;
 public static class DataAccessProviderExtensions
 {
 
-    public static IList<CSharpStatement> GetQueryStatements(this CSharpClassMethod method, IAssociationEnd interaction, QueryActionContext queryContext)
+    public static IList<CSharpStatement> GetQueryStatements(this ICSharpClassMethodDeclaration method, IAssociationEnd interaction, QueryActionContext queryContext)
     {
         var queryMapping = interaction.Mappings.GetQueryEntityMapping();
         var foundEntity = interaction.TypeReference.Element.AsClassModel();
@@ -253,7 +253,7 @@ public static class DataAccessProviderExtensions
                 return false;
         }
     }
-    public static IDataAccessProvider InjectDataAccessProvider(this CSharpClassMethod method, ClassModel foundEntity, QueryActionContext queryContext = null)
+    public static IDataAccessProvider InjectDataAccessProvider(this ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext queryContext = null)
     {
         if (TryInjectRepositoryForEntity(method, foundEntity, queryContext, out var dataAccess))
         {
@@ -270,7 +270,7 @@ public static class DataAccessProviderExtensions
         throw new Exception("No CRUD Data Access Provider found. Please install a Module with a Repository Pattern or EF Core Module.");
     }
 
-    private static bool TryInjectRepositoryForEntity(CSharpClassMethod method, ClassModel foundEntity, QueryActionContext context, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectRepositoryForEntity(ICSharpClassMethodDeclaration method, ClassModel foundEntity, QueryActionContext context, out IDataAccessProvider dataAccessProvider)
     {
         var _template = method.File.Template;
         if (!_template.TryGetTypeName(TemplateRoles.Repository.Interface.Entity, foundEntity, out var repositoryInterface))
@@ -287,7 +287,7 @@ public static class DataAccessProviderExtensions
         return true;
     }
 
-    private static bool TryInjectDbContext(CSharpClassMethod method, ClassModel entity, QueryActionContext queryContext, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectDbContext(ICSharpClassMethodDeclaration method, ClassModel entity, QueryActionContext queryContext, out IDataAccessProvider dataAccessProvider)
     {
         var handlerClass = method.Class;
         var _template = handlerClass.File.Template;
@@ -308,7 +308,7 @@ public static class DataAccessProviderExtensions
         return true;
     }
 
-    private static bool TryInjectDataAccessForComposite(CSharpClassMethod method, ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
+    private static bool TryInjectDataAccessForComposite(ICSharpClassMethodDeclaration method, ClassModel foundEntity, out IDataAccessProvider dataAccessProvider)
     {
         if (!foundEntity.IsAggregateRoot())
         {
@@ -403,17 +403,17 @@ public static class DataAccessProviderExtensions
     }
 
 
-    public static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElementToElementMapping queryMapping, ClassModel foundEntity, out List<CSharpStatement> statements)
+    public static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
         return method.TryGetFindAggregateStatements(queryMapping, (IElement)queryMapping.SourceElement, foundEntity, out statements);
     }
 
-    public static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
+    public static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
         return method.TryGetFindAggregateStatements(null, requestElement, foundEntity, out statements);
     }
 
-    private static bool TryGetFindAggregateStatements(this CSharpClassMethod method, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
+    private static bool TryGetFindAggregateStatements(this ICSharpClassMethodDeclaration method, IElementToElementMapping queryMapping, IElement requestElement, ClassModel foundEntity, out List<CSharpStatement> statements)
     {
         statements = new List<CSharpStatement>();
         var aggregateEntity = foundEntity.GetAssociationsToAggregateRoot().First().Class;
