@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>c96b2f71-eb9d-4ca6-9fd6-9ceb51dcec98</parentFolderId>
+  <parentFolderId>b983edad-2c9e-4e3a-819d-df4db864e78f</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="6d5a4119-f32f-4444-8ee4-5d52c858408a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="eb727b15-5d1f-4264-b8cf-7161d60d9f22" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Enable</name>
       <display>Enable: bool?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="57ecbc6d-d897-4c4c-8ba4-03e00e8af857">
+      <typeReference id="82b6c904-821e-4e79-828b-525ecf23d483">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="5195b6f5-b007-4778-881b-095d4a9edc0b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="e223ba4f-3d42-41f9-a485-0c3e1509860d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>TwoFactorCode</name>
       <display>TwoFactorCode: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="b1c6bbf4-bf63-4d2d-a5fe-89537c1dfcf2">
+      <typeReference id="641e9ccc-6528-4f55-af67-b22b327b560c">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -112,12 +112,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="cfc746ed-5a5a-4923-a96a-2743832ec88a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="31e212b5-4394-4f56-a074-9a85b233b5c7" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>ResetSharedKey</name>
       <display>ResetSharedKey: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="814a2fee-ace4-4105-af0f-c6b480f9bb50">
+      <typeReference id="ca0e0929-d41e-4b18-9647-f1320963d3e2">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -162,12 +162,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="64748a80-95c1-4b3c-bb1d-27e4cc956573" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="38f5e69e-7850-4485-af28-4e27e6a91daf" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>ResetRecoveryCodes</name>
       <display>ResetRecoveryCodes: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="7d06cc0a-b652-44b5-8b6b-cbb3582f6847">
+      <typeReference id="bfc176bf-d561-4aee-a0e1-134039d38790">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -212,12 +212,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="a41ebc3b-6419-4093-8e69-2ff376340b0c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="24b64bc2-ae9b-455d-8587-b381eb50d734" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>ForgetMachine</name>
       <display>ForgetMachine: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="e66c3e94-4f5d-407d-889b-31782fe79909">
+      <typeReference id="b5877cae-3129-445d-8649-3e57420a20f4">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

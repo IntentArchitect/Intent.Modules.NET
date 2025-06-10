@@ -29,7 +29,19 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             var identityService = application.MetadataManager.Services(application).GetServiceModels().FirstOrDefault(s => s.HasIdentityServiceHandler());
             if (identityService is null)
             {
-                return;
+                foreach (var service in application.MetadataManager.Services(application).GetServiceModels())
+                {
+                    if (service.Operations.Any(o => o.HasIdentityServiceHandler()))
+                    {
+                        identityService = service;
+                        break;
+                    }
+                }
+
+                if (identityService is null)
+                {
+                    return;
+                }
             }
 
             CreateService(application, identityService);
@@ -44,22 +56,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             {
                 var @class = file.Classes.First();
 
-                var confirmEmailMethod = @class.Methods.First(x => x.Name == "ConfirmEmailAsync");
-                confirmEmailMethod.AddAttribute("EndpointName(\"ConfirmEmailAsync\")");
-
-                //var loginMethod = @class.Methods.First(x => x.Name == "LoginAsync");
-                //loginMethod.Attributes.Remove(loginMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
-                //loginMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
-
-                //loginMethod.Statements.Remove(loginMethod.Statements.First(s => s.Text == "return NoContent();"));
-                //loginMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
-
-                //var refreshMethod = @class.Methods.First(x => x.Name == "RefreshAsync");
-                //refreshMethod.Attributes.Remove(refreshMethod.Attributes.First(x => x.Name == "ProducesResponseType(StatusCodes.Status204NoContent)"));
-                //refreshMethod.AddAttribute("ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)");
-
-                //refreshMethod.Statements.Remove(refreshMethod.Statements.First(s => s.Text == "return NoContent();"));
-                //refreshMethod.Statements.Add(new CSharpStatement("return new EmptyResult();"));
+                var confirmEmailMethod = @class.Methods.First(x => x.Name == "ConfirmEmail");
+                confirmEmailMethod.AddAttribute("EndpointName(\"ConfirmEmail\")");
 
             }, 99);
         }
@@ -86,74 +84,94 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
 
                     switch (operation.Name)
                     {
-                        case "ConfirmEmailAsync":
+                        case "ConfirmEmail":
                             {
-                                var method = @class.FindMethod("ConfirmEmailAsync");
+                                var method = @class.FindMethod("ConfirmEmail");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.ConfirmEmailAsync(userId, code, changedEmail);");
+                                method.AddStatement("return await _identityServiceManager.ConfirmEmail(userId, code, changedEmail);");
                                 break;
                             }
-                        case "ForgotPasswordAsync":
+                        case "ForgotPassword":
                             {
-                                var method = @class.FindMethod("ForgotPasswordAsync");
+                                var method = @class.FindMethod("ForgotPassword");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.ForgotPasswordAsync(resetRequest);");
+                                method.AddStatement("await _identityServiceManager.ForgotPassword(resetRequest);");
                                 break;
                             }
-                        case "GetInfoAsync":
+                        case "GetInfo":
                             {
-                                var method = @class.FindMethod("GetInfoAsync");
+                                var method = @class.FindMethod("GetInfo");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.GetInfoAsync();");
+                                method.AddStatement("return await _identityServiceManager.GetInfo();");
                                 break;
                             }
-                        case "LoginAsync":
+                        case "Login":
                             {
-                                var method = @class.FindMethod("LoginAsync");
+                                var method = @class.FindMethod("Login");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.LoginAsync(login, useCookies, useSessionCookies);");
+                                method.AddStatement("return await _identityServiceManager.Login(login, useCookies, useSessionCookies);");
                                 break;
                             }
-                        case "RefreshAsync":
+                        case "Refresh":
                             {
-                                var method = @class.FindMethod("RefreshAsync");
+                                var method = @class.FindMethod("Refresh");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.RefreshAsync(refreshRequest);");
+                                method.AddStatement("return await _identityServiceManager.Refresh(refreshRequest);");
                                 break;
                             }
-                        case "RegisterAsync":
+                        case "Register":
                             {
-                                var method = @class.FindMethod("RegisterAsync");
+                                var method = @class.FindMethod("Register");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.RegisterAsync(register);");
+                                method.AddStatement("await _identityServiceManager.Register(register);");
                                 break;
                             }
-                        case "ResendConfirmationEmailAsync":
+                        case "ResendConfirmationEmailA":
                             {
-                                var method = @class.FindMethod("ResendConfirmationEmailAsync");
+                                var method = @class.FindMethod("ResendConfirmationEmail");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.ResendConfirmationEmailAsync(resendRequest);");
+                                method.AddStatement("await _identityServiceManager.ResendConfirmationEmail(resendRequest);");
                                 break;
                             }
-                        case "ResetPasswordAsync":
+                        case "ResetPassword":
                             {
-                                var method = @class.FindMethod("ResetPasswordAsync");
+                                var method = @class.FindMethod("ResetPassword");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("await _identityServiceManager.ResetPasswordAsync(resetRequest);");
+                                method.AddStatement("await _identityServiceManager.ResetPassword(resetRequest);");
                                 break;
                             }
-                        case "UpdateInfoAsync":
+                        case "UpdateInfo":
                             {
-                                var method = @class.FindMethod("UpdateInfoAsync");
+                                var method = @class.FindMethod("UpdateInfo");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.UpdateInfoAsync(infoRequest);");
+                                method.AddStatement("return await _identityServiceManager.UpdateInfo(infoRequest);");
                                 break;
                             }
-                        case "UpdateTwoFactorAsync":
+                        case "UpdateTwoFactor":
                             {
-                                var method = @class.FindMethod("UpdateTwoFactorAsync");
+                                var method = @class.FindMethod("UpdateTwoFactor");
+                                method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                                 method.Statements.Clear();
-                                method.AddStatement("return await _identityServiceManager.UpdateTwoFactorAsync(tfaRequest);");
+                                method.AddStatement("return await _identityServiceManager.UpdateTwoFactor(tfaRequest);");
                                 break;
                             }
                         default:

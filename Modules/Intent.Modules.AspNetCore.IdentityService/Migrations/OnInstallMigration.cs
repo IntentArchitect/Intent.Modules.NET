@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata;
 using Intent.Engine;
@@ -111,24 +112,16 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
 
                 var identityFolder = package.Classes.First(f => f.Id == identityFolderId);
 
-                identityFolder.ChildElements.Add(
+                package.ChildElements.Add(
                         new ElementPersistable
                         {
                             Id = identityServiceId,
-                            GenericTypes = new List<GenericType>
-                            {
-                                new GenericType
-                                {
-                                    Id = Guid.NewGuid().ToString(),
-                                    Name = "TUser"
-                                }
-                            },
                             Name = "IdentityService",
                             Display = "IdentityService",
                             IsAbstract = false,
                             SortChildren = SortChildrenOptions.SortByTypeThenManually,
                             IsMapped = false,
-                            ParentFolderId = identityFolderId,
+                            ParentFolderId = package.Id,
                             PackageId = package.Id,
                             PackageName = package.Name,
                             SpecializationType = "Service",
@@ -158,7 +151,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                             },
                             ChildElements = new List<ElementPersistable>
                             {
-                                CreateEndpoint(confirmEmailEndpointId, "ConfirmEmailAsync", "ConfirmEmailAsync(userId: string, code: string, changedEmail: string?): string",
+                                CreateEndpoint(confirmEmailEndpointId, "ConfirmEmail", "ConfirmEmail(userId: string, code: string, changedEmail: string?): string",
                                 identityServiceId, package.Id, package.Name, StringTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="GET", IsActive = true },
@@ -190,7 +183,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
                                     }, StringTypeReference(true))
                                 }),
-                                CreateEndpoint(forgotPasswordEndpointId, "ForgotPasswordAsync", "ForgotPasswordAsync(resetRequest: ForgotPasswordRequestDto): void",
+                                CreateEndpoint(forgotPasswordEndpointId, "ForgotPassword", "ForgotPassword(resetRequest: ForgotPasswordRequestDto): void",
                                 identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -216,7 +209,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }),
-                                CreateEndpoint(getInfoEndpointId, "GetInfoAsync", "GetInfoAsync(): InfoResponseDto",
+                                CreateEndpoint(getInfoEndpointId, "GetInfo", "GetInfo(): InfoResponseDto",
                                 identityServiceId, package.Id, package.Name,
                                 CustomTypeReference(package.Name, package.Id, CreateDto(package, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c", "InfoResponseDto", "InfoResponseDto", identityFolderId, new List<ElementPersistable>
                                 {
@@ -239,7 +232,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                 {
 
                                 }, true),
-                                CreateEndpoint(loginEndpointId, "LoginAsync", "LoginAsync(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void",
+                                CreateEndpoint(loginEndpointId, "Login", "Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id,accessTokenResponseDtoId), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -295,7 +288,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         new StereotypePropertyPersistable { DefinitionId = "c8caa58e-972a-42f2-983e-652ceee762b2", Name = "Query String Name", IsActive = true }
                                     }, BoolTypeReference(true))
                                 }),
-                                CreateEndpoint(refreshTokenEndpointId, "RefreshAsync", "RefreshAsync(refreshRequest: RefreshRequestDto): AccessTokenResponseDto",
+                                CreateEndpoint(refreshTokenEndpointId, "Refresh", "Refresh(refreshRequest: RefreshRequestDto): AccessTokenResponseDto",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id,accessTokenResponseDtoId), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -321,7 +314,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }),
-                                CreateEndpoint(registerEndpointId, "RegisterAsync", "RegisterAsync(registration: RegisterRequestDto): void",
+                                CreateEndpoint(registerEndpointId, "Register", "Register(registration: RegisterRequestDto): void",
                                 identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -352,7 +345,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }),
-                                CreateEndpoint(resendConfirmationEmailEndpointId, "ResendConfirmationEmailAsync", "ResendConfirmationEmailAsync(resendRequest: ResendConfirmationEmailRequestDto): void",
+                                CreateEndpoint(resendConfirmationEmailEndpointId, "ResendConfirmationEmail", "ResendConfirmationEmail(resendRequest: ResendConfirmationEmailRequestDto): void",
                                 identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -378,7 +371,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }),
-                                CreateEndpoint(resetPasswordEndpointId, "ResetPasswordAsync", "ResetPasswordAsync(resetRequest: ResetPasswordRequestDto): void",
+                                CreateEndpoint(resetPasswordEndpointId, "ResetPassword", "ResetPassword(resetRequest: ResetPasswordRequestDto): void",
                                 identityServiceId, package.Id, package.Name, VoidTypeReference(), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -414,7 +407,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }),
-                                CreateEndpoint(updateInfoEndpointId, "UpdateInfoAsync", "UpdateInfoAsync(infoRequest: InfoRequestDto): InfoResponseDto",
+                                CreateEndpoint(updateInfoEndpointId, "UpdateInfo", "UpdateInfo(infoRequest: InfoRequestDto): InfoResponseDto",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, "8b6cbf88-5100-4505-b6ce-4a880dd55e2c"), new List<StereotypePropertyPersistable>
                                 {
                                     new StereotypePropertyPersistable { DefinitionId = "801c3e61-4431-4d81-93fa-7e57d33cb3fa", Name = "Verb",  Value="POST", IsActive = true },
@@ -450,7 +443,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     }
                                     )))
                                 }, true),
-                                CreateEndpoint(updateTwoFactorEndpointId, "UpdateTwoFactorAsync", "UpdateTwoFactorAsync(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto",
+                                CreateEndpoint(updateTwoFactorEndpointId, "UpdateTwoFactor", "UpdateTwoFactor(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto",
                                 identityServiceId, package.Id, package.Name, CustomTypeReference(package.Name, package.Id, CreateDto(package, "d26e5694-d249-43c8-95c9-2621a85b6ca4", "TwoFactorResponseDto",
                                 "TwoFactorResponseDto", identityFolderId, new List<ElementPersistable>
                                 {
@@ -623,14 +616,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                         DefinitionPackageId = "0011387a-b122-45d7-9cdb-8e21b315ab9f",
                         Name = "Http Settings",
                         Properties = httpSettingsProperties
-                    },
-                    new StereotypePersistable
-                    {
-                        DefinitionId = "A225C795-33E9-417D-8D58-E22826A08224",
-                        AddedByDefault = false,
-                        DefinitionPackageName = "Intent.Application.Contracts",
-                        DefinitionPackageId = "b258d75f-f895-43b9-bb91-6500664716f9",
-                        Name = "Asynchronous"
                     },
                     new StereotypePersistable
                     {

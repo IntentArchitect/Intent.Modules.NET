@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.IdentityService.Settings;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.Common;
@@ -61,7 +62,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                     @class.ImplementsInterface(interfaceTypeName);
 
-                    @class.AddField("string", "confirmEmailEndpointName", c => c.PrivateConstant("\"ConfirmEmailAsync\""));
+                    @class.AddField("string", "confirmEmailEndpointName", c => c.PrivateConstant("\"ConfirmEmail\""));
 
                     @class.AddConstructor(ctor =>
                     {
@@ -106,7 +107,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                     GetTypeName("Intent.Application.Identity.ForbiddenAccessException");
                     GetTypeName("Intent.Entities.NotFoundException");
 
-                    @class.AddMethod("string", "ConfirmEmailAsync", m =>
+                    @class.AddMethod("string", "ConfirmEmail", m =>
                     {
                         m.Async();
 
@@ -138,7 +139,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddReturn("\"Thank you for confirming your email.\"");
                     });
 
-                    @class.AddMethod("Task", "ForgotPasswordAsync", m =>
+                    @class.AddMethod("Task", "ForgotPassword", m =>
                     {
                         m.Async();
                         m.AddParameter("ForgotPasswordRequestDto", "resetRequest");
@@ -153,16 +154,16 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
                     });
 
-                    @class.AddMethod("InfoResponseDto", "GetInfoAsync", m =>
+                    @class.AddMethod("InfoResponseDto", "GetInfo", m =>
                     {
                         m.Async();
 
                         m.AddIfStatement("await _userManager.FindByIdAsync(_httpContextAccessor.HttpContext?.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value) is not { } user", c => c.AddStatement("throw new NotFoundException();"));
 
-                        m.AddReturn("await CreateInfoResponseAsync(user, _userManager);");
+                        m.AddReturn("await CreateInfoResponse(user, _userManager);");
                     });
 
-                    @class.AddMethod("AccessTokenResponseDto", "LoginAsync", m =>
+                    @class.AddMethod("AccessTokenResponseDto", "Login", m =>
                     {
                         m.Async();
                         m.AddParameter("LoginRequestDto", "login");
@@ -224,7 +225,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddReturn("response");
                     });
 
-                    @class.AddMethod("AccessTokenResponseDto", "RefreshAsync", m =>
+                    @class.AddMethod("AccessTokenResponseDto", "Refresh", m =>
                     {
                         m.Async();
                         m.AddParameter("RefreshRequestDto", "refreshRequest");
@@ -269,7 +270,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddReturn("response");
                     });
 
-                    @class.AddMethod("Task", "RegisterAsync", m =>
+                    @class.AddMethod("Task", "Register", m =>
                     {
                         m.Async();
                         m.AddParameter("RegisterRequestDto", "registration");
@@ -286,10 +287,13 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddIfStatement("!result.Succeeded", i => i.AddStatement("throw new Exception();"));
 
-                        m.AddStatement("await SendConfirmationEmailAsync(user, _userManager, _httpContextAccessor.HttpContext, email);");
+                        if (ExecutionContext.Settings.GetIdentityServiceSettings().RequiresConfirmedAccount())
+                        {
+                            m.AddStatement("await SendConfirmationEmailAsync(user, _userManager, _httpContextAccessor.HttpContext, email);");
+                        }
                     });
 
-                    @class.AddMethod("bool", "ResendConfirmationEmailAsync", m =>
+                    @class.AddMethod("bool", "ResendConfirmationEmail", m =>
                     {
                         m.Async();
                         m.AddParameter("ResendConfirmationEmailRequestDto", "resendRequest");
@@ -300,7 +304,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddReturn("true");
                     });
 
-                    @class.AddMethod("Task", "ResetPasswordAsync", m =>
+                    @class.AddMethod("Task", "ResetPassword", m =>
                     {
                         m.Async();
                         m.AddParameter("ResetPasswordRequestDto", "resetRequest");
@@ -321,7 +325,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
                     });
 
-                    @class.AddMethod("InfoResponseDto", "UpdateInfoAsync", m =>
+                    @class.AddMethod("InfoResponseDto", "UpdateInfo", m =>
                     {
                         m.Async();
                         m.AddParameter("InfoRequestDto", "infoRequest");
@@ -341,10 +345,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                             i.AddIfStatement("email != infoRequest.NewEmail", iIf => iIf.AddStatement("await SendConfirmationEmailAsync(user, _userManager, _httpContextAccessor.HttpContext, infoRequest.NewEmail, isChange: true);"));
                         });
 
-                        m.AddReturn("await CreateInfoResponseAsync(user, _userManager);");
+                        m.AddReturn("await CreateInfoResponse(user, _userManager);");
                     });
 
-                    @class.AddMethod("TwoFactorResponseDto", "UpdateTwoFactorAsync", m =>
+                    @class.AddMethod("TwoFactorResponseDto", "UpdateTwoFactor", m =>
                     {
                         m.Async();
                         m.AddParameter("TwoFactorRequestDto", "tfaRequest");
@@ -398,7 +402,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddReturn("response");
                     });
 
-                    @class.AddMethod("InfoResponseDto", "CreateInfoResponseAsync", c =>
+                    @class.AddMethod("InfoResponseDto", "CreateInfoResponse", c =>
                     {
                         c.Private()
                         .Static()

@@ -89,6 +89,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>040049d6-d6b4-4c85-91ab-67e4e8c6ec90</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Settings.ModuleSettingsExtensions#a1a75470-3437-43b1-be57-f2187693929b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce631d18-b20f-43c8-95ad-22ffa58a1956</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

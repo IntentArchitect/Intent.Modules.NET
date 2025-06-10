@@ -22,7 +22,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
 {
     public class IdentityServiceManager : IIdentityServiceManager
     {
-        private const string confirmEmailEndpointName = "ConfirmEmailAsync";
+        private const string confirmEmailEndpointName = "ConfirmEmail";
         private readonly UserManager<ApplicationIdentityUser> _userManager;
         private readonly SignInManager<ApplicationIdentityUser> _signInManager;
         private readonly IUserStore<ApplicationIdentityUser> _userStore;
@@ -54,7 +54,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             _tokenService = tokenService;
         }
 
-        public async Task<string> ConfirmEmailAsync(string userId, string code, string? changedEmail)
+        public async Task<string> ConfirmEmail(string userId, string code, string? changedEmail)
         {
             if (await _userManager.FindByIdAsync(userId) is not { } user)
             {
@@ -92,7 +92,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             return "Thank you for confirming your email.";
         }
 
-        public async Task ForgotPasswordAsync(ForgotPasswordRequestDto resetRequest)
+        public async Task ForgotPassword(ForgotPasswordRequestDto resetRequest)
         {
             var user = await _userManager.FindByEmailAsync(resetRequest.Email);
 
@@ -104,19 +104,16 @@ namespace CleanArchitecture.IdentityService.Api.Services
             }
         }
 
-        public async Task<InfoResponseDto> GetInfoAsync()
+        public async Task<InfoResponseDto> GetInfo()
         {
             if (await _userManager.FindByIdAsync(_httpContextAccessor.HttpContext?.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value) is not { } user)
             {
                 throw new NotFoundException();
             }
-            return await CreateInfoResponseAsync(user, _userManager); ;
+            return await CreateInfoResponse(user, _userManager); ;
         }
 
-        public async Task<AccessTokenResponseDto> LoginAsync(
-            LoginRequestDto login,
-            bool? useCookies,
-            bool? useSessionCookies)
+        public async Task<AccessTokenResponseDto> Login(LoginRequestDto login, bool? useCookies, bool? useSessionCookies)
         {
             var useCookieScheme = (useCookies == true) || (useSessionCookies == true);
             var isPersistent = (useCookies == true) && (useSessionCookies != true);
@@ -168,7 +165,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             return response;
         }
 
-        public async Task<AccessTokenResponseDto> RefreshAsync(RefreshRequestDto refreshRequest)
+        public async Task<AccessTokenResponseDto> Refresh(RefreshRequestDto refreshRequest)
         {
             var username = _tokenService.GetUsernameFromRefreshToken(refreshRequest.RefreshToken);
 
@@ -205,7 +202,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             return response;
         }
 
-        public async Task RegisterAsync(RegisterRequestDto registration)
+        public async Task Register(RegisterRequestDto registration)
         {
             if (!_userManager.SupportsUserEmail)
             {
@@ -222,10 +219,9 @@ namespace CleanArchitecture.IdentityService.Api.Services
             {
                 throw new Exception();
             }
-            await SendConfirmationEmailAsync(user, _userManager, _httpContextAccessor.HttpContext, email);
         }
 
-        public async Task<bool> ResendConfirmationEmailAsync(ResendConfirmationEmailRequestDto resendRequest)
+        public async Task<bool> ResendConfirmationEmail(ResendConfirmationEmailRequestDto resendRequest)
         {
             if (await _userManager.FindByEmailAsync(resendRequest.Email) is not { } user)
             {
@@ -235,7 +231,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             return true;
         }
 
-        public async Task ResetPasswordAsync(ResetPasswordRequestDto resetRequest)
+        public async Task ResetPassword(ResetPasswordRequestDto resetRequest)
         {
             var user = await _userManager.FindByEmailAsync(resetRequest.Email);
 
@@ -256,7 +252,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             }
         }
 
-        public async Task<InfoResponseDto> UpdateInfoAsync(InfoRequestDto infoRequest)
+        public async Task<InfoResponseDto> UpdateInfo(InfoRequestDto infoRequest)
         {
             if (await _userManager.FindByIdAsync(_httpContextAccessor.HttpContext?.User.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value) is not { } user)
             {
@@ -282,10 +278,10 @@ namespace CleanArchitecture.IdentityService.Api.Services
                     await SendConfirmationEmailAsync(user, _userManager, _httpContextAccessor.HttpContext, infoRequest.NewEmail, isChange: true);
                 }
             }
-            return await CreateInfoResponseAsync(user, _userManager); ;
+            return await CreateInfoResponse(user, _userManager); ;
         }
 
-        public async Task<TwoFactorResponseDto> UpdateTwoFactorAsync(TwoFactorRequestDto tfaRequest)
+        public async Task<TwoFactorResponseDto> UpdateTwoFactor(TwoFactorRequestDto tfaRequest)
         {
             if (await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User) is not { } user)
             {
@@ -354,9 +350,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             return response;
         }
 
-        private static async Task<InfoResponseDto> CreateInfoResponseAsync<TUser>(
-            TUser user,
-            UserManager<TUser> userManager)
+        private static async Task<InfoResponseDto> CreateInfoResponse<TUser>(TUser user, UserManager<TUser> userManager)
             where TUser : class
         {
             return new() { Email = await userManager.GetEmailAsync(user) ?? throw new NotSupportedException("Users must have an email."), IsEmailConfirmed = await userManager.IsEmailConfirmedAsync(user) };

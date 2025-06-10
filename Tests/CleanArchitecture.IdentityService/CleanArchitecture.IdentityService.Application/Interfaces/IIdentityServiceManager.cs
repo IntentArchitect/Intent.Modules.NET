@@ -9,15 +9,15 @@ namespace CleanArchitecture.IdentityService.Application.Interfaces
 {
     public interface IIdentityServiceManager
     {
-        Task RegisterAsync(RegisterRequestDto registration);
-        Task<AccessTokenResponseDto> LoginAsync(LoginRequestDto login, bool? useCookies, bool? useSessionCookies);
-        Task<AccessTokenResponseDto> RefreshAsync(RefreshRequestDto refreshRequest);
-        Task<string> ConfirmEmailAsync(string userId, string code, string? changedEmail);
-        Task<bool> ResendConfirmationEmailAsync(ResendConfirmationEmailRequestDto resendRequest);
-        Task ForgotPasswordAsync(ForgotPasswordRequestDto resetRequest);
-        Task ResetPasswordAsync(ResetPasswordRequestDto resetPasswordRequest);
-        Task<TwoFactorResponseDto> UpdateTwoFactorAsync(TwoFactorRequestDto tfaRequest);
-        Task<InfoResponseDto> GetInfoAsync();
-        Task<InfoResponseDto> UpdateInfoAsync(InfoRequestDto infoRequest);
+        Task Register(RegisterRequestDto registration);
+        Task<AccessTokenResponseDto> Login(LoginRequestDto login, bool? useCookies, bool? useSessionCookies);
+        Task<AccessTokenResponseDto> Refresh(RefreshRequestDto refreshRequest);
+        Task<string> ConfirmEmail(string userId, string code, string? changedEmail);
+        Task<bool> ResendConfirmationEmail(ResendConfirmationEmailRequestDto resendRequest);
+        Task ForgotPassword(ForgotPasswordRequestDto resetRequest);
+        Task ResetPassword(ResetPasswordRequestDto resetPasswordRequest);
+        Task<TwoFactorResponseDto> UpdateTwoFactor(TwoFactorRequestDto tfaRequest);
+        Task<InfoResponseDto> GetInfo();
+        Task<InfoResponseDto> UpdateInfo(InfoRequestDto infoRequest);
     }
 }

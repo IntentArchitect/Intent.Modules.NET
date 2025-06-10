@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="5bedb70a-41c8-4fed-9c52-f3a15944b355" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+<class id="9bce5041-3686-42fe-90fa-8368f219af0f" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
   <name>IdentityService</name>
-  <display>IdentityService&lt;TUser&gt;</display>
+  <display>IdentityService</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
-  <genericTypes>
-    <genericType id="95c4055d-9214-4f12-bdf3-a56495ec00e7">
-      <name>TUser</name>
-    </genericType>
-  </genericTypes>
+  <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>c96b2f71-eb9d-4ca6-9fd6-9ceb51dcec98</parentFolderId>
+  <parentFolderId>ac78de5d-60d4-4402-a7e4-b619d4da7725</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes>
@@ -31,13 +27,13 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="596d51ab-a587-4ea7-b956-ad576c7ff294" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>ConfirmEmailAsync</name>
-      <display>ConfirmEmailAsync(userId: string, code: string, changedEmail: string?): string</display>
+    <childElement id="bb25584f-ef97-46d2-b97b-eb502fe2e7e0" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ConfirmEmail</name>
+      <display>ConfirmEmail(userId: string, code: string, changedEmail: string?): string</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="bf417146-8bfb-48e2-8bfd-b64928d3f5a4">
+      <typeReference id="1275417c-2e8d-4536-b2eb-020374d4d54e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -49,7 +45,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -64,12 +60,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -79,12 +69,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b8444301-9cd5-4583-9c05-92bcfc7069bf" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="ab85cfac-f46c-41bb-94e3-2fd7ec834e82" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>userId</name>
           <display>in : userId: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="f0b3d45f-59fd-4691-9ccf-b6bb2707000a">
+          <typeReference id="9bb94928-4185-45b9-9beb-b1811c462bfe">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -96,7 +86,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>596d51ab-a587-4ea7-b956-ad576c7ff294</parentFolderId>
+          <parentFolderId>bb25584f-ef97-46d2-b97b-eb502fe2e7e0</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -114,12 +104,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="510f19d1-ff10-4309-bf99-b9bb63c95fec" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="50168c0c-61be-479d-bac2-2a7b59bee5d7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>code</name>
           <display>in : code: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8620b975-17cf-46bf-82dc-883a30cc95a5">
+          <typeReference id="d68e42e2-28bc-42d7-91e6-cd0ed8a533cd">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -131,7 +121,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>596d51ab-a587-4ea7-b956-ad576c7ff294</parentFolderId>
+          <parentFolderId>bb25584f-ef97-46d2-b97b-eb502fe2e7e0</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -149,12 +139,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1b871ba6-c728-4207-b457-e123fbe3464d" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="a5ab30a2-4237-4cab-8238-2faefd541f3a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>changedEmail</name>
           <display>in : changedEmail: string?</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="a50f6b70-3176-4174-9510-5da2686f28d6">
+          <typeReference id="dacfb6e4-8208-43be-a56d-b34d62bd2234">
             <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>true</isNullable>
@@ -166,7 +156,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>596d51ab-a587-4ea7-b956-ad576c7ff294</parentFolderId>
+          <parentFolderId>bb25584f-ef97-46d2-b97b-eb502fe2e7e0</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -186,13 +176,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="4b1ba226-e8b2-4044-a009-b937d7281416" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>ForgotPasswordAsync</name>
-      <display>ForgotPasswordAsync(resetRequest: ForgotPasswordRequestDto): void</display>
+    <childElement id="e80cff98-6d1c-4f0e-a122-d90b59d41f52" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ForgotPassword</name>
+      <display>ForgotPassword(resetRequest: ForgotPasswordRequestDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="7f653e72-270c-428d-a5bc-f69bb5977df1">
+      <typeReference id="3f79a17b-dba5-4165-ace0-03311dd4520f">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -201,7 +191,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -216,12 +206,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -231,12 +215,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a1960ca9-aea0-4243-8b51-fa5fb0b84e8e" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="01112160-2ae1-463f-b643-445ce885524a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>resetRequest</name>
           <display>in : resetRequest: ForgotPasswordRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="1533e4f2-b70f-462e-9ff0-193ca868cd82">
+          <typeReference id="75c93948-af63-429f-9093-a47562db021a">
             <typeId>0fb483ce-b561-46e8-b9b5-6d07082792e6</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -248,7 +232,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>4b1ba226-e8b2-4044-a009-b937d7281416</parentFolderId>
+          <parentFolderId>e80cff98-6d1c-4f0e-a122-d90b59d41f52</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -268,12 +252,12 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="13418f1b-5fcb-4e68-bf36-a95e6d3122d2" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>GetInfoAsync</name>
-      <display>GetInfoAsync(): InfoResponseDto</display>
+    <childElement id="8c1dabd4-9c0d-4a87-a5c1-458abf35673f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetInfo</name>
+      <display>GetInfo(): InfoResponseDto</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="09ee994e-1fe6-48d9-a114-9963d04b6dec">
+      <typeReference id="92c9c7f3-92b8-4aa3-bdfc-4dca07697309">
         <typeId>8b6cbf88-5100-4505-b6ce-4a880dd55e2c</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -285,7 +269,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -299,12 +283,6 @@
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
           </properties>
-        </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
         </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
@@ -327,14 +305,14 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="0f324d55-65f9-49e2-9d44-877d4193ae20" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>LoginAsync</name>
-      <display>LoginAsync(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): AccessTokenResponseDto</display>
+    <childElement id="e96228e3-5ea7-4ef7-8d42-23142d9106d5" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Login</name>
+      <display>Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): AccessTokenResponseDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="24ba9555-82ba-4dab-b0f4-9edee375b846">
-        <typeId>7d7936b8-03c8-4006-b8b8-11fa793c6034</typeId>
+      <typeReference id="c5937e42-43e0-4e39-b384-97957a9da3df">
+        <typeId>857ee64e-a63e-43fc-a20d-56e71841c7b2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -345,7 +323,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -360,12 +338,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -375,12 +347,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="34e0e7be-27e1-426c-b4d4-d6139951048a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="e64940d9-4042-4fbb-85ba-e496871e676a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>login</name>
           <display>in : login: LoginRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="3bb29749-47cb-4e0f-a2b9-10f2255d6698">
+          <typeReference id="afc38d11-3c86-4d07-83f9-82f797bceb71">
             <typeId>3775e275-50c9-4fc9-b450-03d0386cdf91</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -392,7 +364,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>0f324d55-65f9-49e2-9d44-877d4193ae20</parentFolderId>
+          <parentFolderId>e96228e3-5ea7-4ef7-8d42-23142d9106d5</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -410,12 +382,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ddc70ab3-f463-49dd-be2f-1484205e113f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="e21b18bc-7434-4b0d-87eb-b2a713a9c0a7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>useCookies</name>
           <display>in : useCookies: bool?</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="c673900f-0918-44c8-90a3-d02408f88320">
+          <typeReference id="73b0bb5a-256b-49bb-965d-21eaee2059b0">
             <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>true</isNullable>
@@ -427,7 +399,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>0f324d55-65f9-49e2-9d44-877d4193ae20</parentFolderId>
+          <parentFolderId>e96228e3-5ea7-4ef7-8d42-23142d9106d5</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -445,12 +417,12 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5a04972a-791e-4264-877b-2ec5f09e21d6" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="2807920f-47a9-42ce-b53d-63b326b1a3d9" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>useSessionCookies</name>
           <display>in : useSessionCookies: bool?</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="d50166aa-a11c-458d-be91-c3aea87b216b">
+          <typeReference id="102f7d94-ae68-4035-ba6c-2a65018f7e21">
             <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>true</isNullable>
@@ -462,7 +434,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>0f324d55-65f9-49e2-9d44-877d4193ae20</parentFolderId>
+          <parentFolderId>e96228e3-5ea7-4ef7-8d42-23142d9106d5</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -482,14 +454,14 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="dba3ef31-3c66-49af-8b3a-eb774fb01a07" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>RefreshAsync</name>
-      <display>RefreshAsync(refreshRequest: RefreshRequestDto): AccessTokenResponseDto</display>
+    <childElement id="8b961c41-6a60-488b-bc50-8f98dcbb2847" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Refresh</name>
+      <display>Refresh(refreshRequest: RefreshRequestDto): AccessTokenResponseDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="5f41d282-76b2-4a93-91a9-a5f7913da2b6">
-        <typeId>7d7936b8-03c8-4006-b8b8-11fa793c6034</typeId>
+      <typeReference id="43226e13-29db-4d76-9c52-63ddf86ead18">
+        <typeId>857ee64e-a63e-43fc-a20d-56e71841c7b2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -500,7 +472,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -515,12 +487,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -530,12 +496,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1a1e525d-70e6-4ffa-a654-e149088f8ba0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="b557188e-0cc0-4c9d-ad0b-7bf2cb871952" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>refreshRequest</name>
           <display>in : refreshRequest: RefreshRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="45bb4332-2ff8-4916-a7ad-e6a1d46d7934">
+          <typeReference id="36163f40-e54e-4614-93bd-c60c6d0cc9b2">
             <typeId>e68ed718-58c2-4fb9-953a-aa250d459321</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -547,7 +513,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>dba3ef31-3c66-49af-8b3a-eb774fb01a07</parentFolderId>
+          <parentFolderId>8b961c41-6a60-488b-bc50-8f98dcbb2847</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -567,13 +533,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="0f6f7386-cadc-4fb0-9624-c3a06d5daa2e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>RegisterAsync</name>
-      <display>RegisterAsync(register: RegisterRequestDto): void</display>
+    <childElement id="b7f66c38-5974-4499-afdc-ade98763ebc6" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>Register</name>
+      <display>Register(register: RegisterRequestDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="c7c37a48-5b19-4b0c-b3fb-4a3a32f871b9">
+      <typeReference id="24820102-0f6a-4182-ab90-c10061094466">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -582,7 +548,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -597,12 +563,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -612,12 +572,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="93796d74-3457-4931-b3eb-d13478d8f345" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="1266d614-c799-40a0-9938-7feafd991dea" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>register</name>
           <display>in : register: RegisterRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="0431455b-f50f-4132-9974-5d0a65bb7213">
+          <typeReference id="f75503ba-4d4f-4f27-9549-432d132cd506">
             <typeId>34c256c7-379a-4d09-abe4-cced74dc1b83</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -629,7 +589,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>0f6f7386-cadc-4fb0-9624-c3a06d5daa2e</parentFolderId>
+          <parentFolderId>b7f66c38-5974-4499-afdc-ade98763ebc6</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -649,13 +609,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="41474d33-0b81-4e7a-a415-83a762a85f2c" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>ResendConfirmationEmailAsync</name>
-      <display>ResendConfirmationEmailAsync(resendRequest: ResendConfirmationEmailRequestDto): void</display>
+    <childElement id="691a2e8a-8dfa-4521-aa3c-2584501a492f" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ResendConfirmationEmail</name>
+      <display>ResendConfirmationEmail(resendRequest: ResendConfirmationEmailRequestDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="1a7311f3-d494-4d82-b4d2-2a9ff24d6455">
+      <typeReference id="117cce07-5faf-4afa-a2f5-e1887e830cea">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -664,7 +624,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -679,12 +639,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -694,12 +648,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3b5b94a1-6a4e-458c-80cc-9f9258a2905f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="f16e05d9-70fa-4d20-bc48-d8ff0639fbc3" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>resendRequest</name>
           <display>in : resendRequest: ResendConfirmationEmailRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="a5e5e815-d4b2-4f2e-b2a9-c9630755d757">
+          <typeReference id="582f0135-5251-40fc-a7cf-b7f6d2544fd4">
             <typeId>83019f86-e9da-4a3b-8cf3-8489cfd88a9e</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -711,7 +665,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>41474d33-0b81-4e7a-a415-83a762a85f2c</parentFolderId>
+          <parentFolderId>691a2e8a-8dfa-4521-aa3c-2584501a492f</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -731,13 +685,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="7b8ac413-0849-42a2-9471-cbcb63cfda67" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>ResetPasswordAsync</name>
-      <display>ResetPasswordAsync(resetRequest: ResetPasswordRequestDto): void</display>
+    <childElement id="9ad7ebf1-5c99-4d60-a95e-c6141b272679" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>ResetPassword</name>
+      <display>ResetPassword(resetRequest: ResetPasswordRequestDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="ee595658-dea7-4b57-8e2b-16fad5c00532">
+      <typeReference id="b09847fb-69f8-4728-9994-8cd619f9f886">
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
@@ -746,7 +700,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -761,12 +715,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -776,12 +724,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bd328ec6-413a-47d3-8477-1588a63562c8" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="3c02e08f-0bdc-4c6e-bae4-94b5f30ed46f" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>resetRequest</name>
           <display>in : resetRequest: ResetPasswordRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="8bde04a9-d9b3-4034-ab87-4e53aa3fd517">
+          <typeReference id="8df7d51c-fb97-40c0-895c-ed1f8e60b3ea">
             <typeId>379bada3-e556-4918-983e-b0d67a68260f</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -793,7 +741,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>7b8ac413-0849-42a2-9471-cbcb63cfda67</parentFolderId>
+          <parentFolderId>9ad7ebf1-5c99-4d60-a95e-c6141b272679</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -813,13 +761,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="b8327514-bc4b-44c1-a34e-256edd38e4c1" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>UpdateInfoAsync</name>
-      <display>UpdateInfoAsync(infoRequest: InfoRequestDto): InfoResponseDto</display>
+    <childElement id="9c8db27d-d357-4ab1-a0ec-3a5bd73cec46" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateInfo</name>
+      <display>UpdateInfo(infoRequest: InfoRequestDto): InfoResponseDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="7a2b1975-bb5c-424f-9642-cd8bb1509d8a">
+      <typeReference id="fff49873-ed12-4c96-94a6-87a90ec41f55">
         <typeId>8b6cbf88-5100-4505-b6ce-4a880dd55e2c</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -831,7 +779,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -846,12 +794,6 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
-        </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
@@ -872,12 +814,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="101da65c-4ea4-4b3b-8d45-de56fd388ab0" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="16e0b7c0-197a-4292-887a-c288b9cdf3f7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>infoRequest</name>
           <display>in : infoRequest: InfoRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="ef40b53f-6bd6-4a2e-9858-5aa257aa1341">
+          <typeReference id="750c155d-70f5-48dd-b2c4-c77a5db86aab">
             <typeId>d57d393c-507b-4c50-8eaf-6a5005787c08</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -889,7 +831,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>b8327514-bc4b-44c1-a34e-256edd38e4c1</parentFolderId>
+          <parentFolderId>9c8db27d-d357-4ab1-a0ec-3a5bd73cec46</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>
@@ -909,13 +851,13 @@
         </childElement>
       </childElements>
     </childElement>
-    <childElement id="43b558f4-6629-4597-880c-10a091c35981" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
-      <name>UpdateTwoFactorAsync</name>
-      <display>UpdateTwoFactorAsync(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto</display>
+    <childElement id="e98947f8-b9c9-4396-b8f1-d174d3033208" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateTwoFactor</name>
+      <display>UpdateTwoFactor(tfaRequest: TwoFactorRequestDto): TwoFactorResponseDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
-      <typeReference id="c84d2063-8ac4-4071-820d-70db646bcb93">
+      <typeReference id="174216e9-9590-4af0-b4fc-ce9f9d9debc3">
         <typeId>d26e5694-d249-43c8-95c9-2621a85b6ca4</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -927,7 +869,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>5bedb70a-41c8-4fed-9c52-f3a15944b355</parentFolderId>
+      <parentFolderId>9bce5041-3686-42fe-90fa-8368f219af0f</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -941,12 +883,6 @@
             <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
-        </stereotype>
-        <stereotype stereotypeDefinitionId="A225C795-33E9-417D-8D58-E22826A08224" name="Asynchronous">
-          <addedByDefault>false</addedByDefault>
-          <definitionPackageName>Intent.Application.Contracts</definitionPackageName>
-          <definitionPackageId>b258d75f-f895-43b9-bb91-6500664716f9</definitionPackageId>
-          <properties />
         </stereotype>
         <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
@@ -968,12 +904,12 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c70d3a24-d7e4-4197-952a-7a6a4b6ee043" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+        <childElement id="b4f9db0c-6aac-40f5-8ac9-4783c91e9b67" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>tfaRequest</name>
           <display>in : tfaRequest: TwoFactorRequestDto</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
-          <typeReference id="e273aa05-64fa-453f-9b60-dc067717c2ac">
+          <typeReference id="f56a17be-fee9-4d92-abf2-743aadf6b07d">
             <typeId>4bc3ad74-244d-405e-9aa0-3d1c6b9b7e94</typeId>
             <isNavigable>true</isNavigable>
             <isNullable>false</isNullable>
@@ -985,7 +921,7 @@
             <genericTypeParameters />
           </typeReference>
           <isMapped>false</isMapped>
-          <parentFolderId>43b558f4-6629-4597-880c-10a091c35981</parentFolderId>
+          <parentFolderId>e98947f8-b9c9-4396-b8f1-d174d3033208</parentFolderId>
           <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
           <packageName>CleanArchitecture.IdentityService.Services</packageName>
           <stereotypes>

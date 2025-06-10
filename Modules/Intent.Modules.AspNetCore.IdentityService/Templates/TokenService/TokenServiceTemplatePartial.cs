@@ -39,7 +39,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.TokenService
                 {
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Issuer", "https://localhost:{sts_port}"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:Audience", "api"));
-                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:SigningKey", "Base64EncodedSuperSecureSymetricKey"));
+                    ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:SigningKey", "aHHDYCTvyZVbdcGgaDvL+T6837pHCkciU0rLvUbE9a4="));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:AuthTokenExpiryTimeSpan", "02:00:00"));
                     ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("JwtToken:RefreshTokenExpiryTimeSpan", "3.00:00:00"));
 

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.IdentityService.Settings;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
@@ -13,6 +14,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Modelers.Services.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -82,7 +84,13 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             file.Template.GetTypeName(IdentityServiceManagerTemplate.TemplateId);
             file.Template.GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
 
-            var identityStatement = new CSharpStatement("services.AddIdentity<ApplicationIdentityUser, IdentityRole>()")
+            var identityStatement = new CSharpStatement("services.AddIdentity<ApplicationIdentityUser, IdentityRole>()");
+            if (dbContextTemplate.ExecutionContext.Settings.GetIdentityServiceSettings().RequiresConfirmedAccount())
+            {
+                identityStatement = new CSharpStatement("services.AddIdentity<ApplicationIdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)");
+            }
+
+            identityStatement = identityStatement
                 .AddInvocation("AddDefaultTokenProviders", c => c.OnNewLine())
                 .AddInvocation("AddTokenProvider<DataProtectorTokenProvider<ApplicationIdentityUser>>", c => c.OnNewLine())
                 .AddArgument("IdentityConstants.BearerScheme");

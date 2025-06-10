@@ -1,7 +1,7 @@
 using System.Transactions;
 using CleanArchitecture.IdentityService.Application.Common.Validation;
 using CleanArchitecture.IdentityService.Application.Identity;
-using CleanArchitecture.IdentityService.Application.Interfaces.Identity;
+using CleanArchitecture.IdentityService.Application.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
-namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
+namespace CleanArchitecture.IdentityService.Api.Controllers
 {
     [ApiController]
     public class IdentityController : ControllerBase
@@ -37,15 +37,15 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        [EndpointName("ConfirmEmailAsync")]
-        public async Task<ActionResult<string>> ConfirmEmailAsync(
+        [EndpointName("ConfirmEmail")]
+        public async Task<ActionResult<string>> ConfirmEmail(
             [FromQuery] string userId,
             [FromQuery] string code,
             [FromQuery] string? changedEmail,
             CancellationToken cancellationToken = default)
         {
             var result = default(string);
-            result = await _appService.ConfirmEmailAsync(userId, code, changedEmail, cancellationToken);
+            result = await _appService.ConfirmEmail(userId, code, changedEmail, cancellationToken);
             return result == null ? NotFound() : Ok(result);
         }
 
@@ -57,7 +57,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ForgotPasswordAsync(
+        public async Task<ActionResult> ForgotPassword(
             [FromBody] ForgotPasswordRequestDto resetRequest,
             CancellationToken cancellationToken = default)
         {
@@ -66,7 +66,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.ForgotPasswordAsync(resetRequest, cancellationToken);
+                await _appService.ForgotPassword(resetRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -84,10 +84,10 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<InfoResponseDto>> GetInfoAsync(CancellationToken cancellationToken = default)
+        public async Task<ActionResult<InfoResponseDto>> GetInfo(CancellationToken cancellationToken = default)
         {
             var result = default(InfoResponseDto);
-            result = await _appService.GetInfoAsync(cancellationToken);
+            result = await _appService.GetInfo(cancellationToken);
             return Ok(result);
         }
 
@@ -99,7 +99,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<AccessTokenResponseDto>> LoginAsync(
+        public async Task<ActionResult<AccessTokenResponseDto>> Login(
             [FromBody] LoginRequestDto login,
             [FromQuery] bool? useCookies,
             [FromQuery] bool? useSessionCookies,
@@ -111,7 +111,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.LoginAsync(login, useCookies, useSessionCookies, cancellationToken);
+                result = await _appService.Login(login, useCookies, useSessionCookies, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -126,7 +126,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(typeof(AccessTokenResponseDto), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<AccessTokenResponseDto>> RefreshAsync(
+        public async Task<ActionResult<AccessTokenResponseDto>> Refresh(
             [FromBody] RefreshRequestDto refreshRequest,
             CancellationToken cancellationToken = default)
         {
@@ -136,7 +136,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.RefreshAsync(refreshRequest, cancellationToken);
+                result = await _appService.Refresh(refreshRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -151,7 +151,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> RegisterAsync(
+        public async Task<ActionResult> Register(
             [FromBody] RegisterRequestDto register,
             CancellationToken cancellationToken = default)
         {
@@ -160,7 +160,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.RegisterAsync(register, cancellationToken);
+                await _appService.Register(register, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -175,7 +175,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ResendConfirmationEmailAsync(
+        public async Task<ActionResult> ResendConfirmationEmail(
             [FromBody] ResendConfirmationEmailRequestDto resendRequest,
             CancellationToken cancellationToken = default)
         {
@@ -184,7 +184,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.ResendConfirmationEmailAsync(resendRequest, cancellationToken);
+                await _appService.ResendConfirmationEmail(resendRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -199,7 +199,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult> ResetPasswordAsync(
+        public async Task<ActionResult> ResetPassword(
             [FromBody] ResetPasswordRequestDto resetRequest,
             CancellationToken cancellationToken = default)
         {
@@ -208,7 +208,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                await _appService.ResetPasswordAsync(resetRequest, cancellationToken);
+                await _appService.ResetPassword(resetRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -228,7 +228,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<InfoResponseDto>> UpdateInfoAsync(
+        public async Task<ActionResult<InfoResponseDto>> UpdateInfo(
             [FromBody] InfoRequestDto infoRequest,
             CancellationToken cancellationToken = default)
         {
@@ -238,7 +238,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.UpdateInfoAsync(infoRequest, cancellationToken);
+                result = await _appService.UpdateInfo(infoRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }
@@ -258,7 +258,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<TwoFactorResponseDto>> UpdateTwoFactorAsync(
+        public async Task<ActionResult<TwoFactorResponseDto>> UpdateTwoFactor(
             [FromBody] TwoFactorRequestDto tfaRequest,
             CancellationToken cancellationToken = default)
         {
@@ -268,7 +268,7 @@ namespace CleanArchitecture.IdentityService.Api.Controllers.Identity
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
-                result = await _appService.UpdateTwoFactorAsync(tfaRequest, cancellationToken);
+                result = await _appService.UpdateTwoFactor(tfaRequest, cancellationToken);
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 transaction.Complete();
             }

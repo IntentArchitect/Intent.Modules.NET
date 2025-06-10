@@ -78,7 +78,15 @@
     <factoryExtension id="Intent.AspNetCore.IdentityService.ApplicationSecurityConfigurationExtension" externalReference="2fd52862-66dd-4908-9438-bb9c74f009ca" />
     <factoryExtension id="Intent.AspNetCore.IdentityService.IdentityServiceExtension" externalReference="68154840-a071-4b96-bedc-f1813aa40b5a" />
   </factoryExtensions>
-  <moduleSettings></moduleSettings>
+  <moduleSettings>
+    <group id="568e879f-e751-4831-9b0f-9a5e52fba9db" title="Identity Service Settings" externalReference="568e879f-e751-4831-9b0f-9a5e52fba9db">
+      <settings>
+        <setting id="64090931-0530-47d5-9fa5-0dae3f809187" title="Requires Confirmed Account" type="switch">
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />

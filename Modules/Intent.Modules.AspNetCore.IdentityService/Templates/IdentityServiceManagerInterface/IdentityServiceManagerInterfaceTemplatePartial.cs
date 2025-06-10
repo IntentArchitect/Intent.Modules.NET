@@ -46,55 +46,55 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                     UseType(typeName);
 
                     @interface
-                    .AddMethod("Task", "RegisterAsync", method =>
+                    .AddMethod("Task", "Register", method =>
                     {
                         method.Async();
                         method.AddParameter("RegisterRequestDto", "registration");
                     })
-                    .AddMethod("AccessTokenResponseDto", "LoginAsync", method =>
+                    .AddMethod("AccessTokenResponseDto", "Login", method =>
                     {
                         method.Async();
                         method.AddParameter("LoginRequestDto", "login");
                         method.AddParameter("bool?", "useCookies");
                         method.AddParameter("bool?", "useSessionCookies");
                     })
-                    .AddMethod("AccessTokenResponseDto", "RefreshAsync", method =>
+                    .AddMethod("AccessTokenResponseDto", "Refresh", method =>
                     {
                         method.Async();
                         method.AddParameter("RefreshRequestDto", "refreshRequest");
                     })
-                    .AddMethod("string", "ConfirmEmailAsync", method =>
+                    .AddMethod("string", "ConfirmEmail", method =>
                     {
                         method.Async();
                         method.AddParameter("string", "userId");
                         method.AddParameter("string", "code");
                         method.AddParameter("string?", "changedEmail");
                     })
-                    .AddMethod("bool", "ResendConfirmationEmailAsync", method =>
+                    .AddMethod("bool", "ResendConfirmationEmail", method =>
                     {
                         method.Async();
                         method.AddParameter("ResendConfirmationEmailRequestDto", "resendRequest");
                     })
-                    .AddMethod("Task", "ForgotPasswordAsync", method =>
+                    .AddMethod("Task", "ForgotPassword", method =>
                     {
                         method.Async();
                         method.AddParameter("ForgotPasswordRequestDto", "resetRequest");
                     })
-                    .AddMethod("Task", "ResetPasswordAsync", method =>
+                    .AddMethod("Task", "ResetPassword", method =>
                     {
                         method.Async();
                         method.AddParameter("ResetPasswordRequestDto", "resetPasswordRequest");
                     })
-                    .AddMethod("TwoFactorResponseDto", "UpdateTwoFactorAsync", method =>
+                    .AddMethod("TwoFactorResponseDto", "UpdateTwoFactor", method =>
                     {
                         method.Async();
                         method.AddParameter("TwoFactorRequestDto", "tfaRequest");
                     })
-                    .AddMethod("InfoResponseDto", "GetInfoAsync", method =>
+                    .AddMethod("InfoResponseDto", "GetInfo", method =>
                     {
                         method.Async();
                     })
-                    .AddMethod("InfoResponseDto", "UpdateInfoAsync", method =>
+                    .AddMethod("InfoResponseDto", "UpdateInfo", method =>
                     {
                         method.Async();
                         method.AddParameter("InfoRequestDto", "infoRequest");

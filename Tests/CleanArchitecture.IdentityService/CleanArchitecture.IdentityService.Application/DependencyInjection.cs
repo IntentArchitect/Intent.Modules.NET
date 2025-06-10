@@ -2,8 +2,8 @@ using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.IdentityService.Application.Common.Behaviours;
 using CleanArchitecture.IdentityService.Application.Common.Validation;
-using CleanArchitecture.IdentityService.Application.Implementation.Identity;
-using CleanArchitecture.IdentityService.Application.Interfaces.Identity;
+using CleanArchitecture.IdentityService.Application.Implementation;
+using CleanArchitecture.IdentityService.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -32,7 +32,7 @@ namespace CleanArchitecture.IdentityService.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
-            services.AddTransient<IIdentityService, Application.Implementation.Identity.IdentityService>();
+            services.AddTransient<IIdentityService, Application.Implementation.IdentityService>();
             return services;
         }
     }

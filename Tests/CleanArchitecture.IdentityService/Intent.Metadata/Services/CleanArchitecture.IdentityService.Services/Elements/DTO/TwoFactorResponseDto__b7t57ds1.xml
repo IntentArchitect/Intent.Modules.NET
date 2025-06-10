@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>c96b2f71-eb9d-4ca6-9fd6-9ceb51dcec98</parentFolderId>
+  <parentFolderId>b983edad-2c9e-4e3a-819d-df4db864e78f</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="148cab94-9ada-4857-8088-17bb2115a39c" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="2cdfc6d6-f411-4d0f-8358-c028933cc830" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>SharedKey</name>
       <display>SharedKey: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="f960449f-118f-4268-9b23-340e183af4df">
+      <typeReference id="8692b044-e26d-4b1e-9c33-f9b0cc103864">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="a100b06c-f114-4847-afe8-643e86358b42" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="74f86f7c-c96c-4797-88f0-435dc081e9d2" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>RecoveryCodesLeft</name>
       <display>RecoveryCodesLeft: int</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="4cb08d74-bb60-41d9-a5e6-e1894478d517">
+      <typeReference id="cd4a1702-10d8-4992-aded-f38307fd789b">
         <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -112,12 +112,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="09377c43-6248-466d-8d13-f265899be269" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="5273456e-ac41-48a4-b80a-e750d87aafbc" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>RecoveryCodes</name>
       <display>RecoveryCodes: string[*]?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="13a9c359-ad95-4e4c-af3e-cadc405fd824">
+      <typeReference id="2fa06d86-cace-4d86-8ee2-045bb775330f">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -162,12 +162,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="595022a8-0f47-4331-bfa9-8e12622316e1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="6a52523a-00d8-46d4-98e5-425d77064457" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>IsTwoFactorEnabled</name>
       <display>IsTwoFactorEnabled: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="ee6f9c2b-b418-4e22-93ec-0231a4334b7c">
+      <typeReference id="e4d351d4-e180-4181-bc1c-96876919f996">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -212,12 +212,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="ac76a124-5cca-4975-b8b8-6c982ced766a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="0157ecd9-29da-40a0-a7e9-c2b08b40c683" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>IsMachineRemembered</name>
       <display>IsMachineRemembered: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="c2d15f8f-c4f6-49f1-9bba-a995dc018554">
+      <typeReference id="cef2da8b-100e-44ef-8dc9-b5fbd6b889ce">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

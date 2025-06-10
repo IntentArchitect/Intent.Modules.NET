@@ -15,7 +15,7 @@ The IdentityService comes fully configured to handle these operations through AS
 
 If you wish to customize the behavior of a specific operation, simply remove the Identity Service Handler stereotype from that operation and implement your own logic.
 
-![Service Designer](images/identity-service.png)
+![Service Designer](images/identity-service-handler.png)
 
 # What's in This Module?
 
