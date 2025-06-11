@@ -17,6 +17,8 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubsc
     {
         public const string TemplateId = "Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions";
 
+        internal const string SubscriptionEntry = nameof(SubscriptionEntry);
+        
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public AzureServiceBusSubscriptionOptionsTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {

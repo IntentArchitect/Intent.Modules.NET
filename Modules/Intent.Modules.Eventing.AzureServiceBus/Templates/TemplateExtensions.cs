@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.EventInteractions;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfiguration;
 using Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEventBus;
@@ -64,5 +65,12 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates
             return template.GetTypeName(IntegrationEventHandlerTemplate.TemplateId, model);
         }
 
+        [IntentIgnore]
+        public static string GetSubscriptionEntryName<T>(this CSharpTemplateBase<T> template)
+        {
+            return template.TryGetTemplate<Intent.Modules.Common.CSharp.Templates.ICSharpTemplate>(AzureServiceBusSubscriptionOptionsTemplate.TemplateId, out var t)
+                ? template.NormalizeNamespace($"{t.Namespace}.{AzureServiceBusSubscriptionOptionsTemplate.SubscriptionEntry}")
+                : throw new System.InvalidOperationException();
+        }
     }
 }

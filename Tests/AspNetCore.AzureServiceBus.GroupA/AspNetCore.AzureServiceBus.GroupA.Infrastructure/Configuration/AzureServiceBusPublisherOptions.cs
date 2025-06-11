@@ -1,11 +1,11 @@
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.PublisherOptions", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions", Version = "1.0")]
 
 namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Configuration
 {
-    public class PublisherOptions
+    public class AzureServiceBusPublisherOptions
     {
         private readonly List<PublisherEntry> _entries = [];
 

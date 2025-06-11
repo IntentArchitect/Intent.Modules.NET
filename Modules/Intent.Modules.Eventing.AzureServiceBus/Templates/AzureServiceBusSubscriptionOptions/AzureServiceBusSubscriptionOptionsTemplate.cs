@@ -39,7 +39,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubsc
                          
                          public delegate Task DispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
                          
-                         public record SubscriptionEntry(Type MessageType, DispatchHandler HandlerAsync);
+                         public record {{SubscriptionEntry}}(Type MessageType, DispatchHandler HandlerAsync);
                      }
                      """;
         }

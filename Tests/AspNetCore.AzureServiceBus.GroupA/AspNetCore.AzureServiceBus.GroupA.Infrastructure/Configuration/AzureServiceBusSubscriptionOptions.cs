@@ -4,11 +4,11 @@ using Azure.Messaging.ServiceBus;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.SubscriptionOptions", Version = "1.0")]
+[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions", Version = "1.0")]
 
 namespace AspNetCore.AzureServiceBus.GroupA.Infrastructure.Configuration
 {
-    public class SubscriptionOptions
+    public class AzureServiceBusSubscriptionOptions
     {
         private readonly List<SubscriptionEntry> _entries = [];
 

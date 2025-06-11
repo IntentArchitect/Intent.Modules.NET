@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Modules.UnitOfWork.Persistence.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -38,14 +39,14 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
                     {
                         ctor
                             .AddParameter("IServiceProvider", "rootServiceProvider", param => param.IntroduceReadonlyField())
-                            .AddParameter("IAzureServiceBusMessageDispatcher", "dispatcher", param => param.IntroduceReadonlyField())
+                            .AddParameter(this.GetAzureServiceBusMessageDispatcherInterfaceName(), "dispatcher", param => param.IntroduceReadonlyField())
                             .AddParameter("ServiceBusClient", "serviceBusClient", param => param.IntroduceReadonlyField())
                             .AddParameter("ILogger<AzureServiceBusHostedService>", "logger", param => param.IntroduceReadonlyField())
-                            .AddParameter("IOptions<SubscriptionOptions>", "subscriptionOptions");
+                            .AddParameter($"IOptions<{this.GetAzureServiceBusSubscriptionOptionsName()}>", "subscriptionOptions");
                         ctor.AddStatement("_subscriptionOptions = subscriptionOptions.Value;");
                     });
 
-                    @class.AddField("SubscriptionOptions", "_subscriptionOptions", field => field.PrivateReadOnly())
+                    @class.AddField(this.GetAzureServiceBusSubscriptionOptionsName(), "_subscriptionOptions", field => field.PrivateReadOnly())
                         .AddField("List<ServiceBusProcessor>", "_processors", field => field.WithAssignment("[]").PrivateReadOnly());
 
                     @class.AddMethod("Task", "ExecuteAsync", method =>
@@ -66,7 +67,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
                     @class.AddMethod("ServiceBusProcessor", "CreateProcessor", method =>
                     {
                         method.Private();
-                        method.AddParameter("SubscriptionEntry", "subscription");
+                        method.AddParameter(this.GetSubscriptionEntryName(), "subscription");
                         method.AddParameter("ServiceBusClient", "serviceBusClient");
                         method.AddStatement(new CSharpAssignmentStatement(new CSharpVariableDeclaration("options"),
                             new CSharpObjectInitializerBlock("new ServiceBusProcessorOptions")
@@ -89,26 +90,25 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
                         {
                             tryBlock.AddStatement("using var scope = _rootServiceProvider.CreateScope();");
                             tryBlock.AddStatement("var scopedServiceProvider = scope.ServiceProvider;");
-                            tryBlock.AddStatement(new CSharpAssignmentStatement(
-                                new CSharpVariableDeclaration("unitOfWork"),
-                                "scopedServiceProvider.GetRequiredService<IUnitOfWork>()").WithSemicolon());
+                            // tryBlock.AddStatement(new CSharpAssignmentStatement(
+                            //     new CSharpVariableDeclaration("unitOfWork"),
+                            //     $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Domain.UnitOfWork)}>()").WithSemicolon());
                             tryBlock.AddStatement(new CSharpAssignmentStatement(
                                 new CSharpVariableDeclaration("eventBus"),
-                                "scopedServiceProvider.GetRequiredService<IEventBus>()").WithSemicolon());
+                                $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface)}>()").WithSemicolon());
 
-                            tryBlock.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), 
-                                "await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);");
+                            // tryBlock.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), 
+                            //     "await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);");
+                            tryBlock.ApplyUnitOfWorkImplementations(
+                                template: this, 
+                                constructor: @class.Constructors.First(), 
+                                invocationStatement: "await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);",
+                                configure: config =>
+                                {
+                                    config.UseServiceProvider("scopedServiceProvider");
+                                });
                             
-                            // tryBlock.AddUsingBlock(
-                            //     "var transaction = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled)",
-                            //     scopeBlock =>
-                            //     {
-                            //         scopeBlock.AddStatement("await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);");
-                            //         scopeBlock.AddStatement("await unitOfWork.SaveChangesAsync(cancellationToken);");
-                            //         scopeBlock.AddStatement("transaction.Complete();");
-                            //     });
-                            //
-                            // tryBlock.AddStatement("await eventBus.FlushAllAsync(cancellationToken);");
+                            tryBlock.AddStatement("await eventBus.FlushAllAsync(cancellationToken);");
                             tryBlock.AddStatement("await args.CompleteMessageAsync(args.Message, cancellationToken);");
                         });
                         method.AddCatchBlock("Exception", "ex", catchBlock => catchBlock
@@ -139,8 +139,17 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
 
         public override bool CanRunTemplate()
         {
-            var template = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-            return template != null;
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            return appStartup != null;
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            var appStartup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+            appStartup.StartupFile.ConfigureServices((stmt, ctx) =>
+            {
+                stmt.AddStatement($@"{ctx.Services}.AddHostedService<{appStartup.GetAzureServiceBusHostedServiceName()}>();");
+            });
         }
 
         [IntentManaged(Mode.Fully)]

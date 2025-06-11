@@ -37,19 +37,21 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusConfi
                 .AddUsing("System")
                 .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Azure.Messaging.ServiceBus")
                 .AddClass($"AzureServiceBusConfiguration", @class =>
                 {
                     @class.Static()
                         .AddMethod("IServiceCollection", "ConfigureAzureServiceBus", method =>
                         {
-                            method.Static()
-                                .AddParameter("IServiceCollection", "services", param => param.WithThisModifier())
-                                .AddParameter("IConfiguration", "configuration");
+                            method.Static();
+                            method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
+                            method.AddParameter("IConfiguration", "configuration");
 
-                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();")
-                                .AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();")
-                                .AddStatement(
-                                    $"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
+                            method.AddStatement($@"services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration[""AzureServiceBus:ConnectionString""]));");
+                            
+                            method.AddStatement($"services.AddScoped<{this.GetEventBusInterfaceName()}, {this.GetAzureServiceBusEventBusName()}>();");
+                            method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherName()}>();");
+                            method.AddStatement($"services.AddSingleton<{this.GetAzureServiceBusMessageDispatcherInterfaceName()}, {this.GetAzureServiceBusMessageDispatcherName()}>();");
                             
                             var publishers = IntegrationManager.Instance.GetAggregatedPublishedAzureServiceBusItems(ExecutionContext.GetApplicationConfig().Id);
                             if (publishers.Count != 0)

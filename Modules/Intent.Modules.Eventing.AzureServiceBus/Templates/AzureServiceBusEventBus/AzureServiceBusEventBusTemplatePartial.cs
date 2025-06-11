@@ -37,16 +37,15 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                 .AddClass($"AzureServiceBusEventBus", @class =>
                 {
                     @class.ImplementsInterface(this.GetEventBusInterfaceName());
-                    @class.AddField("IConfiguration", "_configuration", field => field.PrivateReadOnly());
                     @class.AddField("List<object>", "_messageQueue", field => field.PrivateReadOnly().WithAssignment(new CSharpStatement("[]")));
                     @class.AddField("Dictionary<string, string>", "_lookup", field => field.PrivateReadOnly());
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("IConfiguration", "configuration");
+                        ctor.AddParameter("IConfiguration", "configuration", param => param.IntroduceReadonlyField());
+                        ctor.AddParameter("ServiceBusClient", "serviceBusClient", param => param.IntroduceReadonlyField());
                         ctor.AddParameter($"IOptions<{this.GetAzureServiceBusPublisherOptionsName()}>", "options");
 
-                        ctor.AddStatement("_configuration = configuration;");
                         ctor.AddStatement("_lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.QueueOrTopicName);");
                     });
 
@@ -81,13 +80,11 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                         });
                         
                         method.AddStatement("using var scope = new TransactionScope(TransactionScopeOption.Suppress, TransactionScopeAsyncFlowOption.Enabled);");
-                        method.AddStatement("""var connectionString = _configuration["AzureServiceBus:ConnectionString"];""");
-                        method.AddStatement("await using var serviceBusClient = new ServiceBusClient(connectionString);");
 
                         method.AddForEachStatement("message", "_messageQueue", fe =>
                         {
                             fe.AddStatement("var queueOrTopicName = _lookup[message.GetType().FullName!];");
-                            fe.AddStatement("await using var sender = serviceBusClient.CreateSender(queueOrTopicName);");
+                            fe.AddStatement("await using var sender = _serviceBusClient.CreateSender(queueOrTopicName);");
                             fe.AddStatement("var serviceBusMessage = CreateServiceBusMessage(message);");
                             fe.AddStatement("await sender.SendMessageAsync(serviceBusMessage, cancellationToken);");
                         });
