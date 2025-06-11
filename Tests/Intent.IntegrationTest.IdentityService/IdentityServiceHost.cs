@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -53,6 +54,21 @@ namespace Intent.IntegrationTest.IdentityService
                         .AddEntityFrameworkStores<ApplicationDbContext>();
                     services.AddHttpContextAccessor();
 
+                    var configData = new Dictionary<string, string>
+                    {
+                        ["JwtToken:SigningKey"] = "aHHDYCTvyZVbdcGgaDvL+T6837pHCkciU0rLvUbE9a4=",
+                        ["JwtToken:Audience"] = "TestAudience",
+                        ["JwtToken:RefreshTokenExpiryTimeSpan"] = "3.00:00:00",
+                        ["JwtToken:AuthTokenExpiryTimeSpan"] = "02:00:00",
+                        ["JwtToken:Issuer"] = string.Format(IdentityServiceUri, portNumber)
+                    };
+
+                    // Build configuration
+                    var configuration = new ConfigurationBuilder()
+                        .AddInMemoryCollection(configData)
+                        .Build();
+
+                    services.AddSingleton<IConfiguration>(configuration);
                     services.AddScoped<CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser>>(x => emailSender);
 
                     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
@@ -95,5 +111,12 @@ namespace Intent.IntegrationTest.IdentityService
         }
     }
 
+    internal class JwtToken
+    {
+        public string Audience { get; set; }
+        public string SigningKey { get; set; }
+        public string AuthTokenExpiryTimeSpan { get; set; }
+        public string RefreshTokenExpiryTimeSpan { get; set; }
+    }
     
 }
