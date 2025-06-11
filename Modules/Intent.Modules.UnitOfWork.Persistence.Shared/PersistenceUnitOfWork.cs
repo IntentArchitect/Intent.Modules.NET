@@ -494,7 +494,7 @@ internal static class PersistenceUnitOfWork
             
             if (config is { AllowTransactionScope: true, IncludeComments: true })
             {
-                currentBlock.AddStatements(
+                currentBlock.AddStatement(
                     """
                     // The execution is wrapped in a transaction scope to ensure that if any other
                     // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
@@ -503,7 +503,7 @@ internal static class PersistenceUnitOfWork
                     // transaction). Learn more on this approach for EF Core:
                     // https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions
                     """,
-                    stmt => stmt.First().SeparatedFromPrevious());
+                    stmt => stmt.SeparatedFromPrevious());
             }
 
             if (config.AllowTransactionScope)
@@ -529,12 +529,13 @@ internal static class PersistenceUnitOfWork
 
             if (config is { AllowTransactionScope: true, IncludeComments: true })
             {
-                currentBlock.AddStatements(new[]
-                {
-                    new CSharpStatement("// By calling SaveChanges at the last point in the transaction ensures that write-").SeparatedFromPrevious(),
-                    "// locks in the database are created and then released as quickly as possible. This",
-                    "// helps optimize the application to handle a higher degree of concurrency."
-                });
+                currentBlock.AddStatement(
+                    """
+                    // By calling SaveChanges at the last point in the transaction ensures that write-
+                    // locks in the database are created and then released as quickly as possible. This
+                    // helps optimize the application to handle a higher degree of concurrency.
+                    """,
+                    stmt => stmt.SeparatedFromPrevious());
             }
 
             var fieldOrVariable = shouldAddServiceResolution ? variableName : $"_{variableName}";
@@ -544,11 +545,8 @@ internal static class PersistenceUnitOfWork
 
             if (config is { AllowTransactionScope: true, IncludeComments: true })
             {
-                currentBlock.AddStatements(new[]
-                {
-                    new CSharpStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when").SeparatedFromPrevious(),
-                    "// disposed if anything failed."
-                });
+                currentBlock.AddStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when", stmt=>stmt.SeparatedFromPrevious());
+                currentBlock.AddStatement("// disposed if anything failed.");
             }
             if (config.AllowTransactionScope)
             {
