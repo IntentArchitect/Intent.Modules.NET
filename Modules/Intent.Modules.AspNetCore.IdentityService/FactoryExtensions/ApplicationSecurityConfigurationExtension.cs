@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modules.AspNetCore.IdentityService.Settings;
@@ -16,9 +19,6 @@ using Intent.Modules.Constants;
 using Intent.Modules.Modelers.Services.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
-using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
