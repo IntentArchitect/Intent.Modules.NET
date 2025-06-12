@@ -1,3 +1,8 @@
+### Version 1.1.0
+
+- Improvement: Hosted Service introduced for .NET Hosts to receive inbound messages from Azure Service Bus.
+- Improvement: Renamed `Options` classes to be more distinct to Azure Service Bus configuration.
+
 ### Version 1.0.4
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
