@@ -71,9 +71,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
 
                 if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
                 {
-                    builder.AddResource(Terraform.azurerm_servicebus_subscription.type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    var resourceName = $"{message.ApplicationName.Replace(".", "_").ToSnakeCase()}_{message.QueueOrTopicName.ToSnakeCase()}";
+                    builder.AddResource(Terraform.azurerm_servicebus_subscription.type, resourceName, resource =>
                     {
-                        resource.AddSetting("name", message.QueueOrTopicName);
+                        var subscriptionName = resourceName.ToKebabCase();
+                        resource.AddSetting("name", subscriptionName);
                         resource.AddRawSetting("topic_id", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
                         resource.AddSetting("max_delivery_count", 3);
                     });

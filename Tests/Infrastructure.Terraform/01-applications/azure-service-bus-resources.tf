@@ -25,14 +25,20 @@ resource "azurerm_servicebus_topic" "specific_topic" {
   namespace_id = azurerm_servicebus_namespace.service_bus.id
 }
 
-resource "azurerm_servicebus_subscription" "specific_topic" {
-  name               = "specific-topic"
+resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_a_specific_topic" {
+  name               = "azure-functions-azure-service-bus-group-a-specific-topic"
   topic_id           = azurerm_servicebus_topic.specific_topic.id
   max_delivery_count = 3
 }
 
-resource "azurerm_servicebus_subscription" "client_created" {
-  name               = "client-created"
+resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_b_client_created" {
+  name               = "azure-functions-azure-service-bus-group-b-client-created"
+  topic_id           = azurerm_servicebus_topic.client_created.id
+  max_delivery_count = 3
+}
+
+resource "azurerm_servicebus_subscription" "asp_net_core_azure_service_bus_group_b_client_created" {
+  name               = "asp-net-core-azure-service-bus-group-b-client-created"
   topic_id           = azurerm_servicebus_topic.client_created.id
   max_delivery_count = 3
 }
