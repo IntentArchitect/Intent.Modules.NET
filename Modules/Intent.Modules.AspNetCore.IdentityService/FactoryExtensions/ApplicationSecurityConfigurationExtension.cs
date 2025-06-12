@@ -1,6 +1,5 @@
-using System;
-using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modules.AspNetCore.IdentityService.Settings;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender;
@@ -17,6 +16,9 @@ using Intent.Modules.Constants;
 using Intent.Modules.Modelers.Services.Settings;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using System;
+using System.Linq;
+using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -41,7 +43,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 return;
             }
 
-            var dbContextTemplate = ConfigureIdentityStore(application);
+            var dbContextTemplate = GetDbContextTemplate(application, applicationSecurityConfigurationTemplate.ExecutionContext);
+
+            ConfigureIdentityStore(application, dbContextTemplate);
 
             applicationSecurityConfigurationTemplate.CSharpFile.AfterBuild(file =>
             {
@@ -114,7 +118,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             return statements;
         }
 
-        private ICSharpFileBuilderTemplate ConfigureIdentityStore(IApplication application)
+        private ICSharpFileBuilderTemplate ConfigureIdentityStore(IApplication application, ICSharpFileBuilderTemplate dbContext)
         {
             var infrastructureDependencyInjection = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Infrastructure.DependencyInjection.DependencyInjection");
 
@@ -124,7 +128,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 infrastructureDependencyInjection.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreIdentity(infrastructureDependencyInjection.OutputTarget));
             }
 
-            var dbContext = GetDbContextTemplate(application);
             if (dbContext == null)
             {
                 return null;
@@ -143,12 +146,18 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             return dbContext;
         }
 
-        private static ICSharpFileBuilderTemplate GetDbContextTemplate(IApplication application)
+        private static ICSharpFileBuilderTemplate GetDbContextTemplate(IApplication application, ISoftwareFactoryExecutionContext executionContext)
         {
             var result = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate(TemplateRoles.Infrastructure.Data.DbContext));
             if (result != null) return result;
             result = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.EntityFrameworkCore.DbContext"));
-            return result;
+
+            if (result != null)
+            {
+                return result;
+            }
+
+            throw new Exception("Unable to find DB Context template. The 'Intent.AspNetCore.IdentityService' modules require the 'Intent.EntityFrameworkCore' module to be installed, along with a properly configured Domain package.");
         }
     }
 }

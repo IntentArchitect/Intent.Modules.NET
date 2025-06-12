@@ -138,7 +138,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                                 method.AddStatement("await _identityServiceManager.Register(register);");
                                 break;
                             }
-                        case "ResendConfirmationEmailA":
+                        case "ResendConfirmationEmail":
                             {
                                 var method = @class.FindMethod("ResendConfirmationEmail");
                                 method.Attributes.Remove(method.Attributes.FirstOrDefault(a => a.Name == "IntentManaged"));
