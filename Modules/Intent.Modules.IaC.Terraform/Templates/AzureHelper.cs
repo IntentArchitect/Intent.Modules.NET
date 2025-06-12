@@ -151,7 +151,8 @@ internal static class AzureHelper
             var proportion = (double)component.Length / totalOriginalLength;
             var targetLength = Math.Max(1, (int)(availableLength * proportion));
 
-            return CompactString(component, targetLength);
+            // Just truncate proportionally - keep it readable!
+            return TruncatePreservingWords(component, targetLength);
         }).ToArray();
     }
 
@@ -218,24 +219,8 @@ internal static class AzureHelper
         if (input.Length <= maxLength)
             return input;
 
-        // Remove vowels from the middle of words, keeping first and last characters
-        var words = input.Split(' ');
-        var compactedWords = words.Select(word =>
-        {
-            if (word.Length <= 3)
-                return word;
-
-            // Keep first and last character, remove vowels from middle
-            var first = word[0];
-            var last = word[word.Length - 1];
-            var middle = word.Substring(1, word.Length - 2);
-            var compactMiddle = VowelRegex.Replace(middle, "");
-
-            return $"{first}{compactMiddle}{last}";
-        });
-
-        var result = string.Join(" ", compactedWords);
-        return result.Length <= maxLength ? result : TruncatePreservingWords(result, maxLength);
+        // Just truncate preserving words - NO vowel removal
+        return TruncatePreservingWords(input, maxLength);
     }
 
     private static string TruncatePreservingWords(string input, int maxLength)

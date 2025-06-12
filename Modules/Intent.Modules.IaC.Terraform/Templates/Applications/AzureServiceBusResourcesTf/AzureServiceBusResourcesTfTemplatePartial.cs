@@ -76,7 +76,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
                 {
                     builder.AddResource(Terraform.azurerm_servicebus_subscription.type, Terraform.azurerm_servicebus_subscription.subscription(message).refname, resource =>
                     {
-                        var subscriptionName = AzureHelper.CreateResourceName([message.ApplicationName.Replace(".", string.Empty), message.QueueOrTopicName], 50, "-");
+                        var subscriptionName = AzureHelper.CreateResourceName([message.ApplicationName, message.QueueOrTopicName], 50, "-");
                         resource.AddSetting("name", subscriptionName);
                         resource.AddRawSetting("topic_id", Terraform.azurerm_servicebus_topic.topic(message).id);
                         resource.AddSetting("max_delivery_count", 3);

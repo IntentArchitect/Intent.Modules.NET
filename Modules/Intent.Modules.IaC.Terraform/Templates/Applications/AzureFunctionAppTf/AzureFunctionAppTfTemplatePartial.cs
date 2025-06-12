@@ -156,8 +156,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                             {
                                 appSettings.AddRawSetting($@"""{message.TopicConfigurationSourceName}""", $@"""{message.TopicName.ToKebabCase()}""");
                             }
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
                         }
                     }
                 });

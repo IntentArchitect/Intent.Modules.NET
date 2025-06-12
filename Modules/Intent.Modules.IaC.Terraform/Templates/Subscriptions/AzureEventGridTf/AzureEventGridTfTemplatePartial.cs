@@ -57,8 +57,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
             foreach (var topicSubscription in topicSubscriptions)
             {
                 var subscription = topicSubscription.First();
-                var topicNameRef = subscription.SubscriptionItem.TopicName.ToSnakeCase();
-                builder.AddData(Terraform.azurerm_eventgrid_topic.type, topicNameRef, data =>
+                var message = subscription.SubscriptionItem;
+                builder.AddData(Terraform.azurerm_eventgrid_topic.type, Terraform.azurerm_eventgrid_topic.topic(message).refname, data =>
                 {
                     data.AddSetting("name", subscription.SubscriptionItem.TopicName);
                     data.AddRawSetting("resource_group_name", "var.resource_group_name");
@@ -66,8 +66,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
                 builder.AddResource(Terraform.azurerm_eventgrid_event_subscription.type, $"{_sanitizedApplicationName.ToSnakeCase()}", resource =>
                 {
-                    resource.AddSetting("name", $"{subscription.SubscriptionItem.TopicName.ToKebabCase()}-sub");
-                    resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.type}.{topicNameRef}.id");
+                    resource.AddSetting("name", AzureHelper.CreateResourceName([Model.Name, subscription.SubscriptionItem.TopicName, "sub"], 64, "-"));
+                    resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.topic(message).id}");
                     resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
                     resource.AddBlock("azure_function_endpoint", b =>
                     {

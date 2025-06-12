@@ -1,6 +1,7 @@
 // ReSharper disable InconsistentNaming
 
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
 namespace Intent.Modules.IaC.Terraform.Templates;
@@ -86,6 +87,15 @@ internal static class Terraform
     public static class azurerm_eventgrid_topic
     {
         public const string type = nameof(azurerm_eventgrid_topic);
+        
+        public static EventGridTopicData topic(AzureEventGridMessage message)
+        {
+            var refname = message.TopicName.ToSnakeCase();
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.id", $"{expression}.primary_access_key", $"{expression}.endpoint");
+        }
+
+        public record EventGridTopicData(string refname, string id, string primary_access_key, string endpoint);
     }
 
     public static class azurerm_eventgrid_event_subscription
