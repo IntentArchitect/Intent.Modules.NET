@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="47f375c0-2ed8-47c8-9ec6-a8d6b6bf5f41" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Identity</name>
+  <display>Identity</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>938d6cf7-ebbf-4612-9c4a-e25835d2ab60</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="871b9c8e-5ea1-4f71-9c1c-0339e7ab989c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IdentityService.EmailSender</name>
+      <display>Intent.AspNetCore.IdentityService.EmailSender</display>
+      <externalReference>Intent.AspNetCore.IdentityService</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>47f375c0-2ed8-47c8-9ec6-a8d6b6bf5f41</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

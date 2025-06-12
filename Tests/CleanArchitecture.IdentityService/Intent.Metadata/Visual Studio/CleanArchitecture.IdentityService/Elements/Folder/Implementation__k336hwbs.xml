@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="938d6cf7-ebbf-4612-9c4a-e25835d2ab60" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Implementation</name>
+  <display>Implementation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>ff221d1f-b4d0-4255-b26e-c71e2da2ddaa</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

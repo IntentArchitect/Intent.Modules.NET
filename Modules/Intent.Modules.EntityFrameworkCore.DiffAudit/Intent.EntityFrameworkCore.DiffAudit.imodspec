@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DiffAudit</id>
   <version>1.0.1</version>
@@ -24,7 +24,7 @@
     <factoryExtension id="Intent.EntityFrameworkCore.DiffAudit.EfCoreExtension" externalReference="76267192-ec61-4491-a710-856945af2da1" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="af5069a0-967a-4ffd-95b1-8bf6d305375c" title="Diff Audit" externalReference="af5069a0-967a-4ffd-95b1-8bf6d305375c">
+    <group id="af5069a0-967a-4ffd-95b1-8bf6d305375c" title="Diff Audit" externalReference="af5069a0-967a-4ffd-95b1-8bf6d305375c" type="application-settings">
       <settings>
         <setting id="bf94aeeb-5e26-485e-9f1a-79bcb1ac158b" title="User Identity to Audit" type="select">
           <hint>Which data would you like to audit to identify the user.</hint>
