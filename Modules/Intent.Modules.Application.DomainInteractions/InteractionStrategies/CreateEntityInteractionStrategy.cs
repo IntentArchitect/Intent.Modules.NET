@@ -89,6 +89,8 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 
         private static void AddSaveChangesStatements(ICSharpClassMethodDeclaration method, ITypeReference returnType)
         {
+
+            // TODO: GCB - This needs to be re-looked at. It's using the tracked entities, which doesn't make sense.
             var nonUserSuppliedEntitiesReturningPks = GetEntitiesReturningPK(method, returnType, isUserSupplied: false);
 
             foreach (var entity in nonUserSuppliedEntitiesReturningPks.Where(x => x.IsNew).GroupBy(x => x.ElementModel.Id).Select(x => x.First()))

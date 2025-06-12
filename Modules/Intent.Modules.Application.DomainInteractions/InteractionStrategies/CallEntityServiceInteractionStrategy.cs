@@ -12,6 +12,7 @@ using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies;
 
+[Obsolete("This is pure evil and should be removed. Should replace with Processing Actions in the designer.")]
 public class CallEntityServiceInteractionStrategy : IInteractionStrategy
 {
     private ICSharpFileBuilderTemplate _template;
@@ -19,7 +20,7 @@ public class CallEntityServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsServiceInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
+        return interaction.IsPerformInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
                                                                && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType == "Class";
     }
 

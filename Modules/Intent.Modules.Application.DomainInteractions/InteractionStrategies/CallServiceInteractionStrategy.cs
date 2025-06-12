@@ -16,15 +16,18 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Application.Contracts.InteractionStrategies;
 
-public class CallServiceInteractionStrategy : IInteractionStrategy
+
+// NOTE THAT THIS DUPLICATES CallServiceInteractionStrategy in the Application.Contracts (need to figure out the structure here)
+public class CallDomainServiceInteractionStrategy : IInteractionStrategy
 {
     private ICSharpFileBuilderTemplate _template;
     private CSharpClassMappingManager _csharpMapping;
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
-            && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
+        return interaction.IsPerformInvocationTargetEndModel()
+               && (interaction.TypeReference.Element.SpecializationType is "Operation" or "Stored Procedure")
+               && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)

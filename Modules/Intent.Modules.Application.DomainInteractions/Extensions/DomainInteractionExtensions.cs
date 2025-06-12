@@ -30,7 +30,7 @@ public static class DomainInteractionExtensions
                || model.QueryEntityActions().Any()
                || model.UpdateEntityActions().Any()
                || model.DeleteEntityActions().Any()
-               || model.ServiceInvocationActions().Any()
+               || model.PerformInvocationActions().Any()
                || model.CallServiceOperationActions().Any();
     }
 
