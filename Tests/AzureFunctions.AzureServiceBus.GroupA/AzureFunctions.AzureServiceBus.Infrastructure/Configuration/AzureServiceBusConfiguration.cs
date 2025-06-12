@@ -1,4 +1,5 @@
 using System;
+using Azure.Messaging.ServiceBus;
 using AzureFunctions.AzureServiceBus.Application.Common.Eventing;
 using AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages;
 using AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages;
@@ -18,20 +19,21 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
             services.AddScoped<IEventBus, AzureServiceBusEventBus>();
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
-            services.Configure<PublisherOptions>(options =>
+            services.Configure<AzureServiceBusPublisherOptions>(options =>
             {
                 options.Add<ClientCreatedEvent>(configuration["AzureServiceBus:ClientCreated"]!);
                 options.Add<CreateOrgIntegrationCommand>(configuration["AzureServiceBus:CreateOrg"]!);
             });
-            services.Configure<SubscriptionOptions>(options =>
+            services.Configure<AzureServiceBusSubscriptionOptions>(options =>
             {
-                options.Add<SpecificQueueOneMessageEvent, IIntegrationEventHandler<SpecificQueueOneMessageEvent>>();
-                options.Add<SpecificQueueTwoMessageEvent, IIntegrationEventHandler<SpecificQueueTwoMessageEvent>>();
-                options.Add<SpecificTopicOneMessageEvent, IIntegrationEventHandler<SpecificTopicOneMessageEvent>>();
-                options.Add<SpecificTopicTwoMessageEvent, IIntegrationEventHandler<SpecificTopicTwoMessageEvent>>();
+                options.Add<SpecificQueueOneMessageEvent, IIntegrationEventHandler<SpecificQueueOneMessageEvent>>(configuration["AzureServiceBus:SpecificQueue"]!);
+                options.Add<SpecificQueueTwoMessageEvent, IIntegrationEventHandler<SpecificQueueTwoMessageEvent>>(configuration["AzureServiceBus:SpecificQueue"]!);
+                options.Add<SpecificTopicOneMessageEvent, IIntegrationEventHandler<SpecificTopicOneMessageEvent>>(configuration["AzureServiceBus:SpecificTopic"]!, configuration["AzureServiceBus:SpecificTopicSubscription"]);
+                options.Add<SpecificTopicTwoMessageEvent, IIntegrationEventHandler<SpecificTopicTwoMessageEvent>>(configuration["AzureServiceBus:SpecificTopic"]!, configuration["AzureServiceBus:SpecificTopicSubscription"]);
             });
             return services;
         }

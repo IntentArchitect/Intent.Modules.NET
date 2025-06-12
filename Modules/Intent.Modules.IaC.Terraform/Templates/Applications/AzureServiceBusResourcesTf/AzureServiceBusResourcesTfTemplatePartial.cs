@@ -59,10 +59,13 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
             {
                 if (items.Add(message.QueueOrTopicName))
                 {
-                    var type = message.ChannelType == AzureServiceBusChannelType.Queue
+                    var resourceType = message.ChannelType == AzureServiceBusChannelType.Queue
                         ? Terraform.azurerm_servicebus_queue.type
                         : Terraform.azurerm_servicebus_topic.type;
-                    builder.AddResource(type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    var resourceName = message.ChannelType == AzureServiceBusChannelType.Queue
+                        ? Terraform.azurerm_servicebus_queue.queue(message).refname
+                        : Terraform.azurerm_servicebus_topic.topic(message).refname;
+                    builder.AddResource(resourceType, resourceName, resource =>
                     {
                         resource.AddSetting("name", message.QueueOrTopicName);
                         resource.AddRawSetting("namespace_id", Terraform.azurerm_servicebus_namespace.service_bus.id);
@@ -71,10 +74,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
 
                 if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
                 {
-                    builder.AddResource(Terraform.azurerm_servicebus_subscription.type, message.QueueOrTopicName.ToSnakeCase(), resource =>
+                    builder.AddResource(Terraform.azurerm_servicebus_subscription.type, Terraform.azurerm_servicebus_subscription.subscription(message).refname, resource =>
                     {
-                        resource.AddSetting("name", message.QueueOrTopicName);
-                        resource.AddRawSetting("topic_id", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.id");
+                        var subscriptionName = AzureHelper.EnsureValidLength(message.ApplicationName.ToKebabCase(), 50);
+                        resource.AddSetting("name", subscriptionName);
+                        resource.AddRawSetting("topic_id", Terraform.azurerm_servicebus_topic.topic(message).id);
                         resource.AddSetting("max_delivery_count", 3);
                     });
                 }

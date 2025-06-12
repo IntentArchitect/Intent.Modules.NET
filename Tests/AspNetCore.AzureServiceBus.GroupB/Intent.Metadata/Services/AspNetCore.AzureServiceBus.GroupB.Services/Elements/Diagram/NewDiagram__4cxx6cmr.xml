@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9531723f-b598-4d8a-95b3-55eb9014c244" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>NewDiagram</name>
+  <display>NewDiagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</parentFolderId>
+  <packageId>5486d1d9-9d8f-4e50-89ee-18e28304d15e</packageId>
+  <packageName>AspNetCore.AzureServiceBus.GroupB.Services</packageName>
+  <diagram>
+    <targetPackageId>9531723f-b598-4d8a-95b3-55eb9014c244</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

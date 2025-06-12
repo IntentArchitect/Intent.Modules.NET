@@ -47,7 +47,7 @@ internal class IntegrationManager
             .Where(app => app.Modules.Any(x => x.ModuleId == azureServiceBusModule))
             .SelectMany(app => executionContext.MetadataManager
                 .GetExplicitlyPublishedMessageModels(app.Id)
-                .Select(message => new MessageInfo(app.Id, message, null)))
+                .Select(message => new MessageInfo(app.Id, app.Name, message, null)))
             .Distinct()
             .ToList();
         _subscribedMessages = applications
@@ -61,7 +61,7 @@ internal class IntegrationManager
                         Message = sub.Element.AsMessageModel(),
                         Handler = handler
                     }))
-                .Select(sub => new MessageInfo(app.Id, sub.Message, sub.Handler)))
+                .Select(sub => new MessageInfo(app.Id, app.Name, sub.Message, sub.Handler)))
             .Distinct()
             .ToList();
         
@@ -69,7 +69,7 @@ internal class IntegrationManager
             .Where(app => app.Modules.Any(x => x.ModuleId == azureServiceBusModule))
             .SelectMany(app => executionContext.MetadataManager
                 .GetExplicitlySentIntegrationCommandModels(app.Id)
-                .Select(command => new CommandInfo(app.Id, command, null)))
+                .Select(command => new CommandInfo(app.Id, app.Name, command, null)))
             .Distinct()
             .ToList();
         _receivedCommands = applications
@@ -83,7 +83,7 @@ internal class IntegrationManager
                         Command = sub.Element.AsIntegrationCommandModel(),
                         Handler = handler
                     }))
-                .Select(sub => new CommandInfo(app.Id, sub.Command, sub.Handler)))
+                .Select(sub => new CommandInfo(app.Id, app.Name, sub.Command, sub.Handler)))
             .Distinct()
             .ToList();
     }
@@ -92,7 +92,7 @@ internal class IntegrationManager
     {
         var messages = _publishedMessages
             .Where(p => p.ApplicationId == applicationId)
-            .Select(s => new AzureServiceBusMessage(s.ApplicationId, s.Message, AzureServiceBusMethodType.Publish))
+            .Select(s => new AzureServiceBusMessage(s.ApplicationId, s.ApplicationName, s.Message, AzureServiceBusMethodType.Publish))
             .ToList();
         return messages;
     }
@@ -102,7 +102,7 @@ internal class IntegrationManager
         var messages = _subscribedMessages
             .Where(p => p.ApplicationId == applicationId)
             .DistinctBy(s => s.Message.Id)
-            .Select(s => new AzureServiceBusMessage(s.ApplicationId, s.Message, AzureServiceBusMethodType.Subscribe))
+            .Select(s => new AzureServiceBusMessage(s.ApplicationId, s.ApplicationName, s.Message, AzureServiceBusMethodType.Subscribe))
             .ToList();
         return messages;
     }
@@ -111,7 +111,7 @@ internal class IntegrationManager
     {
         var messages = _sentCommands
             .Where(p => p.ApplicationId == applicationId)
-            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.Command, AzureServiceBusMethodType.Publish))
+            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.ApplicationName, s.Command, AzureServiceBusMethodType.Publish))
             .ToList();
         return messages;
     }
@@ -121,7 +121,7 @@ internal class IntegrationManager
         var messages = _receivedCommands
             .Where(p => p.ApplicationId == applicationId)
             .DistinctBy(s => s.Command.Id)
-            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.Command, AzureServiceBusMethodType.Subscribe))
+            .Select(s => new AzureServiceBusCommand(s.ApplicationId, s.ApplicationName, s.Command, AzureServiceBusMethodType.Subscribe))
             .ToList();
         return messages;
     }
@@ -159,14 +159,14 @@ internal class IntegrationManager
             .Where(message => message.ApplicationId == applicationId)
             .Select(message => new Subscription<AzureServiceBusItemBase>(
                 message.EventHandlerModel!,
-                new AzureServiceBusMessage(applicationId, message.Message, AzureServiceBusMethodType.Subscribe)))
+                new AzureServiceBusMessage(applicationId, message.ApplicationName, message.Message, AzureServiceBusMethodType.Subscribe)))
         );
 
         results.AddRange(_receivedCommands
             .Where(command => command.ApplicationId == applicationId)
             .Select(command => new Subscription<AzureServiceBusItemBase>(
                 command.EventHandlerModel!,
-                new AzureServiceBusCommand(applicationId, command.Command, AzureServiceBusMethodType.Subscribe)))
+                new AzureServiceBusCommand(applicationId, command.ApplicationName, command.Command, AzureServiceBusMethodType.Subscribe)))
         );
 
         return results;
@@ -174,6 +174,6 @@ internal class IntegrationManager
 
     public record Subscription<TSubscriptionItem>(IntegrationEventHandlerModel EventHandlerModel, TSubscriptionItem SubscriptionItem);
     
-    private record MessageInfo(string ApplicationId, MessageModel Message, IntegrationEventHandlerModel? EventHandlerModel);
-    private record CommandInfo(string ApplicationId, IntegrationCommandModel Command, IntegrationEventHandlerModel? EventHandlerModel);
+    private record MessageInfo(string ApplicationId, string ApplicationName, MessageModel Message, IntegrationEventHandlerModel? EventHandlerModel);
+    private record CommandInfo(string ApplicationId, string ApplicationName, IntegrationCommandModel Command, IntegrationEventHandlerModel? EventHandlerModel);
 }

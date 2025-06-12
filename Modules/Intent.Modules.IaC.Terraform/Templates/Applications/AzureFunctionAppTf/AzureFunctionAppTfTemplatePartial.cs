@@ -127,7 +127,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                     appSettings.AddSetting(@"""FUNCTIONS_WORKER_RUNTIME""", runtime);
 
                     var appKeys = new HashSet<string>();
-                    var azureServiceBusMessages = Intent.Modules.Integration.IaC.Shared.AzureServiceBus.IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
+                    var azureServiceBusMessages = Integration.IaC.Shared.AzureServiceBus.IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(Model.Id);
                     if (azureServiceBusMessages.Count != 0)
                     {
                         appSettings.AddRawSetting($@"""AzureServiceBus:ConnectionString""", Terraform.azurerm_servicebus_namespace.service_bus.default_primary_connection_string);
@@ -136,15 +136,18 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                     {
                         if (appKeys.Add(message.QueueOrTopicConfigurationName))
                         {
-                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", $"{Terraform.azurerm_servicebus_topic.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
+                            var queueOrTopicExpression = message.ChannelType == AzureServiceBusChannelType.Queue
+                                ? Terraform.azurerm_servicebus_queue.queue(message).name
+                                : Terraform.azurerm_servicebus_topic.topic(message).name;
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicConfigurationName}""", queueOrTopicExpression);
                         }
-                        if (message is { MethodType: Intent.Modules.Integration.IaC.Shared.AzureServiceBus.AzureServiceBusMethodType.Subscribe, ChannelType: Intent.Modules.Integration.IaC.Shared.AzureServiceBus.AzureServiceBusChannelType.Topic })
+                        if (message is { MethodType: AzureServiceBusMethodType.Subscribe, ChannelType: AzureServiceBusChannelType.Topic })
                         {
-                            appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", $"{Terraform.azurerm_servicebus_subscription.type}.{message.QueueOrTopicName.ToSnakeCase()}.name");
+                            appSettings.AddRawSetting($@"""{message.QueueOrTopicSubscriptionConfigurationName}""", Terraform.azurerm_servicebus_subscription.subscription(message).name);
                         }
                     }
 
-                    var azureEventGridMessages = Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(Model.Id);
+                    var azureEventGridMessages = Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(Model.Id);
                     foreach (var message in azureEventGridMessages)
                     {
                         if (appKeys.Add(message.TopicConfigurationKeyName))
@@ -153,8 +156,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                             {
                                 appSettings.AddRawSetting($@"""{message.TopicConfigurationSourceName}""", $@"""{message.TopicName.ToKebabCase()}""");
                             }
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.primary_access_key");
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", $"{Terraform.azurerm_eventgrid_topic.type}.{message.TopicName.ToSnakeCase()}.endpoint");
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
+                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
                         }
                     }
                 });

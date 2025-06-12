@@ -1,2 +1,6 @@
 Intent.Modules/**/*.*
 *.sln
+
+# Intent Architect
+
+**/.intent/*

@@ -3,11 +3,11 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "EventGrid:Topics:SpecificTopic:Key": "",
-    "EventGrid:Topics:SpecificTopic:Endpoint": "",
+    "CqrsSettings:LogRequestPayload": true,
     "EventGrid:Topics:ClientCreatedEvent:Source": "client-created-event",
     "EventGrid:Topics:ClientCreatedEvent:Key": "",
     "EventGrid:Topics:ClientCreatedEvent:Endpoint": "",
-    "CqrsSettings:LogRequestPayload": true
+    "EventGrid:Topics:SpecificTopic:Key": "",
+    "EventGrid:Topics:SpecificTopic:Endpoint": ""
   }
 }

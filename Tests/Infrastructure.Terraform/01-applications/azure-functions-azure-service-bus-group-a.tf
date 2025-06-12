@@ -52,10 +52,10 @@ resource "azurerm_windows_function_app" "azure-functions-azure-service-bus-group
     "FUNCTIONS_WORKER_RUNTIME"                  = "dotnet-isolated"
     "AzureServiceBus:ConnectionString"          = azurerm_servicebus_namespace.service_bus.default_primary_connection_string
     "AzureServiceBus:ClientCreated"             = azurerm_servicebus_topic.client_created.name
-    "AzureServiceBus:CreateOrg"                 = azurerm_servicebus_topic.create_org.name
-    "AzureServiceBus:SpecificQueue"             = azurerm_servicebus_topic.specific_queue.name
+    "AzureServiceBus:CreateOrg"                 = azurerm_servicebus_queue.create_org.name
+    "AzureServiceBus:SpecificQueue"             = azurerm_servicebus_queue.specific_queue.name
     "AzureServiceBus:SpecificTopic"             = azurerm_servicebus_topic.specific_topic.name
-    "AzureServiceBus:SpecificTopicSubscription" = azurerm_servicebus_subscription.specific_topic.name
+    "AzureServiceBus:SpecificTopicSubscription" = azurerm_servicebus_subscription.azure_functions_azure_service_bus_group_a_specific_topic.name
   }
 }
 

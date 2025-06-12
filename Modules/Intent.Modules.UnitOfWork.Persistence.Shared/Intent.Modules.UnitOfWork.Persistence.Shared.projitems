@@ -11,5 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)PersistenceUnitOfWork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TemplatIds.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnitOfWorkConfiguration.cs" />
   </ItemGroup>
 </Project>

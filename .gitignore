@@ -253,3 +253,4 @@ ModelManifest.xml
 .terraform/
 .terraform.*
 terraform.tfstate
+**/*.tfstate*

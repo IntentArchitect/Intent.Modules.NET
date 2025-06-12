@@ -6,9 +6,10 @@ namespace Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 
 internal class AzureEventGridMessage
 {
-    public AzureEventGridMessage(string ApplicationId, MessageModel MessageModel, AzureEventGridMethodType MethodType)
+    public AzureEventGridMessage(string ApplicationId, string ApplicationName, MessageModel MessageModel, AzureEventGridMethodType MethodType)
     {
         this.ApplicationId = ApplicationId;
+        this.ApplicationName = ApplicationName;
         this.MessageModel = MessageModel;
         this.MethodType = MethodType;
         TopicName = GetTopicName(MessageModel);
@@ -23,6 +24,7 @@ internal class AzureEventGridMessage
     public MessageModel MessageModel { get; init; }
     
     public string ApplicationId { get; init; }
+    public string ApplicationName { get; init; }
     public AzureEventGridMethodType MethodType { get; init; }
     public string TopicName { get; init; }
     public string TopicConfigurationSourceName { get; init; }
