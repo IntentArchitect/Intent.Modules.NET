@@ -217,7 +217,7 @@ namespace Intent.Modules.AzureFunctions
             NugetRegistry.Register(MicrosoftAzureFunctionsWorkerSdkPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("2.0.3")
+                        ( >= 2, >= 0) => new PackageVersion("2.0.4")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Sdk.Analyzers", "1.2.2")
                             .WithNugetDependency("Microsoft.Azure.Functions.Worker.Sdk.Generators", "1.3.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftAzureFunctionsWorkerSdkPackageName}'"),

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="05563699-b6f5-4d54-a6df-28a8f9225afa">
+  <sourceEnd id="fb14d41f-fe04-4b7f-ab52-ce5fd7ef7424" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>B_OptionalAggregate</name>
+    <display>B_OptionalAggregate: B_OptionalAggregate?</display>
+    <order>0</order>
+    <typeReference id="b7d6d943-886c-4b43-8666-7d78663093c4">
+      <typeId>79fde5d8-82b7-46e8-a49f-eaa37d94cca9</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="05563699-b6f5-4d54-a6df-28a8f9225afa" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>B_OptionalDependent</name>
+    <display>B_OptionalDependent: B_OptionalDependent?</display>
+    <sort-children>by-type-then-manually</sort-children>
+    <order>3</order>
+    <typeReference id="e03c4b70-40fd-4aa1-a860-5ed469cbd7a2">
+      <typeId>d60b3922-d211-4203-9531-7ecc95f58399</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements>
+      <childElement id="c1169a57-9222-4f10-b487-c72a2df73765" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+        <name>Id</name>
+        <display>Id: string</display>
+        <isAbstract>false</isAbstract>
+        <genericTypes />
+        <typeReference id="385cfbcb-64db-431d-b861-c5a978ad46a9">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </typeReference>
+        <isMapped>false</isMapped>
+        <parentFolderId>05563699-b6f5-4d54-a6df-28a8f9225afa</parentFolderId>
+        <packageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</packageId>
+        <packageName>AzureFunctions.MongoDb.Domain</packageName>
+        <stereotypes>
+          <stereotype stereotypeDefinitionId="b99aac21-9ca4-467f-a3a6-046255a9eed6" name="Primary Key">
+            <addedByDefault>true</addedByDefault>
+            <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
+            <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
+            <properties>
+              <property name="a7a5e921-18b9-43b4-8078-b4ac4e5dae6f" display="Data source" value="Default" isActive="true" />
+            </properties>
+          </stereotype>
+        </stereotypes>
+        <metadata>
+          <entry key="is-managed-key" value="true" />
+        </metadata>
+        <childElements />
+      </childElement>
+    </childElements>
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

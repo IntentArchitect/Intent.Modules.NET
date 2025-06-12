@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Transactions;
 using Azure;
+using Azure.Messaging;
 using Azure.Messaging.EventGrid;
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
 using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
+using AzureFunctions.AzureEventGrid.Infrastructure.Eventing.AzureEventGridBehaviors;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -20,11 +19,14 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public class AzureEventGridEventBus : IEventBus
     {
+        private readonly AzureEventGridPublisherPipeline _pipeline;
         private readonly List<MessageEntry> _messageQueue = [];
         private readonly Dictionary<string, PublisherEntry> _lookup;
 
-        public AzureEventGridEventBus(IOptions<PublisherOptions> options)
+        public AzureEventGridEventBus(IOptions<AzureEventGridPublisherOptions> options,
+            AzureEventGridPublisherPipeline pipeline)
         {
+            _pipeline = pipeline;
             _lookup = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!);
         }
 
@@ -35,11 +37,11 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             _messageQueue.Add(new MessageEntry(message, null));
         }
 
-        public void Publish<T>(T message, string subject)
+        public void Publish<T>(T message, IDictionary<string, object> additionalData)
             where T : class
         {
             ValidateMessage(message);
-            _messageQueue.Add(new MessageEntry(message, subject));
+            _messageQueue.Add(new MessageEntry(message, additionalData));
         }
 
         public async Task FlushAllAsync(CancellationToken cancellationToken = default)
@@ -53,8 +55,12 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             {
                 var publisherEntry = _lookup[entry.Message.GetType().FullName!];
                 var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));
-                var eventGridEvent = CreateEventGridEvent(entry.Message, entry.Subject);
-                await client.SendEventAsync(eventGridEvent, cancellationToken);
+                var cloudEvent = CreateCloudEvent(entry, publisherEntry);
+                await _pipeline.ExecuteAsync(cloudEvent, async (@event, token) =>
+                {
+                    await client.SendEventAsync(@event, token);
+                    return @event;
+                }, cancellationToken);
             }
         }
 
@@ -66,13 +72,26 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
             }
         }
 
-        private static EventGridEvent CreateEventGridEvent(object message, string? subject)
+        private static CloudEvent CreateCloudEvent(MessageEntry messageEntry, PublisherEntry publisherEntry)
         {
-            var eventGridEvent = new EventGridEvent(subject: subject ?? "Event", eventType: message.GetType().FullName, dataVersion: "1.0", data: message);
-            return eventGridEvent;
+            var cloudEvent = new CloudEvent(source: publisherEntry.Source, type: messageEntry.Message.GetType().FullName!, jsonSerializableData: messageEntry.Message);
+
+            if (messageEntry.AdditionalData is not null)
+            {
+                if (messageEntry.AdditionalData.TryGetValue("Subject", out var subject))
+                {
+                    cloudEvent.Subject = (string)subject;
+                }
+
+                foreach (var extensionAttribute in messageEntry.AdditionalData.Where(p => p.Key != "Subject"))
+                {
+                    cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
+                }
+            }
+            return cloudEvent;
         }
 
-        private record MessageEntry(object Message, string? Subject);
+        private record MessageEntry(object Message, IDictionary<string, object>? AdditionalData);
 
     }
 }

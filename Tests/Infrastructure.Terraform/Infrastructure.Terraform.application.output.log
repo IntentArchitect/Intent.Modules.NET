@@ -44,6 +44,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>74597f83-40fa-4d83-8174-4f31b847175e</ProjectId>
+      <CorrelationId>Intent.IaC.Terraform.Applications.AzureFunctionAppTf#5a489c24-afd9-43d1-bb80-25be7266b05c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>01-applications/azure-functions-mongo-db.tf</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>azure-functions-mongo-db.tf</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>74597f83-40fa-4d83-8174-4f31b847175e</ProjectId>
       <CorrelationId>Intent.IaC.Terraform.Applications.AzureFunctionAppTf#859f5adf-c40e-40fb-9e68-e41da908d768</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>01-applications/azure-functions-net6.tf</ApplicationRelativeFilePath>

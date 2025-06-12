@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Azure.Messaging.EventGrid;
+using Azure.Messaging;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -11,6 +11,6 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 {
     public interface IAzureEventGridMessageDispatcher
     {
-        Task DispatchAsync(IServiceProvider scopedServiceProvider, EventGridEvent message, CancellationToken cancellationToken);
+        Task DispatchAsync(IServiceProvider scopedServiceProvider, CloudEvent cloudEvent, CancellationToken cancellationToken);
     }
 }

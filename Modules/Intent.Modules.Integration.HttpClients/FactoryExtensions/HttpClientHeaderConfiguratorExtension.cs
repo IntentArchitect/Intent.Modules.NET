@@ -86,7 +86,6 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                     {
                         clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
                     }
-
                     """);
                 }
                 else
@@ -118,7 +117,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                     ""default""").WithoutSemicolon());
                     }
                 }
-            });
+            }, 1000);
         }
 
         [IntentIgnore]

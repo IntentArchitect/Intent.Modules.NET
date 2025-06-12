@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b23ba277-4b66-4eb4-a3d7-91aecfc9c216">
+  <sourceEnd id="896e228b-5269-440b-816c-12e2e2557c20" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ToManySource</name>
+    <display>ToManySource: ToManySource</display>
+    <order>0</order>
+    <typeReference id="b4c88fec-33d9-4ab7-94b0-081b86bca652">
+      <typeId>b6401b80-cd51-498f-878c-e51b9a716636</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b23ba277-4b66-4eb4-a3d7-91aecfc9c216" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ToManyInts</name>
+    <display>ToManyInts: ToManyInt[*]</display>
+    <order>2</order>
+    <typeReference id="90fd2eab-260a-43f3-a96f-a4eb4be6e203">
+      <typeId>fc2c16df-87c2-4e6f-b8db-85c62c922142</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

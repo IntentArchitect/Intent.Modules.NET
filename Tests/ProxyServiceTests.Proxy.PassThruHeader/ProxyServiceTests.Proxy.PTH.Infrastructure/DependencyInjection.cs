@@ -2,7 +2,9 @@ using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProxyServiceTests.Proxy.PTH.Application.Common.Interfaces;
 using ProxyServiceTests.Proxy.PTH.Domain.Common.Interfaces;
+using ProxyServiceTests.Proxy.PTH.Infrastructure.Caching;
 using ProxyServiceTests.Proxy.PTH.Infrastructure.Configuration;
 using ProxyServiceTests.Proxy.PTH.Infrastructure.Persistence;
 
@@ -20,6 +22,8 @@ namespace ProxyServiceTests.Proxy.PTH.Infrastructure
                 options.UseInMemoryDatabase("DefaultConnection");
                 options.UseLazyLoadingProxies();
             });
+            services.AddDistributedMemoryCache();
+            services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddHttpClients(configuration);
             return services;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="400dad04-70c9-4571-99ce-02091c938477">
+  <sourceEnd id="34ae101e-d5f7-487e-85e0-47e0d564235c" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ToManySource</name>
+    <display>ToManySource: ToManySource</display>
+    <order>0</order>
+    <typeReference id="25f76bdc-9ded-4ae5-b4b0-28b3a0115ebf">
+      <typeId>b6401b80-cd51-498f-878c-e51b9a716636</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="400dad04-70c9-4571-99ce-02091c938477" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>ToManyGuids</name>
+    <display>ToManyGuids: ToManyGuid[*]</display>
+    <order>1</order>
+    <typeReference id="0e9a5da5-6628-4bd0-8a4a-3e8c35e14009">
+      <typeId>6e5b74c8-e170-448d-ae7e-a868f3efc537</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.MongoDb.Domain</typePackageName>
+      <typePackageId>cbab5c34-04e8-42fa-8344-5b75b70d1f3b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
