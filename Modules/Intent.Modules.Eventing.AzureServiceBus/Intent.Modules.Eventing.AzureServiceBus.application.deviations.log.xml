@@ -14,5 +14,15 @@
       <deviationsHash>4EEFE1D7FE9BDCF8E90A4B84D40386F366093C99F30DD64CACB7BD742AABF3CE</deviationsHash>
       <fileHash>3D3EB6E7AFC8F05699317D063BEE200E7377AE1A28D79C709F9215F4668A5515</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Eventing.AzureServiceBus/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-06-12T15:31:25.5606599Z</updatedAt>
+      <deviationsHash>BCEEF60FCA4E5C04AF82D0DF102E62111DA338C70D7B6590BE040F971C582130</deviationsHash>
+      <fileHash>5AC688DDA9348EC56F3DCF57D355C46BDB61D7E50B48D0C178E1E7B8869C3684</fileHash>
+    </file>
   </files>
 </deviationsLog>
