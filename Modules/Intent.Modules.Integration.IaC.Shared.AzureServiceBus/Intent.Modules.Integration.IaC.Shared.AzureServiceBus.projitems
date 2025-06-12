@@ -9,6 +9,7 @@
     <Import_RootNamespace>Intent.Modules.Integration.IaC.Shared.AzureServiceBus</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AzureHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusChannelType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AzureServiceBusItemBase.cs" />

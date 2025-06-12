@@ -103,7 +103,7 @@ public partial class AzureServiceBusConfigurationTemplate : CSharpTemplateBase<o
             this.ApplyAppSetting(message.QueueOrTopicConfigurationName, message.QueueOrTopicName);
             if (message.QueueOrTopicSubscriptionConfigurationName != null)
             {
-                this.ApplyAppSetting(message.QueueOrTopicSubscriptionConfigurationName, message.QueueOrTopicName + "-subscription");
+                this.ApplyAppSetting(message.QueueOrTopicSubscriptionConfigurationName, AzureHelper.EnsureValidLength(message.ApplicationName, 50));
             }
         }
     }

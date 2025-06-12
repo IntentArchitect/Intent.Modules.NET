@@ -26,19 +26,19 @@ resource "azurerm_servicebus_topic" "specific_topic" {
 }
 
 resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_a_specific_topic" {
-  name               = "azurefunctionsazureservicebusgroupa-specifictopic"
+  name               = "azurefunctions-azureservicebus-groupa"
   topic_id           = azurerm_servicebus_topic.specific_topic.id
   max_delivery_count = 3
 }
 
 resource "azurerm_servicebus_subscription" "azure_functions_azure_service_bus_group_b_client_created" {
-  name               = "azurefunctionsazureservicebusgroupb-clientcreated"
+  name               = "azurefunctions-azureservicebus-groupb"
   topic_id           = azurerm_servicebus_topic.client_created.id
   max_delivery_count = 3
 }
 
 resource "azurerm_servicebus_subscription" "asp_net_core_azure_service_bus_group_b_client_created" {
-  name               = "aspnetcoreazureservicebusgroupb-clientcreated"
+  name               = "aspnetcore-azureservicebus-groupb"
   topic_id           = azurerm_servicebus_topic.client_created.id
   max_delivery_count = 3
 }

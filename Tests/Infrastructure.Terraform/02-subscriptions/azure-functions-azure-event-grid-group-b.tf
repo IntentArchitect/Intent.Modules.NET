@@ -8,7 +8,7 @@ data "azurerm_eventgrid_topic" "client_created_event" {
 }
 
 resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_b" {
-  name                  = "azurefunctionsazureeventgridgroupb-clientcreatedevent-sub"
+  name                  = "azurefunctions-azureeventgrid-groupb"
   scope                 = data.azurerm_eventgrid_topic.client_created_event.id
   event_delivery_schema = "CloudEventSchemaV1_0"
 

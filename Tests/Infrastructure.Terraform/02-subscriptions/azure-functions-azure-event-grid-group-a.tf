@@ -8,7 +8,7 @@ data "azurerm_eventgrid_topic" "specific_topic" {
 }
 
 resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_a" {
-  name                  = "azurefunctionsazureeventgridgroupa-specifictopic-sub"
+  name                  = "azurefunctions-azureeventgrid-groupa"
   scope                 = data.azurerm_eventgrid_topic.specific_topic.id
   event_delivery_schema = "CloudEventSchemaV1_0"
 

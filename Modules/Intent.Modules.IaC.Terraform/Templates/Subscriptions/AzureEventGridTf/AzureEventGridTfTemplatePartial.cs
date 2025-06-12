@@ -13,6 +13,7 @@ using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Integration.IaC.Shared;
+using Intent.Modules.Integration.IaC.Shared.AzureEventGrid;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -66,7 +67,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
                 builder.AddResource(Terraform.azurerm_eventgrid_event_subscription.type, $"{_sanitizedApplicationName.ToSnakeCase()}", resource =>
                 {
-                    resource.AddSetting("name", AzureHelper.CreateResourceName([Model.Name, subscription.SubscriptionItem.TopicName, "sub"], 64, "-"));
+                    resource.AddSetting("name", AzureHelper.EnsureValidLength(Model.Name, 64));
                     resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.topic(message).id}");
                     resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
                     resource.AddBlock("azure_function_endpoint", b =>
