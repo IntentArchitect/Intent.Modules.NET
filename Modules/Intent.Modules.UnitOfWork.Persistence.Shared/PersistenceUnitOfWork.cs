@@ -143,12 +143,12 @@ internal static class PersistenceUnitOfWork
         }
         else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = "cosmosDbUnitOfWork";
+            variableName = "cosmosDBUnitOfWork";
             shouldAddServiceResolution = true;
         }
         else
         {
-            var parameterName = "cosmosDbUnitOfWork";
+            var parameterName = "cosmosDBUnitOfWork";
             variableName = parameterName;
 
             if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
