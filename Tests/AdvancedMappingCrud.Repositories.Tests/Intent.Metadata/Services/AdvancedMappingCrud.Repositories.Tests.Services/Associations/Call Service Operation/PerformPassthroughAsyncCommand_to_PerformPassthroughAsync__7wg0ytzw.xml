@@ -37,7 +37,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f0afa730-50a9-4be5-bb37-a2a8897beee6" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformPassthroughAsyncCommand]" />
         <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ac498aeb-5c12-48a4-838c-2d7ca76292a6" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[PerformPassthroughAsync]" />
         <mappedEnds>

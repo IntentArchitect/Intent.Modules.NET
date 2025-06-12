@@ -21,6 +21,9 @@
   <targetEnd id="c6533ae6-1f45-43a6-8681-ed9e62109801" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] SpecificQueueTwoMessage</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c0157600-639f-4233-b632-50f592801e22">
       <typeId>59b0e3ed-6ce4-46a5-94c0-40122edee1a8</typeId>
       <isNavigable>true</isNavigable>

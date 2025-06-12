@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="ff01f23b-f72e-42e4-a995-29b60482ba42">
-  <sourceEnd id="4f353a79-f82e-45b6-87ce-1c52bc308b98" type="Send Command Source End" typeId="6b9e34dd-b50f-4998-a3cf-93dde7b2d51e">
+  <sourceEnd id="4f353a79-f82e-45b6-87ce-1c52bc308b98" type="Service Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>published by : StandardMessageCustomSubscribeHandler.</display>
     <order>0</order>
     <typeReference id="43ad60f9-7c9d-4b5c-a52b-2f8c0a1682fe">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="ff01f23b-f72e-42e4-a995-29b60482ba42" type="Send Command Target End" typeId="d3096261-1268-440f-8db3-0a6b8b4786cc">
+  <targetEnd id="ff01f23b-f72e-42e4-a995-29b60482ba42" type="Service Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>publish: SendFromEventHandlerCommand</display>
     <order>0</order>
     <typeReference id="7ca807e6-6cb3-418e-bd00-8e79631f10c5">
@@ -34,7 +34,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Integration Event Handler Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7c3f42be-642f-4c25-ba8a-bf49ba1297da" location="[MassTransit.RabbitMQ].[Services].[StandardMessageCustomSubscribe]" />
         <target applicationId="f7204bf7-b128-4b1e-97c9-d58cdc9ff6d4" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f09967fa-3d05-488b-b650-fac3d1072a55" location="[MassTransit.RabbitMQ].[Services].[SendFromEventHandlerCommand]" />
         <mappedEnds>
@@ -59,7 +59,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Send Command</associationType>
-  <associationTypeId>38a3de5a-ca88-4f6e-88b9-88e5953936b2</associationTypeId>
+  <associationType>Service Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

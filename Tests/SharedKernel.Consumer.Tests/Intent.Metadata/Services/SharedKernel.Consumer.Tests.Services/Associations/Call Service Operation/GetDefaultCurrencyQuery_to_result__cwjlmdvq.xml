@@ -38,7 +38,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="308319b1-d886-4593-8cba-2be4c6795f85" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3c7b818c-14d7-4a79-990c-4ec13a159625" location="[SharedKernel.Consumer.Tests].[Services].[GetDefaultCurrencyQuery]" />
         <target applicationId="75640d0d-5a5b-47b7-9de3-70df70bbfe74" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="16e0be82-a155-4ecb-81eb-67974991124e" location="[SharedKernel.Consumer.Tests].[Services].[GetDefaultCurrencyAsync]" />
         <mappedEnds>

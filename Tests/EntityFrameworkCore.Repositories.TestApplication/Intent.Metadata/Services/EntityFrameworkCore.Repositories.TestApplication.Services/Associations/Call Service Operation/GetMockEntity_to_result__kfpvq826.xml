@@ -35,7 +35,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c2272b89-cefa-4d2e-8b44-ea7fbfa4f6f4" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntity]" />
         <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2842fdab-f225-4d33-beeb-a1c098a1f10c" location="[EntityFrameworkCore.Repositories.TestApplication].[Services].[GetMockEntityById]" />
         <mappedEnds>

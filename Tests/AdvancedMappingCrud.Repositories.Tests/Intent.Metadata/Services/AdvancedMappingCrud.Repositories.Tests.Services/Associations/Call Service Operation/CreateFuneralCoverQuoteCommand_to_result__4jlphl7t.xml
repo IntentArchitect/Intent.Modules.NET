@@ -38,7 +38,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="150dd6e4-2c3e-427e-9676-2c60a466752a" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateFuneralCoverQuoteCommand]" />
         <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="49999a43-ce5b-4bc0-b64b-8d892edee188" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetProductsQuery]" />
         <mappedEnds>
