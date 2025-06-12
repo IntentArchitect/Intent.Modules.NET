@@ -74,7 +74,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>40b61bb4-44e2-4524-9079-a43451dbda67</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9bce5041-3686-42fe-90fa-8368f219af0f</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Controllers/IdentityController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityController.cs</ProjectRelativeFilePath>
@@ -330,7 +330,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8ef58349-6821-41e5-91ca-543238751afe</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#857ee64e-a63e-43fc-a20d-56e71841c7b2</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#20793348-f575-4c9d-93f0-00815e76b80b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Identity/AccessTokenResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Identity/AccessTokenResponseDto.cs</ProjectRelativeFilePath>
@@ -482,7 +482,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c67faab2-ce4f-4bbc-9b87-b98bc12d11e2</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9bce5041-3686-42fe-90fa-8368f219af0f</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Implementation/IdentityService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityService.cs</ProjectRelativeFilePath>
@@ -498,7 +498,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed01c5b9-e5a3-4ec3-bd9c-84471ea5dc7d</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#9bce5041-3686-42fe-90fa-8368f219af0f</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Interfaces/IIdentityService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIdentityService.cs</ProjectRelativeFilePath>

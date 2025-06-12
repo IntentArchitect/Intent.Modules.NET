@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>b983edad-2c9e-4e3a-819d-df4db864e78f</parentFolderId>
+  <parentFolderId>11e503ce-cceb-4a80-86f2-9964fb0e8559</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="4a06ac49-4282-46dc-84af-40473c8e786a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="d525b945-a67a-4fab-b75b-8bf519de4c65" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Email</name>
       <display>Email: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="849b2221-06d0-44c9-8216-d87ce5cf509f">
+      <typeReference id="62c3e139-c1d8-4044-8a70-0c1645abb9be">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="10626b3f-9e79-448a-8a4d-350573b5bde8" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="735bd9ab-d8e9-421b-a494-8376bb151ade" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Password</name>
       <display>Password: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="515db1b9-06bd-43f7-b976-df11b56b97e7">
+      <typeReference id="1e60b593-87d4-4d0f-81e8-556cbe28a270">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -112,12 +112,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="3c179a05-51bd-40bc-96ee-1e4a7e132a52" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="901b697f-8216-40ea-a40f-ecbaa7b67a1e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>TwoFactorCode</name>
       <display>TwoFactorCode: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="0217b380-1cd9-45de-8a0b-5fdd835b3740">
+      <typeReference id="09b41ab0-d9fd-4d7d-b9ca-2704f9a33676">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>
@@ -162,12 +162,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="d93078bd-2f09-45ad-ada3-cadbd096287b" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="de662295-effb-4cc9-abca-c9a40cec3acc" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>TwoFactorRecoveryCode</name>
       <display>TwoFactorRecoveryCode: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="14f4a3a1-14d0-4de0-a55a-40fe6b2da680">
+      <typeReference id="ac06ced3-ecc3-49bf-940e-63515cf2794e">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>true</isNullable>

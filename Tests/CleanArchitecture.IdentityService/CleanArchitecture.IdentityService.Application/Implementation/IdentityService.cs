@@ -66,13 +66,12 @@ namespace CleanArchitecture.IdentityService.Application.Implementation
             await _identityServiceManager.Register(register);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully)]
         public async Task ResendConfirmationEmail(
             ResendConfirmationEmailRequestDto resendRequest,
             CancellationToken cancellationToken = default)
         {
-            // TODO: Implement ResendConfirmationEmail (IdentityService) functionality
-            throw new NotImplementedException("Write your implementation for this service here...");
+            await _identityServiceManager.ResendConfirmationEmail(resendRequest);
         }
 
         [IntentManaged(Mode.Fully)]
