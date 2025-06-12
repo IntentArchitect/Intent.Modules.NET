@@ -1,4 +1,8 @@
 // ReSharper disable InconsistentNaming
+
+using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
+
 namespace Intent.Modules.IaC.Terraform.Templates;
 
 internal static class Terraform
@@ -46,16 +50,37 @@ internal static class Terraform
     public static class azurerm_servicebus_topic
     {
         public const string type = nameof(azurerm_servicebus_topic);
+
+        public static ReferenceData topic(AzureServiceBusItemBase message)
+        {
+            var refname = message.QueueOrTopicName.ToSnakeCase();
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.name", $"{expression}.id");
+        }
     }
     
     public static class azurerm_servicebus_queue
     {
         public const string type = nameof(azurerm_servicebus_queue);
+        
+        public static ReferenceData queue(AzureServiceBusItemBase message)
+        {
+            var refname = message.QueueOrTopicName.ToSnakeCase();
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.name", $"{expression}.id");
+        }
     }
 
     public static class azurerm_servicebus_subscription
     {
         public const string type = nameof(azurerm_servicebus_subscription);
+
+        public static ReferenceData subscription(AzureServiceBusItemBase message)
+        {
+            var refname = $"{message.ApplicationName.Replace(".", "_").ToSnakeCase()}_{message.QueueOrTopicName.ToSnakeCase()}";
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.name", $"{expression}.id");
+        }
     }
 
     public static class azurerm_eventgrid_topic
@@ -67,4 +92,6 @@ internal static class Terraform
     {
         public const string type = nameof(azurerm_eventgrid_event_subscription);
     }
+
+    public record ReferenceData(string refname, string name, string id);
 }
