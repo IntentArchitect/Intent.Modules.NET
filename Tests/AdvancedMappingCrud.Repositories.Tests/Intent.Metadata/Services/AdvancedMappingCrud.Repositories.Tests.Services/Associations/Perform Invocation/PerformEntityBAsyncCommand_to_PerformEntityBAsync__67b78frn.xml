@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="07773c5a-50ef-4994-8153-46ded91807ab">
-  <sourceEnd id="ee7ba852-5e9f-4f86-8dcc-e5e9de8f4bdc" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="ee7ba852-5e9f-4f86-8dcc-e5e9de8f4bdc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExtensiveDomainServices.PerformEntityBAsyncCommand</display>
     <order>0</order>
     <typeReference id="c76cefcb-18ad-4a84-9c17-e0607bf5ac0d">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="07773c5a-50ef-4994-8153-46ded91807ab" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="07773c5a-50ef-4994-8153-46ded91807ab" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformEntityBAsync(...): null</display>
     <order>2</order>
     <traits>
@@ -109,7 +109,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

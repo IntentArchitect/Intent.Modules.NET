@@ -21,7 +21,7 @@
   <targetEnd id="8435bcb1-ecfa-43f6-b01e-8ac664574c8c" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
     <name>entity</name>
     <display>[create] entity: User</display>
-    <order>5</order>
+    <order>4</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

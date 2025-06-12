@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="a2f7738f-4f46-484b-bb57-c411fb63a28d">
-  <sourceEnd id="715ce18c-cc95-41d0-9f2e-5d029d89ed6d" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="715ce18c-cc95-41d0-9f2e-5d029d89ed6d" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : Customers.ApproveQuoteCommand</display>
     <order>0</order>
     <typeReference id="02f26f3f-3de2-460a-95f2-4ddb7516b877">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="a2f7738f-4f46-484b-bb57-c411fb63a28d" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="a2f7738f-4f46-484b-bb57-c411fb63a28d" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetPersonById(...): PersonDto</display>
     <order>2</order>
@@ -77,7 +77,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

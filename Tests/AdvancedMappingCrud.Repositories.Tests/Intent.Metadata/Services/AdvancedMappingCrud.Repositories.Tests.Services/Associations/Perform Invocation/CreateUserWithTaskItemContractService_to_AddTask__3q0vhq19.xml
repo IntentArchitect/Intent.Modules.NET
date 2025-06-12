@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="e250b035-7c79-4af7-b1c6-55f01420557c">
-  <sourceEnd id="57ef68f1-55cf-4913-a123-914be89e0b4a" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="57ef68f1-55cf-4913-a123-914be89e0b4a" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : UserService.CreateUserWithTaskItemContractService</display>
     <order>0</order>
     <typeReference id="f9118a40-f1b0-453f-97e5-59fddda1aec6">
@@ -18,9 +18,9 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="e250b035-7c79-4af7-b1c6-55f01420557c" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="e250b035-7c79-4af7-b1c6-55f01420557c" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : AddTask(...): null</display>
-    <order>4</order>
+    <order>5</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -125,7 +125,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="03fef6ba-e7f2-4273-a930-f2dc22a0a511">
-  <sourceEnd id="d84cbc24-1121-427a-adb7-c2e5489b014a" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="d84cbc24-1121-427a-adb7-c2e5489b014a" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExposedStoredProcService.GetData</display>
     <order>0</order>
     <typeReference id="410d5874-7aff-4749-9439-046dfb2e6056">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="03fef6ba-e7f2-4273-a930-f2dc22a0a511" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="03fef6ba-e7f2-4273-a930-f2dc22a0a511" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetData(...): GetDataEntryDto[*]</display>
     <order>0</order>
@@ -61,7 +61,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

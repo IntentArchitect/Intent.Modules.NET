@@ -21,6 +21,9 @@
   <targetEnd id="4bbf24d0-7ecc-45f1-bf38-2276bc7b46ac" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
     <display>handles: EnumSample</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="1990efef-06bb-4972-adea-f41dbf809588">
       <typeId>0dbd2b09-6a06-49d7-a1f5-1f551534ad0b</typeId>
       <isNavigable>true</isNavigable>

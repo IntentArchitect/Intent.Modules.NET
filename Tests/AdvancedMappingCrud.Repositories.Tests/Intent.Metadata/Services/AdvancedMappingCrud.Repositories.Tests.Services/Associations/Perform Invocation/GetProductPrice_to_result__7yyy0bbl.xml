@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="4a384573-1f77-48e3-8d3e-a52b72f26224">
-  <sourceEnd id="d397a800-f555-4b54-85b8-bd7a7406516e" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="d397a800-f555-4b54-85b8-bd7a7406516e" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ProductsService.GetProductPrice</display>
     <order>0</order>
     <typeReference id="688e1ad2-3556-48e6-86b7-4a9d77223477">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="4a384573-1f77-48e3-8d3e-a52b72f26224" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetProductPriceAsync(...): decimal</display>
     <order>2</order>
@@ -76,7 +76,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="3a292451-02eb-460c-a072-dee311746525">
-  <sourceEnd id="6c5ee673-7189-458f-964f-2035c97ae0ec" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="6c5ee673-7189-458f-964f-2035c97ae0ec" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : StoredProcService.GetData</display>
     <order>0</order>
     <typeReference id="afff366b-8db4-43d6-93a0-aac8ec750c48">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="3a292451-02eb-460c-a072-dee311746525" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="3a292451-02eb-460c-a072-dee311746525" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetData(...): GetDataEntry[*]</display>
     <order>0</order>
@@ -61,7 +61,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

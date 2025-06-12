@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="7b53f1c3-bbec-4f23-8c2f-e39c935d0d9c">
-  <sourceEnd id="3b027c4e-d43c-4f25-bf89-22b5b7061abc" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="3b027c4e-d43c-4f25-bf89-22b5b7061abc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : People.GetPersonByNameQuery</display>
     <order>0</order>
     <typeReference id="2369628f-7d7d-485e-840b-0f1555d3b837">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="7b53f1c3-bbec-4f23-8c2f-e39c935d0d9c" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="7b53f1c3-bbec-4f23-8c2f-e39c935d0d9c" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetPersonByName(...): PersonDC</display>
     <order>1</order>
@@ -76,7 +76,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

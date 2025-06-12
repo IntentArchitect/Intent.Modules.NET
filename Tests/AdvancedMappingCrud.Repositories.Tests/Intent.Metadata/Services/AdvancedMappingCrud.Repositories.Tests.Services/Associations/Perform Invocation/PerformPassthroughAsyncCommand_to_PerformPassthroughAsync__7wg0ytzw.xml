@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1df11872-d681-46bc-9727-12328d1bdd25">
-  <sourceEnd id="756201cf-99de-4800-9f3a-ce36ea6be5ef" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="756201cf-99de-4800-9f3a-ce36ea6be5ef" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExtensiveDomainServices.PerformPassthroughAsyncCommand</display>
     <order>0</order>
     <typeReference id="1d6e33f8-9b12-4a75-810a-87d35abece6b">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="1df11872-d681-46bc-9727-12328d1bdd25" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="1df11872-d681-46bc-9727-12328d1bdd25" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformPassthroughAsync(...): null</display>
     <order>2</order>
     <traits>
@@ -93,7 +93,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

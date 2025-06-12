@@ -21,6 +21,9 @@
   <targetEnd id="b6c37f42-69d8-4aff-ae94-da4d1a690149" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] TalkToPersonCommand</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="f1bc3273-5cb5-46f5-a528-146dccf88bf4">
       <typeId>a328603f-6198-4260-9f91-dffe794a6cc0</typeId>
       <isNavigable>true</isNavigable>

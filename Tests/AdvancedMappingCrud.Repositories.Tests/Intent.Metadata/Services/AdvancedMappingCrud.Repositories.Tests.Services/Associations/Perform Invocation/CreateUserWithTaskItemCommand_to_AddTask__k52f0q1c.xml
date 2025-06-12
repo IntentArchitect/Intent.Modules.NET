@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="7d7b58f8-cb57-4cbf-b78e-552b217b4f79">
-  <sourceEnd id="b47b2064-1abb-4437-8c14-a919f5a2e9a9" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="b47b2064-1abb-4437-8c14-a919f5a2e9a9" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : OperationMapping.CreateUserWithTaskItemCommand</display>
     <order>0</order>
     <typeReference id="baf7a1ef-27d2-42e9-a328-3f4f81db1505">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="7d7b58f8-cb57-4cbf-b78e-552b217b4f79" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="7d7b58f8-cb57-4cbf-b78e-552b217b4f79" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : AddTask(...): null</display>
     <order>5</order>
     <traits>
@@ -125,7 +125,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="ff01f23b-f72e-42e4-a995-29b60482ba42">
-  <sourceEnd id="4f353a79-f82e-45b6-87ce-1c52bc308b98" type="Service Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
-    <display>published by : StandardMessageCustomSubscribeHandler.</display>
+  <sourceEnd id="4f353a79-f82e-45b6-87ce-1c52bc308b98" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : StandardMessageCustomSubscribeHandler.</display>
     <order>0</order>
     <typeReference id="43ad60f9-7c9d-4b5c-a52b-2f8c0a1682fe">
       <typeId>2432dd11-b060-4bb3-8394-1dcfd0a67248</typeId>
@@ -18,9 +18,12 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="ff01f23b-f72e-42e4-a995-29b60482ba42" type="Service Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>publish: SendFromEventHandlerCommand</display>
+  <targetEnd id="ff01f23b-f72e-42e4-a995-29b60482ba42" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : SendFromEventHandlerCommand(...): void</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="7ca807e6-6cb3-418e-bd00-8e79631f10c5">
       <typeId>f09967fa-3d05-488b-b650-fac3d1072a55</typeId>
       <isNavigable>true</isNavigable>
@@ -59,7 +62,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Service Invocation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

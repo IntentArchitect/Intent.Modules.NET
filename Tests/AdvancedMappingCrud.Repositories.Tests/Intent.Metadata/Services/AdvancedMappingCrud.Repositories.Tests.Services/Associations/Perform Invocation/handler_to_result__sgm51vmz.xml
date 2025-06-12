@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="29096c0b-6d46-4b38-8685-bbb87e97d14e">
-  <sourceEnd id="b7426733-a965-48c7-a4f9-814119c9debc" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="b7426733-a965-48c7-a4f9-814119c9debc" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : NewQuoteCreatedHandler.handler</display>
     <order>0</order>
     <typeReference id="e8940a7d-b3d8-43ac-8da7-236ab51c632f">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="29096c0b-6d46-4b38-8685-bbb87e97d14e" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="29096c0b-6d46-4b38-8685-bbb87e97d14e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetPersonById(...): PersonDto</display>
     <order>1</order>
@@ -77,7 +77,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

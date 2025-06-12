@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="c174179b-5cca-42dc-b5ed-b0e0de27ec43">
-  <sourceEnd id="af455fb9-42b4-4fbb-af3b-61bc96d691b4" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="af455fb9-42b4-4fbb-af3b-61bc96d691b4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExtensiveDomainServices.PerformValueObjCommand</display>
     <order>0</order>
     <typeReference id="1c81e5f3-9b8b-47d8-afa1-9464e604dc65">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="c174179b-5cca-42dc-b5ed-b0e0de27ec43" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="c174179b-5cca-42dc-b5ed-b0e0de27ec43" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformValueObj(...): null</display>
     <order>2</order>
     <traits>
@@ -92,7 +92,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

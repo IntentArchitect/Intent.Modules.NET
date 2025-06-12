@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="c464422e-f3ae-4de0-a6b6-c73ce3dcbaba">
-  <sourceEnd id="7f784ebe-2a34-483a-988b-bdc9c04402b5" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="7f784ebe-2a34-483a-988b-bdc9c04402b5" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExtensiveDomainServices.PerformEntityBCommand</display>
     <order>0</order>
     <typeReference id="df420941-f28a-41b7-9a35-96968ecb57ab">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="c464422e-f3ae-4de0-a6b6-c73ce3dcbaba" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="c464422e-f3ae-4de0-a6b6-c73ce3dcbaba" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformEntityB(...): null</display>
     <order>2</order>
     <traits>
@@ -109,7 +109,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

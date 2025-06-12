@@ -21,6 +21,9 @@
   <targetEnd id="fdbe0c01-035c-4111-82b1-a09a6a81e291" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
     <display>handles: OrderAnimal</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="7b9b7276-f5db-45da-b6da-911756689263">
       <typeId>4f0f2ea0-4abe-4e7a-9b24-2fa0061e846b</typeId>
       <isNavigable>true</isNavigable>

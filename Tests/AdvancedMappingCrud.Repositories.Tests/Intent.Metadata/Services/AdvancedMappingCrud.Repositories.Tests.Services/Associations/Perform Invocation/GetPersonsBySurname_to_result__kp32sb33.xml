@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="a1dbd2ff-fcad-4109-b315-ea558986bd88">
-  <sourceEnd id="831bda3f-c248-473e-8492-ef77e291eb88" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="831bda3f-c248-473e-8492-ef77e291eb88" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : PersonService.GetPersonsBySurname</display>
     <order>0</order>
     <typeReference id="6f3f7079-ef79-4b8b-bbfa-093827ad702e">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="a1dbd2ff-fcad-4109-b315-ea558986bd88" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="a1dbd2ff-fcad-4109-b315-ea558986bd88" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetPersonsBySurname(...): PersonDC[*]</display>
     <order>1</order>
@@ -76,7 +76,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

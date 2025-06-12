@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="2f93be43-1b2c-4941-abf4-bb9eea46f6df">
   <comment />
-  <sourceEnd id="05e8119d-9285-4d2a-9db7-bd754cc241b4" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="05e8119d-9285-4d2a-9db7-bd754cc241b4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ProductsService.GetProductPrice</display>
     <order>0</order>
     <typeReference id="6bec810b-4b7f-4513-b93f-7248f8a9589b">
@@ -19,7 +19,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="2f93be43-1b2c-4941-abf4-bb9eea46f6df" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="2f93be43-1b2c-4941-abf4-bb9eea46f6df" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <comment />
     <name>sumPrice</name>
     <display>[call] sumPrice: SumPrices(...): decimal</display>
@@ -78,7 +78,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

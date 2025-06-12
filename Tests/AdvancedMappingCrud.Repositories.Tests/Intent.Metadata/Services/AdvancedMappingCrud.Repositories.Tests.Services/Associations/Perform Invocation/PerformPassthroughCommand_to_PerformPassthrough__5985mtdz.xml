@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="1e6dab4c-310b-4a71-b06c-aaf7a5f38ce2">
-  <sourceEnd id="9c8968cc-c575-43ad-a63a-e17696db38ab" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="9c8968cc-c575-43ad-a63a-e17696db38ab" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : ExtensiveDomainServices.PerformPassthroughCommand</display>
     <order>0</order>
     <typeReference id="0b50c5d7-7d04-41bd-8861-b2b7bac011a8">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="1e6dab4c-310b-4a71-b06c-aaf7a5f38ce2" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="1e6dab4c-310b-4a71-b06c-aaf7a5f38ce2" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <display>[call] : PerformPassthrough(...): null</display>
     <order>2</order>
     <traits>
@@ -93,7 +93,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

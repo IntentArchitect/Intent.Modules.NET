@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="7040a041-ee49-4dc1-ad9b-989bbad41dfa">
-  <sourceEnd id="f0417666-37bc-4099-9267-6b3857ef1a2b" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="f0417666-37bc-4099-9267-6b3857ef1a2b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : Customers.CreateFuneralCoverQuoteCommand</display>
     <order>0</order>
     <typeReference id="5ba37aa3-4fab-4e19-b3c7-516270cd96f7">
@@ -18,10 +18,10 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="7040a041-ee49-4dc1-ad9b-989bbad41dfa" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="7040a041-ee49-4dc1-ad9b-989bbad41dfa" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: GetProductsQuery(...): ProductDto[*]</display>
-    <order>4</order>
+    <order>5</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
@@ -61,7 +61,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

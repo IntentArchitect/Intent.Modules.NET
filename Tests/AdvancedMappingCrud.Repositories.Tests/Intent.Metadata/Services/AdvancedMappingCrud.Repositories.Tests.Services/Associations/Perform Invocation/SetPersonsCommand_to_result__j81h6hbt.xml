@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <association id="99d09607-868a-47f1-a145-92188603d41e">
-  <sourceEnd id="c08eb4b0-f7b2-430d-90c1-21e4440fcf5c" type="Call Service Operation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+  <sourceEnd id="c08eb4b0-f7b2-430d-90c1-21e4440fcf5c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
     <display>called by : People.SetPersonsCommand</display>
     <order>0</order>
     <typeReference id="577caeca-6896-4ddd-99a3-899085d64da9">
@@ -18,7 +18,7 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="99d09607-868a-47f1-a145-92188603d41e" type="Call Service Operation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+  <targetEnd id="99d09607-868a-47f1-a145-92188603d41e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
     <name>result</name>
     <display>[call] result: SetPersons(...): guid[*]</display>
     <order>1</order>
@@ -110,7 +110,7 @@
     <metadata />
     <childElements />
   </targetEnd>
-  <associationType>Call Service Operation</associationType>
+  <associationType>Perform Invocation</associationType>
   <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
   <stereotypes />
 </association>

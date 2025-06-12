@@ -4,15 +4,12 @@
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#ddffe1ac-5b36-4498-a7cd-48c451d88f29</correlationId>
       <path>GraphQL.AzureFunction.TestApplication.Application/Implementation/CustomersService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:02:08.7494426Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:02:08.7494479Z</approvedAt>
-      <deviationsHash>2FA5713274D5CA3F3B7645B6CCA73B7FBBF27673A608935D3CC96C69503F5169</deviationsHash>
-      <fileHash>A50EB52FDD5112C71B610A1F33EBEB5346B23F16E926375CE51BC00B8CE59D11</fileHash>
+      <count>7</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T15:05:47.4942694Z</updatedAt>
+      <deviationsHash>CA13DAA6158C7B3D672B0D9B2A4829AFE90CFE7AC31053E3FF774200E4CA5420</deviationsHash>
+      <fileHash>BDB789094670FFBDA527053B1D0AF2E05261385A44C18D5775DEE66BE017C906</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#0642cec8-5948-462a-baa2-806e01d50c6f</correlationId>
