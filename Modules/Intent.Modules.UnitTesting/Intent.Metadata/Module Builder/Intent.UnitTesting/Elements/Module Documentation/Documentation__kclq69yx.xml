@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ac3764fb-dad0-4326-b446-bd1a1f3197b4" type="Module Documentation" typeId="a869a2c4-bf24-477c-9d19-87fb24d4209f">
+  <name>Documentation</name>
+  <display>Documentation</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</parentFolderId>
+  <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+  <packageName>Intent.UnitTesting</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7cc4b905-7483-4fb5-a48b-77c3768c5afb" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Changing Unit Test Generation Mode</name>
+      <display>Changing Unit Test Generation Mode</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ac3764fb-dad0-4326-b446-bd1a1f3197b4</parentFolderId>
+      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+      <packageName>Intent.UnitTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to control whether unit tests are generated explicitly or for all qualifying elements." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-unittesting/intent-unittesting.html#generation-mode" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;ccf14eb6-3a55-4d81-b5b9-d27311c70cb9&quot;,&quot;b16578a5-27b1-4047-a8df-f0b783d706bd&quot;,&quot;e71b0662-e29d-4db2-868b-8a12464b25d0&quot;,&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="tests unittest testing ai handler xunit mock moq nsubstitute generation mode automatic" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="10dff1b7-f81d-4b39-87f4-f0d0eec9d1a6" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Changing Unit Test Mock Framework</name>
+      <display>Changing Unit Test Mock Framework</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ac3764fb-dad0-4326-b446-bd1a1f3197b4</parentFolderId>
+      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+      <packageName>Intent.UnitTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to change the default unit test mocking framework" isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/png;base64,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&quot;}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-unittesting/intent-unittesting.html#mocking-framework" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;ccf14eb6-3a55-4d81-b5b9-d27311c70cb9&quot;,&quot;e71b0662-e29d-4db2-868b-8a12464b25d0&quot;,&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;,&quot;b16578a5-27b1-4047-a8df-f0b783d706bd&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="tests unittest testing ai handler xunit mock moq nsubstitute generation" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="a7b04b8d-8565-4788-9a38-91ddf1b73224" type="Documentation Topic" typeId="5cc56ebc-6b61-41a6-a452-8efd9382da6f">
+      <name>Generating Unit Tests</name>
+      <display>Generating Unit Tests</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ac3764fb-dad0-4326-b446-bd1a1f3197b4</parentFolderId>
+      <packageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</packageId>
+      <packageName>Intent.UnitTesting</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="83dfd8ae-5086-4e41-94c2-7110d5a49b4c" name="Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+          <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+          <properties>
+            <property name="2792ad9a-2afd-4350-bac6-bdcf4b701ff1" display="Description" value="How to generate unit tests for service implementations." isActive="true" />
+            <property name="4fa553d3-1b96-4f63-bdb9-3237eca31f6b" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="207e8583-2ba5-4ea3-84aa-2f65cd5915ca" display="Href" value="https://docs.intentarchitect.com/articles/modules-dotnet/intent-unittesting/intent-unittesting.html#unit-test-generation" isActive="true" />
+            <property name="21d13790-2910-475c-b58f-9d350f2e13c6" display="Designers" value="[&quot;81104ae6-2bc5-4bae-b05a-f987b0372d81&quot;]" isActive="true" />
+            <property name="8642b1d1-93f9-4f5f-b5ae-ad5fc20d7a46" display="Elements" value="[&quot;ccf14eb6-3a55-4d81-b5b9-d27311c70cb9&quot;,&quot;e71b0662-e29d-4db2-868b-8a12464b25d0&quot;,&quot;e030c97a-e066-40a7-8188-808c275df3cb&quot;,&quot;b16578a5-27b1-4047-a8df-f0b783d706bd&quot;]" isActive="true" />
+            <property name="f55a1f0c-40dd-48b4-b985-8360933e6a47" display="Tags" value="tests unittest testing ai handler xunit mock moq nsubstitute generation" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
