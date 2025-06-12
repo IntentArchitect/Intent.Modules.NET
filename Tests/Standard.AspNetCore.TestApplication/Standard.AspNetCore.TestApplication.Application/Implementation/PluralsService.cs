@@ -16,70 +16,48 @@ using Standard.AspNetCore.TestApplication.Domain.Repositories;
 
 namespace Standard.AspNetCore.TestApplication.Application.Implementation
 {
-    [IntentManaged(Mode.Merge)]
+    [IntentManaged(Mode.Fully)]
     public class PluralsService : IPluralsService
     {
-        private readonly IPluralsRepository _pluralsRepository;
-        private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public PluralsService(IPluralsRepository pluralsRepository, IMapper mapper)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public PluralsService()
         {
-            _pluralsRepository = pluralsRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> CreatePlurals(PluralsCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newPlurals = new Domain.Entities.Plurals
-            {
-            };
-            _pluralsRepository.Add(newPlurals);
-            await _pluralsRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newPlurals.Id;
+            // TODO: Implement CreatePlurals (PluralsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<PluralsDto> FindPluralsById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _pluralsRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find Plurals {id}");
-            }
-            return element.MapToPluralsDto(_mapper);
+            // TODO: Implement FindPluralsById (PluralsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<PluralsDto>> FindPlurals(CancellationToken cancellationToken = default)
         {
-            var elements = await _pluralsRepository.FindAllAsync(cancellationToken);
-            return elements.MapToPluralsDtoList(_mapper);
+            // TODO: Implement FindPlurals (PluralsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdatePlurals(Guid id, PluralsUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingPlurals = await _pluralsRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingPlurals is null)
-            {
-                throw new NotFoundException($"Could not find Plurals {id}");
-            }
+            // TODO: Implement UpdatePlurals (PluralsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeletePlurals(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingPlurals = await _pluralsRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingPlurals is null)
-            {
-                throw new NotFoundException($"Could not find Plurals {id}");
-            }
-            _pluralsRepository.Remove(existingPlurals);
+            // TODO: Implement DeletePlurals (PluralsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

@@ -23,8 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CompoundIndexEntitySingleParentsService(ICompoundIndexEntitySingleParentRepository compoundIndexEntitySingleParentRepository,
-            IMapper mapper)
+        public CompoundIndexEntitySingleParentsService()
         {
             _compoundIndexEntitySingleParentRepository = compoundIndexEntitySingleParentRepository;
             _mapper = mapper;
@@ -35,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntitySingleParentCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newCompoundIndexEntitySingleParent = new CompoundIndexEntitySingleParent
-            {
-                SomeField = dto.SomeField,
-                CompoundIndexEntitySingleChild = CreateCompoundIndexEntitySingleChild(dto.CompoundIndexEntitySingleChild),
-            };
-            _compoundIndexEntitySingleParentRepository.Add(newCompoundIndexEntitySingleParent);
-            await _compoundIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newCompoundIndexEntitySingleParent.Id;
+            // TODO: Implement CreateCompoundIndexEntitySingleParent (CompoundIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
-            }
-            return element.MapToCompoundIndexEntitySingleParentDto(_mapper);
+            // TODO: Implement FindCompoundIndexEntitySingleParentById (CompoundIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CompoundIndexEntitySingleParentDto>> FindCompoundIndexEntitySingleParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _compoundIndexEntitySingleParentRepository.FindAllAsync(cancellationToken);
-            return elements.MapToCompoundIndexEntitySingleParentDtoList(_mapper);
+            // TODO: Implement FindCompoundIndexEntitySingleParents (CompoundIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,37 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntitySingleParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCompoundIndexEntitySingleParent is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
-            }
-            existingCompoundIndexEntitySingleParent.SomeField = dto.SomeField;
-            _compoundIndexEntitySingleParentRepository.Update(existingCompoundIndexEntitySingleParent);
+            // TODO: Implement UpdateCompoundIndexEntitySingleParent (CompoundIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCompoundIndexEntitySingleParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntitySingleParent = await _compoundIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCompoundIndexEntitySingleParent is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntitySingleParent {id}");
-            }
-            _compoundIndexEntitySingleParentRepository.Remove(existingCompoundIndexEntitySingleParent);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private CompoundIndexEntitySingleChild CreateCompoundIndexEntitySingleChild(CompoundIndexEntitySingleChildDto dto)
-        {
-            return new CompoundIndexEntitySingleChild
-            {
-                CompoundOne = dto.CompoundOne,
-                CompoundTwo = dto.CompoundTwo,
-#warning No matching field found for Id
-            };
+            // TODO: Implement DeleteCompoundIndexEntitySingleParent (CompoundIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

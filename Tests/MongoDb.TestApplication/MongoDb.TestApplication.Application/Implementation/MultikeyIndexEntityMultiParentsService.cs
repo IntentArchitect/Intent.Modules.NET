@@ -23,8 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public MultikeyIndexEntityMultiParentsService(IMultikeyIndexEntityMultiParentRepository multikeyIndexEntityMultiParentRepository,
-            IMapper mapper)
+        public MultikeyIndexEntityMultiParentsService()
         {
             _multikeyIndexEntityMultiParentRepository = multikeyIndexEntityMultiParentRepository;
             _mapper = mapper;
@@ -35,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             MultikeyIndexEntityMultiParentCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newMultikeyIndexEntityMultiParent = new MultikeyIndexEntityMultiParent
-            {
-                SomeField = dto.SomeField,
-                MultikeyIndexEntityMultiChild = dto.MultikeyIndexEntityMultiChild.Select(CreateMultikeyIndexEntityMultiChild).ToList(),
-            };
-            _multikeyIndexEntityMultiParentRepository.Add(newMultikeyIndexEntityMultiParent);
-            await _multikeyIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newMultikeyIndexEntityMultiParent.Id;
+            // TODO: Implement CreateMultikeyIndexEntityMultiParent (MultikeyIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find MultikeyIndexEntityMultiParent {id}");
-            }
-            return element.MapToMultikeyIndexEntityMultiParentDto(_mapper);
+            // TODO: Implement FindMultikeyIndexEntityMultiParentById (MultikeyIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<MultikeyIndexEntityMultiParentDto>> FindMultikeyIndexEntityMultiParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _multikeyIndexEntityMultiParentRepository.FindAllAsync(cancellationToken);
-            return elements.MapToMultikeyIndexEntityMultiParentDtoList(_mapper);
+            // TODO: Implement FindMultikeyIndexEntityMultiParents (MultikeyIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,35 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             MultikeyIndexEntityMultiParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntityMultiParent = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingMultikeyIndexEntityMultiParent is null)
-            {
-                throw new NotFoundException($"Could not find MultikeyIndexEntityMultiParent {id}");
-            }
-            existingMultikeyIndexEntityMultiParent.SomeField = dto.SomeField;
-            _multikeyIndexEntityMultiParentRepository.Update(existingMultikeyIndexEntityMultiParent);
+            // TODO: Implement UpdateMultikeyIndexEntityMultiParent (MultikeyIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteMultikeyIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingMultikeyIndexEntityMultiParent = await _multikeyIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingMultikeyIndexEntityMultiParent is null)
-            {
-                throw new NotFoundException($"Could not find MultikeyIndexEntityMultiParent {id}");
-            }
-            _multikeyIndexEntityMultiParentRepository.Remove(existingMultikeyIndexEntityMultiParent);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private MultikeyIndexEntityMultiChild CreateMultikeyIndexEntityMultiChild(MultikeyIndexEntityMultiChildDto dto)
-        {
-            return new MultikeyIndexEntityMultiChild
-            {
-                MultiKey = dto.MultiKey.ToList(),
-            };
+            // TODO: Implement DeleteMultikeyIndexEntityMultiParent (MultikeyIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

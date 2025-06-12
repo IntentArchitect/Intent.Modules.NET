@@ -30,13 +30,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<PersonDto> Handle(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _personRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find Person {id}");
-            }
-            return element.MapToPersonDto(_mapper);
+            throw new NotImplementedException("Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class.");
         }
     }
 }

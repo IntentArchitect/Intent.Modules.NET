@@ -37,18 +37,19 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.EventHandlers.Custo
             DomainEventNotification<NewQuoteCreated> notification,
             CancellationToken cancellationToken)
         {
-            var user = await _userRepository.FindByIdAsync(notification.DomainEvent.Quote.PersonId, cancellationToken);
+            var domainEvent = notification.DomainEvent;
+
+            var user = await _userRepository.FindByIdAsync(domainEvent.Quote.PersonId, cancellationToken);
             if (user is null)
             {
-                throw new NotFoundException($"Could not find User '{notification.DomainEvent.Quote.PersonId}'");
+                throw new NotFoundException($"Could not find User '{domainEvent.Quote.PersonId}'");
             }
-            var result = await _personService.GetPersonById(notification.DomainEvent.Quote.PersonId, cancellationToken);
+            var result = await _personService.GetPersonById(domainEvent.Quote.PersonId, cancellationToken);
 
             user.Email = result.Email;
             user.Name = result.Name;
             user.Surname = result.Surname;
-            user.QuoteId = notification.DomainEvent.Quote.Id;
-            var domainEvent = notification.DomainEvent;
+            user.QuoteId = domainEvent.Quote.Id;
             _eventBus.Publish(new QuoteCreatedIntegrationEvent
             {
                 Id = domainEvent.Quote.Id,

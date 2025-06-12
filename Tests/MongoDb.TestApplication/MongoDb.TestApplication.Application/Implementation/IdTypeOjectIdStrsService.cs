@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public IdTypeOjectIdStrsService(IIdTypeOjectIdStrRepository idTypeOjectIdStrRepository, IMapper mapper)
+        public IdTypeOjectIdStrsService()
         {
             _idTypeOjectIdStrRepository = idTypeOjectIdStrRepository;
             _mapper = mapper;
@@ -34,13 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             IdTypeOjectIdStrCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newIdTypeOjectIdStr = new IdTypeOjectIdStr
-            {
-                Attribute = dto.Attribute,
-            };
-            _idTypeOjectIdStrRepository.Add(newIdTypeOjectIdStr);
-            await _idTypeOjectIdStrRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newIdTypeOjectIdStr.Id;
+            // TODO: Implement CreateIdTypeOjectIdStr (IdTypeOjectIdStrsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -48,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
-            }
-            return element.MapToIdTypeOjectIdStrDto(_mapper);
+            // TODO: Implement FindIdTypeOjectIdStrById (IdTypeOjectIdStrsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
-            var elements = await _idTypeOjectIdStrRepository.FindAllAsync(cancellationToken);
-            return elements.MapToIdTypeOjectIdStrDtoList(_mapper);
+            // TODO: Implement FindIdTypeOjectIdStrs (IdTypeOjectIdStrsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -70,26 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             IdTypeOjectIdStrUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingIdTypeOjectIdStr is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
-            }
-            existingIdTypeOjectIdStr.Attribute = dto.Attribute;
-            _idTypeOjectIdStrRepository.Update(existingIdTypeOjectIdStr);
+            // TODO: Implement UpdateIdTypeOjectIdStr (IdTypeOjectIdStrsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteIdTypeOjectIdStr(string id, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeOjectIdStr = await _idTypeOjectIdStrRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingIdTypeOjectIdStr is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeOjectIdStr {id}");
-            }
-            _idTypeOjectIdStrRepository.Remove(existingIdTypeOjectIdStr);
+            // TODO: Implement DeleteIdTypeOjectIdStr (IdTypeOjectIdStrsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

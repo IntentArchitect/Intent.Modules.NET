@@ -20,15 +20,14 @@ using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Repositorie
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Implementation
 {
-    [IntentManaged(Mode.Merge)]
+    [IntentManaged(Mode.Fully)]
     public class UsersService : IUsersService
     {
         private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
         private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public UsersService(IUserRepository userRepository, IMapper mapper, IEventBus eventBus)
+        public UsersService(IUserRepository userRepository, IEventBus eventBus)
         {
             _userRepository = userRepository;
             _mapper = mapper;
@@ -75,20 +74,15 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find User {id}");
-            }
-            return element.MapToUserDto(_mapper);
+            // TODO: Implement FindUserById (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<UserDto>> FindUsers(CancellationToken cancellationToken = default)
         {
-            var elements = await _userRepository.FindAllAsync(cancellationToken);
-            return elements.MapToUserDtoList(_mapper);
+            // TODO: Implement FindUsers (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -21,7 +21,7 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues
         private readonly ICustomerRepository _customerRepository;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public QueueService(ICustomerRepository customerRepository)
+        public QueueService()
         {
             _customerRepository = customerRepository;
         }
@@ -29,21 +29,15 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task CreateCustomerOp(CustomerDto dto, CancellationToken cancellationToken = default)
         {
-            var newCustomer = new Customer
-            {
-                Name = dto.Name,
-            };
-            _customerRepository.Add(newCustomer);
+            // TODO: Implement CreateCustomerOp (QueueService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task CreateCustomerOpWrapped(CustomerDto dto, CancellationToken cancellationToken = default)
         {
-            var newCustomer = new Customer
-            {
-                Name = dto.Name,
-            };
-            _customerRepository.Add(newCustomer);
+            // TODO: Implement CreateCustomerOpWrapped (QueueService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

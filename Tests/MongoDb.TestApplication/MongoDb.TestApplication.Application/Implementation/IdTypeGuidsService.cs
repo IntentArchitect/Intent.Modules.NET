@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public IdTypeGuidsService(IIdTypeGuidRepository idTypeGuidRepository, IMapper mapper)
+        public IdTypeGuidsService()
         {
             _idTypeGuidRepository = idTypeGuidRepository;
             _mapper = mapper;
@@ -32,57 +32,36 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> CreateIdTypeGuid(IdTypeGuidCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newIdTypeGuid = new IdTypeGuid
-            {
-                Attribute = dto.Attribute,
-            };
-            _idTypeGuidRepository.Add(newIdTypeGuid);
-            await _idTypeGuidRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newIdTypeGuid.Id;
+            // TODO: Implement CreateIdTypeGuid (IdTypeGuidsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<IdTypeGuidDto> FindIdTypeGuidById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeGuid {id}");
-            }
-            return element.MapToIdTypeGuidDto(_mapper);
+            // TODO: Implement FindIdTypeGuidById (IdTypeGuidsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<IdTypeGuidDto>> FindIdTypeGuids(CancellationToken cancellationToken = default)
         {
-            var elements = await _idTypeGuidRepository.FindAllAsync(cancellationToken);
-            return elements.MapToIdTypeGuidDtoList(_mapper);
+            // TODO: Implement FindIdTypeGuids (IdTypeGuidsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateIdTypeGuid(Guid id, IdTypeGuidUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingIdTypeGuid is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeGuid {id}");
-            }
-            existingIdTypeGuid.Attribute = dto.Attribute;
-            _idTypeGuidRepository.Update(existingIdTypeGuid);
+            // TODO: Implement UpdateIdTypeGuid (IdTypeGuidsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteIdTypeGuid(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingIdTypeGuid = await _idTypeGuidRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingIdTypeGuid is null)
-            {
-                throw new NotFoundException($"Could not find IdTypeGuid {id}");
-            }
-            _idTypeGuidRepository.Remove(existingIdTypeGuid);
+            // TODO: Implement DeleteIdTypeGuid (IdTypeGuidsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }
