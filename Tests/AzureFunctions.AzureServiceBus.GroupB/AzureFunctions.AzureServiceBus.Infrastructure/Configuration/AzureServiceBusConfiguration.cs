@@ -1,4 +1,5 @@
 using System;
+using Azure.Messaging.ServiceBus;
 using AzureFunctions.AzureServiceBus.Application.Common.Eventing;
 using AzureFunctions.AzureServiceBus.GroupA.Eventing.Messages;
 using AzureFunctions.AzureServiceBus.GroupB.Eventing.Messages;
@@ -18,20 +19,21 @@ namespace AzureFunctions.AzureServiceBus.Infrastructure.Configuration
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddSingleton<ServiceBusClient>(sp => new ServiceBusClient(configuration["AzureServiceBus:ConnectionString"]));
             services.AddScoped<IEventBus, AzureServiceBusEventBus>();
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
-            services.Configure<PublisherOptions>(options =>
+            services.Configure<AzureServiceBusPublisherOptions>(options =>
             {
                 options.Add<SpecificTopicOneMessageEvent>(configuration["AzureServiceBus:SpecificTopic"]!);
                 options.Add<SpecificQueueOneMessageEvent>(configuration["AzureServiceBus:SpecificQueue"]!);
                 options.Add<SpecificQueueTwoMessageEvent>(configuration["AzureServiceBus:SpecificQueue"]!);
                 options.Add<SpecificTopicTwoMessageEvent>(configuration["AzureServiceBus:SpecificTopic"]!);
             });
-            services.Configure<SubscriptionOptions>(options =>
+            services.Configure<AzureServiceBusSubscriptionOptions>(options =>
             {
-                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>();
-                options.Add<CreateOrgIntegrationCommand, IIntegrationEventHandler<CreateOrgIntegrationCommand>>();
+                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(configuration["AzureServiceBus:ClientCreated"]!, configuration["AzureServiceBus:ClientCreatedSubscription"]);
+                options.Add<CreateOrgIntegrationCommand, IIntegrationEventHandler<CreateOrgIntegrationCommand>>(configuration["AzureServiceBus:CreateOrg"]!);
             });
             return services;
         }

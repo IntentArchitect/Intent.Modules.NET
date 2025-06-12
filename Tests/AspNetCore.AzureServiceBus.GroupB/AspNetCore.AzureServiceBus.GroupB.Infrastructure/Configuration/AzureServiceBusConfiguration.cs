@@ -22,11 +22,9 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Configuration
             services.AddScoped<IEventBus, AzureServiceBusEventBus>();
             services.AddSingleton<AzureServiceBusMessageDispatcher>();
             services.AddSingleton<IAzureServiceBusMessageDispatcher, AzureServiceBusMessageDispatcher>();
-            services.Configure<SubscriptionOptions>(options =>
+            services.Configure<AzureServiceBusSubscriptionOptions>(options =>
             {
-                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(
-                    configuration["AzureServiceBus:ClientCreated"]!,
-                    configuration["AzureServiceBus:ClientCreatedSubscription"]);
+                options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>(configuration["AzureServiceBus:ClientCreated"]!, configuration["AzureServiceBus:ClientCreatedSubscription"]);
             });
             return services;
         }

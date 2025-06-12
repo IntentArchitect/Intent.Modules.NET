@@ -29,17 +29,18 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusSubsc
                              
                              public IReadOnlyList<SubscriptionEntry> Entries => _entries;
                              
-                             public void Add<TMessage, THandler>()
+                             public void Add<TMessage, THandler>(string queueOrTopicName, string? subscriptionName = null)
                                  where TMessage : class
                                  where THandler : {{this.GetIntegrationEventHandlerInterfaceName()}}<TMessage>
                              {
-                                 _entries.Add(new SubscriptionEntry(typeof(TMessage), {{this.GetAzureServiceBusMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>));
+                                 ArgumentNullException.ThrowIfNull(queueOrTopicName);
+                                 _entries.Add(new SubscriptionEntry(typeof(TMessage), {{this.GetAzureServiceBusMessageDispatcherName()}}.InvokeDispatchHandler<TMessage, THandler>, queueOrTopicName, subscriptionName));
                              }
                          }
                          
                          public delegate Task DispatchHandler(IServiceProvider serviceProvider, ServiceBusReceivedMessage message, CancellationToken cancellationToken);
                          
-                         public record {{SubscriptionEntry}}(Type MessageType, DispatchHandler HandlerAsync);
+                         public record {{SubscriptionEntry}}(Type MessageType, DispatchHandler HandlerAsync, string QueueOrTopicName, string? SubscriptionName);
                      }
                      """;
         }

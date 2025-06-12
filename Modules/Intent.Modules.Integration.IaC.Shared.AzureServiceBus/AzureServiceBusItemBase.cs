@@ -5,6 +5,7 @@ namespace Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 internal abstract record AzureServiceBusItemBase
 {
     public string ApplicationId { get; init; }
+    public string ApplicationName { get; init; }
     public AzureServiceBusMethodType MethodType { get; init; }
     public AzureServiceBusChannelType ChannelType { get; init; }
     public string QueueOrTopicName { get; init; }

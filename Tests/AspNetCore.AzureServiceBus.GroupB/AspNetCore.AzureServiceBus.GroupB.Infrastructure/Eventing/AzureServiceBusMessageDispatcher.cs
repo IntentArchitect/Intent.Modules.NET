@@ -15,7 +15,7 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing
     {
         private readonly Dictionary<string, DispatchHandler> _handlers;
 
-        public AzureServiceBusMessageDispatcher(IOptions<SubscriptionOptions> options)
+        public AzureServiceBusMessageDispatcher(IOptions<AzureServiceBusSubscriptionOptions> options)
         {
             _handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);
         }

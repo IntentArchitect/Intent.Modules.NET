@@ -106,6 +106,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9ac43253-d279-488e-9fa9-5a87878f8165</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Api/Services/AzureServiceBusHostedService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusHostedService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9ac43253-d279-488e-9fa9-5a87878f8165</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserService</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Api/Services/CurrentUserService.cs</ApplicationRelativeFilePath>
@@ -118,6 +126,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/AspNetCore.AzureServiceBus.GroupB.Application.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfb15404-f4c1-48f0-aa2e-36d5e4d129f9</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.AssemblyAttributes</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Application/AssemblyAttributes.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AssemblyAttributes.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -362,18 +378,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>f5ab32a9-a235-4148-9b72-6aed67a1d952</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.PublisherOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Configuration/PublisherOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Configuration/AzureServiceBusPublisherOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>f5ab32a9-a235-4148-9b72-6aed67a1d952</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.SubscriptionOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Configuration/SubscriptionOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AspNetCore.AzureServiceBus.GroupB.Infrastructure/Configuration/AzureServiceBusSubscriptionOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

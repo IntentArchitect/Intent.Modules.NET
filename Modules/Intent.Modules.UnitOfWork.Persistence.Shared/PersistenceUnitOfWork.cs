@@ -49,7 +49,7 @@ internal static class PersistenceUnitOfWork
         configure(config);
 
         // Validation: If using service provider resolution, ensure service provider variable name is provided
-        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider && 
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider &&
             string.IsNullOrWhiteSpace(config.ServiceProviderVariableName))
         {
             throw new ArgumentException("ServiceProviderVariableName must be provided when using ServiceProvider resolution strategy.");
@@ -67,10 +67,10 @@ internal static class PersistenceUnitOfWork
         AddEntityFrameworkToChain(template, constructor, config, chainOfResponsibilities);
 
         ExecuteChainOfResponsibilities(
-            block, 
-            template, 
-            invocationStatement, 
-            config, 
+            block,
+            template,
+            invocationStatement,
+            config,
             chainOfResponsibilities);
     }
 
@@ -93,8 +93,10 @@ internal static class PersistenceUnitOfWork
             config =>
             {
                 if (returnType != null)
+                {
                     config.WithReturnType(returnType);
-                
+                }
+
                 config.WithResultVariableName(resultVariableName)
                       .UseCancellationToken(cancellationTokenExpression)
                       .WithFieldSuffix(fieldSuffix)

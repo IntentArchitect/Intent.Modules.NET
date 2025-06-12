@@ -19,7 +19,9 @@ namespace AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing
         private readonly List<object> _messageQueue = [];
         private readonly Dictionary<string, string> _lookup;
 
-        public AzureServiceBusEventBus(IConfiguration configuration, ServiceBusClient serviceBusClient, IOptions<PublisherOptions> options)
+        public AzureServiceBusEventBus(IConfiguration configuration,
+            ServiceBusClient serviceBusClient,
+            IOptions<AzureServiceBusPublisherOptions> options)
         {
             _configuration = configuration;
             _serviceBusClient = serviceBusClient;

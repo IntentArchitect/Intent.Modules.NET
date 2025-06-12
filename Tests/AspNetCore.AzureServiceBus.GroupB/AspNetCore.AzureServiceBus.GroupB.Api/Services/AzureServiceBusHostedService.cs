@@ -4,7 +4,11 @@ using AspNetCore.AzureServiceBus.GroupB.Domain.Common.Interfaces;
 using AspNetCore.AzureServiceBus.GroupB.Infrastructure.Configuration;
 using AspNetCore.AzureServiceBus.GroupB.Infrastructure.Eventing;
 using Azure.Messaging.ServiceBus;
+using Intent.RoslynWeaver.Attributes;
 using Microsoft.Extensions.Options;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService", Version = "1.0")]
 
 namespace AspNetCore.AzureServiceBus.GroupB.Api.Services;
 
@@ -14,19 +18,18 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
     private readonly ServiceBusClient _serviceBusClient;
     private readonly IServiceProvider _rootServiceProvider;
     private readonly ILogger<AzureServiceBusHostedService> _logger;
-    private readonly SubscriptionOptions _subscriptionOptions;
+    private readonly AzureServiceBusSubscriptionOptions _subscriptionOptions;
     private readonly List<ServiceBusProcessor> _processors = [];
 
-    public AzureServiceBusHostedService(
-        IServiceProvider rootServiceProvider,
+    public AzureServiceBusHostedService(IServiceProvider rootServiceProvider,
         IAzureServiceBusMessageDispatcher dispatcher,
         ServiceBusClient serviceBusClient,
         ILogger<AzureServiceBusHostedService> logger,
-        IOptions<SubscriptionOptions> subscriptionOptions)
+        IOptions<AzureServiceBusSubscriptionOptions> subscriptionOptions)
     {
+        _rootServiceProvider = rootServiceProvider;
         _dispatcher = dispatcher;
         _serviceBusClient = serviceBusClient;
-        _rootServiceProvider = rootServiceProvider;
         _logger = logger;
         _subscriptionOptions = subscriptionOptions.Value;
     }
@@ -43,11 +46,12 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
             await processor.StartProcessingAsync(stoppingToken);
         }
 
-        // Keep running until cancellation
         await Task.Delay(Timeout.Infinite, stoppingToken);
     }
 
-    private ServiceBusProcessor CreateProcessor(SubscriptionEntry subscription, ServiceBusClient serviceBusClient)
+    private static ServiceBusProcessor CreateProcessor(
+            SubscriptionEntry subscription,
+            ServiceBusClient serviceBusClient)
     {
         var options = new ServiceBusProcessorOptions
         {
@@ -55,7 +59,7 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
             MaxConcurrentCalls = 1,
             PrefetchCount = 0
         };
-        
+
         return subscription.SubscriptionName != null
             ? serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, subscription.SubscriptionName, options)
             : serviceBusClient.CreateProcessor(subscription.QueueOrTopicName, options);
@@ -67,19 +71,29 @@ public class AzureServiceBusHostedService : BackgroundService, IAsyncDisposable
         {
             using var scope = _rootServiceProvider.CreateScope();
             var scopedServiceProvider = scope.ServiceProvider;
-            
-            var unitOfWork = scopedServiceProvider.GetRequiredService<IUnitOfWork>();
             var eventBus = scopedServiceProvider.GetRequiredService<IEventBus>();
-            
+            var unitOfWork = scopedServiceProvider.GetRequiredService<IUnitOfWork>();
+
+            // The execution is wrapped in a transaction scope to ensure that if any other
+            // SaveChanges calls to the data source (e.g. EF Core) are called, that they are
+            // transacted atomically. The isolation is set to ReadCommitted by default (i.e. read-
+            // locks are released, while write-locks are maintained for the duration of the
+            // transaction). Learn more on this approach for EF Core:
+            // https://docs.microsoft.com/en-us/ef/core/saving/transactions#using-systemtransactions
             using (var transaction = new TransactionScope(TransactionScopeOption.Required,
-                       new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted },
-                       TransactionScopeAsyncFlowOption.Enabled))
+                new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
             {
                 await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);
+
+                // By calling SaveChanges at the last point in the transaction ensures that write-
+                // locks in the database are created and then released as quickly as possible. This
+                // helps optimize the application to handle a higher degree of concurrency.
                 await unitOfWork.SaveChangesAsync(cancellationToken);
+
+                // Commit transaction if everything succeeds, transaction will auto-rollback when
+                // disposed if anything failed.
                 transaction.Complete();
             }
-
             await eventBus.FlushAllAsync(cancellationToken);
             await args.CompleteMessageAsync(args.Message, cancellationToken);
         }

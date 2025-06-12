@@ -7,9 +7,10 @@ namespace Intent.Modules.Integration.IaC.Shared.AzureServiceBus;
 
 internal record AzureServiceBusCommand : AzureServiceBusItemBase
 {
-    public AzureServiceBusCommand(string ApplicationId, IntegrationCommandModel CommandModel, AzureServiceBusMethodType MethodType)
+    public AzureServiceBusCommand(string ApplicationId, string ApplicationName, IntegrationCommandModel CommandModel, AzureServiceBusMethodType MethodType)
     {
         this.ApplicationId = ApplicationId;
+        this.ApplicationName = ApplicationName;
         this.CommandModel = CommandModel;
         this.MethodType = MethodType;
         ChannelType = GetChannelType(CommandModel);

@@ -66,7 +66,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
 
                     @class.AddMethod("ServiceBusProcessor", "CreateProcessor", method =>
                     {
-                        method.Private();
+                        method.Private().Static();
                         method.AddParameter(this.GetSubscriptionEntryName(), "subscription");
                         method.AddParameter("ServiceBusClient", "serviceBusClient");
                         method.AddStatement(new CSharpAssignmentStatement(new CSharpVariableDeclaration("options"),
@@ -90,15 +90,11 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
                         {
                             tryBlock.AddStatement("using var scope = _rootServiceProvider.CreateScope();");
                             tryBlock.AddStatement("var scopedServiceProvider = scope.ServiceProvider;");
-                            // tryBlock.AddStatement(new CSharpAssignmentStatement(
-                            //     new CSharpVariableDeclaration("unitOfWork"),
-                            //     $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Domain.UnitOfWork)}>()").WithSemicolon());
+                            
                             tryBlock.AddStatement(new CSharpAssignmentStatement(
                                 new CSharpVariableDeclaration("eventBus"),
                                 $"scopedServiceProvider.GetRequiredService<{this.GetTypeName(TemplateRoles.Application.Eventing.EventBusInterface)}>()").WithSemicolon());
-
-                            // tryBlock.ApplyUnitOfWorkImplementations(this, @class.Constructors.First(), 
-                            //     "await _dispatcher.DispatchAsync(scopedServiceProvider, args.Message, cancellationToken);");
+                            
                             tryBlock.ApplyUnitOfWorkImplementations(
                                 template: this, 
                                 constructor: @class.Constructors.First(), 

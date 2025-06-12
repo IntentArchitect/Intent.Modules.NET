@@ -56,7 +56,9 @@ namespace AspNetCore.AzureServiceBus.GroupA.Api.Services
             await Task.Delay(Timeout.Infinite, stoppingToken);
         }
 
-        private ServiceBusProcessor CreateProcessor(SubscriptionEntry subscription, ServiceBusClient serviceBusClient)
+        private static ServiceBusProcessor CreateProcessor(
+            SubscriptionEntry subscription,
+            ServiceBusClient serviceBusClient)
         {
             var options = new ServiceBusProcessorOptions
             {

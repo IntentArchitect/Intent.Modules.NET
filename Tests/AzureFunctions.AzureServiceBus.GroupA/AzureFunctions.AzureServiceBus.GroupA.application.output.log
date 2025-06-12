@@ -624,18 +624,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>fc89b215-57c5-4e32-b3ec-088848266d60</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.PublisherOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Configuration/PublisherOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>PublisherOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusPublisherOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>fc89b215-57c5-4e32-b3ec-088848266d60</ProjectId>
-      <CorrelationId>Intent.Eventing.AzureServiceBus.SubscriptionOptions</CorrelationId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Configuration/SubscriptionOptions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SubscriptionOptions.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Infrastructure/Configuration/AzureServiceBusSubscriptionOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
