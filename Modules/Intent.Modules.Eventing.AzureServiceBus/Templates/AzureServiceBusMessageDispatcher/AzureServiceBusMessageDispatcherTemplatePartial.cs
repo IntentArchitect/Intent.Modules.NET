@@ -41,7 +41,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusMessa
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"IOptions<{this.GetSubscriptionOptionsName()}>", "options");
+                        ctor.AddParameter($"IOptions<{this.GetAzureServiceBusSubscriptionOptionsName()}>", "options");
 
                         ctor.AddStatement("_handlers = options.Value.Entries.ToDictionary(k => k.MessageType.FullName!, v => v.HandlerAsync);");
                     });

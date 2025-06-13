@@ -23,7 +23,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="836d27ad-9c26-4cdd-ad72-790838c7de70" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="ef06d303-aaae-4231-91b8-1d1729521e8f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IdentityService.EmailSenderInterface</name>
       <display>Intent.AspNetCore.IdentityService.EmailSenderInterface</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>
@@ -37,7 +37,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="78ba5ea6-badb-449c-875d-a1fedab62c54" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="2ecf58dc-8ba5-4e63-87a1-7884ca2c2bbd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface</name>
       <display>Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>

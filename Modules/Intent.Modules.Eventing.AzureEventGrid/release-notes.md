@@ -2,6 +2,7 @@
 
 - Improvement: Moved from `EventGridEvent` to `CloudEvent` schema as this adds the ability to add metadata via the Extension Attributes. This is the [recommended schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) by Microsoft.
 - Improvement: `Subject` is no longer present on the `Publish` method, but instead you can specify a dictionary of `Extension Attributes`. You can still specify the `Subject` that way.
+- Improvement: Renamed `Options` classes to be more distinct to Azure Event Grid configuration.
 
 > [!NOTE]
 > 

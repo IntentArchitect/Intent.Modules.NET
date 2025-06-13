@@ -51,7 +51,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
             {
                 if (items.Add(message.TopicName))
                 {
-                    builder.AddResource(Terraform.azurerm_eventgrid_topic.type, message.TopicName.ToSnakeCase(), resource =>
+                    builder.AddResource(Terraform.azurerm_eventgrid_topic.type, Terraform.azurerm_eventgrid_topic.topic(message).refname, resource =>
                     {
                         resource.AddSetting("name", message.TopicName);
                         resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);

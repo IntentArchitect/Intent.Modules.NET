@@ -23,7 +23,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="5df234c2-c90a-4bc0-99ce-8bbde44fb9f5" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="493628ad-3559-4e78-9c97-4e73dc36ec8b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IdentityService.IdentityServiceManager</name>
       <display>Intent.AspNetCore.IdentityService.IdentityServiceManager</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>
@@ -37,7 +37,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="18435d0b-70cf-4ccd-b82f-0736ef6ae06c" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="dd752bf4-2db7-4642-bdb8-7d2b9e2c3356" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IdentityService.TokenService</name>
       <display>Intent.AspNetCore.IdentityService.TokenService</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>
@@ -51,7 +51,7 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="e7c93586-820a-4513-b491-6159b59b8a68" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+    <childElement id="9fe5c1aa-df89-4b4e-a032-c8b988101d7a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.AspNetCore.IdentityService.TokenServiceInterface</name>
       <display>Intent.AspNetCore.IdentityService.TokenServiceInterface</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>
