@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Exceptions;
@@ -627,6 +628,19 @@ internal static class EntityFrameworkRepositoryHelpers
                 return [];
             })
             .ToArray();
+    }
+
+    // Method to determine the rules for a EntityTypeConfiguration to be generated for a DataContract
+    public static IReadOnlyCollection<DataContractModel> GetEntityTypeConfigurationDataContractModels(IApplication application)
+    {
+        IList<RepositoryModel>? repositoryModels = application.MetadataManager.Domain(application).GetRepositoryModels();
+
+        return [.. repositoryModels
+                .SelectMany(GetStoredProcedureModels)
+                .Select(x => x.TypeReference?.Element.AsDataContractModel())
+                .Where(x => x != null)
+                .Select(x => x!)
+                .Distinct()];
     }
 
     public static void Validate(this GeneralizedStoredProcedure storedProc)
