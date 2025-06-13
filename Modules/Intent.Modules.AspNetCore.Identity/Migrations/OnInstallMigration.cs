@@ -42,8 +42,19 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 
         private void CreateApplicationIdentity(IPackageModelPersistable package)
         {
+            CreateEntity(package, "ApplicationUser");
+            CreateEntity(package, "ApplicationRole");
+            CreateEntity(package, "ApplicationUserClaim");
+            CreateEntity(package, "ApplicationUserRole");
+            CreateEntity(package, "ApplicationUserLogin");
+            CreateEntity(package, "ApplicationRoleClaim");
+            CreateEntity(package, "ApplicationUserToken");
+        }
+
+        private void CreateEntity(IPackageModelPersistable package, string entityName)
+        {
             package.Classes.Add(Guid.NewGuid().ToString(), "Class", "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
-                "ApplicationIdentityUser", package.Id);
+                entityName, package.Id);
         }
 
         private void CreateAspNetIdentityExternal()
