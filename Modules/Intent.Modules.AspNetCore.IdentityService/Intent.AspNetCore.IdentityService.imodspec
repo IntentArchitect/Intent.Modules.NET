@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore.IdentityService</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides the ability to add ASP.NET Core Identity Services to your application.</summary>
   <description>Provides the ability to add ASP.NET Core Identity Services to your application.</description>
@@ -16,22 +16,6 @@
       <role>Domain.Entity.ApplicationIdentityUser</role>
       <location></location>
     </template>
-    <template id="Intent.AspNetCore.IdentityService.EmailSender" externalReference="0c0f5777-732f-4dfa-92a9-131938f9195a">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Infrastructure</role>
-      <location>Implementation/Identity</location>
-    </template>
-    <template id="Intent.AspNetCore.IdentityService.EmailSenderInterface" externalReference="40f5b772-69df-4a00-b499-40e14be4caae">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Application</role>
-      <location>Interfaces</location>
-    </template>
     <template id="Intent.AspNetCore.IdentityService.EmailSenderOptions" externalReference="759a7fac-0851-4aff-8532-fce20e7b48c5">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -40,12 +24,36 @@
       <role>Infrastructure</role>
       <location>Options</location>
     </template>
+    <template id="Intent.AspNetCore.IdentityService.IdentityEmailSender" externalReference="0c0f5777-732f-4dfa-92a9-131938f9195a">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure</role>
+      <location>Implementation/Identity</location>
+    </template>
+    <template id="Intent.AspNetCore.IdentityService.IdentityEmailSenderInterface" externalReference="40f5b772-69df-4a00-b499-40e14be4caae">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application</role>
+      <location>Interfaces</location>
+    </template>
+    <template id="Intent.AspNetCore.IdentityService.IdentityServiceEmailSenderCollectionExtensions" externalReference="bba0133d-bbe1-4bfd-a374-756d51998d0d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Distribution;Startup</role>
+      <location>Configuration</location>
+    </template>
     <template id="Intent.AspNetCore.IdentityService.IdentityServiceManager" externalReference="97262be4-0c67-4bea-a6e0-fca0ccc2d5d5">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Startup</role>
+      <role>Distribution;Startup</role>
       <location>Services</location>
     </template>
     <template id="Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface" externalReference="be2d916c-1a4a-4c02-ae29-e83d649d3c77">
@@ -100,12 +108,15 @@
     </detect>
   </interoperability>
   <dependencies>
+    <dependency id="Intent.Application.Identity" version="3.5.6" />
+    <dependency id="Intent.AspNetCore.Identity" version="4.1.6" />
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.12.2" />
     <dependency id="Intent.Modelers.Services" version="3.9.4" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.Security.JWT" version="4.2.8" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />

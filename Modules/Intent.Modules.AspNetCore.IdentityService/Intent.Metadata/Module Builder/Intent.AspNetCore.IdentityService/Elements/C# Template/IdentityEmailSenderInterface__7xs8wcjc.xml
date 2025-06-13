@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="97262be4-0c67-4bea-a6e0-fca0ccc2d5d5" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>IdentityServiceManager</name>
-  <display>IdentityServiceManager: Single File</display>
+<class id="40f5b772-69df-4a00-b499-40e14be4caae" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
+  <name>IdentityEmailSenderInterface</name>
+  <display>IdentityEmailSenderInterface: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
-  <typeReference id="290f5748-d81f-439b-ba2b-ae56caa5f868">
+  <typeReference id="d5160b5c-b144-499d-91df-113992258211">
     <typeId>f65d2904-88c9-4501-873a-a4eec8303b1d</typeId>
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
@@ -37,8 +37,8 @@
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" isActive="true" />
         <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
-        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Distribution;Startup" isActive="true" />
-        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Services" isActive="true" />
+        <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="Application" isActive="true" />
+        <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" value="Interfaces" isActive="true" />
       </properties>
     </stereotype>
   </stereotypes>

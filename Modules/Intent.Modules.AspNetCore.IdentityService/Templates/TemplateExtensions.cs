@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
-using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender;
-using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSender;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceEmailSenderCollectionExtensions;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManager;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManagerInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.TokenService;
@@ -22,19 +23,25 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates
         {
             return template.GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
         }
-        public static string GetEmailSenderName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(EmailSenderTemplate.TemplateId);
-        }
-
-        public static string GetEmailSenderInterfaceName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(EmailSenderInterfaceTemplate.TemplateId);
-        }
 
         public static string GetEmailSenderOptionsName(this IIntentTemplate template)
         {
             return template.GetTypeName(EmailSenderOptionsTemplate.TemplateId);
+        }
+
+        public static string GetIdentityEmailSenderName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IdentityEmailSenderTemplate.TemplateId);
+        }
+
+        public static string GetIdentityEmailSenderInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IdentityEmailSenderInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetIdentityServiceEmailSenderCollectionExtensionsName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(IdentityServiceEmailSenderCollectionExtensionsTemplate.TemplateId);
         }
         public static string GetIdentityServiceManagerName(this IIntentTemplate template)
         {

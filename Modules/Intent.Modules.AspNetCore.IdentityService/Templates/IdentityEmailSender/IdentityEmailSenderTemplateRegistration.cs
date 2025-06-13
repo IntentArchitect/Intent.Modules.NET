@@ -11,17 +11,17 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
+namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSender
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class EmailSenderTemplateRegistration : SingleFileTemplateRegistration
+    public class IdentityEmailSenderTemplateRegistration : SingleFileTemplateRegistration
     {
-        public override string TemplateId => EmailSenderTemplate.TemplateId;
+        public override string TemplateId => IdentityEmailSenderTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget)
         {
-            return new EmailSenderTemplate(outputTarget);
+            return new IdentityEmailSenderTemplate(outputTarget);
         }
     }
 }

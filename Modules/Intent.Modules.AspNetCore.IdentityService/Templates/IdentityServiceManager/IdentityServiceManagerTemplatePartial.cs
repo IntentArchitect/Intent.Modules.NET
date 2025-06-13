@@ -7,9 +7,12 @@ using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.AspNetCore.IdentityService.Settings;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
-using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManagerInterface;
+using Intent.Modules.AspNetCore.IdentityService.Templates.TokenServiceInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
@@ -40,9 +43,12 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                 .AddUsing("System.Diagnostics")
                 .AddUsing("System.IdentityModel.Tokens.Jwt")
                 .AddUsing("System.Security.Claims")
+                .AddUsing("Microsoft.AspNetCore.Http")
+                .AddUsing("Microsoft.AspNetCore.Routing")
                 .AddClass($"IdentityServiceManager", @class =>
                 {
                     GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
+                    GetTypeName(TokenServiceInterfaceTemplate.TemplateId);
                     var interfaceTypeName = GetTypeName("Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface");
                     var dtoModels = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).GetDTOModels();
                     var loginRequestDto = dtoModels.FirstOrDefault(x => x.Name == "LoginRequestDto");
@@ -86,7 +92,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"{GetFullyQualifiedTypeName(EmailSenderInterfaceTemplate.TemplateId)}<ApplicationIdentityUser>", "emailSender", param =>
+                        ctor.AddParameter($"{GetTypeName(IdentityEmailSenderInterfaceTemplate.TemplateId)}", "emailSender", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -493,6 +499,13 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         c.AddStatement("await _emailSender.SendConfirmationLinkAsync(user, email, HtmlEncoder.Default.Encode(confirmEmailUrl));");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+            if (!CanRunTemplate()) return;
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface(GetTemplate<IdentityServiceManagerInterfaceTemplate>(IdentityServiceManagerInterfaceTemplate.TemplateId)));
         }
 
         [IntentManaged(Mode.Fully)]

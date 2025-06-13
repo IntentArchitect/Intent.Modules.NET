@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="0c0f5777-732f-4dfa-92a9-131938f9195a" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>EmailSender</name>
-  <display>EmailSender: Single File</display>
+  <name>IdentityEmailSender</name>
+  <display>IdentityEmailSender: Single File</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="14e2b4c8-c4f3-43b0-a4dc-348f7826c7b1">
