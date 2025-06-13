@@ -25,6 +25,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9dc7309c-0100-4a37-a47f-ecf4fbaf1b7b</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.EventBusInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Common/Eventing/IEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IEventBus.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9dc7309c-0100-4a37-a47f-ecf4fbaf1b7b</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventHandlerInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Common/Eventing/IIntegrationEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIntegrationEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>179ed09a-2a74-44a3-9f5f-90e433637f0c</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientRequestException</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -74,6 +90,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>debb0499-35a8-49c0-b28f-327431d8db87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Configuration/AzureServiceBusConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>debb0499-35a8-49c0-b28f-327431d8db87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusPublisherOptions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Configuration/AzureServiceBusPublisherOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusPublisherOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>debb0499-35a8-49c0-b28f-327431d8db87</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusSubscriptionOptions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Configuration/AzureServiceBusSubscriptionOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusSubscriptionOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>debb0499-35a8-49c0-b28f-327431d8db87</ProjectId>
       <CorrelationId>Intent.Integration.HttpClients.HttpClientConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Configuration/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
@@ -102,6 +142,30 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Deployment.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Deployment.md</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c3a310cd-8406-4cef-9926-d2278f2bc279</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusEventBus</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Eventing/AzureServiceBusEventBus.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusEventBus.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c3a310cd-8406-4cef-9926-d2278f2bc279</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcher</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Eventing/AzureServiceBusMessageDispatcher.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusMessageDispatcher.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c3a310cd-8406-4cef-9926-d2278f2bc279</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusMessageDispatcherInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Eventing/IAzureServiceBusMessageDispatcher.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IAzureServiceBusMessageDispatcher.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -158,6 +222,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Properties/launchSettings.json</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bfff7fba-b852-40c2-ba6e-d23201d6e3eb</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureServiceBus.AzureServiceBusHostedService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>WindowsServiceHost.Tests/Services/AzureServiceBusHostedService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AzureServiceBusHostedService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

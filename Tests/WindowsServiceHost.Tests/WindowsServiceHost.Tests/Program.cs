@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging.EventLog;
 using WindowsServiceHost.Tests.Caching;
 using WindowsServiceHost.Tests.Common.Interfaces;
 using WindowsServiceHost.Tests.Configuration;
+using WindowsServiceHost.Tests.Services;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.WindowsServiceHost.Program", Version = "1.0")]
@@ -21,6 +22,7 @@ namespace WindowsServiceHost.Tests
             HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 
             builder.Services.AddApplication(builder.Configuration);
+            builder.Services.ConfigureAzureServiceBus(builder.Configuration);
             builder.Services.AddHttpClients(builder.Configuration);
             builder.Services.ConfigureQuartz(builder.Configuration);
             builder.Services.AddWindowsService(options =>
@@ -36,6 +38,7 @@ namespace WindowsServiceHost.Tests
 
             // Add services to the container.
             builder.Services.AddSingleton<IDistributedCacheWithUnitOfWork, DistributedCacheWithUnitOfWork>();
+            builder.Services.AddHostedService<AzureServiceBusHostedService>();
 
             var app = builder.Build();
 

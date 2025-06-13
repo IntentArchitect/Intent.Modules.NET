@@ -26,9 +26,15 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusHoste
         public AzureServiceBusHostedServiceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Transactions")
                 .AddUsing("Azure.Messaging.ServiceBus")
+                .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Hosting")
+                .AddUsing("Microsoft.Extensions.Logging")
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"AzureServiceBusHostedService", @class =>
                 {

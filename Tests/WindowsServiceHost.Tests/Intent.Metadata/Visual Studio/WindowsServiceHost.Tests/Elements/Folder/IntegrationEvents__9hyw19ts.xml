@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="855bac89-cd47-4209-a9f0-0e4be8d0730f" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>IntegrationEvents</name>
+  <display>IntegrationEvents</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0da1c5db-f98c-4823-b467-1708a6b3ce35</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d320b2dd-c4d1-4b44-8a78-23f525128062" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventDto</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventDto</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>855bac89-cd47-4209-a9f0-0e4be8d0730f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="cec11595-ecfe-4fc9-a7a8-087631f41b47" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventEnum</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventEnum</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>855bac89-cd47-4209-a9f0-0e4be8d0730f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b35b1952-b7fb-42c0-85a8-10bacd01453a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Eventing.Contracts.IntegrationEventMessage</name>
+      <display>Intent.Eventing.Contracts.IntegrationEventMessage</display>
+      <externalReference>Intent.Eventing.Contracts</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>855bac89-cd47-4209-a9f0-0e4be8d0730f</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
