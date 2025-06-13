@@ -1068,6 +1068,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>00d9385c-4b20-4dee-bf74-472b0465073e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#fbcb1b73-7a16-47d5-9512-481ac622fed3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Persistence/Configurations/Dbo/GetCustomerOrdersResponseConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/GetCustomerOrdersResponseConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>00d9385c-4b20-4dee-bf74-472b0465073e</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#1a24dfe1-2760-406f-ae81-fe3d10be4918</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Persistence/Configurations/Dbo/GetOrderItemDetailsResponseConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Dbo/GetOrderItemDetailsResponseConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>00d9385c-4b20-4dee-bf74-472b0465073e</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#919be799-cd43-47e0-9ac5-f5c5fe41126c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlServerImporterTests.Infrastructure/Persistence/Configurations/Dbo/LegacyTableConfiguration.cs</ApplicationRelativeFilePath>

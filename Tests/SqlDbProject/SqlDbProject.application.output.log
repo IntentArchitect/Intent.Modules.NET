@@ -578,6 +578,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7238eec3-453b-43c8-8e49-e70df840b03c</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#87c95a34-fdd6-4946-b8fe-13f00400e4ee</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/Configurations/AccountHolderPersonConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountHolderPersonConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7238eec3-453b-43c8-8e49-e70df840b03c</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#d4d15ea7-27c0-4504-ba0f-162c167fa550</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SqlDbProject.Infrastructure/Persistence/Configurations/Accounts/AccountConfiguration.cs</ApplicationRelativeFilePath>

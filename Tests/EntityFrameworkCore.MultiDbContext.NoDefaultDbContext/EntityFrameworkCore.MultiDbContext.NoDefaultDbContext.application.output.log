@@ -899,6 +899,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b07d86c5-71e7-47af-a338-7139227d18b8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#d0ebbd80-27c5-4b47-92fd-a530e61b8c6a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Persistence/Configurations/ProductConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>b07d86c5-71e7-47af-a338-7139227d18b8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#0bcb89da-5aac-47ef-9f0e-8e4bf983789e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure/Persistence/Configurations/ProductInMemoryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ProductInMemoryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>29b15b70-e0a2-411c-b7d9-1cd763a39742</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbContext#Db1ConnectionString</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

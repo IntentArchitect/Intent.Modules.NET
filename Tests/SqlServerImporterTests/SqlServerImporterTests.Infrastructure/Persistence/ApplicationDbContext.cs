@@ -73,8 +73,8 @@ namespace SqlServerImporterTests.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<GetCustomerOrdersResponse>().HasNoKey().ToView(null);
-            modelBuilder.Entity<GetOrderItemDetailsResponse>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new GetCustomerOrdersResponseConfiguration());
+            modelBuilder.ApplyConfiguration(new GetOrderItemDetailsResponseConfiguration());
             modelBuilder.ApplyConfiguration(new AddressConfiguration());
             modelBuilder.ApplyConfiguration(new AspNetRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AspNetRoleClaimConfiguration());

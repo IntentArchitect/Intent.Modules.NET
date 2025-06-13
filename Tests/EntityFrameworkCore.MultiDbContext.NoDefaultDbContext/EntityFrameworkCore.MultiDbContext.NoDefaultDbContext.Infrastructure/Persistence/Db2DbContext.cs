@@ -48,8 +48,8 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.P
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<ProductInMemory>().HasNoKey().ToView(null);
-            modelBuilder.Entity<Product>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new ProductInMemoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new Db2DomainPackageAuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new Db2EntityConfiguration());
         }
