@@ -22,7 +22,7 @@ namespace Intent.IntegrationTest.IdentityService
             var identityServiceManager = identityServiceHost.Services.GetService<IIdentityServiceManager>();
 
             _emailSender.Triggered = (confirmationLink) => { };
-            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.RegisterRequestDto
+            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.Identity.RegisterRequestDto
             {
                 Email = "string@string1.com",
                 Password = "Password@123",
@@ -39,13 +39,13 @@ namespace Intent.IntegrationTest.IdentityService
             var identityServiceManager = identityServiceHost.Services.GetService<IIdentityServiceManager>();
 
             _emailSender.Triggered = (confirmationLink) => { };
-            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.RegisterRequestDto
+            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.Identity.RegisterRequestDto
             {
                 Email = "string@string2.com",
                 Password = "Password@123",
             });
 
-            var token = await identityServiceManager.Login(new CleanArchitecture.IdentityService.Application.LoginRequestDto
+            var token = await identityServiceManager.Login(new CleanArchitecture.IdentityService.Application.Identity.LoginRequestDto
             {
                 Email = "string@string2.com",
                 Password = "Password@123",
@@ -61,19 +61,19 @@ namespace Intent.IntegrationTest.IdentityService
             var identityServiceManager = identityServiceHost.Services.GetService<IIdentityServiceManager>();
 
             _emailSender.Triggered = (confirmationLink) => { };
-            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.RegisterRequestDto
+            await identityServiceManager.Register(new CleanArchitecture.IdentityService.Application.Identity.RegisterRequestDto
             {
                 Email = "string@string3.com",
                 Password = "Password@123",
             });
 
-            var token = await identityServiceManager.Login(new CleanArchitecture.IdentityService.Application.LoginRequestDto
+            var token = await identityServiceManager.Login(new CleanArchitecture.IdentityService.Application.Identity.LoginRequestDto
             {
                 Email = "string@string3.com",
                 Password = "Password@123",
             }, false, false);
 
-            var refreshToken = await identityServiceManager.Refresh(new CleanArchitecture.IdentityService.Application.RefreshRequestDto
+            var refreshToken = await identityServiceManager.Refresh(new CleanArchitecture.IdentityService.Application.Identity.RefreshRequestDto
             {
                 RefreshToken = token.RefreshToken,
             });

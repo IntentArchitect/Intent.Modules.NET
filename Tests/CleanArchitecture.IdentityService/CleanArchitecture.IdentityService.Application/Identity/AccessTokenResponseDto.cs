@@ -3,7 +3,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.Dtos.DtoModel", Version = "1.0")]
 
-namespace CleanArchitecture.IdentityService.Application
+namespace CleanArchitecture.IdentityService.Application.Identity
 {
     public class AccessTokenResponseDto
     {

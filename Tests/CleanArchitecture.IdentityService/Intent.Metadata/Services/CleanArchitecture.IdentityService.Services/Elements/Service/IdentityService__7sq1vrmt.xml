@@ -18,7 +18,7 @@
         <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="" isActive="true" />
       </properties>
     </stereotype>
-    <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+    <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
       <addedByDefault>false</addedByDefault>
       <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
       <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -60,7 +60,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -141,7 +141,7 @@
         </childElement>
         <childElement id="513948bc-2ab4-4d8e-b0f8-e2040cce0f2a" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
           <name>changedEmail</name>
-          <display>in : changedEmail: string</display>
+          <display>in : changedEmail: string?</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="73882739-a1a6-4fcc-938b-6c0a41eb9f63">
@@ -206,7 +206,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -256,7 +256,6 @@
       <name>GetInfo</name>
       <display>GetInfo(): InfoResponseDto</display>
       <isAbstract>false</isAbstract>
-      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="23f7bea9-18ef-429d-aa75-cba430d37703">
         <typeId>8b6cbf88-5100-4505-b6ce-4a880dd55e2c</typeId>
@@ -285,7 +284,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -308,7 +307,7 @@
     </childElement>
     <childElement id="0e105a56-f305-4f24-be36-d60c362fb2a7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Login</name>
-      <display>Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): void</display>
+      <display>Login(login: LoginRequestDto, useCookies: bool?, useSessionCookies: bool?): AccessTokenResponseDto</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -339,7 +338,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -488,7 +487,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -536,7 +535,7 @@
     </childElement>
     <childElement id="62993b97-4b7c-45ae-9544-ddb3e7d07061" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
       <name>Register</name>
-      <display>Register(registration: RegisterRequestDto): void</display>
+      <display>Register(register: RegisterRequestDto): void</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -564,7 +563,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -640,7 +639,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -716,7 +715,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -795,7 +794,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
@@ -885,7 +884,7 @@
             <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" value="200 (Ok)" isActive="true" />
           </properties>
         </stereotype>
-        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service">
+        <stereotype stereotypeDefinitionId="8ef84001-167a-4cbb-8950-e519937e7981" name="Identity Service Handler">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.AspNetCore.IdentityService</definitionPackageName>
           <definitionPackageId>a1a75470-3437-43b1-be57-f2187693929b</definitionPackageId>
