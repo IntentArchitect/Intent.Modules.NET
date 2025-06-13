@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c6061e18-c3da-40c7-b203-e4bd9234c82e</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementExtensionModel#1ea91389-93fb-4f23-b0f6-a2cda8a97bb7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ClassExtensionsModel.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ClassExtensionsModel.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c6061e18-c3da-40c7-b203-e4bd9234c82e</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#04e12b51-ed12-42a3-9667-a6aa81bb6d10</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/ClassModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -46,6 +38,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.AspNetCore.Identity.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.AspNetCore.Identity.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6c949480-3a1d-42a7-a791-f7955b7fa91f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#c6868214-ad49-4c49-9b1c-f2367d6e2b0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OnInstallMigration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

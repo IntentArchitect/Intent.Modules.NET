@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="c6868214-ad49-4c49-9b1c-f2367d6e2b0c" type="On-Install Migration" typeId="4ba35747-deea-43a9-acd4-26d57edb5bb9">
+  <name>On-Install</name>
+  <display>On-Install</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>59dd5551-5ee8-4f8d-9cf7-b3b945c90278</parentFolderId>
+  <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+  <packageName>Intent.AspNetCore.Identity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
