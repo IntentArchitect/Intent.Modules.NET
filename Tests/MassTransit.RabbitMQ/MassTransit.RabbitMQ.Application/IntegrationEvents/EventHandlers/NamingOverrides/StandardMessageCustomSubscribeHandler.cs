@@ -13,17 +13,17 @@ using MediatR;
 
 namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.NamingOverrides
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Fully)]
     public class StandardMessageCustomSubscribeHandler : IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>
     {
         private readonly ISender _mediator;
         private readonly IInvokedFromEventHandlerService _invokedFromEventHandlerService;
-        [IntentManaged(Mode.Merge)]
+        [IntentManaged(Mode.Fully)]
         public StandardMessageCustomSubscribeHandler(ISender mediator,
-            IInvokedFromEventHandlerService _invokedFromEventHandlerService)
+            IInvokedFromEventHandlerService invokedFromEventHandlerService)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            this._invokedFromEventHandlerService = _invokedFromEventHandlerService ?? throw new ArgumentNullException(nameof(_invokedFromEventHandlerService));
+            _invokedFromEventHandlerService = invokedFromEventHandlerService;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

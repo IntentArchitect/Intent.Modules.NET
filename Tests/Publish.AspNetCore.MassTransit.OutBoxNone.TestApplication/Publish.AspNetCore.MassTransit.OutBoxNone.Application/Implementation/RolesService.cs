@@ -28,7 +28,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
         private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public RolesService(IRoleRepository roleRepository, IMapper mapper, IEventBus eventBus)
+        public RolesService(IRoleRepository roleRepository, IEventBus eventBus, IMapper mapper)
         {
             _roleRepository = roleRepository;
             _mapper = mapper;
