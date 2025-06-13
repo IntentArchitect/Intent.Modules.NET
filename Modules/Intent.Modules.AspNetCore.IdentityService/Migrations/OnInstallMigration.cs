@@ -7,8 +7,10 @@ using System.Reflection.Metadata;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.Modelers.Services.Api;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.AspNetCore.IdentityService.Api.ServiceModelStereotypeExtensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -32,39 +34,50 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
 
             var serviceDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
-            var serviceDesignerPackages = app.GetDesigner(serviceDesignerId).GetPackages();
-
-            foreach (var package in serviceDesignerPackages)
+            var packages = app.GetDesigner(serviceDesignerId).GetPackages();
+            foreach (var pkg in packages)
             {
-                // Add Account Folder
-                var identityFolderId = Guid.NewGuid().ToString();
-                var identityServiceId = Guid.NewGuid().ToString();
-                var confirmEmailEndpointId = Guid.NewGuid().ToString();
-                var forgotPasswordEndpointId = Guid.NewGuid().ToString();
-                var getInfoEndpointId = Guid.NewGuid().ToString();
-                var loginEndpointId = Guid.NewGuid().ToString();
-                var refreshTokenEndpointId = Guid.NewGuid().ToString();
-                var registerEndpointId = Guid.NewGuid().ToString();
-                var resendConfirmationEmailEndpointId = Guid.NewGuid().ToString();
-                var resetPasswordEndpointId = Guid.NewGuid().ToString();
-                var updateInfoEndpointId = Guid.NewGuid().ToString();
-                var updateTwoFactorEndpointId = Guid.NewGuid().ToString();
-                var accessTokenResponseDtoId = Guid.NewGuid().ToString();
-
-                package.Classes.Add(new ElementPersistable
+                var services = pkg.GetElementsOfType("b16578a5-27b1-4047-a8df-f0b783d706bd");
+                foreach (var service in services)
                 {
-                    Id = identityFolderId,
-                    SpecializationType = "Folder",
-                    SpecializationTypeId = "4d95d53a-8855-4f35-aa82-e312643f5c5f",
-                    Name = "Identity",
-                    Display = "Identity",
-                    IsAbstract = false,
-                    SortChildren = SortChildrenOptions.SortByTypeAndName,
-                    IsMapped = false,
-                    ParentFolderId = package.Id,
-                    PackageId = package.Id,
-                    PackageName = package.Name,
-                    Stereotypes = new List<StereotypePersistable>
+                    if (service.Stereotypes.Any(s => s.DefinitionId == IdentityServiceHandler.DefinitionId))
+                    {
+                        return;
+                    }
+                }
+            }
+
+            var package = packages.FirstOrDefault();
+
+            // Add Identity Folder
+            var identityFolderId = Guid.NewGuid().ToString();
+            var identityServiceId = Guid.NewGuid().ToString();
+            var confirmEmailEndpointId = Guid.NewGuid().ToString();
+            var forgotPasswordEndpointId = Guid.NewGuid().ToString();
+            var getInfoEndpointId = Guid.NewGuid().ToString();
+            var loginEndpointId = Guid.NewGuid().ToString();
+            var refreshTokenEndpointId = Guid.NewGuid().ToString();
+            var registerEndpointId = Guid.NewGuid().ToString();
+            var resendConfirmationEmailEndpointId = Guid.NewGuid().ToString();
+            var resetPasswordEndpointId = Guid.NewGuid().ToString();
+            var updateInfoEndpointId = Guid.NewGuid().ToString();
+            var updateTwoFactorEndpointId = Guid.NewGuid().ToString();
+            var accessTokenResponseDtoId = Guid.NewGuid().ToString();
+
+            package.Classes.Add(new ElementPersistable
+            {
+                Id = identityFolderId,
+                SpecializationType = "Folder",
+                SpecializationTypeId = "4d95d53a-8855-4f35-aa82-e312643f5c5f",
+                Name = "Identity",
+                Display = "Identity",
+                IsAbstract = false,
+                SortChildren = SortChildrenOptions.SortByTypeAndName,
+                IsMapped = false,
+                ParentFolderId = package.Id,
+                PackageId = package.Id,
+                PackageName = package.Name,
+                Stereotypes = new List<StereotypePersistable>
                     {
                         new StereotypePersistable
                         {
@@ -84,9 +97,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                             }
                         }
                     }
-                });
+            });
 
-                CreateDto(package, accessTokenResponseDtoId, "AccessTokenResponseDto", "AccessTokenResponseDto", identityFolderId, new List<ElementPersistable>
+            CreateDto(package, accessTokenResponseDtoId, "AccessTokenResponseDto", "AccessTokenResponseDto", identityFolderId, new List<ElementPersistable>
                 {
                     CreateDtoField("TokenType", "TokenType: string", accessTokenResponseDtoId, package.Id, package.Name, StringTypeReference(),
                                         new List<StereotypePersistable>
@@ -110,24 +123,24 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                         })
                 });
 
-                var identityFolder = package.Classes.First(f => f.Id == identityFolderId);
+            var identityFolder = package.Classes.First(f => f.Id == identityFolderId);
 
-                package.ChildElements.Add(
-                        new ElementPersistable
+            package.ChildElements.Add(
+                    new ElementPersistable
+                    {
+                        Id = identityServiceId,
+                        Name = "IdentityService",
+                        Display = "IdentityService",
+                        IsAbstract = false,
+                        SortChildren = SortChildrenOptions.SortByTypeThenManually,
+                        IsMapped = false,
+                        ParentFolderId = package.Id,
+                        PackageId = package.Id,
+                        PackageName = package.Name,
+                        SpecializationType = "Service",
+                        SpecializationTypeId = "b16578a5-27b1-4047-a8df-f0b783d706bd",
+                        Stereotypes = new List<StereotypePersistable>
                         {
-                            Id = identityServiceId,
-                            Name = "IdentityService",
-                            Display = "IdentityService",
-                            IsAbstract = false,
-                            SortChildren = SortChildrenOptions.SortByTypeThenManually,
-                            IsMapped = false,
-                            ParentFolderId = package.Id,
-                            PackageId = package.Id,
-                            PackageName = package.Name,
-                            SpecializationType = "Service",
-                            SpecializationTypeId = "b16578a5-27b1-4047-a8df-f0b783d706bd",
-                            Stereotypes = new List<StereotypePersistable>
-                            {
                                 new StereotypePersistable
                                 {
                                     DefinitionId = "c29224ec-d473-4b95-ad4a-ec55c676c4fd",
@@ -148,9 +161,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                     DefinitionPackageId = "a1a75470-3437-43b1-be57-f2187693929b",
                                     Name = "Identity Service"
                                 }
-                            },
-                            ChildElements = new List<ElementPersistable>
-                            {
+                        },
+                        ChildElements = new List<ElementPersistable>
+                        {
                                 CreateEndpoint(confirmEmailEndpointId, "ConfirmEmail", "ConfirmEmail(userId: string, code: string, changedEmail: string?): string",
                                 identityServiceId, package.Id, package.Name, StringTypeReference(), new List<StereotypePropertyPersistable>
                                 {
@@ -507,13 +520,13 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
                                             })
                                         })))
                                 }, true)
-                            }
-                        });
+                        }
+                    });
 
-                
 
-                package.Save();
-            }
+
+            package.Save();
+
         }
 
         private StereotypePersistable CreateValidationsStereotype(bool notEmpty = false, bool isEmail = false)

@@ -133,7 +133,7 @@
               </metadata>
               <childElements />
             </childElement>
-            <childElement id="04e85b40-a9a4-4d51-afef-5d4872bfc8de" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+            <childElement id="1d5b2c51-024a-4ce3-8b20-3ae97c1d58a3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
               <name>Intent.AspNetCore.IdentityService.ApplicationIdentityUser</name>
               <display>Intent.AspNetCore.IdentityService.ApplicationIdentityUser</display>
               <externalReference>Intent.AspNetCore.IdentityService</externalReference>
