@@ -1,3 +1,4 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
@@ -18,7 +19,6 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
-using System.Linq;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
