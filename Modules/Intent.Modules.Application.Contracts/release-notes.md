@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Upgraded to support service invocation interactions within the new interaction strategy mechanism.
+
 ### Version 5.0.13
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 

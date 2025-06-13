@@ -61,13 +61,13 @@
     </template>
   </templates>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.2" />
+    <dependency id="Intent.Common" version="3.8.0-alpha.0" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-alpha.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.Security" version="1.0.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.5.5" />
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
-    <dependency id="Intent.Modelers.Services" version="3.8.2" />
+    <dependency id="Intent.Modelers.Services" version="4.0.0-alpha.0" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>

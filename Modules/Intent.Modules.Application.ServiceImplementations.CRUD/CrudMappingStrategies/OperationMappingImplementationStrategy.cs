@@ -17,6 +17,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using Microsoft.VisualBasic;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 using OperationModel = Intent.Modelers.Services.Api.OperationModel;
 
@@ -29,7 +30,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
         public OperationMappingImplementationStrategy(ICSharpFileBuilderTemplate template)
         {
             _template = template;
-        }        
+        }
 
         public bool IsMatch(OperationModel operationModel)
         {
@@ -45,7 +46,7 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             {
                 AddOrderBy();
 
-                template.CSharpFile.AfterBuild(file => 
+                template.CSharpFile.AfterBuild(file =>
                 {
                     var @class = _template.CSharpFile.Classes.First();
                     var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
@@ -71,10 +72,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
 
         public void ApplyStrategy(OperationModel operationModel)
         {
+            // TODO: This can be added to the IsMatch operation, but that needs to be addressed carefully
+            var interactions = operationModel.GetInteractions().ToList();
+            if (interactions.Count <= 0) return;
+
             _template.AddTypeSource(TemplateRoles.Domain.Entity.Primary);
             _template.AddTypeSource(TemplateRoles.Domain.ValueObject);
             _template.AddTypeSource(TemplateRoles.Domain.DataContract);
-            
+
             //_template.AddUsing("System.Linq"); // Should not be a blanket add of this using clause.
             var @class = _template.CSharpFile.Classes.First();
             var method = @class.FindMethod(m => m.TryGetMetadata<OperationModel>("model", out var model) && model.Id == operationModel.Id);
@@ -86,14 +91,14 @@ namespace Intent.Modules.Application.ServiceImplementations.Conventions.CRUD.Cru
             csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(_template));
-			csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
-			csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(_template));
+            csharpMapping.AddMappingResolver(new ServiceOperationMappingTypeResolver(_template));
             csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
             csharpMapping.AddMappingResolver(new TypeConvertingMappingResolver(_template));
 
             csharpMapping.SetFromReplacement(operationModel, null); // Ignore the method itself
 
-            method.ImplementInteractions(operationModel);
+            method.ImplementInteractions(interactions);
 
             if (operationModel.TypeReference.Element != null)
             {

@@ -1,3 +1,8 @@
+### Version 5.2.0
+
+- Improvement: Eventing interaction implementations are added to the appropriate execution phase in processing handlers.
+
+
 ### Version 5.1.0
 
 - Improvement: Updated to cater for major module dependency update from `Intent.Modelers.Eventing`.

@@ -52,36 +52,10 @@ namespace Intent.Modules.Eventing.Contracts.FactoryExtensions
                     var mappingManager = method.GetMappingManager();
                     // TODO: These can go to the handler template:
                     mappingManager.SetFromReplacement(handler.Model, "message");
-                    mappingManager.SetFromReplacement(handler.Model.InternalElement, "message");
+                    mappingManager.SetFromReplacement(handler.Model.InternalElement.TypeReference.Element, "message");
 
-                    //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                     method.ImplementInteractions(handler.Model);
                 }
-            }
-
-            templates = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(TemplateRoles.Application.DomainEventHandler.Explicit);
-            foreach (var template in templates)
-            {
-                template.CSharpFile.AfterBuild(file =>
-                {
-                    foreach (var handler in template.CSharpFile.GetProcessingHandlers())
-                    {
-                        var method = handler.Method;
-                        method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-                        if (!method.Statements.Any(x => x.ToString().Equals("var domainEvent = notification.DomainEvent;")))
-                        {
-                            method.AddStatement("var domainEvent = notification.DomainEvent;");
-                        }
-
-                        var mappingManager = method.GetMappingManager();
-                        // TODO: These can go to the handler template:
-                        mappingManager.SetFromReplacement(handler.Model, "domainEvent");
-                        mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
-
-                        //method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
-                        method.ImplementInteractions(handler.Model);
-                    }
-                });
             }
         }
 

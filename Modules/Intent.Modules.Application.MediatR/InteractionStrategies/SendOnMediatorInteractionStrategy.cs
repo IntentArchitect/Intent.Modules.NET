@@ -47,12 +47,12 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 });
             }
 
-            var requestName = interaction.TypeReference.Element.Name.ToLocalVariableName();
+            var requestName = interaction.TypeReference.Element.IsCommandModel() ? "command" : "query";// ? interaction.TypeReference.Element.Name.ToLocalVariableName();
 
             var statements = new List<CSharpStatement>();
             statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(requestName), _csharpMapping.GenerateCreationStatement(interaction.Mappings.Single())).WithSemicolon().SeparatedFromPrevious());
             var response = interaction.TypeReference.Element?.TypeReference?.Element;
-            if (response != null)
+            if (response != null && interaction.TypeReference.Element.IsQueryModel())
             {
                 var responseStaticElementId = "9acdd519-a45a-469d-89f1-00896a31ca61";
                 _csharpMapping.SetFromReplacement(interaction, response.Name.ToLocalVariableName());
@@ -60,12 +60,13 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
                 _csharpMapping.SetFromReplacement(new StaticMetadata(responseStaticElementId), "");
                 _csharpMapping.SetToReplacement(new StaticMetadata(responseStaticElementId), "");
                 statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(response.Name.ToLocalVariableName()), new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken")));
+                method.TrackedEntities().Add(response.Id, new EntityDetails((IElement)response, response.Name.ToLocalVariableName(), null, false));
             }
             else
             {
                 statements.Add(new CSharpInvocationStatement("await _mediator.Send").AddArgument(requestName).AddArgument("cancellationToken"));
             }
-            method.AddStatements(statements);
+            method.AddStatements(ExecutionPhases.BusinessLogic, statements);
         }
     }
 }

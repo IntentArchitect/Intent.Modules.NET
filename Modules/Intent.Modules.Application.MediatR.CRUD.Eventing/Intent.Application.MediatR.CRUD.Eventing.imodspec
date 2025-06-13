@@ -18,7 +18,7 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.5" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-alpha.0" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Eventing.Contracts" version="5.2.0" />
     <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.2.0" />
