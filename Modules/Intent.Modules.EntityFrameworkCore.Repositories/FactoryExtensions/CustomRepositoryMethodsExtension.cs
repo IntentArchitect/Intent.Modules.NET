@@ -118,14 +118,26 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                             if (configureMethod is null)
                             {
-                                onModelCreating.AddStatement($"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);");
+                                var toViewStatement = $"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);";
+                                if (!onModelCreating.Statements.Any(s => s.Text == toViewStatement))
+                                {
+                                    onModelCreating.AddStatement(toViewStatement);
+                                }
                                 AddAttributeDecimalConfiguration(file, onModelCreating, dc, $"modelBuilder.Entity<{typeName}>()");
                             }
                             else
                             {
-                                onModelCreating.AddStatement($"modelBuilder.ApplyConfiguration(new {file.Template.GetTypeName(entityTypeConfigTemplate.Id, dc)}());",
-                                    config => config.AddMetadata("model", dc));
-                                configureMethod.AddStatement($"builder.HasNoKey().ToView(null);");
+                                var applyConfigStatement = $"modelBuilder.ApplyConfiguration(new {file.Template.GetTypeName(entityTypeConfigTemplate.Id, dc)}());";
+                                if (!onModelCreating.Statements.Any(s => s.Text == applyConfigStatement))
+                                {
+                                    onModelCreating.AddStatement(applyConfigStatement, config => config.AddMetadata("model", dc));
+                                }
+
+                                var toViewStatement = $"builder.HasNoKey().ToView(null);";
+                                if (!configureMethod.Statements.Any(s => s.Text == toViewStatement))
+                                {
+                                    configureMethod.AddStatement(toViewStatement);
+                                }
                                 AddAttributeDecimalConfiguration(file, configureMethod, dc, $"builder");
                             }
                         }
@@ -248,7 +260,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     precision = $"{attributeConstraints.Precision() ?? 18},{attributeConstraints.Scale() ?? 2}";
                 }
 
-                method.AddStatement($"{statementPrefix}.Property(x => x.{decimalAttribute.Name.ToPascalCase()}).HasPrecision({precision});");
+                var statement = $"{statementPrefix}.Property(x => x.{decimalAttribute.Name.ToPascalCase()}).HasPrecision({precision});";
+
+                if (!method.Statements.Any(s => s.Text == statement))
+                {
+                    method.AddStatement(statement);
+                }
             }
         }
 
