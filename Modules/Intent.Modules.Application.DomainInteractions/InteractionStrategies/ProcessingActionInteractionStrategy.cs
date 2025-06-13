@@ -4,8 +4,11 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping;
+using Intent.Modules.Common.CSharp.Templates;
 
 namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
 {
@@ -24,12 +27,17 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
                 throw new ArgumentNullException(nameof(method));
             }
 
-            var _csharpMapping = method.GetMappingManager();
+            var t = (ICSharpFileBuilderTemplate)method.File.Template;
+            var csharpMapping = method.GetMappingManager();
+            csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t));
+            csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(t));
+            csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(t));
+            csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(t));
             var handlerClass = method.Class;
             var actions = interactionElement.AsProcessingActionModel();
             try
             {
-                var processingStatements = _csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
+                var processingStatements = csharpMapping.GenerateUpdateStatements(actions.InternalElement.Mappings.Single())
                     .Select(x =>
                     {
                         if (x is CSharpAssignmentStatement)
