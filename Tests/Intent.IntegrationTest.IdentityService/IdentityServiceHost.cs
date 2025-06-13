@@ -30,7 +30,7 @@ namespace Intent.IntegrationTest.IdentityService
     {
         public const string IdentityServiceUri = "http://localhost:{0}";
 
-        public static async Task<IWebHost> SetupIdentityService(CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser> emailSender,
+        public static async Task<IWebHost> SetupIdentityService(CleanArchitecture.IdentityService.Application.Interfaces.IIdentityEmailSender emailSender,
             ITestOutputHelper outputHelper = null,
             int portNumber = 5001)
         {
@@ -69,7 +69,7 @@ namespace Intent.IntegrationTest.IdentityService
                         .Build();
 
                     services.AddSingleton<IConfiguration>(configuration);
-                    services.AddScoped<CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser>>(x => emailSender);
+                    services.AddScoped<CleanArchitecture.IdentityService.Application.Interfaces.IIdentityEmailSender>(x => emailSender);
 
                     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
                     services.AddHttpContextAccessor();

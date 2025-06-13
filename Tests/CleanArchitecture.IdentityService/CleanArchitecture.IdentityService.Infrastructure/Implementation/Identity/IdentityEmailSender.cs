@@ -1,6 +1,5 @@
 using System.Net;
 using System.Net.Mail;
-using CleanArchitecture.IdentityService.Application.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Entities;
 using CleanArchitecture.IdentityService.Infrastructure.Options;
 using Intent.RoslynWeaver.Attributes;
@@ -9,16 +8,16 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: IntentTemplate("Intent.AspNetCore.IdentityService.EmailSender", Version = "1.0")]
+[assembly: IntentTemplate("Intent.AspNetCore.IdentityService.IdentityEmailSender", Version = "1.0")]
 
 namespace CleanArchitecture.IdentityService.Infrastructure.Implementation.Identity
 {
-    public class EmailSender : IEmailSender<ApplicationIdentityUser>
+    public class IdentityEmailSender : CleanArchitecture.IdentityService.Application.Interfaces.IIdentityEmailSender
     {
         private readonly EmailSenderOptions _options;
-        private readonly ILogger<EmailSender> _logger;
+        private readonly ILogger<IdentityEmailSender> _logger;
 
-        public EmailSender(IOptions<EmailSenderOptions> options, ILogger<EmailSender> logger)
+        public IdentityEmailSender(IOptions<EmailSenderOptions> options, ILogger<IdentityEmailSender> logger)
         {
             _logger = logger;
             _options = options.Value;

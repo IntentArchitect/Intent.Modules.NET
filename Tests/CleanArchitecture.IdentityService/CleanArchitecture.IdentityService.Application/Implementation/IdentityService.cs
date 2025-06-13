@@ -1,4 +1,3 @@
-using CleanArchitecture.IdentityService.Application.Identity;
 using CleanArchitecture.IdentityService.Application.Interfaces;
 using Intent.RoslynWeaver.Attributes;
 

@@ -1,6 +1,6 @@
 using System.Transactions;
+using CleanArchitecture.IdentityService.Application;
 using CleanArchitecture.IdentityService.Application.Common.Validation;
-using CleanArchitecture.IdentityService.Application.Identity;
 using CleanArchitecture.IdentityService.Application.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
 using Intent.RoslynWeaver.Attributes;

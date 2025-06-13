@@ -1,4 +1,3 @@
-using CleanArchitecture.IdentityService.Application.Identity;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

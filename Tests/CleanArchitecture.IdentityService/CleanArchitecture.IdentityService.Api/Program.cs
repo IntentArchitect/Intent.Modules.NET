@@ -3,7 +3,10 @@ using CleanArchitecture.IdentityService.Api.Filters;
 using CleanArchitecture.IdentityService.Api.Logging;
 using CleanArchitecture.IdentityService.Api.Services;
 using CleanArchitecture.IdentityService.Application;
+using CleanArchitecture.IdentityService.Application.Interfaces;
 using CleanArchitecture.IdentityService.Infrastructure;
+using CleanArchitecture.IdentityService.Infrastructure.Implementation.Identity;
+using CleanArchitecture.IdentityService.Infrastructure.Options;
 using Intent.RoslynWeaver.Attributes;
 using Serilog;
 using Serilog.Events;
@@ -41,11 +44,16 @@ namespace CleanArchitecture.IdentityService.Api
                 builder.Services.AddApplication(builder.Configuration);
                 builder.Services.ConfigureApplicationSecurity(builder.Configuration);
                 builder.Services.ConfigureHealthChecks(builder.Configuration);
+                builder.Services.ConfigureIdentity();
+                builder.Services.Configure<EmailSenderOptions>(builder.Configuration);
+                builder.Services.ConfigureIdentityEmailSender(builder.Configuration);
                 builder.Services.ConfigureProblemDetails();
                 builder.Services.ConfigureApiVersioning();
                 builder.Services.AddInfrastructure(builder.Configuration);
                 builder.Services.ConfigureSwagger(builder.Configuration);
 
+                builder.Services.AddSingleton<IIdentityEmailSender, IdentityEmailSender>();
+                builder.Services.AddTransient<IIdentityServiceManager, IdentityServiceManager>();
                 builder.Services.AddTransient<ITokenService, TokenService>();
 
                 var app = builder.Build();

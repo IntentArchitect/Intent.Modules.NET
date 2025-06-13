@@ -3,8 +3,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
+using CleanArchitecture.IdentityService.Application;
 using CleanArchitecture.IdentityService.Application.Common.Exceptions;
-using CleanArchitecture.IdentityService.Application.Identity;
 using CleanArchitecture.IdentityService.Application.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Common.Exceptions;
 using CleanArchitecture.IdentityService.Domain.Entities;
@@ -28,7 +28,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
         private readonly IUserStore<ApplicationIdentityUser> _userStore;
         private readonly TimeProvider _timeProvider;
         private readonly IOptionsMonitor<BearerTokenOptions> _bearerTokenOptions;
-        private readonly CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser> _emailSender;
+        private readonly IIdentityEmailSender _emailSender;
         private readonly LinkGenerator _linkGenerator;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ITokenService _tokenService;
@@ -38,7 +38,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             IUserStore<ApplicationIdentityUser> userStore,
             TimeProvider timeProvider,
             IOptionsMonitor<BearerTokenOptions> bearerTokenOptions,
-            CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser> emailSender,
+            IIdentityEmailSender emailSender,
             LinkGenerator linkGenerator,
             IHttpContextAccessor httpContextAccessor,
             ITokenService tokenService)
