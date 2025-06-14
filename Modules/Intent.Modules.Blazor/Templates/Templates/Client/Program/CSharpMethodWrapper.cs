@@ -23,6 +23,8 @@ internal class CSharpMethodWrapper<TCSharpMethod>(ICSharpMethod<TCSharpMethod> w
 
     object ICSharpCodeContext.GetMetadata(string key) => wrapped.GetMetadata(key);
 
+    public void RemoveMetadata(string key) => wrapped.RemoveMetadata(key);
+
     bool ICSharpCodeContext.TryGetMetadata<T>(string key, out T value) => wrapped.TryGetMetadata(key, out value);
 
     bool ICSharpCodeContext.TryGetMetadata(string key, out object value) => wrapped.TryGetMetadata(key, out value);
