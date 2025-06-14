@@ -14,6 +14,7 @@ namespace Intent.Modules.AspNetCore.IdentityService
         public const string MicrosoftAspNetCoreIdentityPackageName = "Microsoft.AspNetCore.Identity";
         public const string MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName = "Microsoft.AspNetCore.Identity.EntityFrameworkCore";
         public const string MicrosoftExtensionsIdentityStoresPackageName = "Microsoft.Extensions.Identity.Stores";
+        public const string SystemIdentityModelTokensJwtPackageName = "System.IdentityModel.Tokens.Jwt";
 
         public void RegisterPackages()
         {
@@ -67,6 +68,24 @@ namespace Intent.Modules.AspNetCore.IdentityService
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsIdentityStoresPackageName}'"),
                     }
                 );
+            NugetRegistry.Register(SystemIdentityModelTokensJwtPackageName,
+                (framework) => framework switch
+                    {
+                        ( >= 9, 0) => new PackageVersion("8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.12.0"),
+                        ( >= 8, 0) => new PackageVersion("8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.12.0"),
+                        ( >= 6, 0) => new PackageVersion("8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.12.0"),
+                        ( >= 2, 0) => new PackageVersion("8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.JsonWebTokens", "8.12.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Tokens", "8.12.0"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemIdentityModelTokensJwtPackageName}'"),
+                    }
+                );
         }
 
         public static NugetPackageInfo MicrosoftAspNetCoreIdentity(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreIdentityPackageName, outputTarget.GetMaxNetAppVersion());
@@ -74,5 +93,7 @@ namespace Intent.Modules.AspNetCore.IdentityService
         public static NugetPackageInfo MicrosoftAspNetCoreIdentityEntityFrameworkCore(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftAspNetCoreIdentityEntityFrameworkCorePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo MicrosoftExtensionsIdentityStores(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftExtensionsIdentityStoresPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo SystemIdentityModelTokensJwt(IOutputTarget outputTarget) => NugetRegistry.GetVersion(SystemIdentityModelTokensJwtPackageName, outputTarget.GetMaxNetAppVersion());
     }
 }

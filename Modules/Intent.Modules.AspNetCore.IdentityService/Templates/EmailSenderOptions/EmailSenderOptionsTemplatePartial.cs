@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManagerInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -37,8 +40,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions
 
         public override void BeforeTemplateExecution()
         {
-            base.BeforeTemplateExecution();
-
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:SmtpHost", "smtp.yourdomain.com"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:SmtpPort", "587"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:SenderEmail", "noreply@yourdomain.com"));
@@ -46,6 +47,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:Username", "smtp-username"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:Password", "smtp-password"));
             ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest("EmailSender:UseSsl", "true"));
+
+
+            ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest.ToRegister(extensionMethodName: "Configure<EmailSenderOptions>", ServiceConfigurationRequest.ParameterType.Configuration).HasDependency(this));
+            base.BeforeTemplateExecution();
         }
 
         [IntentManaged(Mode.Fully)]

@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.Repositories</id>
-  <version>4.7.10</version>
+  <version>4.7.11-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Generates Repositories for Domain Entities</summary>
   <description>Generates Repositories for Domain Entities</description>
@@ -12,6 +12,14 @@
   <tags>csharp dotnet entityframework ef repositories</tags>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
+    <template id="Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration" externalReference="11b08402-e9cc-43d5-8429-a3429bb8befc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DataContractEntityTypeConfiguration</role>
+      <location>Persistence/Configurations</location>
+    </template>
     <template id="Intent.EntityFrameworkCore.Repositories.DataContractExtensionMethods" externalReference="d500e538-e02c-4c72-844a-887ed913529a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

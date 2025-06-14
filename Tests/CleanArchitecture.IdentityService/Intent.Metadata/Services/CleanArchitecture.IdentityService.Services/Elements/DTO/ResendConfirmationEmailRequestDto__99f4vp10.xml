@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>11e503ce-cceb-4a80-86f2-9964fb0e8559</parentFolderId>
+  <parentFolderId>cacea154-fd6d-4953-ae5c-25582a4dd5c6</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="dcf45ac6-ec54-4245-aa77-00c770d553b4" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="a854f1d9-c6cb-46b0-8bda-4b1524cb2041" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Email</name>
       <display>Email: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="034fe08f-c622-4ad8-9f03-4ba189377362">
+      <typeReference id="6f74b003-8632-4762-9d08-120160885ab0">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

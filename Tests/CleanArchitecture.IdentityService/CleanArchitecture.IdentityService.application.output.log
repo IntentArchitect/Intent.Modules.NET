@@ -50,10 +50,34 @@
     </FileLog>
     <FileLog>
       <ProjectId>c341ba48-0558-4133-9a6f-0d097473bd64</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Configuration/AspNetCoreIdentityConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AspNetCoreIdentityConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c341ba48-0558-4133-9a6f-0d097473bd64</ProjectId>
       <CorrelationId>Intent.AspNetCore.HealthChecks.HealthChecksConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Configuration/HealthChecksConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HealthChecksConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c341ba48-0558-4133-9a6f-0d097473bd64</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Identity.IdentityServiceCollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceCollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceCollectionExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c341ba48-0558-4133-9a6f-0d097473bd64</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IdentityService.IdentityServiceEmailSenderCollectionExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Configuration/IdentityServiceEmailSenderCollectionExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityServiceEmailSenderCollectionExtensions.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -74,7 +98,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>40b61bb4-44e2-4524-9079-a43451dbda67</ProjectId>
-      <CorrelationId>Intent.AspNetCore.Controllers.Controller#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#876dd170-6f6c-48f6-865e-45f15be4d9f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Api/Controllers/IdentityController.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityController.cs</ProjectRelativeFilePath>
@@ -330,7 +354,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8ef58349-6821-41e5-91ca-543238751afe</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.DtoModel#20793348-f575-4c9d-93f0-00815e76b80b</CorrelationId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#41f4ec94-7700-4317-bc15-862dcde96d75</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Identity/AccessTokenResponseDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Identity/AccessTokenResponseDto.cs</ProjectRelativeFilePath>
@@ -482,7 +506,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>c67faab2-ce4f-4bbc-9b87-b98bc12d11e2</ProjectId>
-      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#876dd170-6f6c-48f6-865e-45f15be4d9f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Implementation/IdentityService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IdentityService.cs</ProjectRelativeFilePath>
@@ -490,15 +514,15 @@
     </FileLog>
     <FileLog>
       <ProjectId>ed01c5b9-e5a3-4ec3-bd9c-84471ea5dc7d</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IdentityService.EmailSenderInterface</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.IdentityService.IdentityEmailSenderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Interfaces/IEmailSender.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IEmailSender.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Interfaces/IIdentityEmailSender.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IIdentityEmailSender.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>ed01c5b9-e5a3-4ec3-bd9c-84471ea5dc7d</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.ServiceContract#4a0716d9-d911-4f71-a63c-5be8efcf1155</CorrelationId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#876dd170-6f6c-48f6-865e-45f15be4d9f2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Application/Interfaces/IIdentityService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IIdentityService.cs</ProjectRelativeFilePath>
@@ -602,10 +626,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>47f375c0-2ed8-47c8-9ec6-a8d6b6bf5f41</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IdentityService.EmailSender</CorrelationId>
+      <CorrelationId>Intent.AspNetCore.IdentityService.IdentityEmailSender</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Implementation/Identity/EmailSender.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>EmailSender.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Implementation/Identity/IdentityEmailSender.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IdentityEmailSender.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

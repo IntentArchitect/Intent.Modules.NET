@@ -53,7 +53,7 @@ namespace SqlDbProject.Infrastructure.Persistence
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<AccountHolderPerson>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new AccountHolderPersonConfiguration());
             modelBuilder.ApplyConfiguration(new AccountHolderConfiguration());
             modelBuilder.ApplyConfiguration(new CountryConfiguration());
             modelBuilder.ApplyConfiguration(new PolicyConfiguration());

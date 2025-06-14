@@ -9,9 +9,9 @@
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="a55bbf8a-0e9b-4ff3-a882-0c178ef4bc39" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.AspNetCore.IdentityService.EmailSender</name>
-      <display>Intent.AspNetCore.IdentityService.EmailSender</display>
+    <childElement id="9e3b5a7a-dfa5-4589-b79f-425c0c7f9d06" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AspNetCore.IdentityService.IdentityEmailSender</name>
+      <display>Intent.AspNetCore.IdentityService.IdentityEmailSender</display>
       <externalReference>Intent.AspNetCore.IdentityService</externalReference>
       <isAbstract>false</isAbstract>
       <genericTypes />

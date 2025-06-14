@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common;
@@ -12,10 +13,13 @@ using Intent.Modules.Constants;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractEntityTypeConfiguration;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
+using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -89,16 +93,11 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     });
                 }
 
-                var dataContractResults = repositoryModels
-                    .SelectMany(EntityFrameworkRepositoryHelpers.GetStoredProcedureModels)
-                    .Select(x => x.TypeReference?.Element.AsDataContractModel())
-                    .Where(x => x != null)
-                    .Distinct()
-                    .ToArray();
+                var dataContractResults = EntityFrameworkRepositoryHelpers.GetEntityTypeConfigurationDataContractModels(application);
 
-                if (dataContractResults.Any())
+                if (dataContractResults.Count != 0)
                 {
-                    dbContextTemplate.CSharpFile.OnBuild(file =>
+                    dbContextTemplate.CSharpFile.AfterBuild(file =>
                     {
                         var @class = file.Classes.Single();
                         var onModelCreating = @class.Methods.Single(x => x.Name == "OnModelCreating");
@@ -112,7 +111,35 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                                 name: typeName.Pluralize(),
                                 configure: prop => prop.AddMetadata("model", dc));
 
-                            onModelCreating.AddStatement($"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);");
+                            // try find a EntityTypeConfiguration instance for the DataContract model
+                            var entityTypeConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(DataContractEntityTypeConfigurationTemplate.TemplateId, dc);
+                            var @configClass = entityTypeConfigTemplate?.CSharpFile.Classes.FirstOrDefault();
+                            var configureMethod = @configClass?.Methods.FirstOrDefault(x => x.Name == "Configure");
+
+                            if (configureMethod is null)
+                            {
+                                var toViewStatement = $"modelBuilder.Entity<{typeName}>().HasNoKey().ToView(null);";
+                                if (!onModelCreating.Statements.Any(s => s.Text == toViewStatement))
+                                {
+                                    onModelCreating.AddStatement(toViewStatement);
+                                }
+                                AddAttributeDecimalConfiguration(file, onModelCreating, dc, $"modelBuilder.Entity<{typeName}>()");
+                            }
+                            else
+                            {
+                                var applyConfigStatement = $"modelBuilder.ApplyConfiguration(new {file.Template.GetTypeName(entityTypeConfigTemplate.Id, dc)}());";
+                                if (!onModelCreating.Statements.Any(s => s.Text == applyConfigStatement))
+                                {
+                                    onModelCreating.AddStatement(applyConfigStatement, config => config.AddMetadata("model", dc));
+                                }
+
+                                var toViewStatement = $"builder.HasNoKey().ToView(null);";
+                                if (!configureMethod.Statements.Any(s => s.Text == toViewStatement))
+                                {
+                                    configureMethod.AddStatement(toViewStatement);
+                                }
+                                AddAttributeDecimalConfiguration(file, configureMethod, dc, $"builder");
+                            }
                         }
                     });
                 }
@@ -214,6 +241,31 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                 }
 
                 EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods<ICSharpFileBuilderTemplate, ClassModel>(implementationTemplate, repository);
+            }
+        }
+
+        private static void AddAttributeDecimalConfiguration(CSharpFile file, CSharpClassMethod method, DataContractModel dc, string statementPrefix)
+        {
+            foreach (var decimalAttribute in dc.Attributes.Where(a => a.TypeReference.HasDecimalType()))
+            {
+                var precision = "18,2";
+
+                if (file.Template.ExecutionContext.Settings.GetDatabaseSettings().TryGetDecimalPrecisionAndScale(out var constraints))
+                {
+                    precision = $"{constraints.Precision},{constraints.Scale}";
+                }
+
+                if (decimalAttribute.TryGetDecimalConstraints(out var attributeConstraints))
+                {
+                    precision = $"{attributeConstraints.Precision() ?? 18},{attributeConstraints.Scale() ?? 2}";
+                }
+
+                var statement = $"{statementPrefix}.Property(x => x.{decimalAttribute.Name.ToPascalCase()}).HasPrecision({precision});";
+
+                if (!method.Statements.Any(s => s.Text == statement))
+                {
+                    method.AddStatement(statement);
+                }
             }
         }
 

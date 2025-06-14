@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
-using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions;
+using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -14,15 +15,15 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
 
-namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
+namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSender
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class EmailSenderTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    public partial class IdentityEmailSenderTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public const string TemplateId = "Intent.AspNetCore.IdentityService.EmailSender";
+        public const string TemplateId = "Intent.AspNetCore.IdentityService.IdentityEmailSender";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public EmailSenderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        public IdentityEmailSenderTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.AspNetCore.Identity")
@@ -30,18 +31,18 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                 .AddUsing("Microsoft.Extensions.Options")
                 .AddUsing("System.Net.Mail")
                 .AddUsing("System.Net")
-                .AddClass($"EmailSender", @class =>
+                .AddClass($"IdentityEmailSender", @class =>
                 {
                     GetTypeName(EmailSenderOptionsTemplate.TemplateId);
                     GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
-                    @class.ImplementsInterface(GetTypeName(EmailSenderInterfaceTemplate.TemplateId) + "<ApplicationIdentityUser>");
+                    @class.ImplementsInterface(GetFullyQualifiedTypeName(IdentityEmailSenderInterfaceTemplate.TemplateId));
 
                     @class.AddField("EmailSenderOptions", "_options", c => c.PrivateReadOnly());
 
                     @class.AddConstructor(c =>
                     {
                         c.AddParameter("IOptions<EmailSenderOptions>", "options");
-                        c.AddParameter("ILogger<EmailSender>", "logger", p => p.IntroduceReadonlyField());
+                        c.AddParameter("ILogger<IdentityEmailSender>", "logger", p => p.IntroduceReadonlyField());
                         c.AddStatement("_options = options.Value;");
                     });
 
@@ -118,6 +119,13 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.EmailSender
                         });
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            base.BeforeTemplateExecution();
+            if (!CanRunTemplate()) return;
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this).ForInterface(GetTemplate<IdentityEmailSenderInterfaceTemplate>(IdentityEmailSenderInterfaceTemplate.TemplateId)).WithSingletonLifeTime());
         }
 
         [IntentManaged(Mode.Fully)]

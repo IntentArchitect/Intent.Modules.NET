@@ -113,9 +113,9 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
-            modelBuilder.Entity<SpResult>().HasNoKey().ToView(null);
-            modelBuilder.Entity<EntityRecord>().HasNoKey().ToView(null);
-            modelBuilder.Entity<MappedSpResultItem>().HasNoKey().ToView(null);
+            modelBuilder.ApplyConfiguration(new SpResultConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityRecordConfiguration());
+            modelBuilder.ApplyConfiguration(new MappedSpResultItemConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());

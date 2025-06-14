@@ -54,11 +54,11 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
 
             serviceImplementationTemplate.CSharpFile.AfterBuild(file =>
             {
+                file.AddUsing("Microsoft.AspNetCore.Routing");
                 var @class = file.Classes.First();
-
                 var confirmEmailMethod = @class.Methods.First(x => x.Name == "ConfirmEmail");
                 confirmEmailMethod.AddAttribute("EndpointName(\"ConfirmEmail\")");
-
+                
             }, 99);
         }
 

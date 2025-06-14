@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>11e503ce-cceb-4a80-86f2-9964fb0e8559</parentFolderId>
+  <parentFolderId>cacea154-fd6d-4953-ae5c-25582a4dd5c6</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="eaef3e1b-cd68-4261-89c0-130a3ef88b08" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="005b7e1c-7b7a-4379-81a9-38bde38861c5" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>Email</name>
       <display>Email: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="7a46ad1d-41b9-477c-ac6f-7e7c96584613">
+      <typeReference id="7401d084-b0b2-487f-a313-2eb21504481b">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="1f0241ad-d557-4ee6-b5ff-cb0016b34722" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="c3cd0e22-d35d-4a5d-bbc2-b6731ff75f82" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>IsEmailConfirmed</name>
       <display>IsEmailConfirmed: bool</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="b3a0f0df-12e2-4bb8-aef4-db42eb6214e9">
+      <typeReference id="6c5283bd-d148-4199-bc63-886e2dcf4df4">
         <typeId>e6f92b09-b2c5-4536-8270-a4d9e5bbd930</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

@@ -6,18 +6,18 @@
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>11e503ce-cceb-4a80-86f2-9964fb0e8559</parentFolderId>
+  <parentFolderId>cacea154-fd6d-4953-ae5c-25582a4dd5c6</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="a17a2e3d-9372-414b-8f07-90bfa817baec" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="5befa847-b0b4-49bf-9bb6-b1750ce93b5f" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>NewEmail</name>
       <display>NewEmail: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="9a897926-5ecd-40a0-bca1-f5946582c117">
+      <typeReference id="6d7bae2a-90ed-401e-a68f-e70b8adf09c2">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="97fe5bad-44c4-43d8-9b17-34acb0c62079" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="00416b71-2611-44ae-85ff-13f11c748232" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>NewPassword</name>
       <display>NewPassword: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="cde754fd-5a63-46df-bff8-38db86c22bff">
+      <typeReference id="f8697ec8-9a21-4836-bd35-550aa6767c40">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -112,12 +112,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="36a08b7c-20c2-495a-966c-45842092f66e" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="96867347-4bb3-4ef1-b3d8-2f4b4012d5f1" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>OldPassword</name>
       <display>OldPassword: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="0fb3517c-a91a-43bc-b7e0-1ee0ede46e77">
+      <typeReference id="1a210657-7873-4ed9-a432-677ca4958ebe">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>

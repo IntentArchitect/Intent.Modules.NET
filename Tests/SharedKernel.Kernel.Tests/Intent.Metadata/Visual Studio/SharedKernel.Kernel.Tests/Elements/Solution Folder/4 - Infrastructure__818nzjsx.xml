@@ -149,6 +149,20 @@
                   </metadata>
                   <childElements />
                 </childElement>
+                <childElement id="0a3052dd-7166-463a-ae95-951ec38669b8" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+                  <name>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</name>
+                  <display>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration</display>
+                  <externalReference>Intent.EntityFrameworkCore.Repositories</externalReference>
+                  <isAbstract>false</isAbstract>
+                  <genericTypes />
+                  <isMapped>false</isMapped>
+                  <parentFolderId>e5dc7264-9ac3-4ad3-9c27-d4e615e63c4d</parentFolderId>
+                  <stereotypes />
+                  <metadata>
+                    <entry key="status" value="assigned" />
+                  </metadata>
+                  <childElements />
+                </childElement>
               </childElements>
             </childElement>
             <childElement id="9f827083-f838-4692-a193-a2eb79b9bd52" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">

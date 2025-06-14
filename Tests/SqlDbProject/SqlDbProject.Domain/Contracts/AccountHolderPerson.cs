@@ -7,12 +7,13 @@ namespace SqlDbProject.Domain.Contracts
 {
     public record AccountHolderPerson
     {
-        public AccountHolderPerson(long stakeholderId, DateTime birthdate, int sexTypeId, string description)
+        public AccountHolderPerson(long stakeholderId, DateTime birthdate, int sexTypeId, string description, decimal height)
         {
             StakeholderId = stakeholderId;
             Birthdate = birthdate;
             SexTypeId = sexTypeId;
             Description = description;
+            Height = height;
         }
 
         /// <summary>
@@ -28,5 +29,6 @@ namespace SqlDbProject.Domain.Contracts
         public DateTime Birthdate { get; init; }
         public int SexTypeId { get; init; }
         public string Description { get; init; }
+        public decimal Height { get; init; }
     }
 }

@@ -1,15 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using CleanArchitecture.IdentityService.Api.Services;
 using CleanArchitecture.IdentityService.Application.Common.Interfaces;
-using CleanArchitecture.IdentityService.Application.Interfaces;
-using CleanArchitecture.IdentityService.Domain.Entities;
-using CleanArchitecture.IdentityService.Infrastructure.Implementation.Identity;
-using CleanArchitecture.IdentityService.Infrastructure.Options;
-using CleanArchitecture.IdentityService.Infrastructure.Persistence;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -24,35 +18,26 @@ namespace CleanArchitecture.IdentityService.Api.Configuration
             IConfiguration configuration)
         {
             services.AddSingleton<ICurrentUserService, CurrentUserService>();
-            services.AddScoped<IIdentityServiceManager, IdentityServiceManager>();
-            services.AddIdentity<ApplicationIdentityUser, IdentityRole>()
-                .AddDefaultTokenProviders()
-                .AddTokenProvider<DataProtectorTokenProvider<ApplicationIdentityUser>>(IdentityConstants.BearerScheme)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddHttpContextAccessor();
-            services.AddScoped<CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser>, EmailSender>();
-            services.Configure<EmailSenderOptions>(configuration.GetSection("EmailSender"));
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
             services.AddHttpContextAccessor();
 
-            services.AddAuthentication(options => { options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme; })
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(
                     JwtBearerDefaults.AuthenticationScheme,
                     options =>
                     {
-                        options.Audience = configuration["JwtToken:Audience"];
-
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
                             ValidateIssuer = true,
-                            ValidIssuer = configuration["JwtToken:Issuer"],
+                            ValidIssuer = configuration.GetSection("JwtToken:Issuer").Get<string>(),
                             ValidateAudience = true,
-                            ValidAudience = configuration["JwtToken:Audience"],
+                            ValidAudience = configuration.GetSection("JwtToken:Audience").Get<string>(),
                             ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration["JwtToken:SigningKey"])),
-                            RoleClaimType = "role"
+                            IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(configuration.GetSection("JwtToken:SigningKey").Get<string>()!)),
+                            NameClaimType = "sub"
                         };
 
+                        options.TokenValidationParameters.RoleClaimType = "role";
                         options.SaveToken = true;
                     });
 

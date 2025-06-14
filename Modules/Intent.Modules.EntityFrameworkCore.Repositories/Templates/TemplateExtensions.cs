@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractEntityTypeConfiguration;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractExtensionMethods;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.EFRepositoryInterface;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
@@ -15,6 +16,15 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetDataContractEntityTypeConfigurationName<T>(this IIntentTemplate<T> template) where T : DataContractModel
+        {
+            return template.GetTypeName(DataContractEntityTypeConfigurationTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetDataContractEntityTypeConfigurationName(this IIntentTemplate template, DataContractModel model)
+        {
+            return template.GetTypeName(DataContractEntityTypeConfigurationTemplate.TemplateId, model);
+        }
 
         public static string GetDataContractExtensionMethodsName<T>(this IIntentTemplate<T> template) where T : DataContractModel
         {

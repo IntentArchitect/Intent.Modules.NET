@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="20793348-f575-4c9d-93f0-00815e76b80b" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
+<class id="41f4ec94-7700-4317-bc15-862dcde96d75" type="DTO" typeId="fee0edca-4aa0-4f77-a524-6bbd84e78734">
   <name>AccessTokenResponseDto</name>
   <display>AccessTokenResponseDto</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
-  <parentFolderId>11e503ce-cceb-4a80-86f2-9964fb0e8559</parentFolderId>
+  <parentFolderId>cacea154-fd6d-4953-ae5c-25582a4dd5c6</parentFolderId>
   <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
   <packageName>CleanArchitecture.IdentityService.Services</packageName>
   <stereotypes />
   <metadata />
   <childElements>
-    <childElement id="ae9ef240-2903-44f5-a90d-b175d8b91bb9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="1bd917cf-ce4e-4bde-9a74-82de0cb850f9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>TokenType</name>
       <display>TokenType: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="616fe1fa-c1a8-4c38-8212-98abe71be2b1">
+      <typeReference id="fee3d60f-a45b-452c-8d04-bd13f9d22d09">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -29,7 +29,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>20793348-f575-4c9d-93f0-00815e76b80b</parentFolderId>
+      <parentFolderId>41f4ec94-7700-4317-bc15-862dcde96d75</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -62,12 +62,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="5964da7f-8cfa-43d2-aa38-a64504e1b4d0" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="849b9cf5-6378-49a4-8f78-a9fed43cf0e9" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>AccessToken</name>
       <display>AccessToken: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="5253cbf5-b791-40c8-8d66-789bdb755a69">
+      <typeReference id="96b51a2d-9e54-42a8-899c-c862bbe6f2cb">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -79,7 +79,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>20793348-f575-4c9d-93f0-00815e76b80b</parentFolderId>
+      <parentFolderId>41f4ec94-7700-4317-bc15-862dcde96d75</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -112,12 +112,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="f8bb4180-22da-431b-aeb9-99868c65583a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="289007f0-83bf-4fe2-a3e7-c807542df06a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>ExpiresIn</name>
       <display>ExpiresIn: datetime</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="2c15cd63-d203-43fe-9366-cb2d14394688">
+      <typeReference id="6c4af241-042d-4653-a496-9f52f0f86f77">
         <typeId>a4107c29-7851-4121-9416-cf1236908f1e</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -129,7 +129,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>20793348-f575-4c9d-93f0-00815e76b80b</parentFolderId>
+      <parentFolderId>41f4ec94-7700-4317-bc15-862dcde96d75</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>
@@ -162,12 +162,12 @@
       <metadata />
       <childElements />
     </childElement>
-    <childElement id="967f2e6c-f304-4aa2-8602-9c9464d3d83a" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+    <childElement id="badaae28-243d-4a39-9a78-ca6df6285b6d" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
       <name>RefreshToken</name>
       <display>RefreshToken: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="7f7083fe-1a44-4392-96a4-27c66f7de8e3">
+      <typeReference id="d8cea9e9-7f8d-4284-bb36-8961604d9b28">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -179,7 +179,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>20793348-f575-4c9d-93f0-00815e76b80b</parentFolderId>
+      <parentFolderId>41f4ec94-7700-4317-bc15-862dcde96d75</parentFolderId>
       <packageId>ac78de5d-60d4-4402-a7e4-b619d4da7725</packageId>
       <packageName>CleanArchitecture.IdentityService.Services</packageName>
       <stereotypes>

@@ -82,7 +82,7 @@ namespace Intent.IntegrationTest.IdentityService
         }
     }
 
-    internal class FakeEmailSender : CleanArchitecture.IdentityService.Application.Interfaces.IEmailSender<ApplicationIdentityUser>
+    internal class FakeEmailSender : CleanArchitecture.IdentityService.Application.Interfaces.IIdentityEmailSender
     {
         public Action<string> Triggered { get; set; }
         public async Task SendConfirmationLinkAsync(ApplicationIdentityUser user, string email, string confirmationLink)
