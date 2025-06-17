@@ -62,8 +62,8 @@ The is what the Business logic Integration Event handler looks like:
 ``` 
 
 > [!NOTE]
-> 
-> This module will not generate the consumer code for you. Look at the [Related Modules](#related-modules) section to see which modules can provide you with that capability.
+>
+> This module will not be generating consumer code automatically for you. Look at the [Related Modules](#related-modules) section to see which modules cause this to happen.
 
 ## Configuring Service Bus
 
@@ -84,6 +84,14 @@ When you're publishing using Azure Service Bus, you will need to configure it in
 ### Intent.AzureFunctions.AzureServiceBus
 
 This module handles the consumer code for Azure Service Bus when Azure Functions is selected as the hosting technology.
+
+### Intent.AspNetCore
+
+This module introduces ASP.NET Core as the hosting platform for your application. When this is detected, a special background service is added to listen for inbound messages from Azure Service Bus.
+
+### Intent.WindowsServiceHost
+
+This module introduces minimal hosting components to allow for background processing. When this is detected, a special background service is added to listen for inbound messages from Azure Service Bus.
 
 > [!NOTE]
 >
