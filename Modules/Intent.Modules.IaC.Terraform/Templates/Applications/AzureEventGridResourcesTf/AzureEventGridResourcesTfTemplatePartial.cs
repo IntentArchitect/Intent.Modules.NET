@@ -18,12 +18,19 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureEventGridResourcesTfTemplate : IntentTemplateBase<object>
     {
+        private readonly List<AzureEventGridMessage> _azureEventGridMessages;
+
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureEventGridResourcesTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureEventGridResourcesTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var apps = ExecutionContext.GetSolutionConfig()
+                .GetApplicationReferences()
+                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
+                .ToArray();
+            _azureEventGridMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id)).ToList();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -35,19 +42,18 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
             );
         }
 
+        public override bool CanRunTemplate()
+        {
+            return _azureEventGridMessages.Count > 0;
+        }
+
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override string TransformText()
         {
             var builder = new TerraformFileBuilder();
 
-            var apps = ExecutionContext.GetSolutionConfig()
-                .GetApplicationReferences()
-                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
-                .ToArray();
-            var azureEventGridMessages = apps.SelectMany(app => IntegrationManager.Instance.GetPublishedAzureEventGridMessages(app.Id)).ToList();
-
             var items = new HashSet<string>();
-            foreach (var message in azureEventGridMessages)
+            foreach (var message in _azureEventGridMessages)
             {
                 if (items.Add(message.TopicName))
                 {

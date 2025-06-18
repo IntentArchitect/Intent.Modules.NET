@@ -18,12 +18,19 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     partial class AzureServiceBusResourcesTfTemplate : IntentTemplateBase<object>
     {
+        private readonly List<AzureServiceBusItemBase> _azureServiceBusMessages;
+
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.IaC.Terraform.Applications.AzureServiceBusResourcesTf";
 
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public AzureServiceBusResourcesTfTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
+            var apps = ExecutionContext.GetSolutionConfig()
+                .GetApplicationReferences()
+                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
+                .ToArray();
+            _azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(app.Id)).ToList();
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -33,6 +40,11 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
                 fileName: $"azure-service-bus-resources",
                 fileExtension: "tf"
             );
+        }
+        
+        public override bool CanRunTemplate()
+        {
+            return _azureServiceBusMessages.Count > 0;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -48,14 +60,8 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureServiceBusRes
                 resource.AddSetting("sku", "Standard");
             });
 
-            var apps = ExecutionContext.GetSolutionConfig()
-                .GetApplicationReferences()
-                .Select(app => ExecutionContext.GetSolutionConfig().GetApplicationConfig(app.Id))
-                .ToArray();
-            var azureServiceBusMessages = apps.SelectMany(app => IntegrationManager.Instance.GetAggregatedAzureServiceBusItems(app.Id)).ToList();
-
             var items = new HashSet<string>();
-            foreach (var message in azureServiceBusMessages)
+            foreach (var message in _azureServiceBusMessages)
             {
                 if (items.Add(message.QueueOrTopicName))
                 {
