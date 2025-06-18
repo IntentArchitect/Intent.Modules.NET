@@ -47,7 +47,7 @@ Learn more:
     </group>
   </componentGroups>
   <additionalSettings>
-    <group id="51bfd3fd-3d54-45c0-b202-360a40c01e19" title="Visual Studio Solution Settings" type="application-settings">
+    <group id="51bfd3fd-3d54-45c0-b202-360a40c01e19" title="Visual Studio Solution Settings">
       <settings>
         <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
           <defaultValue>true</defaultValue>

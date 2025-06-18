@@ -110,7 +110,7 @@ Learn more:
     </group>
   </componentGroups>
   <additionalSettings>
-    <group id="25c4c4d7-731e-4459-8127-74454754e686" title="Basic Settings" type="application-settings">
+    <group id="25c4c4d7-731e-4459-8127-74454754e686" title="Basic Settings">
       <settings>
         <setting id="target-framework" title="Target Framework" type="select">
           <defaultValue>f8b1618d-1e64-4c2c-9787-e0725c3633a1</defaultValue>
@@ -125,7 +125,7 @@ Learn more:
         </setting>
       </settings>
     </group>
-    <group id="b5c4df58-f9b9-4975-aed8-3534a82bdeda" title="Visual Studio Solution Settings" type="application-settings">
+    <group id="b5c4df58-f9b9-4975-aed8-3534a82bdeda" title="Visual Studio Solution Settings">
       <settings>
         <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
           <defaultValue>true</defaultValue>

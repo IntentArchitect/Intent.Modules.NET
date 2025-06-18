@@ -639,7 +639,7 @@ Learn more:
     </group>
   </componentGroups>
   <additionalSettings>
-    <group id="94473a8a-cf47-43ec-9314-f0230649aebb" title="Basic Settings" type="application-settings">
+    <group id="94473a8a-cf47-43ec-9314-f0230649aebb" title="Basic Settings">
       <settings>
         <setting id="target-framework" title="Target Framework" type="select">
           <defaultValue>f8b1618d-1e64-4c2c-9787-e0725c3633a1</defaultValue>
@@ -660,7 +660,7 @@ Learn more:
         </setting>
       </settings>
     </group>
-    <group id="fe3814c7-90cd-41f4-9bd3-45079e4b7ecb" title="Domain Settings" type="application-settings">
+    <group id="fe3814c7-90cd-41f4-9bd3-45079e4b7ecb" title="Domain Settings">
       <settings>
         <setting id="c3789138-6649-47e4-901b-5f6469583cb7" title="Attribute Naming Convention" type="hidden">
           <defaultValue>pascal-case</defaultValue>
@@ -674,7 +674,7 @@ Learn more:
         </setting>
       </settings>
     </group>
-    <group id="2c144b60-1132-42d0-84e0-f301e108e514" title="Visual Studio Solution Settings" type="application-settings">
+    <group id="2c144b60-1132-42d0-84e0-f301e108e514" title="Visual Studio Solution Settings">
       <settings>
         <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
           <defaultValue>true</defaultValue>
