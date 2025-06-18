@@ -45,7 +45,7 @@
       <name>Intent.Blazor.Components.MudBlazor</name>
       <display>Intent.Blazor.Components.MudBlazor 1.0.0-beta.26</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.26</value>
+      <value>1.0.0-beta.27</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -115,7 +115,7 @@
       <name>Intent.Common</name>
       <display>Intent.Common 3.7.7</display>
       <isAbstract>false</isAbstract>
-      <value>3.7.7</value>
+      <value>3.7.8</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.8.15</display>
       <isAbstract>false</isAbstract>
-      <value>3.8.15</value>
+      <value>3.8.16</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -185,7 +185,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 3.9.4</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.4</value>
+      <value>3.10.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -199,7 +199,7 @@
       <name>Intent.Modelers.Services.CQRS</name>
       <display>Intent.Modelers.Services.CQRS 5.1.4</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.4</value>
+      <value>5.2.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>
@@ -269,7 +269,7 @@
       <name>Intent.OutputManager.RoslynWeaver</name>
       <display>Intent.OutputManager.RoslynWeaver 4.9.8</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.8</value>
+      <value>4.9.9</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>15d42508-1d91-42ec-b16b-b279cff1d258</parentFolderId>

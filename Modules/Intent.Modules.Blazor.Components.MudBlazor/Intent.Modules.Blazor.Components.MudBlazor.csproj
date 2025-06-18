@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Version>1.0.0-beta.26</Version>
+    <Version>1.0.0-beta.27</Version>
     <Authors>Intent Architect</Authors>
     <Description>MudBlazor components module for Intent Architect.</Description>
     <Copyright>Copyright 2024</Copyright>
