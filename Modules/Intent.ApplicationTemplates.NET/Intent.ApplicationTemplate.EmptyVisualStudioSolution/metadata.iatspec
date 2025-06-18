@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<applicationTemplate type="application-template">
+<applicationTemplate>
   <id>Intent.ApplicationTemplate.EmptyVisualStudioSolution</id>
   <version>4.0.18</version>
   <supportedClientVersions>[4.4.0-a, 5.0.0-a)</supportedClientVersions>
   <displayName>Empty Visual Studio Solution</displayName>
-  <additionalImages />
   <shortDescription>Empty Visual Studio Solution for creating customized project structures.</shortDescription>
   <authors>Intent Architect</authors>
   <priority>1002</priority>
@@ -36,7 +35,7 @@
     </group>
   </componentGroups>
   <additionalSettings>
-    <group id="51bfd3fd-3d54-45c0-b202-360a40c01e19" title="Visual Studio Solution Settings" type="application-settings">
+    <group id="51bfd3fd-3d54-45c0-b202-360a40c01e19" title="Visual Studio Solution Settings">
       <settings>
         <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
           <defaultValue>true</defaultValue>
