@@ -21,14 +21,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class MapperRootsService : IMapperRootsService
     {
-        private readonly IMapperRootRepository _mapperRootRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MapperRootsService()
         {
-            _mapperRootRepository = mapperRootRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

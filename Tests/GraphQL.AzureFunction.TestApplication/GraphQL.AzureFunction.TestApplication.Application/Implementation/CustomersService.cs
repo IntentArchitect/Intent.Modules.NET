@@ -20,14 +20,9 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class CustomersService : ICustomersService
     {
-        private readonly ICustomerRepository _customerRepository;
-        private readonly IMapper _mapper;
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CustomersService()
         {
-            _customerRepository = customerRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -68,15 +63,15 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<PagedResult<CustomerDto>> GetCustomersPaged(
             int pageNo,
             int pageCount,
             List<Guid> ids,
             CancellationToken cancellationToken = default)
         {
-            var existingCustomers = await _customerRepository.FindAllAsync(pageNo, pageCount, cancellationToken);
-            return existingCustomers.MapToPagedResult(customer => customer.MapToCustomerDto(_mapper));
+            // TODO: Implement GetCustomersPaged (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

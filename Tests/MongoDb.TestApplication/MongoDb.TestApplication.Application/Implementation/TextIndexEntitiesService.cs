@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class TextIndexEntitiesService : ITextIndexEntitiesService
     {
-        private readonly ITextIndexEntityRepository _textIndexEntityRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public TextIndexEntitiesService()
         {
-            _textIndexEntityRepository = textIndexEntityRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

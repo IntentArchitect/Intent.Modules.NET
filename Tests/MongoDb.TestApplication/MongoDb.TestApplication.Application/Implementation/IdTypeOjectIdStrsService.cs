@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class IdTypeOjectIdStrsService : IIdTypeOjectIdStrsService
     {
-        private readonly IIdTypeOjectIdStrRepository _idTypeOjectIdStrRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IdTypeOjectIdStrsService()
         {
-            _idTypeOjectIdStrRepository = idTypeOjectIdStrRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class IdTypeGuidsService : IIdTypeGuidsService
     {
-        private readonly IIdTypeGuidRepository _idTypeGuidRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public IdTypeGuidsService()
         {
-            _idTypeGuidRepository = idTypeGuidRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

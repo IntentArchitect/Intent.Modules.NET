@@ -30,7 +30,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         public UsersService(IUserRepository userRepository, IEventBus eventBus)
         {
             _userRepository = userRepository;
-            _mapper = mapper;
             _eventBus = eventBus;
         }
 

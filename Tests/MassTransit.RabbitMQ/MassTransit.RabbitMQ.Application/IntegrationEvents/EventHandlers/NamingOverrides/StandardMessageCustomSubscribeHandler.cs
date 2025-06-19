@@ -3,7 +3,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
-using MassTransit.RabbitMQ.Application.Interfaces.NamingOverrides;
 using MassTransit.RabbitMQ.Application.NamingOverrides.SendFromEventHandler;
 using MassTransit.RabbitMQ.Services.NamingOverrides;
 using MediatR;

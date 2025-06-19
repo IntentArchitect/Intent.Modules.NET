@@ -18,12 +18,9 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues
     [IntentManaged(Mode.Merge)]
     public class QueueService : IQueueService
     {
-        private readonly ICustomerRepository _customerRepository;
-
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public QueueService()
         {
-            _customerRepository = customerRepository;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class DerivedOfTSService : IDerivedOfTSService
     {
-        private readonly IDerivedOfTRepository _derivedOfTRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public DerivedOfTSService()
         {
-            _derivedOfTRepository = derivedOfTRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class MultikeyIndexEntitiesService : IMultikeyIndexEntitiesService
     {
-        private readonly IMultikeyIndexEntityRepository _multikeyIndexEntityRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public MultikeyIndexEntitiesService()
         {
-            _multikeyIndexEntityRepository = multikeyIndexEntityRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

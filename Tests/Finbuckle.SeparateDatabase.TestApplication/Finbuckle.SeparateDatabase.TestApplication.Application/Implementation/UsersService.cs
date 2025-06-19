@@ -20,14 +20,10 @@ namespace Finbuckle.SeparateDatabase.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class UsersService : IUsersService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public UsersService()
         {
-            _userRepository = userRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

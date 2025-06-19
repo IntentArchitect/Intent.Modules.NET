@@ -19,14 +19,10 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class CompoundIndexEntityMultiParentsService : ICompoundIndexEntityMultiParentsService
     {
-        private readonly ICompoundIndexEntityMultiParentRepository _compoundIndexEntityMultiParentRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public CompoundIndexEntityMultiParentsService()
         {
-            _compoundIndexEntityMultiParentRepository = compoundIndexEntityMultiParentRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
