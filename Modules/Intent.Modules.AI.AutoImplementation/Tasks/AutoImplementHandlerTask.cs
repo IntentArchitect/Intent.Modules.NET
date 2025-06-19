@@ -1,31 +1,19 @@
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Text.Json;
 using Intent.Configuration;
 using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Output;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.AI;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Newtonsoft.Json;
-using OllamaSharp;
-using ChatResponseFormat = OpenAI.Chat.ChatResponseFormat;
-using Formatting = Newtonsoft.Json.Formatting;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -80,19 +68,16 @@ public class AutoImplementHandlerTask : IModuleTask
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var chatResponseFormat = CreateJsonSchemaFormat();
-        var executionSettings = new OpenAIPromptExecutionSettings
-        {
-            ResponseFormat = chatResponseFormat
-        };
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext
         }).Result;
 
-        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
+        var aiResponse = result.ToString();
+        var sanitizedAiResponse = aiResponse.Replace("```json", "").Replace("```", "");
+        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(sanitizedAiResponse);
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -109,74 +94,67 @@ public class AutoImplementHandlerTask : IModuleTask
     private string GetPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
-        var prompt = @$"
-## Role and Context
-You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
+        var prompt =
+            $$$"""
+               ## Role and Context
+               You are a senior C# developer specializing in clean architecture with Entity Framework Core, implementing business logic that strictly follows the repository pattern.
 
-## Primary Objective
-Implement the `Handle` method in the {targetFileName} class following the implementation process below exactly.
+               ## Primary Objective
+               Implement the `Handle` method in the {{{targetFileName}}} class following the step-by-step process below.
 
-## Repository Pattern Rules (CRITICAL)
-1. **NEVER use Queryable() or access DbContext directly** from handlers - this violates the architecture
-2. **ONLY use existing repository methods** defined in the interfaces when possible
-3. Don't add a new repository method for filtering purposes where the standard available methods could be used instead.
-4. If you need custom repository functionality:
-   - Define the method in the appropriate repository interface
-   - Implement the method in the corresponding concrete repository class
-   - Apply `[IntentIgnore]` attribute to both declaration and implementation
-   - Then call this method from your handler
-5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
+               ## Implementation Process
+               1. **Analysis Phase**: Study all provided code files to understand their relationships and identify the appropriate repository interface and methods for this use case.
 
-## Implementation Process
-1. First, analyze all code files provided and understand how the fit together.
-2. Next, analyze which repository interface to use and which methods could be appropriate to complete the implementation.
-3. If an existing repository method can accomplish the use case efficiently, skip step 4 and go straight to step 5 implementation (IMPORTANT).
-4. If the response contains aggregated data (e.g. Count, Sum, Average, etc.):
-   - Identify which repository interface needs extension
-   - Add a properly named method to that interface with appropriate parameters and return type
-   - Implement the method in the concrete repository class with proper EF Core code
-   - Mark both with `[IntentIgnore]`
-   - Use this method in implementing the handler's Handle method (IMPORTANT).
-5. Implement the handler's Handle method using the appropriate repository methods.
+               2. **Method Selection Decision**: 
+                  - If existing repository methods can accomplish the task efficiently → proceed directly to Step 4 (Implementation)
+                  - If you need aggregated data (Count, Sum, Average, etc.) that existing methods cannot provide → proceed to Step 3
 
-## Code Preservation Requirements (CRITICAL)
-1. **NEVER remove or modify existing class members, methods, or properties**
-2. **NEVER change existing method signatures or implementations**
-3. **ONLY add new members when necessary (repository methods)**
-4. **Preserve all existing attributes and code exactly as provided**
-5. **Don't add comments to existing code**
+               3. **Repository Extension** (only if Step 2 requires it):
+                  - Add a properly named method to the appropriate repository interface
+                  - Implement the method in the concrete repository class using proper EF Core code
+                  - Mark both interface declaration and implementation with `[IntentIgnore]` attribute
 
-## Code File Modifications
-1. You may modify ONLY:
-   - The Handler class implementation (primarily the Handle method)
-   - Repository interfaces (adding new methods only)
-   - Repository concrete classes (implementing new methods only)
-2. Preserve all existing code, attributes, and file paths exactly
+               4. **Handler Implementation**: Implement the Handle method using the selected repository methods.
 
-## Additional User Context (Optional)
-{{{{$userProvidedContext}}}}
+               ## Required Output Format
+               Respond ONLY with this JSON structure:
 
-## Input Code Files:
-```json
-{{{{$inputFilesJson}}}}
-```
+               ```json
+               {
+                   "type": "object",
+                   "properties": {
+                       "FileChanges": {
+                           "type": "array",
+                           "items": {
+                               "type": "object",
+                               "properties": {
+                                   "FilePath": { "type": "string" },
+                                   "Content": { "type": "string" }
+                               },
+                               "required": ["FilePath", "Content"],
+                               "additionalProperties": false
+                           }
+                       }
+                   },
+                   "required": ["FileChanges"],
+                   "additionalProperties": false
+               }
+               ```
 
-## Required Output Format
-Your response MUST include:
-1. The fully implemented handler class with the Handle method
-2. Any modified repository interfaces (if you added methods)
-3. Any modified repository concrete classes (if you added implementations)
-4. All files must maintain their exact original paths
-5. All existing code and attributes must be preserved unless explicitly modified
+               ## Additional Context (Optional)
+               {{$userProvidedContext}}
 
-## Important Reminders
-- NEVER remove or modify existing class members
-- NEVER access DbContext or use Queryable() directly in handlers
-- NEVER invoke repository methods that don't exist
-- IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
-- ALL new repository methods must be marked with `[IntentIgnore]`
-- Performance and clean architecture are key priorities
-";
+               ## Input Code Files:
+               {{$inputFilesJson}}
+
+               ## CRITICAL CONSTRAINTS - NEVER VIOLATE:
+               1. **Architecture Violations:** NEVER use Queryable() or access DbContext directly from handlers.
+               2. **Code Preservation:** NEVER remove, modify, or comment existing class members, methods, properties, or attributes.
+               3. **Method Preference:** NEVER create new repository methods when existing ones can handle the use case.
+               4. **Repository Contract:** Repository methods cannot return DTOs - define separate data contracts if needed.
+               5. **Implementation Completeness:** IF you add repository methods, you MUST provide BOTH interface declaration AND concrete implementation with [IntentIgnore] attributes.
+               6. **Response Format:** Provide ONLY the JSON response with FileChanges array containing modified files with exact original file paths.
+               """;
         return prompt;
     }
 
@@ -211,33 +189,6 @@ Your response MUST include:
         }
         var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
         return relatedClasses;
-    }
-
-    private static ChatResponseFormat CreateJsonSchemaFormat()
-    {
-        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "FileChangesResult",
-            jsonSchema: BinaryData.FromString("""
-                                              {
-                                                  "type": "object",
-                                                  "properties": {
-                                                      "FileChanges": {
-                                                          "type": "array",
-                                                          "items": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                  "FilePath": { "type": "string" },
-                                                                  "Content": { "type": "string" }
-                                                              },
-                                                              "required": ["FilePath", "Content"],
-                                                              "additionalProperties": false
-                                                          }
-                                                      }
-                                                  },
-                                                  "required": ["FileChanges"],
-                                                  "additionalProperties": false
-                                              }
-                                              """),
-            jsonSchemaIsStrict: true);
     }
 
     public class FileChangesResult
