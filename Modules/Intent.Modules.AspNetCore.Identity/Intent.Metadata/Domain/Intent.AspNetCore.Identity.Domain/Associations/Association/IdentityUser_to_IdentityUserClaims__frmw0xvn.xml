@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f81c22c7-523d-4b09-9cfb-3879b9c20c8c">
+  <sourceEnd id="0c791f14-37dd-48d0-8eb3-57424828bfea" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>IdentityUser</name>
+    <display>IdentityUser: IdentityUser&lt;&lt;type not set&gt;&gt;</display>
+    <order>0</order>
+    <typeReference id="d828ed99-4034-41ed-abb0-1d2af44c3697">
+      <typeId>f6505b15-dced-4beb-9a58-e7b5447a7c73</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Intent.AspNetCore.Identity.Domain</typePackageName>
+      <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters>
+        <genericTypeParameter id="65e6a614-f4f0-4c48-bedb-7f940c40c608">
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <genericTypeId>d618eff4-adab-4f6d-a758-6ecad2eb8429</genericTypeId>
+          <stereotypes />
+          <genericTypeParameters />
+        </genericTypeParameter>
+      </genericTypeParameters>
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f81c22c7-523d-4b09-9cfb-3879b9c20c8c" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>IdentityUserClaims</name>
+    <display>IdentityUserClaims: IdentityUserClaim&lt;string&gt;[*]</display>
+    <order>16</order>
+    <typeReference id="71b066d4-ac87-4b31-8caf-6160815104b1">
+      <typeId>a9b0c40c-cb71-4452-957c-9d8d4ed08f7f</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Intent.AspNetCore.Identity.Domain</typePackageName>
+      <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters>
+        <genericTypeParameter id="f6d69641-4404-41e6-a456-1877f0cae7fb">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <genericTypeId>dbd1b59c-7d25-454d-83dc-221060bb0b35</genericTypeId>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </genericTypeParameter>
+      </genericTypeParameters>
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

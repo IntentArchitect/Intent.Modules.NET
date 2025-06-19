@@ -1,9 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using Intent.Engine;
-using Intent.Persistence;
+using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.IArchitect.Agent.Persistence.Model.Visual;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
-using System;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration", Version = "1.0")]
@@ -12,15 +16,13 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 {
     public class OnInstallMigration : IModuleOnInstallMigration
     {
-        private const string DomainDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
+        private const string DomainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
 
         private readonly IApplicationConfigurationProvider _configurationProvider;
-        private readonly IPersistenceLoader _persistenceLoader;
 
-        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider, IPersistenceLoader persistenceLoader)
+        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
-            _persistenceLoader = persistenceLoader;
         }
 
         [IntentFully]
@@ -28,38 +30,99 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 
         public void OnInstall()
         {
-            var app = _persistenceLoader.LoadApplication(_configurationProvider.GetApplicationConfig().FilePath);
+            Debugger.Launch();
+            var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
-            var package = designer.GetPackages().FirstOrDefault();
 
-            if(package is null)
+            var package = designer.GetPackages().FirstOrDefault();
+            if (package is null)
             {
                 return;
             }
 
-            CreateApplicationIdentity(package);
-        }
+            var identityDomainRefence = package.References.FirstOrDefault(x => x.Name == "Intent.AspNetCore.Identity.Domain");
+            if (identityDomainRefence is null)
+            {
+                return;
+            }
 
-        private void CreateApplicationIdentity(IPackageModelPersistable package)
-        {
-            CreateEntity(package, "ApplicationUser");
-            CreateEntity(package, "ApplicationRole");
-            CreateEntity(package, "ApplicationUserClaim");
-            CreateEntity(package, "ApplicationUserRole");
-            CreateEntity(package, "ApplicationUserLogin");
-            CreateEntity(package, "ApplicationRoleClaim");
-            CreateEntity(package, "ApplicationUserToken");
-        }
+            var identityDomainPackage = identityDomainRefence.TryLoadPackage();
+            if (identityDomainPackage is null)
+            {
+                return;
+            }
 
-        private void CreateEntity(IPackageModelPersistable package, string entityName)
-        {
-            package.Classes.Add(Guid.NewGuid().ToString(), "Class", "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
-                entityName, package.Id);
-        }
+            var diagrams = package.GetElementsOfType("4d66fecd-e9b8-436f-aa50-c59040ad0879");
 
-        private void CreateAspNetIdentityExternal()
-        {
+            var identityDiagramId = Guid.Empty;
 
+            if (diagrams.Count > 0)
+            {
+                var identityDiagram = diagrams.FirstOrDefault(d => d.Name == "Identity Diagram");
+
+                if (identityDiagram is not null)
+                {
+                    identityDiagramId = Guid.Parse(identityDiagram.Id);
+                }
+            }
+
+            if (identityDiagramId == Guid.Empty)
+            {
+                identityDiagramId = Guid.NewGuid();
+
+                var identityDiagram = identityDomainPackage.Classes.FirstOrDefault(d => d.SpecializationTypeId == "4d66fecd-e9b8-436f-aa50-c59040ad0879");
+
+                List<AssociationVisualPersistable> newAssociationVisuals = new List<AssociationVisualPersistable>();
+                List<ElementVisualPersistable> newClassVisuals = new List<ElementVisualPersistable>();
+
+                if (identityDiagram is not null)
+                {
+                    newClassVisuals.AddRange(identityDiagram.Diagram.ClassVisuals.Select(c => new ElementVisualPersistable
+                    {
+                        AbsolutePath = c.AbsolutePath,
+                        AutoResizeEnabled = c.AutoResizeEnabled,
+                        Id = c.Id,
+                        Position = c.Position,
+                        Size = c.Size,
+                        ZIndex = c.ZIndex
+                    }));
+
+                    newAssociationVisuals.AddRange(identityDiagram.Diagram.AssociationVisuals
+                        .Select(s => new AssociationVisualPersistable
+                        {
+                            AbsolutePath = s.AbsolutePath,
+                            FixedPoints = s.FixedPoints,
+                            Id = s.Id,
+                            SourceId = s.SourceId,
+                            TargetId = s.TargetId,
+                            TargetPrefPoint = s.TargetPrefPoint,
+                            ZIndex = s.ZIndex
+                        }));
+                }
+
+                package.Classes.Add(new ElementPersistable
+                {
+                    Id = identityDiagramId.ToString(),
+                    SpecializationType = "Diagram",
+                    SpecializationTypeId = "4d66fecd-e9b8-436f-aa50-c59040ad0879",
+                    Name = "Identity Diagram",
+                    Display = "Identity Diagram",
+                    IsAbstract = false,
+                    SortChildren = SortChildrenOptions.SortByTypeAndName,
+                    IsMapped = false,
+                    ParentFolderId = package.Id,
+                    PackageId = package.Id,
+                    PackageName = package.Name,
+                    Diagram = new DiagramPersistable
+                    {
+                        AssociationVisuals = newAssociationVisuals,
+                        ClassVisuals = newClassVisuals,
+                        TargetPackageId = package.Id,
+                    }
+                });
+            }
+
+            app.SaveAllChanges();
         }
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b179eb6a-8603-460a-bd78-34962159f7f3" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>4.2.0-pre.0</name>
+  <display>4.2.0-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>59dd5551-5ee8-4f8d-9cf7-b3b945c90278</parentFolderId>
+  <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
+  <packageName>Intent.AspNetCore.Identity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
