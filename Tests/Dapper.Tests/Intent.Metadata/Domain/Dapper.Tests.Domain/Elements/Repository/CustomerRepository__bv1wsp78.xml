@@ -44,6 +44,9 @@
       <parentFolderId>a6fcda9c-e793-473c-bea2-7fa02ae38d2b</parentFolderId>
       <packageId>9a5e6c92-e3e2-4407-9066-baaed0bc87ee</packageId>
       <packageName>Dapper.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

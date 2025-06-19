@@ -1,7 +1,11 @@
-### Version 6.1.0
+### Version 7.0.0
 
 - Improvement: Upgraded to support implentations of interactions using the new interaction strategy mechanism.
 
+  > [!NOTE]
+  >
+  > This module will no longer support the implementation of Commands and Queries based purely on naming conventions.
+	
 ### Version 6.0.31
 
 - Improvement: Replaced the `System.Linq.Dynamic.Core` using clause with `static System.Linq.Dynamic.Core.DynamicQueryableExtensions` to better disambiguate `PagedResult`.

@@ -43,6 +43,9 @@
       <parentFolderId>d661f286-51ac-45d5-bbf0-628ac6a77834</parentFolderId>
       <packageId>3598535c-7008-4c5a-8d70-4ec48535c07d</packageId>
       <packageName>AdvancedMappingCrud.Cosmos.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
