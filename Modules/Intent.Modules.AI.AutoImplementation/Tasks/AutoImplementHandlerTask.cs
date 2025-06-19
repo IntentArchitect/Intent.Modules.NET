@@ -138,6 +138,7 @@ Implement the `Handle` method in the {targetFileName} class following the implem
    - Mark both with `[IntentIgnore]`
    - Use this method in implementing the handler's Handle method (IMPORTANT).
 5. Implement the handler's Handle method using the appropriate repository methods.
+6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Merge)]`
 
 ## Code Preservation Requirements (CRITICAL)
 1. **NEVER remove or modify existing class members, methods, or properties**
@@ -145,6 +146,8 @@ Implement the `Handle` method in the {targetFileName} class following the implem
 3. **ONLY add new members when necessary (repository methods)**
 4. **Preserve all existing attributes and code exactly as provided**
 5. **Don't add comments to existing code**
+6. **NEVER remove any existing using clauses (CRITICAL)**
+7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
 
 ## Code File Modifications
 1. You may modify ONLY:
@@ -193,7 +196,7 @@ Your response MUST include:
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
-        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x.InternalElement)));
+        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
 
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
@@ -201,15 +204,16 @@ Your response MUST include:
         return inputFiles;
     }
 
-    private IEnumerable<ClassModel> GetRelatedDomainEntities(IElement element)
+    private IEnumerable<ICanBeReferencedType> GetRelatedDomainEntities(IElement element)
     {
-        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element.IsClassModel())
-            ?.TypeReference.Element.AsClassModel();
+        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element != null)?.TypeReference.Element.AsClassModel();
         if (queriedEntity == null)
         {
             return [];
         }
-        var relatedClasses = new[] { queriedEntity }.Concat(queriedEntity.AssociatedClasses.Where(x => x.Class != null).Select(x => x.Class));
+        var relatedClasses = new[] { queriedEntity.InternalElement }
+            .Concat(queriedEntity.AssociatedClasses.Select(x => x.TypeReference.Element))
+            .ToList();
         return relatedClasses;
     }
 
