@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence;
 using Intent.Modelers.Eventing.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
@@ -19,13 +18,6 @@ using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
-
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage(
-    "Formatting",
-    "IDE0130:Namespace does not match folder structure.",
-    Justification = "Message namespaces need to consistent between applications for deserialization to work",
-    Scope = "namespaceanddescendants",
-    Target = "Publish.CleanArchDapr.TestApplication.Eventing.Messages")]
 
 namespace Intent.Modules.Eventing.Contracts.Templates.AssemblyAttributes
 {
