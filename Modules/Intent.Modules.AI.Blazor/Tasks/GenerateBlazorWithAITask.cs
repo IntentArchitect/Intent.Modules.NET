@@ -3,27 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Text.Json;
 using Intent.Configuration;
 using Intent.Engine;
-using Intent.IArchitect.Agent.Persistence.Output;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common.AI;
-using Intent.Modules.VisualStudio.Projects.Api;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Newtonsoft.Json;
-using OllamaSharp;
-using ChatResponseFormat = OpenAI.Chat.ChatResponseFormat;
-using Formatting = Newtonsoft.Json.Formatting;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -70,25 +60,22 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
-        var chatResponseFormat = CreateJsonSchemaFormat();
-        var executionSettings = new OpenAIPromptExecutionSettings
-        {
-            ResponseFormat = chatResponseFormat
-        };
 
         var componentModel = _metadataManager.UserInterface(applicationId).Elements.Single(x => x.Id == elementId);
-        var promptTemplate = GetTestPromptTemplate(componentModel, userProvidedContext);
+        var promptTemplate = GetTestPromptTemplate(userProvidedContext);
         var inputFiles = GetInputFiles(componentModel);
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
         var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext
         }).Result;
 
-        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
+        var aiResponse = result.ToString();
+        var sanitizedAiResponse = aiResponse.Substring(aiResponse.IndexOf("```", StringComparison.Ordinal)).Replace("```json", "").Replace("```", "");
+        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(sanitizedAiResponse);
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -102,42 +89,74 @@ public class GenerateBlazorWithAITask : IModuleTask
     }
 
 
-    private string GetTestPromptTemplate(IElement model, string userPrompt)
+    private string GetTestPromptTemplate(string userPrompt)
     {
-        var targetFileName = model.Name + "Handler";
-        var prompt = @$"
-## Role and Context
-You are a senior C# Blazor developer specializing MudBlazor in WASM mode.
+        var prompt =
+            $$$"""
+               ## Role and Context
+               You are a senior C# Blazor developer specializing in MudBlazor WASM applications.
 
-## Primary Objective
-Read and update the provided component `.razor` file, and `.razor.cs` file if necessary, { (userPrompt == "None" 
-    ? "with an appropriate MudBlazor view based on the provided `.razor.cs` file" 
-    : $"as per the following user instruction: {userPrompt}") }.
+               ## Critical Requirements (MUST FOLLOW)
+               - PRESERVE all [IntentManaged] attributes on existing constructors, classes, or files
+               - CHECK AND ENSURE all bindings between `.razor` and `.razor.cs` files compile correctly
+               - PRESERVE existing code in `.razor.cs` files - you may only ADD code, never modify existing code
+               - NEVER ADD COMMENTS to any code
+               - Output ONLY valid JSON matching the specified schema
 
-## Code File Modification Rules
-1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
-2. You may only create or update the test file
-3. Add using clauses for code files that you use
-4. (CRITICAL) Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
-5. If services to provide data are available, use them.
-6. If you bind to a field or method from the `.razor` file, you must make sure that the `.razor.cs` file has that code declared. If it doesn't add it appropriately.
-7. (CRITICAL) CHECK AND ENSURE AND CORRECT all bindings between the `.razor` and `.razor.cs`. The code must compile!
+               ## Task Instructions
+               {{{(userPrompt == "None"
+                   ? "Create an appropriate MudBlazor view in the `.razor` file based on the provided `.razor.cs` file"
+                   : $"Update the component files according to this instruction: {userPrompt}")}}}.
 
-## Important Rules
-* The `.razor.cs` file is the C# backing file for the `.razor` file.
-* Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
-* PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
-* ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
-* NEVER ADD COMMENTS
+               ## File Modification Rules
+               **For .razor files:**
+               - Add only razor markup
+               - Do NOT add @code directives
+               - Ensure all bindings reference methods/fields that exist in the `.razor.cs` file
 
-## Input Code Files:
-```json
-{{{{$inputFilesJson}}}}
-```
+               **For .razor.cs files:**
+               - Add missing methods/fields required by `.razor` file bindings
+               - Add any new code directives with `[IntentIgnore]` attribute
+               - Include necessary using statements
+               - Utilize available services for data operations
 
-## Additional User Context (Optional)
-{{{{$userProvidedContext}}}}
-";
+               ## Development Guidelines
+               1. Read and understand all provided input code files and their interactions
+               2. Use available services when providing data functionality is needed
+               3. Ensure all code compiles by verifying binding consistency between files
+
+               ## Input Code Files
+               ```json
+               {{$inputFilesJson}}
+               ```
+
+               ## Additional User Context
+               {{$userProvidedContext}}
+
+               ## Required Output Format
+               Respond with JSON matching this exact schema:
+               ```json
+               {
+                   "type": "object",
+                   "properties": {
+                       "FileChanges": {
+                           "type": "array",
+                           "items": {
+                               "type": "object",
+                               "properties": {
+                                   "FilePath": { "type": "string" },
+                                   "Content": { "type": "string" }
+                               },
+                               "required": ["FilePath", "Content"],
+                               "additionalProperties": false
+                           }
+                       }
+                   },
+                   "required": ["FileChanges"],
+                   "additionalProperties": false
+               }
+               ```
+               """;
         return prompt;
     }
 
@@ -160,33 +179,6 @@ Read and update the provided component `.razor` file, and `.razor.cs` file if ne
         //inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.VisualStudio.Projects.VisualStudioSolution"));
 
         return inputFiles;
-    }
-   
-    private static ChatResponseFormat CreateJsonSchemaFormat()
-    {
-        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "movie_result",
-            jsonSchema: BinaryData.FromString("""
-                                              {
-                                                  "type": "object",
-                                                  "properties": {
-                                                      "FileChanges": {
-                                                          "type": "array",
-                                                          "items": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                  "FilePath": { "type": "string" },
-                                                                  "Content": { "type": "string" }
-                                                              },
-                                                              "required": ["FilePath", "Content"],
-                                                              "additionalProperties": false
-                                                          }
-                                                      }
-                                                  },
-                                                  "required": ["FileChanges"],
-                                                  "additionalProperties": false
-                                              }
-                                              """),
-            jsonSchemaIsStrict: true);
     }
 
     public class FileChangesResult
