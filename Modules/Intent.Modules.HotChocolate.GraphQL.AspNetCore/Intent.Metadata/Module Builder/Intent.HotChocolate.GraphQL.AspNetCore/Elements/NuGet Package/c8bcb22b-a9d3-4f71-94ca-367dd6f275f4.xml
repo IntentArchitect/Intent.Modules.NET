@@ -113,7 +113,7 @@
       </childElements>
     </childElement>
     <childElement id="ba49d26c-caaa-4afc-8cc4-8540467183df" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <display>13.9.9 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -134,10 +134,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="319b3fd8-6707-42fd-8b23-5d2142991571" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4d1f5b71-cdb0-4a6e-a0b8-6490912777c2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Transport.Sockets</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ba49d26c-caaa-4afc-8cc4-8540467183df</parentFolderId>
@@ -145,10 +145,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c635f517-c89c-4336-8322-4a81edde1043" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ac8c0bdb-90a8-4c5a-bd55-13cf17ca16d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ba49d26c-caaa-4afc-8cc4-8540467183df</parentFolderId>
@@ -156,10 +156,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5c4d18b4-e7f3-4754-9ad0-d34d8aa6670e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0be4e380-c972-4f77-b1e4-c8298c02d7fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Subscriptions.InMemory</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ba49d26c-caaa-4afc-8cc4-8540467183df</parentFolderId>
@@ -167,10 +167,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="81a83cce-19bb-421d-9bb9-71e849c5e600" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="428c575a-8720-41d1-a1e6-73bd0d94603b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Scalars.Upload</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ba49d26c-caaa-4afc-8cc4-8540467183df</parentFolderId>
@@ -178,10 +178,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b5d00fee-f364-4448-bc39-e91aff438b92" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c758cb97-d807-46a2-abef-15f94e605de4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Utilities.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ba49d26c-caaa-4afc-8cc4-8540467183df</parentFolderId>
@@ -189,7 +189,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1610e092-926c-4d29-b0de-f7a047c9fb71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="da341919-ac21-4212-9838-a3842e2d7417" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
           <isAbstract>false</isAbstract>
           <value>28.0.7</value>
@@ -402,7 +402,7 @@
       </childElements>
     </childElement>
     <childElement id="195bd0c1-dfb8-4d67-83d3-675fe44a3082" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -420,10 +420,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="fc9c7938-ae59-43e6-86ea-bf36b874b574" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e4f7a7b8-dcb6-4af3-9101-67b051a78274" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Transport.Sockets</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>195bd0c1-dfb8-4d67-83d3-675fe44a3082</parentFolderId>
@@ -431,10 +431,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="503d595c-938b-436a-8770-11f0c70f728e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="91a0ac55-589b-440e-826d-cb2fa23cf835" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>195bd0c1-dfb8-4d67-83d3-675fe44a3082</parentFolderId>
@@ -442,10 +442,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f5aabcc5-8c24-42dd-adf9-955d9704121a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a234e99-f9b9-45ca-a523-85e35f4edcd1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Subscriptions.InMemory</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>195bd0c1-dfb8-4d67-83d3-675fe44a3082</parentFolderId>
@@ -453,10 +453,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9347a676-9393-4929-af7b-c56638b57812" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c45e909a-bbdd-47e8-9119-a6bbf9474132" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Scalars.Upload</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>195bd0c1-dfb8-4d67-83d3-675fe44a3082</parentFolderId>
@@ -464,10 +464,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4d103c50-3a2c-4018-b59e-771ea48124c4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9014e907-9bb4-480f-8cab-1f6d52f11bf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Utilities.DependencyInjection</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>195bd0c1-dfb8-4d67-83d3-675fe44a3082</parentFolderId>
@@ -475,7 +475,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="926f632e-c3c0-40e3-a132-efa90164586f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="519f3d0f-661f-4fc5-9242-6a9e5a5fca78" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
           <isAbstract>false</isAbstract>
           <value>28.0.7</value>

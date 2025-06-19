@@ -182,7 +182,7 @@
       <childElements />
     </childElement>
     <childElement id="928b499d-f105-4985-a013-5108010305a4" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.16</name>
+      <name>8.0.17</name>
       <display>8.0.15 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -204,10 +204,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="d96bb813-8aed-4d2f-90ad-0744002f22e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="764c4401-d213-481f-b847-6cd264dd2751" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.16</value>
+          <value>8.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>928b499d-f105-4985-a013-5108010305a4</parentFolderId>
@@ -215,7 +215,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="88d5914f-e7ae-479e-98df-e469b63ca513" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f757feaf-11ac-46d6-8df5-c7c200bd5a4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
           <isAbstract>false</isAbstract>
           <value>8.0.2</value>
@@ -226,7 +226,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d655a74f-9ac6-49f4-954b-c16a05364dde" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b9b14ab0-9734-4275-b9a9-db94aa62ce73" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
@@ -240,7 +240,7 @@
       </childElements>
     </childElement>
     <childElement id="ab84b42b-511a-499c-a3e7-ba474437853f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.4 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -262,10 +262,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5886eaed-e030-4b25-9727-07f1cfc0ded7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="70d6db61-af9f-4406-abd8-17cf085d7d3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.TestHost</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>
@@ -273,10 +273,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7cb916dc-00e5-466c-b392-177b84383f25" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e7041146-40de-4049-9c1b-18245524f1d4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyModel</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>
@@ -284,10 +284,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cba38476-af61-44fb-a7f7-bdf177648d11" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d63897b-b208-4b3e-a4a4-37e4c74a3b5c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ab84b42b-511a-499c-a3e7-ba474437853f</parentFolderId>

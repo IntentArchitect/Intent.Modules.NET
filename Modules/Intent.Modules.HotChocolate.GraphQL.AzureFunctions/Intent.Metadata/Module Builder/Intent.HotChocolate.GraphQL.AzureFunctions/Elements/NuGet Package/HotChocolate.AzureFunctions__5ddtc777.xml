@@ -137,7 +137,7 @@
       </childElements>
     </childElement>
     <childElement id="323afd61-2a52-4b49-941c-f2869063f52c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -155,10 +155,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="77be53d6-00ec-4999-9dd9-fbd955840747" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="552f0606-743d-4bde-aae4-f68803d37d59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.AspNetCore</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>323afd61-2a52-4b49-941c-f2869063f52c</parentFolderId>
@@ -166,7 +166,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="752b0cdf-07dd-401f-85cc-57f516b90b65" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cb27e0e4-bddc-4ef1-93cb-2a67930c1fff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
           <isAbstract>false</isAbstract>
           <value>28.0.7</value>
@@ -177,7 +177,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a0597489-18e9-4252-bf43-77b0acb35f9b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24b021c0-aa5a-4953-b596-e5c9239d7ea0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>
@@ -191,7 +191,7 @@
       </childElements>
     </childElement>
     <childElement id="77428978-b9af-417f-882f-f5b7261947e1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -209,10 +209,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="13f3bb8d-2dd2-4695-975a-5c9a22896cb1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="466d08c3-d773-4484-9182-036e34ebab3e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.AspNetCore</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>77428978-b9af-417f-882f-f5b7261947e1</parentFolderId>
@@ -220,7 +220,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ec450ecf-3fa0-4834-971f-b6611ae1b949" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8096606f-affb-4b9e-a563-46a99f0b5545" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>ChilliCream.Nitro.App</name>
           <isAbstract>false</isAbstract>
           <value>28.0.7</value>
@@ -231,7 +231,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9b93f654-662e-48c9-84f8-b0031f336018" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fb869e46-cba8-475b-9cd7-06177a8f7eea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>1.1.0</value>

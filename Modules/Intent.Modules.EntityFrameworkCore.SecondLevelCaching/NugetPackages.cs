@@ -53,22 +53,22 @@ namespace Intent.Modules.EntityFrameworkCore.SecondLevelCaching
             NugetRegistry.Register(MessagePackPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("3.1.3")
-                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
-                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                        ( >= 9, >= 0) => new PackageVersion("3.1.4")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.4")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.4")
                             .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4"),
-                        ( >= 8, >= 0) => new PackageVersion("3.1.3")
-                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
-                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                        ( >= 8, >= 0) => new PackageVersion("3.1.4")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.4")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.4")
                             .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4"),
-                        ( >= 2, >= 1) => new PackageVersion("3.1.3")
-                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
-                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                        ( >= 2, >= 1) => new PackageVersion("3.1.4")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.4")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.4")
                             .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("3.1.3")
-                            .WithNugetDependency("MessagePackAnalyzer", "3.1.3")
-                            .WithNugetDependency("MessagePack.Annotations", "3.1.3")
+                        ( >= 2, >= 0) => new PackageVersion("3.1.4")
+                            .WithNugetDependency("MessagePackAnalyzer", "3.1.4")
+                            .WithNugetDependency("MessagePack.Annotations", "3.1.4")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.NET.StringTools", "17.11.4")
                             .WithNugetDependency("System.Collections.Immutable", "8.0.0")

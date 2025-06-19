@@ -93,5 +93,135 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="581896b3-d99c-4ea3-bd23-e4a0c44ed284" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.1</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c503829c-acfd-4ea0-9161-871271c28ac1</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="34985cec-947c-48a8-acfa-b7233d2c300a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="44a2a2d9-6762-45c7-a6e4-759f2e3f478a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="665fcde3-f6dc-4cf8-8759-bd36cf255327" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="329e0abb-8839-4007-97f9-af7076928cc0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="220a1b4b-6e48-4c30-9acb-3aead57cdd60" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.1</name>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c503829c-acfd-4ea0-9161-871271c28ac1</parentFolderId>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="e5c2442d-6019-4f66-9c02-3977cd2faf9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.Swagger</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="df95b229-0cd2-491a-ab1a-6f6fa1bfca72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerGen</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="1c59cb7b-31ab-4065-a38b-d5446532294e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Swashbuckle.AspNetCore.SwaggerUI</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ef6657b1-1c33-42ea-815e-f92a0ac07d63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.ApiDescription.Server</name>
+          <isAbstract>false</isAbstract>
+          <value>8.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
   </childElements>
 </class>

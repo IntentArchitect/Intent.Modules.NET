@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="9244c7ad-3c03-494a-be65-f0199cbbe76a" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.4 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="69e9b49f-a06a-4b60-a939-d6084fc4b838" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1ed34e58-fcaf-4910-822d-517b4c6a8b6a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9244c7ad-3c03-494a-be65-f0199cbbe76a</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bca672ee-adc5-46bd-8772-85ac4d4b7bfe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d26e3564-477b-4cb6-9049-64d686ee09d5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>9244c7ad-3c03-494a-be65-f0199cbbe76a</parentFolderId>
@@ -72,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="deafbf63-c409-4116-95bb-312ba62d0086" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.4 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -94,10 +94,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="cb20101f-a241-4729-a0cb-be3732af7508" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="318456eb-b6a7-479b-9b99-cb8f2639c7c1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
@@ -105,10 +105,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="133f9f8f-e0fd-41d1-a51d-24fdcdd15013" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1fe6012c-d02c-4865-9266-763629ccdbd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
@@ -116,10 +116,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="70d29a34-f2bd-4a90-b9b3-7e9e0e14a7ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="04dc873e-af47-4753-af1a-63bc8faa71a4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>deafbf63-c409-4116-95bb-312ba62d0086</parentFolderId>
@@ -127,7 +127,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e9ada3ce-a92f-4a09-945c-00af6d30b075" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="12c39361-ac86-48b2-b98d-551d6994298b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
           <isAbstract>false</isAbstract>
           <value>4.5.1</value>
@@ -138,7 +138,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="579c3bb4-9152-45cf-b92e-10a352dbcd76" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0e2612c8-2d59-482f-ae5b-e8e260cc7270" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
@@ -149,7 +149,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a8151f21-e0c2-4317-b2e7-2edde12a824d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fadc7768-0e4f-4964-a6cd-9b4e248ea541" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Runtime.CompilerServices.Unsafe</name>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
@@ -160,7 +160,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5ee9e110-484e-4ea1-b4a7-0923e11386f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="214b2e3d-626a-4e4e-841d-5e663036fbf0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
@@ -174,7 +174,7 @@
       </childElements>
     </childElement>
     <childElement id="77ee49b6-e0fd-4122-8586-41665060934c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.4 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

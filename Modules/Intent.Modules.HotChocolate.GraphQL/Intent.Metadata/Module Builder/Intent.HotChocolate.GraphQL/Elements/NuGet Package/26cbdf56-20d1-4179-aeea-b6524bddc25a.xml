@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="48ca3500-e891-46dc-81bb-bc66f8e7a12f" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <display>14.1.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1e84b22f-5ae4-44f2-9b1e-4c291777b830" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24f16a70-72d8-4bda-84ba-a9d073ce636c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Authorization</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -58,10 +58,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="335c9095-2ad5-4a80-ba59-41689f2d013a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="644ed41e-c208-4897-b39b-35143c7a4880" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Execution.Projections</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -69,10 +69,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="797975ea-c5cc-4031-8422-c32329f4f19f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="39b2c836-b0c0-4b39-b485-507062a67cc3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Execution</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -80,10 +80,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bda3868b-060d-4b7a-8ada-cba2ae88ee46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9b8cd8bd-1e99-44fb-a894-f87152202a51" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Fetching</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -91,10 +91,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8fcbc4ed-e0b0-4f0b-bf51-7df233c3dfbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0b6d1702-360b-48c3-85bb-04b371d1387d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.CursorPagination.Extensions</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -102,10 +102,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c207a803-1181-4bbd-b9dd-7a9250352f52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9586a139-f670-4a33-88ae-847e5193777b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.CursorPagination</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -113,10 +113,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="40a0ab06-6471-4fe0-8ecb-f5aeac4eca63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c52c60e7-5851-4e12-bfc0-bfa97ad7f4c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Mutations</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -124,10 +124,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="552079ea-33a2-4bd9-8664-36f320107ece" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="db234dea-5254-44f3-adde-ec17ffbce944" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Queries</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -135,10 +135,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5a4378b-6b0e-4723-be2f-324d98076715" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="537056be-8c91-4268-ad15-724a5257e37e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -146,10 +146,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1b0fd062-4305-4e29-b18e-210c4604a079" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cf5b1c2a-0822-49f4-86cc-0ab93edecc57" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Validation</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -157,10 +157,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3d32bc72-ead5-44b8-afca-fbfcf00cf534" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e85a42e8-16e5-4ea4-86d5-b161b94d0693" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.CostAnalysis</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>48ca3500-e891-46dc-81bb-bc66f8e7a12f</parentFolderId>
@@ -565,7 +565,7 @@
       </childElements>
     </childElement>
     <childElement id="28da011f-8b4b-4e8c-9bf1-8479d2e6ff64" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>15.1.5</name>
+      <name>15.1.6</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -583,10 +583,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="2bafc4bd-66c5-40b4-8065-7ecaff786e77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="333f58c1-7204-4eee-b481-da656d1d84b9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Authorization</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -594,10 +594,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0a145712-1097-456d-a64d-556ff3dedba0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1a1a1a2d-ec73-4b0c-9016-bc6410e47e21" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Execution.Projections</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -605,10 +605,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1d75a5c1-7d5f-4904-be6b-c8995901b443" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f1228290-fada-486a-a84a-4ffe6d3c029d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Execution</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -616,10 +616,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dc0ec4f1-6ca3-414e-b6e2-e2ddfa0c84a1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c63077d2-4011-4825-ae66-1e9d49018d0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Fetching</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -627,10 +627,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e3da6f2d-9f90-4728-85da-f89f5430cdf5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fe68ad66-b98a-44a7-9508-11b75090c0d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.CursorPagination.Extensions</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -638,10 +638,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2752a723-30b6-4ace-b51c-d201b6ca4a5a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a6b2f81-b34b-4991-9023-9cd3bc1fdad4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.CursorPagination</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -649,10 +649,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b1803e85-5d4d-4e8e-bbd1-93b25f227a8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1194e508-b0bb-4cd6-8356-7f1020a2a5b6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Mutations</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -660,10 +660,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a17c3a5-6694-462e-837f-b3f556632340" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="80f6b534-187b-4c66-8041-dc380a491474" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types.Queries</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -671,10 +671,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1f7e48b2-eeb6-4248-824e-32455027591d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="edc57eee-93e2-45e9-b60a-2ad182927227" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Types</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -682,10 +682,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ddfcf9b0-7e65-427f-8496-f80ca7f7fa6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="02e1a736-ef2d-4309-99e5-3aebea519a2d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.Validation</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>
@@ -693,10 +693,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f046b089-9c41-4ea9-a67c-92879b84a6ff" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3bb947ac-9862-46bd-a6f4-44d4fa41e68b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>HotChocolate.CostAnalysis</name>
           <isAbstract>false</isAbstract>
-          <value>15.1.5</value>
+          <value>15.1.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>28da011f-8b4b-4e8c-9bf1-8479d2e6ff64</parentFolderId>

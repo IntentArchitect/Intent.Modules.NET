@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="296cf0ca-cc77-47ae-b371-ede9d2d1e821" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.4.0</name>
+      <name>4.6.0</name>
       <display>4.4.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,16 +47,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="3880cc03-ecf2-4dff-9358-12d93b50182e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="57827a52-ead0-4c19-a58c-2326d10ccca5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.4.0</value>
+          <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>296cf0ca-cc77-47ae-b371-ede9d2d1e821</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -64,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="837e2fcb-1a5f-4b19-9c72-ae690c350f18" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.4.0</name>
+      <name>4.6.0</name>
       <display>4.4.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -86,16 +83,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="23143bdd-e83f-43da-b08d-fe8720a36a64" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6e2d8183-4619-4371-bd49-71e1eccefbd5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.4.0</value>
+          <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>837e2fcb-1a5f-4b19-9c72-ae690c350f18</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -103,7 +97,7 @@
       </childElements>
     </childElement>
     <childElement id="e42a17c3-a372-48cc-b130-78b445dab674" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.4.0</name>
+      <name>4.6.0</name>
       <display>4.4.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -125,16 +119,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c36cba03-db2d-4741-8136-37c757a0e3a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d8fb4a9c-1d74-4dfb-a5e0-18ee23327b8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.4.0</value>
+          <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e42a17c3-a372-48cc-b130-78b445dab674</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -142,7 +133,7 @@
       </childElements>
     </childElement>
     <childElement id="c6a60e7f-133b-4ea5-8bcf-317035c6efd8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.4.0</name>
+      <name>4.6.0</name>
       <display>4.4.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -164,16 +155,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="31fac960-a93d-4f64-a6d6-c900db40e890" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f94e975f-3cf5-4f73-a7f7-a0c870a9c1e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Testcontainers</name>
-          <display>Testcontainers (4.4.0)</display>
           <isAbstract>false</isAbstract>
-          <value>4.4.0</value>
+          <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c6a60e7f-133b-4ea5-8bcf-317035c6efd8</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />

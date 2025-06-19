@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="f5814cd8-d75d-4c1f-9f3c-d4a5af06e919" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,310 +47,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="381b8ca6-05fc-479c-ae49-023e24b2e0bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="fe4519d2-0704-4ceb-9fb7-36d55c4bbb20" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="385ec6e5-805f-4f97-b1dc-4880a4516077" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe1d27cd-0fb2-4238-890e-4f60c9e8a361" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="35c26ee0-f270-4894-afac-a3d98158f103" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="73dcdeab-269c-4e1d-acee-1e5305c640a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="132c259e-9897-47f8-bdf1-adb299dca0cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8ca42dae-cae2-42a3-9393-37a23fd6ed43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ad9d5da7-8aea-4858-9c28-dab308d60e29" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b736f12a-f1d6-46a4-b8b3-c12e6f2ac023" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e43bfd8b-5ec9-4c14-aeff-7ffa6bcd1834" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="07cdb8d2-35e8-402e-869c-7ba9c7f8236e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e246efd6-50ca-4da9-9aa1-a916c7aeaf6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d50e842f-e6cf-4a46-a46c-b78a50ef3217" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4a2483df-9187-44ca-925f-8601f3c4381e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cbf6c5d3-08f8-4d0b-89a0-7a9511436719" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (9.0.5)</display>
+        <childElement id="43c695b2-a672-4062-b331-6c06b05a5cfc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d25c1cf7-5f4b-4305-af4b-1ea1c30bd62a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c4d91474-9a43-40bf-9735-40044a70a9bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="efc38d39-45c8-4790-868a-2765b6393039" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ccf75d2b-5f78-4ba7-9097-caa04624bceb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c166d0a4-f3a9-4a6b-9476-1232ed45eeeb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3b03acd7-9675-438c-9229-a5d5aa732f24" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ede06748-3a06-4a87-b20b-2e15221633d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ac6e9d21-2411-47ae-87b7-341a879d25ca" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="53b6138a-046e-4cfd-8a58-aa4263d63b77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="da9b875b-ec05-4ac5-a378-0210dd3985ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6439c734-246d-4db6-b856-97579bca899c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e8789c4-fecb-4413-b90a-43a97dcf11fc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b41b3851-e4a1-4d7c-8a41-9a4d9eb19562" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c3791821-de10-47ae-a52f-58396c9374f0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="015ca9da-b5b0-4949-ae0d-0d5e2558acfb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b4bfe59d-0874-4f9f-aa9c-7d1b4c28e483" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="235bf5f4-fffd-49ed-b9e5-93e7d69fb5aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b40409b7-6619-4046-8ddb-b08e00a09db6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="74b96a85-c2db-4464-91da-dcf3c7fa6dbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="53688a23-685c-42b9-a7ec-c623e93dca7b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2b547fb0-aa64-42b3-af3a-7b0695e89547" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a50a190e-67d3-4869-bef3-252853305ecc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="eef5e62b-20f7-428b-ae2e-7e8687b32a2b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9c8edd85-99f8-4d5f-a2af-fb698de32312" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="37149b43-4338-44d5-a5b5-29f0394f30ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.5)</display>
+        <childElement id="6aec56f5-9cdf-4a17-aacf-342f10a3a8ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b4bd89e2-f389-4b99-b8e0-105039339fa7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>f5814cd8-d75d-4c1f-9f3c-d4a5af06e919</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -358,7 +292,7 @@
       </childElements>
     </childElement>
     <childElement id="a34671fe-4d21-444b-a547-9f21f2b6a892" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -380,338 +314,266 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="6836fcb0-61fd-4bea-bd10-e294289d78fb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8e4c1312-5f31-402e-b59a-dad30b53abf5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="eccd98d3-44c7-4aff-a29a-3bf8b8889638" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="0b94b5ef-e9bf-41d4-839d-8073984dc13d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fbc1b58f-d83c-486d-b897-39de2a196ac7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="47542514-f0c6-4cc8-8dbb-6f3eb4c5e426" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f75fb420-2690-4a0a-96ad-ec90b1a2f5d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2d663d00-67b4-46b1-9751-bb2cd8830d6d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5df99e3e-6064-4edc-b34c-590abcbad89e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="aec3a2f0-e1d0-4a3b-b295-872877daba4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5072d753-ef38-413a-b9b8-5b420991c834" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a2ba0eb7-572c-4768-8f0c-7ebf67f20311" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5a939318-afd7-402e-a68d-136775f2f0f5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7889daed-6ebe-483c-861d-d70b1c5963e7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6117acdf-662a-4c96-b8c3-ccd0ee10692d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="12aef7bd-9ec4-4aa7-bc43-51210c2c9a99" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dd1d97e8-e020-4668-a529-685b26471a89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="017eb602-e156-4814-ae2b-0446d806f9dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (9.0.5)</display>
+        <childElement id="a7ffcd7f-d4b5-471c-9893-d4b73d0759fd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d5053ab9-80ec-42ef-b39c-dd13d7d1426d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="16fd0a0b-feef-4cd5-85d1-941de25bdbcd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0621e2ef-84c8-4818-b3f9-129a408aa278" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b81fdeb2-6c0d-4e59-91c2-c574a79ba334" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6239cbac-6f0e-4f3b-97bf-009e8de51d7e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ea4a6277-403c-4bd8-aeca-f9b2ca787b5b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5859b981-6a14-4364-be3e-fe88df38092a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a8ab36a-0ad4-42f8-b4c8-c4b135a96ad8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cc82a239-1391-4a49-90b8-59cd33b2c341" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8aa53278-8c40-4cfa-999e-d2d0aa8df2d0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="aef40c91-8ece-4f15-89fd-97413b68dd42" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6fbf3db0-c786-4a34-9302-a1daa72cc084" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="7bcd3bc5-6e1c-4b2a-b3fc-8dc76fc678dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="17f5d554-6768-44bc-a461-3eefb554ba59" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fa19b245-d4fd-47f8-b8e7-ea8cf21ce5f6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5683a2d5-f54c-4d4a-b152-4192766d6ee4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="916464e8-bd19-418f-a62e-b10a8b3a3dac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0dbd8078-fa9c-4bf7-9a95-f75d1fa7a1d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1c3bd308-f67b-492f-a18a-779a46996486" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="dd567190-1bae-4725-9409-1b5ac3e62180" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2e1311f5-4a09-494d-a4db-c6b1bb6c7971" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="24c5f904-fd1d-42a1-8140-b27f83f213ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="bf105e53-f5bd-45ac-b409-f76a2fa08bf1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f0e41b76-0819-4d6e-964a-0f4c1be8e5ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ee890e09-f80e-43a8-8c8c-3dc4f12ae46d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="82a8641c-6c81-496a-9c54-ed557dbd69be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="829a121b-a4bb-4bd4-a294-61e26894bbe7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="97fc4bec-2190-4506-ac0e-dcb5c3f36f41" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8d61d489-a469-4428-8399-7c95b0deaebd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a34671fe-4d21-444b-a547-9f21f2b6a892</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -719,7 +581,7 @@
       </childElements>
     </childElement>
     <childElement id="5d6efcec-3b1e-4345-9bb0-e7846a741122" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -741,310 +603,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5560c90f-322e-495a-9625-51d125db0f55" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8baae2be-4c3d-4f36-b7e0-f1095fdd71cd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e6870da2-a0e8-4944-a028-0fef92a7a044" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="156eb025-4d45-4d39-833b-c24f59cab8dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1c69a2a5-84cd-4da0-8b58-e38d8332dbd2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="56fd5e52-bfc3-44db-a759-d03ab3adc603" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e1426fbe-a003-47d0-9485-de9097ae8e43" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2dada61e-bdee-4c8b-8837-000a453ebe31" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="042cd06a-4bdd-4c03-960d-310a3ecf4fab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2cc7da6c-dfef-488e-bec5-776bb15dcc2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6b51aaa1-e329-49a1-9275-541aa6b453b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="60c56574-7a36-43fe-aeee-0535e26897d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6140144c-6977-45f7-8a74-3431479c8d10" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="be7b2c41-f45b-498a-b778-88dda200d113" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="15d6e126-3a65-41fa-89df-579149977d83" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="202e47c0-a37e-4c76-ab18-f56fdb4c7c77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (9.0.5)</display>
+        <childElement id="374532b8-7c96-4c40-b426-0cdbe8536d9c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0459d70a-5c5b-47d7-ad81-4675eea9ee54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b21e095e-2df6-4c48-ab4b-bf604d0ec552" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5d2f744c-05f0-4d37-9681-5132030ca5ac" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="59676774-ef13-4a98-8d7f-cd35d8ba8613" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c1ccfaae-e1ec-41b7-bb47-ee395e71a3dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="68238c14-e67e-47d3-b848-84587e315a3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9661159a-8656-45d6-ab7e-5d12ba39136d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dd4a40e5-94a3-4d49-ab00-5105253488c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3aeaf529-f431-4038-93ba-87019072eb6c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a547e4bc-bf56-4ca6-8476-76a960f482fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4b43a879-6912-4e36-810e-01281bed62d1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="308dbd89-2bd7-44f0-bf4e-e3783d09297c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="89e059ef-738d-4dc1-8ae7-34907b14b90d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3495d7b4-82a9-42a7-91eb-3b117ca9064b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f94a431f-df6e-41ac-b56b-f531e688942a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="404f85b1-b29e-414b-a785-b9fbfaa85a0c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="4e229b57-4a51-475c-9fd0-94a1f30901dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ea3f544b-e954-4da1-b392-6182c3547528" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6e127d97-8072-4b54-b915-feb9fae46d02" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8f266e48-7651-4765-8307-a43b73a8009c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c9896cb9-5af7-4c40-84e9-e0e4bc786ccc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e7939b39-82db-401c-b989-5d0121b518e0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="25b36eb2-94af-4b29-80a8-17327d4d8f69" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9251777f-552c-414e-925c-eb52c09bc39d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a1973044-fffd-41cb-a4ca-27d790c833d3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.5)</display>
+        <childElement id="e63faf28-742e-462e-8803-0596427ba172" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="223570d0-fedb-44e5-a42a-cf6d0773d354" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>5d6efcec-3b1e-4345-9bb0-e7846a741122</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -1052,7 +848,7 @@
       </childElements>
     </childElement>
     <childElement id="cdafa5cd-9d97-4000-a381-2a53c5cce8e7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -1074,310 +870,244 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="816cdcda-adc9-400c-b8f3-471151c1c1a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Configuration</name>
-          <display>Microsoft.Extensions.Configuration (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6cb099f8-730e-4bd5-bec7-77eb6a9170e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="cbe3cc7e-bed9-4897-a9fb-d867a0df84a7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d12c1ffb-e560-48bf-9f1a-decb8709f66d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9d369791-fdeb-4e5f-8edb-ea38413e8636" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Binder</name>
-          <display>Microsoft.Extensions.Configuration.Binder (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="33d6db12-f1f0-4f65-8698-c4dcb2800327" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0fde70cd-a0c4-42d2-8274-ec9bd078de1a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.CommandLine</name>
-          <display>Microsoft.Extensions.Configuration.CommandLine (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="18f23221-5aa5-4eee-bcab-8e5b724be802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7691c9d6-9abf-470f-aa9c-f56720803722" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.EnvironmentVariables</name>
-          <display>Microsoft.Extensions.Configuration.EnvironmentVariables (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="265913bd-9b51-4945-bf86-6b82ccc7d25a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9bc6a7ff-9547-45d9-acfd-8768c8b86a4e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.FileExtensions</name>
-          <display>Microsoft.Extensions.Configuration.FileExtensions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b68ca05f-46e6-44d7-b7df-2055f02c28b1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="13244788-e650-4c5d-bc87-16c66f9bba15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Json</name>
-          <display>Microsoft.Extensions.Configuration.Json (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="118b3e1c-3aa5-4498-8c12-1f54acbbc70b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="43eb57bc-88c1-4807-a1e8-e6b60fd3326a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.UserSecrets</name>
-          <display>Microsoft.Extensions.Configuration.UserSecrets (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f56107ae-df08-4a75-8cdb-8357314a0731" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.DependencyInjection</name>
-          <display>Microsoft.Extensions.DependencyInjection (9.0.5)</display>
+        <childElement id="8f8d8eea-d527-4a8f-b81d-f129ace7d5e8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="c0168fc8-2169-4b2d-8924-505d35aeb9bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8340fc39-5f62-4c39-9544-1ea1e4a5fb36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7baa5e0e-26a1-4b06-9efd-0361328dcb94" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9f114bd0-003b-4f9f-b4f3-e7c274979ddc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.DependencyInjection</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b7a20844-b6f1-4cf6-9868-ac39b4fb8d2f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="7e5734fc-6389-431b-9e2c-aed64d9ceb77" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="56e02a0f-3a03-4b6d-a379-d0a66df5cc84" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Abstractions</name>
-          <display>Microsoft.Extensions.FileProviders.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f26e80f4-3546-496f-8b75-639940c2e8aa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0353e920-c069-4d35-a0a9-fb639991820d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.FileProviders.Physical</name>
-          <display>Microsoft.Extensions.FileProviders.Physical (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d45f226a-2702-4699-ba89-b69572bb791a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9950da0b-b85c-49dd-9ba4-56b295e1936f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
-          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b164f223-ed3c-419d-af1c-a07bb6ee1493" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.5)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="62d1e673-1bdb-4441-84c3-ea5133573ffd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d5ec35d1-05b4-4283-aca5-9ae7e3889cb5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="caaf5a93-0116-4915-8fd1-6c0b6e40356f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d36d953b-2bd8-4991-860c-b033fd3868da" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Configuration</name>
-          <display>Microsoft.Extensions.Logging.Configuration (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e611c503-1d4c-45c1-9c44-ea71722b6c2c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="17171b95-92cd-4646-bdb4-a6c226df748d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Console</name>
-          <display>Microsoft.Extensions.Logging.Console (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="616aa6f5-b24e-428d-b37b-8f99da04f265" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="43150eed-3840-4a27-9525-da6aaf2b26ee" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Debug</name>
-          <display>Microsoft.Extensions.Logging.Debug (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8c5642b3-641f-4737-8702-e1a9a808f3bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9559e483-5b3a-4221-a298-e1d0e1c44976" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventLog</name>
-          <display>Microsoft.Extensions.Logging.EventLog (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a316c436-7d70-44b8-9ebf-943ecd584968" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="132b36db-e9a5-4136-adf4-6532e30a9b66" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.EventSource</name>
-          <display>Microsoft.Extensions.Logging.EventSource (9.0.5)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="37d0f623-a58b-467f-8ba5-cba758e7f4c9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.5)</display>
+        <childElement id="85959260-c825-4ec7-af0c-5fbf7e4b4c3d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
-          <packageId>e5842805-0812-4f7f-a653-c7e9b35d8da1</packageId>
-          <packageName>Intent.Eventing.Solace</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="bbb25896-efbe-4d80-ab8e-1d62130800bc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.6</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>cdafa5cd-9d97-4000-a381-2a53c5cce8e7</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

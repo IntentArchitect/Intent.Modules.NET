@@ -1,3 +1,7 @@
+### Version 4.1.7
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.6
 
 - Improvement: Added `Distribution` role target for container configuration.

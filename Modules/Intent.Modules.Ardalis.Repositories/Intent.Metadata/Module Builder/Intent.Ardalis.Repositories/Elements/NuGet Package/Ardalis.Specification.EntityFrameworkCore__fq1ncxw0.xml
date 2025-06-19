@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="19767f39-93b6-4157-8a4d-acb340093503" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.1.0</name>
+      <name>9.2.0</name>
       <display>8.0.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
@@ -46,10 +46,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9697632b-ac1b-4159-a13f-67d96f9301e6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="89288e37-090f-4234-bb4c-ccbb1769a7cc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Ardalis.Specification</name>
           <isAbstract>false</isAbstract>
-          <value>9.1.0</value>
+          <value>9.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19767f39-93b6-4157-8a4d-acb340093503</parentFolderId>
@@ -57,10 +57,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d4ba8736-6ac9-4377-913e-1c5c4e8fd56e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6d088fcf-d73c-4724-ab9e-2537ee941168" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.13</value>
+          <value>8.0.16</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19767f39-93b6-4157-8a4d-acb340093503</parentFolderId>
@@ -68,10 +68,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="2f973cb0-afec-4fc2-81ad-e237e5016ec5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0f9ad17b-0fbc-4b16-afc2-e68563139922" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.13</value>
+          <value>8.0.16</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19767f39-93b6-4157-8a4d-acb340093503</parentFolderId>
@@ -225,7 +225,7 @@
       </childElements>
     </childElement>
     <childElement id="41183e88-f285-4181-8751-a6676f552f32" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.1.0</name>
+      <name>9.2.0</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -243,10 +243,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="01c62792-dbd0-4e7f-8bc9-85026093d39e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d0a516c0-6c60-46f3-967e-e6a15066f63a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Ardalis.Specification</name>
           <isAbstract>false</isAbstract>
-          <value>9.1.0</value>
+          <value>9.2.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41183e88-f285-4181-8751-a6676f552f32</parentFolderId>
@@ -254,10 +254,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5cf4c935-bf4d-4b9b-83cf-fd567fc7373d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="49c20581-9ef2-4449-9f71-261a81ed2829" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.2</value>
+          <value>9.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41183e88-f285-4181-8751-a6676f552f32</parentFolderId>
@@ -265,10 +265,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="31aac3de-a1cb-4218-a581-9dd9531f9337" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="de60ac1c-bcbb-4a35-a7fd-3974f0f06e04" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.2</value>
+          <value>9.0.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>41183e88-f285-4181-8751-a6676f552f32</parentFolderId>

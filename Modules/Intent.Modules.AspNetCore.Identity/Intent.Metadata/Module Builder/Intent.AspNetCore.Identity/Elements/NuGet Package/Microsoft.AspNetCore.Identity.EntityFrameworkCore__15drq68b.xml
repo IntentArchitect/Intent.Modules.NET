@@ -221,7 +221,7 @@
       <childElements />
     </childElement>
     <childElement id="3af47704-a9d1-4440-acad-1fd17635fb95" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.16</name>
+      <name>8.0.17</name>
       <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -243,30 +243,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ebb52ca3-2728-45b5-889c-f3c975b6a0ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (8.0.16)</display>
+        <childElement id="1314d787-c5ae-4dce-a647-92afbf1b565b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.16</value>
+          <value>8.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3af47704-a9d1-4440-acad-1fd17635fb95</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="789e547a-d11e-45be-88e3-bfb4773a30f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
-          <display>Microsoft.Extensions.Identity.Stores (8.0.16)</display>
+        <childElement id="7b5257a7-cc1a-4ab7-a9ee-10d10c2aacc0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.16</value>
+          <value>8.0.17</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3af47704-a9d1-4440-acad-1fd17635fb95</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -274,7 +268,7 @@
       </childElements>
     </childElement>
     <childElement id="780fa709-7f7c-45fb-8987-2278a3db7c77" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -296,30 +290,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="534a9479-20aa-4c42-9e3f-cbbae5a18802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (9.0.5)</display>
+        <childElement id="b427baf0-20a1-4935-923f-50b7b7cd173b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Identity.Stores</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>780fa709-7f7c-45fb-8987-2278a3db7c77</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="725a5b30-7fb0-4fe0-b948-64ad47a3d3b3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Identity.Stores</name>
-          <display>Microsoft.Extensions.Identity.Stores (9.0.5)</display>
+        <childElement id="63390556-ae80-47b4-9b9e-de30188a308d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.5</value>
+          <value>9.0.6</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>780fa709-7f7c-45fb-8987-2278a3db7c77</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />

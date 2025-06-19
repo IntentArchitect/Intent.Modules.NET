@@ -140,7 +140,7 @@
       <childElements />
     </childElement>
     <childElement id="6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.16</name>
+      <name>8.0.17</name>
       <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -162,16 +162,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="5030d139-ebcd-4d5c-ad1d-e8a95337079a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="788b56c1-c6ce-4775-baae-c1856a6675cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (7.1.2)</display>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -179,7 +176,7 @@
       </childElements>
     </childElement>
     <childElement id="bd6e645d-4b23-4b37-b4a4-5231190337b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.5</name>
+      <name>9.0.6</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -201,16 +198,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bd9d2864-e661-4ca8-a26f-4e0768a6f132" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="73665ed5-3756-4cbf-bb50-cdbb2a51b181" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
-          <display>Microsoft.IdentityModel.Protocols.OpenIdConnect (8.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>bd6e645d-4b23-4b37-b4a4-5231190337b0</parentFolderId>
-          <packageId>70332e9d-3459-4c78-a43c-11642f89fca2</packageId>
-          <packageName>Intent.Security.MSAL</packageName>
           <stereotypes />
           <metadata />
           <childElements />

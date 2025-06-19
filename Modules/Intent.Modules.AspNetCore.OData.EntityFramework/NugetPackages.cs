@@ -18,7 +18,7 @@ namespace Intent.Modules.AspNetCore.OData.EntityFramework
             NugetRegistry.Register(MicrosoftAspNetCoreODataPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("9.3.1")
+                        ( >= 8, >= 0) => new PackageVersion("9.3.2")
                             .WithNugetDependency("Microsoft.OData.Core", "8.2.3")
                             .WithNugetDependency("Microsoft.OData.Edm", "8.2.3")
                             .WithNugetDependency("Microsoft.OData.ModelBuilder", "2.0.0")

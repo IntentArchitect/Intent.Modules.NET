@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="a1312253-375a-4d85-92b2-bd3765aa1646" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.24.1</name>
       <display>12.23.0 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,7 +47,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9977fde3-48bb-4446-818a-1cef433f9b0d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="31547f62-b91f-4f0f-bc40-b775712fb75e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
           <value>12.23.0</value>
@@ -61,7 +61,7 @@
       </childElements>
     </childElement>
     <childElement id="d41a6705-d747-4d9b-be2f-a2026082bd21" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.24.1</name>
       <display>12.23.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -83,7 +83,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7c9ed804-f4a7-4e18-a5c0-70d3517f7589" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="5c56084a-3ad7-49df-9deb-1dff6c9ff60f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
           <value>12.23.0</value>
@@ -94,7 +94,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0cd0fe79-a0b5-41d8-a428-ea7df7793389" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="23b9ce49-b48b-4391-9d8d-91df5df02b3a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <isAbstract>false</isAbstract>
           <value>6.0.11</value>
@@ -108,7 +108,7 @@
       </childElements>
     </childElement>
     <childElement id="4b336f30-3758-49a7-a3d1-2a371873015d" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.24.1</name>
       <display>12.23.0 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -130,7 +130,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="8d5f60d9-2fec-41d5-a9a0-8aed72309638" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="12c5cb8e-84a9-4138-aafe-1f6181bad6ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
           <value>12.23.0</value>
@@ -141,7 +141,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="302f3385-d925-4880-87ce-e64bdbf56818" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="64a2b08b-bea8-4b80-a9f9-be0ac033e281" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Json</name>
           <isAbstract>false</isAbstract>
           <value>6.0.11</value>
@@ -155,7 +155,7 @@
       </childElements>
     </childElement>
     <childElement id="d0a26aeb-0404-4b11-b891-e706d94c5650" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>12.24.0</name>
+      <name>12.24.1</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -173,7 +173,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a3d06202-ad22-40b7-a454-3146e38d0cc2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4622c18b-c2b0-4838-80e6-1de16a262a08" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Storage.Common</name>
           <isAbstract>false</isAbstract>
           <value>12.23.0</value>

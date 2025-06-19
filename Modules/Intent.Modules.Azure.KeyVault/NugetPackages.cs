@@ -50,11 +50,10 @@ namespace Intent.Modules.Azure.KeyVault
             NugetRegistry.Register(AzureSecurityKeyVaultSecretsPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 2, >= 0) => new PackageVersion("4.7.0")
-                            .WithNugetDependency("Azure.Core", "1.44.1")
-                            .WithNugetDependency("System.Memory", "4.5.5")
-                            .WithNugetDependency("System.Text.Json", "6.0.10")
-                            .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
+                        ( >= 8, >= 0) => new PackageVersion("4.8.0")
+                            .WithNugetDependency("Azure.Core", "1.46.2"),
+                        ( >= 2, >= 0) => new PackageVersion("4.8.0")
+                            .WithNugetDependency("Azure.Core", "1.46.2"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureSecurityKeyVaultSecretsPackageName}'"),
                     }
                 );

@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="1b2bc2ec-87b9-4397-a842-9aa5a74afcb9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.103.8.1</name>
+      <name>3.103.9</name>
       <display>3.103.8.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,72 +47,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="ee254ce5-6a25-4108-a96a-d46aed6902e1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.CSharp</name>
-          <display>Microsoft.CSharp (4.6.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>4.6.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4b3f853c-8b53-4bac-a8ab-80d46582a8f2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ff15503b-e5b4-40e0-b47f-22e71dcd0df6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (3.1.0)</display>
           <isAbstract>false</isAbstract>
           <value>3.1.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e81efccd-ac9e-420c-9b8d-a0126da12fcb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a297c870-8317-43e8-b96b-7e07e382a9de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.CSharp</name>
+          <isAbstract>false</isAbstract>
+          <value>4.6.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c54eddcd-6564-4e28-999a-e1d8205a4894" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (4.6.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="dd439b1c-5c1b-4336-98a4-d56712090e35" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b3a9bb3f-bdef-4100-8504-ecdb57655c9e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
-          <display>System.Reflection.Emit (4.6.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3a0a37f2-9fa4-4b8f-9e49-966a686017bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4e4f9e54-9569-4ac5-9313-eb8a247ef875" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.TypeExtensions</name>
-          <display>System.Reflection.TypeExtensions (4.6.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.6.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>1b2bc2ec-87b9-4397-a842-9aa5a74afcb9</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -120,7 +105,7 @@
       </childElements>
     </childElement>
     <childElement id="ec546327-ad61-42bb-ab50-1029d3129fc2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.103.8.1</name>
+      <name>5.103.9</name>
       <display>5.103.8.1 ( &gt;= .NETStandard,Version=v2.1 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -142,72 +127,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="b9574496-43be-4d2f-9c5f-b7dc63572978" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="54b37889-5598-464c-8ea0-918961e6f3fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.CSharp</name>
-          <display>Microsoft.CSharp (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="56bd8482-c888-4f1a-9bf9-4706b1d695bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b2404866-bbd3-44f3-8dcb-e37d463c041c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (5.0.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>5.0.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="146dcd57-d23d-4a6d-80e3-a8f9fc90d0a3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b781cbac-02c7-4259-ba67-8fdf92459e46" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.Emit</name>
-          <display>System.Reflection.Emit (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="5a76f86a-d5c6-4792-8cc1-d24ae4f0a38a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="65144a14-fa67-48dc-9dca-d23cda791801" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Reflection.TypeExtensions</name>
-          <display>System.Reflection.TypeExtensions (4.7.0)</display>
           <isAbstract>false</isAbstract>
           <value>4.7.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b2673ba2-ab7b-4e73-b533-b0f08664c655" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Configuration.ConfigurationManager</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="78aa82e2-f776-4d9a-b1e9-f8b458948450" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
+          <isAbstract>false</isAbstract>
+          <value>5.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ec546327-ad61-42bb-ab50-1029d3129fc2</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -215,7 +185,7 @@
       </childElements>
     </childElement>
     <childElement id="d2329af6-8195-4133-a3ab-bfff8ce2f962" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>7.103.8.1</name>
+      <name>7.103.9</name>
       <display>7.103.8.1 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -237,30 +207,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="bedf3a4b-2a1a-4545-b47f-e580081306a6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.EntityFrameworkCore.Relational</name>
-          <display>Microsoft.EntityFrameworkCore.Relational (7.0.0)</display>
+        <childElement id="f4d0d1b5-5d8f-4a35-ba4d-97970ed3a99d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Configuration.ConfigurationManager</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d2329af6-8195-4133-a3ab-bfff8ce2f962</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="16a922e6-27f6-416e-987a-b2e50b46abf7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Configuration.ConfigurationManager</name>
-          <display>System.Configuration.ConfigurationManager (7.0.0)</display>
+        <childElement id="09a93ff9-3c59-4022-9fe7-877fdd856b96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.EntityFrameworkCore.Relational</name>
           <isAbstract>false</isAbstract>
           <value>7.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d2329af6-8195-4133-a3ab-bfff8ce2f962</parentFolderId>
-          <packageId>68f2900c-fabf-45c2-afc3-24b2e0bf5563</packageId>
-          <packageName>Intent.EntityFrameworkCore.BulkOperations</packageName>
           <stereotypes />
           <metadata />
           <childElements />
