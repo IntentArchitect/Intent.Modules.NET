@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -76,7 +77,7 @@ public class AutoImplementHandlerTask : IModuleTask
         }).Result;
 
         var aiResponse = result.ToString();
-        var sanitizedAiResponse = aiResponse.Replace("```json", "").Replace("```", "");
+        var sanitizedAiResponse = aiResponse.Substring(aiResponse.IndexOf("```", StringComparison.Ordinal)).Replace("```json", "").Replace("```", "");
         FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(sanitizedAiResponse);
 
         // Output the updated file changes.
