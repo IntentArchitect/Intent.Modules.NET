@@ -1,6 +1,7 @@
 ### Version 5.1.11
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Issue with unit of work not being correctly injected into the constructor
 
 ### Version 5.1.10
 

@@ -1,6 +1,7 @@
 ### Version 4.3.5
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Issue with unit of work not being correctly injected into the constructor
 
 ### Version 4.3.4
 

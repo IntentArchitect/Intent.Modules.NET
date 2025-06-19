@@ -1,3 +1,7 @@
+### Version 7.0.3
+
+- Fixed: Issue with unit of work not being correctly injected into the constructor
+
 ### Version 7.0.2
 
 - Improvement: Updated NuGet package versions.

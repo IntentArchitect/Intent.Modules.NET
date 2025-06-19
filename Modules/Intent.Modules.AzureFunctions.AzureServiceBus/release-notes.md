@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: Issue with unit of work not being correctly injected into the constructor
+
 ### Version 1.0.2
 
 - Fixed: Adapted for newer way of doing Infrastructure as Code.

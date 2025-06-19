@@ -1,3 +1,7 @@
+### Version 5.2.13
+
+- Fixed: Issue with unit of work not being correctly injected into the constructor
+
 ### Version 5.2.12
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.

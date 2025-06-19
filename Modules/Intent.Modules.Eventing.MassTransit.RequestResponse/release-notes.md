@@ -1,3 +1,7 @@
+### Version 1.1.6
+
+- Fixed: Issue with unit of work not being correctly injected into the constructor
+
 ### Version 1.1.5
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
