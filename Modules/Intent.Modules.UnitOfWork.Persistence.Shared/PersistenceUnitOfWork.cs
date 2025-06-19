@@ -134,33 +134,22 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.CosmosDBUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
-        bool shouldAddServiceResolution = false;
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainCosmosDb, "cosmosDBUnitOfWork");
 
-        if (config.VariableOverrides.TryGetValue(ChainCosmosDb, out var overrideVariable))
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "cosmosDBUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
         {
-            var parameterName = "cosmosDBUnitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface)))
-            {
-                constructor.AddParameter(
-                    type: template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
-                    name: parameterName,
-                    configure: param => param.IntroduceReadonlyField((_, statement) =>
-                    {
-                        statement.ThrowArgumentNullException();
-                    }));
-            }
+            constructor.AddParameter(
+                type: template.GetTypeName(TemplateIds.CosmosDBUnitOfWorkInterface),
+                name: variableName,
+                configure: param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
@@ -189,33 +178,22 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DaprStateStoreUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
-        bool shouldAddServiceResolution = false;
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainDapr, "daprStateStoreUnitOfWork");
 
-        if (config.VariableOverrides.TryGetValue(ChainDapr, out var overrideVariable))
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "daprStateStoreUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
         {
-            var parameterName = "daprStateStoreUnitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface)))
-            {
-                constructor.AddParameter(
-                    template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
-                    parameterName,
-                    param => param.IntroduceReadonlyField((_, statement) =>
-                    {
-                        statement.ThrowArgumentNullException();
-                    }));
-            }
+            constructor.AddParameter(
+                template.GetTypeName(TemplateIds.DaprStateStoreUnitOfWorkInterface),
+                variableName,
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
@@ -244,33 +222,22 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.MongoDbUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
-        bool shouldAddServiceResolution = false;
-
-        if (config.VariableOverrides.TryGetValue(ChainMongoDb, out var overrideVariable))
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainMongoDb, "mongoDbUnitOfWork");
+        
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "mongoDbUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
         {
-            var parameterName = "mongoDbUnitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface)))
-            {
-                constructor.AddParameter(
-                    template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
-                    parameterName,
-                    param => param.IntroduceReadonlyField((_, statement) =>
-                    {
-                        statement.ThrowArgumentNullException();
-                    }));
-            }
+            constructor.AddParameter(
+                template.GetTypeName(TemplateIds.MongoDbUnitOfWorkInterface),
+                variableName,
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
@@ -299,30 +266,19 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.TableStorageUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
-        bool shouldAddServiceResolution = false;
-
-        if (config.VariableOverrides.TryGetValue(ChainTableStorage, out var overrideVariable))
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainTableStorage, "tableStorageUnitOfWork");
+        
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "tableStorageUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
         {
-            var parameterName = "tableStorageUnitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface)))
-            {
-                constructor.AddParameter(
-                    type: template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
-                    name: parameterName,
-                    configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
-            }
+            constructor.AddParameter(
+                type: template.GetTypeName(TemplateIds.TableStorageUnitOfWorkInterface),
+                name: variableName,
+                configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
@@ -351,26 +307,18 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.RedisOmUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
-        bool shouldAddServiceResolution = false;
-
-        if (config.VariableOverrides.TryGetValue(ChainRedisOm, out var overrideVariable))
+        var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainRedisOm, "redisOmUnitOfWork");
+        
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "redisOmUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface)))
         {
-            var parameterName = "redisOmUnitOfWork";
-            variableName = parameterName;
-
             constructor.AddParameter(
                 template.GetTypeName(TemplateIds.RedisOmUnitOfWorkInterface),
-                parameterName,
+                variableName,
                 c => c.IntroduceReadonlyField());
         }
 
@@ -400,30 +348,19 @@ internal static class PersistenceUnitOfWork
         if (!template.TryGetTemplate<ICSharpTemplate>(TemplateIds.DistributedCacheWithUnitOfWorkInterface, out _))
             return;
 
-        string variableName;
         var shouldAddServiceResolution = false;
-
-        if (config.VariableOverrides.TryGetValue(ChainDistributedCache, out var overrideVariable))
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainDistributedCache, "distributedCacheWithUnitOfWork");
+        
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "distributedCacheWithUnitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(x => x.Name != variableName))
         {
-            const string parameterName = "distributedCacheWithUnitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(x => x.Name != parameterName))
-            {
-                constructor.AddParameter(
-                    type: template.GetTypeName(TemplateIds.DistributedCacheWithUnitOfWorkInterface),
-                    name: parameterName,
-                    configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
-            }
+            constructor.AddParameter(
+                type: template.GetTypeName(TemplateIds.DistributedCacheWithUnitOfWorkInterface),
+                name: variableName,
+                configure: param => param.IntroduceReadonlyField((_, statement) => statement.ThrowArgumentNullException()));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
@@ -455,34 +392,23 @@ internal static class PersistenceUnitOfWork
         if (template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) == null)
             return;
 
-        string variableName;
         var shouldAddServiceResolution = false;
+        var variableName = config.VariableOverrides.GetValueOrDefault(ChainEntityFramework, "unitOfWork");
 
         var typeName = ResolveEntityFrameworkTypeName(template);
-
-        if (config.VariableOverrides.TryGetValue(ChainEntityFramework, out var overrideVariable))
+        
+        if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
         {
-            variableName = overrideVariable;
-        }
-        else if (config.ResolutionStrategy == UnitOfWorkResolutionStrategy.ServiceProvider)
-        {
-            variableName = "unitOfWork";
             shouldAddServiceResolution = true;
         }
-        else
+        else if (constructor.Parameters.All(p => p.Type != typeName))
         {
-            var parameterName = "unitOfWork";
-            variableName = parameterName;
-
-            if (constructor.Parameters.All(p => p.Type != typeName))
-            {
-                constructor.AddParameter(typeName,
-                    parameterName,
-                    param => param.IntroduceReadonlyField((_, statement) =>
-                    {
-                        statement.ThrowArgumentNullException();
-                    }));
-            }
+            constructor.AddParameter(typeName,
+                variableName,
+                param => param.IntroduceReadonlyField((_, statement) =>
+                {
+                    statement.ThrowArgumentNullException();
+                }));
         }
 
         chainOfResponsibilities.Push((blockStack, next) =>
