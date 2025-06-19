@@ -49,7 +49,6 @@ public class GenerateBlazorWithAITask : IModuleTask
     public string TaskTypeName => "Auto-Implement Blazor with AI";
     public int Order => 0;
 
-    [Experimental("SKEXP0010")]
     public string Execute(params string[] args)
     {
         var applicationId = args[0];

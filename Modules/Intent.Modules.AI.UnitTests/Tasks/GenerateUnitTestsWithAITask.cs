@@ -49,7 +49,6 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     public string TaskTypeName => "Auto-Implement Unit Tests with AI Task";
     public int Order => 0;
 
-    [Experimental("SKEXP0010")]
     public string Execute(params string[] args)
     {
         var applicationId = args[0];

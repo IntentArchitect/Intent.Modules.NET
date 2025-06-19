@@ -50,7 +50,6 @@ public class AutoImplementHandlerTask : IModuleTask
     public string TaskTypeName => "Auto-Implementation with AI Task";
     public int Order => 0;
 
-    [Experimental("SKEXP0010")]
     public string Execute(params string[] args)
     {
         var applicationId = args[0];
