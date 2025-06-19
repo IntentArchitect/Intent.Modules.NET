@@ -23,8 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SingleIndexEntitySingleParentsService(ISingleIndexEntitySingleParentRepository singleIndexEntitySingleParentRepository,
-            IMapper mapper)
+        public SingleIndexEntitySingleParentsService()
         {
             _singleIndexEntitySingleParentRepository = singleIndexEntitySingleParentRepository;
             _mapper = mapper;
@@ -35,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             SingleIndexEntitySingleParentCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newSingleIndexEntitySingleParent = new SingleIndexEntitySingleParent
-            {
-                SomeField = dto.SomeField,
-                SingleIndexEntitySingleChild = CreateSingleIndexEntitySingleChild(dto.SingleIndexEntitySingleChild),
-            };
-            _singleIndexEntitySingleParentRepository.Add(newSingleIndexEntitySingleParent);
-            await _singleIndexEntitySingleParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newSingleIndexEntitySingleParent.Id;
+            // TODO: Implement CreateSingleIndexEntitySingleParent (SingleIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _singleIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntitySingleParent {id}");
-            }
-            return element.MapToSingleIndexEntitySingleParentDto(_mapper);
+            // TODO: Implement FindSingleIndexEntitySingleParentById (SingleIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<SingleIndexEntitySingleParentDto>> FindSingleIndexEntitySingleParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _singleIndexEntitySingleParentRepository.FindAllAsync(cancellationToken);
-            return elements.MapToSingleIndexEntitySingleParentDtoList(_mapper);
+            // TODO: Implement FindSingleIndexEntitySingleParents (SingleIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,36 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             SingleIndexEntitySingleParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntitySingleParent = await _singleIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSingleIndexEntitySingleParent is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntitySingleParent {id}");
-            }
-            existingSingleIndexEntitySingleParent.SomeField = dto.SomeField;
-            _singleIndexEntitySingleParentRepository.Update(existingSingleIndexEntitySingleParent);
+            // TODO: Implement UpdateSingleIndexEntitySingleParent (SingleIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteSingleIndexEntitySingleParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntitySingleParent = await _singleIndexEntitySingleParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSingleIndexEntitySingleParent is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntitySingleParent {id}");
-            }
-            _singleIndexEntitySingleParentRepository.Remove(existingSingleIndexEntitySingleParent);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private SingleIndexEntitySingleChild CreateSingleIndexEntitySingleChild(SingleIndexEntitySingleChildDto dto)
-        {
-            return new SingleIndexEntitySingleChild
-            {
-                SingleIndex = dto.SingleIndex,
-#warning No matching field found for Id
-            };
+            // TODO: Implement DeleteSingleIndexEntitySingleParent (SingleIndexEntitySingleParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CompoundIndexEntitiesService(ICompoundIndexEntityRepository compoundIndexEntityRepository, IMapper mapper)
+        public CompoundIndexEntitiesService()
         {
             _compoundIndexEntityRepository = compoundIndexEntityRepository;
             _mapper = mapper;
@@ -34,15 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntityCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newCompoundIndexEntity = new CompoundIndexEntity
-            {
-                SomeField = dto.SomeField,
-                CompoundOne = dto.CompoundOne,
-                CompoundTwo = dto.CompoundTwo,
-            };
-            _compoundIndexEntityRepository.Add(newCompoundIndexEntity);
-            await _compoundIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newCompoundIndexEntity.Id;
+            // TODO: Implement CreateCompoundIndexEntity (CompoundIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
-            }
-            return element.MapToCompoundIndexEntityDto(_mapper);
+            // TODO: Implement FindCompoundIndexEntityById (CompoundIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CompoundIndexEntityDto>> FindCompoundIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _compoundIndexEntityRepository.FindAllAsync(cancellationToken);
-            return elements.MapToCompoundIndexEntityDtoList(_mapper);
+            // TODO: Implement FindCompoundIndexEntities (CompoundIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,28 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             CompoundIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCompoundIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
-            }
-            existingCompoundIndexEntity.SomeField = dto.SomeField;
-            existingCompoundIndexEntity.CompoundOne = dto.CompoundOne;
-            existingCompoundIndexEntity.CompoundTwo = dto.CompoundTwo;
-            _compoundIndexEntityRepository.Update(existingCompoundIndexEntity);
+            // TODO: Implement UpdateCompoundIndexEntity (CompoundIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCompoundIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingCompoundIndexEntity = await _compoundIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCompoundIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find CompoundIndexEntity {id}");
-            }
-            _compoundIndexEntityRepository.Remove(existingCompoundIndexEntity);
+            // TODO: Implement DeleteCompoundIndexEntity (CompoundIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

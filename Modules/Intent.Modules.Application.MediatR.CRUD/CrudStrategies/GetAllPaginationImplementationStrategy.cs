@@ -6,6 +6,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.QueryHandler;
@@ -29,6 +30,10 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
 
     public bool IsMatch()
     {
+        if (_template.Model.HasDomainInteractions())
+        {
+            return false;
+        }
         return (_template.Model.Properties.Any(IsPageNumberParam) || _template.Model.Properties.Any(IsPageIndexParam))
                && _template.Model.Properties.Any(IsPageSizeParam)
                && _matchingElementDetails.Value.IsMatch;

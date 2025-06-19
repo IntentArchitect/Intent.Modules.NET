@@ -23,6 +23,9 @@
     <display>handles : NewQuoteCreated</display>
     <sort-children>by-type-then-manually</sort-children>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="52a88002-c53e-444b-a350-bf153e31c8ea">
       <typeId>51da9af6-ef50-4720-9eda-59ecb3cc858c</typeId>
       <isNavigable>true</isNavigable>

@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public SingleIndexEntitiesService(ISingleIndexEntityRepository singleIndexEntityRepository, IMapper mapper)
+        public SingleIndexEntitiesService()
         {
             _singleIndexEntityRepository = singleIndexEntityRepository;
             _mapper = mapper;
@@ -34,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             SingleIndexEntityCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newSingleIndexEntity = new SingleIndexEntity
-            {
-                SomeField = dto.SomeField,
-                SingleIndex = dto.SingleIndex,
-            };
-            _singleIndexEntityRepository.Add(newSingleIndexEntity);
-            await _singleIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newSingleIndexEntity.Id;
+            // TODO: Implement CreateSingleIndexEntity (SingleIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -49,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
-            }
-            return element.MapToSingleIndexEntityDto(_mapper);
+            // TODO: Implement FindSingleIndexEntityById (SingleIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<SingleIndexEntityDto>> FindSingleIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _singleIndexEntityRepository.FindAllAsync(cancellationToken);
-            return elements.MapToSingleIndexEntityDtoList(_mapper);
+            // TODO: Implement FindSingleIndexEntities (SingleIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -71,27 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             SingleIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSingleIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
-            }
-            existingSingleIndexEntity.SomeField = dto.SomeField;
-            existingSingleIndexEntity.SingleIndex = dto.SingleIndex;
-            _singleIndexEntityRepository.Update(existingSingleIndexEntity);
+            // TODO: Implement UpdateSingleIndexEntity (SingleIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteSingleIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingSingleIndexEntity = await _singleIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSingleIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find SingleIndexEntity {id}");
-            }
-            _singleIndexEntityRepository.Remove(existingSingleIndexEntity);
+            // TODO: Implement DeleteSingleIndexEntity (SingleIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

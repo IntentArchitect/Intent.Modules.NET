@@ -27,5 +27,75 @@
       <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
       <fileHash>A2E00E5493FDE3957B1FA60E626BC754EF756F01F2EB13C600F465808B52B10C</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#6078c0c2-19ff-4cb4-af21-c1cf0672fda3</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/CosmosDB/ChangeHandlerService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8051885Z</updatedAt>
+      <deviationsHash>326BB0FA19AFFD1763EECFAAF916CA1206EA24F17338619A11CB4F2CC3984CAF</deviationsHash>
+      <fileHash>75A4F9CEDA7C4F2627A95E73AF64AFD6C353AA4025469B57FFA0479D60B37329</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#347c7d33-6946-4cab-a3e3-8d682e575b06</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/Enums/EnumService.cs</path>
+      <count>3</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8051933Z</updatedAt>
+      <deviationsHash>B9F77EACC09CABFF9B157128810FA8E42AEF9AB461B778CED4632D66537A42DE</deviationsHash>
+      <fileHash>6B4188E4E01A587188BED1E0792AE6E90F2F96728697B71416F78BC578E9045D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#4b2b5e97-94de-4c02-969f-4f2c754315f4</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/ListedUnlistedServicesService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8051979Z</updatedAt>
+      <deviationsHash>A89234A28867B00D4E139C8DE0646C52AC74BC248A502B4CBA224D4228EB9920</deviationsHash>
+      <fileHash>ECE68EEAF2C0E45F92E12298EDABCF96901118CEF77669BF3B22AEB83C4EFCFB</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#8f064291-5a12-4f63-9a13-4626b67ad402</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/NotificationService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8052016Z</updatedAt>
+      <deviationsHash>83035C3B263A188665D77668EC27EFD72C3BBBC1B7D0C2557A8F2E0A8E240D54</deviationsHash>
+      <fileHash>2635DD80A147A3979521B2589BF098FDBA6EBA47F5DD20A705FCB2555D1ABD41</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#398493fa-60d5-4242-a895-4e20eb24562a</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/Queues/Bindings/BindingService.cs</path>
+      <count>1</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8051848Z</updatedAt>
+      <deviationsHash>C3E6EA92212C5F4CA7E3F09600469C5DC12188C58B4F85B12D5B963D9D0C1AC4</deviationsHash>
+      <fileHash>14987D832B11FB144CA35C22256BFE7CF49F5EF69430C95C5562A10D852840B3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#01a19ccd-9aa4-41e6-878e-358892303f67</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/Queues/QueueService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.8052064Z</updatedAt>
+      <deviationsHash>50281CCEB3C3B846029B9BF8A2A902E42112CB096DC37966822745E9D4237553</deviationsHash>
+      <fileHash>47D897917ADC3C75EF08C63A9AA8B2229551BCA0F9722CCB3581D476351DFD62</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#4385c794-36f4-478f-a96f-17c1244c650b</correlationId>
+      <path>AzureFunctions.NET8.Application/Implementation/SampleDomainsService.cs</path>
+      <count>8</count>
+      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
+      <updatedAt>2025-06-12T14:50:14.805215Z</updatedAt>
+      <deviationsHash>563CF9AFF6054C775815C9E8F483DABAE57240F11E502DDF6FC2322183599106</deviationsHash>
+      <fileHash>00ED0C368569BB3F9BD005992F53FFF5D543627ADB02C29D311BC38B3F0B8377</fileHash>
+    </file>
   </files>
 </deviationsLog>

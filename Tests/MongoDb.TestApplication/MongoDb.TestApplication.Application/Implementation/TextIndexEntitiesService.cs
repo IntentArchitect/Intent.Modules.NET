@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public TextIndexEntitiesService(ITextIndexEntityRepository textIndexEntityRepository, IMapper mapper)
+        public TextIndexEntitiesService()
         {
             _textIndexEntityRepository = textIndexEntityRepository;
             _mapper = mapper;
@@ -34,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newTextIndexEntity = new TextIndexEntity
-            {
-                FullText = dto.FullText,
-                SomeField = dto.SomeField,
-            };
-            _textIndexEntityRepository.Add(newTextIndexEntity);
-            await _textIndexEntityRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newTextIndexEntity.Id;
+            // TODO: Implement CreateTextIndexEntity (TextIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -49,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntity {id}");
-            }
-            return element.MapToTextIndexEntityDto(_mapper);
+            // TODO: Implement FindTextIndexEntityById (TextIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<TextIndexEntityDto>> FindTextIndexEntities(CancellationToken cancellationToken = default)
         {
-            var elements = await _textIndexEntityRepository.FindAllAsync(cancellationToken);
-            return elements.MapToTextIndexEntityDtoList(_mapper);
+            // TODO: Implement FindTextIndexEntities (TextIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -71,27 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingTextIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntity {id}");
-            }
-            existingTextIndexEntity.FullText = dto.FullText;
-            existingTextIndexEntity.SomeField = dto.SomeField;
-            _textIndexEntityRepository.Update(existingTextIndexEntity);
+            // TODO: Implement UpdateTextIndexEntity (TextIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteTextIndexEntity(string id, CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntity = await _textIndexEntityRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingTextIndexEntity is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntity {id}");
-            }
-            _textIndexEntityRepository.Remove(existingTextIndexEntity);
+            // TODO: Implement DeleteTextIndexEntity (TextIndexEntitiesService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

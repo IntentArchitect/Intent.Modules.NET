@@ -21,6 +21,9 @@
   <targetEnd id="87ff5afc-7a0f-4a69-b61b-cc181e85ebfe" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
     <display>handles: CreatePersonIdentity</display>
     <order>2</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="7567c611-268d-456b-950a-4e7900297c63">
       <typeId>e10e82b7-174d-4d6e-8054-3891737bddf6</typeId>
       <isNavigable>true</isNavigable>

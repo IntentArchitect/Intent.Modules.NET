@@ -21,6 +21,9 @@
   <targetEnd id="c853bb04-785b-49d3-bbaa-d9cd2c46eb12" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] MessageWithTopology</display>
     <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="06cee23b-91bc-47be-9772-421a7c83ecae">
       <typeId>9dbf225e-a1c2-474e-b32d-a5c0c0d5ce8f</typeId>
       <isNavigable>true</isNavigable>

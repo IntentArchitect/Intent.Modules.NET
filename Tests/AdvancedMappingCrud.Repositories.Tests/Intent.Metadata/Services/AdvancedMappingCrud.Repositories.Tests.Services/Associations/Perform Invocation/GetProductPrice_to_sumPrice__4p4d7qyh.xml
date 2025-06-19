@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2f93be43-1b2c-4941-abf4-bb9eea46f6df">
+  <comment />
+  <sourceEnd id="05e8119d-9285-4d2a-9db7-bd754cc241b4" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ProductsService.GetProductPrice</display>
+    <order>0</order>
+    <typeReference id="6bec810b-4b7f-4513-b93f-7248f8a9589b">
+      <typeId>f9f4fb7c-12cf-4ec0-9c7d-554a8388483b</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2f93be43-1b2c-4941-abf4-bb9eea46f6df" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <comment />
+    <name>sumPrice</name>
+    <display>[call] sumPrice: SumPrices(...): decimal</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="7a474975-7289-4035-9292-64a853d3e722">
+      <typeId>0397acdf-03c2-4c55-9c2b-9d735c98d755</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f9f4fb7c-12cf-4ec0-9c7d-554a8388483b" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[GetProductPrice]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="0397acdf-03c2-4c55-9c2b-9d735c98d755" location="[AdvancedMappingCrud.Repositories.Tests].[Domain].[SumPrices]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetProductPrice}</expression>
+            <path>
+              <target id="0397acdf-03c2-4c55-9c2b-9d735c98d755" name="SumPrices" type="element" specialization="Operation" />
+            </path>
+            <sources>
+              <source identifier="GetProductPrice" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="f9f4fb7c-12cf-4ec0-9c7d-554a8388483b" name="GetProductPrice" type="element" specialization="Operation" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{prices}</expression>
+            <path>
+              <target id="0397acdf-03c2-4c55-9c2b-9d735c98d755" name="SumPrices" type="element" specialization="Operation" />
+              <target id="ce4025e0-fd6d-4809-9823-20dfcf291405" name="prices" type="element" specialization="Parameter" />
+            </path>
+            <sources>
+              <source identifier="prices" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="f9f4fb7c-12cf-4ec0-9c7d-554a8388483b" name="GetProductPrice" type="element" specialization="Operation" />
+                  <target id="6833237a-1d55-4b8f-826b-0230425004d2" name="prices" type="element" specialization="Parameter" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -23,8 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public TextIndexEntityMultiParentsService(ITextIndexEntityMultiParentRepository textIndexEntityMultiParentRepository,
-            IMapper mapper)
+        public TextIndexEntityMultiParentsService()
         {
             _textIndexEntityMultiParentRepository = textIndexEntityMultiParentRepository;
             _mapper = mapper;
@@ -35,14 +34,8 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityMultiParentCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newTextIndexEntityMultiParent = new TextIndexEntityMultiParent
-            {
-                SomeField = dto.SomeField,
-                TextIndexEntityMultiChild = dto.TextIndexEntityMultiChild.Select(CreateTextIndexEntityMultiChild).ToList(),
-            };
-            _textIndexEntityMultiParentRepository.Add(newTextIndexEntityMultiParent);
-            await _textIndexEntityMultiParentRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newTextIndexEntityMultiParent.Id;
+            // TODO: Implement CreateTextIndexEntityMultiParent (TextIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,20 +43,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             string id,
             CancellationToken cancellationToken = default)
         {
-            var element = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
-            }
-            return element.MapToTextIndexEntityMultiParentDto(_mapper);
+            // TODO: Implement FindTextIndexEntityMultiParentById (TextIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<TextIndexEntityMultiParentDto>> FindTextIndexEntityMultiParents(CancellationToken cancellationToken = default)
         {
-            var elements = await _textIndexEntityMultiParentRepository.FindAllAsync(cancellationToken);
-            return elements.MapToTextIndexEntityMultiParentDtoList(_mapper);
+            // TODO: Implement FindTextIndexEntityMultiParents (TextIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -72,35 +60,15 @@ namespace MongoDb.TestApplication.Application.Implementation
             TextIndexEntityMultiParentUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingTextIndexEntityMultiParent is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
-            }
-            existingTextIndexEntityMultiParent.SomeField = dto.SomeField;
-            _textIndexEntityMultiParentRepository.Update(existingTextIndexEntityMultiParent);
+            // TODO: Implement UpdateTextIndexEntityMultiParent (TextIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteTextIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
         {
-            var existingTextIndexEntityMultiParent = await _textIndexEntityMultiParentRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingTextIndexEntityMultiParent is null)
-            {
-                throw new NotFoundException($"Could not find TextIndexEntityMultiParent {id}");
-            }
-            _textIndexEntityMultiParentRepository.Remove(existingTextIndexEntityMultiParent);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private TextIndexEntityMultiChild CreateTextIndexEntityMultiChild(TextIndexEntityMultiChildDto dto)
-        {
-            return new TextIndexEntityMultiChild
-            {
-                FullText = dto.FullText,
-            };
+            // TODO: Implement DeleteTextIndexEntityMultiParent (TextIndexEntityMultiParentsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

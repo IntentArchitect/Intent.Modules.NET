@@ -5,7 +5,9 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -36,6 +38,7 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<CommandModel> GetModels(IApplication application)
         {
+            InteractionStrategyProvider.Instance.Register(new SendOnMediatorInteractionStrategy());
             return _metadataManager.Services(application).GetCommandModels();
         }
     }

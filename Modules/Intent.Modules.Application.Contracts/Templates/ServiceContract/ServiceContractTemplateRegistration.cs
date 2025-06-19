@@ -4,7 +4,9 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.Application.Contracts.InteractionStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.Registrations;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -35,6 +37,8 @@ namespace Intent.Modules.Application.Contracts.Templates.ServiceContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<ServiceModel> GetModels(IApplication application)
         {
+            InteractionStrategyProvider.Instance.Register(new CallServiceInteractionStrategy());
+
             return _metadataManager.Services(application).GetServiceModels();
         }
     }

@@ -166,6 +166,7 @@
     <application id="077919ca-638f-40e2-84e6-e217ff37068c" name="Intent.Modules.EntityFrameworkCore.DiffAudit" solutionFolder="Persistence" relativePath="Intent.Modules.EntityFrameworkCore.DiffAudit/Intent.Modules.EntityFrameworkCore.DiffAudit.application.config" />
     <application id="bbf75c63-2462-4413-ba54-1a31cd28f9b7" name="Intent.Modules.AI.UnitTests" solutionFolder="AI" relativePath="Intent.Modules.AI.UnitTests/Intent.Modules.AI.UnitTests.application.config" />
     <application id="6d81061b-aaf4-4ae0-b8a5-e97ed0aa2a39" name="Intent.Modules.AI.Blazor" solutionFolder="AI" relativePath="Intent.Modules.AI.Blazor/Intent.Modules.AI.Blazor.application.config" />
+    <application id="0848134b-a122-45f5-b75f-b37fb6b6b2af" name="Intent.Modules.Application.DomainInteractions" solutionFolder="Application" relativePath="Intent.Modules.Application.DomainInteractions/Intent.Modules.Application.DomainInteractions.application.config" />
     <application id="659818a0-001b-4e3b-b373-02ff314cedd5" name="Intent.Modules.AspNetCore.IdentityService" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.IdentityService/Intent.Modules.AspNetCore.IdentityService.application.config" />
   </applications>
 </solution>

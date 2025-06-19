@@ -22,6 +22,9 @@
     <name>handler</name>
     <display>handles : TalkToPersonRequested</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="e0ed6d6b-66a4-494f-982d-dd2d4698263d">
       <typeId>31b635b7-35bf-456b-acb1-bf0365d5993c</typeId>
       <isNavigable>true</isNavigable>

@@ -35,33 +35,22 @@ namespace AzureFunctions.NET8.Application.Implementation
             SampleDomainCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newSampleDomain = new SampleDomain
-            {
-                Attribute = dto.Attribute,
-                Name = dto.Name,
-            };
-            _sampleDomainRepository.Add(newSampleDomain);
-            await _sampleDomainRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newSampleDomain.Id;
+            // TODO: Implement CreateSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<SampleDomainDto> FindSampleDomainById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            return element.MapToSampleDomainDto(_mapper);
+            // TODO: Implement FindSampleDomainById (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<SampleDomainDto>> FindSampleDomains(CancellationToken cancellationToken = default)
         {
-            var elements = await _sampleDomainRepository.FindAllAsync(cancellationToken);
-            return elements.MapToSampleDomainDtoList(_mapper);
+            // TODO: Implement FindSampleDomains (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -70,25 +59,15 @@ namespace AzureFunctions.NET8.Application.Implementation
             SampleDomainUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSampleDomain is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            existingSampleDomain.Attribute = dto.Attribute;
+            // TODO: Implement UpdateSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSampleDomain is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            _sampleDomainRepository.Remove(existingSampleDomain);
+            // TODO: Implement DeleteSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -106,11 +85,8 @@ namespace AzureFunctions.NET8.Application.Implementation
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var results = await _sampleDomainRepository.FindAllAsync(
-                pageNo: pageNo,
-                pageSize: pageSize,
-                cancellationToken: cancellationToken);
-            return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
+            // TODO: Implement FindSampleDomainsPaged (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         /// <summary>

@@ -30,6 +30,10 @@
       <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
       <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
       <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
           <addedByDefault>false</addedByDefault>
@@ -117,6 +121,10 @@
       <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
       <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
       <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
           <addedByDefault>false</addedByDefault>
@@ -204,6 +212,10 @@
       <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
       <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
       <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
           <addedByDefault>false</addedByDefault>
@@ -291,6 +303,10 @@
       <parentFolderId>15463493-bc23-4ad9-a9d8-91504c6024ed</parentFolderId>
       <packageId>5ff9ca47-8693-4c62-9979-5205e19f177e</packageId>
       <packageName>AzureFunctions.AzureServiceBus.GroupB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7c1128f6-fdef-4bf9-8f15-acb54b5bfa89" name="Azure Function">
           <addedByDefault>false</addedByDefault>

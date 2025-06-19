@@ -24,7 +24,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public CustomersService(ICustomerRepository customerRepository, IMapper mapper)
+        public CustomersService()
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
@@ -33,33 +33,22 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> CreateCustomer(CustomerCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newCustomer = new Customer
-            {
-                Name = dto.Name,
-                LastName = dto.LastName,
-            };
-            _customerRepository.Add(newCustomer);
-            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newCustomer.MapToCustomerDto(_mapper);
+            // TODO: Implement CreateCustomer (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> FindCustomerById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _customerRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find Customer {id}");
-            }
-            return element.MapToCustomerDto(_mapper);
+            // TODO: Implement FindCustomerById (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<CustomerDto>> FindCustomers(CancellationToken cancellationToken = default)
         {
-            var elements = await _customerRepository.FindAllAsync(cancellationToken);
-            return elements.MapToCustomerDtoList(_mapper);
+            // TODO: Implement FindCustomers (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -68,29 +57,15 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             CustomerUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingCustomer = await _customerRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCustomer is null)
-            {
-                throw new NotFoundException($"Could not find Customer {id}");
-            }
-            existingCustomer.Name = dto.Name;
-            existingCustomer.LastName = dto.LastName;
-            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return existingCustomer.MapToCustomerDto(_mapper);
+            // TODO: Implement UpdateCustomer (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingCustomer = await _customerRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingCustomer is null)
-            {
-                throw new NotFoundException($"Could not find Customer {id}");
-            }
-            _customerRepository.Remove(existingCustomer);
-            return existingCustomer.MapToCustomerDto(_mapper);
+            // TODO: Implement DeleteCustomer (CustomersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]

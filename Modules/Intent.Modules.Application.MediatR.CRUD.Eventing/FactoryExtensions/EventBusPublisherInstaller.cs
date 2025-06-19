@@ -7,6 +7,7 @@ using Intent.Modelers.Eventing.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
@@ -150,14 +151,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.Eventing.FactoryExtensions
             var method = @class.FindMethod("Handle");
             var returnClause = method.Statements.FirstOrDefault(p => p.GetText("").Trim().StartsWith("return"));
 
-            if (returnClause != null)
-            {
-                returnClause.InsertAbove(publishStatement);
-            }
-            else
-            {
-                method.Statements.Add(publishStatement);
-            }
+            //if (returnClause != null)
+            //{
+            //    returnClause.InsertAbove(publishStatement);
+            //}
+            //else
+            //{
+            //}
+            method.AddStatement(ExecutionPhases.IntegrationEvents, publishStatement);
         }
 
         private static void AddMessageExtensionsUsings(IApplication application, CSharpFile cSharpFile, MessageModel message)

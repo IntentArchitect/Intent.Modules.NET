@@ -35,7 +35,7 @@
     </typeReference>
     <stereotypes />
     <mappings>
-      <mapping type="Service Operation Mapping" typeId="df692ffe-5d0c-40ee-9362-a483d929a8ec">
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
         <source applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0fbde5d1-e709-4848-9e66-87b7c76f50e2" location="[ProxyServiceTests.Proxy.TMS].[Services].[GetAccountByIdQuery]" />
         <target applicationId="511a26e8-f292-4ea8-b07e-ca9f37b297ae" designerId="2799aa83-e256-46fe-9589-b96f7d6b09f7" elementId="986569e6-7da2-44ac-b0c2-d3c690eb36e0" location="[ProxyServiceTests.Proxy.TMS].[Services].[GetAccountByIdQuery]" />
         <mappedEnds>

@@ -23,7 +23,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public DerivedsService(IDerivedRepository derivedRepository, IMapper mapper)
+        public DerivedsService()
         {
             _derivedRepository = derivedRepository;
             _mapper = mapper;
@@ -32,59 +32,36 @@ namespace MongoDb.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<string> CreateDerived(DerivedCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newDerived = new Derived
-            {
-                DerivedAttribute = dto.DerivedAttribute,
-                BaseAttribute = dto.BaseAttribute,
-            };
-            _derivedRepository.Add(newDerived);
-            await _derivedRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newDerived.Id;
+            // TODO: Implement CreateDerived (DerivedsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<DerivedDto> FindDerivedById(string id, CancellationToken cancellationToken = default)
         {
-            var element = await _derivedRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find Derived {id}");
-            }
-            return element.MapToDerivedDto(_mapper);
+            // TODO: Implement FindDerivedById (DerivedsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<DerivedDto>> FindDeriveds(CancellationToken cancellationToken = default)
         {
-            var elements = await _derivedRepository.FindAllAsync(cancellationToken);
-            return elements.MapToDerivedDtoList(_mapper);
+            // TODO: Implement FindDeriveds (DerivedsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task UpdateDerived(string id, DerivedUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingDerived = await _derivedRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingDerived is null)
-            {
-                throw new NotFoundException($"Could not find Derived {id}");
-            }
-            existingDerived.DerivedAttribute = dto.DerivedAttribute;
-            existingDerived.BaseAttribute = dto.BaseAttribute;
-            _derivedRepository.Update(existingDerived);
+            // TODO: Implement UpdateDerived (DerivedsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteDerived(string id, CancellationToken cancellationToken = default)
         {
-            var existingDerived = await _derivedRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingDerived is null)
-            {
-                throw new NotFoundException($"Could not find Derived {id}");
-            }
-            _derivedRepository.Remove(existingDerived);
+            // TODO: Implement DeleteDerived (DerivedsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

@@ -21,6 +21,9 @@
   <targetEnd id="6b64e072-515b-4edb-b6f6-8596c6b20986" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
     <display>handles: TalkToPersonCommand</display>
     <order>3</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="cec7bdf8-0532-419d-b30d-0ecd858bc020">
       <typeId>a328603f-6198-4260-9f91-dffe794a6cc0</typeId>
       <isNavigable>true</isNavigable>

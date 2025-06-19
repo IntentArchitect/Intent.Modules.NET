@@ -1,3 +1,7 @@
+### Version 4.4.0
+
+- Improvement: Provides a `_mediator.Send(...)` implmentation strategy for the new interactions system.
+
 ### Version 4.3.4
 
 - Improvement: Default values on Query properties will now be output.

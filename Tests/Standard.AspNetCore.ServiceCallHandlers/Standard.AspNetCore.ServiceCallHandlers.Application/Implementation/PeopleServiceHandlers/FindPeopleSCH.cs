@@ -29,8 +29,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<PersonDto>> Handle(CancellationToken cancellationToken = default)
         {
-            var elements = await _personRepository.FindAllAsync(cancellationToken);
-            return elements.MapToPersonDtoList(_mapper);
+            throw new NotImplementedException("Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class.");
         }
     }
 }

@@ -18,7 +18,9 @@ namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers
         {
             var model = mappingModel.Model;
             
-            if (mappingModel.MappingTypeId != "df692ffe-5d0c-40ee-9362-a483d929a8ec") // Service Operation Mapping
+            if (model != null 
+                && (mappingModel.MappingTypeId != "df692ffe-5d0c-40ee-9362-a483d929a8ec"  // Service Operation Mapping (old ID)
+                && mappingModel.MappingTypeId != "a4c4c5cc-76df-48ed-9d4e-c35caf44b567")) // Service Operation Mapping (new ID)
             {
                 return null;
             }

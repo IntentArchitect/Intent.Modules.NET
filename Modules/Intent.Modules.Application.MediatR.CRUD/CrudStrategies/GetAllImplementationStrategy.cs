@@ -6,12 +6,14 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -30,6 +32,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public bool IsMatch()
         {
+            if (_template.Model.HasDomainInteractions())
+            {
+                return false;
+            }
             if (_template.Model.TypeReference.Element == null || !_template.Model.TypeReference.IsCollection)
             {
                 return false;

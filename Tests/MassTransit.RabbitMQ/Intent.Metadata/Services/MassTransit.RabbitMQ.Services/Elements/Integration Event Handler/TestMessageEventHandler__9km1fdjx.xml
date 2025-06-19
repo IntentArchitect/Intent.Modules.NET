@@ -8,6 +8,9 @@
   <parentFolderId>9808e5b7-a317-4040-a20c-195f8a8bda20</parentFolderId>
   <packageId>9808e5b7-a317-4040-a20c-195f8a8bda20</packageId>
   <packageName>MassTransit.RabbitMQ.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements />

@@ -24,7 +24,7 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public UsersService(IUserRepository userRepository, IMapper mapper)
+        public UsersService()
         {
             _userRepository = userRepository;
             _mapper = mapper;
@@ -33,85 +33,36 @@ namespace Finbuckle.SharedDatabase.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Create(UserCreateDto dto, CancellationToken cancellationToken = default)
         {
-            var newUser = new User
-            {
-                Email = dto.Email,
-                Username = dto.Username,
-                Roles = dto.Roles.Select(CreateRole).ToList(),
-            };
-            _userRepository.Add(newUser);
-            await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newUser.Id;
+            // TODO: Implement Create (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> FindById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find User {id}");
-            }
-            return element.MapToUserDto(_mapper);
+            // TODO: Implement FindById (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<UserDto>> FindAll(CancellationToken cancellationToken = default)
         {
-            var elements = await _userRepository.FindAllAsync(cancellationToken);
-            return elements.MapToUserDtoList(_mapper);
+            // TODO: Implement FindAll (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Put(Guid id, UserUpdateDto dto, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingUser is null)
-            {
-                throw new NotFoundException($"Could not find User {id}");
-            }
-            existingUser.Email = dto.Email;
-            existingUser.Username = dto.Username;
-            existingUser.Roles = UpdateHelper.CreateOrUpdateCollection(existingUser.Roles, dto.Roles, (e, d) => e.Id == d.Id, CreateOrUpdateRole);
+            // TODO: Implement Put (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<UserDto> Delete(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingUser = await _userRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingUser is null)
-            {
-                throw new NotFoundException($"Could not find User {id}");
-            }
-            _userRepository.Remove(existingUser);
-            return existingUser.MapToUserDto(_mapper);
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private Role CreateRole(CreateUserRoleDto dto)
-        {
-            return new Role
-            {
-                Name = dto.Name,
-            };
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static Role CreateOrUpdateRole(Role? entity, UpdateUserRoleDto dto)
-        {
-            if (dto == null)
-            {
-                return null;
-            }
-
-            entity ??= new Role();
-            entity.Name = dto.Name;
-            entity.UserId = dto.UserId;
-
-            return entity;
+            // TODO: Implement Delete (UsersService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
     }
 }

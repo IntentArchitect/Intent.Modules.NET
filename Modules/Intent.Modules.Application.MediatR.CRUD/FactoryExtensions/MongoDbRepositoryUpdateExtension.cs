@@ -4,9 +4,11 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 

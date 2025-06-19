@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Intent.Modules.Application.DomainInteractions.Extensions;
 
 namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 {
@@ -37,6 +38,10 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public bool IsMatch()
         {
+            if (_template.Model.HasDomainInteractions())
+            {
+                return false;
+            }
             if (_template.Model.TypeReference.Element == null || 
                 !_template.Model.TypeReference.IsCollection || 
                 !_template.Model.HasStereotype(ODataQueryStereoType))

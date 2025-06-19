@@ -3,19 +3,27 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MassTransit.RabbitMQ.Application.Common.Eventing;
+using MassTransit.RabbitMQ.Application.Interfaces.NamingOverrides;
+using MassTransit.RabbitMQ.Application.NamingOverrides.SendFromEventHandler;
 using MassTransit.RabbitMQ.Services.NamingOverrides;
+using MediatR;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Eventing.MassTransit.IntegrationEventHandler", Version = "1.0")]
 
 namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.NamingOverrides
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    [IntentManaged(Mode.Fully, Body = Mode.Fully)]
     public class StandardMessageCustomSubscribeHandler : IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>
     {
-        [IntentManaged(Mode.Merge)]
-        public StandardMessageCustomSubscribeHandler()
+        private readonly ISender _mediator;
+        private readonly IInvokedFromEventHandlerService _invokedFromEventHandlerService;
+        [IntentManaged(Mode.Fully)]
+        public StandardMessageCustomSubscribeHandler(ISender mediator,
+            IInvokedFromEventHandlerService invokedFromEventHandlerService)
         {
+            _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+            _invokedFromEventHandlerService = invokedFromEventHandlerService;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -23,6 +31,9 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             StandardMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
+            var command = new SendFromEventHandlerCommand(message: message.Message);
+
+            await _mediator.Send(command, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -30,6 +41,7 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             OverrideMessageStandardSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
+            await _invokedFromEventHandlerService.Operation(message.Message, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

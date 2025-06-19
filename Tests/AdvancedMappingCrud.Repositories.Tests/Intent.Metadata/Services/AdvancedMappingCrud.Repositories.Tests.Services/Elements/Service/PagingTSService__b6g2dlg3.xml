@@ -42,6 +42,10 @@
       <parentFolderId>e331b493-cbf4-4382-bb04-c9cffa09a351</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -115,6 +119,10 @@
       <parentFolderId>e331b493-cbf4-4382-bb04-c9cffa09a351</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -201,6 +209,10 @@
       <parentFolderId>e331b493-cbf4-4382-bb04-c9cffa09a351</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -365,6 +377,10 @@
       <parentFolderId>e331b493-cbf4-4382-bb04-c9cffa09a351</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -470,6 +486,10 @@
       <parentFolderId>e331b493-cbf4-4382-bb04-c9cffa09a351</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

@@ -139,12 +139,14 @@ Your response MUST include:
 - If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
 - No FluentValidations happen inside of the handlers so don't test for that.
 
-## Code Preservation Requirements (CRITICAL)
+## Code Preservation Rules (CRITICAL)
 1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
 2. **NEVER change existing method signatures or implementations**
 3. **ONLY add new members when necessary (repository methods)**
-4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code**
-5. **Don't add comments to existing code**
+4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code (CRITICAL)**
+5. **NEVER add comments to existing code**
+6. **NEVER remove any existing using clauses (CRITICAL)**
+7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
 
 ## Additional User Context (Optional)
 {{{{$userProvidedContext}}}}
@@ -197,6 +199,8 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
 
+        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.Entities.NotFoundException"));
@@ -204,7 +208,20 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
 
         return inputFiles;
     }
-   
+
+    private IEnumerable<ICanBeReferencedType> GetRelatedDomainEntities(IElement element)
+    {
+        var queriedEntity = element.AssociatedElements.FirstOrDefault(x => x.TypeReference.Element != null)?.TypeReference.Element.AsClassModel();
+        if (queriedEntity == null)
+        {
+            return [];
+        }
+        var relatedClasses = new[] { queriedEntity.InternalElement }
+            .Concat(queriedEntity.AssociatedClasses.Select(x => x.TypeReference.Element))
+            .ToList();
+        return relatedClasses;
+    }
+
     private static ChatResponseFormat CreateJsonSchemaFormat()
     {
         return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "movie_result",
@@ -232,13 +249,13 @@ public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
             jsonSchemaIsStrict: true);
     }
 
-    private string GetMockFramework() 
+    private string GetMockFramework()
     {
         var defaultMock = "Moq";
 
         var unitTestGroup = _applicationConfigurationProvider.GetSettings().GetGroup("d62269ea-8e64-44a0-8392-e1a69da7c960");
 
-        if(unitTestGroup is null)
+        if (unitTestGroup is null)
         {
             return defaultMock;
         }

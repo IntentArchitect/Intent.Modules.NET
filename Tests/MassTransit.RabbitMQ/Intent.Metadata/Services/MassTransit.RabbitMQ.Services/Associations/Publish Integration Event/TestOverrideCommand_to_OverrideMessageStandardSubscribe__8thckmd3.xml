@@ -21,6 +21,9 @@
   <targetEnd id="e83da77f-7b5a-438e-9799-1e4fdfc9fe0d" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] OverrideMessageStandardSubscribe</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="2979dcfd-ca39-475d-bc13-f4b78aef4ca7">
       <typeId>21a5aeab-394d-4678-b56c-54ed6389acde</typeId>
       <isNavigable>true</isNavigable>
