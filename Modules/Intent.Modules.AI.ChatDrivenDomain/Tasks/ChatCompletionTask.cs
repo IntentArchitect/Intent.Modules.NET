@@ -124,10 +124,9 @@ public class ChatCompletionTask : IModuleTask
                 Then, implement the user's instructions by calling the appropriate functions.
                 
                 DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
-                """, new OpenAIPromptExecutionSettings()
+                """, new PromptExecutionSettings
                 {
-                    MaxTokens = int.TryParse(_userSettingsProvider.GetAISettings().MaxTokens(), out var maxTokens) ? maxTokens : null,
-                    ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
+                    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
                 });
 
             var result = requestFunction.InvokeAsync(kernel, new KernelArguments
