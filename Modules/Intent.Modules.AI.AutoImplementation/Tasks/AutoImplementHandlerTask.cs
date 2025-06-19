@@ -118,7 +118,7 @@ public class AutoImplementHandlerTask : IModuleTask
                4. **Handler Implementation**: Implement the Handle method using the selected repository methods.
 
                ## Required Output Format
-               Respond ONLY with this JSON structure:
+               Respond ONLY with JSON that matches the following schema:
 
                ```json
                {

@@ -162,7 +162,7 @@ public class GenerateUnitTestsWithAITask : IModuleTask
                The file must have an appropriate path in the appropriate Tests project. 
                Look for a project in the .sln file that would be appropriate and use the following relative path: '{{{string.Join('/', model.GetParentPath().Select(x => x.Name))}}}'.
                
-               **Response Format:** Provide ONLY the JSON response with FileChanges array containing modified files with exact original file paths:
+               **Response Format:** Provide ONLY the JSON response schema with FileChanges array containing modified files with exact original file paths:
                ```json
                {
                    "type": "object",
