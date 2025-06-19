@@ -42,6 +42,9 @@
       <parentFolderId>a5130ebe-8193-4498-be4f-83ae4a19f8f8</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="f40ff84c-68ad-405f-bda0-1237dd15fc92" name="Stored Procedure">
           <addedByDefault>false</addedByDefault>
@@ -113,6 +116,9 @@
       <parentFolderId>a5130ebe-8193-4498-be4f-83ae4a19f8f8</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="f40ff84c-68ad-405f-bda0-1237dd15fc92" name="Stored Procedure">
           <addedByDefault>false</addedByDefault>

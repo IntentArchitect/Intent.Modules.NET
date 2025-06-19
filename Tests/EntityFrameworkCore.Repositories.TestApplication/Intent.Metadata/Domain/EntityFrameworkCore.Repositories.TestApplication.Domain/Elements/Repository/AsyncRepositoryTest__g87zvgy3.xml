@@ -37,6 +37,9 @@
       <parentFolderId>32216cce-7ef2-48b2-a8aa-f7d7c29e103b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="F8E749E2-426F-4E0A-AD03-86BFFE122740" name="Asynchronous">
           <addedByDefault>false</addedByDefault>

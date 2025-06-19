@@ -43,6 +43,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -76,6 +79,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -109,6 +115,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -142,6 +151,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -175,6 +187,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -208,6 +223,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -241,6 +259,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -274,6 +295,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -304,6 +328,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -334,6 +361,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -368,6 +398,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -440,6 +473,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -512,6 +548,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -584,6 +623,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -656,6 +698,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -728,6 +773,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -800,6 +848,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -872,6 +923,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -941,6 +995,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1010,6 +1067,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1082,6 +1142,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1191,6 +1254,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1300,6 +1366,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1409,6 +1478,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1518,6 +1590,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1627,6 +1702,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1736,6 +1814,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1845,6 +1926,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -1951,6 +2035,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -2057,6 +2144,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -2162,6 +2252,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2186,6 +2279,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2210,6 +2306,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2234,6 +2333,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2258,6 +2360,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2279,6 +2384,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2303,6 +2411,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2327,6 +2438,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2351,6 +2465,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2375,6 +2492,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -2397,6 +2517,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2447,6 +2570,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2497,6 +2623,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2547,6 +2676,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2597,6 +2729,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2644,6 +2779,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2694,6 +2832,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2744,6 +2885,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2794,6 +2938,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2844,6 +2991,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2891,6 +3041,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -2989,6 +3142,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3087,6 +3243,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3185,6 +3344,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3283,6 +3445,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3378,6 +3543,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3476,6 +3644,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3574,6 +3745,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3672,6 +3846,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -3770,6 +3947,9 @@
       <parentFolderId>dc21ece7-57fc-4676-a1dd-79a06f31072b</parentFolderId>
       <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
       <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
