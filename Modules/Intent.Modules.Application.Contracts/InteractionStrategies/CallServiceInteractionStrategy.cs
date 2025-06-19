@@ -23,7 +23,7 @@ public class CallServiceInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        return interaction.IsPerformInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType == "Operation"
+        return interaction.IsPerformInvocationTargetEndModel() && interaction.TypeReference.Element.SpecializationType is "Operation" or "Stored Procedure"
             && ((IElement)interaction.TypeReference.Element).ParentElement.SpecializationType != "Class"; // This check is a smell. Would rather check for traits?
     }
 

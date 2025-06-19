@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#3822aa2b-a0f7-4b71-b99e-0536361d1524</correlationId>
-      <path>MassTransit.RabbitMQ.Application/Implementation/Animals/AnimalsService.cs</path>
-      <count>2</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-13T07:29:46.557332Z</updatedAt>
-      <deviationsHash>76C81CDA6B5C97A8B67C41CA42B5BE9C394F70C79CE49A9AE91C7672C29F8147</deviationsHash>
-      <fileHash>29E81DD9FF9277577CA813A7227F2F5198E17BFFA3B472A76CB1A94895439B40</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#5d2c6008-6d5e-4892-a53f-4de2c4625916</correlationId>
       <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</path>
       <count>4</count>
@@ -29,7 +19,7 @@
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2025-06-13T07:29:46.5573997Z</updatedAt>
       <deviationsHash>71E3D80AB36AD34DCA11B86FA2997F91F073CD2A2E08CEA3B93C081220432FFA</deviationsHash>
-      <fileHash>1A6BC87BE2E9790568BE5DEEE8B967CCE1DE16DB02C30C1D69F7E29D757353FB</fileHash>
+      <fileHash>5FF062131E8950B89BB43BFF6FDF3C97693D08BEE3641746AB9EE3D1FFCEC12B</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</correlationId>

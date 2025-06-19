@@ -17,13 +17,10 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
     public class StandardMessageCustomSubscribeHandler : IIntegrationEventHandler<StandardMessageCustomSubscribeEvent>, IIntegrationEventHandler<OverrideMessageStandardSubscribeEvent>, IIntegrationEventHandler<OverrideMessageCustomSubscribeEvent>
     {
         private readonly ISender _mediator;
-        private readonly IInvokedFromEventHandlerService _invokedFromEventHandlerService;
         [IntentManaged(Mode.Fully)]
-        public StandardMessageCustomSubscribeHandler(ISender mediator,
-            IInvokedFromEventHandlerService invokedFromEventHandlerService)
+        public StandardMessageCustomSubscribeHandler(ISender mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _invokedFromEventHandlerService = invokedFromEventHandlerService;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -41,7 +38,6 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             OverrideMessageStandardSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
-            await _invokedFromEventHandlerService.Operation(message.Message, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

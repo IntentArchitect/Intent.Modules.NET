@@ -43,8 +43,6 @@ namespace MassTransit.RabbitMQ.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
-            services.AddTransient<IAnimalsService, AnimalsService>();
-            services.AddTransient<IInvokedFromEventHandlerService, InvokedFromEventHandlerService>();
             services.AddTransient<IIntegrationEventHandler<OrderAnimal>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<MakeSoundCommand>, CatchAllHandler>();
             services.AddTransient<IIntegrationEventHandler<CreatePersonIdentity>, CatchAllHandler>();
