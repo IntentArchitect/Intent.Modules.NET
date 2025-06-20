@@ -19,14 +19,10 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class ProductsService : IProductsService
     {
-        private readonly IProductRepository _productRepository;
-        private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProductsService()
         {
-            _productRepository = productRepository;
-            _mapper = mapper;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
