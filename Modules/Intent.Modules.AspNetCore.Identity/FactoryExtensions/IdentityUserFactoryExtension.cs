@@ -66,7 +66,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 file.AddUsing("Microsoft.AspNetCore.Identity");
-                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClass()}>");
+                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClasses()}>");
 
                 // Users Exists on the base class already
                 if (identityModel != null && identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase))                    

@@ -30,7 +30,6 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 
         public void OnInstall()
         {
-            Debugger.Launch();
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
 
