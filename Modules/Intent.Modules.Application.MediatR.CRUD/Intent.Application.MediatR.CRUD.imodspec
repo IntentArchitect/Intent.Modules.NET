@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD</id>
   <version>7.0.0-alpha.0</version>
@@ -18,8 +18,8 @@
     <factoryExtension id="Intent.Application.MediatR.CRUD.MongoDbRepositoryUpdateExtension" externalReference="6c06fe9e-d240-49c9-b664-cca3bbabad1a" />
   </factoryExtensions>
   <dependencies>
-    <dependency id="Intent.Application.MediatR" version="4.2.0" />
     <dependency id="Intent.Application.DomainInteractions" version="1.0.0-alpha.0" />
+    <dependency id="Intent.Application.MediatR" version="4.2.0" />
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.10" />
     <dependency id="Intent.Common.Types" version="4.0.0" />

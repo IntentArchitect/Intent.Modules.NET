@@ -1,5 +1,9 @@
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
+using Intent.Modules.Application.DomainInteractions.Extensions;
+using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Application.MediatR.CRUD.CrudMappingStrategies;
 using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Settings;
@@ -7,16 +11,12 @@ using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping.Resolvers;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Eventing.Contracts.InteractionStrategies;
 using Intent.RoslynWeaver.Attributes;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
-using System.Linq;
-using Intent.Modelers.Services.DomainInteractions.Api;
-using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
-using Intent.Modules.Common.CSharp.Mapping.Resolvers;
-using Intent.Modules.Application.DomainInteractions.Extensions;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateDecorator", Version = "1.0")]

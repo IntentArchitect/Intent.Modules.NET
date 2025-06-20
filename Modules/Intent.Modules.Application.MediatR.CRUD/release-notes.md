@@ -1,17 +1,17 @@
-### Version 7.0.0
+﻿### Version 7.0.0
 
 - Improvement: Upgraded to support implentations of interactions using the new interaction strategy mechanism.
 
-  > [!NOTE]
-  >
-  > This module will no longer support the implementation of Commands and Queries based purely on naming conventions.
+> ⚠️ **WARNING**
+>
+> This module will no longer support the implementation of Commands and Queries based purely on naming conventions.
 	
 ### Version 6.0.31
 
 - Improvement: Replaced the `System.Linq.Dynamic.Core` using clause with `static System.Linq.Dynamic.Core.DynamicQueryableExtensions` to better disambiguate `PagedResult`.
-  > [!NOTE]
-  >
-  > Intent Architect should automatically remove the using clause `System.Linq.Dynamic.Core`, provided you have previously run the **Software Factory**. If it is not automatically removed simply remove it.
+> **NOTE**
+>
+> Intent Architect should automatically remove the using clause `System.Linq.Dynamic.Core`, provided you have previously run the **Software Factory**. If it is not automatically removed simply remove it.
   
 - Improvement: Improved code generated when using a literal as a query filter
 - Fixed: CRUD implementations where failing in some circumstances with reserved words.
@@ -53,11 +53,11 @@
 
 - Fixed: For certain persistence technologies generated filter methods incorrectly used the concrete type of the entity as opposed to the document interface type resulting in un-compilable code.
 
-  > [!NOTE]
-  >
-  > The corresponding module updates for the persistence technology will also need to be installed in order for the fix to be fully applied:
-  >
-  > - **Intent.CosmosDB**: 1.2.8
+> **NOTE**
+>
+> The corresponding module updates for the persistence technology will also need to be installed in order for the fix to be fully applied:
+>
+> - **Intent.CosmosDB**: 1.2.8
 
 ### Version 6.0.22
 
