@@ -65,6 +65,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             dbContextTemplate.CSharpFile.AfterBuild(file =>
             {
                 var @class = file.Classes.First();
+                file.AddUsing("Microsoft.AspNetCore.Identity");
                 @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClass()}>");
 
                 // Users Exists on the base class already

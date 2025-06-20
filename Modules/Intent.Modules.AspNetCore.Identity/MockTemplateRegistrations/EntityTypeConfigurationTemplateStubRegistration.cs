@@ -28,11 +28,11 @@ namespace Intent.Modules.AspNetCore.Identity.MockTemplateRegistrations
         {
             var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
             //Want the template to construct for CRUD inspection but not to actually run
+            result.CanRun = false;
             result.CSharpFile.AfterBuild(file =>
             {
                 file.Template.CanRun = false;
             }, 100);
-            result.CSharpFile.WithNamespace("Microsoft.AspNetCore.Identity.EntityFramework");
             return result;
         }
 
@@ -43,7 +43,9 @@ namespace Intent.Modules.AspNetCore.Identity.MockTemplateRegistrations
 
             var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
 
-            return models.Select(p => p.ParentElement.AsClassModel());
+            return models.Select(p => p.ParentElement.AsClassModel()).Where(m => m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
+            m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
+            m.Name == "IdentityUserLogin");
             //return models;
         }
     }
