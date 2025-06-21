@@ -1,3 +1,7 @@
+### Version 4.0.15
+
+- Fixed: Using casing convention other than Pascal Case resulted in incorrectly generated Automapper mapping profiles.
+
 ### Version 4.0.14
 
 - Improvement: Added support for `Profile location` setting.
@@ -12,7 +16,7 @@
 
 ### Version 4.0.11
 
-- Fixed: Mapping profiles for attributes on generalized _Domain Data Contract_ types would gave `.Base` in their path.
+- Fixed: Mapping profiles for attributes on generalized _Domain Data Contract_ types would give `.Base` in their path.
 
 ### Version 4.0.10
 
@@ -29,7 +33,7 @@
 
 ### Version 4.0.7
 
-- Fixed: Mappings adding castings for expression based mapping paths, sometimes cause expression to break. Removed the casting in these scenarios.
+- Fixed: Mappings adding castings for expression-based mapping paths, sometimes cause the expression to break. Removed the casting in these scenarios.
 
 ### Version 4.0.6
 
@@ -56,8 +60,8 @@
 
 ### Version 3.3.6
 
-- Fixed: Mapping from a DTO field that is of a complex type to a Domain Entity association that is also of Complex type no longer results in trying to map a surrogate key to the DTO Field.
+- Fixed: Mapping from a DTO field that is of a complex type to a Domain Entity association that is also of a Complex type no longer results in trying to map a surrogate key to the DTO Field.
 
 ### Version 3.3.4
 
-- New: DTO Field mappings that map from an Entity on an association level can now be mapped to a primitive type that represents a surrogate key and it will automatically map the Ids.
+- New: DTO Field mappings that map from an Entity on an association level can now be mapped to a primitive type that represents a surrogate key, and it will automatically map the Ids.
