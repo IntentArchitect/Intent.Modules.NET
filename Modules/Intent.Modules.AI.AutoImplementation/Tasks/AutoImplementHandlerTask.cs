@@ -18,6 +18,8 @@ using Newtonsoft.Json;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
+#nullable enable
+
 public class AutoImplementHandlerTask : IModuleTask
 {
     private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
@@ -49,6 +51,8 @@ public class AutoImplementHandlerTask : IModuleTask
     public string TaskTypeId => "Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt";
     public string TaskTypeName => "Auto-Implementation with AI Task";
     public int Order => 0;
+    
+    private const int MaxAttempts = 3;
 
     public string Execute(params string[] args)
     {
@@ -69,15 +73,30 @@ public class AutoImplementHandlerTask : IModuleTask
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
-        var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
-        {
-            ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext
-        }).Result;
 
-        var aiResponse = result.ToString();
-        var sanitizedAiResponse = aiResponse.Substring(aiResponse.IndexOf("```", StringComparison.Ordinal)).Replace("```json", "").Replace("```", "");
-        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(sanitizedAiResponse);
+        FileChangesResult? fileChangesResult = null;
+        var previousError = string.Empty;
+        
+        for (var i = 0; i < MaxAttempts; i++) {
+            var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
+            {
+                ["inputFilesJson"] = jsonInput,
+                ["userProvidedContext"] = userProvidedContext,
+                ["previousError"] = previousError
+            }).Result;
+
+            if (TryGetFileChangesResult(result, out fileChangesResult))
+            {
+                break;
+            }
+
+            previousError = "The previous prompt execution failed. You need to return ONLY the JSON response in the defined schema format!";
+        }
+
+        if (fileChangesResult is null)
+        {
+            throw new Exception("AI Prompt failed to return a valid response.");
+        }
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -90,8 +109,47 @@ public class AutoImplementHandlerTask : IModuleTask
         return "success";
     }
 
+    /// <summary>
+    /// AI Models / APIs that doesn't support JSON Schema Formatting (like OpenAI) will not completely give you a "clean result".
+    /// This will attempt to cut through the thoughts it writes out to get to the payload.
+    /// </summary>
+    private static bool TryGetFileChangesResult(FunctionResult aiInvocationResponse, [NotNullWhen(true)] out FileChangesResult? fileChanges)
+    {
+        try
+        {
+            var textResponse = aiInvocationResponse.ToString();
+            string payload;
+            var jsonMarkdownStart = textResponse.IndexOf("```", StringComparison.Ordinal);
+            if (jsonMarkdownStart < 0)
+            {
+                // Assume AI didn't respond with ``` wrappers.
+                // JSON Deserializer will pick up if it is not valid.
+                payload = textResponse;
+            }
+            else
+            {
+                var sanitized = textResponse.Substring(jsonMarkdownStart).Replace("```json", "").Replace("```", "");
+                payload = sanitized;
+            }
 
-    private string GetPromptTemplate(IElement model)
+            var fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(payload);
+            if (fileChangesResult is null)
+            {
+                fileChanges = null;
+                return false;
+            }
+
+            fileChanges = fileChangesResult;
+            return true;
+        }
+        catch
+        {
+            fileChanges = null;
+            return false;
+        }
+    }
+
+    private static string GetPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
         var prompt =
@@ -146,6 +204,9 @@ public class AutoImplementHandlerTask : IModuleTask
 
                ## Input Code Files:
                {{$inputFilesJson}}
+               
+               ## Previous Error Message:
+               {{$previousError}}
 
                ## CRITICAL CONSTRAINTS - NEVER VIOLATE:
                1. **Architecture Violations:** NEVER use Queryable() or access DbContext directly from handlers.

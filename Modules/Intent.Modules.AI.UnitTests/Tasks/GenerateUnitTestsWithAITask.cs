@@ -17,6 +17,8 @@ using Newtonsoft.Json;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
+#nullable enable
+
 public class GenerateUnitTestsWithAITask : IModuleTask
 {
     private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
@@ -48,6 +50,8 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     public string TaskTypeId => "Intent.Modules.AI.UnitTests.Generate";
     public string TaskTypeName => "Auto-Implement Unit Tests with AI Task";
     public int Order => 0;
+    
+    private const int MaxAttempts = 3;
 
     public string Execute(params string[] args)
     {
@@ -66,15 +70,30 @@ public class GenerateUnitTestsWithAITask : IModuleTask
 
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
-        var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
-        {
-            ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext
-        }).Result;
+        
+        FileChangesResult? fileChangesResult = null;
+        var previousError = string.Empty;
+        
+        for (var i = 0; i < MaxAttempts; i++) {
+            var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
+            {
+                ["inputFilesJson"] = jsonInput,
+                ["userProvidedContext"] = userProvidedContext,
+                ["previousError"] = previousError
+            }).Result;
 
-        var aiResponse = result.ToString();
-        var sanitizedAiResponse = aiResponse.Substring(aiResponse.IndexOf("```", StringComparison.Ordinal)).Replace("```json", "").Replace("```", "");
-        FileChangesResult fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(sanitizedAiResponse);
+            if (TryGetFileChangesResult(result, out fileChangesResult))
+            {
+                break;
+            }
+
+            previousError = "The previous prompt execution failed. You need to return ONLY the JSON response in the defined schema format!";
+        }
+
+        if (fileChangesResult is null)
+        {
+            throw new Exception("AI Prompt failed to return a valid response.");
+        }
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -87,11 +106,51 @@ public class GenerateUnitTestsWithAITask : IModuleTask
         return "success";
     }
 
+    /// <summary>
+    /// AI Models / APIs that doesn't support JSON Schema Formatting (like OpenAI) will not completely give you a "clean result".
+    /// This will attempt to cut through the thoughts it writes out to get to the payload.
+    /// </summary>
+    private static bool TryGetFileChangesResult(FunctionResult aiInvocationResponse, [NotNullWhen(true)] out FileChangesResult? fileChanges)
+    {
+        try
+        {
+            var textResponse = aiInvocationResponse.ToString();
+            string payload;
+            var jsonMarkdownStart = textResponse.IndexOf("```", StringComparison.Ordinal);
+            if (jsonMarkdownStart < 0)
+            {
+                // Assume AI didn't respond with ``` wrappers.
+                // JSON Deserializer will pick up if it is not valid.
+                payload = textResponse;
+            }
+            else
+            {
+                var sanitized = textResponse.Substring(jsonMarkdownStart).Replace("```json", "").Replace("```", "");
+                payload = sanitized;
+            }
+
+            var fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(payload);
+            if (fileChangesResult is null)
+            {
+                fileChanges = null;
+                return false;
+            }
+
+            fileChanges = fileChangesResult;
+            return true;
+        }
+        catch
+        {
+            fileChanges = null;
+            return false;
+        }
+    }
 
     private string GetTestPromptTemplate(IElement model)
     {
         var targetFileName = model.Name + "Handler";
         var mockFramework = GetMockFramework();
+        var relativePath = string.Join('/', model.GetParentPath().Select(x => x.Name));
 
         var prompt =
             $$$"""
@@ -159,7 +218,7 @@ public class GenerateUnitTestsWithAITask : IModuleTask
                
                ## Output Format (CRITICAL - FOLLOW EXACTLY)
                The file must have an appropriate path in the appropriate Tests project. 
-               Look for a project in the .sln file that would be appropriate and use the following relative path: '{{{string.Join('/', model.GetParentPath().Select(x => x.Name))}}}'.
+               Look for a project in the .sln file that would be appropriate and use the following relative path: '{{{relativePath}}}'.
                
                **Response Format:** Provide ONLY the JSON response schema with FileChanges array containing modified files with exact original file paths:
                ```json
@@ -183,6 +242,9 @@ public class GenerateUnitTestsWithAITask : IModuleTask
                    "additionalProperties": false
                }
                ```
+               
+               ## Previous Error Message:
+               {{$previousError}}
                """;
         return prompt;
     }
