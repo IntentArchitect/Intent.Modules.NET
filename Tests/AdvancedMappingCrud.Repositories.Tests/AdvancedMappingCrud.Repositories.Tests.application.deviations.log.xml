@@ -41,44 +41,18 @@
       <fileHash>930B6A5324268DAFDDBA5F417AA411354EAB497CD9773EA3DE8C4BC6B8F04374</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#9a33e1cf-bc8a-474f-b331-40a1a6fcc4f8</correlationId>
-      <path>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/Customers/PersonService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T14:42:21.0697715Z</updatedAt>
-      <deviationsHash>1BB770F4599607D51C6357A94E5031180C2A6420B9639F3DDDAC45B23A4271FA</deviationsHash>
-      <fileHash>BEBB1D7D3861F1BA6F26EC5426A81BED62AE808E20577976D503C7970DEA51C9</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#d05c0654-f4d8-43a4-a732-735ffbd27724</correlationId>
       <path>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/UploadDownloadService.cs</path>
       <count>2</count>
       <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2025-06-12T14:42:21.069791Z</updatedAt>
+      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
+      <approvedAt>2025-06-21T06:18:34.0161831Z</approvedAt>
+      <notes><![CDATA[After discussing with Joel, this is a custom implementation. It is questionable whether we should have custom implementations here in our tests unless they are for integration testing.]]></notes>
       <deviationsHash>2CEA38D38F5F02EC2E6258ABA9487E0325B076CFCE35053327B231529B9A9EEC</deviationsHash>
       <fileHash>F6131E472DD3DD31B5B44399504A0B51F4CF01A0F21BE93C8A2DE0CF289FC4E4</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#3c699a99-95bd-4bc7-aaa4-4203295be61d</correlationId>
-      <path>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/Customers/QuoteCreatedIntegrationEventHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T14:42:21.0698194Z</updatedAt>
-      <deviationsHash>0C53D407B04CF64F4217346CAC6D867036EC32DDFEFF6A0CC3520AA3034A4B49</deviationsHash>
-      <fileHash>5ADA23F468A3F516D71B975C250C89B1F958F3EFF9F2A401E575C356600212AD</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#a4478a42-c884-4cb8-9059-a2587efd044b</correlationId>
-      <path>AdvancedMappingCrud.Repositories.Tests.Application/IntegrationEvents/EventHandlers/EnumMessage/EnumSampleHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T14:42:21.0698147Z</updatedAt>
-      <deviationsHash>62C7E88D4A71D4F848421364B7A0EC1A89EACE14BBB737D513A80F69948859D3</deviationsHash>
-      <fileHash>6CE443649E46A0B8AFED190F8ECC8DC57435110B9FD8E150E437F29379AC0E28</fileHash>
     </file>
   </files>
 </deviationsLog>
