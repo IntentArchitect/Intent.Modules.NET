@@ -38,10 +38,12 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
                         method.Static();
                         method.AddParameter("IConfigurationBuilder", "builder", parm => parm.WithThisModifier());
                         method.AddParameter("IConfiguration", "configuration");
-                        method.AddStatement($@"var credential = GetTokenCredential(configuration);");
-                        method.AddIfStatement(@"string.IsNullOrWhiteSpace(configuration[""KeyVault:Endpoint""])", block => block
-                            .AddStatement(@"throw new InvalidOperationException(""Configuration 'KeyVault:Endpoint' is not set"");"));
-                        method.AddStatement(@"builder.AddAzureKeyVault(new Uri(configuration[""KeyVault:Endpoint""]), credential);");
+                        method.AddStatement("var credential = GetTokenCredential(configuration);");
+                        method.AddStatement("var endpoint = configuration[\"KeyVault:Endpoint\"];");
+
+                        method.AddIfStatement("string.IsNullOrWhiteSpace(endpoint)", block => block
+                            .AddStatement("""throw new InvalidOperationException("Configuration 'KeyVault:Endpoint' is not set");"""));
+                        method.AddStatement("builder.AddAzureKeyVault(new Uri(endpoint), credential);");
                     });
                     @class.AddMethod("TokenCredential", "GetTokenCredential", method =>
                     {
@@ -49,24 +51,28 @@ namespace Intent.Modules.Azure.KeyVault.Templates.AzureKeyVaultConfiguration
                         method.Private();
                         method.AddParameter("IConfiguration", "configuration");
 
-                        method.AddIfStatement(@"
-!string.IsNullOrWhiteSpace(configuration[""KeyVault:TenantId""]) &&
-!string.IsNullOrWhiteSpace(configuration[""KeyVault:ClientId""]) &&
-!string.IsNullOrWhiteSpace(configuration[""KeyVault:Secret""])", stmt => stmt
-                            .AddStatements(@"
-// Manually specify the connection details for Azure Key Vault.
-// Its recommended to store the 'Secret' inside the .NET User Secret's secrets.json file.
-return new ClientSecretCredential(configuration[""KeyVault:TenantId""], configuration[""KeyVault:ClientId""], configuration[""KeyVault:Secret""]);"));
+                        method.AddIfStatement("""
+                                              !string.IsNullOrWhiteSpace(configuration["KeyVault:TenantId"]) &&
+                                              !string.IsNullOrWhiteSpace(configuration["KeyVault:ClientId"]) &&
+                                              !string.IsNullOrWhiteSpace(configuration["KeyVault:Secret"])
+                                              """, stmt => stmt
+                            .AddStatements("""
+                                           // Manually specify the connection details for Azure Key Vault.
+                                           // Its recommended to store the 'Secret' inside the .NET User Secret's secrets.json file.
+                                           return new ClientSecretCredential(configuration["KeyVault:TenantId"], configuration["KeyVault:ClientId"], configuration["KeyVault:Secret"]);
+                                           """));
 
-                        method.AddIfStatement(@"!string.IsNullOrWhiteSpace(configuration[""KeyVault:ClientId""])", stmt => stmt
+                        method.AddIfStatement("""!string.IsNullOrWhiteSpace(configuration["KeyVault:ClientId"])""", stmt => stmt
                             .AddStatement("// Connect to Azure Key Vault using the configured App Client Id.")
                             .AddInvocationStatement("return new DefaultAzureCredential", stmt => stmt
                                 .AddArgument(new CSharpObjectInitializerBlock("new DefaultAzureCredentialOptions")
-                                    .AddInitStatement("ManagedIdentityClientId", @"configuration[""KeyVault:ClientId""]"))));
+                                    .AddInitStatement("ManagedIdentityClientId", """configuration["KeyVault:ClientId"]"""))));
 
-                        method.AddStatements(@"
-// Use the default discovery mechanisms to connect to Azure Key Vault.
-return new DefaultAzureCredential();");
+                        method.AddStatements("""
+
+                                             // Use the default discovery mechanisms to connect to Azure Key Vault.
+                                             return new DefaultAzureCredential();
+                                             """);
                     });
                 });
         }

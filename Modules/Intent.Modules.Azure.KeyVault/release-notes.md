@@ -1,3 +1,7 @@
+### Version 2.0.10
+
+- Fixed: The generated `AzureKeyVaultConfiguration.cs` file would cause compilation warning of a possible null reference exception.
+
 ### Version 2.0.9
 
 - Improvement: Updated NuGet package versions.
