@@ -93,16 +93,16 @@ foreach ($info in $moduleSpecifications) {
         PrintError $info.FilePath "Description not set"
     }
 
-    $obsoleteDependencies = $info.Dependencies | Where-Object { $moduleSpecificationsById.ContainsKey($_.Id) -and $moduleSpecificationsById[$_.Id].IsObsolete }
-    if ($obsoleteDependencies) {
-        PrintError $info.FilePath "Contains obsolete dependencies: $($obsoleteDependencies.Id -join ', ')"
-    }
-
     if ($null -eq $info.Version) {
         PrintError $info.FilePath "Does not have a version specified"
     }
 
     if ($null -ne $info.Dependencies) {
+        $obsoleteDependencies = $info.Dependencies | Where-Object { $moduleSpecificationsById.ContainsKey($_.Id) -and $moduleSpecificationsById[$_.Id].IsObsolete }
+        if ($obsoleteDependencies) {
+            PrintError $info.FilePath "Contains obsolete dependencies: $($obsoleteDependencies.Id -join ', ')"
+        }
+
         $missingVersions = @($info.Dependencies | Where-Object { $_.Version -eq $null })
         if ($missingVersions.Count -gt 0) {
             PrintError $info.FilePath "Has dependencies with missing versions: $($missingVersions.Id -join ', ')"
@@ -153,3 +153,5 @@ foreach ($path in $moduleConfigPaths) {
 if ($global:hasError) {
     exit -1;
 }
+
+exit 0
