@@ -71,7 +71,7 @@ namespace CleanArchitecture.Comprehensive.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified PagedResult&lt;PersonEntryDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpGet("api/pagination/nullable-firstname/{firstName}")]
+        [HttpGet("api/pagination/nullable-firstname/{firstName?}")]
         [ProducesResponseType(typeof(PagedResult<PersonEntryDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

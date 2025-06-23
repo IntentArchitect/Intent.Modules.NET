@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="df86d478-5199-4c38-886d-5e33465d89fd" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>NullableRouteParameterService</name>
+  <display>NullableRouteParameterService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>302a61df-b9a8-4cb7-bd5c-bd1b8d693a64</parentFolderId>
+  <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+  <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+  </traits>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+      <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+      <properties>
+        <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/nullable-route-parameter" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b1b5b0b2-78cd-4bec-bcd6-fbec5a00e55e" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>RoutedOperation</name>
+      <display>RoutedOperation(nullableString: string?, nullableInt: int?, nullableEnum: NullableRouteParameterEnum?): void</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="78cac2c8-c3ad-47b2-a8b3-2142eca40ce5">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>df86d478-5199-4c38-886d-5e33465d89fd</parentFolderId>
+      <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.WebApi</definitionPackageName>
+          <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
+          <properties>
+            <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
+            <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="non-routed-operation/{nullableString}/{nullableInt}/{nullableEnum}" isActive="true" />
+            <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
+            <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="cfa7ae58-e5ac-443f-ac9d-53d199ad1b05" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>nullableString</name>
+          <display>in : nullableString: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fa748282-0c22-421b-bff9-220c8a52e3f5">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b1b5b0b2-78cd-4bec-bcd6-fbec5a00e55e</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="72005255-106f-49ac-8fd5-a3e91bd5a935" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>nullableInt</name>
+          <display>in : nullableInt: int?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d22cb839-013b-477f-9bfe-92aa6f3352fe">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b1b5b0b2-78cd-4bec-bcd6-fbec5a00e55e</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13aa3add-5559-4cfa-85e2-0f8f21a6f5b7" type="Parameter" typeId="00208d20-469d-41cb-8501-768fd5eb796b">
+          <name>nullableEnum</name>
+          <display>in : nullableEnum: NullableRouteParameterEnum?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="465b6d12-8b90-4fec-8426-16f290874db8">
+            <typeId>5e49c869-9a6f-4a7b-b784-375ecc697e94</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>b1b5b0b2-78cd-4bec-bcd6-fbec5a00e55e</parentFolderId>
+          <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
+          <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

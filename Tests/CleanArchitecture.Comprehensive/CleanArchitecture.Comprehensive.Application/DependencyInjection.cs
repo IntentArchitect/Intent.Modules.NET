@@ -3,8 +3,10 @@ using AutoMapper;
 using CleanArchitecture.Comprehensive.Application.Common.Behaviours;
 using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using CleanArchitecture.Comprehensive.Application.Implementation.Comments;
+using CleanArchitecture.Comprehensive.Application.Implementation.NullableRouteParameters;
 using CleanArchitecture.Comprehensive.Application.Implementation.ServiceDispatch;
 using CleanArchitecture.Comprehensive.Application.Interfaces.Comments;
+using CleanArchitecture.Comprehensive.Application.Interfaces.NullableRouteParameters;
 using CleanArchitecture.Comprehensive.Application.Interfaces.ServiceDispatch;
 using CleanArchitecture.Comprehensive.Domain.Services.Async;
 using CleanArchitecture.Comprehensive.Domain.Services.DDD;
@@ -43,6 +45,7 @@ namespace CleanArchitecture.Comprehensive.Application
             services.AddTransient<IDataContractDomainService, DataContractDomainService>();
             services.AddTransient<IDomainServiceWithDefault, DomainServiceWithDefault>();
             services.AddTransient<ICommentTestService, CommentTestService>();
+            services.AddTransient<INullableRouteParameterService, NullableRouteParameterService>();
             services.AddTransient<IServiceDispatchService, ServiceDispatchService>();
             return services;
         }

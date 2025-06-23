@@ -138,7 +138,6 @@ public class ControllerOperationModel : IControllerOperationModel
         Name = httpEndpoint.Name;
         InternalElement = httpEndpoint.InternalElement;
         Verb = httpEndpoint.Verb;
-        Route = httpEndpoint.SubRoute;
         MediaType = httpEndpoint.MediaType;
         RequiresAuthorization = httpEndpoint.RequiresAuthorization;
         AllowAnonymous = httpEndpoint.AllowAnonymous;
@@ -146,6 +145,20 @@ public class ControllerOperationModel : IControllerOperationModel
         Parameters = httpEndpoint.Inputs.Select(GetInput).ToList();
         ApplicableVersions = applicableVersions;
         Controller = controller;
+
+        var routeExpressionParser = new RouteExpressionParser();
+        routeExpressionParser.Parse(httpEndpoint.SubRoute);
+
+        foreach (var parameterModel in Parameters)
+        {
+            var routeParam = routeExpressionParser.GetParameter(parameterModel.Name);
+            if (routeParam is not null)
+            {
+                routeParam.IsOptional = parameterModel.TypeReference.IsNullable;
+            }
+        }
+        
+        Route = routeExpressionParser.BuildRouteExpression();
     }
 
     private static IControllerParameterModel GetInput(IHttpEndpointInputModel model)

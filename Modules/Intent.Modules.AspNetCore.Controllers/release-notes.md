@@ -1,4 +1,8 @@
-﻿### Version 7.1.3
+﻿### Version 7.1.4
+
+- Fixed: For Route Parameters: Setting a Command / Query Field or Service Operation Parameter's property `Is Nullable` to `true` will now produce an ASP.NET Core Route Parameter with `?` symbol. e.g. `/api/resource/{nullableParameter?}`
+
+### Version 7.1.3
 
 - Fixed: The `File too large` error message was incorrectly written as `File to large`.
 
