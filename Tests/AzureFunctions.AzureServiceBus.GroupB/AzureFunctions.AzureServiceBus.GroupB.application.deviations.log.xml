@@ -5,27 +5,27 @@
       <correlationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#36242578-736b-43e2-8f4c-573e0be908b8</correlationId>
       <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T09:08:33.4583808Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-05-29T12:52:05.1660182Z</approvedAt>
-      <deviationsHash>1FC81B0141D0685939607A2157888C4D4154AFBF4664B6C309D06F03ED7EB588</deviationsHash>
-      <fileHash>030BA862E6F5E3E1CE010A9EEE10399A070D97055C26E67FECE3B9CBB3959A7A</fileHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-06-23T15:32:27.4998323Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-06-23T15:44:55.1803528Z</approvedAt>
+      <deviationsHash>B482CFE077B19226094F197651B154CEBA89FA7693FDA50868F353B91784DF05</deviationsHash>
+      <fileHash>E972933FAB2E6F94309A66C871D8150C0DF595000BBBE546000152C3A67F959E</fileHash>
     </file>
     <file>
       <correlationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#f5120547-565a-4e57-b0d7-fe13320fd839</correlationId>
       <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/CreateOrgIntegrationCommandHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T09:08:33.4583891Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-05-29T12:52:10.5303751Z</approvedAt>
-      <deviationsHash>B7BFB60160E906A2E58999C3EBC5E7F229837DCACF426B7111288D2D7562B6B7</deviationsHash>
-      <fileHash>09D7DF3B8C68BE9B69FB5FC0D267BD2BD5DA065D9F611F6F197C386DC3BCF0CF</fileHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-06-23T15:32:27.4998559Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-06-23T15:44:55.1864252Z</approvedAt>
+      <deviationsHash>5779FF1DF9F68F2C7780BD18D9681D6743D1DB6C21B78FC70086756267E79D69</deviationsHash>
+      <fileHash>B0F86DF3AA26AFE7663F0CF762CAD586C34DB5CB049CC515021DB0D22EA3FF8D</fileHash>
     </file>
   </files>
 </deviationsLog>

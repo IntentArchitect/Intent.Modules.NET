@@ -5,13 +5,13 @@
       <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#b20e9df4-1f8d-4297-bc0c-944d873f93e8</correlationId>
       <path>Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/IntegrationEvents/EventHandlers/CustomerCreatedIEHandler.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-05-13T13:47:22.7503662Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2025-05-13T15:19:20.5571274Z</approvedAt>
-      <deviationsHash>7C5C117326CD8615E3CA8715920005154CEE42CBDE5E2271D7A90235C63A9770</deviationsHash>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-06-23T15:34:37.2146099Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-06-23T15:45:42.6166535Z</approvedAt>
+      <deviationsHash>D20033EEFBE11FDFA7544F54958EEE21F974E4EEA86393CF7A27E2AA809496C8</deviationsHash>
       <fileHash>4D3771E4F5B73DF589E44165CE7C7E8A576605EFA200BEA0B5D7B84248EE3990</fileHash>
     </file>
   </files>
