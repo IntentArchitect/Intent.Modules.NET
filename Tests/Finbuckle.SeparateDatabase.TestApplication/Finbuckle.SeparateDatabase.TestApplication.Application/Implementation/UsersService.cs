@@ -1,15 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Interfaces;
 using Finbuckle.SeparateDatabase.TestApplication.Application.Users;
-using Finbuckle.SeparateDatabase.TestApplication.Domain.Common;
-using Finbuckle.SeparateDatabase.TestApplication.Domain.Common.Exceptions;
-using Finbuckle.SeparateDatabase.TestApplication.Domain.Entities;
-using Finbuckle.SeparateDatabase.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

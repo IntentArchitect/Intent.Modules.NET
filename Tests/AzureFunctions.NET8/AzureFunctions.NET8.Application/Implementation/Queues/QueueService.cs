@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AzureFunctions.NET8.Application.Customers;
 using AzureFunctions.NET8.Application.Interfaces.Queues;
-using AzureFunctions.NET8.Domain.Entities;
-using AzureFunctions.NET8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

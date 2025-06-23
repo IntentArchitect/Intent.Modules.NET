@@ -1,14 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using GraphQL.CQRS.TestApplication.Application.Interfaces;
 using GraphQL.CQRS.TestApplication.Application.Products;
-using GraphQL.CQRS.TestApplication.Domain.Common.Exceptions;
-using GraphQL.CQRS.TestApplication.Domain.Entities;
-using GraphQL.CQRS.TestApplication.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

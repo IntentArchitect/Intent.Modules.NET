@@ -1,15 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using DtoSettings.Record.Public.Application.Interfaces;
 using DtoSettings.Record.Public.Application.Invoices;
-using DtoSettings.Record.Public.Domain.Common;
-using DtoSettings.Record.Public.Domain.Common.Exceptions;
-using DtoSettings.Record.Public.Domain.Entities;
-using DtoSettings.Record.Public.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
