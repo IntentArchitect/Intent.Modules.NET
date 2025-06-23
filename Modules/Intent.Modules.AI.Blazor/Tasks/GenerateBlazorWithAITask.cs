@@ -82,63 +82,63 @@ public class GenerateBlazorWithAITask : IModuleTask
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
         const string promptTemplate =
-            $$$"""
-               ## Role and Context
-               You are a senior C# Blazor developer specializing MudBlazor in WASM mode.
+            """
+            ## Role and Context
+            You are a senior C# Blazor developer specializing MudBlazor in WASM mode.
 
-               ## Primary Objective
-               Read and update the provided component `.razor` file, and `.razor.cs` file if necessary, {{$objective}}.
+            ## Primary Objective
+            Read and update the provided component `.razor` file, and `.razor.cs` file if necessary, {{$objective}}.
 
-               ## Code File Modification Rules
-               1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
-               2. You may only create or update the test file
-               3. Add using clauses for code files that you use
-               4. (CRITICAL) Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
-               5. If services to provide data are available, use them.
-               6. If you bind to a field or method from the `.razor` file, you must make sure that the `.razor.cs` file has that code declared. If it doesn't add it appropriately.
-               7. (CRITICAL) CHECK AND ENSURE AND CORRECT all bindings between the `.razor` and `.razor.cs`. The code must compile!
+            ## Code File Modification Rules
+            1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
+            2. You may only create or update the test file
+            3. Add using clauses for code files that you use
+            4. (CRITICAL) Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
+            5. If services to provide data are available, use them.
+            6. If you bind to a field or method from the `.razor` file, you must make sure that the `.razor.cs` file has that code declared. If it doesn't add it appropriately.
+            7. (CRITICAL) CHECK AND ENSURE AND CORRECT all bindings between the `.razor` and `.razor.cs`. The code must compile!
 
-               ## Important Rules
-               * The `.razor.cs` file is the C# backing file for the `.razor` file.
-               * Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
-               * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
-               * ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
-               * NEVER ADD COMMENTS
+            ## Important Rules
+            * The `.razor.cs` file is the C# backing file for the `.razor` file.
+            * Only add razor markup to the `.razor` file. If you want to add C# code, add it to the `.razor.cs` file. Therefore, do NOT add a @code directive to the `.razor` file.
+            * PRESERVE existing code in the `.razor.cs` file. You may add code, but you are not allowed to change the existing code (IMPORTANT) in the .`razor.cs` file!
+            * ONLY IF YOU add any code directives in the `.razor.cs` file, MUST you add an `[IntentIgnore]` attribute to that directive.
+            * NEVER ADD COMMENTS
 
-               ## Input Code Files
-               {{$inputFilesJson}}
+            ## Input Code Files
+            {{$inputFilesJson}}
 
-               ## Additional User Context (Optional)
-               {{$userProvidedContext}}
-               
-               ## Previous Error Message:
-               {{$previousError}}
-               
-               ## Required Output Format
-               Respond ONLY with JSON that matches the following schema:
-               
-               ```json
-               {
-                   "type": "object",
-                   "properties": {
-                       "FileChanges": {
-                           "type": "array",
-                           "items": {
-                               "type": "object",
-                               "properties": {
-                                   "FilePath": { "type": "string" },
-                                   "Content": { "type": "string" }
-                               },
-                               "required": ["FilePath", "Content"],
-                               "additionalProperties": false
-                           }
-                       }
-                   },
-                   "required": ["FileChanges"],
-                   "additionalProperties": false
-               }
-               ```
-               """;
+            ## Additional User Context (Optional)
+            {{$userProvidedContext}}
+
+            ## Previous Error Message:
+            {{$previousError}}
+
+            ## Required Output Format
+            Respond ONLY with JSON that matches the following schema:
+
+            ```json
+            {
+                "type": "object",
+                "properties": {
+                    "FileChanges": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "FilePath": { "type": "string" },
+                                "Content": { "type": "string" }
+                            },
+                            "required": ["FilePath", "Content"],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["FileChanges"],
+                "additionalProperties": false
+            }
+            ```
+            """;
         
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
         return requestFunction;

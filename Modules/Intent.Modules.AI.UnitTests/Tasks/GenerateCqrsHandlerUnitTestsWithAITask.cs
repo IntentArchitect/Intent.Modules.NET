@@ -83,105 +83,105 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
         const string promptTemplate =
-            $$$"""
-               ## Role and Context
-               You are a senior C# developer specializing in clean architecture with MediatR, FluentValidation, and Entity Framework Core. You're implementing testing logic in a system that strictly follows the repository pattern.
+            """
+            ## Role and Context
+            You are a senior C# developer specializing in clean architecture with MediatR, FluentValidation, and Entity Framework Core. You're implementing testing logic in a system that strictly follows the repository pattern.
 
-               ## Primary Objective
-               Create or update the existing test class file with a set of unit tests that comprehensively test the `Handle` method using xUnit and {{$mockFramework}} in the {{$targetFileName}} class.
+            ## Primary Objective
+            Create or update the existing test class file with a set of unit tests that comprehensively test the `Handle` method using xUnit and {{$mockFramework}} in the {{$targetFileName}} class.
 
-               ## Code File Modification Rules
-               1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
-               2. You may only create or update the test file
-               3. Add using clauses for ALL classes that you use in your test (IMPORTANT)
-               4. Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
+            ## Code File Modification Rules
+            1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
+            2. You may only create or update the test file
+            3. Add using clauses for ALL classes that you use in your test (IMPORTANT)
+            4. Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
 
-               ## Input Code Files:
-               {{$inputFilesJson}}
+            ## Input Code Files:
+            {{$inputFilesJson}}
 
-               ## Required Output Format
-               Your response MUST include:
-               1. Respond ONLY with JSON that matches the following schema:
-               ```json
-               {
-                   "type": "object",
-                   "properties": {
-                       "FileChanges": {
-                           "type": "array",
-                           "items": {
-                               "type": "object",
-                               "properties": {
-                                   "FilePath": { "type": "string" },
-                                   "Content": { "type": "string" }
-                               },
-                               "required": ["FilePath", "Content"],
-                               "additionalProperties": false
-                           }
-                       }
-                   },
-                   "required": ["FileChanges"],
-                   "additionalProperties": false
-               }
-               ```
-               2. The Content must contain:
-               2.1. Your test file as pure code (no markdown).
-               2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
+            ## Required Output Format
+            Your response MUST include:
+            1. Respond ONLY with JSON that matches the following schema:
+            ```json
+            {
+                "type": "object",
+                "properties": {
+                    "FileChanges": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "FilePath": { "type": "string" },
+                                "Content": { "type": "string" }
+                            },
+                            "required": ["FilePath", "Content"],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["FileChanges"],
+                "additionalProperties": false
+            }
+            ```
+            2. The Content must contain:
+            2.1. Your test file as pure code (no markdown).
+            2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
 
-               ## Important things to understand
-               - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
-               - Collections on entities cannot be treated like arrays.
-               - If an existing file exists, you must read this file and update it according to the 'Code Preservation Requirements' below.
-               - If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
-               - No FluentValidations happen inside of the handlers so don't test for that.
-               - Never add your own [IntentManaged] attributes to the test.
+            ## Important things to understand
+            - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
+            - Collections on entities cannot be treated like arrays.
+            - If an existing file exists, you must read this file and update it according to the 'Code Preservation Requirements' below.
+            - If you want to construct a DTO, there is a static constructor called 'Create' that you must use.
+            - No FluentValidations happen inside of the handlers so don't test for that.
+            - Never add your own [IntentManaged] attributes to the test.
 
-               ## Code Preservation Rules (CRITICAL)
-               1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
-               2. **NEVER change existing method signatures or implementations**
-               3. **ONLY add new members when necessary (repository methods)**
-               4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code (CRITICAL)**
-               5. **NEVER add comments to existing code**
-               6. **NEVER remove any existing using clauses (CRITICAL)**
-               7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
+            ## Code Preservation Rules (CRITICAL)
+            1. **NEVER remove or modify existing class members, methods, or properties, including their attributes or annotations**
+            2. **NEVER change existing method signatures or implementations**
+            3. **ONLY add new members when necessary (repository methods)**
+            4. **DO NOT REMOVE OR ALTER any existing Class Attributes or Method Attributes in the existing code (CRITICAL)**
+            5. **NEVER add comments to existing code**
+            6. **NEVER remove any existing using clauses (CRITICAL)**
+            7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
 
-               ## Additional User Context (Optional)
-               {{$userProvidedContext}}
+            ## Additional User Context (Optional)
+            {{$userProvidedContext}}
 
-               ## Examples
-               1. Here's an example of a creation handler:
-               ```
-               public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
-               {
-                   // Arrange
-                   var command = new CreateBuyerCommand("John", "Doe", "john.doe@example.com", true);
-                   Buyer buyer = null;
-                   var buyerId = Guid.NewGuid();
+            ## Examples
+            1. Here's an example of a creation handler:
+            ```
+            public async Task Handle_Should_Create_Buyer_When_Command_Is_Valid()
+            {
+                // Arrange
+                var command = new CreateBuyerCommand("John", "Doe", "john.doe@example.com", true);
+                Buyer buyer = null;
+                var buyerId = Guid.NewGuid();
 
-                   _buyerRepositoryMock
-                       .Setup(repo => repo.Add(It.IsAny<Buyer>()))
-                       .Callback<Buyer>(b => buyer = b);
-                   _buyerRepositoryMock
-                       .Setup(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()))
-                       .Callback(() => buyer!.Id = buyerId)
-                       .ReturnsAsync(1);
+                _buyerRepositoryMock
+                    .Setup(repo => repo.Add(It.IsAny<Buyer>()))
+                    .Callback<Buyer>(b => buyer = b);
+                _buyerRepositoryMock
+                    .Setup(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()))
+                    .Callback(() => buyer!.Id = buyerId)
+                    .ReturnsAsync(1);
 
-                   // Act
-                   var result = await _handler.Handle(command, CancellationToken.None);
+                // Act
+                var result = await _handler.Handle(command, CancellationToken.None);
 
-                   // Assert
-                   _buyerRepositoryMock.Verify(repo => repo.Add(It.IsAny<Buyer>()), Times.Once);
-                   _buyerRepositoryMock.Verify(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
-                   Assert.NotEqual(Guid.Empty, result);
-                   Assert.NotNull(buyer);
-                   Assert.Equal(command.Name, buyer.Name);
-                   Assert.Equal(command.Surname, buyer.Surname);
-                   Assert.Equal(command.Email, buyer.Email);
-               }
-               ```
-               
-               ## Previous Error Message
-               {{$previousError}}
-               """;
+                // Assert
+                _buyerRepositoryMock.Verify(repo => repo.Add(It.IsAny<Buyer>()), Times.Once);
+                _buyerRepositoryMock.Verify(repo => repo.UnitOfWork.SaveChangesAsync(It.IsAny<CancellationToken>()), Times.Once);
+                Assert.NotEqual(Guid.Empty, result);
+                Assert.NotNull(buyer);
+                Assert.Equal(command.Name, buyer.Name);
+                Assert.Equal(command.Surname, buyer.Surname);
+                Assert.Equal(command.Email, buyer.Email);
+            }
+            ```
+
+            ## Previous Error Message
+            {{$previousError}}
+            """;
         
         var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
         return requestFunction;

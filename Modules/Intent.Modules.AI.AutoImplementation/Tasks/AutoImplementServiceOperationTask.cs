@@ -81,102 +81,102 @@ public class AutoImplementServiceOperationTask : IModuleTask
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
 	    const string promptTemplate =
-		    $$$"""
-               ## Role and Context
-               You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
+            """
+            ## Role and Context
+            You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
 
-               ## Primary Objective
-               Implement the `{{$modelName}}` service method in the {{$targetFileName}} service class following the implementation process below exactly.
+            ## Primary Objective
+            Implement the `{{$modelName}}` service method in the {{$targetFileName}} service class following the implementation process below exactly.
 
-               ## Repository Pattern Rules (CRITICAL)
-               1. **NEVER use Queryable() or access DbContext directly** from service methods - this violates the architecture
-               2. **ONLY use existing repository methods** defined in the interfaces when possible
-               3. Don't add a new repository method for filtering purposes where the standard available methods could be used instead.
-               4. If you need custom repository functionality:
-                  - Define the method in the appropriate repository interface
-                  - Implement the method in the corresponding concrete repository class
-                  - Apply `[IntentIgnore]` attribute to both declaration and implementation
-                  - Then call this method from your service method
-               5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
+            ## Repository Pattern Rules (CRITICAL)
+            1. **NEVER use Queryable() or access DbContext directly** from service methods - this violates the architecture
+            2. **ONLY use existing repository methods** defined in the interfaces when possible
+            3. Don't add a new repository method for filtering purposes where the standard available methods could be used instead.
+            4. If you need custom repository functionality:
+               - Define the method in the appropriate repository interface
+               - Implement the method in the corresponding concrete repository class
+               - Apply `[IntentIgnore]` attribute to both declaration and implementation
+               - Then call this method from your service method
+            5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
 
-               ## Implementation Process
-               1. First, analyze all code files provided and understand how the fit together.
-               2. Next, analyze which repository interface to use and which methods could be appropriate to complete the implementation.
-               3. If an existing repository method can accomplish the use case efficiently, skip step 4 and go straight to step 5 implementation (IMPORTANT).
-               4. If the response contains aggregated data (e.g. Count, Sum, Average, etc.):
-                  - Identify which repository interface needs extension
-                  - Add a properly named method to that interface with appropriate parameters and return type
-                  - Implement the method in the concrete repository class with proper EF Core code
-                  - Mark both with `[IntentIgnore]`
-                  - Use this method in implementing the {{$modelName}} method (IMPORTANT).
-               5. Implement the service's {{$modelName}} method using the appropriate repository methods.
-               6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`
+            ## Implementation Process
+            1. First, analyze all code files provided and understand how the fit together.
+            2. Next, analyze which repository interface to use and which methods could be appropriate to complete the implementation.
+            3. If an existing repository method can accomplish the use case efficiently, skip step 4 and go straight to step 5 implementation (IMPORTANT).
+            4. If the response contains aggregated data (e.g. Count, Sum, Average, etc.):
+               - Identify which repository interface needs extension
+               - Add a properly named method to that interface with appropriate parameters and return type
+               - Implement the method in the concrete repository class with proper EF Core code
+               - Mark both with `[IntentIgnore]`
+               - Use this method in implementing the {{$modelName}} method (IMPORTANT).
+            5. Implement the service's {{$modelName}} method using the appropriate repository methods.
+            6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`
 
-               ## Code Preservation Requirements (CRITICAL)
-               1. **NEVER remove or modify existing class members, methods, or properties**
-               2. **NEVER change existing method signatures or implementations**
-               3. **ONLY add new members when necessary (repository methods)**
-               4. **Preserve all existing attributes and code exactly as provided**
-               5. **Don't add comments to existing code**
-               6. **NEVER remove any existing using clauses (CRITICAL)**
-               7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
+            ## Code Preservation Requirements (CRITICAL)
+            1. **NEVER remove or modify existing class members, methods, or properties**
+            2. **NEVER change existing method signatures or implementations**
+            3. **ONLY add new members when necessary (repository methods)**
+            4. **Preserve all existing attributes and code exactly as provided**
+            5. **Don't add comments to existing code**
+            6. **NEVER remove any existing using clauses (CRITICAL)**
+            7. **Ensure that `using Intent.RoslynWeaver.Attributes;` using clause is always present.**
 
-               ## Code File Modifications
-               1. You may modify ONLY:
-                  - The Service class implementation (primarily the {{$modelName}} method)
-                  - Repository interfaces (adding new methods only)
-                  - Repository concrete classes (implementing new methods only)
-               2. Preserve all existing code, attributes, and file paths exactly
+            ## Code File Modifications
+            1. You may modify ONLY:
+               - The Service class implementation (primarily the {{$modelName}} method)
+               - Repository interfaces (adding new methods only)
+               - Repository concrete classes (implementing new methods only)
+            2. Preserve all existing code, attributes, and file paths exactly
 
-               ## Additional User Context (Optional)
-               {{$userProvidedContext}}
+            ## Additional User Context (Optional)
+            {{$userProvidedContext}}
 
-               ## Input Code Files
-               {{$inputFilesJson}}
+            ## Input Code Files
+            {{$inputFilesJson}}
 
-               ## Previous Error Message
-               {{$previousError}}
-               
-               ## Required Output Format
-               Your response MUST include:
-               1. Respond ONLY with JSON that matches the following schema:
-               ```json
-               {
-                   "type": "object",
-                   "properties": {
-                       "FileChanges": {
-                           "type": "array",
-                           "items": {
-                               "type": "object",
-                               "properties": {
-                                   "FilePath": { "type": "string" },
-                                   "Content": { "type": "string" }
-                               },
-                               "required": ["FilePath", "Content"],
-                               "additionalProperties": false
-                           }
-                       }
-                   },
-                   "required": ["FileChanges"],
-                   "additionalProperties": false
-               }
-               ```
-               2. The Content must contain:
-               2.1. The fully implemented handler class with the Handle method
-               2.2. Any modified repository interfaces (if you added methods)
-               2.3. Any modified repository concrete classes (if you added implementations)
-               2.4. All files must maintain their exact original paths
-               2.5. All existing code and attributes must be preserved unless explicitly modified
+            ## Previous Error Message
+            {{$previousError}}
 
-               ## Important Reminders
-               - NEVER remove or modify existing class members
-               - NEVER access DbContext or use Queryable() directly in services
-               - NEVER invoke repository methods that don't exist
-               - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
-               - ALL new repository methods must be marked with `[IntentIgnore]`
-               - Performance and clean architecture are key priorities
-               - You can't access owned entities from the dbContext in EntityFrameworkCore
-               """;
+            ## Required Output Format
+            Your response MUST include:
+            1. Respond ONLY with JSON that matches the following schema:
+            ```json
+            {
+                "type": "object",
+                "properties": {
+                    "FileChanges": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "FilePath": { "type": "string" },
+                                "Content": { "type": "string" }
+                            },
+                            "required": ["FilePath", "Content"],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": ["FileChanges"],
+                "additionalProperties": false
+            }
+            ```
+            2. The Content must contain:
+            2.1. The fully implemented handler class with the Handle method
+            2.2. Any modified repository interfaces (if you added methods)
+            2.3. Any modified repository concrete classes (if you added implementations)
+            2.4. All files must maintain their exact original paths
+            2.5. All existing code and attributes must be preserved unless explicitly modified
+
+            ## Important Reminders
+            - NEVER remove or modify existing class members
+            - NEVER access DbContext or use Queryable() directly in services
+            - NEVER invoke repository methods that don't exist
+            - IF you add a new repository method, you MUST provide BOTH the interface declaration AND concrete implementation
+            - ALL new repository methods must be marked with `[IntentIgnore]`
+            - Performance and clean architecture are key priorities
+            - You can't access owned entities from the dbContext in EntityFrameworkCore
+            """;
 	    
 	    var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
 	    return requestFunction;
