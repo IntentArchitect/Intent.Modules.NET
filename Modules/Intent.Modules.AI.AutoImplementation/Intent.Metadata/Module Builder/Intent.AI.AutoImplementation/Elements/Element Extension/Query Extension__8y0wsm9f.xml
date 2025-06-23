@@ -87,12 +87,11 @@
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
               <properties>
-                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="// Open a dialog for the user to enter an AI prompt&#xD;&#xA;let promptResult = await dialogService.openForm({&#xD;&#xA;    title: &quot;Additional Prompt Guidance (Optional)&quot;,&#xD;&#xA;    fields: [ {&#xD;&#xA;        id: &quot;prompt&quot;,&#xD;&#xA;        fieldType: &quot;textarea&quot;,&#xD;&#xA;        label: &quot;Provide any additional context&quot;,&#xD;&#xA;        placeholder: &quot;Leave blank if you wish to provide no additional context.&quot;,&#xD;&#xA;        hint: &quot;NOTE: Additional context will be combined with the Intent Architect auto-generated prompt to guide the AI Agent.&quot;&#xD;&#xA;    }],&#xD;&#xA;    submitButtonText: &quot;Execute&quot;,&#xD;&#xA;    minWidth: &quot;750px&quot;&#xD;&#xA;});&#xD;&#xA;// Check if the user cancelled&#xD;&#xA;if (!promptResult) {&#xD;&#xA;    return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;let result = await launchHostedModuleTask(&quot;Intent.Modules.AI.Prompts.CreateMediatRHandlerPrompt&quot;, [application.id, element.id, promptResult.prompt], {&#xD;&#xA;    taskName: &quot;AI: Handler for &quot; + element.getName()&#xD;&#xA;});" isActive="true" />
-                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[]" isActive="true" />
+                <property name="73a4088f-626e-4d31-b0b2-113167f015b2" display="Script" value="await execute(&quot;Intent.Modules.AI.AutoImplement.CqrsHandler&quot;)" isActive="true" />
+                <property name="7df9c3b9-91a0-4cb7-bc3a-15d72f160054" display="Dependencies" value="[&quot;89e0bd31-88fd-442b-b984-41fa77ef90e3&quot;]" isActive="true" />
               </properties>
             </stereotype>
             <stereotype stereotypeDefinitionId="cbe77364-d1d0-400b-a8c4-646a4c869612" name="Option Settings">
-              <comment />
               <addedByDefault>true</addedByDefault>
               <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
               <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
@@ -103,7 +102,7 @@
                 <property name="6087e660-9599-47fb-9ff4-1ad901ce2a00" display="Trigger On Double-Click" value="false" isActive="true" />
                 <property name="c03841e5-a1e9-4e95-b699-5a466dde7d7d" display="Is Option Visible Function" isActive="true" />
                 <property name="e034a0ca-0101-4594-8384-43048b714578" display="Order" value="1000" isActive="true" />
-                <property name="c37d8704-0003-4886-b6c2-4e51aa22a8f9" display="Menu Group" value="2" isActive="true" />
+                <property name="c37d8704-0003-4886-b6c2-4e51aa22a8f9" display="Menu Group" value="3" isActive="true" />
                 <property name="3e93529e-2110-414e-aec1-2656e1a99b22" display="Top Divider" value="false" isActive="true" />
                 <property name="d2572c08-f02e-40b2-8a06-4d5251bb3352" display="Bottom Divider" value="false" isActive="true" />
               </properties>

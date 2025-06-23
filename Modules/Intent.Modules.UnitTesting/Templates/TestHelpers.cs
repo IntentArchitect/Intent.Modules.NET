@@ -38,7 +38,7 @@ internal static class TestHelpers
         var operationModel = template.Model as Modelers.Services.Api.OperationModel;
         var parentService = operationModel?.ParentService;
 
-        if(parentService != null)
+        if (parentService != null)
         {
             return string.Join("/", parentService.GetParentFolderNames());
         }
