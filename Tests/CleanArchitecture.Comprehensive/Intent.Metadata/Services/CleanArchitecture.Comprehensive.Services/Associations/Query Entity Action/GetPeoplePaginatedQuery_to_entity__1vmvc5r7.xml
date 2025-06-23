@@ -21,7 +21,7 @@
   <targetEnd id="3747e71a-754e-4c08-b8b3-c3c618d5c064" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>entity</name>
     <display>[query] entity: PersonEntry[*]</display>
-    <order>4</order>
+    <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>

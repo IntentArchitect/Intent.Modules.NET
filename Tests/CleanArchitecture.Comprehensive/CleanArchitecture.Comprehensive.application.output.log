@@ -188,6 +188,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#df86d478-5199-4c38-886d-5e33465d89fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/NullableRouteParameters/NullableRouteParameterController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameterController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#302a61df-b9a8-4cb7-bd5c-bd1b8d693a64</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/NullableRouteParametersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParametersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#7bb32bb0-1548-4bdf-bb2f-e30c7e027fed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/ODataAggsController.cs</ApplicationRelativeFilePath>
@@ -6244,6 +6260,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#df86d478-5199-4c38-886d-5e33465d89fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Implementation/NullableRouteParameters/NullableRouteParameterService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameterService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a9777160-2dc0-4598-970b-36756f75a0da</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Implementation/ServiceDispatch/ServiceDispatchService.cs</ApplicationRelativeFilePath>
@@ -6660,6 +6684,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#df86d478-5199-4c38-886d-5e33465d89fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Interfaces/NullableRouteParameters/INullableRouteParameterService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/INullableRouteParameterService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7c07b2a6-5f81-402d-8f2c-d4bcea168f3c</ProjectId>
       <CorrelationId>Intent.Application.Contracts.ServiceContract#fac7c4e9-0a70-47df-94c4-eb0da4d64ced</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/Interfaces/ServiceDispatch/IServiceDispatchService.cs</ApplicationRelativeFilePath>
@@ -6704,6 +6736,62 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>NamedQueryStrings/NamedQueryStrings/NamedQueryStringsCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#0619fa7a-2685-4f36-b9f0-cf3493e3b398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1Command.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1Command.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#0619fa7a-2685-4f36-b9f0-cf3493e3b398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1CommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1CommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0619fa7a-2685-4f36-b9f0-cf3493e3b398</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1CommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter1/NullableRouteParameter1CommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#8fcaafc6-b4b7-49c3-828c-9c665e5d2d1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2Query.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2Query.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#8fcaafc6-b4b7-49c3-828c-9c665e5d2d1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2QueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2QueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#8fcaafc6-b4b7-49c3-828c-9c665e5d2d1f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2QueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameter2/NullableRouteParameter2QueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bc7928d1-cbb0-4e59-a56c-1fbf60d360bd</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.ContractEnumModel#5e49c869-9a6f-4a7b-b784-375ecc697e94</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Application/NullableRouteParameters/NullableRouteParameterEnum.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NullableRouteParameters/NullableRouteParameterEnum.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

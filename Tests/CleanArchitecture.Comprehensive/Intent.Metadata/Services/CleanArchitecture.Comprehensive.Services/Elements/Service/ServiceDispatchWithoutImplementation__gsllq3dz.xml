@@ -9,6 +9,9 @@
   <parentFolderId>e355dbd1-82cc-4cf8-a386-5f7e9c5d1404</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+  <traits>
+    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="c29224ec-d473-4b95-ad4a-ec55c676c4fd" name="Http Service Settings">
       <addedByDefault>false</addedByDefault>

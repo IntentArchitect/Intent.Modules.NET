@@ -249,6 +249,8 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+        <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
