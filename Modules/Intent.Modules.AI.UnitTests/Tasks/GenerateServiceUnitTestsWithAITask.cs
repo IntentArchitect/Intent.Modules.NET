@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using Intent.Configuration;
@@ -8,15 +7,13 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AI.UnitTests.Tasks.Helpers;
 using Intent.Modules.Common.AI;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Newtonsoft.Json;
-using ChatResponseFormat = OpenAI.Chat.ChatResponseFormat;
-using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Intent.Modules.AI.Prompts.Tasks;
 
@@ -56,27 +53,21 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
-        var chatResponseFormat = CreateJsonSchemaFormat();
-        var executionSettings = new OpenAIPromptExecutionSettings
-        {
-            ResponseFormat = chatResponseFormat
-        };
-
+        
         var queryModel = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
-        var promptTemplate = GetTestPromptTemplate(queryModel);
-        Logging.Log.Info(promptTemplate);
         var inputFiles = GetInputFiles(queryModel);
         Logging.Log.Info($@"Input Files: {Environment.NewLine}{string.Join(Environment.NewLine, inputFiles.Select(x => x))}" );
-
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
-        var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
+
+        var requestFunction = CreatePromptFunction(kernel);
+        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext
-        }).Result;
-
-        FileChangesResult? fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
+            ["userProvidedContext"] = userProvidedContext,
+            ["targetFileName"] = queryModel.Name + "Handler",
+            ["mockFramework"] = GetMockFramework(),
+            ["slnRelativePath"] = "/" + string.Join('/', queryModel.GetParentPath().Select(x => x.Name))
+        });
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -90,18 +81,15 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
     }
 
 
-    private string GetTestPromptTemplate(IElement model)
+    private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
-        var targetFileName = model.Name + "Handler";
-        var mockFramework = GetMockFramework();
-
-        var prompt =
+        const string promptTemplate =
             $$$"""
                ## Role and Context
                You are a senior C# developer specializing in clean architecture that uses Entity Framework Core. You're implementing testing logic in a system that strictly follows the repository pattern.
 
                ## Primary Objective
-               Create or update the existing test class file with a set of unit tests that comprehensively test the public methods in the service using xUnit and {{{mockFramework}}} in the {{{targetFileName}}} class.
+               Create or update the existing test class file with a set of unit tests that comprehensively test the public methods in the service using xUnit and {{$mockFramework}} in the {{$targetFileName}} class.
 
                ## Code File Modification Rules
                1. PRESERVE all [IntentManaged] Attributes on the existing test file's constructor, class or file.
@@ -110,14 +98,35 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                4. Read and understand the code in all provided Input Code Files. Understand how these code files interact with one another.
 
                ## Input Code Files:
-               ```json
                {{$inputFilesJson}}
-               ```
 
                ## Required Output Format
                Your response MUST include:
-               1. Your test file as pure code (no markdown).
-               2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '/{{{string.Join('/', model.GetParentPath().Select(x => x.Name))}}}'.
+               1. Respond ONLY with JSON that matches the following schema:
+               ```json
+               {
+                   "type": "object",
+                   "properties": {
+                       "FileChanges": {
+                           "type": "array",
+                           "items": {
+                               "type": "object",
+                               "properties": {
+                                   "FilePath": { "type": "string" },
+                                   "Content": { "type": "string" }
+                               },
+                               "required": ["FilePath", "Content"],
+                               "additionalProperties": false
+                           }
+                       }
+                   },
+                   "required": ["FileChanges"],
+                   "additionalProperties": false
+               }
+               ```
+               2. The Content must contain:
+               2.1. Your test file as pure code (no markdown).
+               2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
 
                ## Important things to understand
                - Repositories will assign an Id to entities when `SaveChangesAsync` is called.
@@ -312,8 +321,13 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                    }
                }
                ```
+               
+               ## Previous Error Message
+               {{$previousError}}
                """;
-        return prompt;
+        
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        return requestFunction;
     }
 
     private List<ICodebaseFile> GetInputFiles(IElement service)
@@ -362,33 +376,6 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         return relatedClasses;
     }
 
-    private static ChatResponseFormat CreateJsonSchemaFormat()
-    {
-        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "movie_result",
-            jsonSchema: BinaryData.FromString("""
-                                              {
-                                                  "type": "object",
-                                                  "properties": {
-                                                      "FileChanges": {
-                                                          "type": "array",
-                                                          "items": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                  "FilePath": { "type": "string" },
-                                                                  "Content": { "type": "string" }
-                                                              },
-                                                              "required": ["FilePath", "Content"],
-                                                              "additionalProperties": false
-                                                          }
-                                                      }
-                                                  },
-                                                  "required": ["FileChanges"],
-                                                  "additionalProperties": false
-                                              }
-                                              """),
-            jsonSchemaIsStrict: true);
-    }
-
     private string GetMockFramework()
     {
         var defaultMock = "Moq";
@@ -401,32 +388,5 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         }
 
         return unitTestGroup.GetSetting("115c28bc-a4c8-4b30-bd00-2e320fee77dc")?.Value ?? defaultMock;
-    }
-
-    public class FileChangesResult
-    {
-        public FileChange[] FileChanges { get; set; }
-    }
-    public class FileChange
-    {
-        public FileChange()
-        {
-        }
-
-        public FileChange(string filePath, string fileExplanation, string content)
-        {
-            FilePath = filePath;
-            FileExplanation = fileExplanation;
-            Content = content;
-        }
-
-        public string FileExplanation { get; set; }
-        public string FilePath { get; set; }
-        public string Content { get; set; }
-
-        public override string ToString()
-        {
-            return $"{FilePath} ({FileExplanation})";
-        }
     }
 }

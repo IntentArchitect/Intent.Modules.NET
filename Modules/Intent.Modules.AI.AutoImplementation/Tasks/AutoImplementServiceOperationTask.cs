@@ -7,15 +7,13 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
 using Intent.Modules.Common.AI;
 using Intent.Plugins;
 using Intent.Registrations;
 using Intent.Utils;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
 using Newtonsoft.Json;
-using ChatResponseFormat = OpenAI.Chat.ChatResponseFormat;
-using Formatting = Newtonsoft.Json.Formatting;
 
 namespace Intent.Modules.AI.AutoImplementation.Tasks;
 
@@ -57,25 +55,17 @@ public class AutoImplementServiceOperationTask : IModuleTask
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
 
         var element = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
-        var promptTemplate = GetPromptTemplate(element);
-
         var inputFiles = GetInputFiles(element);
-
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
 
-        var chatResponseFormat = CreateJsonSchemaFormat();
-        var executionSettings = new OpenAIPromptExecutionSettings
-        {
-            ResponseFormat = chatResponseFormat
-        };
-        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate, executionSettings);
-        var result = requestFunction.InvokeAsync(kernel, new KernelArguments()
+        var requestFunction = CreatePromptFunction(kernel);
+        var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
             ["inputFilesJson"] = jsonInput,
-            ["userProvidedContext"] = userProvidedContext
-        }).Result;
-
-        FileChangesResult? fileChangesResult = JsonConvert.DeserializeObject<FileChangesResult>(result.ToString());
+            ["userProvidedContext"] = userProvidedContext,
+            ["targetFileName"] = element.Name + "Handler",
+            ["modelName"] = element.Name
+        });
 
         // Output the updated file changes.
         var applicationConfig = _solution.GetApplicationConfig(args[0]);
@@ -88,17 +78,15 @@ public class AutoImplementServiceOperationTask : IModuleTask
         return "success";
     }
 
-
-    private string GetPromptTemplate(IElement model)
+    private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
-        var targetFileName = model.ParentElement.Name;
-        var prompt =
-            $$$"""
+	    const string promptTemplate =
+		    $$$"""
                ## Role and Context
                You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
 
                ## Primary Objective
-               Implement the `{{{model.Name}}}` service method in the {{{targetFileName}}} service class following the implementation process below exactly.
+               Implement the `{{$modelName}}` service method in the {{$targetFileName}} service class following the implementation process below exactly.
 
                ## Repository Pattern Rules (CRITICAL)
                1. **NEVER use Queryable() or access DbContext directly** from service methods - this violates the architecture
@@ -120,8 +108,8 @@ public class AutoImplementServiceOperationTask : IModuleTask
                   - Add a properly named method to that interface with appropriate parameters and return type
                   - Implement the method in the concrete repository class with proper EF Core code
                   - Mark both with `[IntentIgnore]`
-                  - Use this method in implementing the {{{model.Name}}} method (IMPORTANT).
-               5. Implement the service's {{{model.Name}}} method using the appropriate repository methods.
+                  - Use this method in implementing the {{$modelName}} method (IMPORTANT).
+               5. Implement the service's {{$modelName}} method using the appropriate repository methods.
                6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`
 
                ## Code Preservation Requirements (CRITICAL)
@@ -135,7 +123,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
 
                ## Code File Modifications
                1. You may modify ONLY:
-                  - The Service class implementation (primarily the {{{model.Name}}} method)
+                  - The Service class implementation (primarily the {{$modelName}} method)
                   - Repository interfaces (adding new methods only)
                   - Repository concrete classes (implementing new methods only)
                2. Preserve all existing code, attributes, and file paths exactly
@@ -143,18 +131,42 @@ public class AutoImplementServiceOperationTask : IModuleTask
                ## Additional User Context (Optional)
                {{$userProvidedContext}}
 
-               ## Input Code Files:
-               ```json
+               ## Input Code Files
                {{$inputFilesJson}}
-               ```
 
+               ## Previous Error Message
+               {{$previousError}}
+               
                ## Required Output Format
                Your response MUST include:
-               1. The fully implemented {{{model.Name}}} method. Do not update any of the other existing methods on the service.
-               2. Any modified repository interfaces (if you added methods)
-               3. Any modified repository concrete classes (if you added implementations)
-               4. All files must maintain their exact original paths
-               5. All existing code and attributes must be preserved unless explicitly modified
+               1. Respond ONLY with JSON that matches the following schema:
+               ```json
+               {
+                   "type": "object",
+                   "properties": {
+                       "FileChanges": {
+                           "type": "array",
+                           "items": {
+                               "type": "object",
+                               "properties": {
+                                   "FilePath": { "type": "string" },
+                                   "Content": { "type": "string" }
+                               },
+                               "required": ["FilePath", "Content"],
+                               "additionalProperties": false
+                           }
+                       }
+                   },
+                   "required": ["FileChanges"],
+                   "additionalProperties": false
+               }
+               ```
+               2. The Content must contain:
+               2.1. The fully implemented handler class with the Handle method
+               2.2. Any modified repository interfaces (if you added methods)
+               2.3. Any modified repository concrete classes (if you added implementations)
+               2.4. All files must maintain their exact original paths
+               2.5. All existing code and attributes must be preserved unless explicitly modified
 
                ## Important Reminders
                - NEVER remove or modify existing class members
@@ -165,10 +177,11 @@ public class AutoImplementServiceOperationTask : IModuleTask
                - Performance and clean architecture are key priorities
                - You can't access owned entities from the dbContext in EntityFrameworkCore
                """;
-        return prompt;
+	    
+	    var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+	    return requestFunction;
     }
-
-
+    
     private List<ICodebaseFile> GetInputFiles(IElement element)
     {
         var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
@@ -208,60 +221,5 @@ public class AutoImplementServiceOperationTask : IModuleTask
             .Distinct()
             .ToList();
         return relatedClasses;
-    }
-
-    private static ChatResponseFormat CreateJsonSchemaFormat()
-    {
-        return ChatResponseFormat.CreateJsonSchemaFormat(jsonSchemaFormatName: "FileChangesResult",
-            jsonSchema: BinaryData.FromString("""
-                                              {
-                                                  "type": "object",
-                                                  "properties": {
-                                                      "FileChanges": {
-                                                          "type": "array",
-                                                          "items": {
-                                                              "type": "object",
-                                                              "properties": {
-                                                                  "FilePath": { "type": "string" },
-                                                                  "Content": { "type": "string" }
-                                                              },
-                                                              "required": ["FilePath", "Content"],
-                                                              "additionalProperties": false
-                                                          }
-                                                      }
-                                                  },
-                                                  "required": ["FileChanges"],
-                                                  "additionalProperties": false
-                                              }
-                                              """),
-            jsonSchemaIsStrict: true);
-    }
-
-    public class FileChangesResult
-    {
-        public FileChange[] FileChanges { get; set; }
-    }
-    
-    public class FileChange
-    {
-        public FileChange()
-        {
-        }
-
-        public FileChange(string filePath, string fileExplanation, string content)
-        {
-            FilePath = filePath;
-            FileExplanation = fileExplanation;
-            Content = content;
-        }
-
-        public string FileExplanation { get; set; }
-        public string FilePath { get; set; }
-        public string Content { get; set; }
-
-        public override string ToString()
-        {
-            return $"{FilePath} ({FileExplanation})";
-        }
     }
 }
