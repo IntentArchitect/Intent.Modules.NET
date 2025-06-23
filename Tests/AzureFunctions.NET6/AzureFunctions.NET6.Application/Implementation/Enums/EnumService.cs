@@ -22,18 +22,21 @@ namespace AzureFunctions.NET6.Application.Implementation.Enums
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task TestRouteEnum(Company testEnum, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement TestRouteEnum (EnumService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task TestQueryEnum(Company testEnum, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement TestQueryEnum (EnumService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task TestHeaderEnum(Company testEnum, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement TestHeaderEnum (EnumService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

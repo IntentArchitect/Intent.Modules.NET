@@ -636,6 +636,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#f09967fa-3d05-488b-b650-fac3d1072a55</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#f09967fa-3d05-488b-b650-fac3d1072a55</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#f09967fa-3d05-488b-b650-fac3d1072a55</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>NamingOverrides/SendFromEventHandler/SendFromEventHandlerCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>eee6378a-6323-4705-8a5a-f59bfe340e11</ProjectId>
       <CorrelationId>Intent.Application.MediatR.CommandModels#2d5e799e-c7e0-4c31-a38b-7c9e5660f3fb</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MassTransit.RabbitMQ.Application/NamingOverrides/TestOverride/TestOverrideCommand.cs</ApplicationRelativeFilePath>

@@ -13,21 +13,13 @@
     <stereotypes />
     <genericTypeParameters />
   </typeReference>
-  <isMapped>true</isMapped>
-  <mappedClass isRoot="true">
-    <applicationId>b0cfe26a-d338-4d6d-a8df-a97c4e78f647</applicationId>
-    <metadataId>6ab29b31-27af-4f56-a67c-986d82097d63</metadataId>
-    <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-    <autoSyncTypeReference>true</autoSyncTypeReference>
-    <mappedPath>
-      <target id="a55a4654-cf65-4d13-a8a5-f73878860995" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
-    </mappedPath>
-  </mappedClass>
+  <isMapped>false</isMapped>
   <parentFolderId>f0a38851-8aa6-42b1-b43a-1f4ccb17b53d</parentFolderId>
   <packageId>e15d978a-f58d-41bf-bdc7-207652bd244a</packageId>
   <packageName>SpecificServices</packageName>
   <traits>
     <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
+    <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
     <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
   </traits>
   <stereotypes />
@@ -51,14 +43,7 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="01b2a37b-c014-46ef-b60b-da278623dd52" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-        </mappedPath>
-      </mappedClass>
+      <isMapped>false</isMapped>
       <parentFolderId>7f1ac5f6-63ac-475e-8623-3934e361c53a</parentFolderId>
       <packageId>e15d978a-f58d-41bf-bdc7-207652bd244a</packageId>
       <packageName>SpecificServices</packageName>
@@ -108,14 +93,7 @@
         <stereotypes />
         <genericTypeParameters />
       </typeReference>
-      <isMapped>true</isMapped>
-      <mappedClass>
-        <mappingSettingsId>735c87d0-06fc-4491-8b5f-5adc6f953c54</mappingSettingsId>
-        <autoSyncTypeReference>true</autoSyncTypeReference>
-        <mappedPath>
-          <target id="7033ff66-4fd0-49ba-a67c-71a2d2c0d52f" name="WarehouseId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
-        </mappedPath>
-      </mappedClass>
+      <isMapped>false</isMapped>
       <parentFolderId>7f1ac5f6-63ac-475e-8623-3934e361c53a</parentFolderId>
       <packageId>e15d978a-f58d-41bf-bdc7-207652bd244a</packageId>
       <packageName>SpecificServices</packageName>

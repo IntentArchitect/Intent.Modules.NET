@@ -19,11 +19,13 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
     public class UpdatePersonSCH
     {
         private readonly IPersonRepository _personRepository;
+        private readonly IEventBus _eventBus;
 
         [IntentManaged(Mode.Merge)]
-        public UpdatePersonSCH(IPersonRepository personRepository)
+        public UpdatePersonSCH(IPersonRepository personRepository, IEventBus eventBus)
         {
             _personRepository = personRepository;
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -36,6 +38,11 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
             }
 
             person.Name = dto.Name;
+            _eventBus.Publish(new PersonUpdatedEvent
+            {
+                Id = person.Id,
+                Name = person.Name
+            });
         }
     }
 }

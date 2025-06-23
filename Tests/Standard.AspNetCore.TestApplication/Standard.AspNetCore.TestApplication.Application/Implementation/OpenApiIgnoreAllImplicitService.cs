@@ -21,14 +21,14 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task OperationA(CancellationToken cancellationToken = default)
         {
-            // TODO: Implement OperationA (IgnoreAllImplicitService) functionality
+            // TODO: Implement OperationA (OpenApiIgnoreAllImplicitService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task OperationB(CancellationToken cancellationToken = default)
         {
-            // TODO: Implement OperationB (IgnoreAllImplicitService) functionality
+            // TODO: Implement OperationB (OpenApiIgnoreAllImplicitService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

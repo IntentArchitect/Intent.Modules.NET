@@ -172,15 +172,10 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates
                                      pathTarget.Specialization != DataContractGeneralizationModel.SpecializationType)
                 .Select(pathTarget =>
                 {
-                    // Can't just .ToPascalCase(), since it turns string like "Count(x => x.IsAssigned())" into "Count(x => X.IsAssigned())"
-                    var name = !string.IsNullOrWhiteSpace(pathTarget.Name)
-                        ? char.ToUpperInvariant(pathTarget.Name[0]) + pathTarget.Name[1..]
-                        : pathTarget.Name;
-
                     var nullForgivingOperator = pathTarget.Element?.TypeReference.IsNullable == true ? "!" : string.Empty;
                     var operationCall = pathTarget.Specialization == OperationModel.SpecializationType ? "()" : string.Empty;
 
-                    return $"{name}{operationCall}{nullForgivingOperator}";
+                    return $"{pathTarget.Name}{operationCall}{nullForgivingOperator}";
                 })).TrimEnd('!');
 
             return (Path: path, MethodName: path.Contains('!') ? MethodName.ForPath : MethodName.ForMember);

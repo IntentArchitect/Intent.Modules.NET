@@ -8,6 +8,9 @@
   <parentFolderId>0fe46e70-fb75-41d7-afa5-10cb420de4ee</parentFolderId>
   <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
   <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <traits>
+    <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements />

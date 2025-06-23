@@ -44,7 +44,7 @@ namespace Intent.Modules.UnitTesting.Migrations
         private const string SDKPropertyId = "1f0cdbc4-7a18-40a5-aeca-90452cce4fcf";
         private const string SDKPropertyName = "SDK";
         private const string SDKPropertyValue = "Microsoft.NET.Sdk";
-        
+
 
         private readonly IApplicationConfigurationProvider _configurationProvider;
         private readonly IPersistenceLoader _persistenceLoader;
@@ -87,57 +87,50 @@ namespace Intent.Modules.UnitTesting.Migrations
             return package.GetElementsOfType(SolutionFolderSpecializationId).First(n => n.Name == testFolderName);
         }
 
-        private static ExistingProjectSettings GetExistingProjectSettings(IPackageModelPersistable package)
+        private static ExistingProjectSettings GetApplicationProjectSettings(IPackageModelPersistable package)
         {
             var applicationRole = package.GetElementsOfType(RoleSpecializationId).FirstOrDefault(r => r.Name == "Application");
 
-            var applicationProjectName = $"{package.Name}.Application";
-            var targetFramework = string.Empty;
-
-            var applicationProjectInterface = package.Classes.FirstOrDefault(p => p.Id == applicationRole.Parent.Id);
-            if (applicationRole != null && applicationProjectInterface != null)
+            var applicationProject = package.GetElementsOfType(CSharpProjectSpecializationId).FirstOrDefault(x => x.ChildElements.Any(c => c.Id == applicationRole?.Id));
+            if (applicationRole != null && applicationProject != null)
             {
-                if (applicationProjectInterface is IElementPersistable applicationProject)
-                {
-                    applicationProjectName = applicationProject.Name;
-
-                    var applicationNetSettings = applicationProject.Stereotypes.FirstOrDefault(s => s.DefinitionId == NetSettingsStereoTypeId);
-                    if (applicationNetSettings != null)
-                    {
-                        var applicationTargetFramework = applicationNetSettings.Properties.FirstOrDefault(s => s.DefinitionId == TargetFrameworkPropertyId);
-
-                        if (applicationTargetFramework != null)
-                        {
-                            targetFramework = applicationTargetFramework.Value;
-                        }
-                    }
-                }
+                var applicationNetSettings = applicationProject.Stereotypes.FirstOrDefault(s => s.DefinitionId == NetSettingsStereoTypeId);
+ 
+                return new ExistingProjectSettings(applicationProject.Name, applicationNetSettings);
             }
 
-            return new ExistingProjectSettings(applicationProjectName, targetFramework);
+            return new ExistingProjectSettings($"{package.Name}.Application", null);
         }
 
         private static IElementPersistable CreateUnitTestProject(IPackageModelPersistable package, IElementPersistable testFolder)
         {
-            var applicationProjectSettings = GetExistingProjectSettings(package);
+            var applicationProjectSettings = GetApplicationProjectSettings(package);
 
-            if (!package.GetElementsOfType(CSharpProjectSpecializationId).Any(p => p.Name == $"{applicationProjectSettings.ProjectName}.UnitTests"))
+            if (package.GetElementsOfType(CSharpProjectSpecializationId).All(p => p.Name != $"{applicationProjectSettings.ProjectName}.UnitTests"))
             {
-                var testProject = testFolder.ChildElements.Add(Guid.NewGuid().ToString(), CSharpProjectSpecializationType, CSharpProjectSpecializationId,
+                var testProject = package.Classes.Add(Guid.NewGuid().ToString(), CSharpProjectSpecializationType, CSharpProjectSpecializationId,
                     $"{applicationProjectSettings.ProjectName}.UnitTests", testFolder.Id);
 
-                testFolder.ChildElements.Update(testProject.Id, testProject);
-
-                if (!string.IsNullOrWhiteSpace(applicationProjectSettings.FrameworkVersion))
+                if (applicationProjectSettings.DotNetSettingsStereotype != null)
+                {
+                    testProject.Stereotypes.Add(applicationProjectSettings.DotNetSettingsStereotype.DefinitionId, applicationProjectSettings.DotNetSettingsStereotype.Name, applicationProjectSettings.DotNetSettingsStereotype.DefinitionPackageId, applicationProjectSettings.DotNetSettingsStereotype.DefinitionPackageName,
+                        stereo =>
+                        {
+                            foreach (var property in applicationProjectSettings.DotNetSettingsStereotype.Properties)
+                            {
+                                stereo.Properties.Add(property.DefinitionId, property.Name, property.Value);
+                            }
+                        });
+                }
+                else
                 {
                     testProject.Stereotypes.Add(NetSettingsStereoTypeId, NetSettingsStereoType, VSProjectsPackageId, VSProjectsPackageName,
                         stereo =>
                         {
-                            stereo.Properties.Add(TargetFrameworkPropertyId, TargetFrameworkPropertyName, applicationProjectSettings.FrameworkVersion);
+                            stereo.Properties.Add(TargetFrameworkPropertyId, TargetFrameworkPropertyName, ".NET 8.0");
                             stereo.Properties.Add(SDKPropertyId, SDKPropertyName, SDKPropertyValue);
                         });
-                    
-                    testFolder.ChildElements.Update(testProject.Id, testProject);
+
                 }
             }
 
@@ -156,6 +149,6 @@ namespace Intent.Modules.UnitTesting.Migrations
             unitTestProject.ChildElements.Add(Guid.NewGuid().ToString(), RoleSpecializationType, RoleSpecializationId, UnitTestsRoleName, unitTestProject.Id);
         }
 
-        private record ExistingProjectSettings(string ProjectName, string FrameworkVersion);
+        private record ExistingProjectSettings(string ProjectName, IStereotypePersistable DotNetSettingsStereotype);
     }
 }

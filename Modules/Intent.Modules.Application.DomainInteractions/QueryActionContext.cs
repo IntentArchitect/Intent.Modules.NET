@@ -2,7 +2,6 @@
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -25,22 +24,24 @@ namespace Intent.Modules.Application.DomainInteractions
 
     public class QueryActionContext
     {
-        private readonly CSharpClass _handlerClass;
+        private readonly ICSharpClass _handlerClass;
         private readonly ClassModel _entity;
         private readonly IAssociationEnd _associationEnd;
         private readonly IElement _serviceEndPoint;
         private readonly IElement? _returnType;
-        private readonly ICSharpFileBuilderTemplate _template;
+        private readonly ICSharpTemplate _template;
+        private readonly ICSharpClassMethodDeclaration _method;
         private readonly ActionType _actionType;
         private readonly bool _isPaginated;
 
-        public QueryActionContext(ICSharpFileBuilderTemplate template, CSharpClass handlerClass, ActionType actionType, IAssociationEnd queryAction)
+        public QueryActionContext(ICSharpClassMethodDeclaration method, ActionType actionType, IAssociationEnd queryAction)
         {
+            _method = method;
             _actionType = actionType;
-            _template = template;
-            _handlerClass = handlerClass;
+            _template = method.File.Template;
+            _handlerClass = method.Class;
             _entity = queryAction.TypeReference.Element.AsClassModel();
-            if (actionType == ActionType.Update && _entity == null) 
+            if (_actionType == ActionType.Update && _entity == null) 
             {
                 _entity = OperationModelExtensions.AsOperationModel(queryAction.TypeReference.Element).ParentClass;
             }
@@ -90,7 +91,15 @@ namespace Intent.Modules.Application.DomainInteractions
             }
         }
 
-        public CSharpClass HandlerClass
+        public ICSharpClassMethodDeclaration Method
+        {
+            get
+            {
+                return _method;
+            }
+        }
+
+        public ICSharpClass HandlerClass
         {
             get
             {

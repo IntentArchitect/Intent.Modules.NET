@@ -40,6 +40,11 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
             }
 
             _personRepository.Remove(person);
+            _eventBus.Publish(new PersonDeletedEvent
+            {
+                Id = person.Id,
+                Name = person.Name
+            });
         }
     }
 }

@@ -346,7 +346,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         /// </summary>
         /// <response code="200">Returns the specified List&lt;CustomerDto&gt;.</response>
         /// <response code="400">One or more validation errors have occurred.</response>
-        [HttpGet("api/customer/{name}/{surname}/{isActive}")]
+        [HttpGet("api/customer/{name?}/{surname?}/{isActive}")]
         [ProducesResponseType(typeof(List<CustomerDto>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

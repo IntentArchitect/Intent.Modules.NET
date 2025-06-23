@@ -1,3 +1,7 @@
+### Version 5.1.0
+
+- Improvement: Upgraded to support implentations of interactions using the new interaction strategy mechanism.
+
 ### Version 5.0.28
 
 - Improvement: Replaced the `System.Linq.Dynamic.Core` using clause with `static System.Linq.Dynamic.Core.DynamicQueryableExtensions` to better disambiguate `PagedResult`.

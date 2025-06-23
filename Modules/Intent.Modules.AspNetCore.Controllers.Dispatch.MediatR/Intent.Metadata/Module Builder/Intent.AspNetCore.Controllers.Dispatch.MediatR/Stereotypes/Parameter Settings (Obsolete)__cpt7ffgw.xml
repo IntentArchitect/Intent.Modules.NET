@@ -58,7 +58,6 @@ return `[${properties["Source"].value}]`;</displayFunction>
         <option>From Query</option>
         <option>From Route</option>
       </valueOptions>
-      <lookupTypes />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="d59e0b3d-43ed-49bd-b6f7-9ae5ce945fec">
@@ -66,9 +65,6 @@ return `[${properties["Source"].value}]`;</displayFunction>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <valueOptions />
-      <lookupTypes />
       <isActiveFunction>return properties["Source"].value === "From Header";</isActiveFunction>
     </property>
   </properties>

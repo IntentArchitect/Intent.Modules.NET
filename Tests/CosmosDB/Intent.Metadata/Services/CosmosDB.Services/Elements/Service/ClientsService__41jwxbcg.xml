@@ -42,6 +42,10 @@
       <parentFolderId>7408993a-3a25-47f0-9b28-5ed5ff021925</parentFolderId>
       <packageId>e326ac1c-237a-4369-afc9-e661453c5460</packageId>
       <packageName>CosmosDB.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

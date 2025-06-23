@@ -28,6 +28,7 @@ namespace AzureFunctions.NET6.Application.Implementation
             DomainNotificationType type,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement SendNotification (NotificationService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

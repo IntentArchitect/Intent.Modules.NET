@@ -17,14 +17,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>293e2001-0f7b-4514-9a83-40140a2b45a2</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#65223bff-9096-4187-b6bb-dbf0aae2fae5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>FactoryExtensions/InteractionEventBusPublisherInstaller.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>InteractionEventBusPublisherInstaller.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>e3ebf4ad-4724-42ac-b76a-9abbcfea3fe0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

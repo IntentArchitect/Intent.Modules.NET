@@ -21,6 +21,9 @@
   <targetEnd id="844fe144-5a82-48d4-a68c-11a322a14262" type="Subscribe Integration Command Target End" typeId="efa73bdb-69b7-4f52-aa10-15c19874b394">
     <display>handles: MakeSoundCommand</display>
     <order>1</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="567dee69-b070-4927-a945-fa33e3171e23">
       <typeId>55fd5346-5936-4b7f-bcea-cc4c70b4bd59</typeId>
       <isNavigable>true</isNavigable>

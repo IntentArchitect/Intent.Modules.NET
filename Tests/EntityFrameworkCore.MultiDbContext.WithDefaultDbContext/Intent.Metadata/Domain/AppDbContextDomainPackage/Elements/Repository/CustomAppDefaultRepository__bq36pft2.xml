@@ -37,6 +37,9 @@
       <parentFolderId>881f029b-72c7-4778-9f6e-22c5ea05c420</parentFolderId>
       <packageId>1413292e-52f8-4923-8660-a960c3b29a1c</packageId>
       <packageName>AppDbContextDomainPackage</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>

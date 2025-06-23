@@ -2,19 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.ModuleBuilder.Templates.FactoryExtension#5d6830aa-cfbb-4127-adfa-dccfb1207fe5</correlationId>
-      <path>Intent.Modules.Eventing.Contracts/FactoryExtensions/ApplicationServiceInteractionInstaller.cs</path>
-      <count>2</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-08-16T15:06:42.4552495Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-08-20T12:22:19.5312136Z</approvedAt>
-      <deviationsHash>FA459B5FF891F696AE6F4A705B33E63122D105D6519718247054260960F2C49B</deviationsHash>
-      <fileHash>0090F6BDEFDF4868A00D5BDD80E155AF5832C57EACC099A3562ED2F63A2C7C41</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f1467209-d74e-4e04-85fa-11883ef28bce</correlationId>
       <path>Intent.Modules.Eventing.Contracts/Templates/AssemblyAttributes/AssemblyAttributesTemplatePartial.cs</path>
       <count>1</count>
@@ -22,7 +9,7 @@
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
       <updatedAt>2025-05-29T16:34:18.7723958Z</updatedAt>
       <deviationsHash>A2617BA5B16D6AB2BDFEBF50356120B3B88B8F360B6582A69D37D7D85DC58883</deviationsHash>
-      <fileHash>7A574EF55FC59F7DAE33B0DC25EB1C6CA70EF1A0D060C9F6B1076FDD77BD7F14</fileHash>
+      <fileHash>06D89C73A7BE4E6008C6BE19B86D6B7B020CB5BC5ADF631D31BC0F6044D9135B</fileHash>
     </file>
   </files>
 </deviationsLog>

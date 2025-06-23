@@ -11,14 +11,17 @@ using Intent.Modules.Application.DomainInteractions;
 using Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Constants;
 using Intent.Modules.DomainEvents.Templates.DomainEvent;
 using Intent.Modules.MediatR.DomainEvents.Templates.DomainEventNotification;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using static Intent.Modules.Constants.TemplateRoles.Application;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -63,23 +66,26 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                 })
                 .AfterBuild(file =>
                 {
-                    // TODO: MOVE TO FACTORY EXTENSION:
-                    foreach (var handledDomainEvents in Model.HandledDomainEvents())
+                    foreach (var handler in CSharpFile.GetProcessingHandlers())
                     {
-                        var @class = file.Classes.First();
-                        var method = (CSharpClassMethod)@class.GetReferenceForModel(handledDomainEvents);
-                        var csharpMapping = new CSharpClassMappingManager(this);
-                        csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(this));
-                        csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(this));
-                        csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(this));
-                        csharpMapping.AddMappingResolver(new ValueObjectMappingTypeResolver(this));
-                        csharpMapping.AddMappingResolver(new DataContractMappingTypeResolver(this));
-                        var domainInteractionManager = new DomainInteractionsManager(this, csharpMapping);
+                        var interactions = handler.Model.GetInteractions().ToList();
+                        if (interactions.Any())
+                        {
+                            var method = handler.Method;
+                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
+                            if (!method.Statements.Any(x => x.ToString().Equals("var domainEvent = notification.DomainEvent;")))
+                            {
+                                method.AddStatement("var domainEvent = notification.DomainEvent;");
+                            }
 
-                        csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
-                        method.AddMetadata("mapping-manager", csharpMapping);
+                            var mappingManager = method.GetMappingManager();
+                            // TODO: These can go to the handler template:
+                            mappingManager.SetFromReplacement(handler.Model, "domainEvent");
+                            mappingManager.SetFromReplacement(handler.Model.InternalElement, "domainEvent");
 
-                        method.AddStatements(domainInteractionManager.CreateInteractionStatements(@class, handledDomainEvents));
+                            //csharpMapping.SetFromReplacement(handledDomainEvents, "notification.DomainEvent");
+                            method.ImplementInteractions(interactions);
+                        }
                     }
                 })
                 .AfterBuild(file =>

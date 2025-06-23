@@ -22,6 +22,9 @@
     <name>handler</name>
     <display>handles : AnimalSoundRequestedEvent</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="baebd281-2672-4a84-bd4e-0718f2ef67a7">
       <typeId>14880fed-ddf6-4029-a8de-17923a6c6a86</typeId>
       <isNavigable>true</isNavigable>

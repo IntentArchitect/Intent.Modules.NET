@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AzureFunctions.NET8.Application.Common.Pagination;
 using AzureFunctions.NET8.Application.Interfaces;
 using AzureFunctions.NET8.Application.SampleDomains;
-using AzureFunctions.NET8.Domain.Common.Exceptions;
-using AzureFunctions.NET8.Domain.Entities;
 using AzureFunctions.NET8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,65 +27,44 @@ namespace AzureFunctions.NET8.Application.Implementation
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Guid> CreateSampleDomain(
             SampleDomainCreateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var newSampleDomain = new SampleDomain
-            {
-                Attribute = dto.Attribute,
-                Name = dto.Name,
-            };
-            _sampleDomainRepository.Add(newSampleDomain);
-            await _sampleDomainRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newSampleDomain.Id;
+            // TODO: Implement CreateSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<SampleDomainDto> FindSampleDomainById(Guid id, CancellationToken cancellationToken = default)
         {
-            var element = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (element is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            return element.MapToSampleDomainDto(_mapper);
+            // TODO: Implement FindSampleDomainById (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<SampleDomainDto>> FindSampleDomains(CancellationToken cancellationToken = default)
         {
-            var elements = await _sampleDomainRepository.FindAllAsync(cancellationToken);
-            return elements.MapToSampleDomainDtoList(_mapper);
+            // TODO: Implement FindSampleDomains (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task UpdateSampleDomain(
             Guid id,
             SampleDomainUpdateDto dto,
             CancellationToken cancellationToken = default)
         {
-            var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSampleDomain is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            existingSampleDomain.Attribute = dto.Attribute;
+            // TODO: Implement UpdateSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default)
         {
-            var existingSampleDomain = await _sampleDomainRepository.FindByIdAsync(id, cancellationToken);
-
-            if (existingSampleDomain is null)
-            {
-                throw new NotFoundException($"Could not find SampleDomain {id}");
-            }
-            _sampleDomainRepository.Remove(existingSampleDomain);
+            // TODO: Implement DeleteSampleDomain (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
@@ -100,17 +76,14 @@ namespace AzureFunctions.NET8.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(
             int pageNo,
             int pageSize,
             CancellationToken cancellationToken = default)
         {
-            var results = await _sampleDomainRepository.FindAllAsync(
-                pageNo: pageNo,
-                pageSize: pageSize,
-                cancellationToken: cancellationToken);
-            return results.MapToPagedResult(x => x.MapToSampleDomainDto(_mapper));
+            // TODO: Implement FindSampleDomainsPaged (SampleDomainsService) functionality
+            throw new NotImplementedException("Write your implementation for this service here...");
         }
 
         /// <summary>

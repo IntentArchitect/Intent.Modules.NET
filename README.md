@@ -28,4 +28,4 @@ When submitting contributions to this repository ensure that the following has b
 - The Module version has been updated according to the Semantic Versioning scheme.
 - The Module compiles and installs successfully.
 - Test cases have been added to the Tests Intent Architect solution.
-- Run the `run-validations.bat` to ensure that it passes our pre-build validation checks.
+- Run the `run-pre-commit-checks.ps1` script to ensure that it passes our pre-build validation checks.

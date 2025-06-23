@@ -1,3 +1,7 @@
+### Version 6.0.0
+
+- Improvement: Provides a `_eventBus.Publish(...)` & `_eventBus.Send(...)` implmentation strategies for the new interactions system.
+
 ### Version 5.2.1
 
 - Improvement: `SuppressMessage("Formatting", "IDE0130:Namespace does not match folder structure.", Target = "<namespace>", Scope = "namespaceanddescendants", Justification = "Message namespaces need to be consistent between applications for deserialization to work")` assembly attributes will now be generated to prevent compiler warnings for generated eventing messages if `dotnet_style_namespace_match_folder` is enabled in `.editorconfig`.

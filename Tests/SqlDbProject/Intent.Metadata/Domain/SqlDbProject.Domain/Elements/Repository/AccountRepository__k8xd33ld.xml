@@ -41,6 +41,9 @@
       <parentFolderId>4a0b23fa-e332-49d9-8f8d-811d48081823</parentFolderId>
       <packageId>79e09ed8-63e8-4f9e-b981-5de86029d61b</packageId>
       <packageName>SqlDbProject.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>

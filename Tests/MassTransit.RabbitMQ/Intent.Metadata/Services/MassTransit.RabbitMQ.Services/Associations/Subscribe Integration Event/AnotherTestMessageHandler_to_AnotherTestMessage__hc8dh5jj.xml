@@ -21,6 +21,9 @@
   <targetEnd id="61434cde-c1de-4596-9789-f346cefa9ca4" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
     <display>handles: AnotherTestMessage</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="71ae923f-1206-4924-96a2-0a12fe7a1e15">
       <typeId>90003f19-f74f-4c25-b667-46a9fd762fbb</typeId>
       <isNavigable>true</isNavigable>

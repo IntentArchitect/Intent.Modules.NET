@@ -38,6 +38,11 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
 
             _personRepository.Add(person);
             await _personRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            _eventBus.Publish(new PersonCreatedEvent
+            {
+                Id = person.Id,
+                Name = person.Name
+            });
             return person.Id;
         }
     }

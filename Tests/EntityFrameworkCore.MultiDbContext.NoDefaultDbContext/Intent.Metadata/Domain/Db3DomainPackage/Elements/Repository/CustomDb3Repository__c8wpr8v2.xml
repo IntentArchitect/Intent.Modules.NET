@@ -37,6 +37,9 @@
       <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
       <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
       <packageName>Db3DomainPackage</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -68,6 +71,9 @@
       <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
       <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
       <packageName>Db3DomainPackage</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -211,6 +217,9 @@
       <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
       <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
       <packageName>Db3DomainPackage</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>
@@ -320,6 +329,9 @@
       <parentFolderId>73c84fa3-cbce-46ad-864b-df73e65c588d</parentFolderId>
       <packageId>43e241be-9a89-4cfd-8dfc-612182b90123</packageId>
       <packageName>Db3DomainPackage</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
           <addedByDefault>true</addedByDefault>

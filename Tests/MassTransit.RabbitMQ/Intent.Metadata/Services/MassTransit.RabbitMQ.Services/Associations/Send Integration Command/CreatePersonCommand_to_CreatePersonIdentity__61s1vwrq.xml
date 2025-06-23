@@ -21,6 +21,9 @@
   <targetEnd id="03d5a457-adf9-4b70-ba9c-115532c6df38" type="Send Integration Command Target End" typeId="35a14f76-71e0-45f2-a17f-f8d1483510f7">
     <display>[send] CreatePersonIdentity</display>
     <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="1b5b9bbe-c079-4953-a72a-ff59b0eee7b5">
       <typeId>e10e82b7-174d-4d6e-8054-3891737bddf6</typeId>
       <isNavigable>true</isNavigable>

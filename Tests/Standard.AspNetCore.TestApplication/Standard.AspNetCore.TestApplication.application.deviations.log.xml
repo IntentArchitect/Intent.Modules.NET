@@ -12,20 +12,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9114059Z</approvedAt>
       <deviationsHash>C749033060A115B9527FECBED033663BF85C0D61E80A6424D00693F1AEDF67BD</deviationsHash>
-      <fileHash>044716664A3185FD30F2170A8F1FE8DA4A98E4BF43FFBC6659E9BE2C3D1D1C63</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#99212438-4531-42b8-85fa-e9294e7b66e9</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/InvoicesService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-03-26T15:16:57.6967333Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:11:38.9179548Z</approvedAt>
-      <deviationsHash>EB59C137E4C8FA69786F208B25F1B00ED224095ECD934B86295DC09DB5B20C4A</deviationsHash>
-      <fileHash>4E0243F9AEBEDFB58ADEC542584250518E8177FC9B6C70A4DBB96D63CCCF9EF6</fileHash>
+      <fileHash>A98CAD17D94F837A4E3E0E84D7FF1415EBE139BD86355E5B0EFF45C13221A120</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#f548406a-0688-4245-85b8-63a45f047168</correlationId>
@@ -38,20 +25,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9167243Z</approvedAt>
       <deviationsHash>77CECE5DE23C72216BEECCC5EB0872CD5C3B3EAA90C7919ECDB224583E25F875</deviationsHash>
-      <fileHash>B550D24C0E4B03D9BB6F3A3EBCA269C9AFF0C05442FF16241968E32034739687</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/PluralsService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-03-26T15:16:57.696747Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:11:38.9191765Z</approvedAt>
-      <deviationsHash>495022EDEBD178BADEDA8F2C6E3B653D2CC5D603B7343ED2B6F4BBC27EBE8C45</deviationsHash>
-      <fileHash>D44BC49A6D95D3B068EA6D1C8C28AF144E0889A988D4B9668A57D6C3F0D53E7C</fileHash>
+      <fileHash>C38D24493E0A586E5D565D56B13838A76E36EC6D04930ACF3E9877EF2C9363C1</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</correlationId>
@@ -64,7 +38,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9202365Z</approvedAt>
       <deviationsHash>AA032D778A07659A8935D99B0FDF0041F69EFA59999C9BCA4C390ED7C6B01AC5</deviationsHash>
-      <fileHash>36CDB19A7F9B1742CDBAC4FD51BAA6E1B04E7F50F73D0E983C9A87923D2CDF91</fileHash>
+      <fileHash>A4D54C2A7816FD87E083D978D86F25664FF552E942909210289A88B9AA84DBD3</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#2ddf8f24-e1b0-43f0-9a37-3f68508f4d08</correlationId>
@@ -77,7 +51,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9212082Z</approvedAt>
       <deviationsHash>02FEC4634A0C0FA6FBF7B58047E9A74ED950ABFDFB79E53E71B3A8F43761B481</deviationsHash>
-      <fileHash>0FDD77EB460DE40BE000A362D984AC0065FB820D5AA60CC94D4A760DBE343F19</fileHash>
+      <fileHash>8201F8D7C6CFD1F1A9FEB2E35CC911F231A2DB99223B96758B393447148CF34A</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ebb59190-d2f8-420d-a929-7a8a736c7f47</correlationId>
@@ -90,7 +64,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9223803Z</approvedAt>
       <deviationsHash>88172FE8089B550E48D6212141FF970E5842F367958E5626C2C9D69DADBC8DE1</deviationsHash>
-      <fileHash>1686C057AE3E56D4151A832A376936E261B033475DEE6AE0A9318E1BCCE3DE7B</fileHash>
+      <fileHash>6F12CB579CA8809375313610FC48D4D2C74E60A5146E02B9F7059CF84FDD40DB</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#f59ba1c8-1706-4569-8f1f-7a2b4cf5bbbd</correlationId>
@@ -103,7 +77,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9233127Z</approvedAt>
       <deviationsHash>931227A5DE136D04CABD00FF57B556EBFB018BEDD380EB6D197D4C135C94665A</deviationsHash>
-      <fileHash>E3FBB625E3942EBF4A0ABADBEB5B3537FF4C61467C06B0E715093A3BF536A365</fileHash>
+      <fileHash>B0F8CE1A8D05A93484DA900307DB54B3ADEED3C7F523C41D20EC3EB7E4C2FEB9</fileHash>
     </file>
     <file>
       <correlationId>Intent.Integration.HttpClients.HttpClientConfiguration</correlationId>
@@ -116,7 +90,7 @@
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
       <approvedAt>2024-06-20T20:11:38.9243361Z</approvedAt>
       <deviationsHash>8420CC46235CB60CBE9E42BC3D2BECF56B6B5311D103F5C6F69A42229C823328</deviationsHash>
-      <fileHash>B30B979C1559EECDABAF29D52B5B794C1072A7D6BDC209C6F427D33559BA4EE4</fileHash>
+      <fileHash>8E70163E094A6D3CE799E7211001A40C8A4B2283EFBFA7EC761E029419316D66</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -16,7 +16,7 @@ internal static class StrategyFactory
     {
         var strategies = new ICrudImplementationStrategy[]
         {
-            new CommandMappingImplementationStrategy(template),
+            //new CommandMappingImplementationStrategy(template),
 
             new CreateImplementationStrategy(template),
             new UpdateImplementationStrategy(template),
@@ -43,7 +43,7 @@ internal static class StrategyFactory
         var strategies = new ICrudImplementationStrategy[]
         {
             new ODataGetAllImplementationStrategy(template, application),
-            new QueryMappingImplementationStrategy(template),
+            //new QueryMappingImplementationStrategy(template),
 
             new GetAllImplementationStrategy(template, application),
             new GetByIdImplementationStrategy(template, application),

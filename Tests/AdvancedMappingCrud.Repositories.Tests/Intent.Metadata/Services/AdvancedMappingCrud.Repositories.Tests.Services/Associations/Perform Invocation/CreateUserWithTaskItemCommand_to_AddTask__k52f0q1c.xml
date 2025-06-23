@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7d7b58f8-cb57-4cbf-b78e-552b217b4f79">
+  <sourceEnd id="b47b2064-1abb-4437-8c14-a919f5a2e9a9" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : OperationMapping.CreateUserWithTaskItemCommand</display>
+    <order>0</order>
+    <typeReference id="baf7a1ef-27d2-42e9-a328-3f4f81db1505">
+      <typeId>267bbec7-8806-4f8a-83bf-1da03715adb5</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7d7b58f8-cb57-4cbf-b78e-552b217b4f79" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : AddTask(...): null</display>
+    <order>5</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="76750c10-94ee-4f6b-beb6-528466684fbb">
+      <typeId>504d166b-7e52-45bf-8692-9f966767f666</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="267bbec7-8806-4f8a-83bf-1da03715adb5" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateUserWithTaskItemCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="504d166b-7e52-45bf-8692-9f966767f666" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[AddTask]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateUserWithTaskItemCommand}</expression>
+            <path>
+              <target id="504d166b-7e52-45bf-8692-9f966767f666" name="AddTask" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="CreateUserWithTaskItemCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="267bbec7-8806-4f8a-83bf-1da03715adb5" name="CreateUserWithTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{ListName}</expression>
+            <path>
+              <target id="504d166b-7e52-45bf-8692-9f966767f666" name="AddTask" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="cf8ebc61-b9dd-43c8-8a07-74583f543e01" name="listName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="ListName" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="267bbec7-8806-4f8a-83bf-1da03715adb5" name="CreateUserWithTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="dfab5bd5-145e-4bfb-bb21-e4f495adb750" name="ListName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{TaskName}</expression>
+            <path>
+              <target id="504d166b-7e52-45bf-8692-9f966767f666" name="AddTask" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="13a8b50b-e002-41ef-a655-ef96070b9ffc" name="task" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="39e9c03e-b770-439a-a489-c3d05cc4a25d" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="TaskName" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="267bbec7-8806-4f8a-83bf-1da03715adb5" name="CreateUserWithTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7c2e46c4-810a-407a-8c06-7c8676b4222c" name="TaskName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SubTasks}</expression>
+            <path>
+              <target id="504d166b-7e52-45bf-8692-9f966767f666" name="AddTask" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="13a8b50b-e002-41ef-a655-ef96070b9ffc" name="task" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="d88fc5f5-3234-4658-a832-7858e138d4a1" name="SubTasks" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+            </path>
+            <sources>
+              <source identifier="SubTasks" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="267bbec7-8806-4f8a-83bf-1da03715adb5" name="CreateUserWithTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6e88c3bf-390e-4ae4-aec6-cca71acae937" name="SubTasks" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{SubTasks.Name}</expression>
+            <path>
+              <target id="504d166b-7e52-45bf-8692-9f966767f666" name="AddTask" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="13a8b50b-e002-41ef-a655-ef96070b9ffc" name="task" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="d88fc5f5-3234-4658-a832-7858e138d4a1" name="SubTasks" type="association" specialization="Association Target End" specializationId="0a66489f-30aa-417b-a75d-b945863366fd" />
+              <target id="044a3d81-fe0b-4928-a1c1-8ee361885d7a" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="SubTasks.Name" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="267bbec7-8806-4f8a-83bf-1da03715adb5" name="CreateUserWithTaskItemCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="6e88c3bf-390e-4ae4-aec6-cca71acae937" name="SubTasks" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="74d1e663-d3a7-4290-b018-3c5695e50921" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

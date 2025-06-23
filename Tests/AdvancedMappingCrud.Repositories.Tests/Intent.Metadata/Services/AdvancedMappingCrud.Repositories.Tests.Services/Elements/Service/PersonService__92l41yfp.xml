@@ -33,6 +33,10 @@
       <parentFolderId>d8c46d83-5d77-4cef-acc3-b3ebceb48c4a</parentFolderId>
       <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

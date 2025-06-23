@@ -35,8 +35,6 @@
         <option>PATCH</option>
         <option>DELETE</option>
       </valueOptions>
-      <lookupTypes />
-      <isActiveFunction />
       <isRequiredFunction>return true;</isRequiredFunction>
     </property>
     <property id="b8e71dbb-eb96-4e36-94c2-cdf87a546862">
@@ -44,24 +42,17 @@
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>
-      <placeholder />
-      <defaultValue />
-      <valueOptions />
-      <lookupTypes />
-      <isActiveFunction />
     </property>
     <property id="cd4e8d51-d9e4-4f1f-b3e7-6b6a41b6843e">
       <name>Return Type Mediatype</name>
       <type>string</type>
       <controlType>select</controlType>
       <optionsSource>options</optionsSource>
-      <placeholder />
       <defaultValue>Default</defaultValue>
       <valueOptions>
         <option>Default</option>
         <option>application/json</option>
       </valueOptions>
-      <lookupTypes />
     </property>
   </properties>
 </stereotypeDefinition>

@@ -7,6 +7,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -17,14 +18,14 @@ namespace Intent.Modules.Application.DomainInteractions;
 public class DbContextDataAccessProvider : IDataAccessProvider
 {
     private readonly string _dbContextField;
-    private readonly ICSharpFileBuilderTemplate _template;
+    private readonly ICSharpTemplate _template;
     private readonly CSharpClassMappingManager _mappingManager;
     private readonly CSharpAccessMemberStatement _dbSetAccessor;
     private readonly CSharpProperty[] _pks;
     private readonly bool _isUsingProjections;
     private readonly QueryActionContext? _queryContext;
 
-    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpFileBuilderTemplate template, CSharpClassMappingManager mappingManager, QueryActionContext queryContext)
+    public DbContextDataAccessProvider(string dbContextField, ClassModel entity, ICSharpTemplate template, CSharpClassMappingManager mappingManager, QueryActionContext queryContext)
     {
         _dbContextField = dbContextField;
         _template = template;

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="99d09607-868a-47f1-a145-92188603d41e">
+  <sourceEnd id="c08eb4b0-f7b2-430d-90c1-21e4440fcf5c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : People.SetPersonsCommand</display>
+    <order>0</order>
+    <typeReference id="577caeca-6896-4ddd-99a3-899085d64da9">
+      <typeId>9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="99d09607-868a-47f1-a145-92188603d41e" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: SetPersons(...): guid[*]</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="58296e5c-af70-4af7-81b0-7cb8bef3fc91">
+      <typeId>ab4767d7-2b44-4bf7-963f-03936a334e95</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[SetPersonsCommand]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ab4767d7-2b44-4bf7-963f-03936a334e95" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[SetPersons]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{SetPersonsCommand}</expression>
+            <path>
+              <target id="ab4767d7-2b44-4bf7-963f-03936a334e95" name="SetPersons" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="SetPersonsCommand" mappingType="Invocation Mapping" mappingTypeId="10fc25ac-92c7-49a5-9c42-4dd842a97500">
+                <path>
+                  <target id="9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e" name="SetPersonsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{People}</expression>
+            <path>
+              <target id="ab4767d7-2b44-4bf7-963f-03936a334e95" name="SetPersons" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="0f4224e7-5282-48d3-8892-53b040b63e45" name="people" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="People" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e" name="SetPersonsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="04f21428-9848-475b-b570-af158acb099a" name="People" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{People.FirstName}</expression>
+            <path>
+              <target id="ab4767d7-2b44-4bf7-963f-03936a334e95" name="SetPersons" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="0f4224e7-5282-48d3-8892-53b040b63e45" name="people" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="47cf5e33-315d-437e-8788-6626e1213cf1" name="FirstName" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="People.FirstName" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e" name="SetPersonsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="04f21428-9848-475b-b570-af158acb099a" name="People" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="33769238-2ac4-4cc0-a1e9-fd59343b8508" name="FirstName" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{People.Surname}</expression>
+            <path>
+              <target id="ab4767d7-2b44-4bf7-963f-03936a334e95" name="SetPersons" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="0f4224e7-5282-48d3-8892-53b040b63e45" name="people" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+              <target id="ec91b1ce-e0c4-43a0-be68-b2b8c88158ad" name="Surname" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="People.Surname" mappingType="Data Mapping" mappingTypeId="7d27572c-2171-430e-8ab5-dc68fd02fb6c">
+                <path>
+                  <target id="9c85d29e-d7cb-4c83-9a7d-8e630ef3f14e" name="SetPersonsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="04f21428-9848-475b-b570-af158acb099a" name="People" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                  <target id="3a9d776d-cca5-4e7d-aafc-636ad8e9d740" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

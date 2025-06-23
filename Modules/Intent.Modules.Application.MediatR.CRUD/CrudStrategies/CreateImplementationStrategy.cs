@@ -11,6 +11,7 @@ using Intent.Modules.Application.MediatR.CRUD.Decorators;
 using Intent.Modules.Application.MediatR.Templates;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -60,14 +61,14 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             var handleMethod = @class.FindMethod("Handle");
             handleMethod.Statements.Clear();
             handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
-            handleMethod.AddStatements(GetImplementation());
+            AddImplementationStatements(handleMethod);
             if (_matchingElementDetails.Value.DtoToReturn != null)
             {
                 ctor.AddParameter(_template.UseType("AutoMapper.IMapper"), "mapper", param => param.IntroduceReadonlyField());
             }
         }
 
-        public IEnumerable<CSharpStatement> GetImplementation()
+        public void AddImplementationStatements(CSharpClassMethod method)
         {
             var foundEntity = _matchingElementDetails.Value.FoundEntity;
             var repository = _matchingElementDetails.Value.Repository;
@@ -120,16 +121,17 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
                 codeLines.Add($"{repository.FieldName}.Add({entityVariableName});", x => x.SeparatedFromPrevious());
             }
 
+            method.AddStatements(ExecutionPhases.BusinessLogic, codeLines.ToList());
+
             if (_template.Model.TypeReference.Element != null)
             {
-                codeLines.Add($"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
+                method.AddStatement(ExecutionPhases.Persistence, $"await {repository.FieldName}.UnitOfWork.SaveChangesAsync(cancellationToken);");
                 var dtoToReturn = _matchingElementDetails.Value.DtoToReturn;
-                codeLines.Add(dtoToReturn != null
+                method.AddStatement(ExecutionPhases.Response, dtoToReturn != null
                     ? $"return {entityVariableName}.MapTo{_template.GetDtoName(dtoToReturn)}(_mapper);"
                     : $"return {entityVariableName}.{foundEntity.Attributes.Concat(foundEntity.ParentClass?.Attributes ?? new List<AttributeModel>()).FirstOrDefault(x => x.IsPrimaryKey())?.Name.ToPascalCase() ?? "Id"};");
             }
 
-            return codeLines.ToList();
 
             bool FilterForAnaemicMapping(DTOFieldModel field)
             {

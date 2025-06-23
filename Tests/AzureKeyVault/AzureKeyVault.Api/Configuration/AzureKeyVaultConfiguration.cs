@@ -15,12 +15,13 @@ public static class AzureKeyVaultConfiguration
     public static void ConfigureAzureKeyVault(this IConfigurationBuilder builder, IConfiguration configuration)
     {
         var credential = GetTokenCredential(configuration);
+        var endpoint = configuration["KeyVault:Endpoint"];
 
-        if (string.IsNullOrWhiteSpace(configuration["KeyVault:Endpoint"]))
+        if (string.IsNullOrWhiteSpace(endpoint))
         {
             throw new InvalidOperationException("Configuration 'KeyVault:Endpoint' is not set");
         }
-        builder.AddAzureKeyVault(new Uri(configuration["KeyVault:Endpoint"]), credential);
+        builder.AddAzureKeyVault(new Uri(endpoint), credential);
     }
 
     private static TokenCredential GetTokenCredential(IConfiguration configuration)

@@ -42,6 +42,9 @@
       <parentFolderId>eb2a6581-3bf2-474a-8474-303c0a03610e</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -94,6 +97,9 @@
       <parentFolderId>eb2a6581-3bf2-474a-8474-303c0a03610e</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -143,6 +149,9 @@
       <parentFolderId>eb2a6581-3bf2-474a-8474-303c0a03610e</parentFolderId>
       <packageId>c5137fb3-11a7-4f59-9a42-74623ae698a3</packageId>
       <packageName>SqlServerImporterTests</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
