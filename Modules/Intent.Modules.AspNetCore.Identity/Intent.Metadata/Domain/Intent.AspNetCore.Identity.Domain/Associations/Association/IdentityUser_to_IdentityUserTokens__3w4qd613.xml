@@ -14,7 +14,7 @@
       <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
       <stereotypes />
       <genericTypeParameters>
-        <genericTypeParameter id="4b51275d-cb0b-4a0d-b92c-d4aba6377be3">
+        <genericTypeParameter id="e545aabc-95f7-485b-8723-3863042339fc">
           <isNavigable>true</isNavigable>
           <isNullable>false</isNullable>
           <isCollection>false</isCollection>

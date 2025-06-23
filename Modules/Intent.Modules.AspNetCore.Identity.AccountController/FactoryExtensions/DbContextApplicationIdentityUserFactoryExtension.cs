@@ -2,7 +2,6 @@ using System.Linq;
 using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
-using Intent.Modules.AspNetCore.Identity.AccountController.Templates.ApplicationIdentityUserConfiguration;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
@@ -37,15 +36,15 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                 return;
             }
 
-            dbContext.CSharpFile.OnBuild(file =>
-            {
-                var priClass = file.Classes.First();
+            //dbContext.CSharpFile.OnBuild(file =>
+            //{
+            //    var priClass = file.Classes.First();
 
-                priClass.AddProperty($"{dbContext.UseType("Microsoft.EntityFrameworkCore.DbSet")}<{dbContext.GetTypeName("Domain.IdentityUser")}>", "ApplicationIdentityUsers");
+            //    priClass.AddProperty($"{dbContext.UseType("Microsoft.EntityFrameworkCore.DbSet")}<{dbContext.GetTypeName("Domain.IdentityUser")}>", "ApplicationIdentityUsers");
 
-                priClass.FindMethod("OnModelCreating")
-                    .Statements.Add($"modelBuilder.ApplyConfiguration(new {dbContext.GetTypeName(ApplicationIdentityUserConfigurationTemplate.TemplateId)}());");
-            });
+            //    priClass.FindMethod("OnModelCreating")
+            //        .Statements.Add($"modelBuilder.ApplyConfiguration(new {dbContext.GetTypeName(ApplicationIdentityUserConfigurationTemplate.TemplateId)}());");
+            //});
         }
 
         private static ICSharpFileBuilderTemplate? GetDbContextTemplate(IApplication application)

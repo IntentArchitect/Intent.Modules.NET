@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="8456c5d2-e017-4a0a-934e-94a79fb985c2" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>5d5cbcf6-752a-488c-b0f1-28c8e5d199c3</parentFolderId>
+  <packageId>5d5cbcf6-752a-488c-b0f1-28c8e5d199c3</packageId>
+  <packageName>Intent.AspNetCore.Identity.AccountController.Domain</packageName>
+  <diagram>
+    <targetPackageId>5d5cbcf6-752a-488c-b0f1-28c8e5d199c3</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -2,6 +2,6 @@
 <associationVisual id="b69ca386-eae9-45ea-b494-e94b39e0602b" zIndex="12">
   <sourceId>09098551-0f1d-4ca5-8a21-acf876b401bd</sourceId>
   <targetId>f431db01-d0dd-433a-b493-9d1bddc441ad</targetId>
-  <targetPrefPoint x="0" y="20" />
+  <targetPrefPoint x="0" y="40" />
   <fixedPoints />
 </associationVisual>

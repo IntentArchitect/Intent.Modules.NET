@@ -146,38 +146,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#044a871c-3e32-4738-a16f-15074fa657e5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#044a871c-3e32-4738-a16f-15074fa657e5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#d574e85d-be2c-4dae-a720-2376366685c7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#d574e85d-be2c-4dae-a720-2376366685c7</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration/ApplicationIdentityUserConfigurationTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d7e76fd9-0cd3-41b5-b971-e4547cc4572a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>

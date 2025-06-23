@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using Intent.Modules.AspNetCore.Identity.AccountController.Templates.AccountController;
 using Intent.Modules.AspNetCore.Identity.AccountController.Templates.AccountEmailSender;
 using Intent.Modules.AspNetCore.Identity.AccountController.Templates.AccountEmailSenderInterface;
-using Intent.Modules.AspNetCore.Identity.AccountController.Templates.ApplicationIdentityUser;
-using Intent.Modules.AspNetCore.Identity.AccountController.Templates.ApplicationIdentityUserConfiguration;
 using Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenServiceConcrete;
 using Intent.Modules.AspNetCore.Identity.AccountController.Templates.TokenServiceInterface;
 using Intent.Modules.Common.Templates;
@@ -30,16 +28,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates
         public static string GetAccountEmailSenderInterfaceName<T>(this IntentTemplateBase<T> template)
         {
             return template.GetTypeName(AccountEmailSenderInterfaceTemplate.TemplateId);
-        }
-
-        public static string GetApplicationIdentityUserName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
-        }
-
-        public static string GetApplicationIdentityUserConfigurationName<T>(this IntentTemplateBase<T> template)
-        {
-            return template.GetTypeName(ApplicationIdentityUserConfigurationTemplate.TemplateId);
         }
 
         public static string GetTokenServiceConcreteName<T>(this IntentTemplateBase<T> template)
