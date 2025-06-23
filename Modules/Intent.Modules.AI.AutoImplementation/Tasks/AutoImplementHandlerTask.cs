@@ -52,7 +52,7 @@ public class AutoImplementHandlerTask : IModuleTask
     public string TaskTypeName => "Auto-Implementation with AI Task";
     public int Order => 0;
     
-    private const int MaxAttempts = 3;
+    private const int MaxAttempts = 2;
 
     public string Execute(params string[] args)
     {

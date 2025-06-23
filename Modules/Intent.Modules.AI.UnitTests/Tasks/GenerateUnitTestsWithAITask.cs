@@ -51,7 +51,7 @@ public class GenerateUnitTestsWithAITask : IModuleTask
     public string TaskTypeName => "Auto-Implement Unit Tests with AI Task";
     public int Order => 0;
     
-    private const int MaxAttempts = 3;
+    private const int MaxAttempts = 2;
 
     public string Execute(params string[] args)
     {
