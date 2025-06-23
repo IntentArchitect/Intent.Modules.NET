@@ -18,7 +18,6 @@ namespace MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandler
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(ConfigTestMessageEvent message, CancellationToken cancellationToken = default)
         {
         }

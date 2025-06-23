@@ -1,35 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#2a8432bd-728d-476a-892a-fda3858db898</correlationId>
-      <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleServiceHandlers/CreatePersonSCH.cs</path>
-      <count>2</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:03.1043794Z</updatedAt>
-      <deviationsHash>75229047F63D66473CA46C3B537065CC2C0652053F01C962D0CA3A0FE02594DF</deviationsHash>
-      <fileHash>4C0308B4E320A34067120AC07505FDB14D7A612ECB34D4C5182BAE5C093D4D5B</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#7b96ac22-f8e7-4eea-8abb-68c592777833</correlationId>
-      <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleServiceHandlers/FindPeopleSCH.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:03.1043896Z</updatedAt>
-      <deviationsHash>0C0EA98C77734797B608D2E5FE560CF070017C540801E005433B2D7532921B28</deviationsHash>
-      <fileHash>4B6936103588832692602E0539CE9EE388C000BCB99E2C5309D92E26CA83EB35</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceCallHandlers.ServiceCallHandlerImplementation#140ea21b-ea5d-40bf-8a2b-f34b4074830c</correlationId>
-      <path>Standard.AspNetCore.ServiceCallHandlers.Application/Implementation/PeopleServiceHandlers/FindPersonByIdSCH.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:03.1043844Z</updatedAt>
-      <deviationsHash>B88A8993DA86300CCA1C45040380B7EF87719347896DFE760855C9FBC646C3B9</deviationsHash>
-      <fileHash>E68004520157B0742BFF265937A39AB2E6F4E80603C107A9D5108FEE38850012</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

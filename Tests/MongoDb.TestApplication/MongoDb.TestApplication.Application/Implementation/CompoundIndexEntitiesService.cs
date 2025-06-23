@@ -1,15 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.CompoundIndexEntities;
 using MongoDb.TestApplication.Application.Interfaces;
-using MongoDb.TestApplication.Domain.Common.Exceptions;
-using MongoDb.TestApplication.Domain.Entities.Indexes;
-using MongoDb.TestApplication.Domain.Repositories.Indexes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]
@@ -19,13 +14,12 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class CompoundIndexEntitiesService : ICompoundIndexEntitiesService
     {
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CompoundIndexEntitiesService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<string> CreateCompoundIndexEntity(
             CompoundIndexEntityCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -34,7 +28,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<CompoundIndexEntityDto> FindCompoundIndexEntityById(
             string id,
             CancellationToken cancellationToken = default)
@@ -43,14 +37,14 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<CompoundIndexEntityDto>> FindCompoundIndexEntities(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindCompoundIndexEntities (CompoundIndexEntitiesService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task UpdateCompoundIndexEntity(
             string id,
             CompoundIndexEntityUpdateDto dto,
@@ -60,7 +54,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task DeleteCompoundIndexEntity(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteCompoundIndexEntity (CompoundIndexEntitiesService) functionality

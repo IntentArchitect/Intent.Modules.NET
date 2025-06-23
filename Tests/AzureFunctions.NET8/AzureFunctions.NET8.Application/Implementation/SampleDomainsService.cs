@@ -1,14 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AzureFunctions.NET8.Application.Common.Pagination;
 using AzureFunctions.NET8.Application.Interfaces;
 using AzureFunctions.NET8.Application.SampleDomains;
-using AzureFunctions.NET8.Domain.Common.Exceptions;
-using AzureFunctions.NET8.Domain.Entities;
 using AzureFunctions.NET8.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
 
@@ -30,7 +27,7 @@ namespace AzureFunctions.NET8.Application.Implementation
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Guid> CreateSampleDomain(
             SampleDomainCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -39,21 +36,21 @@ namespace AzureFunctions.NET8.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<SampleDomainDto> FindSampleDomainById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindSampleDomainById (SampleDomainsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<SampleDomainDto>> FindSampleDomains(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindSampleDomains (SampleDomainsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task UpdateSampleDomain(
             Guid id,
             SampleDomainUpdateDto dto,
@@ -63,7 +60,7 @@ namespace AzureFunctions.NET8.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task DeleteSampleDomain(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteSampleDomain (SampleDomainsService) functionality
@@ -79,7 +76,7 @@ namespace AzureFunctions.NET8.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<PagedResult<SampleDomainDto>> FindSampleDomainsPaged(
             int pageNo,
             int pageSize,

@@ -18,7 +18,6 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Test
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(AnotherTestMessageEvent message, CancellationToken cancellationToken = default)
         {
         }

@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#25cf2309-04af-435c-9882-8e4637235949</correlationId>
-      <path>DtoSettings.Class.Internal.Application/Implementation/InvoicesService.cs</path>
-      <count>5</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:01:19.6359093Z</updatedAt>
-      <deviationsHash>19836B2139BC94E9E2AB23D661F44A4802A266FB43CCDEE318F7FE8BCD956F0A</deviationsHash>
-      <fileHash>2A41BBA29DB2C056FB24167AD3EF4E6D8B232ECEB43DF23B1435298DA46AEDA5</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

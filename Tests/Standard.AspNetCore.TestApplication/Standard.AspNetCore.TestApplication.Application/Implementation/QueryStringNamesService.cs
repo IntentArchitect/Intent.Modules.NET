@@ -21,6 +21,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task Operation(string par1, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement Operation (QueryStringNamesService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

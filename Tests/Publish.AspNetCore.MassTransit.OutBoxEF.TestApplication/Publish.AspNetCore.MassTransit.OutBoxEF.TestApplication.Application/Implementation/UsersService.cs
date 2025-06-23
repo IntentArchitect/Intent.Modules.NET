@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
-using MassTransit.Messages.Shared;
 using MassTransit.Messages.Shared.Users;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Common.Eventing;
 using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Interfaces;
@@ -20,13 +18,13 @@ using Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Domain.Repositorie
 
 namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Implementation
 {
-    [IntentManaged(Mode.Fully)]
+    [IntentManaged(Mode.Merge)]
     public class UsersService : IUsersService
     {
         private readonly IUserRepository _userRepository;
         private readonly IEventBus _eventBus;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UsersService(IUserRepository userRepository, IEventBus eventBus)
         {
             _userRepository = userRepository;
@@ -70,14 +68,14 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
             return user.Id;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindUserById (UsersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<UserDto>> FindUsers(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindUsers (UsersService) functionality
@@ -123,6 +121,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
                 throw new NotFoundException($"Could not find User '{id}'");
             }
 
+
             _userRepository.Remove(user);
             _eventBus.Publish(new UserDeletedEvent
             {
@@ -133,7 +132,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
         [IntentManaged(Mode.Fully)]
         private static Preference CreateOrUpdatePreference(Preference? entity, Users.PreferenceDto dto)
         {
-
             entity ??= new Preference();
             entity.Id = dto.Id;
             entity.Key = dto.Key;

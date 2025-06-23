@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#6570fe67-44fd-4887-8afe-8a6bf3ca86f8</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/ClientsService.cs</path>
-      <count>6</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790242Z</updatedAt>
-      <deviationsHash>DE9C1102A7E15E988C821365223940D9F1AEA2D5F24DD5B8D38AA7A25540CE78</deviationsHash>
-      <fileHash>BACAFA0D1D5C16C468EB9E1B2997586DF17F42979C12E4F3AEFC955C8A3B6AF9</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#50e51363-aac1-4d50-b7cf-040716c7b4ef</correlationId>
       <path>Standard.AspNetCore.TestApplication.Application/Implementation/IntegrationService.cs</path>
       <count>1</count>
@@ -23,16 +13,6 @@
       <approvedAt>2024-06-20T20:11:38.9114059Z</approvedAt>
       <deviationsHash>C749033060A115B9527FECBED033663BF85C0D61E80A6424D00693F1AEDF67BD</deviationsHash>
       <fileHash>044716664A3185FD30F2170A8F1FE8DA4A98E4BF43FFBC6659E9BE2C3D1D1C63</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#99212438-4531-42b8-85fa-e9294e7b66e9</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/InvoicesService.cs</path>
-      <count>7</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790356Z</updatedAt>
-      <deviationsHash>F8819B507D758B9117E8431D90D5BB28DD8C65679E61DA6516BC734A0FD97F89</deviationsHash>
-      <fileHash>8B2783000CF88993172253286A6AB8BB7D68CDB2AD4F7E5C5F1FD999AE5D6168</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#f548406a-0688-4245-85b8-63a45f047168</correlationId>
@@ -48,22 +28,15 @@
       <fileHash>B550D24C0E4B03D9BB6F3A3EBCA269C9AFF0C05442FF16241968E32034739687</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#9a0e6ef1-b23c-4861-9c50-db1bada5047d</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiIgnoreAllImplicitService.cs</path>
-      <count>2</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790437Z</updatedAt>
-      <deviationsHash>AA66619375B81B90E3E712FACC269F9F0753F37DE6B64104A0E5A463636F1014</deviationsHash>
-      <fileHash>8E6CEB3B14777AB4C7926C0F467AD238A8A7B47ED952457376A1BBEAD06F6C48</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#3772d487-5440-4354-a2b7-25338cebbf1a</correlationId>
       <path>Standard.AspNetCore.TestApplication.Application/Implementation/OpenApiIgnoreSingleService.cs</path>
       <count>2</count>
       <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2025-06-12T15:21:41.1790487Z</updatedAt>
+      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
+      <approvedAt>2025-06-23T06:27:43.2830378Z</approvedAt>
       <deviationsHash>B01282B087BCF7EF3132C818E7439073D2A20CB5947DF3B7A3B0D10C6DCC5FC1</deviationsHash>
       <fileHash>92A95DFCE6881F44990AE9782696090B993CB7FD3136F5385DF19A98447E0B52</fileHash>
     </file>
@@ -74,38 +47,11 @@
       <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
       <updatedAt>2025-06-12T15:21:41.179053Z</updatedAt>
+      <approvedByAccountName>gareth.baars@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Gareth Baars</approvedByDisplayName>
+      <approvedAt>2025-06-23T06:27:43.289411Z</approvedAt>
       <deviationsHash>AEDB2E6F6D73111825075B3B1DB63F2FE096255F760B027F547727CB8516DE5F</deviationsHash>
       <fileHash>4550A3D8A4AE9C49A43BD0F4AA37B91B02215CCF3F9588479DC09589C809EA44</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#7078d1c8-12f2-4827-a103-c16f2a6cd4f4</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/PluralsService.cs</path>
-      <count>7</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790579Z</updatedAt>
-      <deviationsHash>DCDD8010D862EB9DFA25C665DBD20D08FD32D496C20996A8903E707E52D938FB</deviationsHash>
-      <fileHash>32E4EE89D37BC38C6DC910A60934484901C721C9451BAA398725E2DBECDA5B17</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#b5e34b80-1fc3-4792-894f-3bfa0ae21fb7</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/QueryStringNamesService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790622Z</updatedAt>
-      <deviationsHash>57B640AECE93DC4A3287B58B6A2536D5F1C6ED816D57E8E9C0B95A5A4DA0DFEF</deviationsHash>
-      <fileHash>2031B4CCC0424249309C72D010375BF0EB1D757E731D33E0B1D6B2DBA23A1FC0</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#de0ef5ea-a2d4-40b2-ab87-abbc6d150a03</correlationId>
-      <path>Standard.AspNetCore.TestApplication.Application/Implementation/ValidationTestingService.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:21:41.1790661Z</updatedAt>
-      <deviationsHash>46D132C76DEBDEB12E4DA0A7E473A436A640A999B934BB396670B4B48A581F02</deviationsHash>
-      <fileHash>077E0BEA44D69F5828DDCA0CC77E2F3B773E96B69517E299B606E9BE4DAF5EAC</fileHash>
     </file>
     <file>
       <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#867df351-f179-4b7a-9119-f6e24425f9dc</correlationId>

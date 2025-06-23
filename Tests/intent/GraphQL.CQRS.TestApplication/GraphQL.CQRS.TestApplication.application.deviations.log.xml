@@ -106,16 +106,6 @@
       <fileHash>6A3E69D41EAB346D3F7A31406E3E647F285F9DE27489048A02E1B16F585F8874</fileHash>
     </file>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#c5dad6f1-8d21-4a45-8c4c-007b12fc8f00</correlationId>
-      <path>GraphQL.CQRS.TestApplication.Application/Implementation/ProductsService.cs</path>
-      <count>6</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:06:20.6080873Z</updatedAt>
-      <deviationsHash>74A8F08943395898C67B46A515321B92EFA678E57780D9A2AB6B404E91410370</deviationsHash>
-      <fileHash>7F69F6A5F37842725E52A728EF1A29F7AE623342C54E65D002EF06533FEE5B19</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.CommandHandler#f9677e9b-b57e-4f67-9532-2b9a802b90ed</correlationId>
       <path>GraphQL.CQRS.TestApplication.Application/Invoices/CreateInvoice/CreateInvoiceCommandHandler.cs</path>
       <count>1</count>

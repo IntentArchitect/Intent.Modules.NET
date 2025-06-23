@@ -17,25 +17,22 @@ namespace Kafka.Consumer.Application.IntegrationEvents.EventHandlers.Invoices
     public class InvoiceIntegrationEventHandler : IIntegrationEventHandler<InvoiceCreatedEvent>, IIntegrationEventHandler<InvoiceUpdatedEvent>
     {
         private readonly ISender _mediator;
+
         [IntentManaged(Mode.Merge)]
         public InvoiceIntegrationEventHandler(ISender mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(InvoiceCreatedEvent message, CancellationToken cancellationToken = default)
         {
             var command = new CreateInvoiceCommand(id: message.Id, note: message.Note);
-
             await _mediator.Send(command, cancellationToken);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(InvoiceUpdatedEvent message, CancellationToken cancellationToken = default)
         {
             var command = new UpdateInvoiceCommand(id: message.Id, note: message.Note);
-
             await _mediator.Send(command, cancellationToken);
         }
     }

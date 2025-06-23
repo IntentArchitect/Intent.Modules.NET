@@ -2,36 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#5d2c6008-6d5e-4892-a53f-4de2c4625916</correlationId>
-      <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/CatchAllHandler.cs</path>
-      <count>4</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-13T07:29:46.5573928Z</updatedAt>
-      <deviationsHash>91919C686F587E7A87FFE77EE22C764872EC19BE533AAF3138B991137676E8A6</deviationsHash>
-      <fileHash>F9B6A0BF89CA6767C5BBC65385C53A3E6982662A62DBE39443D9AF60684ECF39</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#d0ffd2d0-a6ae-412e-9a51-6edfaef24a5c</correlationId>
-      <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/NamingOverrides/StandardMessageCustomSubscribeHandler.cs</path>
-      <count>5</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-13T07:29:46.5573997Z</updatedAt>
-      <deviationsHash>71E3D80AB36AD34DCA11B86FA2997F91F073CD2A2E08CEA3B93C081220432FFA</deviationsHash>
-      <fileHash>5FF062131E8950B89BB43BFF6FDF3C97693D08BEE3641746AB9EE3D1FFCEC12B</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#deac8939-84b1-4219-a8a7-4763c2aa7c01</correlationId>
-      <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/Test/AnotherTestMessageHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-13T07:29:46.5573867Z</updatedAt>
-      <deviationsHash>EA0CA7ED7A616D721ECCADDF1971D92459ECF27DEE1F310EDFBD36FAFC5F8DE5</deviationsHash>
-      <fileHash>5A4BE5EAD0EE7B8644ACC28B3E8F8DD8C8FDC6B6753C81EE6778606839F82735</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#0b477704-dedd-41ef-87cf-b04ad7aca56d</correlationId>
       <path>MassTransit.RabbitMQ.Application/IntegrationEvents/EventHandlers/TestMessageEventHandler.cs</path>
       <count>2</count>

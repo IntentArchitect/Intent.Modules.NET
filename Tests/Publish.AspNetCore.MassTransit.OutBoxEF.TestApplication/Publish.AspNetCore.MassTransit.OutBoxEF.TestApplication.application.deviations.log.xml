@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#81985beb-9423-4107-9cda-25165eec3dbd</correlationId>
-      <path>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Implementation/UsersService.cs</path>
-      <count>4</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-12T15:16:36.0952187Z</updatedAt>
-      <deviationsHash>EF8F890C6DE5567BD7229E921289BEC33F3C5739422D2B91B0EC4101237C3CC1</deviationsHash>
-      <fileHash>E33CFCF35C49E28AE65358D56FCF64F1B25948E5A8726D9BDDCC908F65224C50</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#eef0e2ce-9726-46f0-b58e-818de6323ba5</correlationId>
       <path>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDtoValidator.cs</path>
       <count>1</count>

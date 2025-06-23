@@ -2,16 +2,6 @@
 <deviationsLog>
   <files>
     <file>
-      <correlationId>Intent.Application.ServiceImplementations.ServiceImplementation#ddffe1ac-5b36-4498-a7cd-48c451d88f29</correlationId>
-      <path>GraphQL.AzureFunction.TestApplication.Application/Implementation/CustomersService.cs</path>
-      <count>7</count>
-      <updatedByAccountName>gareth.baars@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Gareth Baars</updatedByDisplayName>
-      <updatedAt>2025-06-19T18:44:32.4096422Z</updatedAt>
-      <deviationsHash>D83DA33BDF5A7E256EE38E27AEA41AC045814BD6F6BD1139EB7561DC10791A92</deviationsHash>
-      <fileHash>1D9CD301A1D67E6A7B3AC7A9334F03FEF21A61603B402A435E0046CAD6823518</fileHash>
-    </file>
-    <file>
       <correlationId>Intent.Application.MediatR.QueryHandler#0642cec8-5948-462a-baa2-806e01d50c6f</correlationId>
       <path>GraphQL.AzureFunction.TestApplication.Application/Products/GetProductById/GetProductByIdQueryHandler.cs</path>
       <count>1</count>

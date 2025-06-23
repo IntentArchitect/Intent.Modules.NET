@@ -15,7 +15,6 @@ namespace AspNetCore.AzureServiceBus.GroupB.Application.IntegrationEvents.EventH
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(ClientCreatedEvent message, CancellationToken cancellationToken = default)
         {
         }

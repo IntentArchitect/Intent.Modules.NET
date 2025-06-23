@@ -1,15 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MongoDb.TestApplication.Application.IdTypeOjectIdStrs;
 using MongoDb.TestApplication.Application.Interfaces;
-using MongoDb.TestApplication.Domain.Common.Exceptions;
-using MongoDb.TestApplication.Domain.Entities.IdTypes;
-using MongoDb.TestApplication.Domain.Repositories.IdTypes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]
@@ -19,13 +14,12 @@ namespace MongoDb.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class IdTypeOjectIdStrsService : IIdTypeOjectIdStrsService
     {
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public IdTypeOjectIdStrsService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<string> CreateIdTypeOjectIdStr(
             IdTypeOjectIdStrCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -34,7 +28,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<IdTypeOjectIdStrDto> FindIdTypeOjectIdStrById(
             string id,
             CancellationToken cancellationToken = default)
@@ -43,14 +37,14 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<IdTypeOjectIdStrDto>> FindIdTypeOjectIdStrs(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindIdTypeOjectIdStrs (IdTypeOjectIdStrsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task UpdateIdTypeOjectIdStr(
             string id,
             IdTypeOjectIdStrUpdateDto dto,
@@ -60,7 +54,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task DeleteIdTypeOjectIdStr(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteIdTypeOjectIdStr (IdTypeOjectIdStrsService) functionality

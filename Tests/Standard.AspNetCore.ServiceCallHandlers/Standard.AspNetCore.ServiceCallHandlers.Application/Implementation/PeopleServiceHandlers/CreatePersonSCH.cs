@@ -15,13 +15,13 @@ using Standard.AspNetCore.ServiceCallHandlers.Eventing.Messages;
 
 namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.PeopleServiceHandlers
 {
-    [IntentManaged(Mode.Fully)]
+    [IntentManaged(Mode.Merge)]
     public class CreatePersonSCH
     {
         private readonly IPersonRepository _personRepository;
         private readonly IEventBus _eventBus;
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Merge)]
         public CreatePersonSCH(IPersonRepository personRepository, IEventBus eventBus)
         {
             _personRepository = personRepository;

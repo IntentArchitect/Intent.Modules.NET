@@ -18,21 +18,18 @@ namespace MassTransit.AzureServiceBus.Application.IntegrationEvents.EventHandler
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(
             StandardMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(
             OverrideMessageStandardSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(
             OverrideMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)
