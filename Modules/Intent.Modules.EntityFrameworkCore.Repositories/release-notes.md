@@ -1,3 +1,7 @@
+### Version 4.7.12
+
+- Fixed: Error when procedure parameter was of type `char`
+
 ### Version 4.7.11
 
 - Improvement: Configuration now created for `DataContracts` when required, instead of in the DbContext.
