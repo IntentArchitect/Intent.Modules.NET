@@ -1,3 +1,7 @@
+### Version 2.0.3
+
+- Improvement: Updated Nuget Packages
+
 ### Version 2.0.2
 
 - Improvement: Updated logic to cater for when `UseHttpsRedirection` is not present

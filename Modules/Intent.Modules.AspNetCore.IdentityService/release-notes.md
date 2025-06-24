@@ -1,3 +1,7 @@
+### Version 1.0.2
+
+- Improvement: Updated to the lastes Intent.AspNetCore.Identity. ApplicationIdentityUser now inherits from the base type and can be modified within the domain designer.
+
 ### Version 1.0.1
 
 - Improvement: Updated NuGet package versions.
