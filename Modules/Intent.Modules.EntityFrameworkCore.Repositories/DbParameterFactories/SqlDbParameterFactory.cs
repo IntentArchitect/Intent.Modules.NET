@@ -122,6 +122,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
                 "binary" => "VarBinary",
                 "bool" => "Bit",
                 "byte" => "TinyInt",
+                "char" => "Char",
                 "date" => "Date",
                 "datetime" => "DateTime2",
                 "datetimeoffset" => "DateTimeOffset",

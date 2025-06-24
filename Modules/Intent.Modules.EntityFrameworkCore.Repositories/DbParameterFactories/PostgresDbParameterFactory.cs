@@ -118,6 +118,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
                 "binary" => "Bytea",
                 "bool" => "Boolean",
                 "byte" => "Smallint",
+                "char" => "Char",
                 "date" or "datetime" or "datetimeoffset" => "Date",
                 "decimal" => "Numeric",
                 "double" => "Double",
