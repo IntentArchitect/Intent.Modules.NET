@@ -122,22 +122,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b818b696-5650-44cd-b19f-1ff3743f1a92</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/OperationHandlerTest/OperationHandlerTestTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationHandlerTest/OperationHandlerTestTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b818b696-5650-44cd-b19f-1ff3743f1a92</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/OperationHandlerTest/OperationHandlerTestTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>OperationHandlerTest/OperationHandlerTestTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#af2db1cd-8188-4227-9b9a-adb4422e285b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandlerTest/QueryHandlerTestTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -150,6 +134,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/QueryHandlerTest/QueryHandlerTestTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>QueryHandlerTest/QueryHandlerTestTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b818b696-5650-44cd-b19f-1ff3743f1a92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceOperationTest/ServiceOperationTestTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceOperationTest/ServiceOperationTestTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>03a5cb16-987e-444f-9c32-4c83cdd35f0d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#b818b696-5650-44cd-b19f-1ff3743f1a92</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/ServiceOperationTest/ServiceOperationTestTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServiceOperationTest/ServiceOperationTestTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

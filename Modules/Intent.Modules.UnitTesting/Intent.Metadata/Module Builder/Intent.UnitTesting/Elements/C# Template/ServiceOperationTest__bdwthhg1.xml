@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="b818b696-5650-44cd-b19f-1ff3743f1a92" type="C# Template" typeId="f6456232-0f1b-4235-b5f8-b4cce548ca59">
-  <name>OperationHandlerTest</name>
-  <display>OperationHandlerTest: File Per Model</display>
+  <name>ServiceOperationTest</name>
+  <display>ServiceOperationTest: File Per Model</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <typeReference id="38bc78fe-e98e-4ea0-b366-c42548a3ca1d">
@@ -35,7 +35,7 @@
       <properties>
         <property name="a9de6cf5-6d4f-4ae1-aa60-5ca85e458709" display="Source" value="Lookup Type" isActive="true" />
         <property name="00d3537c-f71f-4450-8cc8-d9e87c12baee" display="Designer" value="81104ae6-2bc5-4bae-b05a-f987b0372d81" isActive="true" />
-        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="e030c97a-e066-40a7-8188-808c275df3cb" isActive="true" />
+        <property name="75b89367-1808-43f8-9f18-785915ec1630" display="Model Type" value="b16578a5-27b1-4047-a8df-f0b783d706bd" isActive="true" />
         <property name="d1e89313-0647-48bd-81da-b04b644db475" display="Model Name" value="object" isActive="false" />
         <property name="f1d88e59-1ca6-426e-b52d-42f3467e6bd5" display="Role" value="UnitTests.Tests" isActive="true" />
         <property name="1ac0fa39-ecea-48f8-92e4-41616a639586" display="Default Location" isActive="true" />

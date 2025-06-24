@@ -35,12 +35,13 @@ internal static class TestHelpers
 
     public static string GetOperationNormalizedPath<TModel>(this CSharpTemplateBase<TModel> template)
     {
-        var operationModel = template.Model as Modelers.Services.Api.OperationModel;
-        var parentService = operationModel?.ParentService;
+        var parentService = template.Model as ServiceModel;
 
         if (parentService != null)
         {
-            return string.Join("/", parentService.GetParentFolderNames());
+            return string.Join("/", parentService.GetParentFolderNames().Count > 0 ? 
+                parentService.GetParentFolderNames() :
+                parentService.Name.Replace("Service", ""));
         }
 
         return template.GetFolderPath();

@@ -3,8 +3,8 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.UnitTesting.Templates.CommandHandlerTest;
-using Intent.Modules.UnitTesting.Templates.OperationHandlerTest;
 using Intent.Modules.UnitTesting.Templates.QueryHandlerTest;
+using Intent.Modules.UnitTesting.Templates.ServiceOperationTest;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -25,16 +25,6 @@ namespace Intent.Modules.UnitTesting.Templates
             return template.GetTypeName(CommandHandlerTestTemplate.TemplateId, model);
         }
 
-        public static string GetOperationHandlerTestName<T>(this IIntentTemplate<T> template) where T : OperationModel
-        {
-            return template.GetTypeName(OperationHandlerTestTemplate.TemplateId, template.Model);
-        }
-
-        public static string GetOperationHandlerTestName(this IIntentTemplate template, OperationModel model)
-        {
-            return template.GetTypeName(OperationHandlerTestTemplate.TemplateId, model);
-        }
-
         public static string GetQueryHandlerTestName<T>(this IIntentTemplate<T> template) where T : QueryModel
         {
             return template.GetTypeName(QueryHandlerTestTemplate.TemplateId, template.Model);
@@ -43,6 +33,16 @@ namespace Intent.Modules.UnitTesting.Templates
         public static string GetQueryHandlerTestName(this IIntentTemplate template, QueryModel model)
         {
             return template.GetTypeName(QueryHandlerTestTemplate.TemplateId, model);
+        }
+
+        public static string GetServiceOperationTestName<T>(this IIntentTemplate<T> template) where T : ServiceModel
+        {
+            return template.GetTypeName(ServiceOperationTestTemplate.TemplateId, template.Model);
+        }
+
+        public static string GetServiceOperationTestName(this IIntentTemplate template, ServiceModel model)
+        {
+            return template.GetTypeName(ServiceOperationTestTemplate.TemplateId, model);
         }
 
     }
