@@ -50,6 +50,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>44e0a44f-d249-4ba0-a2c2-26b67fa70214</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#dd7d34e9-ffa7-4c27-bec4-42d662e314b1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_04_01_05_Pre_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_04_01_05_Pre_00.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>44e0a44f-d249-4ba0-a2c2-26b67fa70214</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#291c5a73-408c-40e2-ae94-2ea5551c8f63</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>

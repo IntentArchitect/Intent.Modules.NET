@@ -24,18 +24,35 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var userIdentityEntity = application.MetadataManager.Domain(application).GetClassModels().FirstOrDefault(p => p.HasIdentityUser());
-            if (userIdentityEntity is null)
+            foreach (var @class in application.MetadataManager.Domain(application).GetClassModels())
+            {
+                if(@class.ParentClass is not null)
+                {
+                    UpdateEntityConfiguration(application, @class.ParentClass.Name switch
+                    {
+                        "IdentityUser" or "IdentityRole" or "IdentityUserRole" or
+                            "IdentityRoleClaim" or "IdentityUserClaim" or "IdentityUserToken" or "IdentityUserLogin" => @class,
+                        _ => null
+                    });
+                    switch (@class.ParentClass.Name)
+                    {
+                        case "IdentityUser":
+
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void UpdateEntityConfiguration(IApplication application, ClassModel? userIdentityEntity)
+        {
+            if(userIdentityEntity is null || userIdentityEntity.ParentClass is null)
             {
                 return;
             }
 
-            UpdateDbContext(application, userIdentityEntity);
-            UpdateEntityTemplate(application, userIdentityEntity);
-        }
-
-        private void UpdateDbContext(IApplication application, ClassModel userIdentityEntity)
-        {
-            var entityTypeConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Infrastructure.Data.EntityTypeConfiguration", userIdentityEntity.Id);
+            var entityTypeConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.EntityTypeConfiguration", userIdentityEntity.Id);
             if (entityTypeConfigTemplate is null)
             {
                 return;
@@ -45,24 +62,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 var configMethod = @class.FindMethod("Configure");
-                configMethod.AddStatement($"builder.Property(x => x.RefreshToken);");
-                configMethod.AddStatement($"builder.Property(x => x.RefreshTokenExpired);");
-            });
-        }
-
-        private void UpdateEntityTemplate(IApplication application, ClassModel userIdentityEntity)
-        {
-            var entityTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Domain.Entity", userIdentityEntity.Id);
-            if (entityTemplate is null)
-            {
-                return;
-            }
-
-            entityTemplate.CSharpFile.OnBuild(file =>
-            {
-                var @class = file.Classes.First();
-                @class.AddProperty(entityTemplate.UseType("string?"), "RefreshToken");
-                @class.AddProperty(entityTemplate.UseType("System.DateTime?"), "RefreshTokenExpired");
+                configMethod.FindAndReplaceStatement(s => s.Text.Contains("builder.HasBaseType"), new Common.CSharp.Builder.CSharpStatement($"builder.HasBaseType<{userIdentityEntity.ParentClass.Name}<string>>();"));
             });
         }
     }

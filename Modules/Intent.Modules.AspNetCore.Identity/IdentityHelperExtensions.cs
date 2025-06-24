@@ -120,7 +120,7 @@ public static class IdentityHelperExtensions
 
         if (identityModels.Count > 0)
         {
-            return $"{identityModels.GetName("IdentityRole", template, false)}";
+            return $"{identityModels.GetName("IdentityRole", template, true)}";
         }
         else
         {

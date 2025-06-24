@@ -1,7 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Intent.Engine;
-using Intent.Persistence;
+using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
+using Intent.IArchitect.Agent.Persistence.Model.Visual;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
 
@@ -12,15 +16,13 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 {
     public class Migration_04_02_00_Pre_00 : IModuleMigration
     {
-        private const string DomainDesignerId = "0701433c-36c0-4569-b1f4-9204986b587d";
+        private const string DomainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
 
         private readonly IApplicationConfigurationProvider _configurationProvider;
-        private readonly IPersistenceLoader _persistenceLoader;
 
-        public Migration_04_02_00_Pre_00(IApplicationConfigurationProvider configurationProvider, IPersistenceLoader persistenceLoader)
+        public Migration_04_02_00_Pre_00(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
-            _persistenceLoader = persistenceLoader;
         }
 
         [IntentFully]
@@ -30,58 +32,103 @@ namespace Intent.Modules.AspNetCore.Identity.Migrations
 
         public void Up()
         {
-            var app = _persistenceLoader.LoadApplication(_configurationProvider.GetApplicationConfig().FilePath);
+            Debugger.Launch();
+            var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
-            var package = designer.GetPackages(true).FirstOrDefault();
+
+            var package = designer.GetPackages().FirstOrDefault();
             if (package is null)
             {
                 return;
             }
 
-            CreateApplicationIdentity(package);
-        }
+            package.Load();
 
-        private void CreateApplicationIdentity(IPackageModelPersistable package)
-        {
-            var identityApplicationUserEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationUser", identityApplicationUserEntityId);
+            var identityDomainRefence = package.References.FirstOrDefault(x => x.Name == "Intent.AspNetCore.Identity.Domain");
+            if (identityDomainRefence is null)
+            {
+                return;
+            }
 
-            var identityApplicationRoleEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationRole", identityApplicationRoleEntityId);
+            var identityDomainPackage = identityDomainRefence.TryLoadPackage();
+            if (identityDomainPackage is null)
+            {
+                return;
+            }
 
-            var identityApplicationUserClaimEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationUserClaim", identityApplicationUserClaimEntityId);
+            var diagrams = package.GetElementsOfType("4d66fecd-e9b8-436f-aa50-c59040ad0879");
 
-            var identityApplicationUserRoleEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationUserRole", identityApplicationUserRoleEntityId);
+            var identityDiagramId = Guid.Empty;
 
-            var identityApplicationUserLoginEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationUserLogin", identityApplicationUserLoginEntityId);
+            if (diagrams.Count > 0)
+            {
+                var identityDiagram = diagrams.FirstOrDefault(d => d.Name == "Identity Diagram");
 
-            var identityApplicationUserRoleClaimEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationRoleClaim", identityApplicationUserRoleClaimEntityId);
+                if (identityDiagram is not null)
+                {
+                    identityDiagramId = Guid.Parse(identityDiagram.Id);
+                }
+            }
 
-            var identityApplicationUserTokenEntityId = CreateAspNetIdentityExternal(package, "IdentityUser");
-            CreateEntity(package, "ApplicationUserToken", identityApplicationUserTokenEntityId);
-        }
+            if (identityDiagramId == Guid.Empty)
+            {
+                identityDiagramId = Guid.NewGuid();
 
-        private void CreateEntity(IPackageModelPersistable package, string entityName, string inheritFromId)
-        {
-            var entityId = Guid.NewGuid().ToString();
-            var entity = package.Classes.Add(entityId, "Class", "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
-                entityName, package.Id);
+                var identityDiagram = identityDomainPackage.Classes.FirstOrDefault(d => d.SpecializationTypeId == "4d66fecd-e9b8-436f-aa50-c59040ad0879");
 
-            entity.ExternalReference = inheritFromId;
-        }
+                List<AssociationVisualPersistable> newAssociationVisuals = new List<AssociationVisualPersistable>();
+                List<ElementVisualPersistable> newClassVisuals = new List<ElementVisualPersistable>();
 
-        private string CreateAspNetIdentityExternal(IPackageModelPersistable externalPackage, string entityName)
-        {
-            var entityId = Guid.NewGuid().ToString();
+                if (identityDiagram is not null)
+                {
+                    newClassVisuals.AddRange(identityDiagram.Diagram.ClassVisuals.Select(c => new ElementVisualPersistable
+                    {
+                        AbsolutePath = c.AbsolutePath,
+                        AutoResizeEnabled = c.AutoResizeEnabled,
+                        Id = c.Id,
+                        Position = c.Position,
+                        Size = c.Size,
+                        ZIndex = c.ZIndex
+                    }));
 
-            var entity = externalPackage.Classes.Add(entityId, "Class", "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
-                entityName, externalPackage.Id);
+                    newAssociationVisuals.AddRange(identityDiagram.Diagram.AssociationVisuals
+                        .Select(s => new AssociationVisualPersistable
+                        {
+                            AbsolutePath = s.AbsolutePath,
+                            FixedPoints = s.FixedPoints,
+                            Id = s.Id,
+                            SourceId = s.SourceId,
+                            TargetId = s.TargetId,
+                            TargetPrefPoint = s.TargetPrefPoint,
+                            ZIndex = s.ZIndex
+                        }));
+                }
 
-            return entity.Id;
+                package.Classes.Add(new ElementPersistable
+                {
+                    Id = identityDiagramId.ToString(),
+                    SpecializationType = "Diagram",
+                    SpecializationTypeId = "4d66fecd-e9b8-436f-aa50-c59040ad0879",
+                    Name = "Identity Diagram",
+                    Display = "Identity Diagram",
+                    IsAbstract = false,
+                    SortChildren = SortChildrenOptions.SortByTypeAndName,
+                    IsMapped = false,
+                    ParentFolderId = package.Id,
+                    PackageId = package.Id,
+                    PackageName = package.Name,
+                    Diagram = new DiagramPersistable
+                    {
+                        AssociationVisuals = newAssociationVisuals,
+                        ClassVisuals = newClassVisuals,
+                        TargetPackageId = package.Id,
+                    }
+                });
+            }
+
+            package.Save();
+
+            app.SaveAllChanges();
         }
 
         public void Down()
