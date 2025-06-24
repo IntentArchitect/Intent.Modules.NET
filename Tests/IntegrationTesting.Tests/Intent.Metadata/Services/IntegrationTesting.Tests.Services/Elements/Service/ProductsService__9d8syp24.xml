@@ -18,6 +18,12 @@
         <property name="1e223bd0-7a72-435a-8741-a612d88e4a12" display="Route" value="api/products" isActive="true" />
       </properties>
     </stereotype>
+    <stereotype stereotypeDefinitionId="4965bed2-6320-49d1-beba-0fbc6fd4dfe6" name="Unit Test">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.UnitTesting</definitionPackageName>
+      <definitionPackageId>eb78a52a-4926-4c8e-b4c8-776cd2a3a91d</definitionPackageId>
+      <properties />
+    </stereotype>
   </stereotypes>
   <metadata />
   <childElements>
@@ -42,6 +48,10 @@
       <parentFolderId>a7b1f487-5348-4002-b066-74fdd61ee6fb</parentFolderId>
       <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
       <packageName>IntegrationTesting.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -115,6 +125,10 @@
       <parentFolderId>a7b1f487-5348-4002-b066-74fdd61ee6fb</parentFolderId>
       <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
       <packageName>IntegrationTesting.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -187,6 +201,10 @@
       <parentFolderId>a7b1f487-5348-4002-b066-74fdd61ee6fb</parentFolderId>
       <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
       <packageName>IntegrationTesting.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -221,6 +239,10 @@
       <parentFolderId>a7b1f487-5348-4002-b066-74fdd61ee6fb</parentFolderId>
       <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
       <packageName>IntegrationTesting.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -326,6 +348,10 @@
       <parentFolderId>a7b1f487-5348-4002-b066-74fdd61ee6fb</parentFolderId>
       <packageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</packageId>
       <packageName>IntegrationTesting.Tests.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

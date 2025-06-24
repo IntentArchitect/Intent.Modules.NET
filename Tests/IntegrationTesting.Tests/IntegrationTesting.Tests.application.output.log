@@ -315,6 +315,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>5902594c-1365-4d6a-8a13-3045c5ef03f7</ProjectId>
+      <CorrelationId>Intent.UnitTesting.ServiceOperationTest#a7b1f487-5348-4002-b066-74fdd61ee6fb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>IntegrationTesting.Tests.Application.UnitTests/Products/ProductsServiceTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Products/ProductsServiceTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>4735fc39-bb13-4dce-85c2-b5efec2269dc</ProjectId>
       <CorrelationId>Intent.Application.Dtos.DtoModel#84ebc706-123d-4807-ad9f-7a9bec403cd8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

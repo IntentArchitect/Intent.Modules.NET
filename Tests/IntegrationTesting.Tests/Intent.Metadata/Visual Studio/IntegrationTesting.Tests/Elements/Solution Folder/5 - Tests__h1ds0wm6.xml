@@ -59,9 +59,9 @@
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="0820121a-6f4b-4f76-a770-a832c1c9e765" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.UnitTesting.OperationHandlerTest</name>
-          <display>Intent.UnitTesting.OperationHandlerTest</display>
+        <childElement id="758082b4-96fe-4f90-a267-05c04e2303b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.QueryHandlerTest</name>
+          <display>Intent.UnitTesting.QueryHandlerTest</display>
           <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />
@@ -73,9 +73,9 @@
           </metadata>
           <childElements />
         </childElement>
-        <childElement id="758082b4-96fe-4f90-a267-05c04e2303b3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-          <name>Intent.UnitTesting.QueryHandlerTest</name>
-          <display>Intent.UnitTesting.QueryHandlerTest</display>
+        <childElement id="7ab3ae1b-f1d4-4b5b-8e4c-facb9b969e01" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+          <name>Intent.UnitTesting.ServiceOperationTest</name>
+          <display>Intent.UnitTesting.ServiceOperationTest</display>
           <externalReference>Intent.UnitTesting</externalReference>
           <isAbstract>false</isAbstract>
           <genericTypes />

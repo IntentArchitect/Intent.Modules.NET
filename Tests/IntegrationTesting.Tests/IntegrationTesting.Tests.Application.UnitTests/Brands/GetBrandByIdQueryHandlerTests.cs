@@ -25,7 +25,7 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
         }
 
         [Fact]
-        public async Task Handle_Should_Query_Brand_Successfully()
+        public async Task Handle_Should_Query_Brand_ById_Successfully()
         {
             // Arrange
             // Create an instance of the command/query here with relevant data for the test
@@ -35,7 +35,7 @@ namespace IntegrationTesting.Tests.Application.UnitTests.Brands
 
             // Assert
             // Check the outcomes of the test
-            Assert.True(true, $"Implement unit test logic for test '{nameof(Handle_Should_Query_Brand_Successfully)}'");
+            Assert.True(true, $"Implement unit test logic for test '{nameof(Handle_Should_Query_Brand_ById_Successfully)}'");
 
             return;
         }
