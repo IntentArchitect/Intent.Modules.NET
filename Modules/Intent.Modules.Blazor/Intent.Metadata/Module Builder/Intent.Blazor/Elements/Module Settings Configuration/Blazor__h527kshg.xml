@@ -9,7 +9,16 @@
   <parentFolderId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</parentFolderId>
   <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
   <packageName>Intent.Blazor</packageName>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="15b3e709-aeb8-410a-9172-1273eb7b0864" name="Configuration">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder</definitionPackageName>
+      <definitionPackageId>9972b2a9-b749-4bba-b5c8-824bf694c6ef</definitionPackageId>
+      <properties>
+        <property name="ce4eefa2-657c-42b0-a8cf-bbe35ef1d8a9" display="Settings Type" value="Application Settings" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="4c4c903b-6fbb-4a6b-b1f7-98a180f010f2" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
