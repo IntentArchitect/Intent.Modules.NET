@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Intent.Modules.Constants.TemplateRoles.Application;
+using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 using static Intent.Modules.UnitTesting.Settings.UnitTestSettings;
 
 namespace Intent.Modules.UnitTesting.Templates;
@@ -84,9 +85,10 @@ internal static class TestHelpers
 
         var entityName = association?.TypeReference?.Element?.Name == null ? "Entity" : association.TypeReference.Element.Name;
         var action = GetAssociationAction(association);
-        var methodName = $"{(isCQRS ? "Handle" : "Operation")}_Should_{action}_{entityName}_Successfully";
+        var querySuffix = GetQuerySuffix(action, model);
+        var methodName = $"{(isCQRS ? "Handle" : "Operation")}_Should_{action}_{entityName}{querySuffix}_Successfully";
 
-        if (association != null)
+        if (association != null && !@class.Methods.Any(m => m.Name == methodName))
         {
             @class.AddMethod(template.UseType("System.Threading.Tasks.Task"), methodName, method =>
             {
@@ -126,6 +128,30 @@ internal static class TestHelpers
         "93ef6675-cba4-4998-adff-cb22d5343ed4" => "Query",
         _ => "Perform_Action_On"
     };
+
+    private static string GetQuerySuffix(string associationAction, IElementWrapper model)
+    {
+        // if not a query, then no suffix
+        if(associationAction != "Query")
+        {
+            return string.Empty;
+        }
+
+        // if its an operation AND it has parameters
+        if(model is Modelers.Services.Api.OperationModel operation && operation.Parameters.Any())
+        {
+            var topParams = operation.Parameters.Take(3).Select(p => p.Name.ToPascalCase());
+            return $"_By{string.Join("", topParams)}";
+        }
+
+        if (model is QueryModel query && query.Properties.Any())
+        {
+            var topParams = query.Properties.Take(3).Select(p => p.Name.ToPascalCase());
+            return $"_By{string.Join("", topParams)}";
+        }
+
+        return string.Empty;
+    }
 
     private static List<CSharpConstructorParameter> GetHandlerConstructorParameters(ICSharpFileBuilderTemplate csharpTemplate)
     {
