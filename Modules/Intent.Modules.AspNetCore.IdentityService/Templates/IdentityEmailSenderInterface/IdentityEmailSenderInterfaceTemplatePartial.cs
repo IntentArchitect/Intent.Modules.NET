@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
+using Intent.Modules.AspNetCore.Identity;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -25,11 +25,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSende
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddInterface($"IIdentityEmailSender", @interface =>
                 {
-                    GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
                     @interface.AddMethod("Task", "SendConfirmationLinkAsync", method =>
                     {
                         method.Async();
-                        method.AddParameter("ApplicationIdentityUser", "user");
+                        method.AddParameter(this.GetIdentityUserClass(), "user");
                         method.AddParameter("string", "email");
                         method.AddParameter("string", "confirmationLink");
                     });
@@ -37,7 +36,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSende
                     @interface.AddMethod("Task", "SendPasswordResetLinkAsync", method =>
                     {
                         method.Async();
-                        method.AddParameter("ApplicationIdentityUser", "user");
+                        method.AddParameter(this.GetIdentityUserClass(), "user");
                         method.AddParameter("string", "email");
                         method.AddParameter("string", "resetLink");
                     });
@@ -45,7 +44,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSende
                     @interface.AddMethod("Task", "SendPasswordResetCodeAsync", method =>
                     {
                         method.Async();
-                        method.AddParameter("ApplicationIdentityUser", "user");
+                        method.AddParameter(this.GetIdentityUserClass(), "user");
                         method.AddParameter("string", "email");
                         method.AddParameter("string", "resetCode");
                     });

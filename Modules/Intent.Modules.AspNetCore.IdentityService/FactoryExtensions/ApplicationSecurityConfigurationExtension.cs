@@ -3,8 +3,9 @@ using System.Linq;
 using System.Threading;
 using Intent.Engine;
 using Intent.Exceptions;
+using Intent.Modelers.Domain.Api;
+using Intent.Modules.AspNetCore.Identity;
 using Intent.Modules.AspNetCore.IdentityService.Settings;
-using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManager;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManagerInterface;
@@ -60,16 +61,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
             {
                 return null;
             }
-
-            dbContext.CSharpFile.AfterBuild(file =>
-            {
-                file.AddUsing("Microsoft.AspNetCore.Identity");
-                file.AddUsing("Microsoft.AspNetCore.Identity.EntityFrameworkCore");
-
-                var priClass = file.Classes.First();
-                file.Template.GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
-                priClass.WithBaseType("IdentityDbContext<ApplicationIdentityUser>");
-            }, 1000);
 
             return dbContext;
         }

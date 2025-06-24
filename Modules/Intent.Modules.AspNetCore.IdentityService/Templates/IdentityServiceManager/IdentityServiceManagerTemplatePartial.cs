@@ -5,8 +5,8 @@ using System.Security.Claims;
 using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.Identity;
 using Intent.Modules.AspNetCore.IdentityService.Settings;
-using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceManagerInterface;
 using Intent.Modules.AspNetCore.IdentityService.Templates.TokenServiceInterface;
@@ -47,7 +47,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                 .AddUsing("Microsoft.AspNetCore.Routing")
                 .AddClass($"IdentityServiceManager", @class =>
                 {
-                    GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
                     GetTypeName(TokenServiceInterfaceTemplate.TemplateId);
                     var interfaceTypeName = GetTypeName("Intent.AspNetCore.IdentityService.IdentityServiceManagerInterface");
                     var dtoModels = this.ExecutionContext.MetadataManager.GetDesigner(this.ExecutionContext.GetApplicationConfig().Id, Designers.Services).GetDTOModels();
@@ -72,15 +71,15 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter("UserManager<ApplicationIdentityUser>", "userManager", param =>
+                        ctor.AddParameter($"UserManager<{this.GetIdentityUserClass()}>", "userManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("SignInManager<ApplicationIdentityUser>", "signInManager", param =>
+                        ctor.AddParameter($"SignInManager<{this.GetIdentityUserClass()}>", "signInManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter("IUserStore<ApplicationIdentityUser>", "userStore", param =>
+                        ctor.AddParameter($"IUserStore<{this.GetIdentityUserClass()}>", "userStore", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -283,10 +282,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddIfStatement("!_userManager.SupportsUserEmail", i => i.AddStatement("throw new NotSupportedException($\"{nameof(IdentityServiceManager)} requires a user store with email support.\");"));
 
-                        m.AddStatement("var emailStore = (IUserEmailStore<ApplicationIdentityUser>)_userStore;");
+                        m.AddStatement($"var emailStore = (IUserEmailStore<{this.GetIdentityUserClass()}>)_userStore;");
                         m.AddStatement("var email = registration.Email;");
 
-                        m.AddStatement("var user = new ApplicationIdentityUser();");
+                        m.AddStatement($"var user = new {this.GetIdentityUserClass()} {{Id = Guid.NewGuid().ToString()}};");
                         m.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         m.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");
                         m.AddStatement("var result = await _userManager.CreateAsync(user, registration.Password);");
@@ -473,8 +472,8 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         c.Private()
                         .Async();
 
-                        c.AddParameter("ApplicationIdentityUser", "user");
-                        c.AddParameter("UserManager<ApplicationIdentityUser>", "userManager");
+                        c.AddParameter($"{this.GetIdentityUserClass()}", "user");
+                        c.AddParameter($"UserManager<{this.GetIdentityUserClass()}>", "userManager");
                         c.AddParameter("HttpContext ", "context");
                         c.AddParameter("string", "email");
                         c.AddParameter("bool", "isChange = false");

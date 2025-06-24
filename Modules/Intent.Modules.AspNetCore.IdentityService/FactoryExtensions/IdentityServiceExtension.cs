@@ -1,6 +1,7 @@
 using System.Linq;
 using Intent.AspNetCore.IdentityService.Api;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -46,6 +47,47 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
 
             CreateService(application, identityService);
             ModifyIdentityServiceController(application, identityService);
+
+            foreach (var @class in application.MetadataManager.Domain(application).GetClassModels())
+            {
+                if (@class.ParentClass is not null)
+                {
+                    UpdateEntityConfiguration(application, @class.ParentClass.Name switch
+                    {
+                        "IdentityUser" or "IdentityRole" or "IdentityUserRole" or
+                            "IdentityRoleClaim" or "IdentityUserClaim" or "IdentityUserToken" or "IdentityUserLogin" => @class,
+                        _ => null
+                    });
+                    switch (@class.ParentClass.Name)
+                    {
+                        case "IdentityUser":
+
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void UpdateEntityConfiguration(IApplication application, ClassModel? userIdentityEntity)
+        {
+            if (userIdentityEntity is null || userIdentityEntity.ParentClass is null)
+            {
+                return;
+            }
+
+            var entityTypeConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.EntityTypeConfiguration", userIdentityEntity.Id);
+            if (entityTypeConfigTemplate is null)
+            {
+                return;
+            }
+
+            entityTypeConfigTemplate.CSharpFile.OnBuild(file =>
+            {
+                var @class = file.Classes.First();
+                var configMethod = @class.FindMethod("Configure");
+                configMethod.FindAndReplaceStatement(s => s.Text.Contains("builder.HasBaseType"), new Common.CSharp.Builder.CSharpStatement($"builder.HasBaseType<{userIdentityEntity.ParentClass.Name}<string>>();"));
+            });
         }
 
         private void ModifyIdentityServiceController(IApplication application, ServiceModel identityService)
@@ -58,7 +100,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
                 var @class = file.Classes.First();
                 var confirmEmailMethod = @class.Methods.First(x => x.Name == "ConfirmEmail");
                 confirmEmailMethod.AddAttribute("EndpointName(\"ConfirmEmail\")");
-                
+
             }, 99);
         }
 

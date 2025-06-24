@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>bae5d08c-79f9-41d1-8fc3-08ae95316922</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#07c3ad67-38c4-450a-895a-34f20f8385d5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_01_00_02_Pre_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_01_00_02_Pre_00.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>bae5d08c-79f9-41d1-8fc3-08ae95316922</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnInstallMigration#2b56575b-acdd-4a34-854c-3f684d09c8cc</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Migrations/OnInstallMigration.cs</ApplicationRelativeFilePath>
@@ -94,22 +102,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Settings/ModuleSettingsExtensions.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ModuleSettingsExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#ce631d18-b20f-43c8-95ad-22ffa58a1956</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08ae7fb3-f50c-4a37-b927-ef54243e84ab</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#ce631d18-b20f-43c8-95ad-22ffa58a1956</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ApplicationIdentityUser/ApplicationIdentityUserTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

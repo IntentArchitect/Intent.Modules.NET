@@ -23,10 +23,9 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var userIdentityEntity = application.MetadataManager.Domain(application).GetClassModels().FirstOrDefault(p => p.HasIdentityUser());
             foreach (var @class in application.MetadataManager.Domain(application).GetClassModels())
             {
-                if(@class.ParentClass is not null)
+                if (@class.ParentClass is not null)
                 {
                     UpdateEntityConfiguration(application, @class.ParentClass.Name switch
                     {
@@ -47,7 +46,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
 
         private void UpdateEntityConfiguration(IApplication application, ClassModel? userIdentityEntity)
         {
-            if(userIdentityEntity is null || userIdentityEntity.ParentClass is null)
+            if (userIdentityEntity is null || userIdentityEntity.ParentClass is null)
             {
                 return;
             }

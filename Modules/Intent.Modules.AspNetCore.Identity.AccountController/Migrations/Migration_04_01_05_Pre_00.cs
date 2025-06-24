@@ -28,7 +28,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
 
         public void Up()
         {
-            Debugger.Launch();
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
             var package = designer.GetPackages().FirstOrDefault();
@@ -74,7 +73,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                             TypePackageId = "870ad967-cbd4-4ea9-b86d-9c3a5d55ea67",
                             IsRequired = true,
                             IsNavigable = true,
-                            IsNullable = false,
+                            IsNullable = true,
                             IsCollection = false
                         },
                         Stereotypes = new System.Collections.Generic.List<IArchitect.Agent.Persistence.Model.Common.StereotypePersistable>

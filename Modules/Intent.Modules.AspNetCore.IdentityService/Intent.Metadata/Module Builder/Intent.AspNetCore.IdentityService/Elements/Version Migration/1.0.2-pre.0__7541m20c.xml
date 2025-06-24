@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="07c3ad67-38c4-450a-895a-34f20f8385d5" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>1.0.2-pre.0</name>
+  <display>1.0.2-pre.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3255c2f7-43bb-405a-83ac-eb3f6c478894</parentFolderId>
+  <packageId>a1a75470-3437-43b1-be57-f2187693929b</packageId>
+  <packageName>Intent.AspNetCore.IdentityService</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

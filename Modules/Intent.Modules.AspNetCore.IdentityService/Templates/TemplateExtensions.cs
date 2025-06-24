@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Intent.Modules.AspNetCore.IdentityService.Templates.ApplicationIdentityUser;
 using Intent.Modules.AspNetCore.IdentityService.Templates.EmailSenderOptions;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSender;
 using Intent.Modules.AspNetCore.IdentityService.Templates.IdentityEmailSenderInterface;
@@ -19,10 +18,6 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates
 {
     public static class TemplateExtensions
     {
-        public static string GetApplicationIdentityUserName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(ApplicationIdentityUserTemplate.TemplateId);
-        }
 
         public static string GetEmailSenderOptionsName(this IIntentTemplate template)
         {
