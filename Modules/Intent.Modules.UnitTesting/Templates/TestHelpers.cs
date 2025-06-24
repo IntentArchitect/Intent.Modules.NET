@@ -39,9 +39,12 @@ internal static class TestHelpers
 
         if (parentService != null)
         {
-            return string.Join("/", parentService.GetParentFolderNames().Count > 0 ? 
-                parentService.GetParentFolderNames() :
-                parentService.Name.Replace("Service", ""));
+            // these have to be done as two seperate join calls, otherwise the incorrect overloaded Join method is called
+            if(parentService.GetParentFolderNames().Count > 0)
+            {
+                return string.Join("/", parentService.GetParentFolderNames());
+            }
+            return string.Join("/", parentService.Name.Replace("Service", ""));
         }
 
         return template.GetFolderPath();
