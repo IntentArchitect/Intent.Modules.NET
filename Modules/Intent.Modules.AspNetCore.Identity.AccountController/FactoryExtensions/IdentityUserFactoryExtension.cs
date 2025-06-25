@@ -33,13 +33,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
                             "IdentityRoleClaim" or "IdentityUserClaim" or "IdentityUserToken" or "IdentityUserLogin" => @class,
                         _ => null
                     });
-                    switch (@class.ParentClass.Name)
-                    {
-                        case "IdentityUser":
-
-                        default:
-                            break;
-                    }
                 }
             }
         }
@@ -52,17 +45,25 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.FactoryExtensions
             }
 
             var entityTypeConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.EntityFrameworkCore.EntityTypeConfiguration", userIdentityEntity.Id);
-            if (entityTypeConfigTemplate is null)
+            if (entityTypeConfigTemplate is not null)
             {
-                return;
+                entityTypeConfigTemplate.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var configMethod = @class.FindMethod("Configure");
+                    configMethod.FindAndReplaceStatement(s => s.Text.Contains("builder.HasBaseType"), new Common.CSharp.Builder.CSharpStatement($"builder.HasBaseType<{userIdentityEntity.ParentClass.Name}<string>>();"));
+                });
             }
 
-            entityTypeConfigTemplate.CSharpFile.OnBuild(file =>
+            var entityTypeTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Entities.DomainEntity", userIdentityEntity.Id);
+            if (entityTypeTemplate is not null)
             {
-                var @class = file.Classes.First();
-                var configMethod = @class.FindMethod("Configure");
-                configMethod.FindAndReplaceStatement(s => s.Text.Contains("builder.HasBaseType"), new Common.CSharp.Builder.CSharpStatement($"builder.HasBaseType<{userIdentityEntity.ParentClass.Name}<string>>();"));
-            });
+                entityTypeTemplate.CSharpFile.OnBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    @class.AddProperty("string", "Id", c => c.Override().WithInitialValue("Guid.NewGuid().ToString()"));
+                });
+            }
         }
     }
 }

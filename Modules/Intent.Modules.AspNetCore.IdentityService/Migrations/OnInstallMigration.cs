@@ -22,6 +22,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
     {
         private readonly IApplicationConfigurationProvider _configurationProvider;
         private const string DomainDesignerId = "6ab29b31-27af-4f56-a67c-986d82097d63";
+        private const string ServiceDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
 
 
         public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
@@ -36,8 +37,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
 
-            var serviceDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
-            var packages = app.GetDesigner(serviceDesignerId).GetPackages();
+            var packages = app.GetDesigner(ServiceDesignerId).GetPackages();
             foreach (var pkg in packages)
             {
                 var services = pkg.GetElementsOfType("b16578a5-27b1-4047-a8df-f0b783d706bd");
@@ -602,6 +602,22 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
             if (!diagrams.Any(d => d.Name == "Identity Diagram"))
             {
                 return;
+            }
+
+            var identityDomainRefence = package.References.FirstOrDefault(x => x.Name == "Intent.AspNetCore.Identity.Domain");
+            if (identityDomainRefence is not null)
+            {
+                var serviceDesigner = app.GetDesigner(ServiceDesignerId);
+
+                if (serviceDesigner is not null)
+                {
+                    var servicePackage = serviceDesigner.GetPackages().FirstOrDefault();
+
+                    if (servicePackage is not null)
+                    {
+                        servicePackage.AddReference(identityDomainRefence);
+                    }
+                }
             }
 
             var identityDiagram = diagrams.First(d => d.Name == "Identity Diagram");

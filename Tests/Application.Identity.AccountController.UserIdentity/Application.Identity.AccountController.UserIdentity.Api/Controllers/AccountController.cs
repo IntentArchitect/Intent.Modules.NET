@@ -68,7 +68,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new BespokeUser { Id = Guid.NewGuid().ToString() };
+            var user = new BespokeUser();
 
             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
             await _userManager.SetEmailAsync(user, input.Email);

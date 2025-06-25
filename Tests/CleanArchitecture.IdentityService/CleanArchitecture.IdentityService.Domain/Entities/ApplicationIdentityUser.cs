@@ -9,5 +9,7 @@ namespace CleanArchitecture.IdentityService.Domain.Entities
     {
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpired { get; set; }
+
+        public override string Id { get; set; } = Guid.NewGuid().ToString();
     }
 }

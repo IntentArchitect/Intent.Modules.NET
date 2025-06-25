@@ -68,7 +68,7 @@ namespace Application.Identity.AccountController.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationIdentityUser { Id = Guid.NewGuid().ToString() };
+            var user = new ApplicationIdentityUser();
 
             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
             await _userManager.SetEmailAsync(user, input.Email);

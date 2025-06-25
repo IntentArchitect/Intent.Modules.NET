@@ -18,6 +18,8 @@ namespace Application.Identity.AccountController.UserIdentity.Domain.Entities
 
         public string LastName { get; set; }
 
+        public override string Id { get; set; } = Guid.NewGuid().ToString();
+
         public string? RefreshToken { get; set; }
 
         public DateTime? RefreshTokenExpired { get; set; }
