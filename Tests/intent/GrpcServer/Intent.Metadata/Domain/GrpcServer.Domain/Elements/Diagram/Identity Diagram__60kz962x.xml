@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="14e61557-4ef6-47d2-810c-881fcedd5876" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</parentFolderId>
+  <packageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</packageId>
+  <packageName>GrpcServer.Domain</packageName>
+  <diagram>
+    <targetPackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

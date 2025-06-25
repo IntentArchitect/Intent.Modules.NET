@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="4aeff012-7b76-4ac4-b198-8e8a9be358e3" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>3458b840-5ab8-44c5-8659-f275341c6137</parentFolderId>
+  <packageId>3458b840-5ab8-44c5-8659-f275341c6137</packageId>
+  <packageName>CleanArchitecture.IdentityService.Domain</packageName>
+  <diagram>
+    <targetPackageId>3458b840-5ab8-44c5-8659-f275341c6137</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

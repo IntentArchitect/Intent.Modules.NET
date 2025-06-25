@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="934e1d82-fa1a-4c74-a296-afc05fd6518d" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Identity Diagram</name>
+  <display>Identity Diagram</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</parentFolderId>
+  <packageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</packageId>
+  <packageName>Application.Identity.AccountController.TestApplication.Domain</packageName>
+  <diagram>
+    <targetPackageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -39,21 +39,22 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
             }
 
             var identityDiagram = diagrams.First(d => d.Name == "Identity Diagram");
-
-            var applicationIdentityUserId = Guid.NewGuid().ToString();
-            package.Classes.Add(new ElementPersistable
+            if (!package.Classes.Any(c => c.Name == "ApplicationIdentityUser"))
             {
-                Id = applicationIdentityUserId,
-                SpecializationType = "Class",
-                SpecializationTypeId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
-                Name = "ApplicationIdentityUser",
-                Display = "ApplicationIdentityUser: IdentityUser<string>",
-                IsAbstract = false,
-                IsMapped = false,
-                ParentFolderId = package.Id,
-                PackageId = package.Id,
-                PackageName = package.Name,
-                ChildElements = new System.Collections.Generic.List<ElementPersistable>
+                var applicationIdentityUserId = Guid.NewGuid().ToString();
+                package.Classes.Add(new ElementPersistable
+                {
+                    Id = applicationIdentityUserId,
+                    SpecializationType = "Class",
+                    SpecializationTypeId = "04e12b51-ed12-42a3-9667-a6aa81bb6d10",
+                    Name = "ApplicationIdentityUser",
+                    Display = "ApplicationIdentityUser: IdentityUser<string>",
+                    IsAbstract = false,
+                    IsMapped = false,
+                    ParentFolderId = package.Id,
+                    PackageId = package.Id,
+                    PackageName = package.Name,
+                    ChildElements = new System.Collections.Generic.List<ElementPersistable>
                 {
                     new ElementPersistable
                     {
@@ -116,53 +117,53 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                         }
                     }
                 }
-            });
+                });
 
-            var associationVisualId = Guid.NewGuid().ToString();
+                var associationVisualId = Guid.NewGuid().ToString();
 
-            package.Associations.Add(new AssociationPersistable
-            {
-                AssociationType = "Generalization",
-                AssociationTypeId = "5de35973-3ac7-4e65-b48c-385605aec561",
-                Id = associationVisualId,
-                SourceEnd = new AssociationEndPersistable
+                package.Associations.Add(new AssociationPersistable
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    SpecializationType = "Generalization Source End",
-                    SpecializationTypeId = "8190bf43-222c-4b53-8a44-14626efe3574",
-                    Display = ": ApplicationIdentityUser",
-                    Order = 0,
-                    TypeReference = new TypeReferencePersistable
+                    AssociationType = "Generalization",
+                    AssociationTypeId = "5de35973-3ac7-4e65-b48c-385605aec561",
+                    Id = associationVisualId,
+                    SourceEnd = new AssociationEndPersistable
                     {
                         Id = Guid.NewGuid().ToString(),
-                        TypeId = applicationIdentityUserId,
-                        TypePackageName = package.Name,
-                        TypePackageId = package.Id,
-                        IsRequired = true,
-                        IsNavigable = false,
-                        IsNullable = false,
-                        IsCollection = false
-                    }
-                },
-                TargetEnd = new AssociationEndPersistable
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    SpecializationType = "Generalization Target End",
-                    SpecializationTypeId = "4686cc1d-b4d8-4b99-b45b-f77bd5496946",
-                    Display = "extends IdentityUser<string>",
-                    Order = 0,
-                    Name = "base",
-                    TypeReference = new TypeReferencePersistable
+                        SpecializationType = "Generalization Source End",
+                        SpecializationTypeId = "8190bf43-222c-4b53-8a44-14626efe3574",
+                        Display = ": ApplicationIdentityUser",
+                        Order = 0,
+                        TypeReference = new TypeReferencePersistable
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            TypeId = applicationIdentityUserId,
+                            TypePackageName = package.Name,
+                            TypePackageId = package.Id,
+                            IsRequired = true,
+                            IsNavigable = false,
+                            IsNullable = false,
+                            IsCollection = false
+                        }
+                    },
+                    TargetEnd = new AssociationEndPersistable
                     {
                         Id = Guid.NewGuid().ToString(),
-                        TypeId = "f6505b15-dced-4beb-9a58-e7b5447a7c73",
-                        TypePackageName = "Intent.AspNetCore.Identity.Domain",
-                        TypePackageId = "d1f3cf7b-cd9a-431f-af26-a86aec1ace6f",
-                        IsRequired = true,
-                        IsNavigable = false,
-                        IsNullable = false,
-                        IsCollection = false,
-                        GenericTypeParameters = new System.Collections.Generic.List<TypeReferencePersistable>
+                        SpecializationType = "Generalization Target End",
+                        SpecializationTypeId = "4686cc1d-b4d8-4b99-b45b-f77bd5496946",
+                        Display = "extends IdentityUser<string>",
+                        Order = 0,
+                        Name = "base",
+                        TypeReference = new TypeReferencePersistable
+                        {
+                            Id = Guid.NewGuid().ToString(),
+                            TypeId = "f6505b15-dced-4beb-9a58-e7b5447a7c73",
+                            TypePackageName = "Intent.AspNetCore.Identity.Domain",
+                            TypePackageId = "d1f3cf7b-cd9a-431f-af26-a86aec1ace6f",
+                            IsRequired = true,
+                            IsNavigable = false,
+                            IsNullable = false,
+                            IsCollection = false,
+                            GenericTypeParameters = new System.Collections.Generic.List<TypeReferencePersistable>
                         {
                             new TypeReferencePersistable
                             {
@@ -177,31 +178,32 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
                                 GenericTypeId = "d618eff4-adab-4f6d-a758-6ecad2eb8429"
                             }
                         }
+                        }
                     }
-                }
-            });
+                });
 
-            identityDiagram.Diagram.ClassVisuals.Add(new IArchitect.Agent.Persistence.Model.Visual.ElementVisualPersistable
-            {
-                Id = applicationIdentityUserId,
-                ZIndex = 13,
-                AutoResizeEnabled = true,
-                Position = new IArchitect.Agent.Persistence.Model.Visual.Point { X = 400, Y = 900 },
-                Size = new IArchitect.Agent.Persistence.Model.Visual.Size { Height = 30, Width = 200 }
-            });
+                identityDiagram.Diagram.ClassVisuals.Add(new IArchitect.Agent.Persistence.Model.Visual.ElementVisualPersistable
+                {
+                    Id = applicationIdentityUserId,
+                    ZIndex = 13,
+                    AutoResizeEnabled = true,
+                    Position = new IArchitect.Agent.Persistence.Model.Visual.Point { X = 400, Y = 900 },
+                    Size = new IArchitect.Agent.Persistence.Model.Visual.Size { Height = 30, Width = 200 }
+                });
 
-            identityDiagram.Diagram.AssociationVisuals.Add(new IArchitect.Agent.Persistence.Model.Visual.AssociationVisualPersistable
-            {
-                Id = associationVisualId,
-                SourceId = applicationIdentityUserId,
-                TargetId = "f6505b15-dced-4beb-9a58-e7b5447a7c73",
-                TargetPrefPoint = new IArchitect.Agent.Persistence.Model.Visual.Point { X = 100, Y = 310 },
-                ZIndex = 14
-            });
+                identityDiagram.Diagram.AssociationVisuals.Add(new IArchitect.Agent.Persistence.Model.Visual.AssociationVisualPersistable
+                {
+                    Id = associationVisualId,
+                    SourceId = applicationIdentityUserId,
+                    TargetId = "f6505b15-dced-4beb-9a58-e7b5447a7c73",
+                    TargetPrefPoint = new IArchitect.Agent.Persistence.Model.Visual.Point { X = 100, Y = 310 },
+                    ZIndex = 14
+                });
 
-            package.Save();
+                package.Save();
 
-            app.SaveAllChanges();
+                app.SaveAllChanges();
+            }
         }
 
         public void Down()
