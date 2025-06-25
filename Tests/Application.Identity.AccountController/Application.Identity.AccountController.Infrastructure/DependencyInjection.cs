@@ -1,7 +1,9 @@
 using System.Reflection;
 using Application.Identity.AccountController.Application;
 using Application.Identity.AccountController.Domain.Common.Interfaces;
+using Application.Identity.AccountController.Domain.Repositories;
 using Application.Identity.AccountController.Infrastructure.Persistence;
+using Application.Identity.AccountController.Infrastructure.Repositories;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,7 @@ namespace Application.Identity.AccountController.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IApplicationIdentityUserRepository, ApplicationIdentityUserRepository>();
             return services;
         }
     }

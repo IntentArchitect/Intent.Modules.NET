@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="5413065c-fde3-46f2-9970-e3df56cdb07e">
-  <sourceEnd id="f59ea3ed-6355-4bb4-9796-95b13eb12a46" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
-    <display>: ApplicationIdentityUser</display>
+<association id="df737e5c-1dce-4209-9478-b20a38ce00a2">
+  <sourceEnd id="6013c178-e71d-454b-a243-d8d56c2d16f6" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: BespokeUser</display>
     <order>0</order>
-    <typeReference id="437b3329-182e-444f-bef4-b2563d39e170">
-      <typeId>be8d095d-36e8-43c2-aef0-c3ca7d943752</typeId>
+    <typeReference id="5152fff9-71c2-4765-b229-47a3d7da8d6f">
+      <typeId>9fe2721b-43d7-48f8-a49c-ffdbf9c64a9d</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>CleanArchitecture.IdentityService.Domain</typePackageName>
-      <typePackageId>3458b840-5ab8-44c5-8659-f275341c6137</typePackageId>
+      <typePackageName>Application.Identity.AccountController.UserIdentity.Domain</typePackageName>
+      <typePackageId>e8ac535e-34ee-40c6-8f53-d65ac9c48b3a</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>
@@ -18,13 +18,13 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="5413065c-fde3-46f2-9970-e3df56cdb07e" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+  <targetEnd id="df737e5c-1dce-4209-9478-b20a38ce00a2" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
     <name>base</name>
     <display>extends IdentityUser&lt;string&gt;</display>
     <order>0</order>
-    <typeReference id="100fa683-bc18-44d5-b92e-271d6fe35fda">
+    <typeReference id="c9f1f9b1-8830-42b3-8766-a14381295e5e">
       <typeId>f6505b15-dced-4beb-9a58-e7b5447a7c73</typeId>
-      <isNavigable>false</isNavigable>
+      <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
@@ -32,7 +32,7 @@
       <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
       <stereotypes />
       <genericTypeParameters>
-        <genericTypeParameter id="e04b769d-9738-43cf-a188-b5088a3fe445">
+        <genericTypeParameter id="02515e85-be50-4928-ba3c-638161a1f5c3">
           <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
           <isNavigable>true</isNavigable>
           <isNullable>false</isNullable>

@@ -25,6 +25,7 @@ namespace GrpcServer.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IApplicationIdentityUserRepository, ApplicationIdentityUserRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
             services.AddScoped<IDomainEventService, DomainEventService>();

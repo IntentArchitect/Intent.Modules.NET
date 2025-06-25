@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Application.Identity.AccountController.UserIdentity.Domain.Entities
 {
-    public class BespokeUser : IdentityUser
+    public class BespokeUser : IdentityUser<string>
     {
         public BespokeUser()
         {

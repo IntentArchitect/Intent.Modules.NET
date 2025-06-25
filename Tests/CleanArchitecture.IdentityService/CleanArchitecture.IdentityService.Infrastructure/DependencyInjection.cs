@@ -1,5 +1,7 @@
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
+using CleanArchitecture.IdentityService.Domain.Repositories;
 using CleanArchitecture.IdentityService.Infrastructure.Persistence;
+using CleanArchitecture.IdentityService.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +22,7 @@ namespace CleanArchitecture.IdentityService.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<IApplicationIdentityUserRepository, ApplicationIdentityUserRepository>();
             return services;
         }
     }

@@ -2,6 +2,7 @@ using Application.Identity.AccountController.UserIdentity.Domain.Common.Interfac
 using Application.Identity.AccountController.UserIdentity.Domain.Entities;
 using Application.Identity.AccountController.UserIdentity.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<BespokeUser>, IUnitOfWork
+    public class ApplicationDbContext : IdentityDbContext<BespokeUser, IdentityRole<string>, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IUnitOfWork
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

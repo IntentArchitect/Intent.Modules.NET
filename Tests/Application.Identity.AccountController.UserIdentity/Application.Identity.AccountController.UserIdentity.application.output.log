@@ -276,7 +276,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>8b8ee47d-cbbc-4161-a697-3609bd4bec6f</ProjectId>
-      <CorrelationId>Intent.Entities.DomainEntity#4bc4746c-29ca-4d95-a7a5-49434d386693</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntity#9fe2721b-43d7-48f8-a49c-ffdbf9c64a9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Domain/Entities/BespokeUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BespokeUser.cs</ProjectRelativeFilePath>
@@ -284,7 +284,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>d041a6a5-fafb-49a2-9ba6-a00caf903254</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#4bc4746c-29ca-4d95-a7a5-49434d386693</CorrelationId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#9fe2721b-43d7-48f8-a49c-ffdbf9c64a9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Domain/Repositories/IBespokeUserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBespokeUserRepository.cs</ProjectRelativeFilePath>
@@ -340,7 +340,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>3af112be-3c96-455c-bcf3-1f127d713ebe</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#4bc4746c-29ca-4d95-a7a5-49434d386693</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#9fe2721b-43d7-48f8-a49c-ffdbf9c64a9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Infrastructure/Persistence/Configurations/BespokeUserConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BespokeUserConfiguration.cs</ProjectRelativeFilePath>
@@ -356,7 +356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>111eed58-0e4b-4ca0-ba34-9337ddb77a87</ProjectId>
-      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#4bc4746c-29ca-4d95-a7a5-49434d386693</CorrelationId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#9fe2721b-43d7-48f8-a49c-ffdbf9c64a9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Infrastructure/Repositories/BespokeUserRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>BespokeUserRepository.cs</ProjectRelativeFilePath>

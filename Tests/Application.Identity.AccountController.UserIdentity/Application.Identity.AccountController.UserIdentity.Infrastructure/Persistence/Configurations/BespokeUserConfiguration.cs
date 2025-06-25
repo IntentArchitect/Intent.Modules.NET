@@ -1,6 +1,7 @@
 using System;
 using Application.Identity.AccountController.UserIdentity.Domain.Entities;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,17 +14,17 @@ namespace Application.Identity.AccountController.UserIdentity.Infrastructure.Per
     {
         public void Configure(EntityTypeBuilder<BespokeUser> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasBaseType<IdentityUser<string>>();
+
+            builder.Property(x => x.RefreshToken);
+
+            builder.Property(x => x.RefreshTokenExpired);
 
             builder.Property(x => x.FirstName)
                 .IsRequired();
 
             builder.Property(x => x.LastName)
                 .IsRequired();
-
-            builder.Property(x => x.RefreshToken);
-
-            builder.Property(x => x.RefreshTokenExpired);
         }
     }
 }

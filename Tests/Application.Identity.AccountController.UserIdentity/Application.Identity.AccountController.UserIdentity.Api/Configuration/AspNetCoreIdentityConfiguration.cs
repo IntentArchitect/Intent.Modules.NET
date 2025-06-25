@@ -14,7 +14,7 @@ namespace Application.Identity.AccountController.UserIdentity.Api.Configuration
     {
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            services.AddIdentityWithoutCookieAuth<BespokeUser, IdentityRole>()
+            services.AddIdentityWithoutCookieAuth<BespokeUser, IdentityRole<string>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(

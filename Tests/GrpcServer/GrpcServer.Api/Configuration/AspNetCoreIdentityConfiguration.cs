@@ -14,7 +14,7 @@ namespace GrpcServer.Api.Configuration
     {
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            services.AddIdentityWithoutCookieAuth<ApplicationIdentityUser, IdentityRole>()
+            services.AddIdentityWithoutCookieAuth<ApplicationIdentityUser, IdentityRole<string>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.Configure<IdentityOptions>(

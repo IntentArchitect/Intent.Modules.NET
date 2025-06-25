@@ -1,5 +1,6 @@
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Entities;
+using CleanArchitecture.IdentityService.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -10,17 +11,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.IdentityService.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser>, IUnitOfWork
+    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser, IdentityRole<string>, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IUnitOfWork
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public DbSet<ApplicationIdentityUser> ApplicationIdentityUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             ConfigureModel(modelBuilder);
+            modelBuilder.ApplyConfiguration(new ApplicationIdentityUserConfiguration());
         }
 
         [IntentManaged(Mode.Ignore)]

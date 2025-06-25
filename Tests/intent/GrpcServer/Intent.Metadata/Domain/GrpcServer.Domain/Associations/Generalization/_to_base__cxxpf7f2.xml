@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fc56a9ac-109b-4267-9d2f-15f9c7cb90e0">
+  <sourceEnd id="5fb2054c-612f-4065-a36f-bbdf03e8cfdc" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: ApplicationIdentityUser</display>
+    <order>0</order>
+    <typeReference id="baddd6ba-1d09-4328-a1c6-6d2549fa1e37">
+      <typeId>33c07b31-1b73-40ce-8331-ff14e2fd7136</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>GrpcServer.Domain</typePackageName>
+      <typePackageId>0f6a46f7-686d-4b68-865c-43fdcd7d3e5b</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fc56a9ac-109b-4267-9d2f-15f9c7cb90e0" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends IdentityUser&lt;string&gt;</display>
+    <order>0</order>
+    <typeReference id="79c16866-51f3-41c9-902c-9b316afa78eb">
+      <typeId>f6505b15-dced-4beb-9a58-e7b5447a7c73</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Intent.AspNetCore.Identity.Domain</typePackageName>
+      <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters>
+        <genericTypeParameter id="660a6e0b-d0ea-4780-b44c-69c92ee5ed19">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <genericTypeId>d618eff4-adab-4f6d-a758-6ecad2eb8429</genericTypeId>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </genericTypeParameter>
+      </genericTypeParameters>
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>

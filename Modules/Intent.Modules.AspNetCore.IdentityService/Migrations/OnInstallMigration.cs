@@ -594,7 +594,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Migrations
 
             app.SaveAllChanges();
 
-
+            app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
             package = designer.GetPackages().FirstOrDefault();
             var diagrams = package.GetElementsOfType("4d66fecd-e9b8-436f-aa50-c59040ad0879");

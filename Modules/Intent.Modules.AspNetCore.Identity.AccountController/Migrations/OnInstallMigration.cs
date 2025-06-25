@@ -27,7 +27,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
 
         public void OnInstall()
         {
-
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
 
             if (app.Modules.Any(m => m.ModuleId == "Intent.ModularMonolith.Module"))
@@ -87,6 +86,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
 
             app.SaveAllChanges();
 
+            app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
             var designer = app.GetDesigner(DomainDesignerId);
             var package = designer.GetPackages().FirstOrDefault();
             var diagrams = package.GetElementsOfType("4d66fecd-e9b8-436f-aa50-c59040ad0879");

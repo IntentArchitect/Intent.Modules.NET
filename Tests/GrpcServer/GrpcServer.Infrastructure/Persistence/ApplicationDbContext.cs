@@ -7,6 +7,7 @@ using GrpcServer.Domain.Common.Interfaces;
 using GrpcServer.Domain.Entities;
 using GrpcServer.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GrpcServer.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser>, IUnitOfWork
+    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser, IdentityRole<string>, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IUnitOfWork
     {
         private readonly IDomainEventService _domainEventService;
 

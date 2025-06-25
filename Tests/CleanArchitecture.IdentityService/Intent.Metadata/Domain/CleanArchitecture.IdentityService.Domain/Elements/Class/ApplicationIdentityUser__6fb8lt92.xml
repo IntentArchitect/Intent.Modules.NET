@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="be8d095d-36e8-43c2-aef0-c3ca7d943752" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ApplicationIdentityUser</name>
-  <display>ApplicationIdentityUser: IdentityUser&lt;string&gt;</display>
+  <display>ApplicationIdentityUser : IdentityUser&lt;string&gt;</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3458b840-5ab8-44c5-8659-f275341c6137</parentFolderId>
@@ -13,7 +14,7 @@
   <childElements>
     <childElement id="ecc194a0-7f06-4bbc-aedd-23b53728089d" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshToken</name>
-      <display>RefreshToken: string</display>
+      <display>RefreshToken: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="aeb955cb-2165-4b65-8d57-fa0fbe31e6b5">
@@ -32,7 +33,7 @@
       <packageId>3458b840-5ab8-44c5-8659-f275341c6137</packageId>
       <packageName>CleanArchitecture.IdentityService.Domain</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text CConstraints">
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
@@ -48,7 +49,7 @@
     </childElement>
     <childElement id="d396537e-1c01-4cc3-8af1-c65643f10f90" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshTokenExpired</name>
-      <display>RefreshTokenExpired: datetime</display>
+      <display>RefreshTokenExpired: datetime?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="7b3e8464-131b-41de-8467-b8c9da0425e1">

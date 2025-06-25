@@ -578,10 +578,18 @@
     </FileLog>
     <FileLog>
       <ProjectId>769d8dff-db88-4445-b380-54f7eadba95c</ProjectId>
-      <CorrelationId>Intent.AspNetCore.IdentityService.ApplicationIdentityUser</CorrelationId>
+      <CorrelationId>Intent.Entities.DomainEntity#be8d095d-36e8-43c2-aef0-c3ca7d943752</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Domain/Entities/ApplicationIdentityUser.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ApplicationIdentityUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>a2677471-7017-4266-bc38-1270af481380</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#be8d095d-36e8-43c2-aef0-c3ca7d943752</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Domain/Repositories/IApplicationIdentityUserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IApplicationIdentityUserRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -649,11 +657,27 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>bbc4cee2-1857-4975-b531-ff3f2082c6a8</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#be8d095d-36e8-43c2-aef0-c3ca7d943752</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Persistence/Configurations/ApplicationIdentityUserConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUserConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>a698616d-4ba9-45b2-b23e-68baf11880f4</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.DbMigrationsReadMe</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Persistence/MIGRATION_README.txt</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MIGRATION_README.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4bc13ac1-e000-4219-aadc-38528c31ce15</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#be8d095d-36e8-43c2-aef0-c3ca7d943752</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.IdentityService.Infrastructure/Repositories/ApplicationIdentityUserRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ApplicationIdentityUserRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

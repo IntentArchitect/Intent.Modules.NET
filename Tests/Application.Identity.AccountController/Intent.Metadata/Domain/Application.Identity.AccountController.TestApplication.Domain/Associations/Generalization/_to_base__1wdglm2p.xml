@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7652421b-7987-45c5-a1ea-86a797678f41">
+  <sourceEnd id="a4aac5eb-c190-4fdc-aa4a-a8f83aa93c3d" type="Generalization Source End" typeId="8190bf43-222c-4b53-8a44-14626efe3574">
+    <display>: ApplicationIdentityUser</display>
+    <order>0</order>
+    <typeReference id="48a69c31-1b27-4cb6-898e-ddd14ed9252e">
+      <typeId>ce0a6b5d-8356-4a92-b8f9-f9f274fe83eb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Application.Identity.AccountController.TestApplication.Domain</typePackageName>
+      <typePackageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7652421b-7987-45c5-a1ea-86a797678f41" type="Generalization Target End" typeId="4686cc1d-b4d8-4b99-b45b-f77bd5496946">
+    <name>base</name>
+    <display>extends IdentityUser&lt;string&gt;</display>
+    <order>0</order>
+    <typeReference id="d4e0acd8-d451-403c-9453-e6be6971a814">
+      <typeId>f6505b15-dced-4beb-9a58-e7b5447a7c73</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Intent.AspNetCore.Identity.Domain</typePackageName>
+      <typePackageId>d1f3cf7b-cd9a-431f-af26-a86aec1ace6f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters>
+        <genericTypeParameter id="ff0e432f-9ccc-45da-8a0a-08043de7eac7">
+          <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+          <isNavigable>true</isNavigable>
+          <isNullable>false</isNullable>
+          <isCollection>false</isCollection>
+          <isRequired>true</isRequired>
+          <genericTypeId>d618eff4-adab-4f6d-a758-6ecad2eb8429</genericTypeId>
+          <typePackageName>Intent.Common.Types</typePackageName>
+          <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+          <stereotypes />
+          <genericTypeParameters />
+        </genericTypeParameter>
+      </genericTypeParameters>
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Generalization</associationType>
+  <associationTypeId>5de35973-3ac7-4e65-b48c-385605aec561</associationTypeId>
+  <stereotypes />
+</association>
