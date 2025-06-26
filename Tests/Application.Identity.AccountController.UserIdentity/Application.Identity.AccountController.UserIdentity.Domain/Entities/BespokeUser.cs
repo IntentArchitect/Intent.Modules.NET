@@ -10,7 +10,6 @@ namespace Application.Identity.AccountController.UserIdentity.Domain.Entities
     {
         public BespokeUser()
         {
-            Id = null!;
             FirstName = null!;
             LastName = null!;
         }
