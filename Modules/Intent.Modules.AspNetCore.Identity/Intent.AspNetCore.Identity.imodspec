@@ -36,7 +36,7 @@
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Entities" version="5.1.14-pre.0" />
+    <dependency id="Intent.Entities" version="5.1.13" />
     <dependency id="Intent.EntityFrameworkCore" version="5.0.23" />
     <dependency id="Intent.Metadata.RDBMS" version="3.7.4" />
     <dependency id="Intent.Modelers.Domain" version="3.12.2" />
