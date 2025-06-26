@@ -1,3 +1,7 @@
+### Version 0.0.6
+
+- Improvement: Supports Anthropic AI now.
+
 ### Version 0.0.5
 
 - Improvement: Upgraded to use the `Intent.Common.AI` module which moves API Key settings into the User's settings.
