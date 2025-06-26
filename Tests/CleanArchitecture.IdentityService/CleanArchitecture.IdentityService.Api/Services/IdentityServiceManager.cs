@@ -210,7 +210,7 @@ namespace CleanArchitecture.IdentityService.Api.Services
             }
             var emailStore = (IUserEmailStore<ApplicationIdentityUser>)_userStore;
             var email = registration.Email;
-            var user = new ApplicationIdentityUser();
+            var user = new ApplicationIdentityUser { Id = Guid.NewGuid().ToString() };
             await _userStore.SetUserNameAsync(user, email, CancellationToken.None);
             await emailStore.SetEmailAsync(user, email, CancellationToken.None);
             var result = await _userManager.CreateAsync(user, registration.Password);

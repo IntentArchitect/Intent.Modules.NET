@@ -285,7 +285,7 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         m.AddStatement($"var emailStore = (IUserEmailStore<{this.GetIdentityUserClass()}>)_userStore;");
                         m.AddStatement("var email = registration.Email;");
 
-                        m.AddStatement($"var user = new {this.GetIdentityUserClass()}();");
+                        m.AddStatement($"var user = new {this.GetIdentityUserClass()} {{ Id = Guid.NewGuid().ToString() }};");
                         m.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         m.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");
                         m.AddStatement("var result = await _userManager.CreateAsync(user, registration.Password);");

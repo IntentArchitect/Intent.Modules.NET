@@ -86,7 +86,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
                                 return BadRequest(ModelState);
                             }}
 
-                            var user = new {this.GetIdentityUserClass()}();
+                            var user = new {this.GetIdentityUserClass()} {{ Id = Guid.NewGuid().ToString() }};
 
                             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
                             await _userManager.SetEmailAsync(user, input.Email);

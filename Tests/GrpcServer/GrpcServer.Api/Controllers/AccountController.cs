@@ -68,7 +68,7 @@ namespace GrpcServer.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationIdentityUser();
+            var user = new ApplicationIdentityUser { Id = Guid.NewGuid().ToString() };
 
             await _userStore.SetUserNameAsync(user, input.Email, CancellationToken.None);
             await _userManager.SetEmailAsync(user, input.Email);
