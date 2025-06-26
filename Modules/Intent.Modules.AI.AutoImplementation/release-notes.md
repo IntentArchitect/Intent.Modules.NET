@@ -1,3 +1,3 @@
 ### Version 1.0.0
 
-- `Implement with AI` menu options on the 
+- New Feature: `Implement with AI` menu options on Commands and Queries.

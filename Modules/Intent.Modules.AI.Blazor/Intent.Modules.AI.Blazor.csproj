@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-alpha.0" />
+    <PackageReference Include="Intent.Modules.Common.AI" Version="1.0.0-beta.2" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.6" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.8.11" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.1">

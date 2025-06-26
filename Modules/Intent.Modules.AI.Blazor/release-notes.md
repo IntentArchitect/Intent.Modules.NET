@@ -1,3 +1,3 @@
 ### Version 1.0.0
 
-Initial release.
+- New Feature: `Implement with AI` menu options on Pages.
