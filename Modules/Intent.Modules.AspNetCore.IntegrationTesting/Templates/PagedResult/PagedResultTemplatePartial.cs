@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClient;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -10,6 +11,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -23,13 +25,18 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.PagedResult
     {
         public const string TemplateId = "Intent.AspNetCore.IntegrationTesting.PagedResult";
 
-        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new HttpServiceProxyMappedService())
+        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget)
         {
         }
 
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
+        protected override IDesigner? GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
         {
             return null;
+        }
+
+        protected override IServiceContractModel CreateServiceContractModel(ServiceProxyModel model)
+        {
+            return new HttpServiceContractModel(model);
         }
 
         public override bool CanRunTemplate()

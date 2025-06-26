@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using Intent.Modelers.Services.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.DtoContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.EnumContract;
 using Intent.Modules.Application.Contracts.Clients.Templates.PagedResult;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -42,12 +42,12 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates
             return template.GetTypeName(PagedResultTemplate.TemplateId);
         }
 
-        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : IServiceContractModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
-        public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
+        public static string GetServiceContractName(this IIntentTemplate template, IServiceContractModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }

@@ -8,7 +8,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Contracts.Clients.Http.Shared;
-using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +18,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.HttpClients.Templates.ServiceContract
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ServiceContractTemplateRegistration : FilePerModelTemplateRegistration<ServiceProxyModel>
+    public class ServiceContractTemplateRegistration : FilePerModelTemplateRegistration<IServiceContractModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,16 +30,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.ServiceContract
         public override string TemplateId => ServiceContractTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceProxyModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IServiceContractModel model)
         {
             return new ServiceContractTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
+        public override IEnumerable<IServiceContractModel> GetModels(IApplication application)
         {
             return _metadataManager.UserInterface(application).GetServiceProxyModels()
                 .Where(x => x.HasMappedEndpoints())
+                .Select(x => new HttpServiceContractModel(x))
                 .ToArray();
         }
     }

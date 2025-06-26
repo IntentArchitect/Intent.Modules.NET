@@ -12,6 +12,7 @@ using Intent.Modules.Blazor.HttpClients.Templates.ProblemDetailsWithErrors;
 using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -76,12 +77,18 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
             return template.GetTypeName(ProblemDetailsWithErrorsTemplate.TemplateId);
         }
 
-        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : IServiceContractModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
+        [IntentIgnore]
         public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
+        {
+            return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
+        }
+
+        public static string GetServiceContractName(this IIntentTemplate template, IServiceContractModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }

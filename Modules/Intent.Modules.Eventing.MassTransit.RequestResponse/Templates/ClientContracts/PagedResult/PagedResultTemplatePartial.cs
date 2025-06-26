@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
-using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -22,8 +23,13 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
     {
         public const string TemplateId = "Intent.Eventing.MassTransit.RequestResponse.ClientContracts.PagedResult";
 
-        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget, new MassTransitServiceProxyMappedService())
+        public PagedResultTemplate(IOutputTarget outputTarget) : base(TemplateId, outputTarget)
         {
+        }
+
+        protected override IServiceContractModel CreateServiceContractModel(ServiceProxyModel model)
+        {
+            return new MassTransitServiceContractModel(model);
         }
 
         protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)

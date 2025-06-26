@@ -9,13 +9,13 @@ using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
+using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.DtoContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.ServiceContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperRequestMessage;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.RequestResponse.MapperResponseMessage;
 using Intent.Modules.Eventing.MassTransit.Settings;
-using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -60,41 +60,40 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
 
         private void AddOperations(CSharpClass @class)
         {
-            var proxyMappedService = new MassTransitServiceProxyMappedService();
+            var serviceContract = new MassTransitServiceContractModel(Model);
 
-            var mappedEndpoints = proxyMappedService.GetMappedEndpoints(Model);
-            foreach (var mappedEndpoint in mappedEndpoints)
+            foreach (var operation in serviceContract.Operations)
             {
-                var clientReturnType = mappedEndpoint.ReturnType?.Element is null
+                var clientReturnType = operation.TypeReference?.Element is null
                     ? null
-                    : mappedEndpoint.ReturnType.Element.SpecializationType == "DTO"
-                        ? GetFullyQualifiedTypeExpression(DtoContractTemplate.TemplateId, mappedEndpoint)
-                        : GetTypeName(mappedEndpoint.ReturnType);
+                    : operation.TypeReference.Element.SpecializationType == "DTO"
+                        ? GetFullyQualifiedTypeExpression(DtoContractTemplate.TemplateId, operation)
+                        : GetTypeName(operation.TypeReference);
 
-                var mappedReturnType = mappedEndpoint.ReturnType?.Element is null
+                var mappedReturnType = operation.TypeReference?.Element is null
                     ? null
-                    : mappedEndpoint.ReturnType.Element.SpecializationType == "DTO"
-                        ? GetFullyQualifiedTypeExpression(MapperResponseMessageTemplate.TemplateId, mappedEndpoint)
-                        : GetTypeName(mappedEndpoint.ReturnType);
+                    : operation.TypeReference.Element.SpecializationType == "DTO"
+                        ? GetFullyQualifiedTypeExpression(MapperResponseMessageTemplate.TemplateId, operation)
+                        : GetTypeName(operation.TypeReference);
 
-                var primaryInput = mappedEndpoint.Inputs.First();
-                var clientPrimaryInputType = GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, primaryInput.TypeReference.Element);
-                var mapperRequestType = GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, primaryInput);
+                var firstParameter = operation.Parameters.First();
+                var clientPrimaryInputType = GetFullyQualifiedTypeName(DtoContractTemplate.TemplateId, firstParameter.TypeReference.Element);
+                var mapperRequestType = GetFullyQualifiedTypeName(MapperRequestMessageTemplate.TemplateId, firstParameter);
 
-                var returnType = mappedEndpoint.ReturnType?.Element is null
+                var returnType = operation.TypeReference?.Element is null
                     ? UseType("System.Threading.Tasks.Task")
                     : $"{UseType("System.Threading.Tasks.Task")}<{clientReturnType}>";
 
-                @class.AddMethod(returnType, $"{mappedEndpoint.Name}Async", method =>
+                @class.AddMethod(returnType, $"{operation.Name}Async", method =>
                 {
                     method.Async();
-                    method.AddParameter(clientPrimaryInputType, primaryInput.Name);
+                    method.AddParameter(clientPrimaryInputType, firstParameter.Name);
                     method.AddOptionalCancellationTokenParameter(this);
 
-                    method.AddIfStatement($"{primaryInput.Name} is null",
-                        stmt => stmt.AddStatement($"throw new {UseType("System.ArgumentNullException")}(nameof({primaryInput.Name}));"));
+                    method.AddIfStatement($"{firstParameter.Name} is null",
+                        stmt => stmt.AddStatement($"throw new {UseType("System.ArgumentNullException")}(nameof({firstParameter.Name}));"));
 
-                    var mappedVar = $"mapped{primaryInput.Name.ToPascalCase()}";
+                    var mappedVar = $"mapped{firstParameter.Name.ToPascalCase()}";
 
                     if (ServiceBusRequiresOwnTransaction())
                     {
@@ -103,7 +102,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
 
                     method.AddStatement(
                         $"var client = _serviceProvider.GetRequiredService<{UseType("MassTransit.IRequestClient")}<{mapperRequestType}>>();");
-                    method.AddStatement($"var {mappedVar} = new {mapperRequestType}({primaryInput.Name});");
+                    method.AddStatement($"var {mappedVar} = new {mapperRequestType}({firstParameter.Name});");
 
                     var prefix = mappedReturnType is not null ? "var response = " : string.Empty;
                     var type = mappedReturnType is not null ? $"{this.GetRequestCompletedMessageName()}<{mappedReturnType}>" : this.GetRequestCompletedMessageName();
@@ -115,7 +114,7 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
 
                     if (mappedReturnType is not null)
                     {
-                        var responsePayloadExpression = mappedEndpoint.ReturnType switch
+                        var responsePayloadExpression = operation.TypeReference switch
                         {
                             null => string.Empty,
                             var rt when rt.Element?.SpecializationType != "DTO" => string.Empty,
@@ -145,10 +144,10 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientIm
             return ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().IsAzureServiceBus();
         }
 
-        private string GetFullyQualifiedTypeExpression(string templateId, MappedEndpoint mappedEndpoint)
+        private string GetFullyQualifiedTypeExpression(string templateId, IServiceContractOperationModel operation)
         {
-            var type = GetFullyQualifiedTypeName(templateId, mappedEndpoint.ReturnType.Element);
-            return mappedEndpoint.ReturnType switch
+            var type = GetFullyQualifiedTypeName(templateId, operation.TypeReference.Element);
+            return operation.TypeReference switch
             {
                 var returnType when returnType.IsCollection => $"{UseType("System.Collections.Generic.List")}<{type}>",
                 var returnType when returnType.IsNullable => $"{type}?",

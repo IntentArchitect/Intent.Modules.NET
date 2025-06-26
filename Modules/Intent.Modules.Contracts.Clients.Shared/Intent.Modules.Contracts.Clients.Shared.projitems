@@ -12,11 +12,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)FileNamespaceProviders\OutputTargetFileNamespaceProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FileNamespaceProviders\SourcePackageFileNamespaceProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IFileNamespaceProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)IServiceProxyMappedService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\DtoContract\DtoContractTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\PagedResult\PagedResultTypeSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceContract\IServiceContractModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceContract\ServiceContractTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\PagedResult\PagedResultTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceProxyModelHelpers.cs" />

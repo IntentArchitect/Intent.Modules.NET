@@ -1,0 +1,29 @@
+{
+  "solution": {
+    "path": "Intent.Modules.NET.sln",
+    "projects": [
+      "Intent.Modules.Application.Contracts.Clients\\Intent.Modules.Application.Contracts.Clients.csproj",
+      "Intent.Modules.Application.Shared\\Intent.Modules.Application.Shared.shproj",
+      "Intent.Modules.Blazor.FluentValidation\\Intent.Modules.Blazor.FluentValidation.csproj",
+      "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj",
+      "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj",
+      "Intent.Modules.Blazor.HttpClients\\Intent.Modules.Blazor.HttpClients.csproj",
+      "Intent.Modules.Blazor\\Intent.Modules.Blazor.csproj",
+      "Intent.Modules.Constants\\Intent.Modules.Constants.csproj",
+      "Intent.Modules.Contracts.Clients.Http.Shared\\Intent.Modules.Contracts.Clients.Http.Shared.shproj",
+      "Intent.Modules.Contracts.Clients.Shared\\Intent.Modules.Contracts.Clients.Shared.shproj",
+      "Intent.Modules.DocumentDB.Shared\\Intent.Modules.DocumentDB.Shared.shproj",
+      "Intent.Modules.EntityFrameworkCore.Shared\\Intent.Modules.EntityFrameworkCore.Shared.shproj",
+      "Intent.Modules.Enums.Shared\\Intent.Modules.Enums.Shared.shproj",
+      "Intent.Modules.Eventing.MassTransit.RequestResponse\\Intent.Modules.Eventing.MassTransit.RequestResponse.csproj",
+      "Intent.Modules.Eventing.Shared\\Intent.Modules.Eventing.Shared.shproj",
+      "Intent.Modules.FluentValidation.Shared\\Intent.Modules.FluentValidation.Shared.shproj",
+      "Intent.Modules.Integration.HttpClients.Shared\\Intent.Modules.Integration.HttpClients.Shared.shproj",
+      "Intent.Modules.Integration.HttpClients\\Intent.Modules.Integration.HttpClients.csproj",
+      "Intent.Modules.Integration.IaC.Shared.AzureEventGrid\\Intent.Modules.Integration.IaC.Shared.AzureEventGrid.shproj",
+      "Intent.Modules.Integration.IaC.Shared.AzureServiceBus\\Intent.Modules.Integration.IaC.Shared.AzureServiceBus.shproj",
+      "Intent.Modules.Security.Shared\\Intent.Modules.Security.Shared.shproj",
+      "Intent.Modules.UnitOfWork.Persistence.Shared\\Intent.Modules.UnitOfWork.Persistence.Shared.shproj"
+    ]
+  }
+}

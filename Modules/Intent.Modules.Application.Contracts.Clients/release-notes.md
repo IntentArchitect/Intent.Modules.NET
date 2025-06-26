@@ -1,3 +1,7 @@
+### Version 5.1.2
+
+- Improvement: Will now generate service contracts for direct invocations of services in other applications.
+
 ### Version 5.1.1
 
 - Fixed: `Create` method on `DtoContracts` will now used the default values from the original `Command/Query`.

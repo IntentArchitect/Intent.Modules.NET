@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Net;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
@@ -10,16 +11,15 @@ using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
 
 namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
 {
-    public abstract class ServiceContractTemplateBase : CSharpTemplateBase<ServiceProxyModel>, ICSharpFileBuilderTemplate
+    public abstract class ServiceContractTemplateBase : CSharpTemplateBase<IServiceContractModel>, ICSharpFileBuilderTemplate
     {
         protected ServiceContractTemplateBase(
             string templateId,
             IOutputTarget outputTarget,
-            ServiceProxyModel model,
+            IServiceContractModel model,
             string dtoContractTemplateId,
             string enumContractTemplateId,
-            string pagedResultTemplateId,
-            IServiceProxyMappedService serviceProxyMappedService)
+            string pagedResultTemplateId)
             : base(templateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
@@ -40,31 +40,24 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract
                         @interface.RepresentsModel(Model);
                         @interface.ImplementsInterfaces("IDisposable");
 
-                        foreach (var endpoint in serviceProxyMappedService.GetMappedEndpoints(model))
+                        foreach (var operation in model.Operations)
                         {
-                            @interface.AddMethod(GetTypeName(endpoint.ReturnType), GetOperationName(endpoint), method =>
+                            var operationName = operation.Name.ToPascalCase().EnsureSuffixedWith("Async");
+
+                            @interface.AddMethod(GetTypeName(operation), operationName, method =>
                             {
                                 method.Async();
-                                var representativeOperation = model.Operations.SingleOrDefault(x => x.Mapping.ElementId == endpoint.Id);
-                                if (representativeOperation != null)
-                                {
-                                    method.RepresentsModel(representativeOperation);
-                                }
+                                method.RepresentsModel(operation);
 
-                                foreach (var input in endpoint.Inputs)
+                                foreach (var input in operation.Parameters)
                                 {
-                                    method.AddParameter(this.GetTypeName(input), input.Name.ToParameterName());
+                                    method.AddParameter(GetTypeName(input), input.Name.ToParameterName());
                                 }
 
                                 method.AddOptionalCancellationTokenParameter(this);
                             });
                         }
                     });
-        }
-
-        private static string GetOperationName(MappedEndpoint endpoint)
-        {
-            return endpoint.Name.ToPascalCase().EnsureSuffixedWith("Async");
         }
 
         public CSharpFile CSharpFile { get; }

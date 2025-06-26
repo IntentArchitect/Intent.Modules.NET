@@ -3,6 +3,7 @@ using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.DtoContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.EnumContract;
 using Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.PagedResult;
@@ -50,11 +51,17 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates
             return template.GetTypeName(PagedResultTemplate.TemplateId);
         }
 
-        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : ServiceProxyModel
+        public static string GetServiceContractName<T>(this IIntentTemplate<T> template) where T : IServiceContractModel
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, template.Model);
         }
 
+        public static string GetServiceContractName(this IIntentTemplate template, IServiceContractModel model)
+        {
+            return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
+        }
+
+        [IntentIgnore]
         public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);

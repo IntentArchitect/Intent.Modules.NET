@@ -7,8 +7,7 @@ using Intent.Modelers.ServiceProxies.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Contracts.Clients.Shared;
-using Intent.Modules.Eventing.MassTransit.Templates.ClientContracts;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +17,7 @@ using Intent.Templates;
 namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts.ServiceContract
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class ServiceContractTemplateRegistration : FilePerModelTemplateRegistration<ServiceProxyModel>
+    public class ServiceContractTemplateRegistration : FilePerModelTemplateRegistration<IServiceContractModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,17 +29,17 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
         public override string TemplateId => ServiceContractTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ServiceProxyModel model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IServiceContractModel model)
         {
             return new ServiceContractTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IEnumerable<ServiceProxyModel> GetModels(IApplication application)
+        public override IEnumerable<IServiceContractModel> GetModels(IApplication application)
         {
-            var service = new MassTransitServiceProxyMappedService();
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Where(proxyModel => service.HasMappedEndpoints(proxyModel))
+                .Select(x => new MassTransitServiceContractModel(x))
+                .Where(x => x.Operations.Count > 0)
                 .ToArray();
         }
     }
