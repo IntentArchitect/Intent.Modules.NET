@@ -127,7 +127,7 @@
     </childElement>
     <childElement id="9d012b25-5061-4e2c-8c56-d4559eab0408" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common</name>
-      <display>Intent.Common 3.7.7</display>
+      <display>Intent.Common 3.7.8</display>
       <isAbstract>false</isAbstract>
       <value>3.7.8</value>
       <genericTypes />
@@ -141,7 +141,7 @@
     </childElement>
     <childElement id="0aa3bce1-eda1-49fa-b22f-05b12cd40dd6" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Common.CSharp</name>
-      <display>Intent.Common.CSharp 3.8.15</display>
+      <display>Intent.Common.CSharp 3.8.16</display>
       <isAbstract>false</isAbstract>
       <value>3.8.16</value>
       <genericTypes />
@@ -239,7 +239,7 @@
     </childElement>
     <childElement id="361de086-0139-46b8-9440-0815438848d1" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Metadata.RDBMS</name>
-      <display>Intent.Metadata.RDBMS 3.7.4</display>
+      <display>Intent.Metadata.RDBMS 3.7.5</display>
       <isAbstract>false</isAbstract>
       <value>3.7.5</value>
       <genericTypes />
@@ -351,7 +351,7 @@
     </childElement>
     <childElement id="0e9ad9d2-b0a2-458f-b2d4-3aecae09bb9c" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services</name>
-      <display>Intent.Modelers.Services 3.9.4</display>
+      <display>Intent.Modelers.Services 3.10.0</display>
       <isAbstract>false</isAbstract>
       <value>3.10.0</value>
       <genericTypes />
@@ -365,7 +365,7 @@
     </childElement>
     <childElement id="4b8dac02-1381-4d68-bef8-875ca3acc19d" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Modelers.Services.CQRS</name>
-      <display>Intent.Modelers.Services.CQRS 5.1.4</display>
+      <display>Intent.Modelers.Services.CQRS 5.2.0</display>
       <isAbstract>false</isAbstract>
       <value>5.2.0</value>
       <genericTypes />
@@ -421,7 +421,7 @@
     </childElement>
     <childElement id="d8b4c96d-8a4d-40f9-bb33-7e193e9f34f4" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.OutputManager.RoslynWeaver</name>
-      <display>Intent.OutputManager.RoslynWeaver 4.9.8</display>
+      <display>Intent.OutputManager.RoslynWeaver 4.9.9</display>
       <isAbstract>false</isAbstract>
       <value>4.9.9</value>
       <genericTypes />
