@@ -33,9 +33,12 @@
       <count>2</count>
       <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-06-25T06:15:07.3101722Z</updatedAt>
-      <deviationsHash>E52B888F89236592ABB2955BCC02D525B7E5CA554BADED07768D5B4AB3D4A25C</deviationsHash>
-      <fileHash>731FD5B05E05A8F069863803FB4D6177D5D3C2ECD1B60CB7D1A276D3AA31487E</fileHash>
+      <updatedAt>2025-06-26T10:24:13.5524749Z</updatedAt>
+      <approvedByAccountName>theunis.vanderstoep@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Theunis van der Stoep</approvedByDisplayName>
+      <approvedAt>2025-06-26T10:24:13.5525016Z</approvedAt>
+      <deviationsHash>79AA468A2A0209BACCAF15C6201074C2EF7EE30D84B5985EC01DB7A87074C466</deviationsHash>
+      <fileHash>0B7BE1BFBAF5CC53EED3300F54CFE496D476D0AEE462B747A5D74569FF6349C3</fileHash>
     </file>
   </files>
 </deviationsLog>
