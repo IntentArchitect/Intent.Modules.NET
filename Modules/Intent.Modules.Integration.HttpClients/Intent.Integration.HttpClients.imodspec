@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Integration.HttpClients</id>
-  <version>6.0.2</version>
+  <version>6.0.3-pre.0</version>
   <supportedClientVersions>[4.3.9-pre.0, 5.0.0-a)</supportedClientVersions>
-  <summary>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</summary>
-  <description>Introduces a Http Client implementation that can make service calls against a referenced service Restful API.</description>
+  <summary>Introduces an Http Client implementation that can make service calls against a referenced service Restful API.</summary>
+  <description>Introduces an Http Client implementation that can make service calls against a referenced service Restful API.</description>
   <authors>Intent Architect</authors>
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDdhOTI4ZjExLTE1ZDYtNDIxNS05ZGJiLTI4NjU4NTJkMmM5YSIgeDE9IjI1IiB5MT0iLjkiIHgyPSIyNSIgeTI9IjQ5LjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOWM1N2IzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjEiIHN0b3AtY29sb3I9IiM5MjRmYTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNyIgc3RvcC1jb2xvcj0iIzczMzM4NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NzI5N2EiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQuNCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ3YTkyOGYxMS0xNWQ2LTQyMTUtOWRiYi0yODY1ODUyZDJjOWEpIi8+CiAgICAgIDxwYXRoIGQ9Ik0zOS4zLDE4LjdoLTQuOHYtMS43aDExLjZ2MS43aC00Ljh2MTRoLTJ2LTE0WiIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBkPSJNMzIuNiwyNS40aC02LjF2NS43aDYuOHYxLjdoLTguOHYtMTUuN2g4LjV2MS43aC02LjR2NWg2LjF2MS43aC0uMVoiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTkuMiwzMi43di0xNS43aDIuMmw1LDcuOWMxLjIsMS44LDIuMSwzLjUsMi44LDUuMWgwYy0uMi0yLjEtLjItNC0uMi02LjV2LTYuNmgxLjl2MTUuN2gtMmwtNS04Yy0xLjEtMS43LTIuMS0zLjUtMi45LTUuMmgwYy4xLDIsLjIsMy45LjIsNi41djYuN2gtMloiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTMuOCwzMS41YzAtLjkuNi0xLjUsMS40LTEuNXMxLjQuNiwxLjQsMS41LS41LDEuNS0xLjQsMS41LTEuNC0uNi0xLjQtMS41WiIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
@@ -79,6 +79,7 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Integration.HttpClients.HttpClientHeaderConfiguratorExtension" externalReference="64e99652-0ac6-4285-8209-b4dbd505e91f" />
+    <factoryExtension id="Intent.Integration.HttpClients.InteractionStrategyRegistration" externalReference="bddc22e8-8ae6-4788-b081-d4d52e7e263a" />
   </factoryExtensions>
   <moduleSettings>
     <group id="f3da943d-d685-47cf-9982-59f1ac7127fd" title="Integration Http Client Settings" externalReference="f3da943d-d685-47cf-9982-59f1ac7127fd">
@@ -100,7 +101,7 @@
     <dependency id="Intent.Application.Contracts.Clients" version="5.1.0" />
     <dependency id="Intent.AspNetCore.DistributedCaching" version="1.0.0-beta.10" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-alpha.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Metadata.WebApi" version="4.7.1" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />

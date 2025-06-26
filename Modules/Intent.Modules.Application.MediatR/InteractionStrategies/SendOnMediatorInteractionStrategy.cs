@@ -18,7 +18,6 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
 {
     public class SendOnMediatorInteractionStrategy : IInteractionStrategy
     {
-        private ICSharpFileBuilderTemplate _template;
         private CSharpClassMappingManager _csharpMapping;
 
         public bool IsMatch(IElement interaction)
@@ -30,15 +29,14 @@ namespace Intent.Modules.Application.Contracts.InteractionStrategies
         {
             var interaction = (IAssociationEnd)interactionElement;
             var handlerClass = method.Class;
-            _template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
-            _template.AddTypeSource(TemplateRoles.Application.Query);
-            _template.AddTypeSource(TemplateRoles.Application.Command);
-            _template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            var template = (ICSharpFileBuilderTemplate)handlerClass.File.Template;
+            template.AddTypeSource(TemplateRoles.Application.Query);
+            template.AddTypeSource(TemplateRoles.Application.Command);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
             _csharpMapping = method.GetMappingManager();
-            _csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(_template));
+            _csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
             var @class = handlerClass;
             var ctor = @class.Constructors.First();
-            var template = handlerClass.File.Template;
             if (ctor.Parameters.All(x => x.Type != template.UseType("MediatR.ISender")))
             {
                 ctor.AddParameter(template.UseType("MediatR.ISender"), "mediator", param =>
