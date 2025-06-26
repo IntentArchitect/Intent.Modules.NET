@@ -437,11 +437,13 @@ public static class DataAccessProviderExtensions
         var currentVariable = aggregateVariableName;
         foreach (var associationEndModel in foundEntity.GetAssociationsToAggregateRoot().SkipLast(1))
         {
+            Func<string, string> formatter = requestElement.SpecializationType == "Operation" ? (x) => x.ToCamelCase()  : (x) => $"request.{x}";
+
             var targetEntity = associationEndModel.OtherEnd().Class;
             var primaryKeys = targetEntity.Attributes.Where(x => x.IsPrimaryKey());
             var requestProperties = primaryKeys.Select(x => (
                 Property: x.Name,
-                ValueExpression: new CSharpStatement($"request.{targetEntity.Name}{x.Name}")
+                ValueExpression: new CSharpStatement($"{formatter(targetEntity.Name)}{x.Name}")
             )).ToList();
 
             var expression = requestProperties.Count == 1
@@ -473,7 +475,7 @@ public static class DataAccessProviderExtensions
         {
             var aggPk = aggPks[i];
             var names = new List<string>();
-            if (!compositeEntity.Attributes.Any(c => c.Name == aggPk.Name))
+            if (!compositeEntity.Attributes.Any(c => string.Equals(c.Name, aggPk.Name, StringComparison.InvariantCultureIgnoreCase)))
             {
                 names.Add(aggPk.Name);
             }
@@ -485,13 +487,14 @@ public static class DataAccessProviderExtensions
                 names.Add(fkAttributes[i].Name);
             }
 
-            var match = requestElement.ChildElements.FirstOrDefault(f => names.Contains(f.Name))?.Name;
+            var match = requestElement.ChildElements.FirstOrDefault(f => names.Contains(f.Name, StringComparer.OrdinalIgnoreCase))?.Name;
             keyMappings.Add(new AggregateKeyMapping(aggPk, match));
         }
 
         if (keyMappings.All(x => !string.IsNullOrEmpty(x.Match)))
         {
-            return keyMappings.Select(x => new PrimaryKeyFilterMapping($"request.{x.Match}", $"{x.Key.Name}", new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
+            string prefix = requestElement.SpecializationType == "Operation" ? "" : "request.";
+            return keyMappings.Select(x => new PrimaryKeyFilterMapping($"{prefix}{x.Match}", $"{x.Key.Name}", new ElementToElementMappedEndStub(requestElement, aggregateEntity.InternalElement))).ToList();
         }
         return new List<PrimaryKeyFilterMapping>();
     }
