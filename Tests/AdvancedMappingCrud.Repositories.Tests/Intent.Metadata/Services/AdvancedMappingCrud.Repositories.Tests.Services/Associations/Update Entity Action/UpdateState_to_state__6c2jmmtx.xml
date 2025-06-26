@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f6bdfc5b-390f-4a31-91f9-8388796c784b">
+  <sourceEnd id="fadbf2ff-4331-4419-ae2c-8778d624d645" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : CountriesService.UpdateState</display>
+    <order>0</order>
+    <typeReference id="6bb1bb05-9225-4362-aa3f-fb12ff7fe57f">
+      <typeId>58775ec9-8db4-4c39-afbc-82fad2d1762a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f6bdfc5b-390f-4a31-91f9-8388796c784b" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>state</name>
+    <display>[update] state: State</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="5991f88d-9ad8-40e6-bcee-25b6dede3e1b">
+      <typeId>2b32acf6-3953-4834-b887-e7a83b35ba72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="58775ec9-8db4-4c39-afbc-82fad2d1762a" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateState]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b32acf6-3953-4834-b887-e7a83b35ba72" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[State]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="2b32acf6-3953-4834-b887-e7a83b35ba72" name="State" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7bdd87ef-1f17-4c54-9573-50b3ab1dc536" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="58775ec9-8db4-4c39-afbc-82fad2d1762a" name="UpdateState" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="15aaf0df-e69c-40a3-95b4-47495d5bba71" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="58775ec9-8db4-4c39-afbc-82fad2d1762a" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[UpdateState]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b32acf6-3953-4834-b887-e7a83b35ba72" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[State]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="2b32acf6-3953-4834-b887-e7a83b35ba72" name="State" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3ed5afd2-d855-47af-9953-3430ce750f92" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="58775ec9-8db4-4c39-afbc-82fad2d1762a" name="UpdateState" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="853c2175-b8e0-48b2-95fd-0874146c1fcc" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="d0bbbde7-ad52-4f91-82f1-9cf47961de9b" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.CountryId}</expression>
+            <path>
+              <target id="2b32acf6-3953-4834-b887-e7a83b35ba72" name="State" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="b5946b65-c255-4873-89ae-449edd6ebef6" name="CountryId" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.CountryId" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="58775ec9-8db4-4c39-afbc-82fad2d1762a" name="UpdateState" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="853c2175-b8e0-48b2-95fd-0874146c1fcc" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="d1d7e3d4-0c2d-40c1-9726-0e4442c39aff" name="CountryId" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

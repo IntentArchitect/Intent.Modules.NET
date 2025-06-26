@@ -9,10 +9,16 @@
   <parentFolderId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</parentFolderId>
   <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
   <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
-  <traits>
-    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
-  </traits>
-  <stereotypes />
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6ad19817-2014-464b-a525-409b3a5230d1" name="Service Registration Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.DomainServices</definitionPackageName>
+      <definitionPackageId>4dd5ea09-bece-4f26-bfeb-2904a26e2895</definitionPackageId>
+      <properties>
+        <property name="6b4d2aef-0f5a-46a1-b443-1d9f3286c128" display="Service Registration Scope" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="fe69572d-735f-4e0b-8f97-c252323f8e47" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
@@ -36,6 +42,10 @@
       <parentFolderId>f245796d-91ac-4f1e-9d25-25c3a6450c0b</parentFolderId>
       <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
       <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -86,6 +96,10 @@
       <parentFolderId>f245796d-91ac-4f1e-9d25-25c3a6450c0b</parentFolderId>
       <packageId>b82b3f6d-6c7f-42cf-9e2a-9a1d7bd87008</packageId>
       <packageName>SharedKernel.Kernel.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

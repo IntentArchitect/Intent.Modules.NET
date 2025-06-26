@@ -39,8 +39,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
-        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="37482929-91e3-431b-9fcb-25f10884acd5" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[CreateStockCommand]" />
-        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[Stock]" />
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="37482929-91e3-431b-9fcb-25f10884acd5" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[CreateStockCommand]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="324d1cb5-f694-48bb-b758-494d14ba3b6b" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[Stock]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{CreateStockCommand}</expression>

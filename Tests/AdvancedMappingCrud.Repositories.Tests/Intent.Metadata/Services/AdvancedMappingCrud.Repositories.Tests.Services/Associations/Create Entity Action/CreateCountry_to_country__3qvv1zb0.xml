@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d3791436-b6e1-41b1-b749-c2fc826ae4da">
+  <sourceEnd id="8d271492-943d-44a0-b7cf-b5c23d233038" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : CountriesService.CreateCountry</display>
+    <order>0</order>
+    <typeReference id="58619ec1-fb38-4f63-a836-a682703cf8ac">
+      <typeId>073a2d1c-990f-4c76-8ad0-98f640c4f3b9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d3791436-b6e1-41b1-b749-c2fc826ae4da" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>country</name>
+    <display>[create] country: Country</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="edc0cfdc-f510-4f59-af07-d8ba35c5c878">
+      <typeId>63e10597-610d-4ad8-ad27-b124ce577ae6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="073a2d1c-990f-4c76-8ad0-98f640c4f3b9" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[CreateCountry]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63e10597-610d-4ad8-ad27-b124ce577ae6" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Country]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCountry}</expression>
+            <path>
+              <target id="63e10597-610d-4ad8-ad27-b124ce577ae6" name="Country" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateCountry" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="073a2d1c-990f-4c76-8ad0-98f640c4f3b9" name="CreateCountry" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.MaE}</expression>
+            <path>
+              <target id="63e10597-610d-4ad8-ad27-b124ce577ae6" name="Country" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="25276115-b166-4eae-af7d-bf6cbe634d17" name="MaE" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.MaE" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="073a2d1c-990f-4c76-8ad0-98f640c4f3b9" name="CreateCountry" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="cf34eb15-f212-4af3-ab36-92c6d734d538" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="1178732a-da65-4fcb-81fc-da607358dec6" name="MaE" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

@@ -39,8 +39,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
-        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bd360190-a1aa-4c70-aeb7-077a446e2e65" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[CreateChild1Command]" />
-        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f61c0d1e-2cae-4540-b214-15121f04fa0c" location="[AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests].[Services].[ChildSimple]" />
+        <source applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="bd360190-a1aa-4c70-aeb7-077a446e2e65" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[CreateChild1Command]" />
+        <target applicationId="91975b7f-f3f4-44bd-8ace-27eadcebc3cc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="f61c0d1e-2cae-4540-b214-15121f04fa0c" location="[AdvancedMappingCrud.RichDomain.Tests].[Services].[ChildSimple]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{CreateChild1Command}</expression>

@@ -51,6 +51,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application
             services.AddScoped<IMyDomainService, MyDomainService>();
             services.AddTransient<IExtensiveDomainService, ExtensiveDomainService>();
             services.AddTransient<IClassicDomainServiceTestsService, ClassicDomainServiceTestsService>();
+            services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<IPagingTSService, PagingTSService>();
             services.AddTransient<Interfaces.IPersonService, Implementation.PersonService>();
             services.AddTransient<IProductsService, ProductsService>();

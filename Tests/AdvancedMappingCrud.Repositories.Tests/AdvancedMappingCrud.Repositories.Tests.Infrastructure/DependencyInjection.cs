@@ -54,6 +54,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure
             services.AddTransient<IContactSecondRepository, ContactSecondRepository>();
             services.AddTransient<IContractRepository, ContractRepository>();
             services.AddTransient<ICorporateFuneralCoverQuoteRepository, CorporateFuneralCoverQuoteRepository>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IEntityListEnumRepository, EntityListEnumRepository>();
             services.AddTransient<IFileUploadRepository, FileUploadRepository>();

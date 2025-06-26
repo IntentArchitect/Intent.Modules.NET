@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c09ecf40-d55b-4f5b-a3b6-58d0f9e48051">
+  <sourceEnd id="3dd77cfc-6c37-4d28-8492-0187c27aed24" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>State</name>
+    <display>State: State</display>
+    <order>0</order>
+    <typeReference id="a5100d7b-baab-4962-b743-20f237dbb2c8">
+      <typeId>2b32acf6-3953-4834-b887-e7a83b35ba72</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c09ecf40-d55b-4f5b-a3b6-58d0f9e48051" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Cities</name>
+    <display>Cities: City[*]</display>
+    <order>3</order>
+    <typeReference id="7e552a3c-fc56-47b1-934e-f35f5717fab8">
+      <typeId>ec361420-7e69-45df-983c-05c2d0069677</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

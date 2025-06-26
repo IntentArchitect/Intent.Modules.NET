@@ -6,6 +6,7 @@ using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Option
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Orders;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.ParentWithAnemicChildren;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Basics;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Countries;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Customers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Farmers;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Services.Optionals;
@@ -144,6 +145,34 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             var parentWithAnemicChildId = await client.CreateParentWithAnemicChildAsync(command);
             _idTracker["ParentWithAnemicChildId"] = parentWithAnemicChildId;
             return parentWithAnemicChildId;
+        }
+
+        public async Task<Guid> CreateCountry()
+        {
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCountryDto>();
+            var countryId = await client.CreateCountryAsync(command);
+            _idTracker["CountryId"] = countryId;
+            return countryId;
+        }
+
+        public async Task<Guid> CreateStateDependencies()
+        {
+            var countryId = await CreateCountry();
+            return countryId;
+        }
+
+        public async Task<(Guid CountryId, Guid StateId)> CreateState()
+        {
+            var countryId = await CreateStateDependencies();
+
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateStateDto>();
+            var stateId = await client.CreateStateAsync(countryId, command);
+            _idTracker["StateId"] = stateId;
+            return (countryId, stateId);
         }
 
         public async Task<Guid> CreatePagingTS()

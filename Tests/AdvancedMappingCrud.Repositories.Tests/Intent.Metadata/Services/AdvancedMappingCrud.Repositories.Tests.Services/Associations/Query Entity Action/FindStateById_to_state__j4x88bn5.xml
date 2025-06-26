@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="a284cce9-bc0b-450e-a87c-0343d48caeec">
+  <sourceEnd id="58783a1f-2099-4775-8362-b666652c0a69" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindStateById</display>
+    <order>0</order>
+    <typeReference id="60fff288-d98a-428f-8364-6a93101b4f57">
+      <typeId>6f77cf69-79de-4b4e-af3a-27ae284be7d6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="a284cce9-bc0b-450e-a87c-0343d48caeec" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>state</name>
+    <display>[query] state: State</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="19a222e8-3488-455d-aac4-a987f1455076">
+      <typeId>2b32acf6-3953-4834-b887-e7a83b35ba72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6f77cf69-79de-4b4e-af3a-27ae284be7d6" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[FindStateById]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2b32acf6-3953-4834-b887-e7a83b35ba72" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[State]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="2b32acf6-3953-4834-b887-e7a83b35ba72" name="State" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7bdd87ef-1f17-4c54-9573-50b3ab1dc536" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="6f77cf69-79de-4b4e-af3a-27ae284be7d6" name="FindStateById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="7b9047c2-b00d-4304-8ff8-a1aada10e1e4" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

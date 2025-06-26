@@ -9,9 +9,6 @@
   <parentFolderId>42d31ce9-1395-4a0a-b86c-7af2682124b9</parentFolderId>
   <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
   <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
-  <traits>
-    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
-  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="6ad19817-2014-464b-a525-409b3a5230d1" name="Service Registration Settings">
       <addedByDefault>true</addedByDefault>
@@ -45,6 +42,10 @@
       <parentFolderId>0b4fda89-35c9-4175-9009-f0150e36b42e</parentFolderId>
       <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -96,6 +97,10 @@
       <parentFolderId>0b4fda89-35c9-4175-9009-f0150e36b42e</parentFolderId>
       <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -140,6 +145,10 @@
       <parentFolderId>0b4fda89-35c9-4175-9009-f0150e36b42e</parentFolderId>
       <packageId>42d31ce9-1395-4a0a-b86c-7af2682124b9</packageId>
       <packageName>AdvancedMappingCrud.RichDomain.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

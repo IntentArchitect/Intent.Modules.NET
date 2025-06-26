@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#5469f41f-e64c-4254-a13d-9235b14b0a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CountriesController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0d72f64b-027f-4e29-8567-b43887b0fc08</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#0fe46e70-fb75-41d7-afa5-10cb420de4ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -1056,6 +1064,150 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Contracts/UpdateContract/UpdateContractCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Contracts/UpdateContract/UpdateContractCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7c863bf8-6599-416a-8fd3-1f5c069a5fbb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#7c863bf8-6599-416a-8fd3-1f5c069a5fbb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CityDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CityDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d0351147-9d8c-4a34-8e6e-4aceaac9c725</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#d0351147-9d8c-4a34-8e6e-4aceaac9c725</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CountryDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CountryDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#ff1e0d21-a5af-40c5-a478-5a340553ac48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateCityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateCityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ff1e0d21-a5af-40c5-a478-5a340553ac48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateCityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateCityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#9cdcafde-840f-41bf-b3d2-8f488c1600eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateCountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#9cdcafde-840f-41bf-b3d2-8f488c1600eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateCountryDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateCountryDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#d32ce04f-1912-40ba-8f85-2e102812412e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateStateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateStateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#d32ce04f-1912-40ba-8f85-2e102812412e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/CreateStateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/CreateStateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#2e0d6cbf-8b68-42d8-87ad-37f9e802cd5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/StateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/StateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#2e0d6cbf-8b68-42d8-87ad-37f9e802cd5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/StateDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/StateDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#86d473dc-cca5-4dd3-9938-5170aa6613f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateCityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateCityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#86d473dc-cca5-4dd3-9938-5170aa6613f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateCityDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateCityDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#7a77e6de-257e-4785-aa8a-18fb0e2bc656</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateCountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#7a77e6de-257e-4785-aa8a-18fb0e2bc656</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateCountryDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateCountryDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#108b70b7-5357-46b9-8256-f9c8aba4eedd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateStateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateStateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>477fe17e-1eca-4363-9454-d6f1734757d6</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#108b70b7-5357-46b9-8256-f9c8aba4eedd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Countries/UpdateStateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Countries/UpdateStateDtoValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -2292,6 +2444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#5469f41f-e64c-4254-a13d-9235b14b0a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/CountriesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>745c06b6-4532-4b3b-9d90-68bef2a4b4cf</ProjectId>
       <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9a33e1cf-bc8a-474f-b331-40a1a6fcc4f8</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Implementation/Customers/PersonService.cs</ApplicationRelativeFilePath>
@@ -2504,6 +2664,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/IClassicDomainServiceTestsService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IClassicDomainServiceTestsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>2fb7b7f6-f8bf-440a-ab8c-4f31e18ece2e</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#5469f41f-e64c-4254-a13d-9235b14b0a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Application/Interfaces/ICountriesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICountriesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4276,6 +4444,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#ec361420-7e69-45df-983c-05c2d0069677</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/City.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>City.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#cf47db73-147b-4f73-a3a0-69af6eb0580b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CompanyContact.cs</ApplicationRelativeFilePath>
@@ -4328,6 +4504,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/CorporateFuneralCoverQuote.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CorporateFuneralCoverQuote.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#63e10597-610d-4ad8-ad27-b124ce577ae6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/Country.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Country.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -4612,6 +4796,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
+      <CorrelationId>Intent.Entities.DomainEntity#2b32acf6-3953-4834-b887-e7a83b35ba72</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/State.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>State.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8f97e5a0-4ddd-4f88-a153-05d97e6a1a0a</ProjectId>
       <CorrelationId>Intent.Entities.DomainEntity#a7b77563-def1-45b2-889c-91fa833ba330</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Entities/User.cs</ApplicationRelativeFilePath>
@@ -4784,6 +4976,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ICorporateFuneralCoverQuoteRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICorporateFuneralCoverQuoteRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cbc2cd7d-060f-4471-a0db-1b40bcb78d9e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#63e10597-610d-4ad8-ad27-b124ce577ae6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Domain/Repositories/ICountryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICountryRepository.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -5204,6 +5404,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#63e10597-610d-4ad8-ad27-b124ce577ae6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/CountryConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountryConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>fa87b999-904f-4bf0-a0ef-1827702b4630</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#8ed97c04-fbb0-4712-a969-b9ade95e0fe5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Persistence/Configurations/CustomerConfiguration.cs</ApplicationRelativeFilePath>
@@ -5476,6 +5684,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#63e10597-610d-4ad8-ad27-b124ce577ae6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/CountryRepository.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountryRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>01139201-fc8d-4081-9e46-6d28709ddebd</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.Repository#8ed97c04-fbb0-4712-a969-b9ade95e0fe5</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.Infrastructure/Repositories/CustomerRepository.cs</ApplicationRelativeFilePath>
@@ -5740,6 +5956,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#5469f41f-e64c-4254-a13d-9235b14b0a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/CountriesServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesServiceHttpClient.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
       <CorrelationId>Intent.AspNetCore.IntegrationTesting.HttpClient#0fe46e70-fb75-41d7-afa5-10cb420de4ee</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/Customers/CustomersHttpClient.cs</ApplicationRelativeFilePath>
@@ -5792,6 +6016,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/HttpClientRequestException.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>48f936b0-25d5-4f2b-a48f-62f6ccbbedd9</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ProxyServiceContract#5469f41f-e64c-4254-a13d-9235b14b0a1d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/HttpClients/ICountriesService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICountriesService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6064,6 +6296,78 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Common/SimpleFileDownloadDto.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Services/Common/SimpleFileDownloadDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7c863bf8-6599-416a-8fd3-1f5c069a5fbb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/CityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/CityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#d0351147-9d8c-4a34-8e6e-4aceaac9c725</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/CountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/CountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#ff1e0d21-a5af-40c5-a478-5a340553ac48</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/CreateCityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/CreateCityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#9cdcafde-840f-41bf-b3d2-8f488c1600eb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/CreateCountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/CreateCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#d32ce04f-1912-40ba-8f85-2e102812412e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/CreateStateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/CreateStateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#2e0d6cbf-8b68-42d8-87ad-37f9e802cd5f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/StateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/StateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#86d473dc-cca5-4dd3-9938-5170aa6613f4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/UpdateCityDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/UpdateCityDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#7a77e6de-257e-4785-aa8a-18fb0e2bc656</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/UpdateCountryDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/UpdateCountryDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f5bfce0f-3343-4b53-aa7c-70a4b9aecbd1</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.DtoContract#108b70b7-5357-46b9-8256-f9c8aba4eedd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Services/Countries/UpdateStateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Countries/UpdateStateDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -6896,6 +7200,126 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/Basics/UpdateBasicTests.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Basics/UpdateBasicTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#b8500479-50b7-4544-bdb5-0a507c4fc0ca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/CreateCityTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/CreateCityTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#073a2d1c-990f-4c76-8ad0-98f640c4f3b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/CreateCountryTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/CreateCountryTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#82b27222-1b76-48cd-9fb9-6a6dbce63f0c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/CreateStateTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/CreateStateTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#4b8ae08b-05e5-48bf-b79d-b8e6e429f2f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/DeleteCityTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/DeleteCityTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#268ae809-1836-46d3-9498-24314b99b8a1</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/DeleteCountryTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/DeleteCountryTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1722f0dc-af47-4503-8e57-4a81ea8409db</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/DeleteStateTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/DeleteStateTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a9eddf9c-bdb8-47ec-b334-b8120c792711</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindCitiesTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindCitiesTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#d8403fb2-83a4-4bda-94a9-d1f7a74a5bca</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindCityByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindCityByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#587868b3-edee-444a-8222-84edf5c8382a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindCountriesTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindCountriesTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1020a209-5b31-4472-8b3d-2f7fee1c2e78</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindCountryByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindCountryByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#6f77cf69-79de-4b4e-af3a-27ae284be7d6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindStateByIdTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindStateByIdTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#199906b0-ad1c-43c1-8148-5f6378296e01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/FindStatesTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/FindStatesTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#7c5b4b89-d234-470b-ba8d-7add2a30c51c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateCityTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/UpdateCityTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c28c7bc4-2b22-4257-bf26-e3deffc0cfb9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateCountryTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/UpdateCountryTests.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7a8fa5f-5a2f-4da5-9855-1bb027bf566b</ProjectId>
+      <CorrelationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#58775ec9-8db4-4c39-afbc-82fad2d1762a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateStateTests.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CountriesService/UpdateStateTests.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

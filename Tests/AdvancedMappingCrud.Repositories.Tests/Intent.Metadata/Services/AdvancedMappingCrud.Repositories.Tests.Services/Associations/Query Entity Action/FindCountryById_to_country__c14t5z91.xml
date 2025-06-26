@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="3626b39f-1cd0-4574-839f-e57c0860b1b2">
+  <sourceEnd id="2fbbfecf-b675-41ed-b388-28e4bdd8c5c5" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindCountryById</display>
+    <order>0</order>
+    <typeReference id="4bea2b08-fc70-469f-a666-506449428cdd">
+      <typeId>1020a209-5b31-4472-8b3d-2f7fee1c2e78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Services</typePackageName>
+      <typePackageId>767d2f86-de29-4abb-8816-180c4b6005b6</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="3626b39f-1cd0-4574-839f-e57c0860b1b2" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>country</name>
+    <display>[query] country: Country</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="48304d00-a5d1-4a25-8ad2-19a97c2d8d9b">
+      <typeId>63e10597-610d-4ad8-ad27-b124ce577ae6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1020a209-5b31-4472-8b3d-2f7fee1c2e78" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[FindCountryById]" />
+        <target applicationId="090169cc-05b9-4267-81d7-81ad5bb954a2" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="63e10597-610d-4ad8-ad27-b124ce577ae6" location="[AdvancedMappingCrud.Repositories.Tests].[Services].[Country]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="63e10597-610d-4ad8-ad27-b124ce577ae6" name="Country" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="f81f61c1-1af8-4124-9195-3a31bd16b7c6" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="1020a209-5b31-4472-8b3d-2f7fee1c2e78" name="FindCountryById" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="eaae4aa2-302e-41e3-8971-e4a773d7357b" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

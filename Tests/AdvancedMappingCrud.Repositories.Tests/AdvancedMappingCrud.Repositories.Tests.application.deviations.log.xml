@@ -40,5 +40,31 @@
       <deviationsHash>CCDB4D062034A1DE26D51E767FFA20A7B42F0EF1DDE09D0376EBB4140C0B260A</deviationsHash>
       <fileHash>79C85BD438C54BBF7A0722F1F94EEAB9A5266DBF0D73275B519C6E9034D0BB11</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#c28c7bc4-2b22-4257-bf26-e3deffc0cfb9</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateCountryTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-06-26T15:20:51.8336357Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-06-26T15:20:51.8337465Z</approvedAt>
+      <deviationsHash>A63DC9C348364FAEBFDA65B073BB6E52680878899E9265630BB34D5569D71C49</deviationsHash>
+      <fileHash>B4EB016E66E49A2A65B1C11039D86405CB82CB5406679F2179A8B5A49EDB8AF3</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#58775ec9-8db4-4c39-afbc-82fad2d1762a</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/CountriesService/UpdateStateTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-06-26T15:20:53.3359915Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-06-26T15:20:53.335996Z</approvedAt>
+      <deviationsHash>4B528B7CE432478ECF6BEE5AF3EB8236DF1EEC46707C681F50A64D93D3D4F77C</deviationsHash>
+      <fileHash>D3DB2EB34601FB2EDABF539411373F86EC92916F57D24DE6830204495BDD09F7</fileHash>
+    </file>
   </files>
 </deviationsLog>

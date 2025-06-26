@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="24ab7f4a-cbdd-4cd9-b1b4-e38f0acf95be">
+  <sourceEnd id="688eb394-7af9-405b-94a8-8363c565c4af" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Country</name>
+    <display>Country: Country</display>
+    <order>0</order>
+    <typeReference id="b64eea6f-ef23-40d7-9b72-a85838d2e010">
+      <typeId>63e10597-610d-4ad8-ad27-b124ce577ae6</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="24ab7f4a-cbdd-4cd9-b1b4-e38f0acf95be" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>States</name>
+    <display>States: State[*]</display>
+    <order>2</order>
+    <typeReference id="7af2001a-8bd8-43a7-90a7-945b708dbae9">
+      <typeId>2b32acf6-3953-4834-b887-e7a83b35ba72</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

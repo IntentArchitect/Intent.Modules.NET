@@ -9,9 +9,6 @@
   <parentFolderId>7df15663-b2c4-4759-9052-ff2ae9906531</parentFolderId>
   <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
   <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
-  <traits>
-    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
-  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="6ad19817-2014-464b-a525-409b3a5230d1" name="Service Registration Settings">
       <addedByDefault>true</addedByDefault>
@@ -42,6 +39,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -89,6 +90,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -136,6 +141,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -183,6 +192,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -230,6 +243,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -277,6 +294,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -324,6 +345,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -371,6 +396,10 @@
       <parentFolderId>fbb90816-6006-42f4-8463-33c486d8d9b7</parentFolderId>
       <packageId>e5ed367e-aea5-4a03-890f-dd671a48d907</packageId>
       <packageName>AdvancedMappingCrud.Repositories.Tests.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

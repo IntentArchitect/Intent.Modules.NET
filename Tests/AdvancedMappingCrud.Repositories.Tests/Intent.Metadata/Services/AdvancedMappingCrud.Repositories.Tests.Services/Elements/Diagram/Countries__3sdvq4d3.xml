@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="b091cd36-c33e-4b61-a4ca-f024f774380f" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Countries</name>
+  <display>Countries</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c96a07ae-4bb5-4089-ad17-40059ec8c333</parentFolderId>
+  <packageId>767d2f86-de29-4abb-8816-180c4b6005b6</packageId>
+  <packageName>AdvancedMappingCrud.Repositories.Tests.Services</packageName>
+  <diagram>
+    <targetPackageId>b091cd36-c33e-4b61-a4ca-f024f774380f</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
