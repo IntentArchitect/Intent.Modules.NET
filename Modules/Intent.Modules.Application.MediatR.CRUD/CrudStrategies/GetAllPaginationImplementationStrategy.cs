@@ -36,7 +36,7 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
         }
 
         // IsMatch check needs to be first to force it to be loaded
-        return GetMatchingElementDetails().IsMatch &&
+        return _matchingElementDetails.Value.IsMatch &&
                 (_template.Model.Properties.Any(IsPageNumberParam) || _template.Model.Properties.Any(IsPageIndexParam))
                && _template.Model.Properties.Any(IsPageSizeParam);
     }
