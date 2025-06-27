@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Improvement: Updated referenced packages versions
+
 ### Version 1.1.0
 
 - Improvement: Moved from `EventGridEvent` to `CloudEvent` schema as this adds the ability to add metadata via the Extension Attributes. This is the [recommended schema](https://learn.microsoft.com/en-us/azure/event-grid/event-schema) by Microsoft.

@@ -1,5 +1,6 @@
 ### Version 1.1.1
 
+- Improvement: Updated referenced packages versions
 - Fixed: Issue with unit of work not being correctly injected into the constructor
 
 ### Version 1.1.0

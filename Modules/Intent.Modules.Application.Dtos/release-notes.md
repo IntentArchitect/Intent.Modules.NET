@@ -1,3 +1,7 @@
+### Version 4.4.5
+
+- Improvement: Updated referenced packages versions
+
 ### Version 4.4.4
 
 - Improvement: Added support for `Domain` and `Services` naming conventions for `Entities`, `Attributes` and `Operations`.

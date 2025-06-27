@@ -1,3 +1,7 @@
+### Version 1.0.5
+
+- Improvement: Updated referenced packages versions
+
 ### Version 1.0.4
 
 - Improvement: Added support for `Profile location` setting.

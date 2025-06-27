@@ -1,3 +1,7 @@
+### Version 5.0.2
+
+- Improvement: Updated referenced packages versions
+
 ### Version 5.0.1
 
 - Fixed: Use EventBus to publish messages to a desired Message Broker by including FlushAll in Azure Functions.

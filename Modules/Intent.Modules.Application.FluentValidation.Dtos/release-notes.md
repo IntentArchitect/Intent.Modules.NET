@@ -1,3 +1,7 @@
+### Version 3.12.1
+
+- Improvement: Updated referenced packages versions
+
 ### Version 3.12.0
 
 - Improvement: Updated NuGet package versions.

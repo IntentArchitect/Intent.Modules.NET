@@ -30,13 +30,15 @@ public class GetAllPaginationImplementationStrategy : ICrudImplementationStrateg
 
     public bool IsMatch()
     {
-        if (_template.Model.HasDomainInteractions())
+        if (!_template.Model.HasDomainInteractions())
         {
             return false;
         }
-        return (_template.Model.Properties.Any(IsPageNumberParam) || _template.Model.Properties.Any(IsPageIndexParam))
-               && _template.Model.Properties.Any(IsPageSizeParam)
-               && _matchingElementDetails.Value.IsMatch;
+
+        // IsMatch check needs to be first to force it to be loaded
+        return GetMatchingElementDetails().IsMatch &&
+                (_template.Model.Properties.Any(IsPageNumberParam) || _template.Model.Properties.Any(IsPageIndexParam))
+               && _template.Model.Properties.Any(IsPageSizeParam);
     }
 
     public void BindToTemplate(ICSharpFileBuilderTemplate template)

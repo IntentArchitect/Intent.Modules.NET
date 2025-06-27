@@ -1,3 +1,7 @@
+### Version 1.2.6
+
+- Improvement: Updated referenced packages versions
+
 ### Version 1.2.5
 
 - Fix: Updated dependency on 'Intent.Blazor.FluentValidation' to be a newer version, to fox module dependency issue.

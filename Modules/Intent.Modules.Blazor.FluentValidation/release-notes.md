@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated referenced packages versions
+
 ### Version 1.1.1
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 

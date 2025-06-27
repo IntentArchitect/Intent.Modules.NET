@@ -47,7 +47,7 @@ internal static class StrategyFactory
 
             new GetAllImplementationStrategy(template, application),
             new GetByIdImplementationStrategy(template, application),
-            new GetAllPaginationImplementationStrategy(template)
+            //new GetAllPaginationImplementationStrategy(template)
         };
 
         var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
