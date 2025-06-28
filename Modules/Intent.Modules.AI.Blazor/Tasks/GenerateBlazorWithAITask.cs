@@ -52,7 +52,11 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
-        var componentModel = _metadataManager.UserInterface(applicationId).Elements.Single(x => x.Id == elementId);
+        var componentModel = _metadataManager.UserInterface(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
+        if (componentModel == null)
+        {
+            throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+        }
         var inputFiles = GetInputFiles(componentModel);
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
         

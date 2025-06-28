@@ -54,7 +54,11 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         Logging.Log.Info($"Args: {string.Join(",", args)}");
         var kernel = _intentSemanticKernelFactory.BuildSemanticKernel();
         
-        var queryModel = _metadataManager.Services(applicationId).Elements.Single(x => x.Id == elementId);
+        var queryModel = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
+        if (queryModel == null)
+        {
+            throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+        }
         var inputFiles = GetInputFiles(queryModel);
         Logging.Log.Info($@"Input Files: {Environment.NewLine}{string.Join(Environment.NewLine, inputFiles.Select(x => x))}" );
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
