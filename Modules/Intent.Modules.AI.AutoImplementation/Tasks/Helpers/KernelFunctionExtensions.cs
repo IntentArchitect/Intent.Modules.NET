@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.SemanticKernel;
 
 namespace Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
@@ -20,7 +21,7 @@ internal static class KernelFunctionExtensions
             {
                 arguments = new KernelArguments();
             }
-            arguments.Add("previousError", previousError);
+            arguments["previousError"] = previousError;
             
             var result = kernelFunction.InvokeAsync(kernel, arguments).Result;
 
