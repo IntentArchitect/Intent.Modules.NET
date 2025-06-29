@@ -31,7 +31,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
 
         public bool IsMatch()
         {
-            if (!_template.Model.HasDomainInteractions())
+            if (_template.Model.HasDomainInteractions())
             {
                 return false;
             }

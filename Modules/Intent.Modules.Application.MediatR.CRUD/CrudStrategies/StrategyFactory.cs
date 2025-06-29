@@ -44,10 +44,9 @@ internal static class StrategyFactory
         {
             new ODataGetAllImplementationStrategy(template, application),
             //new QueryMappingImplementationStrategy(template),
-
             new GetAllImplementationStrategy(template, application),
             new GetByIdImplementationStrategy(template, application),
-            //new GetAllPaginationImplementationStrategy(template)
+            new GetAllPaginationImplementationStrategy(template)
         };
 
         var matchedStrategies = strategies.Where(strategy => strategy.IsMatch()).ToArray();
