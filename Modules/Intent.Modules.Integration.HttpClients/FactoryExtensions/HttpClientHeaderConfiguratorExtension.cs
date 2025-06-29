@@ -125,7 +125,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         private static bool RequiresSecurity(IServiceProxyModel proxy, IApplication application)
         {
             var parentSecured = default(bool?);
-            return !proxy.GetMappedEndpoints()
+            return !proxy.Endpoints
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
         }
     }

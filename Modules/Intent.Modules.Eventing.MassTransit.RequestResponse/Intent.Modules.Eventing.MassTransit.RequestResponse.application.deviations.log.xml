@@ -25,7 +25,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:23:18.2066932Z</approvedAt>
       <deviationsHash>CCAE9044D49FC7C8A4BAAEE4DBE9F3D51BDACF58F98813B2A71F0E1BF40EF5B5</deviationsHash>
-      <fileHash>B7A3D4C021429CAD8F7EEB2F61C1EF8220EC00842D517A30F70293AD44271073</fileHash>
+      <fileHash>55CA35C161EF343DC61B8E07EF1C3EACF6D74A73CDD636C3C662DAE5701C3B5C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f5038c52-537f-465f-b10d-2fc0b73da5c3</correlationId>
@@ -39,6 +39,16 @@
       <approvedAt>2024-08-20T12:23:18.2049676Z</approvedAt>
       <deviationsHash>8ED792B7FD90E75A9DCCD68AEEA2045D7B2C62D45ABEB4216B7ECDB0DED62D67</deviationsHash>
       <fileHash>873D61EF123CD449A980E960C82EBE5E46CAC05DA4CB23369D1F68343D47304B</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
+      <path>Intent.Modules.Eventing.MassTransit.RequestResponse/Templates/TemplateExtensions.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-06-29T21:54:57.3677963Z</updatedAt>
+      <deviationsHash>CFB0894FC67B468D7DA209FFD4F7ADE15DC0FDC3696A07A010772E632C91B7CB</deviationsHash>
+      <fileHash>07359B4AF6BF00E1108FB232BD41792066E9140ADF70644414687E24BA27F281</fileHash>
     </file>
   </files>
 </deviationsLog>

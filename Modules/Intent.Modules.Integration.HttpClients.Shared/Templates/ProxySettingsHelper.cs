@@ -8,7 +8,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates
     {
         public static bool SerializeEnumsAsStrings(this IIntentTemplate template, IElement? element)
         {
-            var applicationId = element?.MappedElement?.Element?.Package.ApplicationId;
+            var applicationId = element?.MappedElement?.Element?.Package.ApplicationId ?? element?.Package.ApplicationId;
             if (applicationId == null)
             {
                 return false;

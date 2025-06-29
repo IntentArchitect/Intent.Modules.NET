@@ -7,6 +7,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -26,9 +27,11 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.JsonResponse
         {
         }
 
-        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IServiceProxyModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
-            return [metadataManager.UserInterface(applicationId)];
+            return metadataManager.GetServiceProxyModels(
+                applicationId,
+                metadataManager.UserInterface);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
 
         internal static IEnumerable<DTOModel> GetReferencedDTOModels(IServiceProxyModel proxy, bool includeReturnTypes)
         {
-            return (from x in DeepGetDistinctReferencedElements(proxy.GetMappedEndpoints().Select(ep => ep.InternalElement), includeReturnTypes)
+            return (from x in DeepGetDistinctReferencedElements(proxy.Endpoints.Select(ep => ep.InternalElement), includeReturnTypes)
                     .Where(delegate(IElement x)
                 {
                     var specializationTypeId = x.SpecializationTypeId;
@@ -83,7 +83,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates
 
         internal static IEnumerable<EnumModel> GetReferencedEnumModels(IServiceProxyModel proxy)
         {
-            return (from x in DeepGetDistinctReferencedElements(proxy.GetMappedEndpoints().Select(o => o.InternalElement))
+            return (from x in DeepGetDistinctReferencedElements(proxy.Endpoints.Select(o => o.InternalElement))
                 where x.SpecializationTypeId == EnumSpecializationId
                 select new EnumModel(x)).ToList();
         }

@@ -4,9 +4,11 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -16,7 +18,7 @@ using Intent.Templates;
 namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class HttpClientConfigurationTemplateRegistration : SingleFileListModelTemplateRegistration<ServiceProxyModel>
+    public class HttpClientConfigurationTemplateRegistration : SingleFileListModelTemplateRegistration<IServiceProxyModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -28,15 +30,18 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
         public override string TemplateId => HttpClientConfigurationTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ServiceProxyModel> model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<IServiceProxyModel> model)
         {
             return new HttpClientConfigurationTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IList<ServiceProxyModel> GetModels(IApplication application)
+        public override IList<IServiceProxyModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyModels().ToList();
+            return _metadataManager.GetServiceProxyModels(
+                application.Id,
+                _metadataManager.ServiceProxies,
+                _metadataManager.Services);
         }
     }
 }

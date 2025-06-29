@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.234254Z</approvedAt>
       <deviationsHash>DA72D32B293E3AEFAA4F26AC956C164D9CF05FFE78CB8A782BC90F7F2E33438D</deviationsHash>
-      <fileHash>3FBDAA487A111723AA2FBA51553E9D212B3881FC432888C6E663B33F185ECC6B</fileHash>
+      <fileHash>75230F2716104348843471476562D390DBF67CEEB7AB7EF76A8A6835B1681A5A</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.TemplateRegistration.FilePerModel#a7d8872f-eb1d-4835-84cb-377b8953bb6a</correlationId>
@@ -25,7 +25,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2422344Z</approvedAt>
       <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
-      <fileHash>8FB3FBA7638E82AAAE9573DDB3CB9BFC98F71D8605BFF8440B8B3A18C6953F59</fileHash>
+      <fileHash>D8B120A3B91D9377A5387D4FA6D6400E9D32A444ED83D3D308CD9883835BBC49</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#b6798909-da9f-4fa1-a22a-cfbcdcd93267</correlationId>
@@ -38,7 +38,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2391246Z</approvedAt>
       <deviationsHash>7005909DE53D955ABFA5DF326C4D3718463190691902FCBA6F5614C4747111C0</deviationsHash>
-      <fileHash>97EEC9E9E3F1515C26ECF4E46250FC2231AC82137260467F72FC374625F53BD9</fileHash>
+      <fileHash>4769345FEF3587B6DE19E1D1FF915AEE357AF84598B7ECCF42DE053CA3CEDEE8</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0fb7f3b6-76e9-436a-944a-dca583450289</correlationId>
@@ -51,7 +51,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2448922Z</approvedAt>
       <deviationsHash>6761C444F39F20FF95E33F69B06F71CD97A6926D416D5250F1E5FD4112E4745F</deviationsHash>
-      <fileHash>E9E2DAB6A448BAE8454B3AC70775551FDE7BF63753BF3BAE86BF522A4E8902B0</fileHash>
+      <fileHash>74C78D4E116554E72F9238822B8B12013E901A52BE104A4FE34CB314E4748A21</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#f7f99de2-5edf-4356-a7c0-11235f1a50bd</correlationId>
@@ -64,7 +64,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2435739Z</approvedAt>
       <deviationsHash>78F285567F7B7A6CAD883DAA93BE8A7E687EE41CFEC25AD908B515D2456A2BBA</deviationsHash>
-      <fileHash>6B4DE8211F3A50166F7F472F56AA88EA53F5E14641F202E4E6820C5F63091F75</fileHash>
+      <fileHash>A1797AB4788998BEFFE6716F48072AC9BAE73131BBD8C44112F9EC64A68AC74C</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#281f8a00-effc-457b-a954-a1b1c3923f5f</correlationId>
@@ -77,7 +77,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2409263Z</approvedAt>
       <deviationsHash>269D4F26A693BAD0A760AD7A2F965E3ABDF3A4D1D9E81DDF42C07EECFDDE1E72</deviationsHash>
-      <fileHash>DE0EDC18A7C980922FCBEE6958CE8D0D13D9F5FAC62D85D6F35A62447E9EDF0F</fileHash>
+      <fileHash>A0E44255F287893542F91B3BBEDA6837BB55EE8889D4DA9AFD14C231ADEC78D9</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#0dcb66fd-a844-4368-8896-4c76d70f3d8b</correlationId>
@@ -90,7 +90,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2466015Z</approvedAt>
       <deviationsHash>7006D9736D005686150AD054641C318B787455AB229D2347F6B2C7E78D58BF05</deviationsHash>
-      <fileHash>F68BB558DAF81B3761D5C7C4D932AFAE537249B65BFC39E0567B71DD32CFA623</fileHash>
+      <fileHash>FE04D1ED0B8968662209AC1C3B130E2DDC4FE5E02C65BDDA6542FCA9E1329AFE</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#884749d9-fa3d-43e7-8d81-e945cc07f349</correlationId>
@@ -103,7 +103,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:18:48.2481131Z</approvedAt>
       <deviationsHash>1AC426D9F27BE05804E039194154F6ED42E76CEF7259EA9298B1CC8A55F1BBFB</deviationsHash>
-      <fileHash>E48040BE820ED69FD8429DCA05BB6E53BB201327F2D1191F4A43BDB145F362D6</fileHash>
+      <fileHash>CB9D1270A91E18EC99AF6DA04C1D06AA5C81BF216B881F45FFB685DF0DE4D3F7</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpClientHeaderConfiguratorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\CQRSModelAdapter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\ImplicitServiceProxyModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\ServiceModelAdapter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\ServiceProxyModelAdapter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\HttpClientConfiguration\HttpClientConfigurationBase.cs" />
@@ -23,5 +24,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Templates\JsonResponse\JsonResponseTemplateBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ProblemDetailsWithErrors\ProblemDetailsWithErrorsBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\ProxySettingsHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Templates\ServiceProxyHelpers.cs" />
   </ItemGroup>
 </Project>

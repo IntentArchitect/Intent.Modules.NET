@@ -4,8 +4,8 @@ using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
-using Intent.Modules.Application.Contracts.Clients;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Contracts.Clients.Http.Shared;
@@ -40,9 +40,10 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceProxyModel> GetModels(IApplication application)
         {
-            var proxyModels = _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Where(p => p.HasMappedEndpoints());
-            return proxyModels.Select(p => new ServiceProxyModelAdapter(p, ProxySettingsHelper.GetSerializeEnumsAsStrings(application, p) == true));
+            return _metadataManager.GetServiceProxyModels(
+                application.Id,
+                _metadataManager.ServiceProxies,
+                _metadataManager.Services);
         }
     }
 }

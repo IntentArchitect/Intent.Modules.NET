@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
@@ -38,10 +39,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.ServiceContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceContractModel> GetModels(IApplication application)
         {
-            return _metadataManager.UserInterface(application).GetServiceProxyModels()
-                .Where(x => x.HasMappedEndpoints())
-                .Select(x => new HttpServiceContractModel(x))
-                .ToArray();
+            return _metadataManager.GetServiceContractModels(
+                application.Id,
+                _metadataManager.UserInterface);
         }
     }
 }

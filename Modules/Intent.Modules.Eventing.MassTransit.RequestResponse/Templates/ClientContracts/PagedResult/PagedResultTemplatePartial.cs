@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -27,14 +27,10 @@ namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientCo
         {
         }
 
-        protected override IServiceContractModel CreateServiceContractModel(ServiceProxyModel model)
+        protected override IEnumerable<IServiceContractModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
-            return new MassTransitServiceContractModel(model);
-        }
-
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
-        {
-            return metadataManager.ServiceProxies(applicationId);
+            return metadataManager.Services(applicationId).GetServiceProxyModels()
+                .Select(x => new MassTransitServiceContractModel(x)); ;
         }
     }
 }

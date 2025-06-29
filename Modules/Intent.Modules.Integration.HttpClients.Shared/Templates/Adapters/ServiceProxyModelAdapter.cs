@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common.Types.Api;
@@ -14,6 +15,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
         public ServiceProxyModelAdapter(ServiceProxyModel model)
         {
             _model = model;
+            Endpoints = model.GetMappedEndpoints().ToArray();
         }
 
         public string Name => _model.Name;
@@ -22,12 +24,11 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 
         public IMetadataModel UnderlyingModel => _model;
 
+        public bool CreateParameterPerInput => true;
+
         public FolderModel Folder => _model.Folder;
 
-        public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
-        {
-            return ServiceProxyHelpers.GetMappedEndpoints(_model);
-        }
+        public IReadOnlyList<IHttpEndpointModel> Endpoints { get; }
 
         public IElement InternalElement => _model.InternalElement;
     }

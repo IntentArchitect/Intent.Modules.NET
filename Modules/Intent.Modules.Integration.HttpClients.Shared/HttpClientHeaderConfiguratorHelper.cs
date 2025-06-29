@@ -36,8 +36,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
-                    if (proxyModel.GetMappedEndpoints().Any() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
-                                                            (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
+                    if (proxyModel.Endpoints.Count > 0 && (proxyModel.Endpoints.Any(e => e.RequiresAuthorization) ||
+                                                           (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddHeaders")
                             .AddArgument(new CSharpLambdaBlock("config"), a =>
@@ -75,8 +75,8 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 {
                     var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
-                    if (proxyModel.GetMappedEndpoints().Any() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
-                                                            (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
+                    if (proxyModel.Endpoints.Any() && (proxyModel.Endpoints.Any(e => e.RequiresAuthorization) ||
+                                                       (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddAuthorizationHeader").WithoutSemicolon());
                     }

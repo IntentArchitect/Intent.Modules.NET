@@ -1,16 +1,9 @@
 using System;
-using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http.Headers;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading;
 using Intent.Engine;
-using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -21,7 +14,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
-using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Metadata.WebApi.Models;
 using Intent.RoslynWeaver.Attributes;
 
@@ -44,8 +36,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
         : base(templateId, outputTarget, model)
     {
         _pagedResultTemplateId = pagedResultTemplateId;
-
-        var endpoints = Model.GetMappedEndpoints().ToArray();
 
         AddNugetDependency(NuGetPackages.MicrosoftExtensionsHttp(outputTarget));
         AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreWebUtilities(outputTarget));
@@ -73,7 +63,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                 if (model.UnderlyingModel != null)
                 {
                     @class.AddMetadata("model", model.UnderlyingModel);
-                }            
+                }
                 @class
                     .ImplementsInterface(GetTypeName(serviceContractTemplateId, Model))
                     .AddConstructor(constructor =>
@@ -88,12 +78,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     field.PrivateConstant("\"application/json\"");
                 });
 
-                foreach (var endpoint in endpoints)
+                foreach (var endpoint in Model.Endpoints)
                 {
                     var inputsBySource = endpoint.Inputs
                         .GroupBy(x => x.Source)
                         .Where(x => x.Key != null)
-                        .ToDictionary(x => x.Key, x => x.ToArray());
+                        .ToDictionary(x => x.Key!.Value, x => x.ToArray());
 
                     @class.AddMethod(GetReturnType(endpoint), $"{endpoint.Name.ToPascalCase().RemoveSuffix("Async")}Async", method =>
                     {
@@ -105,16 +95,36 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             method.RepresentsModel(operationModel);
                         }
 
+                        string? parameterName;
+                        if (model.CreateParameterPerInput)
+                        {
+                            foreach (var input in endpoint.Inputs)
+                            {
+                                parameterName = input.Name.ToParameterName();
+                                method.AddParameter(GetTypeName(input.TypeReference), parameterName);
+                            }
+
+                            parameterName = null;
+                        }
+                        else
+                        {
+                            parameterName = endpoint.InternalElement.SpecializationTypeId switch
+                            {
+                                CommandModel.SpecializationTypeId => "command",
+                                QueryModel.SpecializationTypeId => "query",
+                                _ => endpoint.InternalElement.Name.ToParameterName()
+                            };
+
+                            method.AddParameter(GetTypeName(endpoint.InternalElement), parameterName);
+                        }
+                        
+                        method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
+
                         var endpointRoute = endpoint.Route;
                         foreach (var input in endpoint.Inputs)
                         {
-                            var parameterName = input.Name.ToParameterName();
-                            method.AddParameter(GetTypeName(input.TypeReference), parameterName);
-
-                            endpointRoute = endpointRoute.Replace($"{{{parameterName}}}", $"{{{parameterName}}}", StringComparison.OrdinalIgnoreCase);
+                            endpointRoute = endpointRoute.Replace($"{{{input.Name}}}", $"{{{GetSourceExpression(parameterName, endpoint, input)}}}", StringComparison.OrdinalIgnoreCase);
                         }
-
-                        method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));
 
                         // We're leveraging the C# $"" notation to actually take leverage of the parameters
                         // that are meant to be Route-based.
@@ -131,20 +141,25 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                     var dto = queryParameter.TypeReference.Element.AsDTOModel();
                                     foreach (var field in dto.Fields)
                                     {
-                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {queryParameter.Name.ToCamelCase()}.{GetParameterValueExpression(this, field)});");
+                                        method.AddStatement($"queryParams.Add(\"{field.Name.ToCamelCase()}\", {GetSourceExpression(parameterName, endpoint, queryParameter)}.{GetParameterValueExpression(this, field)});");
                                     }
                                 }
                                 else if (queryParameter.TypeReference.IsCollection)
                                 {
                                     method.AddStatement("var index = 0;");
-                                    method.AddForEachStatement("element", queryParameter.Name.ToCamelCase(), block =>
+                                    method.AddForEachStatement("element", GetSourceExpression(parameterName, endpoint, queryParameter), block =>
                                     {
-                                        block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}[{{index++}}]"", element.ToString());");
+                                        block.AddStatement($@"queryParams.Add($""{queryParameter.QueryStringName ?? GetSourceExpression(parameterName, endpoint, queryParameter)}[{{index++}}]"", element.ToString());");
                                     });
                                 }
                                 else
                                 {
-                                    method.AddStatement($"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\", {GetParameterValueExpression(this, queryParameter)});");
+                                    method.AddStatement(
+                                        $"queryParams.Add(\"{queryParameter.QueryStringName ?? queryParameter.Name.ToCamelCase()}\"," +
+                                        $" {GetParameterValueExpression(
+                                            template: this,
+                                            input: queryParameter,
+                                            sourceExpression: GetSourceExpression(parameterName, endpoint, queryParameter))});");
                                 }
                             }
 
@@ -154,42 +169,43 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         method.AddStatement($"var httpRequest = new HttpRequestMessage(HttpMethod.{endpoint.Verb}, relativeUri);");
                         method.AddStatement("httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));");
 
-                        foreach (var headerParameter in inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams)
-                                     ? headerParams
-                                     : Enumerable.Empty<IHttpEndpointInputModel>())
+                        if (inputsBySource.TryGetValue(HttpInputSource.FromHeader, out var headerParams))
                         {
-                            if (string.IsNullOrWhiteSpace(headerParameter.HeaderName))
+                            foreach (var headerParameter in headerParams)
                             {
-                                throw new Exception($"Header parameter '{headerParameter.Name}' is missing a Header Name.");
-                            }
+                                if (string.IsNullOrWhiteSpace(headerParameter.HeaderName))
+                                {
+                                    throw new Exception($"Header parameter '{headerParameter.Name}' is missing a Header Name.");
+                                }
 
-                            if (headerParameter.HeaderName.Equals("content-type", StringComparison.OrdinalIgnoreCase))
-                            {
-                                continue;
-                            }
-
-                            if (headerParameter.HeaderName.Equals("content-length", StringComparison.OrdinalIgnoreCase))
-                            {
-                                // if file endpoing upload, it will be handled futher down
-                                if (FileTransferHelper.IsFileUploadOperation(endpoint))
+                                if (headerParameter.HeaderName.Equals("content-type", StringComparison.OrdinalIgnoreCase))
                                 {
                                     continue;
                                 }
 
-                                AddRequestContentLength(true, method, headerParameter.Name.ToParameterName(), headerParameter.TypeReference.IsNullable);
-                                continue;
-                            }
-
-                            if (headerParameter.TypeReference.IsNullable)
-                            {
-                                method.AddIfStatement($"{headerParameter.Name.ToParameterName()} != null", stmt => 
+                                if (headerParameter.HeaderName.Equals("content-length", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    stmt.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
-                                });
-                            }
-                            else
-                            {
-                                method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {headerParameter.Name.ToParameterName()}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                                    // if file endpoing upload, it will be handled futher down
+                                    if (FileTransferHelper.IsFileUploadOperation(endpoint))
+                                    {
+                                        continue;
+                                    }
+
+                                    AddRequestContentLength(true, method, GetSourceExpression(parameterName, endpoint, headerParameter), headerParameter.TypeReference.IsNullable);
+                                    continue;
+                                }
+
+                                if (headerParameter.TypeReference.IsNullable)
+                                {
+                                    method.AddIfStatement($"{GetSourceExpression(parameterName, endpoint, headerParameter)} != null", stmt =>
+                                    {
+                                        stmt.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {GetSourceExpression(parameterName, endpoint, headerParameter)}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                                    });
+                                }
+                                else
+                                {
+                                    method.AddStatement($"httpRequest.Headers.Add(\"{headerParameter.HeaderName}\", {GetSourceExpression(parameterName, endpoint, headerParameter)}{(!headerParameter.TypeReference.HasStringType() ? ".ToString()" : "")});");
+                                }
                             }
                         }
 
@@ -200,13 +216,15 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             Func<string, string> fieldNameFormatter = (fieldName) => fieldName;
                             if (fieldInfo.DtoPropertyName != null)
                             {
-                                fieldNameFormatter = (fieldName) => $"{pathPrefix}{fieldName.ToPascalCase()}";
+                                fieldNameFormatter = fieldName => Model.CreateParameterPerInput
+                                    ? $"{pathPrefix}{fieldName.ToPascalCase()}"
+                                    : $"{pathPrefix}{parameterName}.{fieldName.ToPascalCase()}";
                             }
-                            method.AddStatement($"httpRequest.Content = new StreamContent({fieldNameFormatter( fieldInfo.StreamField)});");
+                            method.AddStatement($"httpRequest.Content = new StreamContent({fieldNameFormatter(fieldInfo.StreamField)});");
 
                             if (fieldInfo.HasContentType())
                             {
-                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter(fieldInfo.ContentTypeField)} ?? \"application/octet-stream\");");
+                                method.AddStatement($"httpRequest.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue({fieldNameFormatter(fieldInfo.ContentTypeField!)} ?? \"application/octet-stream\");");
                             }
                             else
                             {
@@ -220,9 +238,9 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                             if (fieldInfo.HasFilename())
                             {
-                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.FileNameField)} != null", stmt =>
+                                method.AddIfStatement($"{fieldNameFormatter(fieldInfo.FileNameField!)} != null", stmt =>
                                 {
-                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue(\"form-data\") {{FileName = {fieldNameFormatter(fieldInfo.FileNameField)} }};");
+                                    stmt.AddStatement($"httpRequest.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue(\"form-data\") {{FileName = {fieldNameFormatter(fieldInfo.FileNameField!)} }};");
                                 });
                             }
                         }
@@ -230,7 +248,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         {
                             var bodyParam = bodyParams.Single();
 
-                            method.AddStatement($"var content = JsonSerializer.Serialize({bodyParam.Name.ToParameterName()}, _serializerOptions);", s => s.SeparatedFromPrevious());
+                            method.AddStatement($"var content = JsonSerializer.Serialize({GetSourceExpression(parameterName, endpoint, bodyParam)}, _serializerOptions);", s => s.SeparatedFromPrevious());
                             // Changed to UTF8 as Default can be sketchy:
                             // https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
                             method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , JSON_MEDIA_TYPE);");
@@ -242,7 +260,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                             foreach (var formParameter in formParams)
                             {
-                                method.AddStatement($"formVariables.Add(new KeyValuePair<string, string>(\"{formParameter.Name.ToPascalCase()}\", {GetParameterValueExpression(this, formParameter)}));");
+                                method.AddStatement($"formVariables.Add(new KeyValuePair<string, string>(\"{formParameter.Name.ToPascalCase()}\", " +
+                                                    $"{GetParameterValueExpression(this, formParameter, GetSourceExpression(parameterName, endpoint, formParameter))}));");
                             }
 
                             method.AddStatement("var content = new FormUrlEncodedContent(formVariables);");
@@ -273,7 +292,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                             {
                                 var fields = FileTransferHelper.GetDownloadTypeInfo(endpoint);
 
-                                usingResponseBlock.AddStatement($"var memoryStream = new {UseType( "System.IO.MemoryStream")}();");
+                                usingResponseBlock.AddStatement($"var memoryStream = new {UseType("System.IO.MemoryStream")}();");
                                 usingResponseBlock.AddStatement($"var responseStream  = await response.Content.{GetReadAsStreamAsyncMethodCall()};");
                                 usingResponseBlock.AddStatement($"await responseStream.{GetCopyToAsyncMethodCall()};");
                                 usingResponseBlock.AddStatement("memoryStream.Seek(0, SeekOrigin.Begin);");
@@ -287,7 +306,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                                 }
                                 if (fields.HasContentType())
                                 {
-                                    invocation.AddArgument($"{ fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"");
+                                    invocation.AddArgument($"{fields.ContentTypeField.ToParameterName()}: response.Content.Headers.ContentType?.MediaType ?? \"\"");
                                 }
                                 usingResponseBlock.AddStatement(invocation, s => s.SeparatedFromPrevious());
                             }
@@ -395,6 +414,13 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             });
     }
 
+    private string GetSourceExpression(string? methodParameterName, IHttpEndpointModel endpoint, IHttpEndpointInputModel input)
+    {
+        return Model.CreateParameterPerInput || endpoint.InternalElement.Id == input.TypeReference.ElementId
+            ? input.Name.ToParameterName()
+            : $"{methodParameterName!}.{input.Name.ToPascalCase()}";
+    }
+
     public override void AfterTemplateRegistration()
     {
         base.AfterTemplateRegistration();
@@ -425,7 +451,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
             _ when OutputTarget.GetProject().IsNetApp(6) => "ReadToEndAsync()",
             _ when OutputTarget.GetProject().TargetFramework().StartsWith("netstandard") => "ReadToEndAsync()",
             _ => "ReadToEndAsync(cancellationToken)"
-        }; 
+        };
     }
 
     private string GetReadAsStreamAsyncMethodCall()
@@ -475,12 +501,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     private object GetParameterValueExpression(ICSharpFileBuilderTemplate template, DTOFieldModel field)
     {
         return !field.TypeReference.HasStringType()
-            ? ConvertToString (template, field.Name.ToPascalCase(), field.TypeReference)
+            ? ConvertToString(template, field.Name.ToPascalCase(), field.TypeReference)
             : field.Name.ToPascalCase();
     }
 
 
-    private static string GetParameterValueExpression(ICSharpFileBuilderTemplate template, IHttpEndpointInputModel input)
+    private static string GetParameterValueExpression(ICSharpFileBuilderTemplate template, IHttpEndpointInputModel input, string sourceExpression)
     {
         return !input.TypeReference.HasStringType()
             ? ConvertToString(template, input.Name.ToParameterName(), input.TypeReference)

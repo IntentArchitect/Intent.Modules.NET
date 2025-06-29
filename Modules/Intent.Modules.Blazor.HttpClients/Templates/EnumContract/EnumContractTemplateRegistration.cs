@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
@@ -38,7 +39,14 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            return _metadataManager.UserInterface(application).GetMappedServiceProxyEnumModels();
+            var results = _metadataManager
+                .GetServiceProxyReferencedEnums(
+                    applicationId: application.Id,
+                    stereotypeNames: null,
+                    getDesigners: [_metadataManager.UserInterface])
+                .ToArray();
+
+            return results;
         }
     }
 }

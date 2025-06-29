@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Intent.Engine;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
@@ -15,11 +14,8 @@ using Intent.Modules.Dapr.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
-using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientHeaderDelegatingHandler;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using JetBrains.Annotations;
-using static System.Net.WebRequestMethods;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -30,10 +26,10 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
     public partial class HttpClientConfigurationTemplate : HttpClientConfigurationBase
     {
         public const string TemplateId = "Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientConfigurationTemplate";
-        private readonly IList<ServiceProxyModel> _typedModels;
+        private readonly IList<IServiceProxyModel> _typedModels;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model)
+        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<IServiceProxyModel> model)
             : base(TemplateId,
                   outputTarget,
                   model,
@@ -56,7 +52,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
             {
                 return "default";
             }
-            return GetGroupName(proxy.Model);
+            return GetGroupName(proxy);
         }
 
         private string GetGroupName(ServiceProxyModel proxy)
@@ -67,8 +63,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            var proxies = _typedModels.Distinct(new ServiceModelComparer());
-            var groups = proxies.Select(p => GetGroupName(p)).Distinct();
+            var proxies = _typedModels.DistinctBy(x => x.Id);
+            var groups = proxies.Select(GetGroupName).Distinct();
             foreach (var groupName in groups)
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), $"http://{groupName}/"));

@@ -52,7 +52,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ProxyServiceCon
                         @interface.RepresentsModel(Model);
                         @interface.ImplementsInterfaces("IDisposable");
 
-                        foreach (var endpoint in model.GetMappedEndpoints().ToArray())
+                        foreach (var endpoint in model.Endpoints)
                         {
                             @interface.AddMethod(GetTypeName(endpoint.ReturnType), GetOperationName(endpoint), method =>
                             {

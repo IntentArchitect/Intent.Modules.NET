@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
-using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -28,14 +27,12 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.PagedResult
         {
         }
 
-        protected override IServiceContractModel CreateServiceContractModel(ServiceProxyModel model)
+        protected override IEnumerable<IServiceContractModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
-            return new HttpServiceContractModel(model);
-        }
-
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
-        {
-            return metadataManager.ServiceProxies(applicationId);
+            return metadataManager.GetServiceContractModels(
+                applicationId,
+                metadataManager.ServiceProxies,
+                metadataManager.Services);
         }
     }
 }

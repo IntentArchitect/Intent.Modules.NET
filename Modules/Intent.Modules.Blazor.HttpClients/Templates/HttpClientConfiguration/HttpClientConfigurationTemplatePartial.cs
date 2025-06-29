@@ -132,7 +132,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 
         private static bool RequiresAuthorization(IServiceProxyModel model)
         {
-            return model.GetMappedEndpoints().Any(x => x.RequiresAuthorization);
+            return model.Endpoints.Any(x => x.RequiresAuthorization);
         }
 
         private static string GetApplicationName(IServiceProxyModel model)

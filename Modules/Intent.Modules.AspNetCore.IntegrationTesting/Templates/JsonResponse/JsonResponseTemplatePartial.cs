@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.AspNetCore.IntegrationTesting.Templates.HttpClient;
 using Intent.Modules.Common;
@@ -10,6 +11,8 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
+using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -28,7 +31,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.JsonResponse
         {
         }
 
-        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IServiceProxyModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
             yield break;
         }

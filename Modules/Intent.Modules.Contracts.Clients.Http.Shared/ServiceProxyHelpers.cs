@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -43,7 +44,7 @@ public static class ServiceProxyHelpers
             .Where(x => x?.TryGetHttpSettings(out _) == true)
             .Select(HttpEndpointModelFactory.GetEndpoint);
     }
-    
+
     public static IEnumerable<IHttpEndpointModel> GetMappedEndpoints(ServiceProxyModel model, ISoftwareFactoryExecutionContext context)
     {
         // Backwards compatibility - when we didn't have operations on service proxies
@@ -69,37 +70,43 @@ public static class ServiceProxyHelpers
             });
     }
 
-    public static IEnumerable<IServiceContractModel> GetImplicitHttpServiceContractModels(
+    public static IList<IServiceContractModel> GetServiceContractModels(
         this IMetadataManager metadataManager,
-        IApplication application)
+        string applicationId,
+        params Func<string, IDesigner>[] getDesigners)
     {
-        const string callServiceOperationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
-        var servicesDesigner = metadataManager.Services(application);
-        var localPackageIds = servicesDesigner.Packages.Select(x => x.Id).ToHashSet();
+        var @explicit = getDesigners
+            .SelectMany(getDesigner => getDesigner(applicationId).GetServiceProxyModels())
+            .Select(IServiceContractModel (p) => new HttpServiceContractModel(p))
+            .Where(x => x.Operations.Count > 0);
 
-        return servicesDesigner.GetAssociationsOfType(callServiceOperationTypeId)
-            .Where(x =>
-            {
-                var targetElement = x.TargetEnd.TypeReference?.Element as IElement;
+        var @implicit = GetImplicitHttpProxyEndpoints(metadataManager, applicationId, getDesigners)
+            .Select(IServiceContractModel (x) => new ImplicitServiceProxyContractModel(x));
 
-                return targetElement?.Package.Id != null &&
-                       !localPackageIds.Contains(targetElement.Package.Id) &&
-                       targetElement.HasHttpSettings();
-            })
-            .Select(x => (IElement)x.TargetEnd.TypeReference.Element)
-            .GroupBy(x => x.ParentId)
-            .Select(x => new ImplicitServiceProxyContractModel(x.ToArray()));
+        return @explicit.Concat(@implicit).ToArray();
     }
 
-    public static IEnumerable<IHttpEndpointModel> GetImplicitHttpEndpoints(
+    /// <summary>
+    /// Returns implicit http proxy endpoints (those with Invocation associations direct to the
+    /// service without going via a service proxy element) grouped by their parent.
+    /// </summary>
+    public static IReadOnlyList<IReadOnlyList<IElement>> GetImplicitHttpProxyEndpoints(
         this IMetadataManager metadataManager,
-        IApplication application)
+        string applicationId,
+        params Func<string, IDesigner>[] getDesigners)
     {
-        const string callServiceOperationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
-        var servicesDesigner = metadataManager.Services(application);
-        var localPackageIds = servicesDesigner.Packages.Select(x => x.Id).ToHashSet();
+        var designers = getDesigners
+            .Select(getDesigner => getDesigner(applicationId))
+            .ToArray();
 
-        return servicesDesigner.GetAssociationsOfType(callServiceOperationTypeId)
+        const string callServiceOperationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
+        var localPackageIds = designers
+            .SelectMany(x => x.Packages)
+            .Select(x => x.Id)
+            .ToHashSet();
+
+        return designers
+            .SelectMany(x => x.GetAssociationsOfType(callServiceOperationTypeId))
             .Where(x =>
             {
                 var targetElement = x.TargetEnd.TypeReference?.Element as IElement;
@@ -110,9 +117,7 @@ public static class ServiceProxyHelpers
             })
             .Select(x => (IElement)x.TargetEnd.TypeReference.Element)
             .GroupBy(x => x.ParentId)
-            .Select(IHttpEndpointModel x =>
-            {
-                return new ImplicitServiceProxyContractModel(x.ToArray());
-            });
+            .Select(x => x.ToArray())
+            .ToArray();
     }
 }

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
-using Intent.Metadata.Models;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -29,14 +27,11 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.PagedResult
             FulfillsRole("Blazor.HttpClient.Contracts.Dto");
         }
 
-        protected override IServiceContractModel CreateServiceContractModel(ServiceProxyModel model)
+        protected override IEnumerable<IServiceContractModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
-            return new HttpServiceContractModel(model);
-        }
-
-        protected override IDesigner GetSourceDesigner(IMetadataManager metadataManager, string applicationId)
-        {
-            return metadataManager.UserInterface(applicationId);
+            return metadataManager.GetServiceContractModels(
+                applicationId,
+                metadataManager.UserInterface);
         }
     }
 }

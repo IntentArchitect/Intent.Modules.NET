@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -45,15 +46,11 @@ public abstract class PagedResultTemplateBase : CSharpTemplateBase<object>, ICSh
 
     public override string TransformText() => CSharpFile.ToString();
 
-    protected abstract IDesigner? GetSourceDesigner(IMetadataManager metadataManager, string applicationId);
-
-    protected abstract IServiceContractModel CreateServiceContractModel(ServiceProxyModel model);
+    protected abstract IEnumerable<IServiceContractModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId);
 
     public override bool CanRunTemplate()
     {
-        return _canRun ??= GetSourceDesigner(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
-            .GetServiceProxyModels()
-            .Select(CreateServiceContractModel)
+        return _canRun ??= GetServiceContractModels(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
             .SelectMany(x => x.Operations)
             .Any(x => x.TypeReference?.Element?.Id == TypeDefinitionElementId);
     }

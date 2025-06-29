@@ -6,7 +6,7 @@ namespace Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 
 public interface IServiceContractModel : IMetadataModel, IHasName, IElementWrapper
 {
-    IReadOnlyList<IServiceContractOperationModel?> Operations { get; }
+    IReadOnlyList<IServiceContractOperationModel> Operations { get; }
 }
 
 public interface IServiceContractOperationModel : IMetadataModel, IHasName, IHasTypeReference, IElementWrapper

@@ -39,9 +39,17 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.EnumContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<EnumModel> GetModels(IApplication application)
         {
-            var results = _metadataManager.ServiceProxies(application).GetMappedServiceProxyEnumModels()
-                .Union(_metadataManager.Services(application).GetMappedServiceProxyEnumModels())
+            var results = _metadataManager
+                .GetServiceProxyReferencedEnums(
+                    applicationId: application.Id,
+                    stereotypeNames: null,
+                    getDesigners:
+                    [
+                        _metadataManager.ServiceProxies,
+                        _metadataManager.Services
+                    ])
                 .ToArray();
+
             return results;
         }
     }

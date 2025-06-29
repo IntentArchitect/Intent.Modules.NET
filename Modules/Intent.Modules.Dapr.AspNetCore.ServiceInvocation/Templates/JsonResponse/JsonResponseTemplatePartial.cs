@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.ServiceProxies.Api;
+using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -26,9 +28,12 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.JsonRespons
         {
         }
 
-        protected override IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId)
+        protected override IEnumerable<IServiceProxyModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId)
         {
-            return [metadataManager.ServiceProxies(applicationId)];
+            return metadataManager.GetServiceProxyModels(
+                applicationId,
+                metadataManager.ServiceProxies,
+                metadataManager.Services);
         }
     }
 }

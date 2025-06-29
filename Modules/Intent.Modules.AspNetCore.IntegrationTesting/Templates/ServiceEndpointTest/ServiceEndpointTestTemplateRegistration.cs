@@ -34,7 +34,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
 
         public override IEnumerable<IHttpEndpointModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(s => s.GetMappedEndpoints());
+            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(s => s.Endpoints);
         }
     }
 }

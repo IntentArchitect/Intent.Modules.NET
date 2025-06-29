@@ -56,17 +56,21 @@ public class ImplicitServiceProxyContractModel : IServiceContractModel
                     break;
                 case CommandTypeId:
                     Name = element.Name.RemoveSuffix("Command");
-                    Parameters = [new ParameterModel(
-                        id: element.Id,
-                        name: "command",
-                        typeReference: element.AsTypeReference())];
+                    Parameters = element.ChildElements.Any()
+                        ? [new ParameterModel(
+                            id: element.Id,
+                            name: "command",
+                            typeReference: element.AsTypeReference())]
+                        : [];
                     break;
                 case QueryTypeId:
                     Name = element.Name.RemoveSuffix("Query");
-                    Parameters = [new ParameterModel(
-                        id: element.Id,
-                        name: "query",
-                        typeReference: element.AsTypeReference())];
+                    Parameters = element.ChildElements.Any()
+                        ? [new ParameterModel(
+                            id: element.Id,
+                            name: "query",
+                            typeReference: element.AsTypeReference())]
+                        : [];
                     break;
                 default:
                     throw new InvalidOperationException($"Unknown type: {element.SpecializationType} ({element.SpecializationTypeId})");

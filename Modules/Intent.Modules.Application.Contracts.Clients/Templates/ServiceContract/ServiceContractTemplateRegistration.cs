@@ -39,12 +39,10 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceContractModel> GetModels(IApplication application)
         {
-            return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
-                .Union(_metadataManager.Services(application).GetServiceProxyModels())
-                .Where(x => x.HasMappedEndpoints())
-                .Select(IServiceContractModel (x) => new HttpServiceContractModel(x))
-                .Union(_metadataManager.GetImplicitHttpServiceContractModels(application))
-                .ToArray();
+            return _metadataManager.GetServiceContractModels(
+                application.Id,
+                _metadataManager.ServiceProxies,
+                _metadataManager.Services);
         }
     }
 }

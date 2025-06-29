@@ -8,26 +8,25 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters
 {
     internal class CQRSModelAdapter : IServiceProxyModel
     {
-        private readonly bool _serializeEnumsAsStrings;
         public CQRSModelAdapter(IElement folder)
         {
             InternalElement = folder;
             Folder = folder.AsFolderModel();
+            Endpoints = folder.ChildElements
+                .Where(x => x?.TryGetHttpSettings(out _) == true)
+                .Select(HttpEndpointModelFactory.GetEndpoint)
+                .ToArray();
         }
 
         public string Name => InternalElement.Name;
         public string Id => InternalElement.Id;
 
         public IMetadataModel UnderlyingModel => null;
+        public bool CreateParameterPerInput => true;
 
         public FolderModel Folder { get; }
 
-        public IEnumerable<IHttpEndpointModel> GetMappedEndpoints()
-        {
-            return InternalElement.ChildElements
-                .Where(x => x?.TryGetHttpSettings(out _) == true)
-                .Select(HttpEndpointModelFactory.GetEndpoint);
-        }
+        public IReadOnlyList<IHttpEndpointModel> Endpoints { get; }
 
         public IElement InternalElement { get; }
     }

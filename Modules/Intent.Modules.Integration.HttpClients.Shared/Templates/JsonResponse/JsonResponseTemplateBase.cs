@@ -40,13 +40,12 @@ namespace Intent.Modules.Integration.HttpClients.Shared.Templates.JsonResponse
 
         public override string TransformText() => CSharpFile.ToString();
 
-        protected abstract IEnumerable<IDesigner> GetSourceDesigners(IMetadataManager metadataManager, string applicationId);
+        protected abstract IEnumerable<IServiceProxyModel> GetServiceContractModels(IMetadataManager metadataManager, string applicationId);
 
         public override bool CanRunTemplate()
         {
-            return GetSourceDesigners(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
-                .SelectMany(s => s.GetServiceProxyModels())
-                .SelectMany(s => s.GetMappedEndpoints())
+            return GetServiceContractModels(ExecutionContext.MetadataManager, ExecutionContext.GetApplicationConfig().Id)
+                .SelectMany(s => s.Endpoints)
                 .Any(x => x.MediaType == HttpMediaType.ApplicationJson);
         }
     }

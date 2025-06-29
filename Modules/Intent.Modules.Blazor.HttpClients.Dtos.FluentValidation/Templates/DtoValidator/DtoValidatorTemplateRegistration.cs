@@ -35,7 +35,12 @@ namespace Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.Templates.DtoV
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public void DoRegistration(ITemplateInstanceRegistry registry, IApplication applicationManager)
         {
-            var models = _metadataManager.UserInterface(applicationManager).GetMappedServiceProxyInboundDTOModels()
+            var models = _metadataManager
+                .GetServiceProxyReferencedDtos(
+                    applicationId: applicationManager.Id,
+                    includeReturnTypes: false,
+                    stereotypeNames: null,
+                    getDesigners: [_metadataManager.UserInterface])
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())

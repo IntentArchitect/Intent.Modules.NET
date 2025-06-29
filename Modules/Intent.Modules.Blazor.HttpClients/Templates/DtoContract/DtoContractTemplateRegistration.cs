@@ -45,12 +45,20 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
             DtoContractTemplateBase.SetOutboundDtoElementIds(_metadataManager
-                .UserInterface(application)
-                .GetMappedServiceProxyInboundDTOModels()
+                .GetServiceProxyReferencedDtos(
+                    applicationId: application.Id,
+                    includeReturnTypes: false,
+                    stereotypeNames: null,
+                    getDesigners: [_metadataManager.UserInterface])
                 .Select(x => x.Id)
                 .ToHashSet());
 
-            return _metadataManager.UserInterface(application).GetMappedServiceProxyDTOModels()
+            var results = _metadataManager
+                .GetServiceProxyReferencedDtos(
+                    applicationId: application.Id,
+                    includeReturnTypes: true,
+                    stereotypeNames: null,
+                    getDesigners: [_metadataManager.UserInterface])
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
@@ -66,7 +74,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
 
                     return true;
                 })
-                .ToList();
+                .ToArray();
+
+            return results;
         }
     }
 }

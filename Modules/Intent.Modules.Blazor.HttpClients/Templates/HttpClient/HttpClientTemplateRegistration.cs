@@ -7,10 +7,7 @@ using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
-using Intent.Modules.Contracts.Clients.Http.Shared;
-using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
-using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -40,10 +37,9 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClient
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<IServiceProxyModel> GetModels(IApplication application)
         {
-            var proxyModels = _metadataManager.UserInterface(application).GetServiceProxyModels()
-                .Where(p => p.HasMappedEndpoints());
-            return proxyModels.Select(p => new ServiceProxyModelAdapter(p));
-
+            return _metadataManager.GetServiceProxyModels(
+                application.Id,
+                _metadataManager.UserInterface);
         }
     }
 }

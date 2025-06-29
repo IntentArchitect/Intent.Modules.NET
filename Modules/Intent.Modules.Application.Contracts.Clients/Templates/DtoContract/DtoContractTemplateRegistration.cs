@@ -41,8 +41,15 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            var results = _metadataManager.ServiceProxies(application).GetMappedServiceProxyDTOModels()
-                .UnionBy(_metadataManager.Services(application).GetMappedServiceProxyDTOModels(), x => x.Id)
+            var results = _metadataManager
+                .GetServiceProxyReferencedDtos(
+                    applicationId: application.Id,
+                    includeReturnTypes: true,
+                    stereotypeNames: null,
+                    getDesigners: [
+                        _metadataManager.ServiceProxies,
+                        _metadataManager.Services
+                    ])
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
@@ -53,8 +60,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
 
                     return true;
                 })
-                .UnionBy(_metadataManager.Services(application).GetInvokedDtoModels(), x => x.Id)
-                .ToList();
+                .ToArray();
+
             return results;
         }
     }

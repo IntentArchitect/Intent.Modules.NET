@@ -46,7 +46,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         private static IEnumerable<CrudMap> ExtractCrudMap(ICSharpFileBuilderTemplate template, IServiceProxyModel testableProxy)
         {
-            var operations = testableProxy.GetMappedEndpoints();
+            var operations = testableProxy.Endpoints;
             var creates = operations.Where(o => o.Name.StartsWith("Create", StringComparison.OrdinalIgnoreCase) && o.ReturnType?.Element != null ).ToList();
             if (!creates.Any())
                 yield break;
@@ -113,7 +113,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         private static CrudMap? CreateCrudMap(IServiceProxyModel testableProxy, string entityName, string getPrefix, string? responseDtoIdField)
         {
-            var operations = testableProxy.GetMappedEndpoints();
+            var operations = testableProxy.Endpoints;
             var createOperation = operations.First(o => string.Compare(o.Name, $"Create{entityName}", ignoreCase: true) == 0);
 
             var mapping = GetCreateMapping(createOperation.InternalElement);
