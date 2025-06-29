@@ -90,4 +90,29 @@ public static class ServiceProxyHelpers
             .GroupBy(x => x.ParentId)
             .Select(x => new ImplicitServiceProxyContractModel(x.ToArray()));
     }
+
+    public static IEnumerable<IHttpEndpointModel> GetImplicitHttpEndpoints(
+        this IMetadataManager metadataManager,
+        IApplication application)
+    {
+        const string callServiceOperationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
+        var servicesDesigner = metadataManager.Services(application);
+        var localPackageIds = servicesDesigner.Packages.Select(x => x.Id).ToHashSet();
+
+        return servicesDesigner.GetAssociationsOfType(callServiceOperationTypeId)
+            .Where(x =>
+            {
+                var targetElement = x.TargetEnd.TypeReference?.Element as IElement;
+
+                return targetElement?.Package.Id != null &&
+                       !localPackageIds.Contains(targetElement.Package.Id) &&
+                       targetElement.HasHttpSettings();
+            })
+            .Select(x => (IElement)x.TargetEnd.TypeReference.Element)
+            .GroupBy(x => x.ParentId)
+            .Select(IHttpEndpointModel x =>
+            {
+                return new ImplicitServiceProxyContractModel(x.ToArray());
+            });
+    }
 }

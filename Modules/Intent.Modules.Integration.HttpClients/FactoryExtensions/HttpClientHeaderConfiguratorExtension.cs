@@ -19,6 +19,7 @@ using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Integration.HttpClients.Settings;
 using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientAuthorizationHeaderHandler;
 using Intent.Modules.Integration.HttpClients.Templates.HttpClientConfiguration;
 using Intent.Modules.Metadata.WebApi.Models;
@@ -102,12 +103,12 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
                     """);
                 }
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<IServiceProxyModel>("model", out var _))
                     .Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
-                    var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
+                    var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
                     if (RequiresSecurity(proxyModel, application))
                     {
@@ -121,10 +122,10 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
         }
 
         [IntentIgnore]
-        private static bool RequiresSecurity(ServiceProxyModel proxy, IApplication application)
+        private static bool RequiresSecurity(IServiceProxyModel proxy, IApplication application)
         {
             var parentSecured = default(bool?);
-            return !ServiceProxyHelpers.GetMappedEndpoints(proxy, application)
+            return !proxy.GetMappedEndpoints()
                 .All(x => !x.RequiresAuthorization && (parentSecured ??= x.InternalElement.ParentElement?.TryGetSecured(out _)) != true);
         }
     }

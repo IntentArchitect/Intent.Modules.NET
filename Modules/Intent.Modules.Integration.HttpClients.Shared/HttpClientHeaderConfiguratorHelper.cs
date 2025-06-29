@@ -5,6 +5,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Contracts.Clients.Http.Shared;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Metadata.WebApi.Models;
 
 
@@ -12,10 +13,9 @@ namespace Intent.Modules.Integration.HttpClients.Shared
 {
     public class HttpClientHeaderConfiguratorHelper
     {
-
-        public static void UpdateProxyAuthHeaderPopulation(IApplication application, string HttpClientConfigurationTemplateId)
+        public static void UpdateProxyAuthHeaderPopulation(IApplication application, string httpClientConfigurationTemplateId)
         {
-            var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplateId);
+            var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(httpClientConfigurationTemplateId);
 
             if (httpClientConfigurationTemplate == null) return;
 
@@ -29,14 +29,14 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 httpClientConfigurationTemplate.AddNugetDependency(NuGetPackages.MicrosoftAspNetCoreHttp(httpClientConfigurationTemplate.OutputTarget));
                 method.InsertStatement(0, "services.AddHttpContextAccessor();");
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<IServiceProxyModel>("model", out var _))
                     .Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
-                    var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
+                    var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
-                    if (proxyModel.HasMappedEndpoints() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
+                    if (proxyModel.GetMappedEndpoints().Any() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
                                                             (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddHeaders")
@@ -51,9 +51,9 @@ namespace Intent.Modules.Integration.HttpClients.Shared
             });
         }
 
-        public static void ImplementAuthorizationHeaderProvider(IApplication application, string HttpClientConfigurationTemplateId, string extensionMethodTemplateId)
+        public static void ImplementAuthorizationHeaderProvider(IApplication application, string httpClientConfigurationTemplateId, string extensionMethodTemplateId)
         {
-            var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(HttpClientConfigurationTemplateId);
+            var httpClientConfigurationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(httpClientConfigurationTemplateId);
 
             if (httpClientConfigurationTemplate == null) return;
 
@@ -68,14 +68,14 @@ namespace Intent.Modules.Integration.HttpClients.Shared
                 //Ensure the using clause is added
                 httpClientConfigurationTemplate.GetTypeName(extensionMethodTemplateId);
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _))
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<IServiceProxyModel>("model", out var _))
                     .Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
-                    var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
+                    var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
-                    if (proxyModel.HasMappedEndpoints() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
+                    if (proxyModel.GetMappedEndpoints().Any() && (proxyModel.GetMappedEndpoints().Any(e => e.RequiresAuthorization) ||
                                                             (proxyModel.InternalElement.ParentElement?.TryGetSecured(out _) ?? false)))
                     {
                         proxyConfiguration.AddChainStatement(new CSharpInvocationStatement("AddAuthorizationHeader").WithoutSemicolon());

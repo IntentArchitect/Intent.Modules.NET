@@ -13,10 +13,10 @@ using Intent.Modules.Blazor.HttpClients.Templates.ServiceContract;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.Types.Api;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.TemplateExtensions", Version = "1.0")]
 
 namespace Intent.Modules.Blazor.HttpClients.Templates
@@ -52,6 +52,12 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
             return template.GetTypeName(HttpClientTemplate.TemplateId, model);
         }
 
+        [IntentIgnore]
+        public static string GetHttpClientName(this IIntentTemplate template, IServiceProxyModel model)
+        {
+            return template.GetTypeName(HttpClientTemplate.TemplateId, model);
+        }
+
         public static string GetHttpClientConfigurationName(this IIntentTemplate template)
         {
             return template.GetTypeName(HttpClientConfigurationTemplate.TemplateId);
@@ -83,7 +89,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates
         }
 
         [IntentIgnore]
-        public static string GetServiceContractName(this IIntentTemplate template, ServiceProxyModel model)
+        public static string GetServiceContractName(this IIntentTemplate template, IServiceProxyModel model)
         {
             return template.GetTypeName(ServiceContractTemplate.TemplateId, model);
         }

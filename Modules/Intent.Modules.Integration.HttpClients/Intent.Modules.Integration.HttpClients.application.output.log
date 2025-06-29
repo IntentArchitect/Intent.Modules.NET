@@ -17,6 +17,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6f38fa5e-c479-4b6c-b5d4-8a3ee7412134</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#bddc22e8-8ae6-4788-b081-d4d52e7e263a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/InteractionStrategyRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>InteractionStrategyRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>74fa9d01-8e5b-4822-a5e1-fe555085bf9d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

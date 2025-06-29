@@ -9,6 +9,8 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
+using Intent.Modules.Integration.HttpClients.Shared.Templates.Adapters;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 
@@ -18,7 +20,7 @@ using Intent.Templates;
 namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
-    public class HttpClientConfigurationTemplateRegistration : SingleFileListModelTemplateRegistration<ServiceProxyModel>
+    public class HttpClientConfigurationTemplateRegistration : SingleFileListModelTemplateRegistration<IServiceProxyModel>
     {
         private readonly IMetadataManager _metadataManager;
 
@@ -30,16 +32,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
         public override string TemplateId => HttpClientConfigurationTemplate.TemplateId;
 
         [IntentManaged(Mode.Fully)]
-        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<ServiceProxyModel> model)
+        public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, IList<IServiceProxyModel> model)
         {
             return new HttpClientConfigurationTemplate(outputTarget, model);
         }
 
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public override IList<ServiceProxyModel> GetModels(IApplication application)
+        public override IList<IServiceProxyModel> GetModels(IApplication application)
         {
             return _metadataManager.UserInterface(application).GetServiceProxyModels()
                 .Where(p => p.GetMappedEndpoints().Any())
+                .Select(IServiceProxyModel (x) => new ServiceProxyModelAdapter(x))
                 .ToArray();
         }
     }

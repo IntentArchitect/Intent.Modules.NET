@@ -13,6 +13,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpServiceContractModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ImplicitServiceProxyContractModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyModelHelpers.cs" />
   </ItemGroup>
 </Project>

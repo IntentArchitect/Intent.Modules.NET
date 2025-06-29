@@ -38,7 +38,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-08-20T12:08:43.1473349Z</approvedAt>
       <deviationsHash>3C61B780C0CE1D415622C2E91942D3BA16A91AC2F83A743A66E7A7E51C84688A</deviationsHash>
-      <fileHash>1C44E7AEEEF33ED4D1553A011843950341AFF8B7960E8D5B4739C3A8BE7F83C2</fileHash>
+      <fileHash>A6B1B1E4832F1B37B3BD6506938DE2173EC0B8A3433BFD0FCC8B5DBA3C473B74</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3986d9ae-05f9-4329-98b6-c8a0e67f7c4b</correlationId>
@@ -108,12 +108,12 @@
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.TemplateExtensions</correlationId>
       <path>Intent.Modules.Blazor.HttpClients/Templates/TemplateExtensions.cs</path>
-      <count>1</count>
+      <count>3</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-26T20:28:55.8282568Z</updatedAt>
-      <deviationsHash>CFB0894FC67B468D7DA209FFD4F7ADE15DC0FDC3696A07A010772E632C91B7CB</deviationsHash>
-      <fileHash>9CD938CA78A0198587CA69E238EEEF8DC9122434319106174F4B845EA6074573</fileHash>
+      <updatedAt>2025-06-29T15:36:22.1216153Z</updatedAt>
+      <deviationsHash>FE458AAD87CACEE101B5783CEC62F098ACB02BC401188D20C6B0F9322B59267D</deviationsHash>
+      <fileHash>00280E3E55A41D9ED80D8453973E4BD928C7BD63E66A02BCCDC947E9F3C55D41</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using Intent.Engine;
 using Intent.Metadata.Models;
-using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.Builder;
@@ -14,6 +13,7 @@ using Intent.Modules.Constants;
 using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using static Intent.Modules.Constants.Roles;
@@ -24,12 +24,12 @@ using static Intent.Modules.Constants.Roles;
 namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class HttpClientConfigurationTemplate : CSharpTemplateBase<IList<ServiceProxyModel>>, ICSharpFileBuilderTemplate
+    public partial class HttpClientConfigurationTemplate : CSharpTemplateBase<IList<IServiceProxyModel>>, ICSharpFileBuilderTemplate
     {
         public const string TemplateId = "Intent.Blazor.HttpClients.HttpClientConfiguration";
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model) : base(TemplateId, outputTarget, model)
+        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<IServiceProxyModel> model = null) : base(TemplateId, outputTarget, model)
         {
             if (model.Any(RequiresAuthorization))
             {
@@ -130,12 +130,12 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 
         public override RoslynMergeConfig ConfigureRoslynMerger() => ToFullyManagedUsingsMigration.GetConfig(Id, 2);
 
-        private static bool RequiresAuthorization(ServiceProxyModel model)
+        private static bool RequiresAuthorization(IServiceProxyModel model)
         {
             return model.GetMappedEndpoints().Any(x => x.RequiresAuthorization);
         }
 
-        private static string GetApplicationName(ServiceProxyModel model)
+        private static string GetApplicationName(IServiceProxyModel model)
         {
             return string.Concat(((IElement)model.InternalElement.MappedElement.Element).Package.Name
                 .RemoveSuffix(".Services")

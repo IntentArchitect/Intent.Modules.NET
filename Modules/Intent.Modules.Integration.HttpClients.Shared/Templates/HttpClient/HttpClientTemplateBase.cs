@@ -34,29 +34,6 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     protected HttpClientTemplateBase(
         string templateId,
         IOutputTarget outputTarget,
-        ServiceProxyModel model,
-        string httpClientRequestExceptionTemplateId,
-        string jsonResponseTemplateId,
-        string serviceContractTemplateId,
-        string dtoContractTemplateId,
-        string enumContractTemplateId,
-        string pagedResultTemplateId)
-    : this(
-          templateId, 
-          outputTarget, 
-          new ServiceProxyModelAdapter(model, serializeEnumsAsStrings: false), 
-          httpClientRequestExceptionTemplateId,
-            jsonResponseTemplateId,
-            serviceContractTemplateId,
-            dtoContractTemplateId,
-            enumContractTemplateId,
-            pagedResultTemplateId)
-    {
-    }
-
-    protected HttpClientTemplateBase(
-        string templateId,
-        IOutputTarget outputTarget,
         IServiceProxyModel model,
         string httpClientRequestExceptionTemplateId,
         string jsonResponseTemplateId,
@@ -384,7 +361,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                     var jsonSettingsBlock = new CSharpObjectInitializerBlock("_serializerOptions = new JsonSerializerOptions")
                             .AddInitStatement("PropertyNamingPolicy", "JsonNamingPolicy.CamelCase")
                             .WithSemicolon();
-                    if (model.SerializeEnumsAsStrings)
+                    if (this.SerializeEnumsAsStrings(model.InternalElement))
                     {
                         AddUsing("System.Text.Json.Serialization");
                         jsonSettingsBlock.AddInitStatement("Converters", "{ new JsonStringEnumConverter() }");

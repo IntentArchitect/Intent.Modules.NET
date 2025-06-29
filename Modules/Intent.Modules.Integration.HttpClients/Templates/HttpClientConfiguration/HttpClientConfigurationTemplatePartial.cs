@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
-using Intent.Modelers.Types.ServiceProxies.Api;
+using Intent.Metadata.Models;
 using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
@@ -31,10 +31,10 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
     public partial class HttpClientConfigurationTemplate : HttpClientConfigurationBase
     {
         public const string TemplateId = "Intent.Integration.HttpClients.HttpClientConfiguration";
-        private readonly IList<ServiceProxyModel> _typedModels;
+        private readonly IList<IServiceProxyModel> _typedModels;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<ServiceProxyModel> model)
+        public HttpClientConfigurationTemplate(IOutputTarget outputTarget, IList<IServiceProxyModel> model)
             : base(TemplateId,
                   outputTarget,
                   model,
@@ -42,9 +42,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
                   HttpClientTemplate.TemplateId,
                   (options, proxy, template) =>
                   {
-                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy)}\", \"{proxy.Name.ToPascalCase()}\");");
-                  }
-                  )
+                      options.AddStatement($"ApplyAppSettings(http, configuration, \"{GetGroupName(proxy.InternalElement)}\", \"{proxy.Name.ToPascalCase()}\");");
+                  })
         {
             _typedModels = model;
         }
@@ -74,8 +73,8 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             }
 
 
-            var proxies = _typedModels.Distinct(new ServiceModelComparer());
-            var groups = proxies.Select(p => GetGroupName(p)).Distinct();
+            var proxies = _typedModels.DistinctBy(x => x.Id);
+            var groups = proxies.Select(p => GetGroupName(p.InternalElement)).Distinct();
             foreach (var groupName in groups)
             {
                 ExecutionContext.EventDispatcher.Publish(new AppSettingRegistrationRequest(GetConfigKey(groupName, "Uri"), "https://localhost:{app_port}/"));
@@ -88,56 +87,28 @@ namespace Intent.Modules.Integration.HttpClients.Templates.HttpClientConfigurati
             }
         }
 
-        internal static string GetConfigKey(ServiceProxyModel proxy, KeyType keyType, string key)
+        internal static string GetConfigKey(IServiceProxyModel proxy, KeyType keyType, string key)
         {
             switch (keyType)
             {
                 case KeyType.Group:
-                    return GetConfigKey(GetGroupName(proxy), key);
+                    return GetConfigKey(GetGroupName(proxy.InternalElement), key);
                 case KeyType.Service:
                 default:
                     return GetConfigKey(proxy.Name.ToPascalCase(), key);
             }
         }
 
-        internal static string GetGroupName(IServiceProxyModel proxyInterface)
+        internal static string GetGroupName(IElement element)
         {
-            var proxy = proxyInterface as ServiceProxyModelAdapter;
-            if (proxy == null)
-            {
-                return "default";
-            }
-            return GetGroupName(proxy.Model);
-        }
-
-        internal static string GetGroupName(ServiceProxyModel proxy)
-        {
-            var result = proxy.InternalElement.MappedElement?.Element?.Package?.Name;
-            result ??= proxy.InternalElement.Package.Name;
+            var result = element.MappedElement?.Element?.Package?.Name;
+            result ??= element.Package.Name;
             return result;
         }
 
         private static string GetConfigKey(string groupName, string key)
         {
             return $"HttpClients:{groupName}:{key.ToPascalCase()}";
-        }
-
-        class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>
-        {
-            public bool Equals(ServiceProxyModel x, ServiceProxyModel y)
-            {
-                if (x == null || y == null)
-                {
-                    return false;
-                }
-
-                return Equals(x.Mapping.ElementId, y.Mapping.ElementId);
-            }
-
-            public int GetHashCode(ServiceProxyModel obj)
-            {
-                return obj.Mapping.ElementId.GetHashCode();
-            }
         }
     }
 
