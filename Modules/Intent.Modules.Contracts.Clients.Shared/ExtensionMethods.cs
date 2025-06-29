@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Api;
@@ -62,6 +63,14 @@ public static class ExtensionMethods
         );
     }
 
+    public static ITypeReference AsTypeReference(
+        ICanBeReferencedType type,
+        bool isNullable = false,
+        bool isCollection = false)
+    {
+        return new TypeReferenceAdapter(type, isNullable, isCollection);
+    }
+
     private static IEnumerable<string> GetElementPackageParts<T>(T model, IOutputTarget outputTarget)
     {
         var element = model switch
@@ -97,4 +106,23 @@ public static class ExtensionMethods
         })
         .Select(x => x.Name);
 
+    private class TypeReferenceAdapter : ITypeReference
+    {
+        public TypeReferenceAdapter(
+            ICanBeReferencedType referencedType,
+            bool isNullable,
+            bool isCollection)
+        {
+            Stereotypes = referencedType.Stereotypes;
+            Element = referencedType;
+            IsNullable = isNullable;
+            IsCollection = isCollection;
+        }
+
+        public IEnumerable<IStereotype> Stereotypes { get; }
+        public bool IsNullable { get; }
+        public bool IsCollection { get; }
+        public ICanBeReferencedType Element { get; }
+        public IEnumerable<ITypeReference> GenericTypeParameters { get; } = [];
+    }
 }

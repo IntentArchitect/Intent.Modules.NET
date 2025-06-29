@@ -42,7 +42,8 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract
             return _metadataManager.ServiceProxies(application).GetServiceProxyModels()
                 .Union(_metadataManager.Services(application).GetServiceProxyModels())
                 .Where(x => x.HasMappedEndpoints())
-                .Select(x => new HttpServiceContractModel(x))
+                .Select(IServiceContractModel (x) => new HttpServiceContractModel(x))
+                .Union(_metadataManager.GetImplicitHttpServiceContractModels(application))
                 .ToArray();
         }
     }

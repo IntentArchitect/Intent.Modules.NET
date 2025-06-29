@@ -9,7 +9,10 @@
     <Import_RootNamespace>Intent.Modules.Contracts.Clients.Http.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ExtensionMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpServiceContractModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ImplicitServiceProxyContractModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceProxyModelHelpers.cs" />
   </ItemGroup>
 </Project>

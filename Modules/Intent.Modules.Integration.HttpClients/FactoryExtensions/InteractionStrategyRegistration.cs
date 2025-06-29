@@ -21,7 +21,7 @@ namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
 
         protected override void OnBeforeTemplateRegistrations(IApplication application)
         {
-            InteractionStrategyProvider.Instance.Register(new CallImplicitServiceProxyInteractionStrategy(application));
+            InteractionStrategyProvider.Instance.Register(new CqrsImplicitServiceProxyInteractionStrategy(application));
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Intent.Engine;
 using Intent.Metadata.Models;
@@ -41,7 +42,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
             var results = _metadataManager.ServiceProxies(application).GetMappedServiceProxyDTOModels()
-                .Union(_metadataManager.Services(application).GetMappedServiceProxyDTOModels())
+                .UnionBy(_metadataManager.Services(application).GetMappedServiceProxyDTOModels(), x => x.Id)
                 .Where(x =>
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
@@ -52,6 +53,7 @@ namespace Intent.Modules.Application.Contracts.Clients.Templates.DtoContract
 
                     return true;
                 })
+                .UnionBy(_metadataManager.Services(application).GetInvokedDtoModels(), x => x.Id)
                 .ToList();
             return results;
         }

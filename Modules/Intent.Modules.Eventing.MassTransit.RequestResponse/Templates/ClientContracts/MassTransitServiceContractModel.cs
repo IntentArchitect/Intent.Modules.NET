@@ -5,6 +5,7 @@ using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
 
 namespace Intent.Modules.Eventing.MassTransit.RequestResponse.Templates.ClientContracts;
@@ -45,15 +46,6 @@ public class MassTransitServiceContractModel(ServiceProxyModel model) : IService
             _ => throw new InvalidOperationException($"Unknown type: {element.SpecializationType} ({element.SpecializationTypeId})")
         };
 
-        public ITypeReference TypeReference { get; } = new TypeReferenceAdapter(element);
-    }
-
-    private class TypeReferenceAdapter(ICanBeReferencedType referencedType) : ITypeReference
-    {
-        public IEnumerable<IStereotype> Stereotypes { get; } = referencedType.Stereotypes;
-        public bool IsNullable { get; } = false;
-        public bool IsCollection { get; } = false;
-        public ICanBeReferencedType Element { get; } = referencedType;
-        public IEnumerable<ITypeReference> GenericTypeParameters { get; } = [];
+        public ITypeReference TypeReference { get; } = element.AsTypeReference();
     }
 }
