@@ -21,7 +21,7 @@
   <targetEnd id="f83fd710-b697-4f69-84d2-9e55965e3d23" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
     <name>basicOrderBies</name>
     <display>[query] basicOrderBies: BasicOrderBy[*]</display>
-    <order>4</order>
+    <order>3</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
     </traits>
