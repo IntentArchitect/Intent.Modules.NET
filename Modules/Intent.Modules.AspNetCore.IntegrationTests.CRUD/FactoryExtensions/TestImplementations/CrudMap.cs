@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Buffers;
+using System.Collections.Generic;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
@@ -19,7 +20,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             IHttpEndpointModel? getAll,
             IEnumerable<IHttpEndpointModel> domainInvocations,
             string? responseDtoIdField = null, 
-            ClassModel? owningAggregate = null
+            Owner? owningAggregate = null
             )
         {
             Proxy = proxy;
@@ -37,7 +38,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         public IServiceProxyModel Proxy { get; }
         public ClassModel Entity { get; }
-        public ClassModel? OwningAggregate { get; }
+        public Owner? OwningAggregate { get; }
         public IHttpEndpointModel Create { get; }
         public IHttpEndpointModel? Update { get; }
         public IHttpEndpointModel? Delete { get; }

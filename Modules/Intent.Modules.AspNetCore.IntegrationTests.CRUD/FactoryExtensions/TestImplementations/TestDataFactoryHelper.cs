@@ -60,11 +60,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                             var owningAggragateId = "";
                             if (crudTest.OwningAggregate != null)
                             {
-                                method.WithReturnType($"Task<{template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)}>");
-                                owningAggragateId = $"{crudTest.OwningAggregate.Name.ToParameterName()}Id";
-                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.Name}();");
+                                method.WithReturnType($"Task<{ crudTest.OwningAggregate.GeReturnTypeForDataFactory(template)}>");
+                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.OwningAggregate().Name}();");
                             }
-                            foreach (var dependency in crudTest.Dependencies.Where(d => d.EntityName != crudTest.OwningAggregate?.Name))
+                            foreach (var dependency in crudTest.Dependencies.Where(d => d.EntityName != crudTest.OwningAggregate?.OwningAggregate()?.Name))
                             {
                                 method.AddStatement($"await Create{dependency.EntityName}();");
                             }
@@ -80,14 +79,13 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                     {
                         method.Async();
 
-                        var owningAggregateId = crudTest.OwningAggregate != null ? $"{crudTest.OwningAggregate?.Name.ToParameterName()}Id" : null;                        
                         var dtoModel = crudTest.Create.Inputs.First(x => x.TypeReference?.Element.SpecializationTypeId == Constansts.DtoSpecializationType || x.TypeReference?.Element.SpecializationTypeId == Constansts.CommandSpecializationType);
 
                         var sutId = $"{crudTest.Entity.Name.ToParameterName()}Id";
 
                         if (crudTest.Dependencies.Any() || crudTest.OwningAggregate != null)
                         {
-                            method.AddStatement($"{(crudTest.OwningAggregate != null ? $"var {owningAggregateId} = " : "")}await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
+                            method.AddStatement($"{(crudTest.OwningAggregate != null ? $"var {crudTest.OwningAggregate.VariableName()} = " : "")}await Create{crudTest.Entity.Name}Dependencies();", s => s.SeparatedFromNext());
                         }
 
                         method
@@ -95,9 +93,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                             .AddStatement($"var command = CreateCommand<{template.GetTypeName(dtoModel.TypeReference)}>();");
 
                         string parameters = $"command";
-                        if(crudTest.Create.Inputs.Count > 1 && owningAggregateId != null)
+                        if(crudTest.Create.Inputs.Count > 1 && crudTest.OwningAggregate != null)
                         {
-                            parameters = $"{owningAggregateId}, {parameters}";
+                            parameters = $"{ crudTest.OwningAggregate.AsArguments() }, {parameters}";
                         }
 
                         if (crudTest.ResponseDtoIdField is null)
@@ -120,7 +118,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         if (crudTest.OwningAggregate != null)
                         {
                             method.WithReturnType($"Task<({template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {owningAggregateId.ToPascalCase()}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
-                            method.AddStatement($"return ({owningAggregateId}, {sutId});");
+                            method.AddStatement($"return ({crudTest.OwningAggregate.AsArguments()}, {sutId});");
                         }
                         else
                         {
