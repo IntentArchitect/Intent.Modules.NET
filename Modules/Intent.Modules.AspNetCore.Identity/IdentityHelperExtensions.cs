@@ -5,6 +5,7 @@ using System.Text;
 using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Utils;
 
@@ -18,8 +19,11 @@ public static class IdentityHelperExtensions
         {
             var @class = classModels.First(c => c.Name == entityName).ChildClasses.First();
             template.GetTypeName("Domain.Entity", @class);
+
             var entityTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", @class);
 
+            //entityTemplate.CSharpFile.Classes.First().Metadata.TryAdd("primary-keys");
+            
             entityTemplate.AddNugetDependency(NugetPackages.MicrosoftExtensionsIdentityStores(entityTemplate.OutputTarget));
             entityTemplate.CSharpFile.AfterBuild(c =>
             {

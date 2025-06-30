@@ -28,7 +28,11 @@ namespace Intent.Modules.AspNetCore.Identity.MockTemplateRegistrations
         {
             var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
             //Want the template to construct for CRUD inspection but not to actually run
-            result.CanRun = false;
+            //result.CanRun = false;
+            result.CSharpFile.AfterBuild(file =>
+            {
+                file.Template.CanRun = false;
+            }, 100);
             return result;
         }
 

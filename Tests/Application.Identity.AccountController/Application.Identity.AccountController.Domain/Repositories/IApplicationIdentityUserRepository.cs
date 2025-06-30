@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.Domain.Entities;
@@ -15,5 +16,11 @@ namespace Application.Identity.AccountController.Domain.Repositories
     {
         [IntentManaged(Mode.Fully)]
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ApplicationIdentityUser?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<ApplicationIdentityUser?> FindByIdAsync(string id, Func<IQueryable<ApplicationIdentityUser>, IQueryable<ApplicationIdentityUser>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<ApplicationIdentityUser>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }
