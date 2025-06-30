@@ -15,7 +15,7 @@ namespace Intent.Modules.Application.DomainInteractions.InteractionStrategies
         //public Dictionary<string, EntityDetails> TrackedEntities { get; set; } = new();
         public bool IsMatch(IElement interaction)
         {
-            return interaction.IsQueryEntityActionTargetEndModel();
+            return interaction.IsQueryEntityActionTargetEndModel() && interaction.Mappings?.GetQueryEntityMapping() != null;
         }
 
         public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interactionElement)
