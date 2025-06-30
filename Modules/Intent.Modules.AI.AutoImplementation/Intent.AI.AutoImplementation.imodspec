@@ -14,7 +14,7 @@
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
-    <dependency id="Intent.Common.AI" version="1.0.0-beta.2" />
+    <dependency id="Intent.Common.AI" version="1.0.0-beta.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Services" version="3.8.0" />
     <dependency id="Intent.Modelers.Services.CQRS" version="5.1.1" />
