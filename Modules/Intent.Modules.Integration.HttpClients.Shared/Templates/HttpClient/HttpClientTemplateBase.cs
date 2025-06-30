@@ -108,14 +108,17 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         }
                         else
                         {
-                            parameterName = endpoint.InternalElement.SpecializationTypeId switch
+                            (parameterName, var skip) = endpoint.InternalElement.SpecializationTypeId switch
                             {
-                                CommandModel.SpecializationTypeId => "command",
-                                QueryModel.SpecializationTypeId => "query",
-                                _ => endpoint.InternalElement.Name.ToParameterName()
+                                CommandModel.SpecializationTypeId => ("command", !endpoint.InternalElement.ChildElements.Any(x => x.IsDTOFieldModel())),
+                                QueryModel.SpecializationTypeId => ("query", !endpoint.InternalElement.ChildElements.Any(x => x.IsDTOFieldModel())),
+                                _ => (endpoint.InternalElement.Name.ToParameterName(), false)
                             };
 
-                            method.AddParameter(GetTypeName(endpoint.InternalElement), parameterName);
+                            if (!skip)
+                            {
+                                method.AddParameter(GetTypeName(endpoint.InternalElement), parameterName);
+                            }
                         }
                         
                         method.AddParameter("CancellationToken", "cancellationToken", parameter => parameter.WithDefaultValue("default"));

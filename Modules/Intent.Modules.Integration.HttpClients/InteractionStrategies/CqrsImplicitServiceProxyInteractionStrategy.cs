@@ -67,9 +67,8 @@ internal class CqrsImplicitServiceProxyInteractionStrategy : IInteractionStrateg
 
             // So that the mapping system can resolve the name of the operation from the interface itself:
             template.AddTypeSource(serviceInterfaceTemplate.Id);
-            template.AddTypeSource(TemplateRoles.Application.Query);
-            template.AddTypeSource(TemplateRoles.Application.Command);
-            template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Dto);
+            template.AddTypeSource(TemplateRoles.Application.Contracts.Clients.Enum);
 
             var serviceField = @class.InjectService(template.GetTypeName(serviceInterfaceTemplate));
             var invocation = new CSharpInvocationStatement($"await {serviceField}.{methodToInvoke.Name}");
@@ -77,6 +76,8 @@ internal class CqrsImplicitServiceProxyInteractionStrategy : IInteractionStrateg
             if (cqrsFieldCount > 0)
             {
                 var csharpMapping = method.GetMappingManager();
+                //csharpMapping.ClearMappingResolvers();
+                //csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
 
                 // We don't want to generate construction a command/query when only a single parameter
                 if (cqrsFieldCount == 1) 
@@ -105,6 +106,26 @@ internal class CqrsImplicitServiceProxyInteractionStrategy : IInteractionStrateg
         catch (Exception ex)
         {
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
+        }
+    }
+
+    public class CommandQueryMappingResolver : IMappingTypeResolver
+    {
+        private readonly ICSharpFileBuilderTemplate _template;
+
+        public CommandQueryMappingResolver(ICSharpFileBuilderTemplate template)
+        {
+            _template = template;
+        }
+
+        public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
+        {
+            if (mappingModel.Model.SpecializationType is "Command" or "Query" or "DTO")
+            {
+                return new ObjectInitializationMapping(mappingModel, _template);
+            }
+
+            return null;
         }
     }
 

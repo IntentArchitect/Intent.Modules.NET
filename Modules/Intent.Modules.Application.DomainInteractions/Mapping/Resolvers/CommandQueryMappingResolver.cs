@@ -1,6 +1,8 @@
-﻿using Intent.Modules.Common.CSharp.Mapping;
+﻿using System.Linq;
+using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Types.Api;
+using Intent.Modules.Constants;
 
 namespace Intent.Modules.Application.DomainInteractions.Mapping.Resolvers;
 
@@ -13,25 +15,21 @@ public class CommandQueryMappingResolver : IMappingTypeResolver
         _template = template;
     }
 
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
     {
-        if (mappingModel.Mapping == null)
+        if (mappingModel.Mapping == null ||
+            mappingModel.Model.SpecializationTypeId is not (CommandModel.SpecializationTypeId or QueryModel.SpecializationTypeId))
         {
             return null;
         }
-        if (mappingModel.Model.SpecializationType == "Command" || mappingModel.Model.SpecializationType == "Query")
+
+        if ((!_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Command, mappingModel.Model.Id, out var templateInstance) &&
+             !_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Query, mappingModel.Model.Id, out templateInstance)) ||
+            templateInstance.CSharpFile.Classes.FirstOrDefault(x => x.RepresentedModel?.Id == mappingModel.Model.Id)?.Constructors.Any(x => x.Parameters.Count > 0) != true)
         {
-            return new ConstructorMapping(mappingModel, _template);
+            return new ObjectInitializationMapping(mappingModel, _template);
         }
-        //if (mappingModel.Model.TypeReference?.Element?.SpecializationType == "DTO")
-        //{
-        //    return new ObjectInitializationMapping(mappingModel, _template);
-        //}
-        //if (mappingModel.Model.TypeReference?.Element?.IsTypeDefinitionModel() == true
-        //    || mappingModel.Model.TypeReference?.Element?.IsEnumModel() == true)
-        //{
-        //    return new TypeConvertingCSharpMapping(mappingModel, _template);
-        //}
-        return null;
+
+        return new ConstructorMapping(mappingModel, _template);
     }
 }

@@ -3,6 +3,7 @@
     "path": "Intent.Modules.NET.sln",
     "projects": [
       "Intent.Modules.Application.Contracts.Clients\\Intent.Modules.Application.Contracts.Clients.csproj",
+      "Intent.Modules.Application.DomainInteractions\\Intent.Modules.Application.DomainInteractions.csproj",
       "Intent.Modules.Application.Shared\\Intent.Modules.Application.Shared.shproj",
       "Intent.Modules.AspNetCore.IntegrationTesting\\Intent.Modules.AspNetCore.IntegrationTesting.csproj",
       "Intent.Modules.Blazor.FluentValidation\\Intent.Modules.Blazor.FluentValidation.csproj",

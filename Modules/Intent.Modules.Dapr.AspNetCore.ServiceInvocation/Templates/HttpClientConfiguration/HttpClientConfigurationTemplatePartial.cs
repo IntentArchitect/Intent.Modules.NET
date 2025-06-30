@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modelers.Types.ServiceProxies.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
 using Intent.Modules.Common;
@@ -45,19 +47,9 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
         }
 
 
-        private string GetGroupName(IServiceProxyModel proxyInterface)
+        private string GetGroupName(IServiceProxyModel serviceProxyModel)
         {
-            var proxy = proxyInterface as ServiceProxyModelAdapter;
-            if (proxy == null)
-            {
-                return "default";
-            }
-            return GetGroupName(proxy);
-        }
-
-        private string GetGroupName(ServiceProxyModel proxy)
-        {
-            return ExecutionContext.GetDaprApplicationName(proxy.InternalElement.MappedElement.ApplicationId);
+            return ExecutionContext.GetDaprApplicationName(serviceProxyModel.InternalElement.MappedElement.ApplicationId);
         }
 
         public override void BeforeTemplateExecution()
@@ -74,24 +66,6 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientC
         private static string GetConfigKey(string groupName, string key)
         {
             return $"HttpClients:{groupName}:{key.ToPascalCase()}";
-        }
-
-        class ServiceModelComparer : IEqualityComparer<ServiceProxyModel>
-        {
-            public bool Equals(ServiceProxyModel x, ServiceProxyModel y)
-            {
-                if (x == null || y == null)
-                {
-                    return false;
-                }
-
-                return Equals(x.Mapping.ElementId, y.Mapping.ElementId);
-            }
-
-            public int GetHashCode(ServiceProxyModel obj)
-            {
-                return obj.Mapping.ElementId.GetHashCode();
-            }
         }
     }
 }

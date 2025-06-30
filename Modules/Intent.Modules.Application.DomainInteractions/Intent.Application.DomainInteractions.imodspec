@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.DomainInteractions</id>
-  <version>1.0.0</version>
+  <version>1.0.1-pre.0</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides interaction strategies to generate domain interaction implementations.</summary>
   <description>Provides interaction strategies to generate domain interaction implementations.</description>
@@ -21,21 +21,21 @@
     <dependency id="Intent.Modelers.Services" version="4.0.0" />
   </dependencies>
   <interoperability>
-    <detect id="Intent.Modelers.Services.DomainInteractions">
-      <install>
+	<detect id="Intent.Modelers.Services.DomainInteractions">
+		<install>
         <package id="Intent.Modelers.Services.DomainInteractions" version="2.2.0" />
-      </install>
-    </detect>
-    <detect id="Intent.Modelers.Services.EventInteractions">
-      <install>
+		</install>
+	</detect>
+	<detect id="Intent.Modelers.Services.EventInteractions">
+		<install>
         <package id="Intent.Modelers.Services.EventInteractions" version="2.0.0" />
-      </install>
-    </detect>
-    <detect id="Intent.Common.CSharp">
-      <install>
+		</install>
+	</detect>
+	<detect id="Intent.Common.CSharp">
+		<install>
         <package id="Intent.Common.CSharp" version="3.9.0" />
-      </install>
-    </detect>
+		</install>
+	</detect>
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />

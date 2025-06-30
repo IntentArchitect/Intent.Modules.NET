@@ -8,6 +8,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration;
 using Intent.Modules.Integration.HttpClients.Shared;
+using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -44,11 +45,11 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.FactoryExtensions
                 if (method == null) return;
 
 
-                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<ServiceProxyModel>("model", out var _)).Cast<CSharpMethodChainStatement>().ToArray();
+                var proxyConfigurations = method.FindStatements(s => s is CSharpMethodChainStatement && s.TryGetMetadata<IServiceProxyModel>("model", out var _)).Cast<CSharpMethodChainStatement>().ToArray();
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
-                    var proxyModel = proxyConfiguration.GetMetadata<ServiceProxyModel>("model");
+                    var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
 
                     proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"ConfigureForDapr").WithoutSemicolon());
                 }
