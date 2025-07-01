@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IaC.Terraform</id>
-  <version>1.0.0-beta.5</version>
-  <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
+  <version>1.0.0-beta.6</version>
+  <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</summary>
   <description>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</description>
   <authors>Intent Architect</authors>
@@ -39,7 +39,7 @@
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Common" version="3.7.7" />
+    <dependency id="Intent.Common" version="3.8.0-pre.1" />
     <dependency id="Intent.Common.CSharp" version="3.8.13" />
     <dependency id="Intent.Common.Types" version="4.1.1" />
     <dependency id="Intent.Modelers.Services.EventInteractions" version="1.2.1" />

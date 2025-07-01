@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Components.MudBlazor</id>
-  <version>1.0.0-beta.30</version>
-  <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
+  <version>1.0.0-beta.31</version>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates MudBlazor components for a Blazor application</summary>
   <description>Automates MudBlazor components for a Blazor application</description>
   <authors>Intent Architect</authors>
@@ -28,7 +28,7 @@
   <dependencies>
     <dependency id="Intent.Blazor" version="1.0.0-beta.17" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.7" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-pre.1" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.10" />
