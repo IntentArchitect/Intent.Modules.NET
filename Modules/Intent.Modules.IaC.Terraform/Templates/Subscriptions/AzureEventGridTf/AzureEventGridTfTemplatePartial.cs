@@ -55,31 +55,101 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
 
             var topicSubscriptions = Intent.Modules.Integration.IaC.Shared.AzureEventGrid.IntegrationManager.Instance.GetAggregatedAzureEventGridSubscriptions(Model.Id)
                 .GroupBy(k => k.SubscriptionItem.TopicName);
-            foreach (var topicSubscription in topicSubscriptions)
+
+            // Group subscriptions by domain to handle both patterns
+            var subscriptionsByDomain = topicSubscriptions
+                .SelectMany(ts => ts)
+                .GroupBy(s => s.SubscriptionItem.DomainName)
+                .ToList();
+
+            var createdDomainDataSources = new HashSet<string>();
+
+            foreach (var domainGroup in subscriptionsByDomain)
             {
-                var subscription = topicSubscription.First();
-                var message = subscription.SubscriptionItem;
-                builder.AddData(Terraform.azurerm_eventgrid_topic.type, Terraform.azurerm_eventgrid_topic.topic(message).refname, data =>
+                if (domainGroup.Key != null)
                 {
-                    data.AddSetting("name", subscription.SubscriptionItem.TopicName);
-                    data.AddRawSetting("resource_group_name", "var.resource_group_name");
-                });
-
-                builder.AddResource(Terraform.azurerm_eventgrid_event_subscription.type, $"{_sanitizedApplicationName.ToSnakeCase()}", resource =>
-                {
-                    resource.AddSetting("name", AzureHelper.EnsureValidLength(Model.Name, 64));
-                    resource.AddRawSetting("scope", $"data.{Terraform.azurerm_eventgrid_topic.topic(message).id}");
-                    resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
-                    resource.AddBlock("azure_function_endpoint", b =>
+                    // Event Domain pattern
+                    var domainName = domainGroup.Key;
+                    
+                    // Create domain data source once per domain
+                    if (createdDomainDataSources.Add(domainName))
                     {
-                        b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
-                        b.AddSetting("max_events_per_batch", 1);
-                        b.AddSetting("preferred_batch_size_in_kilobytes", 64);
-                    });
+                        var domainData = Terraform.azurerm_eventgrid_domain.domainData(domainName);
+                        builder.AddData(Terraform.azurerm_eventgrid_domain.type, domainData.refname, data =>
+                        {
+                            data.AddSetting("name", $"{domainName}-domain");
+                            data.AddRawSetting("resource_group_name", "var.resource_group_name");
+                        });
+                    }
 
-                    resource.AddSetting("included_event_types",
-                        topicSubscription.Select(s => GetNamespace(s.SubscriptionItem.MessageModel) + $".{s.SubscriptionItem.MessageModel.Name.ToPascalCase()}"));
-                });
+                    // Group by topic within domain
+                    var topicGroups = domainGroup.GroupBy(s => s.SubscriptionItem.TopicName);
+                    foreach (var topicGroup in topicGroups)
+                    {
+                        var subscription = topicGroup.First();
+                        var message = subscription.SubscriptionItem;
+                        var domainTopicData = Terraform.azurerm_eventgrid_domain_topic.domainTopicData(message);
+                        var domainData = Terraform.azurerm_eventgrid_domain.domainData(domainName);
+
+                        // Create domain topic data source
+                        builder.AddData(Terraform.azurerm_eventgrid_domain_topic.type, domainTopicData.refname, data =>
+                        {
+                            data.AddSetting("name", message.TopicName);
+                            data.AddRawSetting("domain_name", $"data.azurerm_eventgrid_domain.{domainData.refname}.name");
+                            data.AddRawSetting("resource_group_name", "var.resource_group_name");
+                        });
+
+                        // Create event subscription for domain topic
+                        builder.AddResource(Terraform.azurerm_eventgrid_event_subscription.type, $"{_sanitizedApplicationName.ToSnakeCase()}_{message.TopicName.ToSnakeCase()}", resource =>
+                        {
+                            resource.AddSetting("name", AzureHelper.EnsureValidLength(Model.Name, 64));
+                            resource.AddRawSetting("scope", domainTopicData.id);
+                            resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
+                            resource.AddBlock("azure_function_endpoint", b =>
+                            {
+                                b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
+                                b.AddSetting("max_events_per_batch", 1);
+                                b.AddSetting("preferred_batch_size_in_kilobytes", 64);
+                            });
+
+                            resource.AddSetting("included_event_types",
+                                topicGroup.Select(s => GetNamespace(s.SubscriptionItem.MessageModel) + $".{s.SubscriptionItem.MessageModel.Name.ToPascalCase()}"));
+                        });
+                    }
+                }
+                else
+                {
+                    // Custom Topic pattern (backwards compatibility)
+                    var topicGroups = domainGroup.GroupBy(s => s.SubscriptionItem.TopicName);
+                    foreach (var topicGroup in topicGroups)
+                    {
+                        var subscription = topicGroup.First();
+                        var message = subscription.SubscriptionItem;
+                        var topicData = Terraform.azurerm_eventgrid_topic.topicData(message);
+
+                        builder.AddData(Terraform.azurerm_eventgrid_topic.type, topicData.refname, data =>
+                        {
+                            data.AddSetting("name", subscription.SubscriptionItem.TopicName);
+                            data.AddRawSetting("resource_group_name", "var.resource_group_name");
+                        });
+
+                        builder.AddResource(Terraform.azurerm_eventgrid_event_subscription.type, $"{_sanitizedApplicationName.ToSnakeCase()}_{message.TopicName.ToSnakeCase()}", resource =>
+                        {
+                            resource.AddSetting("name", AzureHelper.EnsureValidLength(Model.Name, 64));
+                            resource.AddRawSetting("scope", topicData.id);
+                            resource.AddSetting("event_delivery_schema", "CloudEventSchemaV1_0");
+                            resource.AddBlock("azure_function_endpoint", b =>
+                            {
+                                b.AddSetting("function_id", $"${{var.{appIdRef}}}/functions/{GetFunctionName(subscription.EventHandlerModel)}");
+                                b.AddSetting("max_events_per_batch", 1);
+                                b.AddSetting("preferred_batch_size_in_kilobytes", 64);
+                            });
+
+                            resource.AddSetting("included_event_types",
+                                topicGroup.Select(s => GetNamespace(s.SubscriptionItem.MessageModel) + $".{s.SubscriptionItem.MessageModel.Name.ToPascalCase()}"));
+                        });
+                    }
+                }
             }
 
             return builder.Build();

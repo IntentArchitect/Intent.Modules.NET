@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.IaC.Terraform</id>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0-beta.6</version>
   <supportedClientVersions>[4.4.6-a,5.0.0)</supportedClientVersions>
   <summary>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</summary>
   <description>Introduce Infrastructure As Code (IaC) to help build your Cloud resources programmatically for the whole Intent Architect solution.</description>

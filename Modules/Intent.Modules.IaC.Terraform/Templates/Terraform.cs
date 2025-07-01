@@ -95,7 +95,56 @@ internal static class Terraform
             return new (refname, $"{expression}.id", $"{expression}.primary_access_key", $"{expression}.endpoint");
         }
 
+        public static EventGridTopicData topicData(AzureEventGridMessage message)
+        {
+            var refname = message.TopicName.ToSnakeCase();
+            var expression = $"data.{type}.{refname}";
+            return new (refname, $"{expression}.id", $"{expression}.primary_access_key", $"{expression}.endpoint");
+        }
+
         public record EventGridTopicData(string refname, string id, string primary_access_key, string endpoint);
+    }
+
+    public static class azurerm_eventgrid_domain
+    {
+        public const string type = nameof(azurerm_eventgrid_domain);
+        
+        public static EventGridDomainData domain(string domainName)
+        {
+            var refname = domainName.ToSnakeCase();
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.id", $"{expression}.primary_access_key", $"{expression}.endpoint");
+        }
+
+        public static EventGridDomainData domainData(string domainName)
+        {
+            var refname = domainName.ToSnakeCase();
+            var expression = $"data.{type}.{refname}";
+            return new (refname, $"{expression}.id", $"{expression}.primary_access_key", $"{expression}.endpoint");
+        }
+
+        public record EventGridDomainData(string refname, string id, string primary_access_key, string endpoint);
+    }
+
+    public static class azurerm_eventgrid_domain_topic
+    {
+        public const string type = nameof(azurerm_eventgrid_domain_topic);
+        
+        public static EventGridDomainTopicData domainTopic(AzureEventGridMessage message)
+        {
+            var refname = message.TopicName.ToSnakeCase();
+            var expression = $"{type}.{refname}";
+            return new (refname, $"{expression}.id");
+        }
+
+        public static EventGridDomainTopicData domainTopicData(AzureEventGridMessage message)
+        {
+            var refname = message.TopicName.ToSnakeCase();
+            var expression = $"data.{type}.{refname}";
+            return new (refname, $"{expression}.id");
+        }
+
+        public record EventGridDomainTopicData(string refname, string id);
     }
 
     public static class azurerm_eventgrid_event_subscription
