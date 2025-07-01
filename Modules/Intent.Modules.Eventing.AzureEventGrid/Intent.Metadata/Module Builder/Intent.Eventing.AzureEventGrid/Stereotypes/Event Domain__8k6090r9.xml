@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<stereotypeDefinition id="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" version="3.1.0">
-  <comment>Configures the topic name for the message.</comment>
-  <name>Azure Event Grid</name>
+<stereotypeDefinition id="b440c77b-3bde-4a96-bcb6-3289a23e5b1d" version="3.1.0">
+  <name>Event Domain</name>
   <targetMode>of-type</targetMode>
   <targetTypes>
-    <type id="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">Message</type>
+    <type id="df96d537-7bb5-4c49-811f-973fa6e95beb">Eventing Package</type>
   </targetTypes>
   <targetReferenceTypes />
   <applyMode>manually</applyMode>
@@ -21,8 +20,8 @@
   <packageId>484120b4-6231-4c94-aa60-61efe5c783a7</packageId>
   <packageName>Intent.Eventing.AzureEventGrid</packageName>
   <properties>
-    <property id="5f7b74d7-5fea-4618-b30d-5a3ee30e15e8">
-      <name>Topic Name</name>
+    <property id="958acf01-0147-4b56-a1cb-70d35758c9cf">
+      <name>Domain Name</name>
       <type>string</type>
       <controlType>text</controlType>
       <optionsSource>n/a</optionsSource>

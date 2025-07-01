@@ -10,6 +10,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>5ef0efe0-9f7f-4567-b227-b59d760ca1b1</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#df96d537-7bb5-4c49-811f-973fa6e95beb</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Api/EventingPackageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>EventingPackageModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5ef0efe0-9f7f-4567-b227-b59d760ca1b1</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#cbe970af-5bad-4d92-a3ed-a24b9fdaa23e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Api/MessageModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
@@ -182,14 +190,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/AzureEventGridPipeline/AzureEventGridPipelineTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>AzureEventGridPipeline/AzureEventGridPipelineTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>da3b1f2f-1d14-4e8e-9413-92ebc211fcca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpStringInterpolationTemplate#f1e5de5c-31b6-41e8-bc7e-33fcd4b385b1</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/AzureEventGridPublisherOptions/AzureEventGridPublisherOptionsTemplate.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AzureEventGridPublisherOptions/AzureEventGridPublisherOptionsTemplate.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

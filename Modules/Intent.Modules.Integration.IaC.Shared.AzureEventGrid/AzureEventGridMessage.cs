@@ -19,6 +19,9 @@ internal class AzureEventGridMessage
         TopicConfigurationEndpointName = $"{baseConfigName}:Endpoint";
         TopicSubscriptionConfigurationName = MethodType == AzureEventGridMethodType.Subscribe  
             ? $"{baseConfigName}Subscription".ToPascalCase() : null;
+        DomainName = MessageModel.InternalElement.Package.IsEventingPackageModel() 
+            ? new EventingPackageModel(MessageModel.InternalElement.Package).GetEventDomain()?.DomainName() 
+            : null;
     }
 
     public MessageModel MessageModel { get; init; }
@@ -31,6 +34,7 @@ internal class AzureEventGridMessage
     public string TopicConfigurationKeyName { get; init; }
     public string TopicConfigurationEndpointName { get; init; }
     public string? TopicSubscriptionConfigurationName { get; init; }
+    public string? DomainName { get; init; }
 
     private string GetTopicConfigurationBaseName(MessageModel messageModel)
     {

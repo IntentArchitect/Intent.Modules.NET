@@ -63,7 +63,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                                     foreach (var publishMessage in publishMessages)
                                     {
                                         arg.AddStatement(
-                                            $"""options.Add<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationKeyName}"]!, configuration["{publishMessage.TopicConfigurationEndpointName}"]!, configuration["{publishMessage.TopicConfigurationSourceName}"]!);""");
+                                            $"""options.AddTopic<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationKeyName}"]!, configuration["{publishMessage.TopicConfigurationEndpointName}"]!, configuration["{publishMessage.TopicConfigurationSourceName}"]!);""");
                                     }
                                 }));
                         }
