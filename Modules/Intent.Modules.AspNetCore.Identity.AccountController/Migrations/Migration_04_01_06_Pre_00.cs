@@ -57,8 +57,6 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Migrations
 
             var identityDiagram = diagrams.First(d => d.Name == "Identity Diagram");
 
-            Debugger.Launch();
-
             var existingIdentityUser = package.Classes.FirstOrDefault(c => c.Stereotypes.Any(s => s.Name == "Identity User"));
 
             if (existingIdentityUser != null)
