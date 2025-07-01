@@ -209,16 +209,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
 
                     if (crudTest.ResponseDtoIdField is null)
                     {
-                        method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async({parameters});");
+                        method.AddStatement($"var {sutId} = await client.{crudTest.Create.Name}Async({parameters}, TestContext.Current.CancellationToken);");
                     }
                     else
                     {
-                        method.AddStatement($"var createdDto = await client.{crudTest.Create.Name}Async({parameters});");
+                        method.AddStatement($"var createdDto = await client.{crudTest.Create.Name}Async({parameters}, TestContext.Current.CancellationToken);");
                         method.AddStatement($"var {sutId} = createdDto.{crudTest.ResponseDtoIdField};");
                     }
                     method
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams}, TestContext.Current.CancellationToken);")
                         .AddStatement($"Assert.NotNull({entityName});");
                 });
 
@@ -237,7 +237,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     template.AddUsing("AutoFixture");
                     var sutId = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : $"ids.{crudTest.Entity.Name.ToPascalCase()}Id";
                     var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
-                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments()}, {sutId}";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments(true)}, {sutId}";
                     var entityName = crudTest.Entity.Name.ToParameterName() == "client" ? "clientEntity" : crudTest.Entity.Name.ToParameterName();
 
                     method
@@ -252,7 +252,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
 
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams}, TestContext.Current.CancellationToken);")
 
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.NotNull({entityName});")
@@ -284,7 +284,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"{(crudTest.OwningAggregate is not null ? "var ids = " : "")}await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{crudTest.OwningAggregate.AsArguments()}" : "")});")
+                        .AddStatement($"var {crudTest.Entity.Name.ToParameterName().Pluralize()} = await client.{crudTest.GetAll!.Name}Async({(crudTest.OwningAggregate is not null ? $"{crudTest.OwningAggregate.AsArguments(true)}, TestContext.Current.CancellationToken" : "TestContext.Current.CancellationToken")});")
 
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
                         .AddStatement($"Assert.NotEmpty({crudTest.Entity.Name.ToParameterName().Pluralize()});")
@@ -310,8 +310,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     var dtoModel = crudTest.Create.Inputs.First();
 
                     var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
-                    var deleteParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments()}, {sutId}";
-                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments()}, {sutId}";
+                    var deleteParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments(true)}, {sutId}";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments(true)}, {sutId}";
 
                     method
                         .Async()
@@ -323,10 +323,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious())
                         .AddStatement($"var {createVarName} = await dataFactory.Create{crudTest.Entity.Name}();")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"await client.{crudTest.Delete!.Name}Async({deleteParams});")
+                        .AddStatement($"await client.{crudTest.Delete!.Name}Async({deleteParams}, TestContext.Current.CancellationToken);")
 
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var exception = await Assert.ThrowsAsync<{template.GetHttpClientRequestExceptionName()}>(() => client.{crudTest.GetById.Name}Async({getByIdParams}));")
+                        .AddStatement($"var exception = await Assert.ThrowsAsync<{template.GetHttpClientRequestExceptionName()}>(() => client.{crudTest.GetById.Name}Async({getByIdParams}, TestContext.Current.CancellationToken));")
                         .AddStatement($"Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);")
                         ;
                 });
@@ -347,7 +347,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     var updateDtoModel = crudTest.Update!.Inputs.First(x => x.TypeReference?.Element.SpecializationTypeId == Constansts.DtoSpecializationType || x.TypeReference?.Element.SpecializationTypeId == Constansts.CommandSpecializationType);
                     var getDtoModel = crudTest.GetById.ReturnType!;
                     var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
-                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments()}, {sutId}";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments(true)}, {sutId}";
                     var entityName = crudTest.Entity.Name.ToParameterName() == "client" ? "clientEntity" : crudTest.Entity.Name.ToParameterName();
 
                     method
@@ -366,17 +366,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     string parameters = $"{sutId}, command";
                     if (crudTest.Update.Inputs.Count > 2 && crudTest.OwningAggregate != null)
                     {
-                        parameters = $"{crudTest.OwningAggregate.AsArguments()}, {parameters}";
+                        parameters = $"{crudTest.OwningAggregate.AsArguments(true)}, {parameters}";
                     }
 
-                    method
-                        .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
+                    SetDtoPKFieldIfPresent(method, updateDtoModel, GetDtoPkFieldName(operation), sutId);
 
                     method
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"await client.{crudTest.Update!.Name}Async({parameters});")
+                        .AddStatement($"await client.{crudTest.Update!.Name}Async({parameters}, TestContext.Current.CancellationToken);")
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams}, TestContext.Current.CancellationToken);")
                         .AddStatement($"Assert.NotNull({entityName});")
                         ;
 
@@ -401,6 +400,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
             });
         }
 
+        private void SetDtoPKFieldIfPresent(CSharpClassMethod method, IHttpEndpointInputModel dto, string pkFieldName, string sutId)
+        {
+            if (((IElement)dto.TypeReference.Element).ChildElements.Any(c => c.Name == pkFieldName))
+            {
+                method
+                    .AddStatement($"command.{pkFieldName} = {sutId};");
+            }
+        }
+
         private void DoDomainInvocationTest(ICSharpFileBuilderTemplate template, CrudMap crudTest, IHttpEndpointModel endpoint)
         {
             template.AddUsing("AutoFixture");
@@ -416,7 +424,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     var getDtoModel = crudTest.GetById.ReturnType!;
                     //var owningAggregateId = crudTest.OwningAggregate is null ? null : $"ids.{crudTest.OwningAggregate.Name.ToPascalCase()}Id";
                     var createVarName = crudTest.OwningAggregate is null ? $"{crudTest.Entity.Name.ToParameterName()}Id" : "ids";
-                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments()}, {sutId}";
+                    var getByIdParams = crudTest.OwningAggregate is null ? sutId : $"{crudTest.OwningAggregate.AsArguments(true)}, {sutId}";
                     var entityName = crudTest.Entity.Name.ToParameterName() == "client" ? "clientEntity" : crudTest.Entity.Name.ToParameterName();
 
                     method
@@ -435,17 +443,16 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                     string parameters = $"{sutId}, command";
                     if (endpoint.Inputs.Count > 2 && crudTest.OwningAggregate != null)
                     {
-                        parameters = $"{crudTest.OwningAggregate.AsArguments()}, {parameters}";
+                        parameters = $"{crudTest.OwningAggregate.AsArguments(true)}, {parameters}";
                     }
 
-                    method
-                        .AddStatement($"command.{GetDtoPkFieldName(operation)} = {sutId};");
+                    SetDtoPKFieldIfPresent(method, invocationDtoModel, GetDtoPkFieldName(operation), sutId);
 
                     method
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
-                        .AddStatement($"await client.{endpoint.Name}Async({parameters});")
+                        .AddStatement($"await client.{endpoint.Name}Async({parameters}, TestContext.Current.CancellationToken);")
                         .AddStatement("// Assert", s => s.SeparatedFromPrevious())
-                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams});")
+                        .AddStatement($"var {entityName} = await client.{crudTest.GetById.Name}Async({getByIdParams}, TestContext.Current.CancellationToken);")
                         .AddStatement($"Assert.NotNull({entityName});")
                         ;
 

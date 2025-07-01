@@ -57,13 +57,15 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         @class.AddMethod("Task", $"Create{crudTest.Entity.Name}Dependencies", method =>
                         {
                             method.Async();
-                            var owningAggragateId = "";
+                            var owningAggragateId = crudTest.OwningAggregate.VariableName();
                             if (crudTest.OwningAggregate != null)
                             {
-                                method.WithReturnType($"Task<{ crudTest.OwningAggregate.GeReturnTypeForDataFactory(template)}>");
-                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.OwningAggregate().Name}();");
+                                method.WithReturnType($"Task<{ crudTest.OwningAggregate.GetReturnTypesForDataFactory(template)}>");
+                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.Parent().Name}();");
                             }
-                            foreach (var dependency in crudTest.Dependencies.Where(d => d.EntityName != crudTest.OwningAggregate?.OwningAggregate()?.Name))
+
+                            var aggPath = crudTest.OwningAggregate.Path.Select(p => p.Name).ToList();
+                            foreach (var dependency in crudTest.Dependencies.Where(d => !aggPath.Contains( d.EntityName)))
                             {
                                 method.AddStatement($"await Create{dependency.EntityName}();");
                             }
@@ -117,8 +119,8 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         }
                         if (crudTest.OwningAggregate != null)
                         {
-                            method.WithReturnType($"Task<({template.GetTypeName(crudTest.OwningAggregate.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {owningAggregateId.ToPascalCase()}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
-                            method.AddStatement($"return ({crudTest.OwningAggregate.AsArguments()}, {sutId});");
+                            method.WithReturnType($"Task<({crudTest.OwningAggregate.GetReturnTypesForDataFactoryAsTuplePart(template)}, {template.GetTypeName(crudTest.Entity.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference)} {sutId.ToPascalCase()})>");
+                            method.AddStatement($"return ({crudTest.OwningAggregate.AsArguments()}, {sutId}); ");
                         }
                         else
                         {

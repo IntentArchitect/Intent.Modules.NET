@@ -1,3 +1,7 @@
+### Version 2.0.4
+
+- Improvement: Adjusted text namespaces to align with folders, which were causing xunit issues in some scenarios.
+
 ### Version 2.0.3
 
 - Improvement: Updated NuGet package versions.

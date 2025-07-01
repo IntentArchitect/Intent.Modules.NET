@@ -36,7 +36,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.ServiceEndpoint
 
             string apiVersions = GetSanitizedApiVersions(model);
 
-            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
+            CSharpFile = new CSharpFile(this.GetNamespace(Model.InternalElement.ParentElement.Name), this.GetFolderPath(Model.InternalElement.ParentElement.Name))
                 .AddClass($"{Model.Name}Tests{apiVersions}", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());

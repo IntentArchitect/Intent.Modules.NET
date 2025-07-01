@@ -154,7 +154,14 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         private static IEnumerable<IHttpEndpointModel> GetDomainInvocationOperations(IEnumerable<IHttpEndpointModel> operations, ClassModel entity, Owner? owningAggregate)
         {
-            return operations.Where(o => o.InternalElement.AssociatedElements.Any(ae => ae.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226"/*Update Entity Action*/  && ae.Association.SourceEnd?.ParentElement?.ParentElement?.Id == entity.Id)
+            var x = operations.Where(o => o.InternalElement.AssociatedElements.Any(ae => ae.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226"/*Update Entity Action*/
+                                                                                        && ae.Association.SourceEnd?.ParentElement?.Id == entity.Id)).ToList();
+            var y = operations.Where(o => o.InternalElement.MappedToElements.Any(me => me.MappingTypeId == "d30bdba1-9c47-4917-b81d-29230fed5d6a"/* Method Invocation*/)).ToList();
+
+            var z = operations.Where(o => ExpectedDomainInvocationOperationParameters(o, entity, owningAggregate)).ToList();
+
+            return operations.Where(o => o.InternalElement.AssociatedElements.Any(ae => ae.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226"/*Update Entity Action*/  
+                                                                                        && ae.Association.SourceEnd?.ParentElement?.Id == entity.Id)
                                         && o.InternalElement.MappedToElements.Any(me => me.MappingTypeId == "d30bdba1-9c47-4917-b81d-29230fed5d6a"/* Method Invocation*/)
                                         && ExpectedDomainInvocationOperationParameters(o, entity, owningAggregate)
                                         );
@@ -237,7 +244,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             var chain = GetAssociationsToAggregateRoot(entity);
             if (chain.Any())
             {
-                new Owner(chain.Select(x => x.Class));
+                return new Owner(chain.Select(x => x.Class));
             }
             return null;
         }
@@ -325,10 +332,12 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
     internal record Owner(IEnumerable<ClassModel> Path)
     {
         public ClassModel OwningAggregate() => Path.First();
+        public ClassModel Parent() => Path.Last();
+
         public int ParamCount() => Path.Count();
         public bool CheckInputs(IReadOnlyCollection<IHttpEndpointInputModel> inputs)
         {
-            if (inputs.Count() > Path.Count())
+            if (inputs.Count() < Path.Count())
                 return false;
             for (int i = 0; i < Path.Count(); i++)
             {
@@ -353,32 +362,37 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
             }
         }
 
-        public string AsArguments()
+        public string AsArguments(bool forceids = false)
         {
-            if (Path.Count() == 1)
+            if (Path.Count() == 1 && !forceids)
             {
                 return $"{Path.First().Name.ToParameterName()}Id";
             }
             else
             {
-                return string.Join(", ", Path.Select(p => $"ids.{p.Name.ToParameterName()}Id"));
+                return string.Join(", ", Path.Select(p => $"ids.{p.Name.ToPascalCase()}Id"));
             }
         }
 
-        public string GetReturnTypeForDataFactory(IIntentTemplate template)
+        public string GetReturnTypesForDataFactoryAsTuplePart(IIntentTemplate template)
+        {
+            var parameters = Path.Select(p =>
+            {
+                var key = p.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"));
+                return $"{template.GetTypeName(key.TypeReference)} {p.Name.ToPascalCase()}Id";
+            });
+            return $"{string.Join(", ", parameters)}";
+        }
+
+
+        public string GetReturnTypesForDataFactory(IIntentTemplate template)
         {
             if (Path.Count() == 1)
             {
                 var x = Path.First().Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"))?.TypeReference;
                 return template.GetTypeName(x);
             }
-            var parameters = Path.Select(p =>
-            {
-                var key = p.Attributes.FirstOrDefault(a => a.HasStereotype("Primary Key"));
-                return $"{template.GetTypeName(key.TypeReference)} {p.Name.ToParameterName()}Id";
-            });
-            return $"({string.Join(", ", parameters)})";  ;
-
+            return $"({GetReturnTypesForDataFactoryAsTuplePart(template)})";
         }
 
     };

@@ -1,3 +1,8 @@
+### Version 1.0.15
+
+- Improvement: Updated Tests to support Composite CRUD implementations.
+- Fixed: Bug where `Domain Operation` tests where not generating.
+
 ### Version 1.0.14
 
 - Improvement: Add support for generating test implementations for `Domain Operation` based CRUD implementations.
