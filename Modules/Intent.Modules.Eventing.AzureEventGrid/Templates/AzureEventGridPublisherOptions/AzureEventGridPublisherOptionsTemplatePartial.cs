@@ -34,7 +34,7 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
         CSharpFile.AddClass("AzureEventGridPublisherOptions", @class =>
             {
                 @class.AddField("List<PublisherEntry>", "_entries", field => field.PrivateReadOnly().WithAssignment("[]"));
-                @class.AddProperty("IReadOnlyList<PublisherEntry>", "Entries", prop => prop.Getter.WithExpressionImplementation("_entries"));
+                @class.AddProperty("IReadOnlyList<PublisherEntry>", "Entries", prop => prop.WithoutSetter().Getter.WithExpressionImplementation("_entries"));
 
                 if (hasCustomTopics)
                 {
@@ -73,8 +73,8 @@ public partial class AzureEventGridPublisherOptionsTemplate : CSharpTemplateBase
                 record.AddPrimaryConstructor(ctor =>
                 {
                     ctor.AddParameter("Type", "MessageType")
-                        .AddParameter("string?", "CredentialKey")
-                        .AddParameter("string?", "Endpoint")
+                        .AddParameter("string", "CredentialKey")
+                        .AddParameter("string", "Endpoint")
                         .AddParameter("string", "Source");
                 });
             });

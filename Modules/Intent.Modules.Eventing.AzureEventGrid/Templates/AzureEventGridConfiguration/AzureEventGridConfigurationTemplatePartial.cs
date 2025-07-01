@@ -57,15 +57,7 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
                         var publishMessages = IntegrationManager.Instance.GetPublishedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
                         if (publishMessages.Count != 0)
                         {
-                            method.AddInvocationStatement($"services.Configure<{this.GetAzureEventGridPublisherOptionsName()}>", inv => inv
-                                .AddArgument(new CSharpLambdaBlock("options"), arg =>
-                                {
-                                    foreach (var publishMessage in publishMessages)
-                                    {
-                                        arg.AddStatement(
-                                            $"""options.AddTopic<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationKeyName}"]!, configuration["{publishMessage.TopicConfigurationEndpointName}"]!, configuration["{publishMessage.TopicConfigurationSourceName}"]!);""");
-                                    }
-                                }));
+                            ConfigurePublisherOptions(method, publishMessages);
                         }
                             
                         var eventHandlers = IntegrationManager.Instance.GetSubscribedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
@@ -86,6 +78,40 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
             });
     }
 
+    private void ConfigurePublisherOptions(CSharpClassMethod method, IReadOnlyList<AzureEventGridMessage> publishMessages)
+    {
+        var customTopicMessages = publishMessages.Where(x => x.DomainName is null).ToList();
+        var eventDomainMessages = publishMessages.Where(x => x.DomainName is not null).ToList();
+
+        method.AddInvocationStatement($"services.Configure<{this.GetAzureEventGridPublisherOptionsName()}>", inv => inv
+            .AddArgument(new CSharpLambdaBlock("options"), arg =>
+            {
+                // Configure Custom Topics
+                foreach (var publishMessage in customTopicMessages)
+                {
+                    arg.AddStatement(
+                        $"""options.AddTopic<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationKeyName}"]!, configuration["{publishMessage.TopicConfigurationEndpointName}"]!, configuration["{publishMessage.TopicConfigurationSourceName}"]!);""");
+                }
+
+                // Configure Event Domains
+                var domainGroups = eventDomainMessages.GroupBy(x => x.DomainName);
+                foreach (var domainGroup in domainGroups)
+                {
+                    var domainConfig = domainGroup.First();
+                    arg.AddInvocationStatement("options.AddDomain", domainInv => domainInv
+                        .AddArgument($"""configuration["{domainConfig.DomainConfigurationKeyName}"]!""")
+                        .AddArgument($"""configuration["{domainConfig.DomainConfigurationEndpointName}"]!""")
+                        .AddArgument(new CSharpLambdaBlock("domain"), domainArg =>
+                        {
+                            foreach (var publishMessage in domainGroup)
+                            {
+                                domainArg.AddStatement($"""domain.Add<{publishMessage.GetModelTypeName(this)}>(configuration["{publishMessage.TopicConfigurationSourceName}"]!);""");
+                            }
+                        }));
+                }
+            }));
+    }
+
     public override void BeforeTemplateExecution()
     {
         ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
@@ -93,14 +119,26 @@ public partial class AzureEventGridConfigurationTemplate : CSharpTemplateBase<ob
             .HasDependency(this)
             .ForConcern("Infrastructure"));
 
-        foreach (var message in IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id))
+        var allMessages = IntegrationManager.Instance.GetAggregatedAzureEventGridMessages(ExecutionContext.GetApplicationConfig().Id);
+        foreach (var message in allMessages)
         {
-            if (message.MethodType == AzureEventGridMethodType.Publish)
+            if (message.MethodType != AzureEventGridMethodType.Publish)
             {
-                this.ApplyAppSetting(message.TopicConfigurationSourceName, message.TopicName.ToKebabCase());
+                continue;
             }
-            this.ApplyAppSetting(message.TopicConfigurationKeyName, "");
-            this.ApplyAppSetting(message.TopicConfigurationEndpointName, "");
+            
+            this.ApplyAppSetting(message.TopicConfigurationSourceName, message.TopicName.ToKebabCase());
+                
+            if (message.DomainName is not null)
+            {
+                this.ApplyAppSetting(message.DomainConfigurationKeyName, "");
+                this.ApplyAppSetting(message.DomainConfigurationEndpointName, "");
+            }
+            else
+            {
+                this.ApplyAppSetting(message.TopicConfigurationKeyName, "");
+                this.ApplyAppSetting(message.TopicConfigurationEndpointName, "");
+            }
         }
     }
 
