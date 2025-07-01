@@ -167,7 +167,7 @@
     </detect>
     <detect id="Intent.AspNetCore.IntegrationTests.CRUD">
       <install>
-        <package id="Intent.AspNetCore.IntegrationTests.CRUD" version="1.0.14" />
+        <package id="Intent.AspNetCore.IntegrationTests.CRUD" version="1.0.15-pre.0" />
       </install>
     </detect>
   </interoperability>

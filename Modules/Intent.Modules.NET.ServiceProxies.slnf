@@ -6,6 +6,7 @@
       "Intent.Modules.Application.DomainInteractions\\Intent.Modules.Application.DomainInteractions.csproj",
       "Intent.Modules.Application.Shared\\Intent.Modules.Application.Shared.shproj",
       "Intent.Modules.AspNetCore.IntegrationTesting\\Intent.Modules.AspNetCore.IntegrationTesting.csproj",
+      "Intent.Modules.AspNetCore.IntegrationTests.CRUD\\Intent.Modules.AspNetCore.IntegrationTests.CRUD.csproj",
       "Intent.Modules.Blazor.FluentValidation\\Intent.Modules.Blazor.FluentValidation.csproj",
       "Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations\\Intent.Modules.Blazor.HttpClients.Dtos.DataAnnotations.csproj",
       "Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation\\Intent.Modules.Blazor.HttpClients.Dtos.FluentValidation.csproj",
