@@ -10,5 +10,7 @@ namespace Application.Identity.AccountController.Domain.Entities
     {
         public string? RefreshToken { get; set; }
         public DateTime? RefreshTokenExpired { get; set; }
+
+        public Address? Address { get; set; }
     }
 }
