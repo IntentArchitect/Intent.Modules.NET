@@ -66,7 +66,7 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 file.AddUsing("Microsoft.AspNetCore.Identity");
-                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClasses()}>");
+                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityDbContextGenericParameters()}>");
 
                 if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUser>"))
                 {
