@@ -8,7 +8,7 @@ This [Intent Architect](https://intentarchitect.com/) module adds the `Visual St
 
 Adds  a [`<NoWarn />`](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-options/errors-warnings#nowarn) element to the `.csproj` file with the specified value of semi-colon separated codes of warnings to suppress.
 
-By default this is populated with the value `$(NoWarn)` which will apply the [default suppressed warnings](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16). While this value is set to `$(NoWarn)`, no `<NoWarn />` element will be added to the `.csproj` file.
+By default, this is populated with the value `$(NoWarn)` which will apply the [default suppressed warnings](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16). While this value is set to `$(NoWarn)`, no `<NoWarn />` element will be added to the `.csproj` file.
 
 `;1561` is automatically appended by some Intent Architect application templates to suppress the [Missing XML comment for publicly visible type or member 'Type_or_Member'](https://learn.microsoft.com/dotnet/csharp/language-reference/compiler-messages/cs1591) warning.
 
@@ -21,26 +21,28 @@ When enabled the `Program.cs` will no longer generate a class and instead use [t
 
 ### Use minimal hosting model
 
-When enabled `Startup.cs` will no longer be generated and all start-up will be performed in `Program.cs` by of the [new minimal hosting model](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) introduced with .NET 6.
+When enabled `Startup.cs` will no longer be generated, and all start-up will be performed in `Program.cs` by of the [new minimal hosting model](https://learn.microsoft.com/aspnet/core/migration/50-to-60#use-startup-with-the-new-minimal-hosting-model) introduced with .NET 6.
 
 > [!NOTE]
 > Requires at least version `6.0.0` of the `Intent.Modules.AspNetCore` to be installed in order for changes to take effect.
 
 ## The _Visual Studio Solution Options_ stereotype
 
-This stereo type is applied to **Visual Studio Solution** elements.
+This stereotype is applied to **Visual Studio Solution** elements.
+
+![Visual Studio Solution Options with Name and Location](images/visual-studio-solution-options-name-location.png)
 
 ### Solution Name
 
-By default your **Visual Studio Solution** name will be the same as your `Visual Studio Package` name. This properties allows you to explicitly specify the name without changing the package name. This is useful for scenarios where you have a shared VS Solution across Applications.
+By default, your **Visual Studio Solution** name will be the same as your `Visual Studio Package` name. These properties allow you to explicitly specify the name without changing the package name. This is useful for scenarios where you have a shared VS Solution across Applications.
 
 ### Solution Relative Location
 
-By Default, your **Visual Studio Solution** solution will be placed in Application's `Relative Output Location`, this settings allows you to adjust the location of the solution relative to it's default location.
+By Default, your **Visual Studio Solution** will be placed in Application's `Relative Output Location`, this setting allows you to adjust the location of the solution relative to it's default location.
 
 ## The _Folder Options_ stereotype
 
-This stereo type is applied to **Solution Folder** elements.
+This stereotype is applied to **Solution Folder** elements.
 
 ### Materialize Folder
 
@@ -48,7 +50,7 @@ When checked, this option will materialize your logical **Visual Studio Solution
 
 ## Central Package Management
 
-In .NET, [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) allows management of versions of NuGet packages for multiple `.csproj` from a central `Directory.Packages.props` file and an MSBuild property.
+In .NET, [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) allows management of NuGet package versions for multiple `.csproj` from a central `Directory.Packages.props` file and an MSBuild property.
 
 To have Intent Architect automatically create and manage a `Directory.Packages.props` file for a solution, on the _Visual Studio Solution Options_ stereotype, check the _Manage Package Versions Centrally_ property.
 
@@ -85,7 +87,7 @@ The following options are available:
 
 - **(unmanaged)** - Intent will not add, change or remove the `ManagePackageVersionsCentrally` property in the `.csproj` file.
 
-- **(unspecified)** - Intent will ensure there is no `ManagePackageVersionsCentrally` property in the `.csproj` file removing it if necessary. `Version` attributes will be added to `PackageReference` items depending on whether or not the Solution has the CPM option set.
+- **(unspecified)** - Intent will ensure there is no `ManagePackageVersionsCentrally` property in the `.csproj` file removing it if necessary. `Version` attributes will be added to `PackageReference` items depending on whether the Solution has the CPM option set.
 
 - **false** - Intent will ensure the `ManagePackageVersionsCentrally` property is present with a value of `false` and regardless of the the Solution's CPM setting, `Version` attributes will always be added to `PackageReference` items.
 
