@@ -19,7 +19,7 @@
   <dependencies>
     <dependency id="Intent.Blazor.HttpClients" version="4.0.0" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
   </dependencies>
   <files>

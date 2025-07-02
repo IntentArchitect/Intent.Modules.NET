@@ -9,12 +9,12 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace Intent.Modules.Integration.HttpClients.FactoryExtensions
+namespace Intent.Modules.Blazor.HttpClients.FactoryExtensions
 {
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class InteractionStrategyRegistration : FactoryExtensionBase
     {
-        public override string Id => "Intent.Integration.HttpClients.InteractionStrategyRegistration";
+        public override string Id => "Intent.Blazor.HttpClients.InteractionStrategyRegistration";
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;

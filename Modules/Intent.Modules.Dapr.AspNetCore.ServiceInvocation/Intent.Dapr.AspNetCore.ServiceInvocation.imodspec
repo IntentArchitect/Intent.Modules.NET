@@ -70,12 +70,13 @@
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Dapr.AspNetCore.ServiceInvocation.HttpClientHeaderConfiguratorExtension" externalReference="9e7e3734-7d48-4c04-b731-10390e126643" />
+    <factoryExtension id="Intent.Dapr.AspNetCore.ServiceInvocation.InteractionStrategyRegistration" externalReference="fbde9dd0-6494-4534-a11e-cc500061ad79" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
     <dependency id="Intent.Application.Contracts.Clients" version="5.0.9" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.8.3" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.9.0" />
     <dependency id="Intent.Modelers.ServiceProxies" version="5.1.0" />

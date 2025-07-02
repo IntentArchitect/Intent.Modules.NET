@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Intent.Engine;
 using Intent.Exceptions;
@@ -11,16 +9,15 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
-using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 
-namespace Intent.Modules.Integration.HttpClients.InteractionStrategies;
+namespace Intent.Modules.Integration.HttpClients.Shared.InteractionStrategies;
 
-internal class CqrsImplicitServiceProxyInteractionStrategy : IInteractionStrategy
+internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
 {
     private readonly IApplication _application;
 
-    public CqrsImplicitServiceProxyInteractionStrategy(IApplication application)
+    public CqrsInvocationHttpInteractionStrategy(IApplication application)
     {
         _application = application;
     }
@@ -80,7 +77,7 @@ internal class CqrsImplicitServiceProxyInteractionStrategy : IInteractionStrateg
                 //csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
 
                 // We don't want to generate construction a command/query when only a single parameter
-                if (cqrsFieldCount == 1) 
+                if (cqrsFieldCount == 1)
                 {
                     // TODO JL: This isn't working
                     //csharpMapping.ClearMappingResolvers();

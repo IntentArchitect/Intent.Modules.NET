@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)FileTransferHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpClientHeaderConfiguratorHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteractionStrategies\CqrsInvocationHttpInteractionStrategy.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NuGetPackages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\CQRSModelAdapter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Templates\Adapters\ImplicitServiceProxyModel.cs" />
