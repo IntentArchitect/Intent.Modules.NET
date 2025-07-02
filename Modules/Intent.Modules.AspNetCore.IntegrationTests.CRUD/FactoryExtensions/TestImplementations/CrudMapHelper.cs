@@ -154,12 +154,6 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
 
         private static IEnumerable<IHttpEndpointModel> GetDomainInvocationOperations(IEnumerable<IHttpEndpointModel> operations, ClassModel entity, Owner? owningAggregate)
         {
-            var x = operations.Where(o => o.InternalElement.AssociatedElements.Any(ae => ae.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226"/*Update Entity Action*/
-                                                                                        && ae.Association.SourceEnd?.ParentElement?.Id == entity.Id)).ToList();
-            var y = operations.Where(o => o.InternalElement.MappedToElements.Any(me => me.MappingTypeId == "d30bdba1-9c47-4917-b81d-29230fed5d6a"/* Method Invocation*/)).ToList();
-
-            var z = operations.Where(o => ExpectedDomainInvocationOperationParameters(o, entity, owningAggregate)).ToList();
-
             return operations.Where(o => o.InternalElement.AssociatedElements.Any(ae => ae.Association.SpecializationTypeId == "9ea0382a-4617-412a-a8c8-af987bbce226"/*Update Entity Action*/  
                                                                                         && ae.Association.SourceEnd?.ParentElement?.Id == entity.Id)
                                         && o.InternalElement.MappedToElements.Any(me => me.MappingTypeId == "d30bdba1-9c47-4917-b81d-29230fed5d6a"/* Method Invocation*/)

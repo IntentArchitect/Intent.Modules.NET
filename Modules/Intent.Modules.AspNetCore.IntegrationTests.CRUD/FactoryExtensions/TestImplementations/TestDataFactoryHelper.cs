@@ -57,11 +57,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                         @class.AddMethod("Task", $"Create{crudTest.Entity.Name}Dependencies", method =>
                         {
                             method.Async();
-                            var owningAggragateId = crudTest.OwningAggregate.VariableName();
                             if (crudTest.OwningAggregate != null)
                             {
                                 method.WithReturnType($"Task<{ crudTest.OwningAggregate.GetReturnTypesForDataFactory(template)}>");
-                                method.AddStatement($"var {owningAggragateId} = await Create{crudTest.OwningAggregate.Parent().Name}();");
+                                method.AddStatement($"var {crudTest.OwningAggregate.VariableName()} = await Create{crudTest.OwningAggregate.Parent().Name}();");
                             }
 
                             var aggPath = crudTest.OwningAggregate.Path.Select(p => p.Name).ToList();
@@ -71,7 +70,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                             }
                             if (crudTest.OwningAggregate != null)
                             {
-                                method.AddStatement($"return {owningAggragateId};");
+                                method.AddStatement($"return {crudTest.OwningAggregate.VariableName()};");
                             }
                         });
 

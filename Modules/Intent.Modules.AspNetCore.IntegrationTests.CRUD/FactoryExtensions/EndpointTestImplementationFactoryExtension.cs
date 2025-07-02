@@ -185,7 +185,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement($"var dataFactory = new TestDataFactory(WebAppFactory);", s => s.SeparatedFromPrevious());
 
-                    if (crudTest.Dependencies.Any())
+                    if (crudTest.Dependencies.Any() || crudTest.OwningAggregate!= null)
                     {
                         if (crudTest.OwningAggregate is null)
                         {
