@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR.CRUD.Eventing</id>
-  <version>5.2.0-pre.1</version>
+  <version>5.2.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Wires up the auto CRUD Event Publishing for MediatR.</summary>
   <description>Wires up the auto CRUD Event Publishing for MediatR.</description>
@@ -18,7 +18,7 @@
   <dependencies>
     <dependency id="Intent.Application.MediatR" version="4.0.5" />
     <dependency id="Intent.Common" version="3.6.0" />
-    <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.9.0" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Eventing.Contracts" version="5.2.0" />
     <dependency id="Intent.Eventing.Contracts.DomainMapping" version="4.2.0" />
