@@ -1,3 +1,7 @@
+### Version 4.2.1
+
+Fixed: small bug fixes
+
 ### Version 4.2.0
 
 - Improvement: Added the ability to visually see AspNetCore.Identity within the domain designer.
