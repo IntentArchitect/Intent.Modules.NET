@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Eventing.AzureEventGrid</id>
-  <version>1.1.1-pre.1</version>
+  <version>1.1.1</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</summary>
   <description>Provides patterns for using Azure Event Grid, which can be modeled in Intent Architect's designers.</description>
@@ -118,7 +118,7 @@
     </detect>
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.8.0-pre.1" />
+    <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.8.3" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Eventing.Contracts" version="5.2.0" />
