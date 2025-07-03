@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Application.Interfaces
 {
-    public interface IClientsService : IDisposable
+    public interface IClientsService
     {
         Task<string> CreateClient(ClientCreateDto dto, CancellationToken cancellationToken = default);
         Task<ClientDto> FindClientById(string id, CancellationToken cancellationToken = default);

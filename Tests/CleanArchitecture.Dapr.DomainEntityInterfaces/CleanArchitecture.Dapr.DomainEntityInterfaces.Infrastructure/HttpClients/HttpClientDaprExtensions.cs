@@ -24,7 +24,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Infrastructure.HttpClien
         private static ProductInfoHeaderValue UserAgent()
         {
             var assembly = typeof(DaprClient).Assembly;
-            string assemblyVersion = assembly
+            var assemblyVersion = assembly
                 .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
                 .FirstOrDefault()?
                 .InformationalVersion;

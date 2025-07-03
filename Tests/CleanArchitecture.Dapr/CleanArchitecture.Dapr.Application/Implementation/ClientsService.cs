@@ -53,9 +53,5 @@ namespace CleanArchitecture.Dapr.Application.Implementation
             // TODO: Implement DeleteClient (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
-
-        public void Dispose()
-        {
-        }
     }
 }
