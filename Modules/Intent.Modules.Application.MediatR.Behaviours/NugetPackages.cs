@@ -19,10 +19,10 @@ namespace Intent.Modules.Application.MediatR.Behaviours
             NugetRegistry.Register(MediatRPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 6, >= 0) => new PackageVersion("12.5.0")
+                        ( >= 6, >= 0) => new PackageVersion("12.5.0", locked: true)
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("12.5.0")
+                        ( >= 2, >= 0) => new PackageVersion("12.5.0", locked: true)
                             .WithNugetDependency("MediatR.Contracts", "2.0.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0"),
