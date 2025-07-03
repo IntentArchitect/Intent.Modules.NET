@@ -19,7 +19,7 @@
       },
       "Intent.Architect.Persistence/3.7.0": {
         "dependencies": {
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6",
+          "Intent.SoftwareFactory.SDK": "3.9.0",
           "Serilog": "4.1.0"
         },
         "runtime": {
@@ -47,7 +47,7 @@
       },
       "Intent.Modules.Common/3.4.1": {
         "dependencies": {
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6",
+          "Intent.SoftwareFactory.SDK": "3.9.0",
           "System.Reflection.Emit": "4.7.0"
         },
         "runtime": {
@@ -61,7 +61,7 @@
         "dependencies": {
           "Intent.Modules.Common": "3.4.1",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6"
+          "Intent.SoftwareFactory.SDK": "3.9.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Common.Types.dll": {
@@ -75,7 +75,7 @@
           "Intent.Modules.Common": "3.4.1",
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6"
+          "Intent.SoftwareFactory.SDK": "3.9.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Domain.dll": {
@@ -89,7 +89,7 @@
           "Intent.Modules.Common": "3.4.1",
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6"
+          "Intent.SoftwareFactory.SDK": "3.9.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.dll": {
@@ -104,7 +104,7 @@
           "Intent.Modules.Common.Types": "3.3.7",
           "Intent.Modules.Modelers.Services": "3.4.7",
           "Intent.RoslynWeaver.Attributes": "2.0.1",
-          "Intent.SoftwareFactory.SDK": "3.9.0-alpha.6"
+          "Intent.SoftwareFactory.SDK": "3.9.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/Intent.Modules.Modelers.Services.CQRS.dll": {
@@ -249,7 +249,7 @@
           }
         }
       },
-      "Intent.Persistence.SDK/1.0.1-alpha.2": {
+      "Intent.Persistence.SDK/1.0.1": {
         "runtime": {
           "Intent.Persistence.SDK.dll": {
             "assemblyVersion": "1.0.1.0",
@@ -257,7 +257,7 @@
           }
         }
       },
-      "Intent.SoftwareFactory.SDK/3.9.0-alpha.6": {
+      "Intent.SoftwareFactory.SDK/3.9.0": {
         "runtime": {
           "Intent.SoftwareFactory.SDK.dll": {
             "assemblyVersion": "3.9.0.0",
@@ -390,12 +390,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Intent.Persistence.SDK/1.0.1-alpha.2": {
+    "Intent.Persistence.SDK/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Intent.SoftwareFactory.SDK/3.9.0-alpha.6": {
+    "Intent.SoftwareFactory.SDK/3.9.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
