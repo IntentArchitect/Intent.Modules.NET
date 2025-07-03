@@ -116,6 +116,7 @@ public static class ServiceProxyHelpers
                        targetElement.HasHttpSettings();
             })
             .Select(x => (IElement)x.TargetEnd.TypeReference.Element)
+            .DistinctBy(x => x.Id)
             .GroupBy(x => x.ParentId)
             .Select(x => x.ToArray())
             .ToArray();
