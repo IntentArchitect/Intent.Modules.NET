@@ -66,5 +66,75 @@
       <deviationsHash>4B528B7CE432478ECF6BEE5AF3EB8236DF1EEC46707C681F50A64D93D3D4F77C</deviationsHash>
       <fileHash>3E07DB194E1F3A6A67E1B4C0282CCE6EF0A3404036F72497E41BF96CFAA2AC37</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#456a7ccc-6343-4d20-bac3-09cd2a31b765</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/CreateTaskItemTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-03T14:08:57.7220978Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-07-03T14:09:00.796875Z</approvedAt>
+      <notes><![CDATA[No Tests Created]]></notes>
+      <deviationsHash>01537F1413D1F2493A7920497F2C556CE2F393B7A7257461E28EE22092D16CE4</deviationsHash>
+      <fileHash>CB449A05B681F6125C0034143AB669E4B761621EF2A007D29BAB7AE5D4C319A6</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#e2b12762-542a-4886-8f02-c6ef4b2ff35b</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/DeleteTaskItemTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-03T14:08:57.7269823Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-07-03T14:09:00.7986323Z</approvedAt>
+      <notes><![CDATA[No Tests Created]]></notes>
+      <deviationsHash>5E99E3B305D60CBAAB3A2A3812A6E5A35F6A5449CF35988B37823EEE3442A1DB</deviationsHash>
+      <fileHash>9B228D1E813172427E907E1FD5F27FC21C05A90211EA0FDF6ACDC541E49BE402</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#14dd5159-cc02-4b89-b014-a1f8218f4883</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/GetTaskItemByIdTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-03T14:08:57.7284612Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-07-03T14:09:00.800138Z</approvedAt>
+      <notes><![CDATA[No Tests Created]]></notes>
+      <deviationsHash>7B99B86C2474A10F3DA1C5BF55BD5238F9B3368BB183D795C7EC9DA7268DADEF</deviationsHash>
+      <fileHash>0911C12C2E0BEA2FFF5B79A8D1D41237E7F8FDFCBB0F7C91C76E62171ED45706</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#21da2405-e0e7-4781-89ae-71725de1a1fb</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/GetTaskItemsTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-03T14:08:57.7297722Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-07-03T14:09:00.8015357Z</approvedAt>
+      <notes><![CDATA[No Tests Created]]></notes>
+      <deviationsHash>454591805FA55B5DB84C5A635669F984A66EE8660808162287F0A9DBC787E0A3</deviationsHash>
+      <fileHash>AA866CCC4270139BA1605414FE35854BE030EE12317D9D7C9FB4C73E0422A3FA</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#1617e51a-0669-4e28-900f-25801939cf9d</correlationId>
+      <path>AdvancedMappingCrud.Repositories.Tests.IntegrationTests/Tests/OperationMapping/UpdateTaskItemTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-07-03T14:08:57.7311089Z</updatedAt>
+      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
+      <approvedAt>2025-07-03T14:09:00.8029424Z</approvedAt>
+      <notes><![CDATA[No Tests Created]]></notes>
+      <deviationsHash>52A50ADFD7F3096ECEB85664ED77EBFB05CC6845409B8F51B0EECFEF46F355D4</deviationsHash>
+      <fileHash>7B9A2BF9992BB6470F6D1C17115E3D61698BDA48E8B75906E375DE76A788C14E</fileHash>
+    </file>
   </files>
 </deviationsLog>

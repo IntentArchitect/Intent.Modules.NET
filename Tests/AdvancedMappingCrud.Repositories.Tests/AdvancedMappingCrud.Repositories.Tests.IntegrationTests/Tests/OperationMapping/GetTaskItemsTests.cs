@@ -17,17 +17,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Operatio
         {
         }
 
-        [Fact]
+        [IntentIgnore]
         public async Task GetTaskItems_ShouldGetTaskItems()
         {
-            // Arrange
-            var client = new OperationMappingHttpClient(CreateClient());
-
-            // Act
-
-            // Unable to generate test: Can't determine how to mock data for (TaskList)
-            // TODO: Implement GetTaskItems_ShouldGetTaskItems (GetTaskItemsTests) functionality
-            throw new NotImplementedException("Your implementation here...");
         }
     }
 }

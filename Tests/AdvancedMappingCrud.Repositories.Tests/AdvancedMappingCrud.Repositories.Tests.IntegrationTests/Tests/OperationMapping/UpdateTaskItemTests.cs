@@ -17,17 +17,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Operatio
         {
         }
 
-        [Fact]
+        [IntentIgnore]
         public async Task UpdateTaskItem_ShouldUpdateTaskItem()
         {
-            // Arrange
-            var client = new OperationMappingHttpClient(CreateClient());
-
-            // Act
-
-            // Unable to generate test: Can't determine how to mock data for (TaskList)
-            // TODO: Implement UpdateTaskItem_ShouldUpdateTaskItem (UpdateTaskItemTests) functionality
-            throw new NotImplementedException("Your implementation here...");
         }
     }
 }

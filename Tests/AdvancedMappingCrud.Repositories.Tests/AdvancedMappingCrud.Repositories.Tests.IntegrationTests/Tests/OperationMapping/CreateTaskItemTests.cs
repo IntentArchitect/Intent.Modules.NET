@@ -1,6 +1,7 @@
 using System.Net;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients;
 using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.OperationMapping;
+using AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Users;
 using AutoFixture;
 using Intent.RoslynWeaver.Attributes;
 
@@ -17,17 +18,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Operatio
         {
         }
 
-        [Fact]
+
+        [IntentIgnore]
         public async Task CreateTaskItem_ShouldCreateTaskItem()
         {
-            // Arrange
-            var client = new OperationMappingHttpClient(CreateClient());
-
-            // Act
-
-            // Unable to generate test: Can't determine how to mock data for (TaskList)
-            // TODO: Implement CreateTaskItem_ShouldCreateTaskItem (CreateTaskItemTests) functionality
-            throw new NotImplementedException("Your implementation here...");
         }
     }
 }
