@@ -1,15 +1,19 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Application.Contracts.Clients.Templates.ServiceContract;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClient;
 using Intent.Modules.Dapr.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Modules.Integration.HttpClients.Shared.Templates.HttpClientConfiguration;
 using Intent.RoslynWeaver.Attributes;
+using Intent.Templates;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]

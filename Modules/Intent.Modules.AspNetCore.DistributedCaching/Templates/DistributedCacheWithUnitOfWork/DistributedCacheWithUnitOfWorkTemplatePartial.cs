@@ -255,6 +255,7 @@ namespace Intent.Modules.AspNetCore.DistributedCaching.Templates.DistributedCach
                 switch (ExecutionContext.Settings.GetDistributedCachingSettings().Provider().AsEnum())
                 {
                     case DistributedCachingSettings.ProviderOptionsEnum.Memory:
+                        template.AddNugetDependency(NugetPackages.MicrosoftExtensionsCachingMemory(template.OutputTarget));
                         method.AddStatement("services.AddDistributedMemoryCache();");
                         break;
                     case DistributedCachingSettings.ProviderOptionsEnum.StackExchangeRedis:
