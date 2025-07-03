@@ -6,6 +6,7 @@ using AzureFunctions.AzureEventGrid.Application.Common.Validation;
 using AzureFunctions.AzureEventGrid.Application.Implementation;
 using AzureFunctions.AzureEventGrid.Application.IntegrationEvents.EventHandlers;
 using AzureFunctions.AzureEventGrid.Application.Interfaces;
+using AzureFunctions.AzureEventGrid.EventDomain;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -38,6 +39,7 @@ namespace AzureFunctions.AzureEventGrid.Application
             services.AddTransient<IValidationService, ValidationService>();
             services.AddTransient<ISpecificChannelService, SpecificChannelService>();
             services.AddTransient<IIntegrationEventHandler<ClientCreatedEvent>, ClientCreatedEventHandler>();
+            services.AddTransient<IIntegrationEventHandler<OrderCreatedEvent>, OrderCreatedEventHandler>();
             return services;
         }
     }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="2fe3e060-9a26-44c6-a365-e4584c999442">
-  <sourceEnd id="459d629f-fadd-467a-8a48-d68d88c49c8c" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
-    <display>handled by: AzureFunctions.AzureEventGrid.GroupB.Services.ClientCreatedEventHandler</display>
+<association id="26302a8c-eea0-4c4c-96a1-77cef3e14b17">
+  <sourceEnd id="710458d3-9eb8-467c-9327-671e75d67449" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AzureFunctions.AzureEventGrid.GroupB.Services.OrderCreatedEventHandler</display>
     <order>0</order>
-    <typeReference id="c43febb4-d67a-4cc8-b71d-6d60bcaaf2f9">
-      <typeId>66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</typeId>
+    <typeReference id="28f55b32-6444-4b2e-a21d-f17f96f20ea4">
+      <typeId>8a259139-702a-4f1c-8cc0-8c93fe618080</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
@@ -18,20 +18,20 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="2fe3e060-9a26-44c6-a365-e4584c999442" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
-    <display>handles: ClientCreatedEvent</display>
+  <targetEnd id="26302a8c-eea0-4c4c-96a1-77cef3e14b17" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: OrderCreatedEvent</display>
     <order>0</order>
     <traits>
       <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
     </traits>
-    <typeReference id="f3676932-3f44-496f-ab0f-8029211c682c">
-      <typeId>1a56a2eb-1642-43af-bff7-a99f62ed7ffd</typeId>
+    <typeReference id="6f6244f1-8337-40e7-9946-4926931b85f8">
+      <typeId>f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages</typePackageName>
-      <typePackageId>011dfbe1-3225-40d2-bc8d-d769b7120037</typePackageId>
+      <typePackageName>AzureFunctions.AzureEventGrid.EventDomain</typePackageName>
+      <typePackageId>e4afd06e-2595-4d93-9bcc-1032ce33122f</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>

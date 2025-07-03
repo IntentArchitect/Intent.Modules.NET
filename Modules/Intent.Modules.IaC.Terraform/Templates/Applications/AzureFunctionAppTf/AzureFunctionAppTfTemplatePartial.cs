@@ -155,20 +155,17 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                             if (message.MethodType == AzureEventGridMethodType.Publish)
                             {
                                 appSettings.AddRawSetting($@"""{message.TopicConfigurationSourceName}""", $@"""{message.TopicName.ToKebabCase()}""");
-                            }
-
-                            if (message.DomainName != null)
-                            {
-                                // Event Domain pattern - use topic-level keys but reference domain endpoint/key
-                                var domainData = Terraform.azurerm_eventgrid_domain.domain(message.DomainName);
-                                appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", domainData.primary_access_key);
-                                appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", domainData.endpoint);
-                            }
-                            else
-                            {
-                                // Custom Topic pattern (backwards compatibility)
-                                appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
-                                appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
+                                
+                                if (message.DomainName != null)
+                                {
+                                    appSettings.AddRawSetting($@"""{message.DomainConfigurationKeyName}""", Terraform.azurerm_eventgrid_domain.domain(message.DomainName).primary_access_key);
+                                    appSettings.AddRawSetting($@"""{message.DomainConfigurationEndpointName}""", Terraform.azurerm_eventgrid_domain.domain(message.DomainName).endpoint);
+                                }
+                                else
+                                {
+                                    appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
+                                    appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
+                                }
                             }
                         }
                     }

@@ -20,6 +20,41 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             ArgumentNullException.ThrowIfNull(source);
             _entries.Add(new PublisherEntry(typeof(TMessage), credentialKey, endpoint, source));
         }
+
+        public void AddDomain(string credentialKey, string endpoint, Action<DomainOptions>? domainAction)
+        {
+            ArgumentNullException.ThrowIfNull(credentialKey);
+            ArgumentNullException.ThrowIfNull(endpoint);
+
+            var domainOptions = new DomainOptions(credentialKey, endpoint);
+            domainAction?.Invoke(domainOptions);
+
+            _entries.AddRange(domainOptions.ToEntries());
+        }
+    }
+
+    public class DomainOptions
+    {
+        private readonly string _credentialKey;
+        private readonly string _endpoint;
+        private readonly List<PublisherEntry> _entries = [];
+
+        public DomainOptions(string credentialKey, string endpoint)
+        {
+            _credentialKey = credentialKey;
+            _endpoint = endpoint;
+        }
+
+        public void Add<TMessage>(string source)
+        {
+            ArgumentNullException.ThrowIfNull(source);
+            _entries.Add(new PublisherEntry(typeof(TMessage), _credentialKey, _endpoint, source));
+        }
+
+        public IEnumerable<PublisherEntry> ToEntries()
+        {
+            return _entries;
+        }
     }
 
     public record PublisherEntry(Type MessageType, string CredentialKey, string Endpoint, string Source);

@@ -50,6 +50,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureFunctionClass#1e88c249-cabf-4647-9660-8e1357bc5cf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/CreateOrder.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateOrder.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#123230fb-082f-488b-8a13-63f10ce34188</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/host.json</ApplicationRelativeFilePath>
@@ -346,6 +354,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandModels#1e88c249-cabf-4647-9660-8e1357bc5cf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/CreateOrder/CreateOrderCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateOrder/CreateOrderCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.CommandHandler#1e88c249-cabf-4647-9660-8e1357bc5cf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/CreateOrder/CreateOrderCommandHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateOrder/CreateOrderCommandHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>5a484fc2-eb94-438e-9fc8-8323b2723e13</ProjectId>
       <CorrelationId>Intent.Application.DependencyInjection.DependencyInjection</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/DependencyInjection.cs</ApplicationRelativeFilePath>
@@ -366,6 +390,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>SpecificTopicMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f582d46-8712-4f49-b400-59a974b49c45</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/OrderCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderCreatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -406,6 +438,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Validators/CreateClient/CreateClientCommandValidator.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>CreateClient/CreateClientCommandValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e84fe889-5904-4f72-9050-6a69270148f9</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.CommandValidator#1e88c249-cabf-4647-9660-8e1357bc5cf3</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/Validators/CreateOrder/CreateOrderCommandValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CreateOrder/CreateOrderCommandValidator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

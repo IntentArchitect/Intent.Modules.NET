@@ -77,7 +77,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                         var domainData = Terraform.azurerm_eventgrid_domain.domainData(domainName);
                         builder.AddData(Terraform.azurerm_eventgrid_domain.type, domainData.refname, data =>
                         {
-                            data.AddSetting("name", $"{domainName}-domain");
+                            data.AddSetting("name", $"{domainName}");
                             data.AddRawSetting("resource_group_name", "var.resource_group_name");
                         });
                     }

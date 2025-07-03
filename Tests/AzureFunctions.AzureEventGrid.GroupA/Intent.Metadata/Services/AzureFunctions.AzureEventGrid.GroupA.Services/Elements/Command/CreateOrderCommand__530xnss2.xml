@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<class id="4af9acd7-dd01-4c7e-8390-4257615af688" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
-  <name>CreateClientCommand</name>
-  <display>CreateClientCommand: void</display>
+<class id="1e88c249-cabf-4647-9660-8e1357bc5cf3" type="Command" typeId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9">
+  <name>CreateOrderCommand</name>
+  <display>CreateOrderCommand: void</display>
   <isAbstract>false</isAbstract>
   <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
-  <typeReference id="38f38acc-e030-4c49-8465-c4121f383c96">
+  <typeReference id="ce756020-9242-42c0-be3e-e8a097a8e8a1">
     <isNavigable>true</isNavigable>
     <isNullable>false</isNullable>
     <isCollection>false</isCollection>
@@ -46,7 +46,7 @@
       <definitionPackageId>0011387a-b122-45d7-9cdb-8e21b315ab9f</definitionPackageId>
       <properties>
         <property name="801c3e61-4431-4d81-93fa-7e57d33cb3fa" display="Verb" value="POST" isActive="true" />
-        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="azure-functions-azure-event-grid-services" isActive="true" />
+        <property name="5dd3e07d-76eb-45d4-9956-4325fb068acc" display="Route" value="azure-functions-azure-event-grid-group-a-services" isActive="true" />
         <property name="4490e212-1e99-43ce-b3dd-048ed2a6bae8" display="Return Type Mediatype" value="Default" isActive="true" />
         <property name="e3870725-34b3-4684-85f2-ec4a667207fb" display="Success Response Code" isActive="true" />
       </properties>
@@ -54,12 +54,12 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="09fae9f2-adae-4b52-9531-1b3b4b507ebc" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
-      <name>Name</name>
-      <display>Name: string</display>
+    <childElement id="b03910f2-b50b-4e49-9d0b-e1554f5fb042" type="DTO-Field" typeId="7baed1fd-469b-4980-8fd9-4cefb8331eb2">
+      <name>RefNo</name>
+      <display>RefNo: string</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
-      <typeReference id="e651c879-3276-462d-9a8e-c4f512d36f15">
+      <typeReference id="677e33a4-a16e-4ae4-b6f2-03516808417d">
         <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
         <isNavigable>true</isNavigable>
         <isNullable>false</isNullable>
@@ -71,7 +71,7 @@
         <genericTypeParameters />
       </typeReference>
       <isMapped>false</isMapped>
-      <parentFolderId>4af9acd7-dd01-4c7e-8390-4257615af688</parentFolderId>
+      <parentFolderId>1e88c249-cabf-4647-9660-8e1357bc5cf3</parentFolderId>
       <packageId>6433daa4-2629-48a7-bbd6-fe222f161a68</packageId>
       <packageName>AzureFunctions.AzureEventGrid.GroupA.Services</packageName>
       <stereotypes>

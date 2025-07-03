@@ -1,4 +1,5 @@
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
+using AzureFunctions.AzureEventGrid.EventDomain;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
@@ -34,6 +35,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.Configure<AzureEventGridSubscriptionOptions>(options =>
             {
                 options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>();
+                options.Add<OrderCreatedEvent, IIntegrationEventHandler<OrderCreatedEvent>>();
             });
             return services;
         }

@@ -50,11 +50,12 @@ resource "azurerm_windows_function_app" "azure-functions-azure-event-grid-group-
     "APPINSIGHTS_INSTRUMENTATIONKEY"               = azurerm_application_insights.app_insights.instrumentation_key
     "AzureWebJobsStorage"                          = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.azure_functions_azure_event_grid_group_a_storage_name.name};AccountKey=${azurerm_storage_account.azure_functions_azure_event_grid_group_a_storage_name.primary_access_key};EndpointSuffix=core.windows.net"
     "FUNCTIONS_WORKER_RUNTIME"                     = "dotnet-isolated"
+    "EventGrid:Topics:OrderCreatedEvent:Source"    = "order-created-event"
+    "EventGrid:Domains:MainDomain:Key"             = azurerm_eventgrid_domain.main_domain.primary_access_key
+    "EventGrid:Domains:MainDomain:Endpoint"        = azurerm_eventgrid_domain.main_domain.endpoint
     "EventGrid:Topics:ClientCreatedEvent:Source"   = "client-created-event"
     "EventGrid:Topics:ClientCreatedEvent:Key"      = azurerm_eventgrid_topic.client_created_event.primary_access_key
     "EventGrid:Topics:ClientCreatedEvent:Endpoint" = azurerm_eventgrid_topic.client_created_event.endpoint
-    "EventGrid:Topics:SpecificTopic:Key"           = azurerm_eventgrid_topic.specific_topic.primary_access_key
-    "EventGrid:Topics:SpecificTopic:Endpoint"      = azurerm_eventgrid_topic.specific_topic.endpoint
   }
 }
 

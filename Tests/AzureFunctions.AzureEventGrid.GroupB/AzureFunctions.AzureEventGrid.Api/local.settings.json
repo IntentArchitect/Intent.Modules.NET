@@ -6,8 +6,6 @@
     "CqrsSettings:LogRequestPayload": true,
     "EventGrid:Topics:SpecificTopic:Source": "specific-topic",
     "EventGrid:Topics:SpecificTopic:Key": "",
-    "EventGrid:Topics:SpecificTopic:Endpoint": "",
-    "EventGrid:Topics:ClientCreatedEvent:Key": "",
-    "EventGrid:Topics:ClientCreatedEvent:Endpoint": ""
+    "EventGrid:Topics:SpecificTopic:Endpoint": ""
   }
 }

@@ -66,6 +66,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#8a259139-702a-4f1c-8cc0-8c93fe618080</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/OrderCreatedEventConsumer.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderCreatedEventConsumer.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.AzureFunctions.Isolated.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/Program.cs</ApplicationRelativeFilePath>
@@ -366,6 +374,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ClientCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e70be397-a29d-4314-af81-b33c50809690</ProjectId>
+      <CorrelationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#8a259139-702a-4f1c-8cc0-8c93fe618080</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderCreatedEventHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>7f582d46-8712-4f49-b400-59a974b49c45</ProjectId>
+      <CorrelationId>Intent.Eventing.Contracts.IntegrationEventMessage#f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/OrderCreatedEvent.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OrderCreatedEvent.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

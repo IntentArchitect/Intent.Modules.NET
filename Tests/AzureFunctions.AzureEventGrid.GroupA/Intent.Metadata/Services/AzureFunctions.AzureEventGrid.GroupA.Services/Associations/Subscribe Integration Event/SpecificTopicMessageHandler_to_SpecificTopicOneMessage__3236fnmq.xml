@@ -21,6 +21,9 @@
   <targetEnd id="43a4632c-3d7c-45a6-a2ae-ea18d5ac70d7" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
     <display>handles: SpecificTopicOneMessage</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="37795df4-1843-46be-99f8-8f06e78fd48f">
       <typeId>0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee</typeId>
       <isNavigable>true</isNavigable>

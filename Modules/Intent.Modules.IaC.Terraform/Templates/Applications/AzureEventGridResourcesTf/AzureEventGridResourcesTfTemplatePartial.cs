@@ -68,7 +68,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureEventGridReso
                     // Generate the domain resource
                     builder.AddResource(Terraform.azurerm_eventgrid_domain.type, domainData.refname, resource =>
                     {
-                        resource.AddSetting("name", $"{domainName}-domain");
+                        resource.AddSetting("name", $"{domainName}");
                         resource.AddRawSetting("location", Terraform.azurerm_resource_group.main_rg.location);
                         resource.AddRawSetting("resource_group_name", Terraform.azurerm_resource_group.main_rg.name);
                         resource.AddSetting("input_schema", "CloudEventSchemaV1_0");

@@ -20,10 +20,10 @@ internal class AzureEventGridMessage
         TopicSubscriptionConfigurationName = MethodType == AzureEventGridMethodType.Subscribe  
             ? $"{baseConfigName}Subscription".ToPascalCase() : null;
         DomainName = MessageModel.InternalElement.Package.IsEventingPackageModel() 
-            ? new EventingPackageModel(MessageModel.InternalElement.Package).GetEventDomain()?.DomainName() 
+            ? new EventingPackageModel(MessageModel.InternalElement.Package).GetEventDomain()?.DomainName()
             : null;
-        DomainConfigurationKeyName = DomainName != null ? $"EventGrid:Domains:{DomainName}:Key" : null;
-        DomainConfigurationEndpointName = DomainName != null ? $"EventGrid:Domains:{DomainName}:Endpoint" : null;
+        DomainConfigurationKeyName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Key" : null;
+        DomainConfigurationEndpointName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Endpoint" : null;
     }
 
     public MessageModel MessageModel { get; init; }
