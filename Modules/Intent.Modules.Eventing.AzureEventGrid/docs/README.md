@@ -41,9 +41,11 @@ This module will automatically assign a Topic Name when you create a new Message
 
 ### Event Domains
 
-Event Domains provide a management tool for large numbers of Event Grid topics related to the same application. They allow you to group multiple topics under a single domain and manage them collectively. When using Event Domains, messages are routed to topics within the domain based on the event's subject or type.
+Event Domains provide a management tool for large numbers of Event Grid topics related to the same application. They allow you to group multiple topics under a single domain and manage them collectively. When using Event Domains, messages are routed to topics within the domain based on the event's type.
 
 Event Domains can be modeled by adding an `Event Domain` stereotype to your Eventing Package. Configure the `Domain Name` property to specify which domain the events should be published to.
+
+![Event Domain](images/events-domain-name.png)
 
 ## Message Publishing
 
@@ -54,7 +56,7 @@ public interface IEventBus
 {
     void Publish<T>(T message) where T : class;
     void Publish<T>(T message, IDictionary<string, object> additionalData) where T : class;
-    Task FlushAllAsync(CancellationToken cancellationToken = default);
+    // ...
 }
 ```
 
@@ -73,9 +75,6 @@ _eventBus.Publish(new ClientCreatedEvent { Id = clientId }, new Dictionary<strin
     ["Priority"] = "High",
     ["CorrelationId"] = correlationId
 });
-
-// Flush all queued messages
-await _eventBus.FlushAllAsync();
 ```
 
 ## Message Consumption
@@ -199,7 +198,7 @@ services.Configure<AzureEventGridPublisherOptions>(options =>
 
 ### Application Settings
 
-Configure your Event Grid settings in `appsettings.json` or `local.settings.json` (for Azure Functions):
+Configure your Event Grid settings in `appsettings.json`:
 
 ```json
 {
@@ -207,7 +206,7 @@ Configure your Event Grid settings in `appsettings.json` or `local.settings.json
     "Topics": {
       "ClientCreatedEvent": {
         "Source": "client-created-event",
-        "Key": "your-custom-topic-access-key",
+        "Key": "4L6y6Nk8LFHXm0KnbK7gYpLtD0OL6Ear9VnY5ihQio8DhtljnGAdJQQJ99BDACrIdLPXJ3w3AAABAZEGvWZM",
         "Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events"
       },
       "OrderCreatedEvent": {
@@ -216,27 +215,10 @@ Configure your Event Grid settings in `appsettings.json` or `local.settings.json
     },
     "Domains": {
       "MainDomain": {
-        "Key": "your-domain-access-key",
-        "Endpoint": "https://your-domain.your-region.eventgrid.azure.net/api/events"
+        "Key": "543SDGsdfwertLFHXm0KnbK7gEar9VnY5ihQio8Dh456dfgdfyfdghfgh9BDACrIdLPXJ3w3AAABAZEdfgh5",
+        "Endpoint": "https://main-domain.your-region.eventgrid.azure.net/api/events"
       }
     }
-  }
-}
-```
-
-For Azure Functions, use the `Values` section in `local.settings.json`:
-
-```json
-{
-  "Values": {
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
-    "EventGrid:Topics:ClientCreatedEvent:Source": "client-created-event",
-    "EventGrid:Topics:ClientCreatedEvent:Key": "your-custom-topic-access-key",
-    "EventGrid:Topics:ClientCreatedEvent:Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events",
-    "EventGrid:Topics:OrderCreatedEvent:Source": "order-created-event",
-    "EventGrid:Domains:MainDomain:Key": "your-domain-access-key",
-    "EventGrid:Domains:MainDomain:Endpoint": "https://your-domain.your-region.eventgrid.azure.net/api/events"
   }
 }
 ```
