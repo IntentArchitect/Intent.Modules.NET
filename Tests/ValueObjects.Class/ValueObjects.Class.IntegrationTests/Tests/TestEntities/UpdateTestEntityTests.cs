@@ -6,7 +6,7 @@ using ValueObjects.Class.IntegrationTests.Services.TestEntities;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace ValueObjects.Class.IntegrationTests.Tests
+namespace ValueObjects.Class.IntegrationTests.Tests.TestEntities
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -29,10 +29,10 @@ namespace ValueObjects.Class.IntegrationTests.Tests
             command.Id = testEntityId;
 
             // Act
-            await client.UpdateTestEntityAsync(testEntityId, command);
+            await client.UpdateTestEntityAsync(testEntityId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
+            var testEntity = await client.GetTestEntityByIdAsync(testEntityId, TestContext.Current.CancellationToken);
             Assert.NotNull(testEntity);
             Assert.Equal(command.Name, testEntity.Name);
         }

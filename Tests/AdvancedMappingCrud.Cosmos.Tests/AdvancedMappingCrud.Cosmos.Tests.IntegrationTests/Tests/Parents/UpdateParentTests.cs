@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests.Parents
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -34,11 +34,12 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             command.Id = parentId;
             // [IntentIgnore]
             command.Children.Clear();
+
             // Act
-            await client.UpdateParentAsync(parentId, command);
+            await client.UpdateParentAsync(parentId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var parent = await client.GetParentByIdAsync(parentId);
+            var parent = await client.GetParentByIdAsync(parentId, TestContext.Current.CancellationToken);
             Assert.NotNull(parent);
             Assert.Equal(command.Name, parent.Name);
         }

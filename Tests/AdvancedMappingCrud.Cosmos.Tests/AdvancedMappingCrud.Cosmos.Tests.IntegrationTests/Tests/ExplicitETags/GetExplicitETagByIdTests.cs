@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests.ExplicitETags
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -30,7 +30,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             var explicitETagId = await dataFactory.CreateExplicitETag();
 
             // Act
-            var explicitETag = await client.GetExplicitETagByIdAsync(explicitETagId);
+            var explicitETag = await client.GetExplicitETagByIdAsync(explicitETagId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(explicitETag);

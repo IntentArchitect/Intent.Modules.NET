@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests.BasicOrderBies
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -34,10 +34,10 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             command.Id = basicOrderById;
 
             // Act
-            await client.UpdateBasicOrderByAsync(basicOrderById, command);
+            await client.UpdateBasicOrderByAsync(basicOrderById, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var basicOrderBy = await client.GetBasicOrderByByIdAsync(basicOrderById);
+            var basicOrderBy = await client.GetBasicOrderByByIdAsync(basicOrderById, TestContext.Current.CancellationToken);
             Assert.NotNull(basicOrderBy);
             Assert.Equal(command.Name, basicOrderBy.Name);
         }

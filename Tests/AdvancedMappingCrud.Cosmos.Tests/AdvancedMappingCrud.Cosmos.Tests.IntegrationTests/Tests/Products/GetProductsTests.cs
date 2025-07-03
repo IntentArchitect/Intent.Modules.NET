@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests.Products
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -31,7 +31,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.IntegrationTests.Tests
             await dataFactory.CreateProduct();
 
             // Act
-            var products = await client.GetProductsAsync();
+            var products = await client.GetProductsAsync(TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotEmpty(products);

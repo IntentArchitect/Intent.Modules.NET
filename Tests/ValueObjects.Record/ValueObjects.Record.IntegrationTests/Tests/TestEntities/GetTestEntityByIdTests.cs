@@ -5,7 +5,7 @@ using ValueObjects.Record.IntegrationTests.HttpClients.TestEntities;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace ValueObjects.Record.IntegrationTests.Tests
+namespace ValueObjects.Record.IntegrationTests.Tests.TestEntities
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -25,7 +25,7 @@ namespace ValueObjects.Record.IntegrationTests.Tests
             var testEntityId = await dataFactory.CreateTestEntity();
 
             // Act
-            var testEntity = await client.GetTestEntityByIdAsync(testEntityId);
+            var testEntity = await client.GetTestEntityByIdAsync(testEntityId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(testEntity);
