@@ -146,7 +146,7 @@ namespace Intent.Modules.IaC.Terraform.Templates.Subscriptions.AzureEventGridTf
                             });
 
                             resource.AddSetting("included_event_types",
-                                topicGroup.Select(s => GetNamespace(s.SubscriptionItem.MessageModel) + $".{s.SubscriptionItem.MessageModel.Name.ToPascalCase()}"));
+                                topicGroup.Select(s => GetNamespace(s.SubscriptionItem.MessageModel) + $".{s.SubscriptionItem.MessageModel.Name.ToPascalCase().EnsureSuffixedWith("Event")}"));
                         });
                     }
                 }

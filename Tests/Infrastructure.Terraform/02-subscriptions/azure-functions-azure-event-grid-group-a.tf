@@ -19,7 +19,7 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
   }
 
   included_event_types  = [
-    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessage",
-    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessage"
+    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessageEvent",
+    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessageEvent"
   ]
 }
