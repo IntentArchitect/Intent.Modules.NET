@@ -31,6 +31,8 @@ namespace Intent.Modules.Application.Dtos.AutoMapper.Templates.DtoMappingProfile
 
             CSharpFile = new CSharpFile(this.GetNamespace().Replace(".Mappings", ""), this.GetFolderPath())
                 .AddUsing("AutoMapper")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Linq")
                 .AddClass($"{Model.Name}Profile", @class =>
                 {
                     string dtoModelName = GetDtoModelName();
