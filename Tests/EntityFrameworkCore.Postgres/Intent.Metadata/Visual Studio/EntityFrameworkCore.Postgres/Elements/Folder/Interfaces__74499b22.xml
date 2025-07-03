@@ -53,22 +53,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="bd355a96-d294-4db9-95d5-030ba8845125" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</name>
-      <display>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.SoftDelete</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>f63a3767-bdd5-4541-853a-5d368f61db7a</parentFolderId>
-      <packageId>89e7a187-d5fd-43cd-9cf7-e1f823f8f2f2</packageId>
-      <packageName>EntityFrameworkCore.Postgres</packageName>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="76ff034a-bcf2-46e4-a40c-44b84f4cfc30" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.SoftDelete.SoftDeleteInterface</name>
       <display>Intent.Entities.SoftDelete.SoftDeleteInterface</display>

@@ -28,7 +28,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddScoped<IAzureEventGridConsumerBehavior, InboundCloudEventBehavior>();
             services.Configure<AzureEventGridPublisherOptions>(options =>
             {
-                options.Add<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Source"]!);
+                options.AddTopic<ClientCreatedEvent>(configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!, configuration["EventGrid:Topics:ClientCreatedEvent:Source"]!);
             });
             services.Configure<AzureEventGridSubscriptionOptions>(options =>
             {

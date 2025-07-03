@@ -51,16 +51,33 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
                 return;
             }
 
-            foreach (var entry in _messageQueue)
+            var groupedMessages = _messageQueue.GroupBy(entry =>
             {
                 var publisherEntry = _lookup[entry.Message.GetType().FullName!];
-                var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));
-                var cloudEvent = CreateCloudEvent(entry, publisherEntry);
-                await _pipeline.ExecuteAsync(cloudEvent, async (@event, token) =>
+                return (publisherEntry.Endpoint, publisherEntry.CredentialKey);
+            });
+
+            foreach (var group in groupedMessages)
+            {
+                var (endpoint, credentialKey) = group.Key;
+                var client = new EventGridPublisherClient(new Uri(endpoint), new AzureKeyCredential(credentialKey));
+
+                var cloudEvents = new List<CloudEvent>();
+
+                foreach (var entry in group)
                 {
-                    await client.SendEventAsync(@event, token);
-                    return @event;
-                }, cancellationToken);
+                    var publisherEntry = _lookup[entry.Message.GetType().FullName!];
+                    var cloudEvent = CreateCloudEvent(entry, publisherEntry);
+
+                    // Run through the pipeline individually
+                    var processedEvent = await _pipeline.ExecuteAsync(cloudEvent, (@event, token) =>
+                    {
+                        return Task.FromResult(@event);
+                    }, cancellationToken);
+
+                    cloudEvents.Add(processedEvent);
+                }
+                await client.SendEventsAsync(cloudEvents, cancellationToken);
             }
         }
 
@@ -78,12 +95,12 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
 
             if (messageEntry.AdditionalData is not null)
             {
-                if (messageEntry.AdditionalData.TryGetValue("Subject", out var subject))
+                if (messageEntry.AdditionalData.TryGetValue("subject", out var subject))
                 {
                     cloudEvent.Subject = (string)subject;
                 }
 
-                foreach (var extensionAttribute in messageEntry.AdditionalData.Where(p => p.Key != "Subject"))
+                foreach (var extensionAttribute in messageEntry.AdditionalData.Where(p => p.Key != "subject"))
                 {
                     cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);
                 }
