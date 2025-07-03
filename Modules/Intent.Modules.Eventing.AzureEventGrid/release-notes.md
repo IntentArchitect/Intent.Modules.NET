@@ -1,6 +1,7 @@
 ### Version 1.2.0
 
 - Improvement: Event Domains support added. ❇️
+- Improvement: `AzureEventGridEventBus` is enhanced to do more efficient message publishing using `SendEventsAsync`. ❇️
 
 > NOTE! ⚠️
 >

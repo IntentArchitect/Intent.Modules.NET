@@ -25,16 +25,25 @@ Modeling Integration Events can be achieved from within the Services designer.
 This module automatically installs the `Intent.Modelers.Eventing` module which provides designer modeling capabilities for integration events and commands.
 For details on modeling integration events and commands, refer to its [README](https://docs.intentarchitect.com/articles/modules-common/intent-modelers-eventing/intent-modelers-eventing.html).
 
-## Specifying Topic Names
+## Specifying Topics and Event Domains
 
-Working with Azure Event Grid requires that Messages be assigned to an Event Grid Topic.
-Since Topics need to be created in advance, unless you are using Infrastructure as Code to maintain this for you, you will need to specify the Topic Name when creating a new Message.
+Working with Azure Event Grid requires that Messages be assigned to either an Event Grid Custom Topic or an Event Domain Topic.
 
-This module will automatically be assigned a Topic Name when you create a new Message and you can alter it by capturing the `Topic Name` property on the selected Message.
+### Custom Topics
+
+Custom Topics are standalone event routing destinations that need to be created in advance, unless you are using Infrastructure as Code to maintain this for you. When creating a new Message, you will need to specify the Topic Name.
+
+This module will automatically assign a Topic Name when you create a new Message and you can alter it by modifying the `Topic Name` property on the selected Message.
 
 ![Event Message](images/event-client-created-event.png)
 
 ![Azure Event Grid Topic Name](images/event-topic-name.png)
+
+### Event Domains
+
+Event Domains provide a management tool for large numbers of Event Grid topics related to the same application. They allow you to group multiple topics under a single domain and manage them collectively. When using Event Domains, messages are routed to topics within the domain based on the event's subject or type.
+
+Event Domains can be modeled by adding an `Event Domain` stereotype to your Eventing Package. Configure the `Domain Name` property to specify which domain the events should be published to.
 
 ## Message Publishing
 
@@ -47,10 +56,13 @@ public interface IEventBus
     void Publish<T>(T message, IDictionary<string, object> additionalData) where T : class;
     Task FlushAllAsync(CancellationToken cancellationToken = default);
 }
+```
 
-Publishing with Extension Attributes
+### Publishing with Extension Attributes
+
 You can include Event Grid extension attributes and subject information:
 
+```csharp
 // Basic publishing
 _eventBus.Publish(new ClientCreatedEvent { Id = clientId });
 
@@ -66,11 +78,11 @@ _eventBus.Publish(new ClientCreatedEvent { Id = clientId }, new Dictionary<strin
 await _eventBus.FlushAllAsync();
 ```
 
-### Message Consumption
+## Message Consumption
 
 For every message subscribed to in the `Services Designer` will receive its own Integration Event handler.
 
-### Accessing Event Context
+## Accessing Event Context
 
 In your handlers, you can access Event Grid extension attributes through the `IEventContext`:
 
@@ -98,11 +110,11 @@ public class ClientCreatedIntegrationEventHandler : IIntegrationEventHandler<Cli
 }
 ```
 
-### Extensibility with Custom Behaviors
+## Extensibility with Custom Behaviors
 
 You can create custom behaviors to handle cross-cutting concerns:
 
-#### Publisher Behaviors
+### Publisher Behaviors
 
 ```csharp
 public class LoggingPublisherBehavior : IAzureEventGridPublisherBehavior
@@ -126,7 +138,7 @@ public class LoggingPublisherBehavior : IAzureEventGridPublisherBehavior
 }
 ```
 
-#### Consumer Behaviors
+### Consumer Behaviors
 
 ```csharp
 public class ValidationConsumerBehavior : IAzureEventGridConsumerBehavior
@@ -144,7 +156,7 @@ public class ValidationConsumerBehavior : IAzureEventGridConsumerBehavior
 }
 ```
 
-#### Registering Custom Behaviors
+### Registering Custom Behaviors
 
 ```csharp
 public static IServiceCollection ConfigureEventGrid(this IServiceCollection services, IConfiguration configuration)
@@ -161,7 +173,33 @@ public static IServiceCollection ConfigureEventGrid(this IServiceCollection serv
 
 ## Configuring Event Grid
 
-When you're publishing an Event Grid Message, you will need to configure it in your `appsettings.json` file.
+### Publisher Configuration
+
+Event Grid publishers are configured in your dependency injection setup. The configuration supports both Custom Topics and Event Domains:
+
+```csharp
+services.Configure<AzureEventGridPublisherOptions>(options =>
+{
+    // Configure Custom Topics
+    options.AddTopic<ClientCreatedEvent>(
+        configuration["EventGrid:Topics:ClientCreatedEvent:Key"]!, 
+        configuration["EventGrid:Topics:ClientCreatedEvent:Endpoint"]!, 
+        configuration["EventGrid:Topics:ClientCreatedEvent:Source"]!);
+    
+    // Configure Event Domains
+    options.AddDomain(
+        configuration["EventGrid:Domains:MainDomain:Key"]!, 
+        configuration["EventGrid:Domains:MainDomain:Endpoint"]!, 
+        domain =>
+        {
+            domain.Add<OrderCreatedEvent>(configuration["EventGrid:Topics:OrderCreatedEvent:Source"]!);
+        });
+});
+```
+
+### Application Settings
+
+Configure your Event Grid settings in `appsettings.json` or `local.settings.json` (for Azure Functions):
 
 ```json
 {
@@ -169,10 +207,36 @@ When you're publishing an Event Grid Message, you will need to configure it in y
     "Topics": {
       "ClientCreatedEvent": {
         "Source": "client-created-event",
-        "Key": "4L6y6Nk8LFHXm0KnbK7gYpLtD0OL6Ear9VnY5ihQio8DhtljnGAdJQQJ99BDACrIdLPXJ3w3AAABAZEGvWZM",
+        "Key": "your-custom-topic-access-key",
         "Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events"
+      },
+      "OrderCreatedEvent": {
+        "Source": "order-created-event"
+      }
+    },
+    "Domains": {
+      "MainDomain": {
+        "Key": "your-domain-access-key",
+        "Endpoint": "https://your-domain.your-region.eventgrid.azure.net/api/events"
       }
     }
+  }
+}
+```
+
+For Azure Functions, use the `Values` section in `local.settings.json`:
+
+```json
+{
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "EventGrid:Topics:ClientCreatedEvent:Source": "client-created-event",
+    "EventGrid:Topics:ClientCreatedEvent:Key": "your-custom-topic-access-key",
+    "EventGrid:Topics:ClientCreatedEvent:Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events",
+    "EventGrid:Topics:OrderCreatedEvent:Source": "order-created-event",
+    "EventGrid:Domains:MainDomain:Key": "your-domain-access-key",
+    "EventGrid:Domains:MainDomain:Endpoint": "https://your-domain.your-region.eventgrid.azure.net/api/events"
   }
 }
 ```
