@@ -40,10 +40,9 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 			var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(OpenApiImport).Assembly.Location), @"../content/tool");
 			var executableName = "dotnet";
 			var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.MetadataSynchronizer.OpenApi.CLI.dll")}\" --serialized-config \"{openApiImportSettings}\"";
-
-			var warnings = new StringBuilder();
+			
 			Logging.Log.Info($"Executing: {executableName} {executableArgs} ");
-			var succeeded = false;
+			
 			try
 			{
 				var process = new Process
@@ -64,26 +63,45 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 					}
 				};
 
+				bool? succeeded = null;
+				var sigStop = false;
+				var warnings = new StringBuilder();
+				var errors = new StringBuilder();
+				var errorLines = 0;
+				
 				process.OutputDataReceived += (_, args) =>
 				{
+					if (sigStop)
+					{
+						return;
+					}
+					
+					Logging.Log.Debug(args.Data);
 					if (args.Data?.Trim().Contains("Package saved successfully.") == true)
 					{
 						succeeded = true;
+						sigStop = true;
 					}
-					else if (args.Data?.Trim().Contains("Error:") == true)
+					else if (succeeded == false && args.Data?.Trim().Equals(".") == true)
 					{
-						Logging.Log.Failure(args.Data);
-						succeeded = false;
-						errorMessage = args.Data?.Trim();
+						sigStop = true;
 						process.Kill(true);
 					}
-					else
+					else if (succeeded == false || (succeeded == null && args.Data?.Trim().Contains("Error:") == true))
 					{
-						if (args.Data?.Trim().Contains("Warning:") == true)
+						succeeded = false;
+						errors.AppendLine(args.Data?.Trim());
+						errorLines++;
+						if (errorLines > 15)
 						{
-							warnings.AppendLine(args.Data);
+							errors.AppendLine("...and more");
+							sigStop = true;
+							process.Kill(true);
 						}
-						Logging.Log.Info(args.Data);
+					}
+					else if (succeeded != false && args.Data?.Trim().Contains("Warning:") == true)
+					{
+						warnings.AppendLine(args.Data);
 					}
 				};
 
@@ -91,18 +109,16 @@ namespace Intent.Modules.OpenApi.Importer.Tasks
 				process.BeginOutputReadLine();
 				process.WaitForExit();
 
-				if (succeeded)
+				if (succeeded == false)
 				{
-					if (warnings.Length > 0)
-					{
-						return $"{{\"warnings\": \"{warnings.Replace(Environment.NewLine, "\\n").ToString()}\"}}";
-					}
-					return "{}";
+					return Fail(errors.ToString());
 				}
-				else
+				
+				if (warnings.Length > 0)
 				{
-					return Fail(errorMessage);
+					return $"{{\"warnings\": \"{warnings.Replace(Environment.NewLine, "\\n").ToString()}\"}}";
 				}
+				return "{}";
 			}
 			catch (Exception e)
 			{

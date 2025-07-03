@@ -24,7 +24,7 @@
     <order>0</order>
     <typeReference id="d4e0acd8-d451-403c-9453-e6be6971a814">
       <typeId>f6505b15-dced-4beb-9a58-e7b5447a7c73</typeId>
-      <isNavigable>false</isNavigable>
+      <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>

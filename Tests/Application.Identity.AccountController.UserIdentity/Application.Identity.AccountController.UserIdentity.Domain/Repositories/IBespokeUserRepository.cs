@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Identity.AccountController.UserIdentity.Domain.Entities;
@@ -13,5 +14,11 @@ namespace Application.Identity.AccountController.UserIdentity.Domain.Repositorie
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public interface IBespokeUserRepository : IEFRepository<BespokeUser, BespokeUser>
     {
+        [IntentManaged(Mode.Fully)]
+        Task<BespokeUser?> FindByIdAsync(string id, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<BespokeUser?> FindByIdAsync(string id, Func<IQueryable<BespokeUser>, IQueryable<BespokeUser>> queryOptions, CancellationToken cancellationToken = default);
+        [IntentManaged(Mode.Fully)]
+        Task<List<BespokeUser>> FindByIdsAsync(string[] ids, CancellationToken cancellationToken = default);
     }
 }

@@ -45,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>05eb66b1-f552-44b0-98af-4212e95b124f</parentFolderId>
+      <packageId>c3f98d4f-e2d5-4bb6-9f34-12d693e21681</packageId>
+      <packageName>Application.Identity.AccountController</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Frozen;
 using System.Linq;
 using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
@@ -40,7 +41,6 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var identityModel = application.MetadataManager.GetIdentityUserClass(application.GetApplicationConfig().Id);
-
             UpdateDbContext(application, identityModel);
             UpdateEntityTemplate(application, identityModel);
         }
@@ -66,11 +66,74 @@ namespace Intent.Modules.AspNetCore.Identity.FactoryExtensions
             {
                 var @class = file.Classes.First();
                 file.AddUsing("Microsoft.AspNetCore.Identity");
-                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityUserClasses()}>");
+                @class.WithBaseType($"{dbContextTemplate.UseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext")}<{dbContextTemplate.GetIdentityDbContextGenericParameters()}>");
+
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUser>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityUser>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityRole>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityRole>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUserLogin>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityUserLogin>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUserToken>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityUserToken>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUserRole>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityUserRole>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityRoleClaim>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityRoleClaim>"));
+                }
+                if (@class.Properties.Any(p => p.Type == "DbSet<IdentityUserClaim>"))
+                {
+                    @class.Properties.Remove(@class.Properties.First(p => p.Type == "DbSet<IdentityUserClaim>"));
+                }
+
+                if (@class.Methods.Any(m => m.Name == "OnModelCreating"))
+                {
+                    var method = @class.Methods.First(m => m.Name == "OnModelCreating");
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityRoleConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityRoleConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserRoleConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserRoleConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserLoginConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserLoginConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserTokenConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserTokenConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityRoleClaimConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityRoleClaimConfiguration());"));
+                    }
+                    if (method.Statements.Any(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserClaimConfiguration());"))
+                    {
+                        method.Statements.Remove(method.Statements.First(s => s.Text == "modelBuilder.ApplyConfiguration(new IdentityUserClaimConfiguration());"));
+                    }
+                }
 
                 // Users Exists on the base class already
-                if (identityModel != null && identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase))                    
+                if (identityModel != null && identityModel.Name.Equals("User", StringComparison.OrdinalIgnoreCase))
                 {
+
                     var usersProperty = @class.Properties.SingleOrDefault(x => x.Name == "Users");
                     if (usersProperty != null)
                     {

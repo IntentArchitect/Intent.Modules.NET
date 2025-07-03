@@ -268,6 +268,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c2ed9ba-ec13-4b0d-a1a8-66d4bbc80974</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObject#be7674ec-a091-454d-8163-08cb8c859dd6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Domain/Address.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Address.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c2ed9ba-ec13-4b0d-a1a8-66d4bbc80974</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#1c2ed9ba-ec13-4b0d-a1a8-66d4bbc80974</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.Domain/Application.Identity.AccountController.Domain.csproj</ApplicationRelativeFilePath>
@@ -344,6 +352,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.Domain/Repositories/IRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c2ed9ba-ec13-4b0d-a1a8-66d4bbc80974</ProjectId>
+      <CorrelationId>Intent.ValueObjects.ValueObjectBase</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.Domain/ValueObject.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValueObject.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

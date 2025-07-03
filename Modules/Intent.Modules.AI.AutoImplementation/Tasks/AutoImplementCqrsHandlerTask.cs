@@ -100,7 +100,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		       - Implement the method in the corresponding concrete repository class
 		       - Apply `[IntentIgnore]` attribute to both declaration and implementation
 		       - Then call this method from your handler
-		    5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed.
+		    5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed. If a new data contract is defined, then add the [IntentIgnore] attribute over the class.
 
 		    ## Implementation Process
 		    1. First, analyze all code files provided and understand how the fit together.

@@ -19,7 +19,7 @@ async function importOpenApi(element) {
         fieldType: "text",
         label: "OpenApi File",
         placeholder: null,
-        hint: "Path to file, including name.",
+        hint: "Path to file or web address (e.g., C:\\swagger.json or https://example.com/swagger.json)",
         isRequired: true,
         value: defaults.openApiFile
     };
@@ -129,7 +129,7 @@ async function importOpenApi(element) {
         fieldType: "text",
         label: "OpenApi File",
         placeholder: null,
-        hint: "Path to file, including name.",
+        hint: "Path to file or web address (e.g., C:\\swagger.json or https://example.com/swagger.json)",
         isRequired: true,
         value: defaults.openApiFile
     };
@@ -244,7 +244,7 @@ async function importOpenApi(element) {
         fieldType: "text",
         label: "OpenApi File",
         placeholder: null,
-        hint: "Path to file, including name.",
+        hint: "Path to file or web address (e.g., C:\\swagger.json or https://example.com/swagger.json)",
         isRequired: true,
         value: defaults.openApiFile
     };
@@ -354,7 +354,7 @@ async function importOpenApi(element) {
         fieldType: "text",
         label: "OpenApi File",
         placeholder: null,
-        hint: "Path to file, including name.",
+        hint: "Path to file or web address (e.g., C:\\swagger.json or https://example.com/swagger.json)",
         isRequired: true,
         value: defaults.openApiFile
     };

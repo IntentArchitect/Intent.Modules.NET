@@ -45,13 +45,13 @@
           <mappedEnd>
             <expression>{CreateClassicDomainServiceTest}</expression>
             <path>
-              <target id="513c7a03-e1d4-44e4-939c-f85848f5acdb" name="ClassicDomainServiceTest" type="element" specialization="Class" />
-              <target id="0f08d994-2f03-4795-b6c8-1f34f820ae61" name="Constructor" type="element" specialization="Class Constructor" />
+              <target id="513c7a03-e1d4-44e4-939c-f85848f5acdb" name="ClassicDomainServiceTest" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0f08d994-2f03-4795-b6c8-1f34f820ae61" name="Constructor" type="element" specialization="Class Constructor" specializationId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b" />
             </path>
             <sources>
               <source identifier="CreateClassicDomainServiceTest" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
                 <path>
-                  <target id="4eb60a47-d7f9-4664-aee1-ebcff4f7459c" name="CreateClassicDomainServiceTest" type="element" specialization="Operation" />
+                  <target id="4eb60a47-d7f9-4664-aee1-ebcff4f7459c" name="CreateClassicDomainServiceTest" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                 </path>
               </source>
             </sources>

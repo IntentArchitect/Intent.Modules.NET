@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="ce0a6b5d-8356-4a92-b8f9-f9f274fe83eb" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>ApplicationIdentityUser</name>
-  <display>ApplicationIdentityUser: IdentityUser&lt;string&gt;</display>
+  <display>ApplicationIdentityUser : IdentityUser&lt;string&gt;</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</parentFolderId>
@@ -13,7 +14,7 @@
   <childElements>
     <childElement id="946d5d7f-fcc5-4b3b-89bf-1ee6a7864674" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshToken</name>
-      <display>RefreshToken: string</display>
+      <display>RefreshToken: string?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="b0eb5c92-2341-433b-8771-b32292144fb6">
@@ -32,7 +33,7 @@
       <packageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</packageId>
       <packageName>Application.Identity.AccountController.TestApplication.Domain</packageName>
       <stereotypes>
-        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text CConstraints">
+        <stereotype stereotypeDefinitionId="6347286E-A637-44D6-A5D7-D9BE5789CA7A" name="Text Constraints">
           <addedByDefault>false</addedByDefault>
           <definitionPackageName>Intent.Metadata.RDBMS</definitionPackageName>
           <definitionPackageId>AF8F3810-745C-42A2-93C8-798860DC45B1</definitionPackageId>
@@ -48,7 +49,7 @@
     </childElement>
     <childElement id="5732a654-613c-49b0-84cd-ce809f8e9048" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
       <name>RefreshTokenExpired</name>
-      <display>RefreshTokenExpired: datetime</display>
+      <display>RefreshTokenExpired: datetime?</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <typeReference id="ff97cfde-4cad-4497-b2a5-aa2dbf4841cc">

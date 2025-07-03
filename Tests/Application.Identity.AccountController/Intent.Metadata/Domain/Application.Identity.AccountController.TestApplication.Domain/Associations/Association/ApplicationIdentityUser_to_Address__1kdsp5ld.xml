@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="56b49816-90be-4a82-b0d1-1a74553fe0b4">
+  <sourceEnd id="ad9b2b86-f294-45cb-88eb-54349ca04477" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>ApplicationIdentityUser</name>
+    <display>ApplicationIdentityUser: ApplicationIdentityUser</display>
+    <order>0</order>
+    <typeReference id="c0955c91-86fc-4e0c-9586-8e5e768ed3cd">
+      <typeId>ce0a6b5d-8356-4a92-b8f9-f9f274fe83eb</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Application.Identity.AccountController.TestApplication.Domain</typePackageName>
+      <typePackageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="56b49816-90be-4a82-b0d1-1a74553fe0b4" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Address</name>
+    <display>Address: Address?</display>
+    <order>3</order>
+    <typeReference id="f895faf7-e20a-4a50-86f3-a28044330ddb">
+      <typeId>be7674ec-a091-454d-8163-08cb8c859dd6</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>true</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>Application.Identity.AccountController.TestApplication.Domain</typePackageName>
+      <typePackageId>cdf0cf4f-9df2-4c95-8cfe-a1bbaad60d3e</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

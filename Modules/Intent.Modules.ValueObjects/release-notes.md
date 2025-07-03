@@ -1,6 +1,10 @@
+### Version 4.2.6
+
+- Improvement: Bumped dependency on `Intent.Modelers.Domain.ValueObjects` to latest (3.6.2).
+
 ### Version 4.2.5
 
-- Improvement: Added module documentation
+- Improvement: Added module documentation.
 
 ### Version 4.2.4
 

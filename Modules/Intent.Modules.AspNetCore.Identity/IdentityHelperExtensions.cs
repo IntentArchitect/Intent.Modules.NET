@@ -5,7 +5,9 @@ using System.Text;
 using Intent.AspNetCore.Identity.Api;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Templates;
 using Intent.Utils;
 
 namespace Intent.Modules.AspNetCore.Identity;
@@ -14,11 +16,14 @@ public static class IdentityHelperExtensions
 {
     private static string GetName<T>(this List<ClassModel> classModels, string entityName, CSharpTemplateBase<T> template, bool includeGeneric = true)
     {
-        if(classModels.Any(c => c.Name == entityName))
+        if (classModels.Any(c => c.Name == entityName))
         {
             var @class = classModels.First(c => c.Name == entityName).ChildClasses.First();
             template.GetTypeName("Domain.Entity", @class);
+
             var entityTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", @class);
+
+            //entityTemplate.CSharpFile.Classes.First().Metadata.TryAdd("primary-keys");
 
             entityTemplate.AddNugetDependency(NugetPackages.MicrosoftExtensionsIdentityStores(entityTemplate.OutputTarget));
             entityTemplate.CSharpFile.AfterBuild(c =>
@@ -41,9 +46,7 @@ public static class IdentityHelperExtensions
 
         var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
 
-        var identityModels = models.Select(p => p.ParentElement.AsClassModel()).Where(m => m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
-            m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
-            m.Name == "IdentityUserLogin").ToList();
+        var identityModels = template.ExecutionContext.MetadataManager.GetIdentityClassModels(template.ExecutionContext.GetApplicationConfig().Id);
 
         if (identityModels.Count > 0)
         {
@@ -60,15 +63,21 @@ public static class IdentityHelperExtensions
         }
     }
 
-    public static string GetIdentityUserClasses<T>(this CSharpTemplateBase<T> template)
+    public static List<ClassModel> GetIdentityClassModels(this IMetadataManager metadataManager, string applicationId)
     {
-        var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
+        var associations = metadataManager.Domain(applicationId).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
 
         var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
 
-        var identityModels = models.Select(p => p.ParentElement.AsClassModel()).Where(m => m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
-            m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
-            m.Name == "IdentityUserLogin").ToList();
+        return models.Select(p => p.ParentElement.AsClassModel())
+            .Where(m => m is not null && (m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
+                                           m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
+                                           m.Name == "IdentityUserLogin")).ToList();
+    }
+
+    public static string GetIdentityDbContextGenericParameters<T>(this CSharpTemplateBase<T> template)
+    {
+        var identityModels = template.ExecutionContext.MetadataManager.GetIdentityClassModels(template.ExecutionContext.GetApplicationConfig().Id);
 
         if (identityModels.Count > 0)
         {
@@ -110,13 +119,7 @@ public static class IdentityHelperExtensions
 
     public static string GetIdentityRoleClass<T>(this CSharpTemplateBase<T> template)
     {
-        var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
-
-        var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
-
-        var identityModels = models.Select(p => p.ParentElement.AsClassModel()).Where(m => m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
-            m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
-            m.Name == "IdentityUserLogin").ToList();
+        var identityModels = template.ExecutionContext.MetadataManager.GetIdentityClassModels(template.ExecutionContext.GetApplicationConfig().Id);
 
         if (identityModels.Count > 0)
         {
