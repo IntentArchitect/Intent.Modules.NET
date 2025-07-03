@@ -68,6 +68,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#9940642e-d53c-4a67-aa50-0fca9405580c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/ClientsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1e800adb-27c2-4b06-b094-b2ca4a1d3e4c</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#d5357c76-d451-4541-9061-7b0a3184ccf2</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Api/Controllers/DerivedOfTSController.cs</ApplicationRelativeFilePath>
@@ -347,6 +355,54 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#96d2594f-4bb0-4822-a83c-34b8a1493d7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientCreateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientCreateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#96d2594f-4bb0-4822-a83c-34b8a1493d7e</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientCreateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientCreateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#27418b06-a046-452f-aeea-2c3696d7526f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.AutoMapper.MappingExtensions#27418b06-a046-452f-aeea-2c3696d7526f</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientDtoMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientDtoMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#067d37a1-2928-4201-b978-5f361ac00de6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientUpdateDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientUpdateDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9fb3c05f-90b8-4765-91fc-b111ac34f8da</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.DTOValidator#067d37a1-2928-4201-b978-5f361ac00de6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Clients/ClientUpdateDtoValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Clients/ClientUpdateDtoValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>621c534e-3839-44cb-ac9e-e093dcd379ee</ProjectId>
       <CorrelationId>Intent.Application.MediatR.Behaviours.AuthorizationBehaviour</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -548,10 +604,26 @@
     </FileLog>
     <FileLog>
       <ProjectId>8dd95231-7af2-4f18-b07e-f2636a02b352</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationServiceInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Common/Validation/IValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IValidationService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8dd95231-7af2-4f18-b07e-f2636a02b352</ProjectId>
       <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidatorProviderInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8dd95231-7af2-4f18-b07e-f2636a02b352</ProjectId>
+      <CorrelationId>Intent.Application.FluentValidation.Dtos.ValidationService</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Common/Validation/ValidationService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ValidationService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -707,6 +779,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>b6628f3d-c494-4935-991a-9db47a34cf39</ProjectId>
+      <CorrelationId>Intent.Application.ServiceImplementations.ServiceImplementation#9940642e-d53c-4a67-aa50-0fca9405580c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Implementation/ClientsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ClientsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>3de165a8-0596-4f97-9e34-01dad7cc991e</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.ServiceContract#818638bc-6f9c-466a-b4a6-86617b751e6c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -720,6 +800,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/IntegrationServices/ISecuredService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ISecuredService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>92d1e121-bac7-4c39-91ba-4a20e228fcf7</ProjectId>
+      <CorrelationId>Intent.Application.Contracts.ServiceContract#9940642e-d53c-4a67-aa50-0fca9405580c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.Application/Interfaces/IClientsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IClientsService.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

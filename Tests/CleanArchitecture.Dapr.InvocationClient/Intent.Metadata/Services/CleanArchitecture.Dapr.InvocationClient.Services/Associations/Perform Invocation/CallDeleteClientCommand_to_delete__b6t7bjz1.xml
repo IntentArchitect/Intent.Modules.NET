@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fe34df93-ecb8-4b81-8548-ab534baf4c16">
+  <sourceEnd id="bb5301d2-972e-438d-a8b4-613f8abac36c" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Clients.CallDeleteClientCommand</display>
+    <order>0</order>
+    <typeReference id="8bed744d-762a-4d8e-80f7-4afb730f285a">
+      <typeId>6ee56530-bbbe-451f-8529-102bca4043ca</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.InvocationClient.Services</typePackageName>
+      <typePackageId>7442ed3f-6347-40be-8117-0a55997c7070</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fe34df93-ecb8-4b81-8548-ab534baf4c16" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>delete</name>
+    <display>[call] delete: DeleteClientCommand(...): null</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="87c14e78-95f0-47d4-8f19-4b2d79e4aa3b">
+      <typeId>517dfb62-e912-4f59-bcae-e3d81ce28d08</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="9e282f05-7636-4f1f-8d76-c849d13508c3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6ee56530-bbbe-451f-8529-102bca4043ca" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CallDeleteClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="517dfb62-e912-4f59-bcae-e3d81ce28d08" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[DeleteClientCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallDeleteClientCommand}</expression>
+            <path>
+              <target id="517dfb62-e912-4f59-bcae-e3d81ce28d08" name="DeleteClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="CallDeleteClientCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="6ee56530-bbbe-451f-8529-102bca4043ca" name="CallDeleteClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="517dfb62-e912-4f59-bcae-e3d81ce28d08" name="DeleteClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="15d4d7a3-3a38-487e-86bd-5c342dcd1957" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="6ee56530-bbbe-451f-8529-102bca4043ca" name="CallDeleteClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3431cfb3-0e39-447a-85aa-4c2ed600a623" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

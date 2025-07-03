@@ -7,6 +7,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientConfiguration;
+using Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientDaprHandler;
 using Intent.Modules.Integration.HttpClients.Shared;
 using Intent.Modules.Integration.HttpClients.Shared.Templates;
 using Intent.Plugins.FactoryExtensions;
@@ -49,7 +50,8 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.FactoryExtensions
 
                 foreach (var proxyConfiguration in proxyConfigurations)
                 {
-                    var proxyModel = proxyConfiguration.GetMetadata<IServiceProxyModel>("model");
+                    // Ensure namespace is added
+                    file.Template.GetTypeName(file.Template.ExecutionContext.FindTemplateInstance(HttpClientDaprHandlerTemplate.TemplateId));
 
                     proxyConfiguration.AddChainStatement(new CSharpInvocationStatement($"ConfigureForDapr").WithoutSemicolon());
                 }

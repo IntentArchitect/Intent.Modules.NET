@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="1c9dad1c-41eb-44b5-85d1-a2259f5b8d93">
+  <sourceEnd id="6f25c882-0e7e-4706-a73e-61bf37b12f7f" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Clients.CallCreateClientCommand</display>
+    <order>0</order>
+    <typeReference id="a57bbaa3-a461-45c7-a96e-42194b812489">
+      <typeId>9112f707-b38b-4c0a-aed6-ecf9e508dd39</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.InvocationClient.Services</typePackageName>
+      <typePackageId>7442ed3f-6347-40be-8117-0a55997c7070</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="1c9dad1c-41eb-44b5-85d1-a2259f5b8d93" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>clientId</name>
+    <display>[call] clientId: CreateClientCommand(...): string</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1f19554f-5e69-466b-89c7-5e616e125424">
+      <typeId>3582a501-d5f9-400d-b35c-4b36f5db383e</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="9e282f05-7636-4f1f-8d76-c849d13508c3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="9112f707-b38b-4c0a-aed6-ecf9e508dd39" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CallCreateClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="3582a501-d5f9-400d-b35c-4b36f5db383e" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CreateClientCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallCreateClientCommand}</expression>
+            <path>
+              <target id="3582a501-d5f9-400d-b35c-4b36f5db383e" name="CreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="CallCreateClientCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="9112f707-b38b-4c0a-aed6-ecf9e508dd39" name="CallCreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="3582a501-d5f9-400d-b35c-4b36f5db383e" name="CreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="0c75b7a6-8d5a-449f-aa87-bcb7e1389815" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="9112f707-b38b-4c0a-aed6-ecf9e508dd39" name="CallCreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="49c853a8-f43a-4c39-8c19-5a57c4a88ee7" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{TagsIds}</expression>
+            <path>
+              <target id="3582a501-d5f9-400d-b35c-4b36f5db383e" name="CreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="0726c854-0b02-40af-917f-100115aa4079" name="TagsIds" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="TagsIds" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="9112f707-b38b-4c0a-aed6-ecf9e508dd39" name="CallCreateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="5df35427-0187-4f32-91af-229f4ca1bb79" name="TagsIds" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

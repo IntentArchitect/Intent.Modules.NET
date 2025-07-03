@@ -2,6 +2,8 @@ using System.Reflection;
 using AutoMapper;
 using CleanArchitecture.Dapr.Application.Common.Behaviours;
 using CleanArchitecture.Dapr.Application.Common.Validation;
+using CleanArchitecture.Dapr.Application.Implementation;
+using CleanArchitecture.Dapr.Application.Interfaces;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
@@ -30,6 +32,8 @@ namespace CleanArchitecture.Dapr.Application
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<IClientsService, ClientsService>();
             return services;
         }
     }

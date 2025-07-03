@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d34dbafd-7c34-4672-8ce9-9f623f31a0e5">
+  <sourceEnd id="d1eec003-3ab2-47a6-995f-63909feb8ca3" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsTraditionalService.CallUpdateClientCommand</display>
+    <order>0</order>
+    <typeReference id="8725dfb3-c05a-4ca1-80cb-360c8d35490c">
+      <typeId>6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.InvocationClient.Services</typePackageName>
+      <typePackageId>7442ed3f-6347-40be-8117-0a55997c7070</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d34dbafd-7c34-4672-8ce9-9f623f31a0e5" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : UpdateClientCommand(...): null</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2caed9a8-e5fe-4b1c-9f1d-e01d10469786">
+      <typeId>ccbb300d-1b56-4e3f-a18e-952b9abab339</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="9e282f05-7636-4f1f-8d76-c849d13508c3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CallUpdateClientCommand]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="ccbb300d-1b56-4e3f-a18e-952b9abab339" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[UpdateClientCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallUpdateClientCommand}</expression>
+            <path>
+              <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="CallUpdateClientCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f" name="CallUpdateClientCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="707ce680-7670-4765-91b3-259b7348f8f0" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f" name="CallUpdateClientCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="37613a49-acb0-495d-8268-8ccb6aeb680e" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{name}</expression>
+            <path>
+              <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="fe0a7f0f-b89f-4ee5-84fd-f270a05554e8" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="name" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f" name="CallUpdateClientCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="e9dd62ae-bca3-420a-a5e4-c4ac9a0ac8f5" name="name" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{tagsIds}</expression>
+            <path>
+              <target id="ccbb300d-1b56-4e3f-a18e-952b9abab339" name="UpdateClientCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="de599311-c583-4bcb-b1bc-d4db3717ace7" name="TagsIds" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="tagsIds" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="6d240d5d-f1ae-400f-8e00-8b3e10ebbc8f" name="CallUpdateClientCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="c93e82d7-980e-4f68-8fc8-f3332cea7036" name="tagsIds" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

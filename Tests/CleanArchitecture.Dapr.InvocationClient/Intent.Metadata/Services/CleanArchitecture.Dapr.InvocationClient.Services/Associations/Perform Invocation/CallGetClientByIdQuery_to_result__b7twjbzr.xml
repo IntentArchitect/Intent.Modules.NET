@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="43345994-a9dd-4cb4-9b58-7483716f3aa2">
+  <sourceEnd id="c5c4de6c-7103-40a9-ac54-bc0304f12129" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : ClientsTraditionalService.CallGetClientByIdQuery</display>
+    <order>0</order>
+    <typeReference id="cfe5ac90-93a3-4998-93f6-b89f46345329">
+      <typeId>912df5d1-eda9-4d71-be1e-be58fdb5ae43</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.InvocationClient.Services</typePackageName>
+      <typePackageId>7442ed3f-6347-40be-8117-0a55997c7070</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="43345994-a9dd-4cb4-9b58-7483716f3aa2" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetClientByIdQuery(...): ClientDto</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="6e43dff5-2653-4079-81a5-c8a1bcf24018">
+      <typeId>a3bdd6a0-0038-4d38-8d14-148f656583dd</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Dapr.Services</typePackageName>
+      <typePackageId>54dc2464-246c-461d-9fbd-d03956c25688</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="9e282f05-7636-4f1f-8d76-c849d13508c3" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="912df5d1-eda9-4d71-be1e-be58fdb5ae43" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[CallGetClientByIdQuery]" />
+        <target applicationId="d4e2dacd-90bd-4d8e-829b-bed69f1b8631" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="a3bdd6a0-0038-4d38-8d14-148f656583dd" location="[CleanArchitecture.Dapr.InvocationClient].[Services].[GetClientByIdQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CallGetClientByIdQuery}</expression>
+            <path>
+              <target id="a3bdd6a0-0038-4d38-8d14-148f656583dd" name="GetClientByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="CallGetClientByIdQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="912df5d1-eda9-4d71-be1e-be58fdb5ae43" name="CallGetClientByIdQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="a3bdd6a0-0038-4d38-8d14-148f656583dd" name="GetClientByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+              <target id="133cdffa-c1d3-4ea9-8730-4d5115afe248" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="912df5d1-eda9-4d71-be1e-be58fdb5ae43" name="CallGetClientByIdQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="43033c4b-c971-4e29-9609-6f4c2e13d479" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

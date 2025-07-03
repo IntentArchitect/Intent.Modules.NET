@@ -50,7 +50,7 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation.Templates.HttpClientD
                             .Private()
                             .AddStatements(@"
                                 var assembly = typeof(DaprClient).Assembly;
-                                string assemblyVersion = assembly
+                                var assemblyVersion = assembly
                                     .GetCustomAttributes<AssemblyInformationalVersionAttribute>()
                                     .FirstOrDefault()?
                                     .InformationalVersion;
