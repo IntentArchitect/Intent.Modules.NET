@@ -1,3 +1,7 @@
+### Version 6.0.3
+
+- Improvement: Now supports generation of implicit service proxies for "Perform Invocation" relationships to HTTP Endpoints.
+
 ### Version 6.0.2
 
 - Improvement: Updated NuGet package versions.

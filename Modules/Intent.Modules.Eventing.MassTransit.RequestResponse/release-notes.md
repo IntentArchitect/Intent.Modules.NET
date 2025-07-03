@@ -1,3 +1,7 @@
+### Version 1.1.7
+
+- Improvement: Updated to use improved common infrastructure shared with other service proxy modules.
+
 ### Version 1.1.6
 
 - Fixed: Issue with unit of work not being correctly injected into the constructor
