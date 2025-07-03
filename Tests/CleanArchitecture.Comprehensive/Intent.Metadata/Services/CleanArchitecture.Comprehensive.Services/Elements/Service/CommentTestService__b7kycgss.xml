@@ -10,9 +10,6 @@
   <parentFolderId>94bbe4eb-9ecf-4878-b6b5-7e6e4e7bb8b2</parentFolderId>
   <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
   <packageName>CleanArchitecture.Comprehensive.Services</packageName>
-  <traits>
-    <trait id="9e587d4d-f317-4ab8-9bbb-9394234d2a88" name="[Allow Comment]" />
-  </traits>
   <stereotypes />
   <metadata />
   <childElements>
@@ -35,6 +32,10 @@
       <parentFolderId>0e993a94-e4d2-4617-9dc8-416a97cdada0</parentFolderId>
       <packageId>67511d9d-7243-42f6-a28c-6c3475a97892</packageId>
       <packageName>CleanArchitecture.Comprehensive.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

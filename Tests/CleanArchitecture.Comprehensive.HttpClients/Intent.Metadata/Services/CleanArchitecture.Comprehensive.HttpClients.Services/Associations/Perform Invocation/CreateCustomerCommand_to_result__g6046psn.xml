@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c5dc5ecd-e10b-44bf-8a40-6ff5bf0147b4">
+  <sourceEnd id="96d65fb0-3939-4748-806a-ad9c0a092192" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CustomerService.CreateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="ce1d622d-fe03-42de-8c58-8118cc1fe3ec">
+      <typeId>57cf17d7-13a8-4101-b6e4-e56317339bc7</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c5dc5ecd-e10b-44bf-8a40-6ff5bf0147b4" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: CreateCustomerCommand(...): guid</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="bc870cf1-199f-4da6-958b-9cbb0c07ec0c">
+      <typeId>1641fb5d-50e3-453f-ae7b-ea18259bc4c0</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="57cf17d7-13a8-4101-b6e4-e56317339bc7" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[CreateCustomerCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[CreateCustomerCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateCustomerCommand}</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="CreateCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="57cf17d7-13a8-4101-b6e4-e56317339bc7" name="CreateCustomerCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="4bf889f9-356e-4df3-a4d2-6fd37f3b3b82" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="9c2b6c08-d21c-49ae-9199-d14feb08d42a" name="Surname" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="5711e79b-f008-4823-8c78-fc78e09b3e58" name="Email" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="a4757418-c2fb-41d1-b0b3-c33503fc5268" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="f7977bfb-eac1-464e-ae34-e155529ee5a0" name="Line1" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="a4757418-c2fb-41d1-b0b3-c33503fc5268" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="22dc9200-dcd2-4e94-b360-e1138c08f50b" name="Line2" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="a4757418-c2fb-41d1-b0b3-c33503fc5268" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="aa9bb52c-c199-4249-a284-2f6b22a38279" name="City" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="1641fb5d-50e3-453f-ae7b-ea18259bc4c0" name="CreateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="a4757418-c2fb-41d1-b0b3-c33503fc5268" name="Address" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+              <target id="f00037df-91ea-4f69-9c73-a1d8e2347b9a" name="Postal" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

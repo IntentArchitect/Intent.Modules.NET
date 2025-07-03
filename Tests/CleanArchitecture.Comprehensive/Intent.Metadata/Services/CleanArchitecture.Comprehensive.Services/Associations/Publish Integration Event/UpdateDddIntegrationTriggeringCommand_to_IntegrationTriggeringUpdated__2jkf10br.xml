@@ -21,6 +21,9 @@
   <targetEnd id="5524ab24-e5fe-478f-9a98-009339dbc38b" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] IntegrationTriggeringUpdated</display>
     <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="ddc210c9-0e70-4b37-80c5-c0a41ead7435">
       <typeId>26ba25fb-cf2f-48b9-bbf0-ef5bc2a46ac6</typeId>
       <isNavigable>true</isNavigable>

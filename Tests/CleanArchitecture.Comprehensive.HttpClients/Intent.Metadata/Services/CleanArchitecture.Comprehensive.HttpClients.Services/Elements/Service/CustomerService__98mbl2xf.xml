@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f" type="Service" typeId="b16578a5-27b1-4047-a8df-f0b783d706bd">
+  <name>CustomerService</name>
+  <display>CustomerService</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>80ad1d69-631b-4764-ae7f-18da91e0e37f</parentFolderId>
+  <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+  <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="7ad2858a-9548-44e7-9639-f16baedd2cc3" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomersQuery</name>
+      <display>GetCustomersQuery(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c22dd8f6-d4d2-4925-b9ac-44ee87481d23">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="1c6111c3-8c35-4b6d-8ce7-e06ddb457235" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>GetCustomerByIdQuery</name>
+      <display>GetCustomerByIdQuery(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a62c0c88-e8bc-4032-9c79-3cea6320a260">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="85bc16b1-d576-421a-b07c-40d4d97f9277" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>UpdateCustomerCommand</name>
+      <display>UpdateCustomerCommand(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="7cdd8bd0-ffb8-40fd-828f-6d04bc04c1d4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="0c8ed519-28ed-4a33-a3e1-8863241035fc" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>DeleteCustomerCommand</name>
+      <display>DeleteCustomerCommand(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9db77429-47c2-4001-9d1d-0f1c36c5c2ee">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="57cf17d7-13a8-4101-b6e4-e56317339bc7" type="Operation" typeId="e030c97a-e066-40a7-8188-808c275df3cb">
+      <name>CreateCustomerCommand</name>
+      <display>CreateCustomerCommand(): void</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="a6bdbf61-bf8e-40e4-817d-9b31e6e8f4c4">
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>5e5b3f86-aac1-413f-8e4e-4dd9e3b4b04f</parentFolderId>
+      <packageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</packageId>
+      <packageName>CleanArchitecture.Comprehensive.HttpClients.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

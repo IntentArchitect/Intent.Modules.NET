@@ -116,6 +116,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#b6ccc147-1250-4b13-95f9-738aaf907721</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CustomersController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6d45f6ab-3fda-412b-a70d-35517435d94d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#1dab27ee-ca02-40cf-a0e7-1a8ec613b954</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.Api/Controllers/CustomResponseCodes/CustomResponseCodesDeleteController.cs</ApplicationRelativeFilePath>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="c3535354-1af6-47e0-9234-71fb5c27fc91">
+  <sourceEnd id="b50c7453-e1db-4de2-95a7-a055e8e79c20" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CustomerService.GetCustomersQuery</display>
+    <order>0</order>
+    <typeReference id="36281e27-2b68-42a8-a440-d72bbb4aa7a5">
+      <typeId>7ad2858a-9548-44e7-9639-f16baedd2cc3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="c3535354-1af6-47e0-9234-71fb5c27fc91" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: GetCustomersQuery(...): CustomerDto[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="2ad1df7a-b237-4d17-93fd-5b982cf83c9e">
+      <typeId>4eb919bb-ab82-4b4d-96a6-47a3c5357812</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7ad2858a-9548-44e7-9639-f16baedd2cc3" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomersQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4eb919bb-ab82-4b4d-96a6-47a3c5357812" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[GetCustomersQuery]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetCustomersQuery}</expression>
+            <path>
+              <target id="4eb919bb-ab82-4b4d-96a6-47a3c5357812" name="GetCustomersQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+            </path>
+            <sources>
+              <source identifier="GetCustomersQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="7ad2858a-9548-44e7-9639-f16baedd2cc3" name="GetCustomersQuery" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.Comprehensive.HttpClients.Application\CleanArchitecture.Comprehensive.HttpClients.Application.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Comprehensive.HttpClients.Infrastructure\CleanArchitecture.Comprehensive.HttpClients.Infrastructure.csproj" />
+  </ItemGroup>
+  </Project>

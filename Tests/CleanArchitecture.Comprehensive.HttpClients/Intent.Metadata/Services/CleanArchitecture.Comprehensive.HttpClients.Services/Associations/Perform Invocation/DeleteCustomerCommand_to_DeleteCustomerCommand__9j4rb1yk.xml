@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9305c389-ce34-4d17-a9a6-51be4ee97184">
+  <sourceEnd id="89cb0893-844b-43b5-a390-f369fb67c0b1" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : CustomerService.DeleteCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="adb61c46-1de8-4e8d-8e62-a1e10d784e82">
+      <typeId>0c8ed519-28ed-4a33-a3e1-8863241035fc</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.HttpClients.Services</typePackageName>
+      <typePackageId>5d4b36a8-cabe-4268-85ee-239d3b05a77a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9305c389-ce34-4d17-a9a6-51be4ee97184" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <display>[call] : DeleteCustomerCommand(...): null</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="cc68196b-6132-407d-ac3d-272a2f5ae37e">
+      <typeId>5929a5f1-159c-4d9d-9f5e-abecc294bb2d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+      <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="c3ac2e0f-34c5-4509-9652-5f90a99106e8" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0c8ed519-28ed-4a33-a3e1-8863241035fc" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[DeleteCustomerCommand]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="5929a5f1-159c-4d9d-9f5e-abecc294bb2d" location="[CleanArchitecture.Comprehensive.HttpClients].[Services].[DeleteCustomerCommand]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{DeleteCustomerCommand}</expression>
+            <path>
+              <target id="5929a5f1-159c-4d9d-9f5e-abecc294bb2d" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+            </path>
+            <sources>
+              <source identifier="DeleteCustomerCommand" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="0c8ed519-28ed-4a33-a3e1-8863241035fc" name="DeleteCustomerCommand" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>default</expression>
+            <path>
+              <target id="5929a5f1-159c-4d9d-9f5e-abecc294bb2d" name="DeleteCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+              <target id="b1fc24a0-734e-4aa5-890e-0f3ecad62a22" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+            </path>
+            <sources />
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

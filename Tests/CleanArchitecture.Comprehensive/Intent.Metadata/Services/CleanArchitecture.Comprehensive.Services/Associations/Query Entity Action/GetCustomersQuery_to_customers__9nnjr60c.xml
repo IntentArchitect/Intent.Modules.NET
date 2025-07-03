@@ -39,8 +39,8 @@
     <stereotypes />
     <mappings>
       <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
-        <source elementId="4eb919bb-ab82-4b4d-96a6-47a3c5357812" location="GetCustomersQuery" />
-        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="Customer" />
+        <source applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="4eb919bb-ab82-4b4d-96a6-47a3c5357812" location="[CleanArchitecture.Comprehensive].[Services].[GetCustomersQuery]" />
+        <target applicationId="83f258e8-1f5c-4785-9c9b-c679a771126f" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="21cdffa0-70f5-4a71-8e25-c51d99c183b9" location="[CleanArchitecture.Comprehensive].[Services].[Customer]" />
         <mappedEnds />
       </mapping>
     </mappings>
