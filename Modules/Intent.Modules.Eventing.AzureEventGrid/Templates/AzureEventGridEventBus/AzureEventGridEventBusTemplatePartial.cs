@@ -88,18 +88,46 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                             fi.AddStatement("return;");
                         });
 
-                        method.AddForEachStatement("entry", "_messageQueue", fe =>
+                        // Group messages by their endpoint address so that one client can be used
+                        // to batch publish all of them.
+                        method.AddStatement(new CSharpAssignmentStatement(
+                            new CSharpVariableDeclaration("groupedMessages"),
+                            new CSharpInvocationStatement("_messageQueue.GroupBy")
+                                .AddArgument(new CSharpLambdaBlock("entry"), lambda =>
+                                {
+                                    lambda.AddStatement("var publisherEntry = _lookup[entry.Message.GetType().FullName!];");
+                                    lambda.AddReturn("(publisherEntry.Endpoint, publisherEntry.CredentialKey)");
+                                })
+                        ), stmt => stmt.SeparatedFromPrevious());
+
+                        method.AddForEachStatement("group", "groupedMessages", groupLoop =>
                         {
-                            fe.AddStatement("var publisherEntry = _lookup[entry.Message.GetType().FullName!];");
-                            fe.AddStatement("var client = new EventGridPublisherClient(new Uri(publisherEntry.Endpoint), new AzureKeyCredential(publisherEntry.CredentialKey));");
-                            fe.AddStatement("var cloudEvent = CreateCloudEvent(entry, publisherEntry);");
-                            fe.AddStatement(new CSharpAwaitExpression(new CSharpInvocationStatement("_pipeline.ExecuteAsync")
-                                .AddArgument("cloudEvent")
-                                .AddArgument(new CSharpLambdaBlock("async (@event, token)")
-                                    .AddStatement("await client.SendEventAsync(@event, token);")
-                                    .AddStatement("return @event;")
-                                )
+                            groupLoop.AddStatement("var (endpoint, credentialKey) = group.Key;");
+                            groupLoop.AddStatement("var client = new EventGridPublisherClient(new Uri(endpoint), new AzureKeyCredential(credentialKey));");
+                            groupLoop.AddStatement("var cloudEvents = new List<CloudEvent>();", stmt => stmt.SeparatedFromPrevious());
+
+                            groupLoop.AddForEachStatement("entry", "group", entryLoop =>
+                            {
+                                entryLoop.AddStatement("var publisherEntry = _lookup[entry.Message.GetType().FullName!];");
+                                entryLoop.AddStatement("var cloudEvent = CreateCloudEvent(entry, publisherEntry);");
+                                entryLoop.AddStatement("// Run through the pipeline individually", stmt => stmt.SeparatedFromPrevious());
+                                entryLoop.AddStatement(new CSharpAssignmentStatement(
+                                    new CSharpVariableDeclaration("processedEvent"),
+                                    new CSharpAwaitExpression(new CSharpInvocationStatement("_pipeline.ExecuteAsync")
+                                        .AddArgument("cloudEvent")
+                                        .AddArgument(new CSharpLambdaBlock("(@event, token)")
+                                            .AddStatement("return Task.FromResult(@event);")
+                                        )
+                                        .AddArgument("cancellationToken")
+                                    )
+                                ));
+                                entryLoop.AddStatement("cloudEvents.Add(processedEvent);", stmt => stmt.SeparatedFromPrevious());
+                            });
+
+                            groupLoop.AddStatement(new CSharpAwaitExpression(new CSharpInvocationStatement("client.SendEventsAsync")
+                                .AddArgument("cloudEvents")
                                 .AddArgument("cancellationToken")
+                                .SeparatedFromPrevious()
                             ));
                         });
                     });
@@ -127,11 +155,11 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
 
                         method.AddIfStatement("messageEntry.AdditionalData is not null", extensionAttributesBlock =>
                         {
-                            extensionAttributesBlock.AddIfStatement(@"messageEntry.AdditionalData.TryGetValue(""Subject"", out var subject)", subjectFoundBlock =>
+                            extensionAttributesBlock.AddIfStatement(@"messageEntry.AdditionalData.TryGetValue(""subject"", out var subject)", subjectFoundBlock =>
                             {
                                 subjectFoundBlock.AddStatement("cloudEvent.Subject = (string)subject;");
                             });
-                            extensionAttributesBlock.AddForEachStatement("extensionAttribute", @"messageEntry.AdditionalData.Where(p => p.Key != ""Subject"")", forEachAttributeBlock =>
+                            extensionAttributesBlock.AddForEachStatement("extensionAttribute", @"messageEntry.AdditionalData.Where(p => p.Key != ""subject"")", forEachAttributeBlock =>
                             {
                                 forEachAttributeBlock.AddStatement("cloudEvent.ExtensionAttributes.Add(extensionAttribute.Key, extensionAttribute.Value);");
                             });

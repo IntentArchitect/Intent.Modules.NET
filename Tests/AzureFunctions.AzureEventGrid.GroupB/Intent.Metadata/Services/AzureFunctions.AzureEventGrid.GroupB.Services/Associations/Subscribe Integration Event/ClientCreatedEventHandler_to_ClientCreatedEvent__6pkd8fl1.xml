@@ -21,6 +21,9 @@
   <targetEnd id="2fe3e060-9a26-44c6-a365-e4584c999442" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
     <display>handles: ClientCreatedEvent</display>
     <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
     <typeReference id="f3676932-3f44-496f-ab0f-8029211c682c">
       <typeId>1a56a2eb-1642-43af-bff7-a99f62ed7ffd</typeId>
       <isNavigable>true</isNavigable>

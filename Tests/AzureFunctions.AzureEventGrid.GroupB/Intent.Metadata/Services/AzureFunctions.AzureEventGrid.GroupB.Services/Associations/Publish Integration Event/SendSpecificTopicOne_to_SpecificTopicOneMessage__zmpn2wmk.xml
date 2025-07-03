@@ -21,6 +21,9 @@
   <targetEnd id="278a4c0e-fb89-47db-af07-145aa767ed2a" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
     <display>[publish] SpecificTopicOneMessage</display>
     <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
     <typeReference id="c29ae13d-9da6-422c-a120-34f1b0fb45eb">
       <typeId>0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee</typeId>
       <isNavigable>true</isNavigable>

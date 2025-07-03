@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\MessageModelStereotypeExtensions.cs" Link="AzureEventGridApi\MessageModelStereotypeExtensions.cs" />
+    <Compile Include="..\Intent.Modules.Eventing.AzureEventGrid\Api\EventingPackageModelStereotypeExtensions.cs" Link="AzureEventGridApi\EventingPackageModelStereotypeExtensions.cs" />
     <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\IntegrationCommandModelStereotypeExtensions.cs" Link="AzureServiceBusApi\IntegrationCommandModelStereotypeExtensions.cs" />
     <Compile Include="..\Intent.Modules.Eventing.AzureServiceBus\Api\MessageModelStereotypeExtensions.cs" Link="AzureServiceBusApi\MessageModelStereotypeExtensions.cs" />
   </ItemGroup>

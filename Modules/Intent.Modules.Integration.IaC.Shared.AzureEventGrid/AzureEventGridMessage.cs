@@ -19,6 +19,11 @@ internal class AzureEventGridMessage
         TopicConfigurationEndpointName = $"{baseConfigName}:Endpoint";
         TopicSubscriptionConfigurationName = MethodType == AzureEventGridMethodType.Subscribe  
             ? $"{baseConfigName}Subscription".ToPascalCase() : null;
+        DomainName = MessageModel.InternalElement.Package.IsEventingPackageModel() 
+            ? new EventingPackageModel(MessageModel.InternalElement.Package).GetEventDomain()?.DomainName()
+            : null;
+        DomainConfigurationKeyName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Key" : null;
+        DomainConfigurationEndpointName = DomainName != null ? $"EventGrid:Domains:{DomainName.ToPascalCase()}:Endpoint" : null;
     }
 
     public MessageModel MessageModel { get; init; }
@@ -31,6 +36,9 @@ internal class AzureEventGridMessage
     public string TopicConfigurationKeyName { get; init; }
     public string TopicConfigurationEndpointName { get; init; }
     public string? TopicSubscriptionConfigurationName { get; init; }
+    public string? DomainName { get; init; }
+    public string? DomainConfigurationKeyName { get; set; }
+    public string? DomainConfigurationEndpointName { get; set; }
 
     private string GetTopicConfigurationBaseName(MessageModel messageModel)
     {
@@ -38,6 +46,8 @@ internal class AzureEventGridMessage
         const string prefix = "EventGrid:Topics:";
         return $"{prefix}{topic.ToPascalCase()}";
     }
+    
+    
 
     private string GetTopicName(MessageModel messageModel)
     {

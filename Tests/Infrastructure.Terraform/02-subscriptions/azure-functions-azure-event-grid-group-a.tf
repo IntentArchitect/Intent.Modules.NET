@@ -7,7 +7,7 @@ data "azurerm_eventgrid_topic" "specific_topic" {
   resource_group_name = var.resource_group_name
 }
 
-resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_a" {
+resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_grid_group_a_specific_topic" {
   name                  = "azurefunctions-azureeventgrid-groupa"
   scope                 = data.azurerm_eventgrid_topic.specific_topic.id
   event_delivery_schema = "CloudEventSchemaV1_0"
@@ -19,7 +19,7 @@ resource "azurerm_eventgrid_event_subscription" "azure_functions_azure_event_gri
   }
 
   included_event_types  = [
-    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessage",
-    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessage"
+    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicOneMessageEvent",
+    "AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages.SpecificTopicTwoMessageEvent"
   ]
 }

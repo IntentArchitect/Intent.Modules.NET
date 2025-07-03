@@ -37,20 +37,6 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="9d445490-6803-477c-99b4-fe0d1eeef218" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</name>
-      <display>Intent.EntityFrameworkCore.SoftDelete.SoftDeleteInterface</display>
-      <externalReference>Intent.EntityFrameworkCore.SoftDelete</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>e374750d-4120-4654-bd64-6951857de1e8</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="c5f573f9-8a77-4e23-b325-4d02d281d51e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Entities.SoftDelete.SoftDeleteInterface</name>
       <display>Intent.Entities.SoftDelete.SoftDeleteInterface</display>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f4ce0d72-9e34-492c-b7d3-e1e15c2dc395" type="Message" typeId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e">
+  <name>OrderCreatedEvent</name>
+  <display>OrderCreatedEvent</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e4afd06e-2595-4d93-9bcc-1032ce33122f</parentFolderId>
+  <packageId>e4afd06e-2595-4d93-9bcc-1032ce33122f</packageId>
+  <packageName>AzureFunctions.AzureEventGrid.EventDomain</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="dca28d4b-c277-4fb3-afe0-17f35ea8b59b" name="Azure Event Grid">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Eventing.AzureEventGrid</definitionPackageName>
+      <definitionPackageId>484120b4-6231-4c94-aa60-61efe5c783a7</definitionPackageId>
+      <properties>
+        <property name="5f7b74d7-5fea-4618-b30d-5a3ee30e15e8" display="Topic Name" value="order-created-event" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="b6b8125c-421a-4821-b34f-cc8d31bd37f9" type="Property" typeId="bde29850-5fb9-4f47-9941-b9e182fd9bdc">
+      <name>RefNo</name>
+      <display>RefNo: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="db6024e2-3cc9-4dda-b10c-93371796e62f">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</parentFolderId>
+      <packageId>e4afd06e-2595-4d93-9bcc-1032ce33122f</packageId>
+      <packageName>AzureFunctions.AzureEventGrid.EventDomain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -13,7 +13,7 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
 
         public IReadOnlyList<PublisherEntry> Entries => _entries;
 
-        public void Add<TMessage>(string credentialKey, string endpoint, string source)
+        public void AddTopic<TMessage>(string credentialKey, string endpoint, string source)
         {
             ArgumentNullException.ThrowIfNull(credentialKey);
             ArgumentNullException.ThrowIfNull(endpoint);

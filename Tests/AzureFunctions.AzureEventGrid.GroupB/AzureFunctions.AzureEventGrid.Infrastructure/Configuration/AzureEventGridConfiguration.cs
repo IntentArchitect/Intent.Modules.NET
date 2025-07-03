@@ -1,4 +1,5 @@
 using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
+using AzureFunctions.AzureEventGrid.EventDomain;
 using AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.GroupB.Eventing.Messages;
 using AzureFunctions.AzureEventGrid.Infrastructure.Eventing;
@@ -28,12 +29,13 @@ namespace AzureFunctions.AzureEventGrid.Infrastructure.Configuration
             services.AddScoped<IAzureEventGridConsumerBehavior, InboundCloudEventBehavior>();
             services.Configure<AzureEventGridPublisherOptions>(options =>
             {
-                options.Add<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
-                options.Add<SpecificTopicTwoMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
+                options.AddTopic<SpecificTopicOneMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
+                options.AddTopic<SpecificTopicTwoMessageEvent>(configuration["EventGrid:Topics:SpecificTopic:Key"]!, configuration["EventGrid:Topics:SpecificTopic:Endpoint"]!, configuration["EventGrid:Topics:SpecificTopic:Source"]!);
             });
             services.Configure<AzureEventGridSubscriptionOptions>(options =>
             {
                 options.Add<ClientCreatedEvent, IIntegrationEventHandler<ClientCreatedEvent>>();
+                options.Add<OrderCreatedEvent, IIntegrationEventHandler<OrderCreatedEvent>>();
             });
             return services;
         }

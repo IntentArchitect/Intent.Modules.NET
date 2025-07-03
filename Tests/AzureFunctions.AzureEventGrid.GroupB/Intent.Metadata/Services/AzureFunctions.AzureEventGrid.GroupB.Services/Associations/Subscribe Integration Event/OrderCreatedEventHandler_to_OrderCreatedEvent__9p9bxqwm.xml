@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="26302a8c-eea0-4c4c-96a1-77cef3e14b17">
+  <sourceEnd id="710458d3-9eb8-467c-9327-671e75d67449" type="Subscribe Integration Event Source End" typeId="5d8f5c33-f9c9-4629-b637-fad9b0096894">
+    <display>handled by: AzureFunctions.AzureEventGrid.GroupB.Services.OrderCreatedEventHandler</display>
+    <order>0</order>
+    <typeReference id="28f55b32-6444-4b2e-a21d-f17f96f20ea4">
+      <typeId>8a259139-702a-4f1c-8cc0-8c93fe618080</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.GroupB.Services</typePackageName>
+      <typePackageId>6433daa4-2629-48a7-bbd6-fe222f161a69</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="26302a8c-eea0-4c4c-96a1-77cef3e14b17" type="Subscribe Integration Event Target End" typeId="16fa2952-79e6-4150-b5ab-45aa4c106de4">
+    <display>handles: OrderCreatedEvent</display>
+    <order>0</order>
+    <traits>
+      <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+    </traits>
+    <typeReference id="6f6244f1-8337-40e7-9946-4926931b85f8">
+      <typeId>f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.EventDomain</typePackageName>
+      <typePackageId>e4afd06e-2595-4d93-9bcc-1032ce33122f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Subscribe Integration Event</associationType>
+  <associationTypeId>80aa7f6d-64e5-4d24-a81e-6bc212925ca7</associationTypeId>
+  <stereotypes />
+</association>

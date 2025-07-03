@@ -1,3 +1,7 @@
+### Version 4.0.16
+
+- Fixed: Missing using directives in DTO Mapping Profile.
+
 ### Version 4.0.15
 
 - Fixed: Using casing convention other than Pascal Case resulted in incorrectly generated Automapper mapping profiles.

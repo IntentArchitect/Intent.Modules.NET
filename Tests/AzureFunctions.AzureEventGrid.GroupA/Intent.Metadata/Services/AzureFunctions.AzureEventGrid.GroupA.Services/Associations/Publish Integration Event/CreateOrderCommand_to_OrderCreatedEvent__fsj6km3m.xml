@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2d7e8bc7-67d4-42b3-9baa-10a8d2f07779">
+  <sourceEnd id="3d89eecf-fa28-4299-89f2-2058c085723b" type="Publish Integration Event Source End" typeId="eab91b3a-9903-40a2-90e8-ddb714883eab">
+    <display>published by : AzureFunctions.AzureEventGrid.GroupA.Services.CreateOrderCommand</display>
+    <order>0</order>
+    <typeReference id="32ffcd82-9e78-4dd3-bb3f-b4d73ef7190d">
+      <typeId>1e88c249-cabf-4647-9660-8e1357bc5cf3</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.GroupA.Services</typePackageName>
+      <typePackageId>6433daa4-2629-48a7-bbd6-fe222f161a68</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2d7e8bc7-67d4-42b3-9baa-10a8d2f07779" type="Publish Integration Event Target End" typeId="6feb1511-849a-4aa3-85eb-d0c736ac1fec">
+    <display>[publish] OrderCreatedEvent</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="be5c714c-cb96-41df-95c6-a477d7aba231">
+      <typeId>f4ce0d72-9e34-492c-b7d3-e1e15c2dc395</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AzureFunctions.AzureEventGrid.EventDomain</typePackageName>
+      <typePackageId>e4afd06e-2595-4d93-9bcc-1032ce33122f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Publish Message Mapping" typeId="7ff48a4c-ee8b-4e66-9dbb-c014eb0542fb">
+        <source applicationId="4a338751-91d2-4c13-b0ad-bb2979c82f22" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="1e88c249-cabf-4647-9660-8e1357bc5cf3" location="[AzureFunctions.AzureEventGrid.GroupA].[Services].[CreateOrderCommand]" />
+        <target elementId="f4ce0d72-9e34-492c-b7d3-e1e15c2dc395" location="[AzureFunctions.AzureEventGrid.GroupA].[Services].[OrderCreatedEvent]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{RefNo}</expression>
+            <path>
+              <target id="f4ce0d72-9e34-492c-b7d3-e1e15c2dc395" name="OrderCreatedEvent" type="element" specialization="Message" specializationId="cbe970af-5bad-4d92-a3ed-a24b9fdaa23e" />
+              <target id="b6b8125c-421a-4821-b34f-cc8d31bd37f9" name="RefNo" type="element" specialization="Property" specializationId="bde29850-5fb9-4f47-9941-b9e182fd9bdc" />
+            </path>
+            <sources>
+              <source identifier="RefNo" mappingType="Data Mapping" mappingTypeId="d12e5102-45f3-4dde-8f63-f6a630e75771">
+                <path>
+                  <target id="1e88c249-cabf-4647-9660-8e1357bc5cf3" name="CreateOrderCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="b03910f2-b50b-4e49-9d0b-e1554f5fb042" name="RefNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Publish Integration Event</associationType>
+  <associationTypeId>580b6b26-eab5-4602-a408-e76e2d292d2c</associationTypeId>
+  <stereotypes />
+</association>

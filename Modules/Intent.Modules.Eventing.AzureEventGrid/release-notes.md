@@ -1,6 +1,15 @@
+### Version 1.2.0
+
+- Improvement: Event Domains support added. ❇️
+- Improvement: `AzureEventGridEventBus` is enhanced to do more efficient message publishing using `SendEventsAsync`. ❇️
+
+> NOTE! ⚠️
+>
+> The Publish-configuration in `AzureEventGridConfiguration.cs` have been renamed from `Add` to `AddTopic` for Custom Topic Events.
+
 ### Version 1.1.1
 
-- Improvement: Updated referenced packages versions
+- Improvement: Updated referenced packages versions.
 
 ### Version 1.1.0
 
@@ -8,7 +17,7 @@
 - Improvement: `Subject` is no longer present on the `Publish` method, but instead you can specify a dictionary of `Extension Attributes`. You can still specify the `Subject` that way.
 - Improvement: Renamed `Options` classes to be more distinct to Azure Event Grid configuration.
 
-> [!NOTE]
+> NOTE! ⚠️
 > 
 > Ensure that your Event Grid Topics are set to use `CloudEvent` schema (v1.0).
 

@@ -155,9 +155,18 @@ namespace Intent.Modules.IaC.Terraform.Templates.Applications.AzureFunctionAppTf
                             if (message.MethodType == AzureEventGridMethodType.Publish)
                             {
                                 appSettings.AddRawSetting($@"""{message.TopicConfigurationSourceName}""", $@"""{message.TopicName.ToKebabCase()}""");
+                                
+                                if (message.DomainName != null)
+                                {
+                                    appSettings.AddRawSetting($@"""{message.DomainConfigurationKeyName}""", Terraform.azurerm_eventgrid_domain.domain(message.DomainName).primary_access_key);
+                                    appSettings.AddRawSetting($@"""{message.DomainConfigurationEndpointName}""", Terraform.azurerm_eventgrid_domain.domain(message.DomainName).endpoint);
+                                }
+                                else
+                                {
+                                    appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
+                                    appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
+                                }
                             }
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationKeyName}""", Terraform.azurerm_eventgrid_topic.topic(message).primary_access_key);
-                            appSettings.AddRawSetting($@"""{message.TopicConfigurationEndpointName}""", Terraform.azurerm_eventgrid_topic.topic(message).endpoint);
                         }
                     }
                 });

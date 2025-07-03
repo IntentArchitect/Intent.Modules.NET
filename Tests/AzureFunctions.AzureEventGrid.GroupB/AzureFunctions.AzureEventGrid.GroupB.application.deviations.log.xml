@@ -27,5 +27,18 @@
       <deviationsHash>B482CFE077B19226094F197651B154CEBA89FA7693FDA50868F353B91784DF05</deviationsHash>
       <fileHash>55A8599B6B3508FEFDCF50075DEB6BB8332E9DC88650288FFF0C6EB5D9DFCF57</fileHash>
     </file>
+    <file>
+      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#8a259139-702a-4f1c-8cc0-8c93fe618080</correlationId>
+      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
+      <updatedAt>2025-07-03T16:23:21.1243627Z</updatedAt>
+      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
+      <approvedAt>2025-07-03T16:23:21.1245053Z</approvedAt>
+      <deviationsHash>A6C4AA5AA69CF185D578A384A4B77176C956BD895CCCFB34FBB7B6E468A337CD</deviationsHash>
+      <fileHash>E195A0A24443112C39A636AB0718AF2D80386DDBC493B5429E9E3664C5142625</fileHash>
+    </file>
   </files>
 </deviationsLog>
