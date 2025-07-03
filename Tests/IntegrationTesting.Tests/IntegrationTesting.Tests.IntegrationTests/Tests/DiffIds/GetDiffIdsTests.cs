@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.DiffIds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -26,7 +26,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             await dataFactory.CreateDiffId();
 
             // Act
-            var diffIds = await client.GetDiffIdsAsync();
+            var diffIds = await client.GetDiffIdsAsync(TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotEmpty(diffIds);

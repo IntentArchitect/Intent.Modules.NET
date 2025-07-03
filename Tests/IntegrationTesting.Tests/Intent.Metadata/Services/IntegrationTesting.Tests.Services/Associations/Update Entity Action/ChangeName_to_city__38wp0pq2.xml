@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="37e28e2f-c84f-4684-9eba-bc0aa1f10b2f">
+  <sourceEnd id="715dbf68-4a03-49e8-aa3e-be0322ada9f5" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : CountriesService.ChangeName</display>
+    <order>0</order>
+    <typeReference id="4f34da5d-e20a-49eb-b800-027c6c6e55d3">
+      <typeId>2497719e-c6c1-4e8f-a98f-e410e81bd28a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Services</typePackageName>
+      <typePackageId>5c38bf3d-7506-444e-8e56-e1b9b35e6643</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="37e28e2f-c84f-4684-9eba-bc0aa1f10b2f" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>city</name>
+    <display>[update] city: City</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c22948c8-b93c-4eb9-8dda-ab1ce1732828">
+      <typeId>32831b20-5b53-44fe-8333-0e5f1dcc321d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2497719e-c6c1-4e8f-a98f-e410e81bd28a" location="[IntegrationTesting.Tests].[Services].[ChangeName]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="32831b20-5b53-44fe-8333-0e5f1dcc321d" location="[IntegrationTesting.Tests].[Services].[City]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="32831b20-5b53-44fe-8333-0e5f1dcc321d" name="City" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="893b43eb-7b95-41e5-b150-2d1d014bc4cd" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="2497719e-c6c1-4e8f-a98f-e410e81bd28a" name="ChangeName" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="4f44b79c-bfa9-46f0-9161-05df70201166" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="2497719e-c6c1-4e8f-a98f-e410e81bd28a" location="[IntegrationTesting.Tests].[Services].[ChangeName]" />
+        <target applicationId="2d1629af-eb4d-4434-b187-03ea5c1ca294" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="32831b20-5b53-44fe-8333-0e5f1dcc321d" location="[IntegrationTesting.Tests].[Services].[City]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{ChangeName}</expression>
+            <path>
+              <target id="32831b20-5b53-44fe-8333-0e5f1dcc321d" name="City" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e34a2aa9-6be0-4c3a-922d-00d3a223a1ac" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="ChangeName" mappingType="Invocation Mapping" mappingTypeId="d30bdba1-9c47-4917-b81d-29230fed5d6a">
+                <path>
+                  <target id="2497719e-c6c1-4e8f-a98f-e410e81bd28a" name="ChangeName" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.Name}</expression>
+            <path>
+              <target id="32831b20-5b53-44fe-8333-0e5f1dcc321d" name="City" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="e34a2aa9-6be0-4c3a-922d-00d3a223a1ac" name="ChangeName" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="c4da48a7-8095-42d8-a270-5c8e85742b36" name="name" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="dto.Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="2497719e-c6c1-4e8f-a98f-e410e81bd28a" name="ChangeName" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="789a4fa6-e3ec-4612-9c49-58d6275133b6" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="4ad65362-a32e-4b1b-9190-88c8de655a75" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

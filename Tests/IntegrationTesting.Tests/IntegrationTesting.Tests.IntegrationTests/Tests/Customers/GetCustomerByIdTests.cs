@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.Customers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -26,7 +26,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var customerId = await dataFactory.CreateCustomer();
 
             // Act
-            var customer = await client.GetCustomerByIdAsync(customerId);
+            var customer = await client.GetCustomerByIdAsync(customerId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(customer);

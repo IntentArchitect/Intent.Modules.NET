@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.ParentWithAnemicChildren
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var parentWithAnemicChildId = await dataFactory.CreateParentWithAnemicChild();
 
             // Act
-            await client.DeleteParentWithAnemicChildAsync(parentWithAnemicChildId);
+            await client.DeleteParentWithAnemicChildAsync(parentWithAnemicChildId, TestContext.Current.CancellationToken);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetParentWithAnemicChildByIdAsync(parentWithAnemicChildId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetParentWithAnemicChildByIdAsync(parentWithAnemicChildId, TestContext.Current.CancellationToken));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

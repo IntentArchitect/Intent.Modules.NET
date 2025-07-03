@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.CheckNewCompChildCruds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateCheckNewCompChildCrudCommand>();
 
             // Act
-            var checkNewCompChildCrudId = await client.CreateCheckNewCompChildCrudAsync(command);
+            var checkNewCompChildCrudId = await client.CreateCheckNewCompChildCrudAsync(command, TestContext.Current.CancellationToken);
 
             // Assert
-            var checkNewCompChildCrud = await client.GetCheckNewCompChildCrudByIdAsync(checkNewCompChildCrudId);
+            var checkNewCompChildCrud = await client.GetCheckNewCompChildCrudByIdAsync(checkNewCompChildCrudId, TestContext.Current.CancellationToken);
             Assert.NotNull(checkNewCompChildCrud);
         }
     }

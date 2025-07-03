@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Basics
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateBasicCommand>();
 
             // Act
-            var basicId = await client.CreateBasicAsync(command);
+            var basicId = await client.CreateBasicAsync(command, TestContext.Current.CancellationToken);
 
             // Assert
-            var basic = await client.GetBasicByIdAsync(basicId);
+            var basic = await client.GetBasicByIdAsync(basicId, TestContext.Current.CancellationToken);
             Assert.NotNull(basic);
         }
     }

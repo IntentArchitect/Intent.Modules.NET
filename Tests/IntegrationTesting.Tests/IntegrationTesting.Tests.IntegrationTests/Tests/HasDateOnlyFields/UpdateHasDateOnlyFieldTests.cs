@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.HasDateOnlyFields
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = hasDateOnlyFieldId;
 
             // Act
-            await client.UpdateHasDateOnlyFieldAsync(hasDateOnlyFieldId, command);
+            await client.UpdateHasDateOnlyFieldAsync(hasDateOnlyFieldId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var hasDateOnlyField = await client.GetHasDateOnlyFieldByIdAsync(hasDateOnlyFieldId);
+            var hasDateOnlyField = await client.GetHasDateOnlyFieldByIdAsync(hasDateOnlyFieldId, TestContext.Current.CancellationToken);
             Assert.NotNull(hasDateOnlyField);
             Assert.Equal(command.MyDate, hasDateOnlyField.MyDate);
         }

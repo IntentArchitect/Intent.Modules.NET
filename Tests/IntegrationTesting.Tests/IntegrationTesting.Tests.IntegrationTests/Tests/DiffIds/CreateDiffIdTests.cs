@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.DiffIds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -28,10 +28,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateDiffIdCommand>();
 
             // Act
-            var diffIdId = await client.CreateDiffIdAsync(command);
+            var diffIdId = await client.CreateDiffIdAsync(command, TestContext.Current.CancellationToken);
 
             // Assert
-            var diffId = await client.GetDiffIdByIdAsync(diffIdId);
+            var diffId = await client.GetDiffIdByIdAsync(diffIdId, TestContext.Current.CancellationToken);
             Assert.NotNull(diffId);
         }
     }

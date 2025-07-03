@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.PagingTSService
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var pagingTSId = await dataFactory.CreatePagingTS();
 
             // Act
-            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId);
+            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(pagingTS);

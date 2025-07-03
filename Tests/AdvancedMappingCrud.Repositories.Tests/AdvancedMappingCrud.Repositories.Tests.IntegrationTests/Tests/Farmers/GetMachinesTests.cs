@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Farmers
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var ids = await dataFactory.CreateMachines();
 
             // Act
-            var machines = await client.GetMachinesAsync(ids.FarmerId);
+            var machines = await client.GetMachinesAsync(ids.FarmerId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotEmpty(machines);

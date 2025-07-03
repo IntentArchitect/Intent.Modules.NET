@@ -175,6 +175,24 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests
             return (countryId, stateId);
         }
 
+        public async Task<(Guid CountryId, Guid StateId)> CreateCityDependencies()
+        {
+            var ids = await CreateState();
+            return ids;
+        }
+
+        public async Task<(Guid CountryId, Guid StateId, Guid CityId)> CreateCity()
+        {
+            var ids = await CreateCityDependencies();
+
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCityDto>();
+            var cityId = await client.CreateCityAsync(ids.CountryId, ids.StateId, command);
+            _idTracker["CityId"] = cityId;
+            return (ids.CountryId, ids.StateId, cityId);
+        }
+
         public async Task<Guid> CreatePagingTS()
         {
             var client = new PagingTSServiceHttpClient(_factory.CreateClient());

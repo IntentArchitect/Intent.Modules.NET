@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.ParentWithAnemicChildren
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             await dataFactory.CreateParentWithAnemicChild();
 
             // Act
-            var parentWithAnemicChildren = await client.GetParentWithAnemicChildrenAsync();
+            var parentWithAnemicChildren = await client.GetParentWithAnemicChildrenAsync(TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotEmpty(parentWithAnemicChildren);

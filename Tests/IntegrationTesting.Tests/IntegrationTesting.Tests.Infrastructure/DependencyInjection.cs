@@ -31,6 +31,7 @@ namespace IntegrationTesting.Tests.Infrastructure
             services.AddTransient<ICheckNewCompChildCrudRepository, CheckNewCompChildCrudRepository>();
             services.AddTransient<IChildRepository, ChildRepository>();
             services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IDiffIdRepository, DiffIdRepository>();
             services.AddTransient<IDiffPkRepository, DiffPkRepository>();

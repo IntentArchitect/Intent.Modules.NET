@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.DtoReturns
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -30,10 +30,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = dtoReturnId;
 
             // Act
-            await client.UpdateDtoReturnAsync(dtoReturnId, command);
+            await client.UpdateDtoReturnAsync(dtoReturnId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var dtoReturn = await client.GetDtoReturnByIdAsync(dtoReturnId);
+            var dtoReturn = await client.GetDtoReturnByIdAsync(dtoReturnId, TestContext.Current.CancellationToken);
             Assert.NotNull(dtoReturn);
             Assert.Equal(command.Name, dtoReturn.Name);
         }

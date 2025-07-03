@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests.Orders
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
             var orderId = await dataFactory.CreateOrder();
 
             // Act
-            await client.DeleteOrderAsync(orderId);
+            await client.DeleteOrderAsync(orderId, TestContext.Current.CancellationToken);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderByIdAsync(orderId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetOrderByIdAsync(orderId, TestContext.Current.CancellationToken));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

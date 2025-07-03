@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.Brands
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -29,10 +29,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = brandId;
 
             // Act
-            await client.UpdateBrandAsync(brandId, command);
+            await client.UpdateBrandAsync(brandId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var brand = await client.GetBrandByIdAsync(brandId);
+            var brand = await client.GetBrandByIdAsync(brandId, TestContext.Current.CancellationToken);
             Assert.NotNull(brand);
             Assert.Equal(command.Name, brand.Name);
         }

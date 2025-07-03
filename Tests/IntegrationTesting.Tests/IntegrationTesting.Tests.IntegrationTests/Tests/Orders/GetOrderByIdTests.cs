@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.Orders
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -26,7 +26,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var orderId = await dataFactory.CreateOrder();
 
             // Act
-            var order = await client.GetOrderByIdAsync(orderId);
+            var order = await client.GetOrderByIdAsync(orderId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(order);

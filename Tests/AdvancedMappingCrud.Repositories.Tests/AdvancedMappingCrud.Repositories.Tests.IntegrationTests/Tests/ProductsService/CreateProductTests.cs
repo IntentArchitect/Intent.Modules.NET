@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.ProductsService
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<ProductCreateDto>();
 
             // Act
-            var productId = await client.CreateProductAsync(command);
+            var productId = await client.CreateProductAsync(command, TestContext.Current.CancellationToken);
 
             // Assert
-            var product = await client.FindProductByIdAsync(productId);
+            var product = await client.FindProductByIdAsync(productId, TestContext.Current.CancellationToken);
             Assert.NotNull(product);
         }
     }

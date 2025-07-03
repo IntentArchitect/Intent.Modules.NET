@@ -5,7 +5,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.CountriesService
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             var ids = await dataFactory.CreateState();
 
             // Act
-            var states = await client.FindStatesAsync(ids.CountryId);
+            var states = await client.FindStatesAsync(ids.CountryId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotEmpty(states);

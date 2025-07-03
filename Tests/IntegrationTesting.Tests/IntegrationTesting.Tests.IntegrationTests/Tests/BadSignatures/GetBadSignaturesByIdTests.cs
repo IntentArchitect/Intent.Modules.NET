@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.BadSignatures
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -26,7 +26,7 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var badSignaturesId = await dataFactory.CreateBadSignatures();
 
             // Act
-            var badSignatures = await client.GetBadSignaturesByIdAsync(badSignaturesId);
+            var badSignatures = await client.GetBadSignaturesByIdAsync(badSignaturesId, TestContext.Current.CancellationToken);
 
             // Assert
             Assert.NotNull(badSignatures);

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="9298baea-bd2d-4b47-858b-554bda117988">
+  <sourceEnd id="487e5f17-b194-4aa8-add9-d35f98f78600" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Country</name>
+    <display>Country: Country</display>
+    <order>0</order>
+    <typeReference id="8f8a382a-4fa1-4a28-b4be-d920e985c1b2">
+      <typeId>af5f513b-7c00-4a5e-b061-b6fbd6c0185d</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="9298baea-bd2d-4b47-858b-554bda117988" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>States</name>
+    <display>States: State[*]</display>
+    <order>3</order>
+    <typeReference id="9901c748-f1bd-4d52-be1d-8cefa78a3e12">
+      <typeId>ed521356-de0b-48e7-869f-046c1e2af463</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

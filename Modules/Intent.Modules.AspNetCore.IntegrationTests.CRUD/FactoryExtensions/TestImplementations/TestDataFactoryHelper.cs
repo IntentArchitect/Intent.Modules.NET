@@ -63,7 +63,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions.Test
                                 method.AddStatement($"var {crudTest.OwningAggregate.VariableName()} = await Create{crudTest.OwningAggregate.Parent().Name}();");
                             }
 
-                            var aggPath = crudTest.OwningAggregate.Path.Select(p => p.Name).ToList();
+                            var aggPath = crudTest.OwningAggregate?.Path?.Select(p => p.Name).ToList() ?? new List<string>();
                             foreach (var dependency in crudTest.Dependencies.Where(d => !aggPath.Contains( d.EntityName)))
                             {
                                 method.AddStatement($"await Create{dependency.EntityName}();");

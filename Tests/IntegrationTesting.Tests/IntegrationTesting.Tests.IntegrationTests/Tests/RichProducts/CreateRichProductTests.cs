@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.RichProducts
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -28,10 +28,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             var command = dataFactory.CreateCommand<CreateRichProductCommand>();
 
             // Act
-            var richProductId = await client.CreateRichProductAsync(command);
+            var richProductId = await client.CreateRichProductAsync(command, TestContext.Current.CancellationToken);
 
             // Assert
-            var richProduct = await client.GetRichProductByIdAsync(richProductId);
+            var richProduct = await client.GetRichProductByIdAsync(richProductId, TestContext.Current.CancellationToken);
             Assert.NotNull(richProduct);
         }
     }

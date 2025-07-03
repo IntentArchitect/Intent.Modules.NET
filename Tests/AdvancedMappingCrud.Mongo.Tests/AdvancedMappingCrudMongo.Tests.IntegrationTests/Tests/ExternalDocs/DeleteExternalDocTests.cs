@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests.ExternalDocs
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -27,10 +27,10 @@ namespace AdvancedMappingCrudMongo.Tests.IntegrationTests.Tests
             var externalDocId = await dataFactory.CreateExternalDoc();
 
             // Act
-            await client.DeleteExternalDocAsync(externalDocId);
+            await client.DeleteExternalDocAsync(externalDocId, TestContext.Current.CancellationToken);
 
             // Assert
-            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetExternalDocByIdAsync(externalDocId));
+            var exception = await Assert.ThrowsAsync<HttpClientRequestException>(() => client.GetExternalDocByIdAsync(externalDocId, TestContext.Current.CancellationToken));
             Assert.Equal(HttpStatusCode.NotFound, exception.StatusCode);
         }
     }

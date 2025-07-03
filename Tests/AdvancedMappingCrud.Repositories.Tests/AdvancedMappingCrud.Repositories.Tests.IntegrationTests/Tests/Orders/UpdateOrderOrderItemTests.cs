@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.Orders
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -30,10 +30,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             command.Id = ids.OrderItemId;
 
             // Act
-            await client.UpdateOrderOrderItemAsync(ids.OrderItemId, command);
+            await client.UpdateOrderOrderItemAsync(ids.OrderItemId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var orderItem = await client.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId);
+            var orderItem = await client.GetOrderOrderItemByIdAsync(ids.OrderId, ids.OrderItemId, TestContext.Current.CancellationToken);
             Assert.NotNull(orderItem);
             Assert.Equal(command.Quantity, orderItem.Quantity);
         }

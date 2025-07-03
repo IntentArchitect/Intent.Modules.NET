@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace IntegrationTesting.Tests.IntegrationTests.Tests
+namespace IntegrationTesting.Tests.IntegrationTests.Tests.PartialCruds
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -30,10 +30,10 @@ namespace IntegrationTesting.Tests.IntegrationTests.Tests
             command.Id = partialCrudId;
 
             // Act
-            await client.UpdatePartialCrudAsync(partialCrudId, command);
+            await client.UpdatePartialCrudAsync(partialCrudId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var partialCrud = await client.GetPartialCrudByIdAsync(partialCrudId);
+            var partialCrud = await client.GetPartialCrudByIdAsync(partialCrudId, TestContext.Current.CancellationToken);
             Assert.NotNull(partialCrud);
             Assert.Equal(command.Name, partialCrud.Name);
         }

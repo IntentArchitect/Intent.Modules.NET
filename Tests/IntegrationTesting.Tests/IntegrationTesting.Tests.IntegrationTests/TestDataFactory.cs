@@ -18,6 +18,7 @@ using IntegrationTesting.Tests.IntegrationTests.Services.Brands;
 using IntegrationTesting.Tests.IntegrationTests.Services.CheckNewCompChildCruds;
 using IntegrationTesting.Tests.IntegrationTests.Services.Children;
 using IntegrationTesting.Tests.IntegrationTests.Services.Clients;
+using IntegrationTesting.Tests.IntegrationTests.Services.Countries;
 using IntegrationTesting.Tests.IntegrationTests.Services.Customers;
 using IntegrationTesting.Tests.IntegrationTests.Services.DiffIds;
 using IntegrationTesting.Tests.IntegrationTests.Services.DtoReturns;
@@ -245,6 +246,52 @@ namespace IntegrationTesting.Tests.IntegrationTests
             var richProductId = await client.CreateRichProductAsync(command);
             _idTracker["RichProductId"] = richProductId;
             return richProductId;
+        }
+
+        public async Task<(Guid CountryId, Guid StateId)> CreateCityDependencies()
+        {
+            var ids = await CreateState();
+            return ids;
+        }
+
+        public async Task<(Guid CountryId, Guid StateId, Guid CityId)> CreateCity()
+        {
+            var ids = await CreateCityDependencies();
+
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCityDto>();
+            var cityId = await client.CreateCityAsync(ids.CountryId, ids.StateId, command);
+            _idTracker["CityId"] = cityId;
+            return (ids.CountryId, ids.StateId, cityId);
+        }
+
+        public async Task<Guid> CreateStateDependencies()
+        {
+            var countryId = await CreateCountry();
+            return countryId;
+        }
+
+        public async Task<(Guid CountryId, Guid StateId)> CreateState()
+        {
+            var countryId = await CreateStateDependencies();
+
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateStateDto>();
+            var stateId = await client.CreateStateAsync(countryId, command);
+            _idTracker["StateId"] = stateId;
+            return (countryId, stateId);
+        }
+
+        public async Task<Guid> CreateCountry()
+        {
+            var client = new CountriesServiceHttpClient(_factory.CreateClient());
+
+            var command = CreateCommand<CreateCountryDto>();
+            var countryId = await client.CreateCountryAsync(command);
+            _idTracker["CountryId"] = countryId;
+            return countryId;
         }
 
         public async Task<Guid> CreateProduct()

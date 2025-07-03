@@ -32,6 +32,7 @@ namespace IntegrationTesting.Tests.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddTransient<IValidationService, ValidationService>();
+            services.AddTransient<ICountriesService, CountriesService>();
             services.AddTransient<IProductsService, ProductsService>();
             return services;
         }

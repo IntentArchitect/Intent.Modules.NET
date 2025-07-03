@@ -6,7 +6,7 @@ using Intent.RoslynWeaver.Attributes;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest", Version = "1.0")]
 
-namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
+namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests.PagingTSService
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     [Collection("SharedContainer")]
@@ -29,10 +29,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.Tests
             command.Id = pagingTSId;
 
             // Act
-            await client.UpdatePagingTSAsync(pagingTSId, command);
+            await client.UpdatePagingTSAsync(pagingTSId, command, TestContext.Current.CancellationToken);
 
             // Assert
-            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId);
+            var pagingTS = await client.FindPagingTSByIdAsync(pagingTSId, TestContext.Current.CancellationToken);
             Assert.NotNull(pagingTS);
             Assert.Equal(command.Name, pagingTS.Name);
         }

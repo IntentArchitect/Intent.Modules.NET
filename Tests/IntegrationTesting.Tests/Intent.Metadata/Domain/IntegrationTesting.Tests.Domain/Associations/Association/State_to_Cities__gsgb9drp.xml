@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="7d59fcd5-089c-491c-b4f7-729447768710">
+  <sourceEnd id="c5b8244f-749f-4a10-aa76-2f507a59413f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>State</name>
+    <display>State: State</display>
+    <order>0</order>
+    <typeReference id="8345b4f8-bae8-4cd7-a30f-ad4e0714a817">
+      <typeId>ed521356-de0b-48e7-869f-046c1e2af463</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="7d59fcd5-089c-491c-b4f7-729447768710" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Cities</name>
+    <display>Cities: City[*]</display>
+    <order>3</order>
+    <typeReference id="1d687061-1e5c-4c65-8398-484a554b7a3a">
+      <typeId>32831b20-5b53-44fe-8333-0e5f1dcc321d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>IntegrationTesting.Tests.Domain</typePackageName>
+      <typePackageId>086ea1d7-21ff-4b2f-89af-27f09033705a</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
