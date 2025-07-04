@@ -1,3 +1,7 @@
+### Version 4.3.6
+
+- Improvement: Locked MediatR NuGet package version
+
 ### Version 4.3.5
 
 - Improvement: Updated NuGet package versions.

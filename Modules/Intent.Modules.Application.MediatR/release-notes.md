@@ -1,3 +1,7 @@
+### Version 4.4.1
+
+- Improvement: Locked MediatR NuGet package version
+
 ### Version 4.4.0
 
 - Improvement: Provides a `_mediator.Send(...)` implmentation strategy for the new interactions system.

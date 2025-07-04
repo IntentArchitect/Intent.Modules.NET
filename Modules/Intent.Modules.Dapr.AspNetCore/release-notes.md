@@ -1,3 +1,7 @@
+### Version 2.0.11
+
+- Improvement: Locked MediatR NuGet package version
+
 ### Version 2.0.10
 
 - Improvement: Updated NuGet package versions.
