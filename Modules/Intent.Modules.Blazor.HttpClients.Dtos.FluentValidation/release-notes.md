@@ -1,3 +1,7 @@
+### Version 1.2.7
+
+- Fixed: Under certain circumstances the Software Factory would fail with a "More than one instance of `<templateId>` was found with `<modelId>`" error.
+
 ### Version 1.2.6
 
 - Improvement: Updated referenced packages versions
