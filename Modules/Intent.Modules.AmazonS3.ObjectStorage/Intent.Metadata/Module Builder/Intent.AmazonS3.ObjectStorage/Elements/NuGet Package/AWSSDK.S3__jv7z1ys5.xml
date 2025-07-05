@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="c35cf383-e624-4067-98ca-952abed9bdcf" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>4.0.2</name>
+      <name>4.0.4</name>
       <display>3.7.406.2 ( &gt;= Any,Version=v0.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,10 +47,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a9c526de-3ddf-486b-b611-ce188e74889b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e1a77e62-1ad8-4ca6-bbdf-1329482c81a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>AWSSDK.Core</name>
           <isAbstract>false</isAbstract>
-          <value>4.0.0.12</value>
+          <value>4.0.0.14</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c35cf383-e624-4067-98ca-952abed9bdcf</parentFolderId>

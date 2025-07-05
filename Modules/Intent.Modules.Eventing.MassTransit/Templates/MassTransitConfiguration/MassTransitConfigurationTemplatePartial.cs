@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.MassTransit.Api;
 using Intent.Modelers.Eventing.Api;
@@ -10,8 +7,10 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
 using Intent.Modules.Common.CSharp.DependencyInjection;
+using Intent.Modules.Common.CSharp.Nuget;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.VisualStudio;
 using Intent.Modules.Eventing.Contracts.Templates;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationCommand;
 using Intent.Modules.Eventing.Contracts.Templates.IntegrationEventMessage;
@@ -23,6 +22,9 @@ using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -37,14 +39,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
     public MassTransitConfigurationTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
     {
-        AddNugetDependency(NugetPackages.MassTransit(OutputTarget));
-
         _messageBroker = GetMessageBroker();
-        var messageBrokerDependency = _messageBroker.GetNugetDependency(OutputTarget);
-        if (messageBrokerDependency is not null)
-        {
-            AddNugetDependency(messageBrokerDependency);
-        }
 
         AddTypeSource(IntegrationEventMessageTemplate.TemplateId);
         AddTypeSource(IntegrationCommandTemplate.TemplateId);
@@ -60,6 +55,15 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
             .AddUsing("Microsoft.Extensions.DependencyInjection")
             .OnBuild(file =>
             {
+                AddNugetDependency(NugetPackages.MassTransitAbstractions(OutputTarget));
+                AddNugetDependency(NugetPackages.MassTransit(OutputTarget));
+
+                var messageBrokerDependency = _messageBroker.GetNugetDependency(OutputTarget);
+                if (messageBrokerDependency is not null)
+                {
+                    AddNugetDependency(messageBrokerDependency);
+                }
+
                 _consumers = GetConsumers();
                 _producers = GetProducers();
             })
@@ -90,6 +94,42 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
     private IReadOnlyCollection<Producer> _producers;
     private readonly IReadOnlyList<MessageModel> _applicableMessages;
 
+    public override void AfterTemplateRegistration()
+    {
+        base.AfterTemplateRegistration();
+
+        // this is to cater for the fact the MassTransit > 8.5.0 requires EF9.
+        if (OutputTarget.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
+        { 
+            var efVersion = NugetRegistry.GetVersion("Microsoft.EntityFrameworkCore", OutputTarget.GetMaxNetAppVersion());
+            if (efVersion != null && int.TryParse(efVersion.Version.First().ToString(), out int majorVersion) && majorVersion < 9)
+            {
+                NugetRegistry.Register(NugetPackages.MassTransitAbstractionsPackageName, v => new PackageVersion("8.4.1", true));
+                NugetRegistry.Register(NugetPackages.MassTransitPackageName, v => new PackageVersion("8.4.1", true)
+                    .WithNugetDependency(NugetPackages.MassTransitAbstractionsPackageName, "8.4.1")
+                    .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
+                    .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
+                    .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
+                    .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
+                    .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"));
+                NugetRegistry.Register(NugetPackages.MassTransitRabbitMQPackageName, v => new PackageVersion("8.4.1", true)
+                    .WithNugetDependency("MassTransit", "8.4.1")
+                    .WithNugetDependency("RabbitMQ.Client", "7.1.2"));
+                NugetRegistry.Register(NugetPackages.MassTransitAzureServiceBusCorePackageName, v => new PackageVersion("8.4.1", true)
+                    .WithNugetDependency("Azure.Identity", "1.13.2")
+                    .WithNugetDependency("Azure.Messaging.ServiceBus", "7.19.0")
+                    .WithNugetDependency("MassTransit", "8.4.1"));
+                NugetRegistry.Register(NugetPackages.MassTransitAmazonSQSPackageName, v => new PackageVersion("8.4.1", true)
+                    .WithNugetDependency("AWSSDK.SimpleNotificationService", "3.7.400.141")
+                    .WithNugetDependency("AWSSDK.SQS", "3.7.400.141")
+                    .WithNugetDependency("MassTransit", "8.4.1"));
+                NugetRegistry.Register(NugetPackages.MassTransitEntityFrameworkCorePackageName, v => new PackageVersion("8.4.1", true)
+                    .WithNugetDependency("MassTransit", "8.4.1")
+                    .WithNugetDependency("Microsoft.EntityFrameworkCore.Relational", "8.0.0")
+                    .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "8.0.1"));
+            }
+        }
+    }
     private MessageBrokerBase GetMessageBroker()
     {
         var messageBrokerSetting = this.ExecutionContext.Settings.GetEventingSettings().MessagingServiceProvider().AsEnum();

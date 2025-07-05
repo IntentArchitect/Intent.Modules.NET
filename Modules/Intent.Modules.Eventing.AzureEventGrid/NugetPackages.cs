@@ -18,10 +18,12 @@ namespace Intent.Modules.Eventing.AzureEventGrid
             NugetRegistry.Register(AzureMessagingEventGridPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("4.31.0")
-                            .WithNugetDependency("Azure.Core", "1.46.1"),
-                        ( >= 2, >= 0) => new PackageVersion("4.31.0")
-                            .WithNugetDependency("Azure.Core", "1.46.1"),
+                        ( >= 8, >= 0) => new PackageVersion("5.0.0")
+                            .WithNugetDependency("Azure.Core", "1.46.2")
+                            .WithNugetDependency("Azure.Messaging.EventGrid.SystemEvents", "1.0.0"),
+                        ( >= 2, >= 0) => new PackageVersion("5.0.0")
+                            .WithNugetDependency("Azure.Core", "1.46.2")
+                            .WithNugetDependency("Azure.Messaging.EventGrid.SystemEvents", "1.0.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AzureMessagingEventGridPackageName}'"),
                     }
                 );

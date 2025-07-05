@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="a56628a0-562f-4ddb-8180-ac2c07c29505" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>5.22.2</name>
+      <name>5.23.0</name>
       <display>5.22.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,86 +47,68 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e7e49e13-d8ae-413d-9d85-70e81ef8dea7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Identity</name>
-          <display>Azure.Identity (1.12.0)</display>
-          <isAbstract>false</isAbstract>
-          <value>1.12.0</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="6a340c65-dfe5-4a64-a745-bc44f3d446f1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Azure.Messaging.ServiceBus</name>
-          <display>Azure.Messaging.ServiceBus (7.18.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>7.18.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="c73ab87c-7bea-49dd-8eaa-3dd4ac7afc0a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Google.Protobuf</name>
-          <display>Google.Protobuf (3.27.1)</display>
-          <isAbstract>false</isAbstract>
-          <value>3.27.1</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a1c639ae-2387-4b14-bb12-664de5076bb6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="951c60c2-6fa5-460e-95fc-e84ba380adbd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Abstractions</name>
-          <display>Microsoft.Azure.Functions.Worker.Extensions.Abstractions (1.3.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.3.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ba733de-fad9-4525-87b6-a9d1ddcd5427" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7ca797c3-f2f4-4603-8d27-d0b26ac78374" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Functions.Worker.Extensions.Rpc</name>
-          <display>Microsoft.Azure.Functions.Worker.Extensions.Rpc (1.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="061cca0a-ed97-424d-9658-4909c0ac0cb3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Azure</name>
-          <display>Microsoft.Extensions.Azure (1.7.5)</display>
+        <childElement id="85f131f3-abc5-49a9-9599-c1710f6063ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Identity</name>
           <isAbstract>false</isAbstract>
-          <value>1.7.5</value>
+          <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
-          <packageId>de732e1b-6c3a-487e-8d0c-06da65383731</packageId>
-          <packageName>Intent.AzureFunctions.AzureServiceBus</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f52b6c7a-72ca-46aa-aa19-2bdde04e364f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Azure.Messaging.ServiceBus</name>
+          <isAbstract>false</isAbstract>
+          <value>7.18.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="708c0d04-bfd7-4312-b9b7-501237f67b98" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Google.Protobuf</name>
+          <isAbstract>false</isAbstract>
+          <value>3.27.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cbd42fc2-e578-4757-b47b-20aa7cba6711" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Azure</name>
+          <isAbstract>false</isAbstract>
+          <value>1.12.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>a56628a0-562f-4ddb-8180-ac2c07c29505</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

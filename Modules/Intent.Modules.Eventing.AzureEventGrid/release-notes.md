@@ -1,5 +1,6 @@
 ### Version 1.2.0
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Event Domains support added. ❇️
 - Improvement: `AzureEventGridEventBus` is enhanced to do more efficient message publishing using `SendEventsAsync`. ❇️
 

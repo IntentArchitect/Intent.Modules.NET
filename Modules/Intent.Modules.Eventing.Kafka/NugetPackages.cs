@@ -34,17 +34,17 @@ namespace Intent.Modules.Eventing.Kafka
             NugetRegistry.Register(ConfluentSchemaRegistrySerdesJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 8, >= 0) => new PackageVersion("2.10.0")
-                            .WithNugetDependency("Confluent.Kafka", "2.10.0")
-                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
+                        ( >= 8, >= 0) => new PackageVersion("2.10.1")
+                            .WithNugetDependency("Confluent.Kafka", "2.10.1")
+                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.1")
                             .WithNugetDependency("NJsonSchema.NewtonsoftJson", "11.0.2"),
-                        ( >= 6, >= 0) => new PackageVersion("2.10.0")
-                            .WithNugetDependency("Confluent.Kafka", "2.10.0")
-                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
+                        ( >= 6, >= 0) => new PackageVersion("2.10.1")
+                            .WithNugetDependency("Confluent.Kafka", "2.10.1")
+                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.1")
                             .WithNugetDependency("NJsonSchema", "10.9.0"),
-                        ( >= 2, >= 0) => new PackageVersion("2.10.0")
-                            .WithNugetDependency("Confluent.Kafka", "2.10.0")
-                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.0")
+                        ( >= 2, >= 0) => new PackageVersion("2.10.1")
+                            .WithNugetDependency("Confluent.Kafka", "2.10.1")
+                            .WithNugetDependency("Confluent.SchemaRegistry", "2.10.1")
                             .WithNugetDependency("NJsonSchema", "10.9.0")
                             .WithNugetDependency("System.Net.NameResolution", "4.3.0")
                             .WithNugetDependency("System.Net.Sockets", "4.3.0"),

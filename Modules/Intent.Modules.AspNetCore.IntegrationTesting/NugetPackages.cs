@@ -46,7 +46,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
             NugetRegistry.Register(IEvangelistAzureCosmosRepositoryPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.1")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.2")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -55,7 +55,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
                             .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.10.0"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.1")
+                        ( >= 8, >= 0) => new PackageVersion("9.0.2")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
@@ -64,7 +64,7 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting
                             .WithNugetDependency("Microsoft.Extensions.Options.ConfigurationExtensions", "9.0.0")
                             .WithNugetDependency("Newtonsoft.Json", "13.0.3")
                             .WithNugetDependency("OpenTelemetry.Extensions.Hosting", "1.10.0"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.1")
+                        ( >= 2, >= 0) => new PackageVersion("9.0.2")
                             .WithNugetDependency("Azure.Identity", "1.13.1")
                             .WithNugetDependency("Microsoft.Azure.Cosmos", "3.46.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
