@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -7,9 +10,6 @@ using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.VisualStudio;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -95,7 +95,7 @@ namespace Intent.Modules.ModularMonolith.Host.Templates.ModuleInstallerInterface
             // With Modular Monolith, EF is installed in the Modules, so we cannot know if EF is being installed nor which version.
             // We are making the assumption that if the Framework is NET8, then EF8 will be used and thus MT 8.4.1 must be used
             if (!OutputTarget.Parent.TargetFramework().Contains("9.0"))
-            { 
+            {
                 NugetRegistry.Register("MassTransit.Abstractions", v => new PackageVersion("8.4.1", true));
                 NugetRegistry.Register(NugetPackages.MassTransitPackageName, v => new PackageVersion("8.4.1", true)
                         .WithNugetDependency("MassTransit.Abstractions", "8.4.1")

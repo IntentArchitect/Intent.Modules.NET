@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Eventing.MassTransit.Api;
 using Intent.Modelers.Eventing.Api;
@@ -22,9 +25,6 @@ using Intent.Modules.Modelers.Eventing;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -100,7 +100,7 @@ public partial class MassTransitConfigurationTemplate : CSharpTemplateBase<objec
 
         // this is to cater for the fact the MassTransit > 8.5.0 requires EF9.
         if (OutputTarget.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.EntityFrameworkCore"))
-        { 
+        {
             var efVersion = NugetRegistry.GetVersion("Microsoft.EntityFrameworkCore", OutputTarget.GetMaxNetAppVersion());
             if (efVersion != null && int.TryParse(efVersion.Version.First().ToString(), out int majorVersion) && majorVersion < 9)
             {
