@@ -1,5 +1,8 @@
 @page "/invoices"
+@using Microsoft.AspNetCore.Authorization
 @using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices
+@attribute [Authorize]
+
 
 <MudDataGrid T="InvoiceDto"
              ServerData="LoadDataGridData"

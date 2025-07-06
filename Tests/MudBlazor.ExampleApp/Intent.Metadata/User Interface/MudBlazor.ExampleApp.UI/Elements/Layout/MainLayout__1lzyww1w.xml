@@ -677,6 +677,38 @@
               <metadata />
               <childElements />
             </childElement>
+            <childElement id="ca46d42f-7894-4d72-9d9d-5449155d0e2d" type="Menu Item" typeId="adbf2fa8-6833-4c24-960a-31d8a41fd1ed">
+              <name>Admin</name>
+              <display>Admin</display>
+              <isAbstract>false</isAbstract>
+              <genericTypes />
+              <isMapped>false</isMapped>
+              <parentFolderId>2d5d1340-de59-412e-b34c-684a16cff385</parentFolderId>
+              <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
+              <packageName>MudBlazor.ExampleApp.UI</packageName>
+              <stereotypes>
+                <stereotype stereotypeDefinitionId="012f5173-6419-4006-a9a8-ab5c20b8a42e" name="Secured">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor</definitionPackageName>
+                  <definitionPackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</definitionPackageId>
+                  <properties>
+                    <property name="a4a26159-0b60-498e-8b91-56a59756928b" display="Roles" value="" isActive="true" />
+                    <property name="f7079953-a05f-4ca6-b51a-40f160460003" display="Policy" value="Admin" isActive="true" />
+                  </properties>
+                </stereotype>
+                <stereotype stereotypeDefinitionId="012f5173-6419-4006-a9a8-ab5c20b8a42e" name="Secured">
+                  <addedByDefault>false</addedByDefault>
+                  <definitionPackageName>Intent.Blazor</definitionPackageName>
+                  <definitionPackageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</definitionPackageId>
+                  <properties>
+                    <property name="a4a26159-0b60-498e-8b91-56a59756928b" display="Roles" isActive="true" />
+                    <property name="f7079953-a05f-4ca6-b51a-40f160460003" display="Policy" value="SuperAdmin" isActive="true" />
+                  </properties>
+                </stereotype>
+              </stereotypes>
+              <metadata />
+              <childElements />
+            </childElement>
           </childElements>
         </childElement>
       </childElements>

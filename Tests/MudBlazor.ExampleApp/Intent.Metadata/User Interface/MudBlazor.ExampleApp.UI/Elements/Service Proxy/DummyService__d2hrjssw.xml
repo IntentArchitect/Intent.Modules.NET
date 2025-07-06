@@ -50,7 +50,7 @@
       <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
       <packageName>MudBlazor.ExampleApp.UI</packageName>
       <traits>
-        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
         <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
       </traits>
       <stereotypes />

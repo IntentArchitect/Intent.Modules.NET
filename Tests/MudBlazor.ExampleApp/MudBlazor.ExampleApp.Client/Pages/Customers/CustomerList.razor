@@ -1,4 +1,5 @@
 @page "/customers"
+@using Microsoft.AspNetCore.Components.Authorization
 @using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers
 
 <MudDataGrid T="CustomerDto"
@@ -7,20 +8,22 @@
              Hover="true"
              RowClick="(e) => DataGridRowClick(e.Item.Id.ToString())">
     <ToolBarContent>
-        <MudButton Variant="Variant.Filled"
-                   StartIcon="@Icons.Material.Filled.AddCircle"
-                   Class="my-2 mr-2"
-                   Color="Color.Secondary"
-                   OnClick="() => AddCustomerClick()"
-                   Disabled="@_addCustomerClickProcessing">
-            @if (_addCustomerClickProcessing) 
+        <AuthorizeView Roles="Admin,HR">
+            <MudButton Variant="Variant.Filled"
+                       StartIcon="@Icons.Material.Filled.AddCircle"
+                       Class="my-2 mr-2"
+                       Color="Color.Secondary"
+                       OnClick="() => AddCustomerClick()"
+                       Disabled="@_addCustomerClickProcessing">
+                @if (_addCustomerClickProcessing) 
             {
                 <MudProgressCircular Class="ms-n1"
-                                     Size="Size.Small"
-                                     Indeterminate="true" />
+                                         Size="Size.Small"
+                                         Indeterminate="true" />
             }
-            <MudText>Add Customer</MudText>
-        </MudButton>
+                <MudText>Add Customer</MudText>
+            </MudButton>
+        </AuthorizeView>
         <MudSpacer />
         <MudTextField T="string"
                       Value="SearchText"
