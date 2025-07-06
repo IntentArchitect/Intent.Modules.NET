@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.0.0-beta.20</version>
+  <version>1.0.0-beta.21</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -110,6 +110,15 @@
           <hint>Use [code-behind](https://learn.microsoft.com/aspnet/core/blazor/components#partial-class-support) files for Razor components.</hint>
           <defaultValue>true</defaultValue>
         </setting>
+        <setting id="3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa" title="Render Mode" type="select">
+          <hint>Determines how the page content is rendered at runtime.</hint>
+          <defaultValue>interactive-web-assembly</defaultValue>
+          <options>
+            <option value="interactive-server" description="Interactive Server" />
+            <option value="interactive-web-assembly" description="Interactive Web Assembly" />
+            <option value="interactive-auto" description="Interactive Auto" />
+          </options>
+        </setting>
       </settings>
     </group>
   </moduleSettings>
@@ -119,7 +128,7 @@
     <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="4.0.0-pre.1" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.4" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.14" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-pre.0" />
   </dependencies>
   <interoperability>
@@ -137,6 +146,7 @@
   <moduleSettingsExtensions />
   <metadata>
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
+    <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
   <migrations has-on-install-migration="true" />
 </package>

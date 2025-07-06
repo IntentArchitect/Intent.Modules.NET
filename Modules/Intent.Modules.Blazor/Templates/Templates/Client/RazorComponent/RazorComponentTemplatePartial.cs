@@ -1,5 +1,4 @@
-using System;
-using System.Linq;
+using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
@@ -11,7 +10,12 @@ using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
+using System;
+using System.Linq;
+using System.Security;
+using static Intent.Blazor.Api.ComponentModelStereotypeExtensions;
 using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -53,6 +57,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                             file.AddHtmlElement("PageTitle", x => x.WithText(Model.GetPage().Title()));
                         }
                     }
+
+                    if(Model.HasSecured())
+                    {
+                        foreach(var secure in Model.GetSecureds())
+                        {
+                            file.AddAttributeDirective(secure.AuthorizationAttribute(this));
+                        }
+                    }
+
                     var block = GetCodeBehind();
                     block.AddCodeBlockMembers(this, Model.InternalElement);
 

@@ -238,33 +238,42 @@
       <childElements>
         <childElement id="9eb4f872-bf8d-4c5b-a22a-264efa7fdda1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
+          <display>Microsoft.AspNetCore.Components (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fe6207f2-ba3a-46de-ab74-199c5ea982dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="f7098f15-1b3d-4c2a-b0a3-7dd8c418a968" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
+          <display>Microsoft.Extensions.Localization (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -296,33 +305,42 @@
       <childElements>
         <childElement id="7b30e435-d709-4ed8-8599-90dc33d3a0ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
+          <display>Microsoft.AspNetCore.Components (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="26f7f7a2-9dea-4dee-b2c4-5d399446be36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="be3d617b-40ec-4721-8b9d-6559ae795d15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
+          <display>Microsoft.Extensions.Localization (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
+          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
+          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />

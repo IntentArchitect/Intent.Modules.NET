@@ -31,6 +31,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
         {
             FulfillsRole(TemplateRoles.Blazor.WebAssembly.Program);
             AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssembly(outputTarget));
+            AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyAuthentication(outputTarget));
 
             var useTopLevelStatements = OutputTarget.GetProject().InternalElement.AsCSharpProjectNETModel()?.GetNETSettings()?.UseTopLevelStatements() == true;
 
@@ -113,6 +114,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
             hasStatements.AddStatement("await LoadAppSettings(builder);");
             hasStatements.AddStatement("builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });");
             hasStatements.AddStatement("builder.Services.AddClientServices(builder.Configuration);");
+            hasStatements.AddStatement("builder.Services.AddAuthorizationCore();");
             hasStatements.AddStatement("await builder.Build().RunAsync();", stmt => stmt.AddMetadata("run-builder", "true"));
         }
 

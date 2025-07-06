@@ -1,11 +1,13 @@
-using System.Collections.Generic;
-using System.Linq;
 using Intent.Blazor.Components.MudBlazor.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Components.MudBlazor.ComponentRenderer;
@@ -78,7 +80,20 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
     private void AddMenuItem(IHtmlElement parent, MenuItemModel menuItemModel)
     {
         bool isGroup = menuItemModel.InternalElement.ChildElements.Any(c => c.IsMenuItemModel());
-        parent.AddHtmlElement(isGroup ? "MudNavGroup" : "MudNavLink", navLink =>
+        var parentElement = parent;
+
+        if (menuItemModel.InternalElement is IElement element && element.HasStereotype(Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured.DefinitionId))
+        {
+            var authComponent = parentElement.AuthorizeComponent(element, _componentTemplate);
+            parentElement = authComponent;
+        }
+
+        AddMenuItem(menuItemModel, isGroup, parentElement);
+    }
+
+    private void AddMenuItem(MenuItemModel menuItemModel, bool isGroup, IHtmlElement parentElement)
+    {
+        parentElement.AddHtmlElement(isGroup ? "MudNavGroup" : "MudNavLink", navLink =>
         {
             navLink.AddAttributeIfNotEmpty("Icon", menuItemModel.HasIcon() ? $"@Icons.Material.{menuItemModel.GetIcon().Variant().Name}.{menuItemModel.GetIcon().IconValue().Name}" : null)
                 .AddAttributeIfNotEmpty("IconColor", menuItemModel.GetIcon()?.IconColor() != null ? $"Color.{menuItemModel.GetIcon()?.IconColor().Name}" : null);

@@ -66,8 +66,6 @@ public class RazorComponentBuilderProvider : IRazorComponentBuilderProvider
     {
         var razorComponentBuilder = ResolveFor(component);
 
-
-
         var builtComponent = razorComponentBuilder.BuildComponent(component, node);
 
         foreach (var interceptor in _interceptors)

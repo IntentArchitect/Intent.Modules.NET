@@ -1,6 +1,7 @@
 using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -8,6 +9,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using static Intent.Modules.Blazor.Settings.Blazor;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
@@ -82,7 +84,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 
                         code.AddMethod("IComponentRenderMode?", "GetRenderModeForPage", method =>
                         {
-                            method.AddStatement("return InteractiveAuto;");
+                            method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
                         });
                     });
                 });
@@ -108,5 +110,13 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                     {RazorFile.ToString().Trim()}
                     """;
         }
+
+        private static string GetRenderModeConfiguration(RenderModeOptionsEnum? renderMode) => renderMode switch
+        {
+            RenderModeOptionsEnum.InteractiveAuto => "InteractiveAuto",
+            RenderModeOptionsEnum.InteractiveServer => "InteractiveServer",
+            RenderModeOptionsEnum.InteractiveWebAssembly => "InteractiveWebAssembly",
+            _ => "InteractiveWebAssembly"
+        };
     }
 }

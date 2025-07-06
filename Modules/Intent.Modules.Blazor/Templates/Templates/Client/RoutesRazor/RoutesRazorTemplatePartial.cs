@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Intent.Blazor.Api;
 using Intent.Engine;
 using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Api;
@@ -8,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -33,28 +35,59 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
         {
             RazorFile = IRazorFile.Create(this, "Routes").Configure(file =>
             {
+                var securedComponents = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
+                    .Elements
+                    .Where(e => e.HasStereotype("Secured"));
+
                 file.AddHtmlElement("Router", router =>
                 {
                     router.AddAttribute("AppAssembly", $"typeof({this.GetProgramTemplateName()}).Assembly");
                     router.AddHtmlElement("Found", found =>
                     {
                         found.AddAttribute("Context", "routeData");
-                        found.AddHtmlElement("RouteView", html =>
+
+                        if (!securedComponents.Any())
                         {
-                            html.AddAttribute("RouteData", "routeData");
-                            var defaultLayoutModel = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
-                                .GetElementsOfType(LayoutModel.SpecializationTypeId)
-                                .Select(x => new LayoutModel(x))
-                                .FirstOrDefault(x => x.Name is "MainLayout" or "DefaultLayout");
-                            if (defaultLayoutModel != null)
+                            found.AddHtmlElement("RouteView", html =>
                             {
-                                html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
-                            }
-                        });
+                                AddRouteAttributes(html);
+                            });
+                        }
+                        else
+                        {
+                            file.AddUsing("Microsoft.AspNetCore.Components.Authorization");
+
+                            found.AddHtmlElement("AuthorizeRouteView", html =>
+                            {
+                                AddRouteAttributes(html);
+
+                                html.AddHtmlElement("NotAuthorized", notAuth =>
+                                {
+                                    notAuth.AddHtmlElement("p", msg =>
+                                    {
+                                        msg.Text = "You are not authorized to access this page.";
+                                    });
+                                });
+                            });
+                        }
+
                         found.AddHtmlElement("FocusOnNavigate", html => html.AddAttribute("RouteData", "routeData").AddAttribute("Selector", $"h1"));
                     });
                 });
             });
+        }
+
+        private void AddRouteAttributes(IHtmlElement html)
+        {
+            html.AddAttribute("RouteData", "routeData");
+            var defaultLayoutModel = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
+                .GetElementsOfType(LayoutModel.SpecializationTypeId)
+                .Select(x => new LayoutModel(x))
+                .FirstOrDefault(x => x.Name is "MainLayout" or "DefaultLayout");
+            if (defaultLayoutModel != null)
+            {
+                html.AddAttribute("DefaultLayout", $"typeof({NormalizeNamespace(GetTemplate<IClassProvider>(RazorLayoutTemplate.TemplateId, defaultLayoutModel).FullTypeName())})");
+            }
         }
 
         /// <inheritdoc />

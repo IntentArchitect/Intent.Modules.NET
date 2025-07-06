@@ -49,6 +49,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.Register(RadioGroupModel.SpecializationTypeId, (provider, componentTemplate) => new RadioGroupComponentBuilder(provider, componentTemplate));
 
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new MudBlazorLayoutInterceptor(provider, componentTemplate));
+            DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new AuthorizedInterceptor(componentTemplate));
 
             application.ConfigureRazor(configurator =>
             {
