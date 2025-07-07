@@ -7,7 +7,6 @@ using Intent.Modelers.Services.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
-using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 
@@ -15,6 +14,7 @@ namespace Intent.Modules.Integration.HttpClients.Shared.InteractionStrategies;
 
 internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
 {
+    private const string PerformInvocationTypeId = "093e5909-ffe4-4510-b3ea-532f30212f3c";
     private readonly IApplication _application;
 
     public CqrsInvocationHttpInteractionStrategy(IApplication application)
@@ -24,23 +24,9 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
 
     public bool IsMatch(IElement interaction)
     {
-        if (!IsPerformInvocationTargetEndModel(interaction))
-        {
-            return false;
-        }
-
-        var element = interaction.TypeReference.Element as IElement;
-        var isMatch = element != null &&
-                      element.HasHttpSettings() &&
-                      element.Package.ApplicationId != _application.Id; // There seems to be a bug in v4.5.0-beta.2 where the element's application ID is wrong
-
-        return isMatch;
-
-        // TODO: JL Copied for now so no reference needs to be added 
-        static bool IsPerformInvocationTargetEndModel(ICanBeReferencedType type)
-        {
-            return type is IAssociationEnd { SpecializationTypeId: "093e5909-ffe4-4510-b3ea-532f30212f3c" };
-        }
+        return interaction is IAssociationEnd { SpecializationTypeId: PerformInvocationTypeId, TypeReference.Element: IElement element } &&
+               element.HasHttpSettings() &&
+               element.Package.ApplicationId != _application.Id; // There seems to be a bug in v4.5.0-beta.2 where the element's application ID is wrong
     }
 
     public void ImplementInteraction(ICSharpClassMethodDeclaration method, IElement interaction)
@@ -73,17 +59,6 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
             if (cqrsFieldCount > 0)
             {
                 var csharpMapping = method.GetMappingManager();
-                //csharpMapping.ClearMappingResolvers();
-                //csharpMapping.AddMappingResolver(new CommandQueryMappingResolver(template));
-
-                // We don't want to generate construction a command/query when only a single parameter
-                if (cqrsFieldCount == 1)
-                {
-                    // TODO JL: This isn't working
-                    //csharpMapping.ClearMappingResolvers();
-                    //csharpMapping.AddMappingResolver(new SingleParameterMappingResolver(template));
-                }
-
                 var creationExpression = csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
 
                 invocation.AddArgument(creationExpression);
@@ -103,62 +78,6 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
         catch (Exception ex)
         {
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
-        }
-    }
-
-    public class CommandQueryMappingResolver : IMappingTypeResolver
-    {
-        private readonly ICSharpFileBuilderTemplate _template;
-
-        public CommandQueryMappingResolver(ICSharpFileBuilderTemplate template)
-        {
-            _template = template;
-        }
-
-        public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
-        {
-            if (mappingModel.Model.SpecializationType is "Command" or "Query" or "DTO")
-            {
-                return new ObjectInitializationMapping(mappingModel, _template);
-            }
-
-            return null;
-        }
-    }
-
-    private class SingleParameterMappingResolver : IMappingTypeResolver
-    {
-        private readonly ICSharpFileBuilderTemplate _template;
-
-        public SingleParameterMappingResolver(ICSharpFileBuilderTemplate template)
-        {
-            _template = template;
-        }
-
-        public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
-        {
-            return new Mapping(mappingModel, _template);
-        }
-    }
-
-    private class Mapping(MappingModel _mappingMappingModel, ICSharpTemplate _template) : CSharpMappingBase(_mappingMappingModel, _template)
-    {
-        public override CSharpStatement GetSourceStatement(bool? targetIsNullable = null)
-        {
-            // TODO JL: Test case for this
-            if (Model.TypeReference?.IsCollection == true)
-            {
-                var mapping = new SelectToListMapping(_mappingMappingModel, _template)
-                {
-                    Parent = this.Parent
-                };
-
-                return mapping.GetSourceStatement();
-            }
-
-            return base.GetSourceStatement(targetIsNullable);
-
-            //return GetAllChildren().First().GetSourceStatement(targetIsNullable);
         }
     }
 }
