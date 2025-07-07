@@ -27,8 +27,12 @@ public class CallServiceOperationMappingResolver : IMappingTypeResolver
             return new RazorEventEmitterInvocationMapping(mappingModel, _template);
         }
 
-        if (mappingModel.Model.TypeReference?.Element?.SpecializationType is "Command" or "DTO" or "Model Definition"
-            && mappingModel.Model.SpecializationType is not "Event Emitter")
+        if (mappingModel.Model.SpecializationType is "Command" or "Query" ||
+            (
+                mappingModel.Model.TypeReference?.Element?.SpecializationType is "Command" or "DTO" or "Model Definition" &&
+                mappingModel.Model.SpecializationType is not "Event Emitter"
+            )
+        )
         {
             return new ObjectInitializationMapping(mappingModel, _template);
         }

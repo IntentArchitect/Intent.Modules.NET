@@ -83,7 +83,11 @@ public static class ServiceProxyHelpers
         var @implicit = GetImplicitHttpProxyEndpoints(metadataManager, applicationId, getDesigners)
             .Select(IServiceContractModel (x) => new ImplicitServiceProxyContractModel(x));
 
-        return @explicit.Concat(@implicit).ToArray();
+        return @explicit
+            .Concat(@implicit)
+            .OrderBy(x => x.Name)
+            .ThenBy(x => x.Id)
+            .ToArray();
     }
 
     /// <summary>
@@ -100,13 +104,16 @@ public static class ServiceProxyHelpers
             .ToArray();
 
         const string callServiceOperationTypeId = "3e69085c-fa2f-44bd-93eb-41075fd472f8";
+        const string uiCallServiceOperationTypeId = "fe5a5cd8-aabd-472f-8d42-f5c233e658dc";
+
         var localPackageIds = designers
             .SelectMany(x => x.Packages)
             .Select(x => x.Id)
             .ToHashSet();
 
-        return designers
-            .SelectMany(x => x.GetAssociationsOfType(callServiceOperationTypeId))
+        return Enumerable.Empty<IAssociation>()
+            .Concat(designers.SelectMany(x => x.GetAssociationsOfType(callServiceOperationTypeId)))
+            .Concat(designers.SelectMany(x => x.GetAssociationsOfType(uiCallServiceOperationTypeId)))
             .Where(x =>
             {
                 var targetElement = x.TargetEnd.TypeReference?.Element as IElement;
@@ -117,6 +124,10 @@ public static class ServiceProxyHelpers
             })
             .Select(x => (IElement)x.TargetEnd.TypeReference.Element)
             .DistinctBy(x => x.Id)
+            .OrderBy(x => x.ParentElement?.Name)
+            .ThenBy(x => x.ParentElement?.Id)
+            .ThenBy(x => x.Name)
+            .ThenBy(x => x.Id)
             .GroupBy(x => x.ParentId)
             .Select(x => x.ToArray())
             .ToArray();

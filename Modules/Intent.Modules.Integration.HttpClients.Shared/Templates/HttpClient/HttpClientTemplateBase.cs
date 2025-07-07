@@ -512,8 +512,8 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
     private static string GetParameterValueExpression(ICSharpFileBuilderTemplate template, IHttpEndpointInputModel input, string sourceExpression)
     {
         return !input.TypeReference.HasStringType()
-            ? ConvertToString(template, input.Name.ToParameterName(), input.TypeReference)
-            : input.Name.ToParameterName();
+            ? ConvertToString(template, sourceExpression, input.TypeReference)
+            : sourceExpression;
     }
 
     private static string ConvertToString(ICSharpFileBuilderTemplate template, string variableName, ITypeReference typeRef)

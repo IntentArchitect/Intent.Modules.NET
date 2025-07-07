@@ -10,6 +10,7 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.HttpClients.Templates.PagedResult;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Registrations;
+using Intent.Modules.Contracts.Clients.Http.Shared;
 using Intent.Modules.Contracts.Clients.Shared;
 using Intent.Modules.Contracts.Clients.Shared.Templates.DtoContract;
 using Intent.Modules.Contracts.Clients.Shared.Templates.PagedResult;
@@ -53,6 +54,15 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 .Select(x => x.Id)
                 .ToHashSet());
 
+            var referencedElementIds = _metadataManager
+                .GetServiceContractModels(
+                    application.Id,
+                    _metadataManager.UserInterface)
+                .SelectMany(x => x.Operations)
+                .SelectMany(x => x.Parameters)
+                .Select(x => x.TypeReference.ElementId)
+                .ToHashSet();
+
             var results = _metadataManager
                 .GetServiceProxyReferencedDtos(
                     applicationId: application.Id,
@@ -63,8 +73,17 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.DtoContract
                 {
                     if (x.InternalElement.IsCommandModel() || x.InternalElement.IsQueryModel())
                     {
-                        // Excludes Commands / Queries and aren't actually payloads:
-                        return HttpEndpointModelFactory.GetEndpoint(x.InternalElement)?.Inputs.Any(i => i.Id == x.Id) == true;
+                        // Only generate "used" DTOs. The HttpEndpointFactory in cases will create
+                        // some endpoints which don't actually use commands, e.g. for GetById, the
+                        // parameter is just the id field, not the containing query. So we don't
+                        // want to generate them.
+
+                        // Additionally, when there are no fields on a command or DTO then we don't
+                        // need it either.
+
+                        return
+                            referencedElementIds.Contains(x.InternalElement.Id) &&
+                            x.InternalElement.ChildElements.Any(y => y.IsDTOFieldModel());
                     }
 
                     if (x.Id == PagedResultTemplateBase.TypeDefinitionElementId)

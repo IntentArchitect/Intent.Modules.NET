@@ -8,6 +8,7 @@ using Intent.Modelers.UI.Core.Api;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.TypeResolution;
 using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Api;
@@ -178,9 +179,40 @@ public static class RazorFileExtensions
                             if (action.IsCallServiceOperationActionTargetEndModel())
                             {
                                 var serviceCall = action.AsCallServiceOperationActionTargetEndModel();
-                                var serviceName = ((IElement)serviceCall.Element).ParentElement.Name.ToPropertyName();
-                                block.InjectServiceProperty(block.Template.GetTypeName(((IElement)serviceCall.Element).ParentElement), serviceName);
-                                var invocation = mappingManager.GenerateUpdateStatements(serviceCall.GetMapInvocationMapping()).First();
+                                var parentElement = ((IElement)serviceCall.Element).ParentElement;
+                                var serviceName = parentElement.Name.ToPropertyName();
+
+                                block.InjectServiceProperty(block.Template.GetTypeName(parentElement), serviceName);
+                                var invocationMapping = serviceCall.GetMapInvocationMapping();
+
+                                const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
+                                const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
+                                const string dtoFieldTypeId = "7baed1fd-469b-4980-8fd9-4cefb8331eb2";
+
+                                CSharpStatement? invocation;
+                                var targetElement = (IElement)invocationMapping.TargetElement;
+                                if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
+                                {
+                                    var nameOfMethodToInvoke = block.Template
+                                        .GetAllTypeInfo(parentElement.AsTypeReference())
+                                        .Select(x => x.Template)
+                                        .OfType<ICSharpTemplate>()
+                                        .First(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
+                                        .RootCodeContext.GetReferenceForModel(targetElement.Id).Name;
+
+                                    var csharpInvocationStatement = new CSharpInvocationStatement(nameOfMethodToInvoke);
+                                    if (targetElement.ChildElements.Any(x => x.SpecializationTypeId is dtoFieldTypeId))
+                                    {
+                                        csharpInvocationStatement.AddArgument(mappingManager.GenerateCreationStatement(invocationMapping));
+                                    }
+
+                                    invocation = csharpInvocationStatement;
+                                }
+                                else
+                                {
+                                    invocation = mappingManager.GenerateUpdateStatements(invocationMapping).First();
+                                }
+
                                 if (serviceCall.GetMapResponseMapping() != null)
                                 {
                                     var responseStaticElementId = "2f68b1a4-a523-4987-b3da-f35e6e8e146b";

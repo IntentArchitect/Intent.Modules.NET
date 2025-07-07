@@ -24,6 +24,10 @@ internal static class ServiceProxyHelpers
         var @implicit = metadataManager.GetImplicitHttpProxyEndpoints(applicationId, getDesigners)
             .Select(IServiceProxyModel (x) => new ImplicitServiceProxyModel(x));
 
-        return @explicit.Concat(@implicit).ToArray();
+        return @explicit
+            .Concat(@implicit)
+            .OrderBy(x => x.Name)
+            .ThenBy(x => x.Id)
+            .ToArray();
     }
 }

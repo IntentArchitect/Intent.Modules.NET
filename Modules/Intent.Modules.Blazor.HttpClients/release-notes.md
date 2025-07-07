@@ -1,6 +1,6 @@
 ### Version 4.0.11
 
-- Improvement: Now supports generation of implicit service proxies for "Perform Invocation" relationships to HTTP Endpoints.
+- Improvement: Now supports generation of implicit service proxies for "Call Service Operation Action" relationships directly to HTTP Endpoints.
 
 ### Version 4.0.10
 

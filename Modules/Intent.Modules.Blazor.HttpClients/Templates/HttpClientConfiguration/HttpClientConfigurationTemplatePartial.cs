@@ -137,7 +137,7 @@ namespace Intent.Modules.Blazor.HttpClients.Templates.HttpClientConfiguration
 
         private static string GetApplicationName(IServiceProxyModel model)
         {
-            return string.Concat(((IElement)model.InternalElement.MappedElement.Element).Package.Name
+            return string.Concat(model.Endpoints[0].InternalElement.Package.Name
                 .RemoveSuffix(".Services")
                 .Split('.')
                 .Select(x => x.ToCSharpIdentifier()));
