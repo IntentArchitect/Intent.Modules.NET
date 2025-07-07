@@ -22,9 +22,6 @@
     <name>NavigateToInvoiceList</name>
     <display>[navigate] InvoiceList</display>
     <order>0</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
     <typeReference id="5426e20f-690e-43b0-9d67-e4e77cbfef60">
       <typeId>a80d7708-e051-4927-b32e-c239affc1689</typeId>
       <isNavigable>true</isNavigable>

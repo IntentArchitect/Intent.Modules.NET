@@ -1,5 +1,6 @@
 using Intent.RoslynWeaver.Attributes;
 using MudBlazor.ExampleApp.Client.HttpClients.Implementations;
+using MudBlazor.ExampleApp.Client.HttpClients.Implementations.Customers;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]

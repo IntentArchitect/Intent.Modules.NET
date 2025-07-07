@@ -22,9 +22,6 @@
     <name>NavigateToHome</name>
     <display>[navigate] Home</display>
     <order>5</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
     <typeReference id="f2ce2782-ba64-4164-82f3-0cdfea71d20b">
       <typeId>c39eb8c5-5b7a-4eec-a13f-e6c9b5a932a1</typeId>
       <isNavigable>true</isNavigable>

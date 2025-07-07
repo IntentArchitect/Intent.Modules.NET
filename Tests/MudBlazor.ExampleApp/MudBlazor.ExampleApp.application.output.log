@@ -1116,6 +1116,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e45c1e4c-0d3d-4ff8-ad70-0535bf0c2b01</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#59384c69-e628-4ec8-b6c9-135c0b1f1489</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#675cead0-622c-4331-b54d-00cc4c59bee0</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomersQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Customers/GetCustomersQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#d237ad5a-47f7-4daf-8a43-5616f15964b0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/UpdateCustomerAddressDto.cs</ApplicationRelativeFilePath>
@@ -1332,7 +1356,7 @@
     </FileLog>
     <FileLog>
       <ProjectId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#f9038dc1-c2df-447b-872f-cec8ef6a5fc9</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#5db8a97e-49a4-4cfc-8787-4bd45da976db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/ICustomersService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICustomersService.cs</ProjectRelativeFilePath>
@@ -1356,10 +1380,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>147210ba-42bc-4466-8e95-d397b4024083</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#f9038dc1-c2df-447b-872f-cec8ef6a5fc9</CorrelationId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#5db8a97e-49a4-4cfc-8787-4bd45da976db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Implementations/CustomersServiceHttpClient.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CustomersServiceHttpClient.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Implementations/Customers/CustomersServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Customers/CustomersServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

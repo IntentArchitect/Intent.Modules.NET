@@ -22,9 +22,6 @@
     <name>GetInvoiceByIdQuery</name>
     <display>[call] InvoiceService.GetInvoiceByIdQuery(id: guid): InvoiceDto</display>
     <order>0</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
     <typeReference id="960ae464-4e76-4b8d-923c-1a43761f6a04">
       <typeId>8c0589cd-aae8-4271-9139-f8552b7831dc</typeId>
       <isNavigable>true</isNavigable>

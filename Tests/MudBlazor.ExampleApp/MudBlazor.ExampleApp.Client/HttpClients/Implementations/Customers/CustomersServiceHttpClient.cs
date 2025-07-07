@@ -10,13 +10,13 @@ using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Customers;
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.Blazor.HttpClients.HttpClient", Version = "2.0")]
 
-namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
+namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations.Customers
 {
     public class CustomersServiceHttpClient : ICustomersService
     {
         private const string JSON_MEDIA_TYPE = "application/json";
-        private readonly JsonSerializerOptions _serializerOptions;
         private readonly HttpClient _httpClient;
+        private readonly JsonSerializerOptions _serializerOptions;
 
         public CustomersServiceHttpClient(HttpClient httpClient)
         {
@@ -54,20 +54,54 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
             }
         }
 
+        public async Task DeleteCustomerAsync(DeleteCustomerCommand command, CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/{command.Id}";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+            }
+        }
+
+        public async Task<CustomerDto> GetCustomerByIdAsync(
+            GetCustomerByIdQuery query,
+            CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/{query.Id}";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
+                }
+
+                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    return (await JsonSerializer.DeserializeAsync<CustomerDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
         public async Task<PagedResult<CustomerDto>> GetCustomersAsync(
-            int pageNo,
-            int pageSize,
-            string? orderBy,
-            string? searchText,
+            GetCustomersQuery query,
             CancellationToken cancellationToken = default)
         {
             var relativeUri = $"api/customers";
 
             var queryParams = new Dictionary<string, string?>();
-            queryParams.Add("pageNo", pageNo.ToString());
-            queryParams.Add("pageSize", pageSize.ToString());
-            queryParams.Add("orderBy", orderBy);
-            queryParams.Add("searchText", searchText);
+            queryParams.Add("pageNo", query.PageNo.ToString());
+            queryParams.Add("pageSize", query.PageSize.ToString());
+            queryParams.Add("orderBy", query.OrderBy);
+            queryParams.Add("searchText", query.SearchText);
             relativeUri = QueryHelpers.AddQueryString(relativeUri, queryParams);
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
@@ -82,62 +116,6 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<PagedResult<CustomerDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
-                }
-            }
-        }
-
-        public async Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/customers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
-                }
-            }
-        }
-
-        public async Task UpdateCustomerAsync(
-            Guid id,
-            UpdateCustomerCommand command,
-            CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/customers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
-
-            var content = JsonSerializer.Serialize(command, _serializerOptions);
-            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
-                }
-            }
-        }
-
-        public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            var relativeUri = $"api/customers/{id}";
-            var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
-            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
-
-            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
-            {
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
-                }
-
-                using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    return (await JsonSerializer.DeserializeAsync<CustomerDto>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
                 }
             }
         }
@@ -158,6 +136,24 @@ namespace MudBlazor.ExampleApp.Client.HttpClients.Implementations
                 using (var contentStream = await response.Content.ReadAsStreamAsync(cancellationToken).ConfigureAwait(false))
                 {
                     return (await JsonSerializer.DeserializeAsync<List<CustomerLookupDto>>(contentStream, _serializerOptions, cancellationToken).ConfigureAwait(false))!;
+                }
+            }
+        }
+
+        public async Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default)
+        {
+            var relativeUri = $"api/customers/{command.Id}";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Put, relativeUri);
+            httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
+
+            var content = JsonSerializer.Serialize(command, _serializerOptions);
+            httpRequest.Content = new StringContent(content, Encoding.UTF8, JSON_MEDIA_TYPE);
+
+            using (var response = await _httpClient.SendAsync(httpRequest, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false))
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw await HttpClientRequestException.Create(_httpClient.BaseAddress!, httpRequest, response, cancellationToken).ConfigureAwait(false);
                 }
             }
         }

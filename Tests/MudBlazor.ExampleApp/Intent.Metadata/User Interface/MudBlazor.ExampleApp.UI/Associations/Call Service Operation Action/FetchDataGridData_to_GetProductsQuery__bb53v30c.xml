@@ -22,9 +22,6 @@
     <name>GetProductsQuery</name>
     <display>[call] ProductsService.GetProductsQuery(pageNo: int, pageSize: int, orderBy: string?, searchText: string?): PagedResult&lt;ProductDto&gt;</display>
     <order>3</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
     <typeReference id="34597138-5773-40ee-adac-e77583affd35">
       <typeId>20855426-4972-4feb-9238-8b75015a242b</typeId>
       <isNavigable>true</isNavigable>

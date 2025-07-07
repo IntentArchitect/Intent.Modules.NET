@@ -17,11 +17,11 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         public Guid CustomerId { get; set; }
         public CustomerDto? Model { get; set; }
         [Inject]
-        public ICustomersService CustomersService { get; set; } = default!;
-        [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         [Inject]
         public IDialogService DialogService { get; set; } = default!;
+        [Inject]
+        public ICustomersService Customers { get; set; } = default!;
         [CascadingParameter]
         public IMudDialogInstance Dialog { get; set; }
 
@@ -29,7 +29,10 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         {
             try
             {
-                Model = await CustomersService.GetCustomerByIdAsync(CustomerId);
+                Model = await Customers.GetCustomerByIdAsync(new GetCustomerByIdQuery
+                {
+                    Id = CustomerId
+                });
             }
             catch (Exception e)
             {
@@ -48,9 +51,9 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await CustomersService.UpdateCustomerAsync(CustomerId, new UpdateCustomerCommand
+                await Customers.UpdateCustomerAsync(new UpdateCustomerCommand
                 {
-                    Id = Model.Id,
+                    Id = CustomerId,
                     Name = Model.Name,
                     AccountNo = Model?.AccountNo,
                     Address = new UpdateCustomerAddressDto
@@ -97,7 +100,10 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await CustomersService.DeleteCustomerAsync(CustomerId);
+                await Customers.DeleteCustomerAsync(new DeleteCustomerCommand
+                {
+                    Id = CustomerId
+                });
                 Dialog.Close(true);
             }
             catch (Exception e)

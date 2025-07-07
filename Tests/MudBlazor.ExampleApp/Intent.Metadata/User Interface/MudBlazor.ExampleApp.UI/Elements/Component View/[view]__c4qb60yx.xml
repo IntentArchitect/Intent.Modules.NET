@@ -33,9 +33,6 @@
       <parentFolderId>1e205da1-14b1-454d-b696-785f3022df0e</parentFolderId>
       <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
       <packageName>MudBlazor.ExampleApp.UI</packageName>
-      <traits>
-        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
-      </traits>
       <stereotypes />
       <metadata />
       <childElements />

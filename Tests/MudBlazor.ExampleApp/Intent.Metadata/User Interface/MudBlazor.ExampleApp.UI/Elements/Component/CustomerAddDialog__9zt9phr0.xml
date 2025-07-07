@@ -23,7 +23,7 @@
             <target id="9f5b89c3-bf94-43bc-86a6-78fc255d5a08" name="Content" type="element" specialization="Dialog Content" specializationId="69495016-6e72-4c18-bae5-2391e45cd234" />
             <target id="bc9b5fa4-1dbe-4762-92e8-c8c8df1cb4cf" name="Form" type="element" specialization="Form" specializationId="1cfd2d9d-1061-4c45-8b4e-074cfa8dacfd" />
             <target id="9d16e967-a2ab-45b4-ba69-b286daf4488c" name="Model" type="static-mappable" specialization="Model" specializationId="9d16e967-a2ab-45b4-ba69-b286daf4488c">
-              <typeReference id="e32525fc-fe6a-4b35-9e58-d1eccd4bb56a">
+              <typeReference>
                 <isNavigable>true</isNavigable>
                 <isNullable>false</isNullable>
                 <isCollection>false</isCollection>
@@ -279,9 +279,6 @@
           <parentFolderId>c0acc140-6438-41a3-bd29-7efffd983818</parentFolderId>
           <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
           <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <traits>
-            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-          </traits>
           <stereotypes />
           <mappings>
             <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
@@ -293,7 +290,7 @@
                   <path>
                     <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="0455384a-38ba-4126-a7e0-7b68a69104f3">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -322,7 +319,7 @@
                   <path>
                     <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="0455384a-38ba-4126-a7e0-7b68a69104f3">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -353,7 +350,7 @@
                         <target id="c0acc140-6438-41a3-bd29-7efffd983818" name="OnSaveClicked" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
                         <target id="78d2d0d3-e5e0-4d60-9b63-513607e6c5c0" name="CreateCustomerCommand" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                         <target id="adb0ba54-aceb-4168-aaf7-d20d2f6af74c" name="response" type="static-mappable" specialization="response" specializationId="adb0ba54-aceb-4168-aaf7-d20d2f6af74c">
-                          <typeReference id="c13101fd-108f-473e-ab37-12097bc27eed">
+                          <typeReference>
                             <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
                             <isNavigable>true</isNavigable>
                             <isNullable>false</isNullable>
@@ -415,9 +412,6 @@
           <parentFolderId>af70f150-41d6-408e-bc1c-719162d1c28f</parentFolderId>
           <packageId>11cdc31a-966a-4a9c-8796-a321cda740a4</packageId>
           <packageName>MudBlazor.ExampleApp.UI</packageName>
-          <traits>
-            <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-          </traits>
           <stereotypes />
           <mappings>
             <mapping type="Invocation Mapping" typeId="d5d1dd6a-15f4-4332-b531-3b74e1d97fab">
@@ -429,7 +423,7 @@
                   <path>
                     <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="4866dce3-a72b-4970-8e38-f02d3ec06893">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>
@@ -458,7 +452,7 @@
                   <path>
                     <target id="f7169b90-27de-4c6b-b47d-94c4f4f1733d" name="CustomerAddDialog" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                     <target id="4a3f2773-2520-46fd-a086-bd42209bfc81" name="Dialog" type="static-mappable" specialization="Dialog" specializationId="4a3f2773-2520-46fd-a086-bd42209bfc81">
-                      <typeReference id="4866dce3-a72b-4970-8e38-f02d3ec06893">
+                      <typeReference>
                         <typeId>986f7c68-d796-4d6c-a823-a638bdd0bc42</typeId>
                         <isNavigable>true</isNavigable>
                         <isNullable>false</isNullable>

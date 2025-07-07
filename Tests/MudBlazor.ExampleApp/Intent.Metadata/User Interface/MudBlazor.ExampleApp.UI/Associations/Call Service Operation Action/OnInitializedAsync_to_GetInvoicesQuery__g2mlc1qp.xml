@@ -22,9 +22,6 @@
     <name>GetInvoicesQuery</name>
     <display>[call] InvoiceService.GetInvoicesQuery(pageNo: int, pageSize: int, orderBy: string?): PagedResult&lt;InvoiceDto&gt;</display>
     <order>0</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
     <typeReference id="4c039156-e8e4-4167-a94c-aba5fecff229">
       <typeId>8c1af4b7-76ea-4057-bf88-3415301e2f86</typeId>
       <isNavigable>true</isNavigable>

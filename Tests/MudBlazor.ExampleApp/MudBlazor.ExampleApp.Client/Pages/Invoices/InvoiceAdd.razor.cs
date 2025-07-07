@@ -62,7 +62,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
         {
             try
             {
-                NavigationManager.NavigateTo("/invoices");
                 await InvoiceService.CreateInvoiceConvolutedAsync(new CreateInvoiceConvolutedCommand()
                 {
                     Invoice = new CreateInvoiceDTO
@@ -74,6 +73,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
                         CustomerId = Model.CustomerId.Value
                     }
                 });
+                NavigationManager.NavigateTo("/invoices");
             }
             catch (Exception e)
             {

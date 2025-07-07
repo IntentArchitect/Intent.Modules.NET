@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<association id="37543598-2f81-4cb4-bb8b-474f5f4142c7">
-  <sourceEnd id="34d0caa3-573b-4971-94ca-d1cc17b1502d" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
+<association id="8c1725d4-2d69-4509-b21f-3de3d6ef41b0">
+  <sourceEnd id="439c3b74-e86c-4560-b267-f8e0b678bf49" type="Call Service Operation Action Source End" typeId="936e090c-8408-429d-b2f6-2eb8deecc428">
     <display>: OnInitializedAsync</display>
     <order>0</order>
-    <typeReference id="8601634a-3892-4d8c-a263-e47d465679c9">
+    <typeReference id="5ab2b771-9a8a-4ad3-9567-fb7f5e377694">
       <typeId>fa990c77-7756-4e41-9009-e7f449e2dc95</typeId>
       <isNavigable>false</isNavigable>
       <isNullable>false</isNullable>
@@ -18,21 +18,18 @@
     <metadata />
     <childElements />
   </sourceEnd>
-  <targetEnd id="37543598-2f81-4cb4-bb8b-474f5f4142c7" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
+  <targetEnd id="8c1725d4-2d69-4509-b21f-3de3d6ef41b0" type="Call Service Operation Action Target End" typeId="475f0810-2b4a-40da-8eb8-697cb62f7dbe">
     <name>GetCustomersLookupQuery</name>
-    <display>[call] CustomersService.GetCustomersLookupQuery(): CustomerLookupDto[*]</display>
+    <display>[call] Customers.GetCustomersLookupQuery: CustomerLookupDto[*]</display>
     <order>0</order>
-    <traits>
-      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
-    </traits>
-    <typeReference id="dffff8ef-a9a6-4b5d-a016-5d035490189a">
-      <typeId>0ee67920-9b40-4b95-80ed-c0bac5918b2d</typeId>
+    <typeReference id="71f1ef10-1937-4bb9-b228-288ccc41db50">
+      <typeId>6ec9145f-804b-4524-90a0-fcd1dbbe674c</typeId>
       <isNavigable>true</isNavigable>
       <isNullable>false</isNullable>
       <isCollection>false</isCollection>
       <isRequired>true</isRequired>
-      <typePackageName>MudBlazor.ExampleApp.UI</typePackageName>
-      <typePackageId>11cdc31a-966a-4a9c-8796-a321cda740a4</typePackageId>
+      <typePackageName>MudBlazor.ExampleApp.Services</typePackageName>
+      <typePackageId>2dac69cf-9281-42ae-b529-49eb2e7a6d3f</typePackageId>
       <stereotypes />
       <genericTypeParameters />
     </typeReference>
@@ -40,19 +37,19 @@
     <mappings>
       <mapping type="Call Service Mapping" typeId="e4a4111b-cf13-4efe-8a5d-fea9457ac8ad">
         <source applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" location="[MudBlazor.ExampleApp].[User Interface].[InvoiceForm]" />
-        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="0ee67920-9b40-4b95-80ed-c0bac5918b2d" location="[MudBlazor.ExampleApp].[User Interface].[GetCustomersLookupQuery]" />
+        <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="6ec9145f-804b-4524-90a0-fcd1dbbe674c" location="[MudBlazor.ExampleApp].[User Interface].[GetCustomersLookupQuery]" />
         <mappedEnds>
           <mappedEnd>
             <expression>{OnInitializedAsync.GetCustomersLookupQuery}</expression>
             <path>
-              <target id="0ee67920-9b40-4b95-80ed-c0bac5918b2d" name="GetCustomersLookupQuery" type="element" specialization="Operation" specializationId="aee6811e-b2f6-4562-a8eb-502029f63bc8" />
+              <target id="6ec9145f-804b-4524-90a0-fcd1dbbe674c" name="GetCustomersLookupQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
             </path>
             <sources>
               <source identifier="OnInitializedAsync.GetCustomersLookupQuery" mappingType="Invocation Mapping" mappingTypeId="ab447316-1252-49bc-a695-f34cb00a3cdc">
                 <path>
                   <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="fa990c77-7756-4e41-9009-e7f449e2dc95" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  <target id="37543598-2f81-4cb4-bb8b-474f5f4142c7" name="GetCustomersLookupQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="8c1725d4-2d69-4509-b21f-3de3d6ef41b0" name="GetCustomersLookupQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                 </path>
               </source>
             </sources>
@@ -74,7 +71,7 @@
                 <path>
                   <target id="03d22c9a-2ea7-4c62-a54b-addae3c7f0b5" name="InvoiceForm" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="fa990c77-7756-4e41-9009-e7f449e2dc95" name="OnInitializedAsync" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  <target id="37543598-2f81-4cb4-bb8b-474f5f4142c7" name="GetCustomersLookupQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="8c1725d4-2d69-4509-b21f-3de3d6ef41b0" name="GetCustomersLookupQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                   <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
                     <typeReference>
                       <typeId>07092606-bc94-48c8-91a7-6ebcab047574</typeId>

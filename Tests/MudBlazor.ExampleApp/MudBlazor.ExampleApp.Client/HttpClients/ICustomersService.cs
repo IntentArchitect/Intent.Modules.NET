@@ -11,10 +11,10 @@ namespace MudBlazor.ExampleApp.Client.HttpClients
     public interface ICustomersService : IDisposable
     {
         Task<Guid> CreateCustomerAsync(CreateCustomerCommand command, CancellationToken cancellationToken = default);
-        Task<PagedResult<CustomerDto>> GetCustomersAsync(int pageNo, int pageSize, string? orderBy, string? searchText, CancellationToken cancellationToken = default);
-        Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
-        Task UpdateCustomerAsync(Guid id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
-        Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
+        Task DeleteCustomerAsync(DeleteCustomerCommand command, CancellationToken cancellationToken = default);
+        Task<CustomerDto> GetCustomerByIdAsync(GetCustomerByIdQuery query, CancellationToken cancellationToken = default);
+        Task<PagedResult<CustomerDto>> GetCustomersAsync(GetCustomersQuery query, CancellationToken cancellationToken = default);
         Task<List<CustomerLookupDto>> GetCustomersLookupAsync(CancellationToken cancellationToken = default);
+        Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default);
     }
 }

@@ -18,7 +18,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers
         public MudDataGrid<CustomerDto> DataGrid { get; set; }
         public string SearchText { get; set; }
         [Inject]
-        public ICustomersService CustomersService { get; set; } = default!;
+        public ICustomersService Customers { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         [Inject]
@@ -28,11 +28,13 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers
         {
             try
             {
-                Model = await CustomersService.GetCustomersAsync(
-                    pageNo,
-                    pageSize,
-                    sorting,
-                    SearchText);
+                Model = await Customers.GetCustomersAsync(new GetCustomersQuery
+                {
+                    PageNo = pageNo,
+                    PageSize = pageSize,
+                    OrderBy = sorting,
+                    SearchText = SearchText
+                });
             }
             catch (Exception e)
             {
@@ -105,7 +107,10 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers
                 {
                     return;
                 }
-                await CustomersService.DeleteCustomerAsync(rowId);
+                await Customers.DeleteCustomerAsync(new DeleteCustomerCommand
+                {
+                    Id = rowId
+                });
                 await DataGrid.ReloadServerData();
             }
             catch (Exception e)
