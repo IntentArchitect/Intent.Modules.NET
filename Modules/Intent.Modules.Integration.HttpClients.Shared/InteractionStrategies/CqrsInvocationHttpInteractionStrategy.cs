@@ -4,9 +4,11 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Application.Contracts.Clients.Templates;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Constants;
 
@@ -59,6 +61,7 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
             if (cqrsFieldCount > 0)
             {
                 var csharpMapping = method.GetMappingManager();
+                csharpMapping.AddMappingResolver(new SingleParameterRequestMappingTypeResolver(template), priority: -10);
                 var creationExpression = csharpMapping.GenerateCreationStatement(interaction.Mappings.First());
 
                 invocation.AddArgument(creationExpression);
@@ -78,6 +81,29 @@ internal class CqrsInvocationHttpInteractionStrategy : IInteractionStrategy
         catch (Exception ex)
         {
             throw new ElementException(interaction, $"An error occurred while generating the interaction logic: {ex.Message}\nSee inner exception for more details.", ex);
+        }
+    }
+
+    private class SingleParameterRequestMappingTypeResolver(ICSharpFileBuilderTemplate template) : IMappingTypeResolver
+    {
+        public ICSharpMapping? ResolveMappings(MappingModel mappingModel)
+        {
+            if (mappingModel.Model.SpecializationTypeId is not (CommandModel.SpecializationTypeId or QueryModel.SpecializationTypeId) ||
+                ((IElement)mappingModel.Model).ChildElements.Count(x => x.IsDTOFieldModel()) != 1)
+            {
+                return null;
+            }
+
+            return new SingleFieldMapping(mappingModel, template);
+        }
+    }
+
+    private class SingleFieldMapping(MappingModel model, ICSharpTemplate template) : CSharpMappingBase(model, template)
+    {
+        public override CSharpStatement GetSourceStatement(bool? targetIsNullable = null)
+        {
+            var child = Children.First();
+            return child.GetSourceStatement();
         }
     }
 }

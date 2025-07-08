@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Metadata.Models;
+using Intent.Modelers.Services.Api;
+using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Modules.Contracts.Clients.Shared.Templates.ServiceContract;
@@ -42,6 +44,10 @@ public class ImplicitServiceProxyContractModel : IServiceContractModel
             TypeReference = element.TypeReference;
             InternalElement = element;
 
+            var fields = element.ChildElements
+                .Where(x => x.IsDTOFieldModel())
+                .ToArray();
+
             switch (element.SpecializationTypeId)
             {
                 case OperationTypeId:
@@ -56,21 +62,33 @@ public class ImplicitServiceProxyContractModel : IServiceContractModel
                     break;
                 case CommandTypeId:
                     Name = element.Name.RemoveSuffix("Command");
-                    Parameters = element.ChildElements.Any()
-                        ? [new ParameterModel(
-                            id: element.Id,
-                            name: "command",
-                            typeReference: element.AsTypeReference())]
-                        : [];
+                    Parameters = fields.Length switch
+                    {
+                        0 => [],
+                        1 => [new ParameterModel(
+                                id: fields[0].Id,
+                                name: fields[0].Name.ToParameterName(),
+                                typeReference: fields[0].TypeReference)],
+                        _ => [new ParameterModel(
+                                id: element.Id,
+                                name: "command",
+                                typeReference: element.AsTypeReference())]
+                    };
                     break;
                 case QueryTypeId:
                     Name = element.Name.RemoveSuffix("Query");
-                    Parameters = element.ChildElements.Any()
-                        ? [new ParameterModel(
+                    Parameters = fields.Length switch
+                    {
+                        0 => [],
+                        1 => [new ParameterModel(
+                            id: fields[0].Id,
+                            name: fields[0].Name.ToParameterName(),
+                            typeReference: fields[0].TypeReference)],
+                        _ => [new ParameterModel(
                             id: element.Id,
                             name: "query",
                             typeReference: element.AsTypeReference())]
-                        : [];
+                    };
                     break;
                 default:
                     throw new InvalidOperationException($"Unknown type: {element.SpecializationType} ({element.SpecializationTypeId})");

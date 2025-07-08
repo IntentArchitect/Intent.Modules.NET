@@ -96,6 +96,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         }
 
                         string? parameterName;
+                        string? bodyPayload = null;
                         if (model.CreateParameterPerInput)
                         {
                             foreach (var input in endpoint.Inputs)
@@ -108,16 +109,28 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         }
                         else
                         {
-                            (parameterName, var skip) = endpoint.InternalElement.SpecializationTypeId switch
-                            {
-                                CommandModel.SpecializationTypeId => ("command", !endpoint.InternalElement.ChildElements.Any(x => x.IsDTOFieldModel())),
-                                QueryModel.SpecializationTypeId => ("query", !endpoint.InternalElement.ChildElements.Any(x => x.IsDTOFieldModel())),
-                                _ => (endpoint.InternalElement.Name.ToParameterName(), false)
-                            };
+                            var fields = endpoint.InternalElement.ChildElements.Where(x => x.IsDTOFieldModel()).ToArray();
 
-                            if (!skip)
+                            switch (fields.Length)
                             {
-                                method.AddParameter(GetTypeName(endpoint.InternalElement), parameterName);
+                                case 0:
+                                    parameterName = null;
+                                    break;
+                                case 1:
+                                    parameterName = fields[0].Name.ToParameterName();
+                                    method.AddParameter(GetTypeName(fields[0].TypeReference), parameterName);
+                                    bodyPayload = $"new {{ {fields[0].Name.ToPascalCase()} = {parameterName} }}";
+                                    break;
+                                default:
+                                    parameterName = endpoint.InternalElement.SpecializationTypeId switch
+                                    {
+                                        CommandModel.SpecializationTypeId => "command",
+                                        QueryModel.SpecializationTypeId => "query",
+                                        _ => endpoint.InternalElement.Name.ToParameterName()
+
+                                    };
+                                    method.AddParameter(GetTypeName(endpoint.InternalElement), parameterName);
+                                    break;
                             }
                         }
                         
@@ -188,7 +201,7 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
                                 if (headerParameter.HeaderName.Equals("content-length", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    // if file endpoing upload, it will be handled futher down
+                                    // if file endpoint upload, it will be handled further down
                                     if (FileTransferHelper.IsFileUploadOperation(endpoint))
                                     {
                                         continue;
@@ -251,7 +264,9 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
                         {
                             var bodyParam = bodyParams.Single();
 
-                            method.AddStatement($"var content = JsonSerializer.Serialize({GetSourceExpression(parameterName, endpoint, bodyParam)}, _serializerOptions);", s => s.SeparatedFromPrevious());
+                            var payload = bodyPayload ?? GetSourceExpression(parameterName, endpoint, bodyParam);
+                            method.AddStatement($"var content = JsonSerializer.Serialize({payload}, _serializerOptions);", s => s.SeparatedFromPrevious());
+
                             // Changed to UTF8 as Default can be sketchy:
                             // https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding.default?view=net-7.0&devlangs=csharp&f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(System.Text.Encoding.Default)%3Bk(DevLang-csharp)%26rd%3Dtrue
                             method.AddStatement("httpRequest.Content = new StringContent(content, Encoding.UTF8 , JSON_MEDIA_TYPE);");
@@ -419,6 +434,12 @@ public abstract class HttpClientTemplateBase : CSharpTemplateBase<IServiceProxyM
 
     private string GetSourceExpression(string? methodParameterName, IHttpEndpointModel endpoint, IHttpEndpointInputModel input)
     {
+        var hasSingleFieldChild = endpoint.InternalElement.ChildElements.Count(x => x.IsDTOFieldModel()) == 1;
+        if (!Model.CreateParameterPerInput && hasSingleFieldChild)
+        {
+            return methodParameterName!;
+        }
+
         return Model.CreateParameterPerInput || endpoint.InternalElement.Id == input.TypeReference.ElementId
             ? input.Name.ToParameterName()
             : $"{methodParameterName!}.{input.Name.ToPascalCase()}";
