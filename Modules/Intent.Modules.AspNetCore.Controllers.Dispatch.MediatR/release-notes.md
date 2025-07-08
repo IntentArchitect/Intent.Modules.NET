@@ -1,3 +1,7 @@
+### Version 6.1.2
+
+- Improvement: Updated package references
+
 ### Version 6.1.1
 
 - Fixed: One of the precondition checks didn't respect reserved names like `event`.

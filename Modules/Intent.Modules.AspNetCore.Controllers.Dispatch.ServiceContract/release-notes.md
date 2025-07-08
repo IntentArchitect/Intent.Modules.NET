@@ -1,3 +1,7 @@
+### Version 5.2.14
+
+- Improvement: Updated package references
+
 ### Version 5.2.13
 
 - Fixed: Issue with unit of work not being correctly injected into the constructor
