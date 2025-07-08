@@ -40,5 +40,7 @@ namespace Intent.Modules.AspNetCore.Settings
         }
 
         public bool EnableHTTPSRedirect() => bool.TryParse(_groupSettings.GetSetting("e715d518-88c0-4688-91c4-01ec28ce43a2")?.Value.ToPascalCase(), out var result) && result;
+
+        public bool AddRequiredAttributeToParameters() => bool.TryParse(_groupSettings.GetSetting("d8308c84-a42a-4ca2-b871-f556c5f4ef4d")?.Value.ToPascalCase(), out var result) && result;
     }
 }

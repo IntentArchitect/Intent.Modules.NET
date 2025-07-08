@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.AspNetCore</id>
-  <version>6.1.1</version>
+  <version>6.1.2-pre.0</version>
   <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
   <summary>Generates base code for hosting Web services on the ASP.NET Core infrastructure</summary>
   <description>Generates base code for hosting Web services on the ASP.NET Core infrastructure</description>
@@ -139,9 +139,10 @@
     <!-- /Minimum Compatible Versions -->
   </interoperability>
   <dependencies>
-    <dependency id="Intent.Common" version="3.6.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.CSharp" version="3.8.10" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
     <dependency id="Intent.VisualStudio.Projects" version="3.6.0" />
   </dependencies>
@@ -153,14 +154,18 @@
     <install target="Module Builder" src="Intent.Metadata/Module Builder/Intent.AspNetCore/Intent.AspNetCore.pkg.config" externalReference="9d83d9d6-7718-4b4a-b78b-725535182de3" />
   </metadata>
   <moduleSettings>
-    <group id="9677c813-b334-4b0d-be2c-3b149f1f6ae8" title="ASP.NET Core Settings" externalReference="9677c813-b334-4b0d-be2c-3b149f1f6ae8">
+    <group id="9677c813-b334-4b0d-be2c-3b149f1f6ae8" title="ASP.NET Core Settings" externalReference="9677c813-b334-4b0d-be2c-3b149f1f6ae8" type="application-settings">
       <settings>
         <setting id="e715d518-88c0-4688-91c4-01ec28ce43a2" title="Enable HTTPS Redirect" type="switch">
           <hint>Controls if  the UseHttpsRedirection behavior is part of the application's HTTP pipeline or not.</hint>
           <defaultValue>true</defaultValue>
         </setting>
+        <setting id="d8308c84-a42a-4ca2-b871-f556c5f4ef4d" title="Add Required Attribute To Parameters" type="switch">
+          <hint>Controls whether the [Required] attribute is added to qualifying parameters.</hint>
+        </setting>
       </settings>
     </group>
   </moduleSettings>
   <moduleSettingsExtensions />
+  <migrations has-on-install-migration="true" />
 </package>

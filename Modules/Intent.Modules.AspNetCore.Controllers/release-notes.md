@@ -1,4 +1,8 @@
-﻿### Version 7.1.4
+﻿### Version 7.1.5
+
+- Improvement: `Required` attribute automatically added to qualifying parameter.
+
+### Version 7.1.4
 
 - Fixed: For Route Parameters: Setting a Command / Query Field or Service Operation Parameter's property `Is Nullable` to `true` will now produce an ASP.NET Core Route Parameter with `?` symbol. e.g. `/api/resource/{nullableParameter?}`
 

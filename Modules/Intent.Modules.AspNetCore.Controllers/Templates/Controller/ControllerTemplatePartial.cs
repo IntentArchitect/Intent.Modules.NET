@@ -7,6 +7,7 @@ using Intent.Engine;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
+using Intent.Modules.AspNetCore.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -103,10 +104,16 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                                     param.AddMetadata("mappedPayloadProperty", parameter.MappedPayloadProperty);
 
                                     param.WithDefaultValue(parameter.Value);
-                                    var attr = GetParameterBindingAttribute(parameter);
-                                    if (!string.IsNullOrWhiteSpace(attr))
+                                    var bindingAttr = GetParameterBindingAttribute(parameter);
+                                    if (!string.IsNullOrWhiteSpace(bindingAttr))
                                     {
-                                        param.AddAttribute(attr);
+                                        param.AddAttribute(bindingAttr);
+                                    }
+
+                                    var requiredAttr = GetParameterRequiredAttribute(parameter);
+                                    if (!string.IsNullOrWhiteSpace(requiredAttr))
+                                    {
+                                        param.AddAttribute(requiredAttr);
                                     }
                                 });
                             }
@@ -442,6 +449,34 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                 HttpInputSource.FromHeader => $"[FromHeader(Name = \"{parameter.HeaderName ?? parameter.Name}\")]",
                 HttpInputSource.FromQuery => $"[FromQuery{(!string.IsNullOrWhiteSpace(parameter.QueryStringName) ? $"(Name = \"{parameter.QueryStringName}\")" : string.Empty)}]",
                 HttpInputSource.FromRoute => "[FromRoute]",
+                _ => string.Empty
+            };
+        }
+
+        private string GetParameterRequiredAttribute(IControllerParameterModel parameter)
+        {
+            // if the setting is disabled, never add the attribute
+            if (!ExecutionContext.Settings.GetASPNETCoreSettings().AddRequiredAttributeToParameters())
+            {
+                return string.Empty;
+            }
+
+            // if there is a default value
+            if (!string.IsNullOrWhiteSpace(parameter.Value))
+            {
+                return string.Empty;
+            }
+
+            if (parameter.TypeReference?.IsNullable ?? false)
+            {
+                return string.Empty;
+            }
+
+            return parameter.Source switch
+            {
+                HttpInputSource.FromQuery => $"[{UseType("System.ComponentModel.DataAnnotations.Required")}]",
+                HttpInputSource.FromHeader => $"[{UseType("System.ComponentModel.DataAnnotations.Required")}]",
+                HttpInputSource.FromForm => $"[{UseType("System.ComponentModel.DataAnnotations.Required")}]",
                 _ => string.Empty
             };
         }

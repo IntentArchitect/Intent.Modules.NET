@@ -1,3 +1,7 @@
+### Version 6.1.2
+
+- Improvement: Added new setting to control if the `Required` attribute automatically added to qualifying parameter.
+
 ### Version 6.1.1
 
 - Fixed: `ProblemDetailsConfiguration` CanRun behaviour didn't respect base implementation.
