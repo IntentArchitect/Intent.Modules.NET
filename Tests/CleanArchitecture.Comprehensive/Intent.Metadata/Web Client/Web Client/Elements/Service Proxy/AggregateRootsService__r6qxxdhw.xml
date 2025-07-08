@@ -12,20 +12,24 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
-      <target id="acc2c837-4400-4947-b384-e08adaf288f9" name="AggregateRoots" type="element" specialization="Folder" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="acc2c837-4400-4947-b384-e08adaf288f9" name="AggregateRoots" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
   <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
   <packageName>Web Client</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
     <childElement id="07edd050-1296-427f-a253-fbfc8d2d1fbe" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>CreateAggregateRoot</name>
-      <display>CreateAggregateRoot(): guid</display>
+      <display>CreateAggregateRoot(command: CreateAggregateRootCommand): guid</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="04f5b035-d39f-485b-a00d-d7704b9376d8">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -43,20 +47,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5fafef2d-e558-4060-ac43-7f09f1ec434a" name="CreateAggregateRootCommand" type="element" specialization="Command" />
+          <target id="5fafef2d-e558-4060-ac43-7f09f1ec434a" name="CreateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="cc0c2a20-6252-40f9-bc47-f9749d2e7c0b" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateAggregateRootCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="732d7e5a-26c0-4cf7-96eb-739ce7453d83">
+            <typeId>5fafef2d-e558-4060-ac43-7f09f1ec434a</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>07edd050-1296-427f-a253-fbfc8d2d1fbe</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="5fafef2d-e558-4060-ac43-7f09f1ec434a" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="9a68c05f-76d3-4abd-a95d-3259c9fe7836" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>CreateAggregateRootCompositeManyB</name>
-      <display>CreateAggregateRootCompositeManyB(): guid</display>
+      <display>CreateAggregateRootCompositeManyB(aggregateRootId: guid, command: CreateAggregateRootCompositeManyBCommand): guid</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="0ca23416-6523-42b9-afb6-be4e117cc97f">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -74,20 +110,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="7e32c772-8408-4429-8af2-820f832d584f" name="CreateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="7e32c772-8408-4429-8af2-820f832d584f" name="CreateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="b8850670-bf98-4d52-9293-32a8288a2685" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>aggregateRootId</name>
+          <display>aggregateRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="29969a3d-a965-4e4e-b5fd-e1d864afe3d2">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9a68c05f-76d3-4abd-a95d-3259c9fe7836</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1828ad1c-7806-425e-b4c9-5603060561e4" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="bf4876cc-b595-4914-9a75-97203694f22d" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateAggregateRootCompositeManyBCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8932f3c0-c255-47ee-b7d1-d8cd1846cc33">
+            <typeId>7e32c772-8408-4429-8af2-820f832d584f</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9a68c05f-76d3-4abd-a95d-3259c9fe7836</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7e32c772-8408-4429-8af2-820f832d584f" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="85706628-2db6-466c-8671-9e018b8a75fb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>DeleteAggregateRoot</name>
-      <display>DeleteAggregateRoot(): void</display>
+      <display>DeleteAggregateRoot(id: guid): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="32003dbd-b5d6-4086-b00e-2a481d084595">
         <isNavigable>true</isNavigable>
@@ -102,20 +196,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3d3444db-2f5e-4233-af74-d7d967bb9725" name="DeleteAggregateRootCommand" type="element" specialization="Command" />
+          <target id="3d3444db-2f5e-4233-af74-d7d967bb9725" name="DeleteAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e97537cf-6c2c-4eaa-8dda-dec734908b73" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8cd0dfb0-0230-403e-9ab8-77cb1b07cbc5">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>85706628-2db6-466c-8671-9e018b8a75fb</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="f6d666a0-7089-482e-9558-cf5d7e5207c6" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="92213dbe-8e0b-4c24-9128-45d1d030a631" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>DeleteAggregateRootCompositeManyB</name>
-      <display>DeleteAggregateRootCompositeManyB(): void</display>
+      <display>DeleteAggregateRootCompositeManyB(aggregateRootId: guid, id: guid): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="b6371256-b542-4257-b392-0d70760e3498">
         <isNavigable>true</isNavigable>
@@ -130,20 +256,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="70b86d61-b601-4e58-a89f-39689143238d" name="DeleteAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="70b86d61-b601-4e58-a89f-39689143238d" name="DeleteAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="9c381729-0378-4ceb-8d91-ae2afa545051" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>aggregateRootId</name>
+          <display>aggregateRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="37b2c8e7-297f-4f53-bf41-cff5e930c98c">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>92213dbe-8e0b-4c24-9128-45d1d030a631</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="cb1f56dd-a765-45a3-b735-50c63ed36d06" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="c917da44-81d6-4a74-afa8-3f2fde23b49a" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="7c9db9ef-94b4-47bd-b18b-2ded96260246">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>92213dbe-8e0b-4c24-9128-45d1d030a631</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="f795c38d-f44c-49cd-bf4b-0e140323c1e3" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="8a4f5fd2-cdbd-4a44-9f4d-e714d4284106" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>UpdateAggregateRoot</name>
-      <display>UpdateAggregateRoot(): void</display>
+      <display>UpdateAggregateRoot(id: guid, command: UpdateAggregateRootCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="cafe4111-ffb8-41cd-90e1-c63a659d4c37">
         <isNavigable>true</isNavigable>
@@ -158,20 +342,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="3a89f77c-28f9-41ab-91e3-bfcd99a1abf3" name="UpdateAggregateRootCommand" type="element" specialization="Command" />
+          <target id="3a89f77c-28f9-41ab-91e3-bfcd99a1abf3" name="UpdateAggregateRootCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e7ccc986-51e1-4434-98b3-b36ac13557cf" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6bee4702-0a17-49cc-b9a0-145ad7499662">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8a4f5fd2-cdbd-4a44-9f4d-e714d4284106</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e73a7faf-4da1-4099-9c5f-2c441c2035c1" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="bb42bea9-2a7b-4c1a-a318-de43105c8bde" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateAggregateRootCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0c10f6f0-f838-4b23-8da0-8c4316612e50">
+            <typeId>3a89f77c-28f9-41ab-91e3-bfcd99a1abf3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8a4f5fd2-cdbd-4a44-9f4d-e714d4284106</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="3a89f77c-28f9-41ab-91e3-bfcd99a1abf3" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="4d6d546f-ec0d-4da9-a9a6-7db631ae6760" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>UpdateAggregateRootCompositeManyB</name>
-      <display>UpdateAggregateRootCompositeManyB(): void</display>
+      <display>UpdateAggregateRootCompositeManyB(aggregateRootId: guid, id: guid, command: UpdateAggregateRootCompositeManyBCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="2b08018a-53be-4bf4-96d2-53b5a5d9b307">
         <isNavigable>true</isNavigable>
@@ -186,20 +428,104 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="095c5ed0-1106-4475-9a90-33f5eaf115bb" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" />
+          <target id="095c5ed0-1106-4475-9a90-33f5eaf115bb" name="UpdateAggregateRootCompositeManyBCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="64dcbb0b-715c-4fbc-9ec5-65d193f2bfce" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>aggregateRootId</name>
+          <display>aggregateRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="03cc172d-cd3d-4f9e-ba11-aec49a945327">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4d6d546f-ec0d-4da9-a9a6-7db631ae6760</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="b87c4b56-c73d-466c-82ca-62fcbf9aba9b" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="90c7a102-70d9-41e6-85ff-aac02b4f80d2" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c31d0869-5faa-4121-9ad1-7cd9ef34c665">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4d6d546f-ec0d-4da9-a9a6-7db631ae6760</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="fe2ec2c4-6cc1-42a4-9437-6dfd4053c00c" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="d4a7036a-2a90-4ebe-8dc0-0d7061abb7ee" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateAggregateRootCompositeManyBCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c5822200-d440-4cbd-8ceb-9a9fd850b9d6">
+            <typeId>095c5ed0-1106-4475-9a90-33f5eaf115bb</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>4d6d546f-ec0d-4da9-a9a6-7db631ae6760</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="095c5ed0-1106-4475-9a90-33f5eaf115bb" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="df7d2291-c3a3-40dd-9191-c8b205a77b16" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateRootById</name>
-      <display>GetAggregateRootById(): AggregateRootDto</display>
+      <display>GetAggregateRootById(id: guid): AggregateRootDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="8b503fea-1a0c-4b80-8444-4eee2d52b9b3">
         <typeId>a733e81e-070d-4219-9158-e2fbe7d98400</typeId>
@@ -207,7 +533,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -217,20 +543,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="fdb4c6fc-b7d1-46f3-ab31-76167f193139" name="GetAggregateRootByIdQuery" type="element" specialization="Query" />
+          <target id="fdb4c6fc-b7d1-46f3-ab31-76167f193139" name="GetAggregateRootByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="2b7128d2-84b7-4bb9-81e7-625898ed4573" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="05c18bf1-11a1-4681-a5cf-db8f46506755">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>df7d2291-c3a3-40dd-9191-c8b205a77b16</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="529f4d1e-22b7-407c-bd5a-75a09165c888" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="5f558551-7a3b-45f0-a777-40fb332466ac" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateRootCompositeManyBById</name>
-      <display>GetAggregateRootCompositeManyBById(): AggregateRootCompositeManyBDto</display>
+      <display>GetAggregateRootCompositeManyBById(aggregateRootId: guid, id: guid): AggregateRootCompositeManyBDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="b646282c-a48d-45b9-a995-ddfce16ec1ee">
         <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
@@ -238,7 +596,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -248,20 +606,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ff740d69-6fa5-43c7-8dc9-f837016cde2d" name="GetAggregateRootCompositeManyBByIdQuery" type="element" specialization="Query" />
+          <target id="ff740d69-6fa5-43c7-8dc9-f837016cde2d" name="GetAggregateRootCompositeManyBByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="05e1dee4-9f05-492d-b0a7-3864120bc5a2" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>aggregateRootId</name>
+          <display>aggregateRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4e3ed6e3-215e-4f4f-ba8c-4cae8d81e8d3">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5f558551-7a3b-45f0-a777-40fb332466ac</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="5b636e71-9d23-4564-8826-d4765defb826" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="8f48068f-4cd1-4cc1-bc60-46d12c58ad4f" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="22eab9dd-911a-4933-90fa-e4a7d1107278">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>5f558551-7a3b-45f0-a777-40fb332466ac</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="675080e2-5eff-4bdf-839e-d0ebbe32e019" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="a499317c-09dc-4de7-a67c-735d37983c49" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateRootCompositeManyBS</name>
-      <display>GetAggregateRootCompositeManyBS(): AggregateRootCompositeManyBDto[*]</display>
+      <display>GetAggregateRootCompositeManyBS(aggregateRootId: guid): AggregateRootCompositeManyBDto[*]</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="505d8b40-29a7-4464-936d-5b9302796424">
         <typeId>0b8ca816-d03e-4855-8291-9a0c244a765f</typeId>
@@ -269,7 +685,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -279,15 +695,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="51e005b0-9b7e-4651-9cd8-32cfa379541a" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" />
+          <target id="51e005b0-9b7e-4651-9cd8-32cfa379541a" name="GetAggregateRootCompositeManyBSQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="4fd2c2c1-e854-4e9d-b8e2-58760f645d4c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>aggregateRootId</name>
+          <display>aggregateRootId: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b909867c-058e-45d9-8d53-7c72c1197062">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a499317c-09dc-4de7-a67c-735d37983c49</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="7305caa0-5f83-4186-a8a8-e7ba13120467" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="a387dd4c-e989-4544-aa1b-6c6c48aa74ad" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateRoots</name>
@@ -300,7 +747,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -310,12 +757,16 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="64c75571-c2bf-4443-aa3f-260cdd334084" name="GetAggregateRootsQuery" type="element" specialization="Query" />
+          <target id="64c75571-c2bf-4443-aa3f-260cdd334084" name="GetAggregateRootsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>942ed60a-24c4-4732-b8b1-462e4566e080</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

@@ -1,5 +1,4 @@
 using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices;
-using CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationServices.Contracts.Services.Customers;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -22,10 +21,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Customers.Call
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CallDeleteCustomerCommand request, CancellationToken cancellationToken)
         {
-            await _customersService.DeleteCustomerAsync(new DeleteCustomerCommand
-            {
-                Id = request.Id
-            }, cancellationToken);
+            await _customersService.DeleteCustomerAsync(request.Id, cancellationToken);
         }
     }
 }

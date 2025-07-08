@@ -12,20 +12,24 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
-      <target id="a575ade1-e3ef-45d7-b85a-4cfd49d63683" name="NamedQueryStrings" type="element" specialization="Folder" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="a575ade1-e3ef-45d7-b85a-4cfd49d63683" name="NamedQueryStrings" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
   <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
   <packageName>Web Client</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
     <childElement id="42ff9642-d520-400f-9455-cbab94bbb98b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>NamedQueryStrings</name>
-      <display>NamedQueryStrings(): void</display>
+      <display>NamedQueryStrings(par1: string): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="2456cd73-eb36-43f2-a058-b50bd2b0e6f7">
         <isNavigable>true</isNavigable>
@@ -40,15 +44,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="1e7ada7c-e257-4760-a1f9-85d170636777" name="NamedQueryStringsCommand" type="element" specialization="Command" />
+          <target id="1e7ada7c-e257-4760-a1f9-85d170636777" name="NamedQueryStringsCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>5b210238-8ba5-4423-9471-0287aafcdb8d</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e6fec795-5a1c-47e7-814e-cb4c08b4ff0e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>par1</name>
+          <display>par1: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="6b2aeb1c-5d67-48a3-9d3a-095f0d4d9590">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>42ff9642-d520-400f-9455-cbab94bbb98b</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="cf6dd417-6498-4d21-9daf-5ee9526685f1" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

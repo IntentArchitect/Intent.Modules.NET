@@ -1,5 +1,4 @@
 using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices;
-using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices.Contracts.Services.AdvancedMappingSystem.Clients;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -22,10 +21,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Clients.CallDelete
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CallDeleteClientCommand request, CancellationToken cancellationToken)
         {
-            await _clientsService.DeleteClientAsync(new DeleteClientCommand
-            {
-                Id = request.Id
-            }, cancellationToken);
+            await _clientsService.DeleteClientAsync(request.Id, cancellationToken);
         }
     }
 }

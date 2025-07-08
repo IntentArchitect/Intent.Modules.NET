@@ -10,8 +10,8 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.IntegrationService
     public interface IClientsService : IDisposable
     {
         Task<string> CreateClientAsync(CreateClientCommand command, CancellationToken cancellationToken = default);
-        Task DeleteClientAsync(DeleteClientCommand command, CancellationToken cancellationToken = default);
-        Task<ClientDto> GetClientByIdAsync(GetClientByIdQuery query, CancellationToken cancellationToken = default);
+        Task DeleteClientAsync(string id, CancellationToken cancellationToken = default);
+        Task<ClientDto> GetClientByIdAsync(string id, CancellationToken cancellationToken = default);
         Task<List<ClientDto>> GetClientsAsync(CancellationToken cancellationToken = default);
         Task UpdateClientAsync(UpdateClientCommand command, CancellationToken cancellationToken = default);
     }

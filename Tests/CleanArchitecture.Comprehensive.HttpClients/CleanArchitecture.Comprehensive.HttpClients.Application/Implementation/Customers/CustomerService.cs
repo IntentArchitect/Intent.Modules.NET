@@ -28,10 +28,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task GetCustomerByIdQuery(CancellationToken cancellationToken = default)
         {
-            var result = await _customersService.GetCustomerByIdAsync(new GetCustomerByIdQuery
-            {
-                Id = default
-            }, cancellationToken);
+            var result = await _customersService.GetCustomerByIdAsync(default, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -57,10 +54,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task DeleteCustomerCommand(CancellationToken cancellationToken = default)
         {
-            await _customersService.DeleteCustomerAsync(new DeleteCustomerCommand
-            {
-                Id = default
-            }, cancellationToken);
+            await _customersService.DeleteCustomerAsync(default, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

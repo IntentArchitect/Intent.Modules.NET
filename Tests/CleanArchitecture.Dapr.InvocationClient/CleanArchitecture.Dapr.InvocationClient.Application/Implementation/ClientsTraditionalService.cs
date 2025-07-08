@@ -28,10 +28,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task CallGetClientByIdQuery(string id, CancellationToken cancellationToken = default)
         {
-            var result = await _clientsService.GetClientByIdAsync(new GetClientByIdQuery
-            {
-                Id = id
-            }, cancellationToken);
+            var result = await _clientsService.GetClientByIdAsync(id, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
@@ -50,10 +47,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Implementation
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task CallDeleteClientCommand(string id, CancellationToken cancellationToken = default)
         {
-            await _clientsService.DeleteClientAsync(new DeleteClientCommand
-            {
-                Id = id
-            }, cancellationToken);
+            await _clientsService.DeleteClientAsync(id, cancellationToken);
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

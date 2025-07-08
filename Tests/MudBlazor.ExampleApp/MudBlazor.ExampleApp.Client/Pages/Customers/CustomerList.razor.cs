@@ -107,10 +107,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers
                 {
                     return;
                 }
-                await Customers.DeleteCustomerAsync(new DeleteCustomerCommand
-                {
-                    Id = rowId
-                });
+                await Customers.DeleteCustomerAsync(rowId);
                 await DataGrid.ReloadServerData();
             }
             catch (Exception e)

@@ -12,20 +12,24 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
-      <target id="e564ffb3-ca39-420b-a9c9-959be5542ecf" name="Validation" type="element" specialization="Folder" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="e564ffb3-ca39-420b-a9c9-959be5542ecf" name="Validation" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
   <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
   <packageName>Web Client</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
     <childElement id="11130eb2-b265-4d15-9981-14936a6812b0" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>InboundValidationCommand</name>
-      <display>InboundValidationCommand(): void</display>
+      <display>InboundValidationCommand(command: InboundValidationCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="218b14f1-c283-4d83-bd92-aa42f52afe65">
         <isNavigable>true</isNavigable>
@@ -40,20 +44,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="afa2f4c8-f4f4-4444-b911-09f2ff2ec8b4" name="InboundValidationCommand" type="element" specialization="Command" />
+          <target id="afa2f4c8-f4f4-4444-b911-09f2ff2ec8b4" name="InboundValidationCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="f8504bee-4be1-49ea-b0df-19e172325e90" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: InboundValidationCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="f8676cc0-a3ba-461f-938d-a20405e6402c">
+            <typeId>afa2f4c8-f4f4-4444-b911-09f2ff2ec8b4</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>11130eb2-b265-4d15-9981-14936a6812b0</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="afa2f4c8-f4f4-4444-b911-09f2ff2ec8b4" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="05ff939c-61dd-44d0-be09-3b3224a25e01" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>InboundValidationQuery</name>
-      <display>InboundValidationQuery(): DummyResultDto</display>
+      <display>InboundValidationQuery(rangeStr: string, minStr: string, maxStr: string, rangeInt: int, minInt: int, maxInt: int, isRequired: string, isRequiredEmpty: string, decimalRange: decimal, decimalMin: decimal, decimalMax: decimal, stringOption: string?, stringOptionNonEmpty: string?, myEnum: EnumDescriptions, regexField: string): DummyResultDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="5de69b45-1f0f-4e93-ae97-4049e01027be">
         <typeId>6ecfef12-e4aa-45d5-bc29-c94f91b6d269</typeId>
@@ -61,7 +97,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -71,15 +107,410 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="09d30b8d-c37e-422d-a651-b45f58f74809" name="InboundValidationQuery" type="element" specialization="Query" />
+          <target id="09d30b8d-c37e-422d-a651-b45f58f74809" name="InboundValidationQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>8e572cd3-82cd-4207-b9bb-bec6e82f536f</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="45b36658-fa1c-4680-8de3-8db74e0dc387" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>rangeStr</name>
+          <display>rangeStr: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="eaca9cc2-f81c-4c23-a4c8-98bdd2f318b1">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="a4b2c857-0421-44d3-aceb-94f97b5e26a4" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="194533d3-eb2d-49da-aeec-7dee8bb46450" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>minStr</name>
+          <display>minStr: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="ddd8a8fd-9be7-469c-8166-bfb677c31392">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="0ddacd24-6c05-4090-8f8b-d58167aaf371" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2e540dfa-0e27-4f68-b647-f94731caf0a4" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>maxStr</name>
+          <display>maxStr: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="386d2a0a-4780-462a-9704-f66c82cdf0f9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="586d67c0-ba22-4318-a670-8d01a84031bf" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="a9cc830a-aabf-4a94-a7ec-77ffc59dfe21" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>rangeInt</name>
+          <display>rangeInt: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="bdeec5f7-af88-4b9e-9dc2-f53b1032e836">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="3eceabcc-a0ed-4b11-84dd-4edf24e3a17e" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="7594be36-3a14-41f8-97e8-917b5c33d60e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>minInt</name>
+          <display>minInt: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="3fe330d6-7a0b-409a-a693-692f138f208f">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="72ad1760-af88-44b3-8e4a-317b1f066239" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="81451502-2a22-4e13-a779-f2f631adb2a2" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>maxInt</name>
+          <display>maxInt: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="15185aa5-8e3b-418b-9cb3-99cb4e5e7e24">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="90631f22-01b6-4507-9da7-24dec4afdaf8" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="a2c36dd5-e86a-4acf-8767-67cff9ecc85c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>isRequired</name>
+          <display>isRequired: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="599cb2a0-0f48-4b33-9b84-ba26ce5f7459">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="4e5c1b00-53d2-4e48-b0f5-360ef9ef199c" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="3cfa4d45-a397-4b5d-8f34-1d9207fadb14" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>isRequiredEmpty</name>
+          <display>isRequiredEmpty: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="43034031-1afd-46cc-a69a-5da2e32726c9">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="87b0956f-2c77-45e1-84db-19ccd8bb4dc0" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="569efba4-6a0c-4248-bb3e-657a240ac1d8" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>decimalRange</name>
+          <display>decimalRange: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="242f4105-462e-4940-80ad-4e9466161071">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="a8f4250c-eeb7-434e-aad6-34d662447b62" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="23de5248-986f-4c8e-b1bb-589b0fde7bd7" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>decimalMin</name>
+          <display>decimalMin: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="501913d7-a2a4-45e6-a0ec-a9b2a776f15f">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e954dfae-0a27-432b-8cce-d8aff6ac7ef2" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="4e0dd41a-1e65-446d-8cdb-db0ab73af471" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>decimalMax</name>
+          <display>decimalMax: decimal</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4f8c1e06-cc23-4266-ab5d-e26b046e1c88">
+            <typeId>675c7b84-997a-44e0-82b9-cd724c07c9e6</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="e804d742-6c72-4ad4-b789-ecf8987f9bb6" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="8d5ac5c5-25a8-43e4-9535-7e4667833f51" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>stringOption</name>
+          <display>stringOption: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="5d2c7084-26d8-4e85-8795-91cff0f22c20">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="60e4bb17-5067-4d57-8db6-3ef7127dc557" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="764f093f-fca0-40a3-a702-4fff4006d3d2" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>stringOptionNonEmpty</name>
+          <display>stringOptionNonEmpty: string?</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="9892dc2b-f8d1-48ea-b759-f921637a28f5">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>true</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="c9a1955d-b555-4692-b59a-9e34a7b8a38f" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="c0f3a012-b5bb-441e-8543-eef5548f63be" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>myEnum</name>
+          <display>myEnum: EnumDescriptions</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="b32c2fea-c3aa-4fd6-880e-958c848d3f88">
+            <typeId>0ac4b164-338a-4323-9d97-9bdcd0192647</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="da5b72a1-cf45-4768-92f3-670005057650" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="be659a76-bad6-4749-a27f-a3e9d3a4833f" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>regexField</name>
+          <display>regexField: string</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="963ee355-ba39-436c-a731-42a8b40d849d">
+            <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>05ff939c-61dd-44d0-be09-3b3224a25e01</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="89e9e098-9552-4e52-b0b9-f047dc520593" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
   </childElements>
 </class>

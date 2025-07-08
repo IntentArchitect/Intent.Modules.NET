@@ -12,19 +12,23 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="70f9157a-fc49-4755-b6bf-116db19fd9fc" name="Account" type="element" specialization="Service" />
+      <target id="70f9157a-fc49-4755-b6bf-116db19fd9fc" name="Account" type="element" specialization="Service" specializationId="b16578a5-27b1-4047-a8df-f0b783d706bd" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>e4837021-7d17-4c35-9f11-c679b2c486cb</parentFolderId>
   <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
   <packageName>Web Client</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
     <childElement id="679709a2-2aa8-4bea-be43-10522e4d4641" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>Register</name>
-      <display>Register(): void</display>
+      <display>Register(input: RegisterDto): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ed6c77ab-2385-4943-bc98-1930bcf1bd0e">
         <isNavigable>true</isNavigable>
@@ -39,20 +43,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="217fa7ac-ca2e-4031-9244-8225163f1a16" name="Register" type="element" specialization="Operation" />
+          <target id="217fa7ac-ca2e-4031-9244-8225163f1a16" name="Register" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="83bd390c-3e04-47cd-b22e-843c2b2b8a3f" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>input</name>
+          <display>input: RegisterDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="29dec700-45a0-4546-af6c-79102e50543a">
+            <typeId>678f8ea6-eecd-44df-9b35-ca0216311251</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>679709a2-2aa8-4bea-be43-10522e4d4641</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="8503e819-a740-4051-9c12-9fabebd02c84" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="7519c030-db2e-446b-b46d-22394a899418" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>Login</name>
-      <display>Login(): TokenResultDto</display>
+      <display>Login(input: LoginDto): TokenResultDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ac180e61-b7a2-4afa-8760-44c17681a506">
         <typeId>f34dad62-e820-435e-bdb1-e85605aa6750</typeId>
@@ -70,20 +106,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cfd723d4-8647-4168-b5ff-6dcdfda0fd7f" name="Login" type="element" specialization="Operation" />
+          <target id="cfd723d4-8647-4168-b5ff-6dcdfda0fd7f" name="Login" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="4a1691e8-00ab-4f77-b577-1c899c96db32" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>input</name>
+          <display>input: LoginDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="0321bb55-b730-424d-a4cd-7b7cbdcbd59c">
+            <typeId>791b60ad-83a6-4a95-9c86-27714f5d07c1</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>7519c030-db2e-446b-b46d-22394a899418</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="0b6781c2-44bc-4d49-a7e3-8e8f8b92779c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="967b0f87-4b3f-4af2-93c5-edb223f42c83" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>Refresh</name>
-      <display>Refresh(): TokenResultDto</display>
+      <display>Refresh(dto: RefreshTokenDto): TokenResultDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="05903ee5-cd73-451f-8397-a5dccbb07f74">
         <typeId>f34dad62-e820-435e-bdb1-e85605aa6750</typeId>
@@ -101,20 +169,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ceeda004-1c6d-4d05-bf1f-8273f655e4fa" name="Refresh" type="element" specialization="Operation" />
+          <target id="ceeda004-1c6d-4d05-bf1f-8273f655e4fa" name="Refresh" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="ae11116b-066d-4a47-bf45-2d7cac4b7287" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>dto</name>
+          <display>dto: RefreshTokenDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4baa04bb-bf23-4198-b470-6b2fa576084b">
+            <typeId>392d5963-ae56-4cda-bf30-c40bc611429e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>967b0f87-4b3f-4af2-93c5-edb223f42c83</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="aabf706b-b637-4fdd-87aa-a5aeba14d786" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="fc415dab-ba81-4315-934d-9c396dd93fc9" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>ConfirmEmail</name>
-      <display>ConfirmEmail(): void</display>
+      <display>ConfirmEmail(input: ConfirmEmailDto): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ccc4a117-2a04-42bc-bb50-47ee76a233db">
         <isNavigable>true</isNavigable>
@@ -129,20 +229,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="738d2055-504a-46f0-bc09-a898d2dfbf9e" name="ConfirmEmail" type="element" specialization="Operation" />
+          <target id="738d2055-504a-46f0-bc09-a898d2dfbf9e" name="ConfirmEmail" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="78616081-a1b4-4cba-9520-e7563364b949" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>input</name>
+          <display>input: ConfirmEmailDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="54aafb8b-2c83-445a-b6f5-9d6164201a73">
+            <typeId>9ac3d9a0-bcdc-4683-bc04-bb7bf7ecc964</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>fc415dab-ba81-4315-934d-9c396dd93fc9</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="41e92959-8add-4b51-b4bd-528f5c923f47" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="c54ed69a-55e0-4e55-9637-41eec7633be6" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>ForgotPassword</name>
-      <display>ForgotPassword(): void</display>
+      <display>ForgotPassword(resetRequest: ForgotPasswordDto): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="9a7d27ed-6d6a-4344-8e1a-2a257acaa6bc">
         <isNavigable>true</isNavigable>
@@ -157,20 +289,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="b936f132-6e02-4eef-8439-e903d1833097" name="ForgotPassword" type="element" specialization="Operation" />
+          <target id="b936f132-6e02-4eef-8439-e903d1833097" name="ForgotPassword" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="a49ff1d3-6f9c-4007-ab1f-1a5e5d8dd15c" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>resetRequest</name>
+          <display>resetRequest: ForgotPasswordDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="cb0dfa28-cfcb-4e1b-a89d-733a1af46f13">
+            <typeId>de269ba0-c2b9-4e45-b375-b9513aa51d90</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>c54ed69a-55e0-4e55-9637-41eec7633be6</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="8f6b2bcc-0144-4eef-8cf8-810008939fa0" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="36db688d-eb80-41b6-8b29-6dd91cd2be83" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>ResetPassword</name>
-      <display>ResetPassword(): void</display>
+      <display>ResetPassword(resetRequest: ResetPasswordDto): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="8a4cf899-d7bc-4123-8aac-3489e53804ce">
         <isNavigable>true</isNavigable>
@@ -185,15 +349,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9a8774cf-44c4-4d39-8737-bea6a46e8efb" name="ResetPassword" type="element" specialization="Operation" />
+          <target id="9a8774cf-44c4-4d39-8737-bea6a46e8efb" name="ResetPassword" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="85040113-d3e2-4c0e-9265-f1a7b2ec8e9e" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>resetRequest</name>
+          <display>resetRequest: ResetPasswordDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="64da4603-9859-4c4f-b2bf-48148c3494da">
+            <typeId>4bef076a-3939-43d4-82da-d6ae877b37f3</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>36db688d-eb80-41b6-8b29-6dd91cd2be83</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="ca20af69-241a-4fde-a4eb-1b7c21312a0c" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="8f484c22-2755-4153-8259-3dce0cf9a849" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetInfo</name>
@@ -216,20 +411,25 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="4698007c-c7f7-41d3-9248-5bbb49da63d5" name="GetInfo" type="element" specialization="Operation" />
+          <target id="4698007c-c7f7-41d3-9248-5bbb49da63d5" name="GetInfo" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
     <childElement id="a6d5bfdb-9e35-4078-82f1-991cd1df60d3" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>PostInfo</name>
-      <display>PostInfo(): void</display>
+      <display>PostInfo(infoRequest: UpdateInfoDto): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="c5d7123a-a7f4-4d6f-9374-264b03017783">
         <isNavigable>true</isNavigable>
@@ -244,15 +444,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="f066cf05-92b2-488c-b37e-d58e3cc0e66d" name="PostInfo" type="element" specialization="Operation" />
+          <target id="f066cf05-92b2-488c-b37e-d58e3cc0e66d" name="PostInfo" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="9bdf21df-0879-4895-98ec-296078600430" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>infoRequest</name>
+          <display>infoRequest: UpdateInfoDto</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="fdd31124-70ca-4ef2-9059-94ba947af95e">
+            <typeId>c9c20044-8bb4-4cf7-add6-690fbdc04a7e</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>AspNetCore.Identity.AccountController</typePackageName>
+            <typePackageId>83443f65-0d69-4908-a7da-c786f8b51b74</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>a6d5bfdb-9e35-4078-82f1-991cd1df60d3</parentFolderId>
+          <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="1ada4e43-09e0-4ef2-9ef5-a52dd26d2ad8" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="1e96c22f-e227-4204-8590-5b26cffde910" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>Logout</name>
@@ -272,12 +503,16 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="5998e520-4e8b-4a39-9ea8-f1d495809f1c" name="Logout" type="element" specialization="Operation" />
+          <target id="5998e520-4e8b-4a39-9ea8-f1d495809f1c" name="Logout" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>d579c418-d698-4b92-ac79-ac0f80745712</parentFolderId>
       <packageId>e4837021-7d17-4c35-9f11-c679b2c486cb</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

@@ -12,21 +12,25 @@
     <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
     <autoSyncTypeReference>true</autoSyncTypeReference>
     <mappedPath>
-      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.TestApplication.Services" type="association" specialization="Services Package" />
-      <target id="f1fa010b-13eb-40ee-b935-9915eb7f58b1" name="UniqueIndexConstraint" type="element" specialization="Folder" />
-      <target id="5c55a81a-a6e7-4c77-9306-3e3d5d9d990a" name="ClassicMapping" type="element" specialization="Folder" />
+      <target id="67511d9d-7243-42f6-a28c-6c3475a97892" name="CleanArchitecture.Comprehensive.Services" type="package-reference" specialization="Services Package" specializationId="df45eaf6-9202-4c25-8dd5-677e9ba1e906" />
+      <target id="f1fa010b-13eb-40ee-b935-9915eb7f58b1" name="UniqueIndexConstraint" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
+      <target id="5c55a81a-a6e7-4c77-9306-3e3d5d9d990a" name="ClassicMapping" type="element" specialization="Folder" specializationId="4d95d53a-8855-4f35-aa82-e312643f5c5f" />
     </mappedPath>
   </mappedClass>
   <parentFolderId>a83513e9-3342-4725-8ea1-3d7113edee37</parentFolderId>
   <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
   <packageName>Web Client</packageName>
+  <traits>
+    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
+  </traits>
   <stereotypes />
   <metadata />
   <childElements>
     <childElement id="aad78422-403f-41ab-b70d-215822cd7427" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>CreateAggregateWithUniqueConstraintIndexElementCommand</name>
-      <display>CreateAggregateWithUniqueConstraintIndexElementCommand(): guid</display>
+      <display>CreateAggregateWithUniqueConstraintIndexElementCommand(command: CreateAggregateWithUniqueConstraintIndexElementCommand): guid</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="fbbf6bca-cf07-44e3-9c2d-25b81cf10c9c">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -44,20 +48,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="69d61e32-bf2d-46cf-a935-077fefc3f915" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="69d61e32-bf2d-46cf-a935-077fefc3f915" name="CreateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="5d9bb8bb-64ae-4e0f-8374-9c4bcc3024b4" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateAggregateWithUniqueConstraintIndexElementCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="18232624-cfbb-44bb-aa31-3f560f93d075">
+            <typeId>69d61e32-bf2d-46cf-a935-077fefc3f915</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>aad78422-403f-41ab-b70d-215822cd7427</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="69d61e32-bf2d-46cf-a935-077fefc3f915" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="8630deca-f522-45d3-9fad-bed88a7230cb" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>CreateAggregateWithUniqueConstraintIndexStereotypeCommand</name>
-      <display>CreateAggregateWithUniqueConstraintIndexStereotypeCommand(): guid</display>
+      <display>CreateAggregateWithUniqueConstraintIndexStereotypeCommand(command: CreateAggregateWithUniqueConstraintIndexStereotypeCommand): guid</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="a2e5b630-edff-40f6-98c0-f0bb4502bdaa">
         <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
@@ -75,20 +111,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="9ba8d096-3b46-417a-a5b7-7f95ff633b91" name="CreateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="9ba8d096-3b46-417a-a5b7-7f95ff633b91" name="CreateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="fc7f19d3-8d52-4dd8-82c0-8ac25800cb34" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateAggregateWithUniqueConstraintIndexStereotypeCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="650813c1-571e-471c-bf22-9ce3495d83cc">
+            <typeId>9ba8d096-3b46-417a-a5b7-7f95ff633b91</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>8630deca-f522-45d3-9fad-bed88a7230cb</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="9ba8d096-3b46-417a-a5b7-7f95ff633b91" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="3d9155bf-cdcb-415a-bd60-50b63689097d" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>CreateViaContructorCommand</name>
-      <display>CreateViaContructorCommand(): void</display>
+      <display>CreateViaContructorCommand(command: CreateViaContructorCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="fae0ab9c-2bfe-40d5-9804-8d1936b849e4">
         <isNavigable>true</isNavigable>
@@ -103,20 +171,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="2a869638-3f86-4c05-bdf2-f78e7871adae" name="CreateViaContructorCommand" type="element" specialization="Command" />
+          <target id="2a869638-3f86-4c05-bdf2-f78e7871adae" name="CreateViaContructorCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="01321bbd-5ed0-49ce-aa38-bcfb7b238a32" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: CreateViaContructorCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="829d40b6-b7c7-4711-91d0-0c99ad501826">
+            <typeId>2a869638-3f86-4c05-bdf2-f78e7871adae</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>3d9155bf-cdcb-415a-bd60-50b63689097d</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="2a869638-3f86-4c05-bdf2-f78e7871adae" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="1fbff0ae-4834-4be3-b886-0d5219df7672" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>DeleteAggregateWithUniqueConstraintIndexElementCommand</name>
-      <display>DeleteAggregateWithUniqueConstraintIndexElementCommand(): void</display>
+      <display>DeleteAggregateWithUniqueConstraintIndexElementCommand(id: guid): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="3325b523-b76b-4dbd-bc59-488f14522937">
         <isNavigable>true</isNavigable>
@@ -131,20 +231,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="e5283055-7005-406d-8855-f15199b473c7" name="DeleteAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="e5283055-7005-406d-8855-f15199b473c7" name="DeleteAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="1bb35312-738f-44bd-b3d1-4f3c05c5aacc" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="73c381b1-20fc-40a9-a2fa-3ad6eaabcb04">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>1fbff0ae-4834-4be3-b886-0d5219df7672</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="8c42424a-a59d-4a65-82e3-29851febe135" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="9a6b2f82-9eba-4b93-92fc-9f8b9f5a7265" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>DeleteAggregateWithUniqueConstraintIndexStereotypeCommand</name>
-      <display>DeleteAggregateWithUniqueConstraintIndexStereotypeCommand(): void</display>
+      <display>DeleteAggregateWithUniqueConstraintIndexStereotypeCommand(id: guid): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="0a19df21-3c78-4b39-8375-67bba63b6969">
         <isNavigable>true</isNavigable>
@@ -159,20 +291,52 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="0c1b8a7b-da6d-4c29-861e-9ccaefdc8142" name="DeleteAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="0c1b8a7b-da6d-4c29-861e-9ccaefdc8142" name="DeleteAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="a35fad26-403b-45bf-b7a1-54aa46c3ef93" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="d075dda8-6a45-48c8-afdd-3ebfe82cb8bd">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>9a6b2f82-9eba-4b93-92fc-9f8b9f5a7265</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="26e4e8e5-ba60-48d5-8180-7ca920ccc454" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="0a485b51-c23a-46ea-a562-08aef7196038" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>UpdateAggregateWithUniqueConstraintIndexElementCommand</name>
-      <display>UpdateAggregateWithUniqueConstraintIndexElementCommand(): void</display>
+      <display>UpdateAggregateWithUniqueConstraintIndexElementCommand(id: guid, command: UpdateAggregateWithUniqueConstraintIndexElementCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="e3192740-6075-47ef-95ad-b3e21f1fdd28">
         <isNavigable>true</isNavigable>
@@ -187,20 +351,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="dd47e7a2-128e-40ec-ba33-a766abf7d997" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" />
+          <target id="dd47e7a2-128e-40ec-ba33-a766abf7d997" name="UpdateAggregateWithUniqueConstraintIndexElementCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="acf65a71-9f00-40fa-9621-e8d45bd5d702" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="8a94446c-e42a-4194-9eff-cc17ed5a00e4">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0a485b51-c23a-46ea-a562-08aef7196038</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="d0b1596b-2fc2-46ac-b96a-5d66003da989" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="2f28506e-a045-4c46-b163-af31d6a7c389" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateAggregateWithUniqueConstraintIndexElementCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="4e645566-9b5e-4369-8059-f2d6d5753860">
+            <typeId>dd47e7a2-128e-40ec-ba33-a766abf7d997</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>0a485b51-c23a-46ea-a562-08aef7196038</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="dd47e7a2-128e-40ec-ba33-a766abf7d997" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="cb175f89-677a-4d8d-9fd9-18b985c27a51" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>UpdateAggregateWithUniqueConstraintIndexStereotypeCommand</name>
-      <display>UpdateAggregateWithUniqueConstraintIndexStereotypeCommand(): void</display>
+      <display>UpdateAggregateWithUniqueConstraintIndexStereotypeCommand(id: guid, command: UpdateAggregateWithUniqueConstraintIndexStereotypeCommand): void</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ac34195f-7de8-4f44-b499-aea620f4aa0e">
         <isNavigable>true</isNavigable>
@@ -215,20 +437,78 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="fbb88488-dde6-4690-ae31-708ca29e0409" name="UpdateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" />
+          <target id="fbb88488-dde6-4690-ae31-708ca29e0409" name="UpdateAggregateWithUniqueConstraintIndexStereotypeCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="da77f1ac-9eac-4584-8608-f2eea762a0c9" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="e459fb9d-a9a7-48a6-93df-4211decf54ec">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cb175f89-677a-4d8d-9fd9-18b985c27a51</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="9e4e031a-344b-48d7-86d5-a2ca79207e19" />
+          </metadata>
+          <childElements />
+        </childElement>
+        <childElement id="a9d50887-eda4-4b4a-bf70-55b8f89dfc39" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>command</name>
+          <display>command: UpdateAggregateWithUniqueConstraintIndexStereotypeCommand</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="a35b35de-fc22-473b-9ff4-f60ace40153f">
+            <typeId>fbb88488-dde6-4690-ae31-708ca29e0409</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
+            <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>cb175f89-677a-4d8d-9fd9-18b985c27a51</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="fbb88488-dde6-4690-ae31-708ca29e0409" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="824d5f1d-ec89-46b1-b799-f6da02ead60b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateWithUniqueConstraintIndexElementByIdQuery</name>
-      <display>GetAggregateWithUniqueConstraintIndexElementByIdQuery(): AggregateWithUniqueConstraintIndexElementDto</display>
+      <display>GetAggregateWithUniqueConstraintIndexElementByIdQuery(id: guid): AggregateWithUniqueConstraintIndexElementDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="ab713f87-3703-44e6-992a-7dffa0505781">
         <typeId>e25984c7-380f-4acb-9d04-c0ee50938301</typeId>
@@ -236,7 +516,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -246,15 +526,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="6c419e97-8e0b-4858-83e0-49fdba2f2eab" name="GetAggregateWithUniqueConstraintIndexElementByIdQuery" type="element" specialization="Query" />
+          <target id="6c419e97-8e0b-4858-83e0-49fdba2f2eab" name="GetAggregateWithUniqueConstraintIndexElementByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="e8a5f5ec-2b83-406a-aba9-68a51234a0f8" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="db60a810-a694-4ade-94c7-fafdf7e6c2ef">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>824d5f1d-ec89-46b1-b799-f6da02ead60b</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="2091a477-01df-44fb-a9b6-a66b11da5c33" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="21e5e184-1181-4d87-8b7e-d3b64c376958" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateWithUniqueConstraintIndexElementsQuery</name>
@@ -267,7 +578,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -277,20 +588,25 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="cdd8812d-2745-4235-99e2-79dff68518e8" name="GetAggregateWithUniqueConstraintIndexElementsQuery" type="element" specialization="Query" />
+          <target id="cdd8812d-2745-4235-99e2-79dff68518e8" name="GetAggregateWithUniqueConstraintIndexElementsQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
     </childElement>
     <childElement id="40be9f1a-bacc-4127-8e69-08fefdce25dd" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery</name>
-      <display>GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery(): AggregateWithUniqueConstraintIndexStereotypeDto</display>
+      <display>GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery(id: guid): AggregateWithUniqueConstraintIndexStereotypeDto</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
       <typeReference id="11c3b841-fd78-4896-9d26-a4fa90c41966">
         <typeId>9aa2da13-6fd7-4243-a769-868a551bdd4e</typeId>
@@ -298,7 +614,7 @@
         <isNullable>false</isNullable>
         <isCollection>false</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -308,15 +624,46 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="ccf16d4a-8840-44b7-bda0-ecac859e9c24" name="GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery" type="element" specialization="Query" />
+          <target id="ccf16d4a-8840-44b7-bda0-ecac859e9c24" name="GetAggregateWithUniqueConstraintIndexStereotypeByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
-      <childElements />
+      <childElements>
+        <childElement id="83759d78-ed1b-41cf-b76b-c90337871f3b" type="Parameter" typeId="f11273c1-217f-4f42-b690-3d8b488f95a8">
+          <name>id</name>
+          <display>id: guid</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="39bbaf3f-7c49-49ea-8568-ef4a82ba16c4">
+            <typeId>6b649125-18ea-48fd-a6ba-0bfff0d8f488</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>40be9f1a-bacc-4127-8e69-08fefdce25dd</parentFolderId>
+          <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
+          <packageName>Web Client</packageName>
+          <stereotypes />
+          <metadata>
+            <entry key="endpoint-input-id" value="9783c420-9e9e-4d55-9c61-2a8471e35ccf" />
+          </metadata>
+          <childElements />
+        </childElement>
+      </childElements>
     </childElement>
     <childElement id="fe607671-8f4c-486c-9a6e-e1d8dfc9283b" type="Operation" typeId="aee6811e-b2f6-4562-a8eb-502029f63bc8">
       <name>GetAggregateWithUniqueConstraintIndexStereotypesQuery</name>
@@ -329,7 +676,7 @@
         <isNullable>false</isNullable>
         <isCollection>true</isCollection>
         <isRequired>true</isRequired>
-        <typePackageName>CleanArchitecture.TestApplication.Services</typePackageName>
+        <typePackageName>CleanArchitecture.Comprehensive.Services</typePackageName>
         <typePackageId>67511d9d-7243-42f6-a28c-6c3475a97892</typePackageId>
         <stereotypes />
         <genericTypeParameters />
@@ -339,12 +686,16 @@
         <mappingSettingsId>df491bea-8a85-4bc9-a93d-41b7abb80ffb</mappingSettingsId>
         <autoSyncTypeReference>true</autoSyncTypeReference>
         <mappedPath>
-          <target id="be0703dc-25d8-4f01-8e0f-3056e10dc014" name="GetAggregateWithUniqueConstraintIndexStereotypesQuery" type="element" specialization="Query" />
+          <target id="be0703dc-25d8-4f01-8e0f-3056e10dc014" name="GetAggregateWithUniqueConstraintIndexStereotypesQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
         </mappedPath>
       </mappedClass>
       <parentFolderId>3cce0eae-b211-4e49-bdde-6393094e3809</parentFolderId>
       <packageId>a83513e9-3342-4725-8ea1-3d7113edee37</packageId>
       <packageName>Web Client</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="12bec4f8-487a-40f8-a6d2-c519d995eb38" name="[Invokable Service Operation]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />

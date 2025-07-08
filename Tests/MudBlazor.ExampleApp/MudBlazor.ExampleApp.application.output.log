@@ -1116,22 +1116,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#e45c1e4c-0d3d-4ff8-ad70-0535bf0c2b01</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#59384c69-e628-4ec8-b6c9-135c0b1f1489</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#675cead0-622c-4331-b54d-00cc4c59bee0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/GetCustomersQuery.cs</ApplicationRelativeFilePath>

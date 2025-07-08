@@ -57,9 +57,9 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
             }
         }
 
-        public async Task DeleteClientAsync(DeleteClientCommand command, CancellationToken cancellationToken = default)
+        public async Task DeleteClientAsync(string id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/advanced-mapping-system/client/{command.Id}";
+            var relativeUri = $"api/advanced-mapping-system/client/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
@@ -72,11 +72,9 @@ namespace CleanArchitecture.Dapr.InvocationClient.Infrastructure.HttpClients.Adv
             }
         }
 
-        public async Task<ClientDto> GetClientByIdAsync(
-            GetClientByIdQuery query,
-            CancellationToken cancellationToken = default)
+        public async Task<ClientDto> GetClientByIdAsync(string id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/advanced-mapping-system/client/{query.Id}";
+            var relativeUri = $"api/advanced-mapping-system/client/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 

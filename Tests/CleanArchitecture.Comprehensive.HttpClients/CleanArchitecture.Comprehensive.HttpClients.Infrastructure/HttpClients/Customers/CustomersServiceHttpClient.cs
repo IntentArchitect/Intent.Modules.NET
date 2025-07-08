@@ -54,9 +54,9 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
             }
         }
 
-        public async Task DeleteCustomerAsync(DeleteCustomerCommand command, CancellationToken cancellationToken = default)
+        public async Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/customers/{command.Id}";
+            var relativeUri = $"api/customers/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Delete, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 
@@ -69,11 +69,9 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Infrastructure.HttpClients
             }
         }
 
-        public async Task<CustomerDto> GetCustomerByIdAsync(
-            GetCustomerByIdQuery query,
-            CancellationToken cancellationToken = default)
+        public async Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            var relativeUri = $"api/customers/{query.Id}";
+            var relativeUri = $"api/customers/{id}";
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, relativeUri);
             httpRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(JSON_MEDIA_TYPE));
 

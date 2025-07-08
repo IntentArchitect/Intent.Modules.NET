@@ -338,22 +338,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>925c7adf-0506-4c79-af8e-b062750adedf</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#5929a5f1-159c-4d9d-9f5e-abecc294bb2d</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/DeleteCustomerCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/DeleteCustomerCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>925c7adf-0506-4c79-af8e-b062750adedf</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#c2225989-71ae-4272-a478-70103f5cd07a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/GetCustomerByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/Customers/GetCustomerByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>925c7adf-0506-4c79-af8e-b062750adedf</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#a963be35-003b-446e-bcdb-84e4abd7e24c</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Comprehensive.HttpClients.Application/IntegrationServices/Contracts/Services/Customers/UpdateCustomerAddressDto.cs</ApplicationRelativeFilePath>

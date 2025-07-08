@@ -426,22 +426,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>b6cf10d3-8b63-4579-9049-951072c20917</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#517dfb62-e912-4f59-bcae-e3d81ce28d08</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/IntegrationServices/Contracts/Services/AdvancedMappingSystem/Clients/DeleteClientCommand.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/AdvancedMappingSystem/Clients/DeleteClientCommand.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b6cf10d3-8b63-4579-9049-951072c20917</ProjectId>
-      <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#a3bdd6a0-0038-4d38-8d14-148f656583dd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/IntegrationServices/Contracts/Services/AdvancedMappingSystem/Clients/GetClientByIdQuery.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Services/AdvancedMappingSystem/Clients/GetClientByIdQuery.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b6cf10d3-8b63-4579-9049-951072c20917</ProjectId>
       <CorrelationId>Intent.Application.Contracts.Clients.DtoContract#ccbb300d-1b56-4e3f-a18e-952b9abab339</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.InvocationClient.Application/IntegrationServices/Contracts/Services/AdvancedMappingSystem/Clients/UpdateClientCommand.cs</ApplicationRelativeFilePath>

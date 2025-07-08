@@ -1,5 +1,4 @@
 using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices;
-using CleanArchitecture.Dapr.InvocationClient.Application.IntegrationServices.Contracts.Services.AdvancedMappingSystem.Clients;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 
@@ -22,10 +21,7 @@ namespace CleanArchitecture.Dapr.InvocationClient.Application.Clients.CallGetCli
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CallGetClientCommand request, CancellationToken cancellationToken)
         {
-            var client = await _clientsService.GetClientByIdAsync(new GetClientByIdQuery
-            {
-                Id = request.Id
-            }, cancellationToken);
+            var client = await _clientsService.GetClientByIdAsync(request.Id, cancellationToken);
         }
     }
 }

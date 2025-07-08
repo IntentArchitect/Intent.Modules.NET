@@ -10,8 +10,8 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.IntegrationSer
     public interface ICustomersService : IDisposable
     {
         Task<Guid> CreateCustomerAsync(CreateCustomerCommand command, CancellationToken cancellationToken = default);
-        Task DeleteCustomerAsync(DeleteCustomerCommand command, CancellationToken cancellationToken = default);
-        Task<CustomerDto> GetCustomerByIdAsync(GetCustomerByIdQuery query, CancellationToken cancellationToken = default);
+        Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
+        Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);
         Task<List<CustomerDto>> GetCustomersAsync(CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(UpdateCustomerCommand command, CancellationToken cancellationToken = default);
     }

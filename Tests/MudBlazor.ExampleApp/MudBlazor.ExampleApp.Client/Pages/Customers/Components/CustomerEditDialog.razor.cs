@@ -29,10 +29,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         {
             try
             {
-                Model = await Customers.GetCustomerByIdAsync(new GetCustomerByIdQuery
-                {
-                    Id = CustomerId
-                });
+                Model = await Customers.GetCustomerByIdAsync(CustomerId);
             }
             catch (Exception e)
             {
@@ -100,10 +97,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await Customers.DeleteCustomerAsync(new DeleteCustomerCommand
-                {
-                    Id = CustomerId
-                });
+                await Customers.DeleteCustomerAsync(CustomerId);
                 Dialog.Close(true);
             }
             catch (Exception e)
