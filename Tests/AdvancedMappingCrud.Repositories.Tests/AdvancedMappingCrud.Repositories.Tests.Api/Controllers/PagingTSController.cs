@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -106,8 +107,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<PagingTSDto>>> FindPagingTS(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
             [FromQuery] string? orderBy,
             CancellationToken cancellationToken = default)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -278,8 +279,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromRoute] bool isActive,
             [FromRoute] string name,
             [FromRoute] string surname,
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersPaginatedQuery(isActive: isActive, name: name, surname: surname, pageNo: pageNo, pageSize: pageSize), cancellationToken);
@@ -298,9 +299,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             [FromRoute] bool isActive,
             [FromRoute] string name,
             [FromRoute] string surname,
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
-            [FromQuery] string orderBy,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
+            [FromQuery][Required] string orderBy,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomersPaginatedWithOrderQuery(isActive: isActive, name: name, surname: surname, pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);
@@ -335,7 +336,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<int>> GetCustomerStatistics(
-            [FromQuery] Guid customerId,
+            [FromQuery][Required] Guid customerId,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetCustomerStatisticsQuery(customerId: customerId), cancellationToken);

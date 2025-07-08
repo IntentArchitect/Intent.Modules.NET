@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -124,8 +125,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<BasicDto>>> GetBasicsNullable(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
             [FromQuery] string? orderBy,
             CancellationToken cancellationToken = default)
         {
@@ -142,9 +143,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<BasicDto>>> GetBasics(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
-            [FromQuery] string orderBy,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
+            [FromQuery][Required] string orderBy,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetBasicsQuery(pageNo: pageNo, pageSize: pageSize, orderBy: orderBy), cancellationToken);

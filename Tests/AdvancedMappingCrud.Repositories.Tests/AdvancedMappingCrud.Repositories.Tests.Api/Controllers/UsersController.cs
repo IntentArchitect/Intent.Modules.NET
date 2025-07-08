@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -84,7 +85,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> DeleteUserAddress(
-            [FromQuery] Guid userId,
+            [FromQuery][Required] Guid userId,
             [FromRoute] Guid id,
             CancellationToken cancellationToken = default)
         {
@@ -232,8 +233,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         public async Task<ActionResult<PagedResult<UserDto>>> GetUsers(
             [FromQuery] string? name,
             [FromQuery] string? surname,
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetUsersQuery(name: name, surname: surname, pageNo: pageNo, pageSize: pageSize), cancellationToken);

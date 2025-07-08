@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mime;
 using System.Threading;
 using System.Threading.Tasks;
@@ -230,8 +231,8 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<PagedResult<OrderDto>>> GetOrdersPaginated(
-            [FromQuery] int pageNo,
-            [FromQuery] int pageSize,
+            [FromQuery][Required] int pageNo,
+            [FromQuery][Required] int pageSize,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetOrdersPaginatedQuery(pageNo: pageNo, pageSize: pageSize), cancellationToken);

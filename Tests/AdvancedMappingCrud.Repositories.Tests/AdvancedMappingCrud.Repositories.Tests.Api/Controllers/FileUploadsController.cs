@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -199,7 +200,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<byte[]>> SimpleDownload(
-            [FromQuery] Guid id,
+            [FromQuery][Required] Guid id,
             CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new SimpleDownloadQuery(id: id), cancellationToken);
