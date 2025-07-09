@@ -1,190 +1,91 @@
-using System;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Intent.Engine;
-using Intent.IArchitect.CrossPlatform.IO;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.SqlServerImporter.Tasks.Helpers;
 using Intent.Modules.SqlServerImporter.Tasks.Models;
-using Intent.Plugins;
-using Intent.Utils;
 
 namespace Intent.Modules.SqlServerImporter.Tasks;
 
-public class RepositoryImport : IModuleTask
+public class RepositoryImport : ModuleTaskSingleInputBase<RepositoryImportModel>
 {
     private readonly IMetadataManager _metadataManager;
-    
-    private static readonly JsonSerializerOptions SerializerOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        Converters = { new JsonStringEnumConverter() }
-    };
-    
+
     public RepositoryImport(IMetadataManager metadataManager)
     {
         _metadataManager = metadataManager;
     }
 
-    public string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcedureImport";
-    public string TaskTypeName => "SqlServer Stored Procedure Import";
-    public int Order => 0;
+    public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcedureImport";
+    public override string TaskTypeName => "SqlServer Stored Procedure Import";
 
-    public string Execute(params string[] args)
+    protected override ValidationResult ValidateInputModel(RepositoryImportModel importModel)
     {
-        try
-        {
-            if (!ValidateRequest(args, out var importModel, out var errorMessage))
-            {
-                return Fail(errorMessage!);
-            }
-            
-            if (importModel is null)
-            {
-                return Fail("Problem validating request model.");
-            }
-            
-            // After validation, we can safely assume the following lookups:
-            var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
-            var package = designer.Packages.First(p => p.Id == importModel.PackageId);
-            
-            importModel.EntityNameConvention = "SingularEntity";
-            importModel.TableStereotype = "WhenDifferent";
-            importModel.TypesToExport = ["StoredProcedure"];
-            importModel.PackageFileName = package.FileLocation;
-        
-            if (importModel.SettingPersistence == RepositorySettingPersistence.InheritDb)
-            {
-                SettingsHelper.HydrateDbSettings(importModel);
-            }
-
-            if (string.IsNullOrWhiteSpace(importModel.StoredProcedureType))
-            {
-                importModel.StoredProcedureType = "Default";
-            }
-
-            var sqlImportSettings = JsonSerializer.Serialize(importModel);
-            sqlImportSettings = sqlImportSettings.Replace("\"", "\\\"");
-
-            Logging.Log.Info(sqlImportSettings);
-            
-            var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(RepositoryImport).Assembly.Location)!, @"../content/tool");
-            const string executableName = "dotnet";
-            var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}\" --serialized-config \"{sqlImportSettings}\"";
-
-            Logging.Log.Info($"Executing: {executableName} {executableArgs}");
-
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = executableName,
-                    Arguments = executableArgs,
-                    RedirectStandardInput = true,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = false,
-                    UseShellExecute = false,
-                    WorkingDirectory = toolDirectory,
-                    EnvironmentVariables =
-                    {
-                        ["DOTNET_CLI_UI_LANGUAGE"] = "en"
-                    }
-                }
-            };
-            
-            var warnings = new StringBuilder();
-            var succeeded = false;
-
-            process.OutputDataReceived += (_, eventArgs) =>
-            {
-                if (eventArgs.Data?.Trim().StartsWith("Package saved successfully.") == true)
-                {
-                    succeeded = true;
-                }
-                else if (eventArgs.Data?.Trim().StartsWith("Error:") == true)
-                {
-                    Logging.Log.Failure(eventArgs.Data);
-                    succeeded = false;
-                    errorMessage = eventArgs.Data?.Trim();
-                    process.Kill(true);
-                }
-                else
-                {
-                    if (eventArgs.Data?.Trim().StartsWith("Warning:") == true)
-                    {
-                        warnings.AppendLine(eventArgs.Data);
-                    }
-
-                    Logging.Log.Info(eventArgs.Data);
-                }
-            };
-
-            process.Start();
-            process.BeginOutputReadLine();
-            process.WaitForExit();
-
-            if (!succeeded)
-            {
-                return Fail(errorMessage!);
-            }
-            
-            SettingsHelper.PersistSettings(importModel!);
-            
-            return warnings.Length > 0 ? JsonSerializer.Serialize(new { warnings = warnings.ToString() }, SerializerOptions) : "{}";
-        }
-        catch (Exception e)
-        {
-            Logging.Log.Failure($@"Failed to execute: ""Intent.SQLSchemaExtractor.dll"".
-Please see reasons below:");
-            Logging.Log.Failure(e);
-            return Fail(e.GetBaseException().Message);
-        }
-    }
-
-    private bool ValidateRequest(string[] args, out RepositoryImportModel? importModel, out string? errorMessage)
-    {
-        importModel = null;
-        errorMessage = null;
-
-        if (args.Length < 1)
-        {
-            errorMessage = "Expected 1 argument received 0";
-            return false;
-        }
-
-        var settings = JsonSerializer.Deserialize<RepositoryImportModel>(args[0], SerializerOptions);
-        if (settings == null)
-        {
-            errorMessage = $"Unable to deserialize : {args[0]}";
-            return false;
-        }
-        
-        importModel = settings;
-
-        var designer = _metadataManager.GetDesigner(settings.ApplicationId, "Domain");
+        var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
         if (designer == null)
         {
-            errorMessage = "Unable to find domain designer in application";
-            return false;
+            return ValidationResult.ErrorResult("Unable to find domain designer in application");
         }
 
-        var package = designer.Packages.FirstOrDefault(p => p.Id == settings.PackageId);
+        var package = designer.Packages.FirstOrDefault(p => p.Id == importModel.PackageId);
         if (package == null)
         {
-            errorMessage = $"Unable to find package with Id : {settings.PackageId}";
-            return false;
+            return ValidationResult.ErrorResult($"Unable to find package with Id : {importModel.PackageId}");
         }
-        
-        return true;
+
+        return ValidationResult.SuccessResult();
     }
 
-    private static string Fail(string reason)
+    protected override ExecuteResult ExecuteModuleTask(RepositoryImportModel importModel)
     {
-        Logging.Log.Failure(reason);
-        var errorObject = new { errorMessage = reason };
-        var json = JsonSerializer.Serialize(errorObject);
-        return json;
+        var executionResult = new ExecuteResult();
+
+        PrepareInputModel(importModel);
+
+        var sqlImportSettings = JsonSerializer.Serialize(importModel).Replace("\"", "\\\"");
+
+        SqlSchemaExtractorRunner.Run($@"--serialized-config ""{sqlImportSettings}""", (output, process) =>
+        {
+            if (output.Data?.Trim().StartsWith("Error:") == true)
+            {
+                var error = output.Data.Trim().RemovePrefix("Error:");
+                executionResult.Errors.Add(error);
+                process.Kill(true);
+            }
+            else if (output.Data?.Trim().StartsWith("Warning:") == true)
+            {
+                var warning = output.Data.Trim().RemovePrefix("Warning:");
+                executionResult.Warnings.Add(warning);
+            }
+        });
+
+        if (executionResult.Errors.Count == 0)
+        {
+            SettingsHelper.PersistSettings(importModel);
+        }
+
+        return executionResult;
+    }
+
+    private void PrepareInputModel(RepositoryImportModel importModel)
+    {
+        // After validation, we can safely assume the following lookups:
+        var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
+        var package = designer.Packages.First(p => p.Id == importModel.PackageId);
+
+        importModel.EntityNameConvention = "SingularEntity";
+        importModel.TableStereotype = "WhenDifferent";
+        importModel.TypesToExport = ["StoredProcedure"];
+        importModel.PackageFileName = package.FileLocation;
+
+        if (importModel.SettingPersistence == RepositorySettingPersistence.InheritDb)
+        {
+            SettingsHelper.HydrateDbSettings(importModel);
+        }
+
+        if (string.IsNullOrWhiteSpace(importModel.StoredProcedureType))
+        {
+            importModel.StoredProcedureType = "Default";
+        }
     }
 }

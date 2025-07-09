@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.SqlServerImporter.Tasks.Helpers;
 using Intent.Modules.SqlServerImporter.Tasks.Models;
 using Intent.Plugins;
@@ -14,97 +15,46 @@ using Intent.Utils;
 
 namespace Intent.Modules.SqlServerImporter.Tasks;
 
-public class StoredProcList : IModuleTask
+public class StoredProcList : ModuleTaskSingleInputBase<StoredProcListInputModel>
 {
-    private static readonly JsonSerializerOptions SerializerOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        Converters = { new JsonStringEnumConverter() }
-    };
-    
-    public string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcList";
-    public string TaskTypeName => "SqlServer Stored Procedure List";
-    public int Order => 0;
+    public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcList";
+    public override string TaskTypeName => "SqlServer Stored Procedure List";
 
-    public string Execute(params string[] args)
+    protected override ValidationResult ValidateInputModel(StoredProcListInputModel importModel)
     {
-        try
+        return ValidationResult.SuccessResult();
+    }
+
+    protected override ExecuteResult ExecuteModuleTask(StoredProcListInputModel importModel)
+    {
+        var executionResult = new ExecuteResult();
+        
+        var storedProcs = new List<string>();
+        var capture = false;
+        SqlSchemaExtractorRunner.Run($@"list-stored-proc --connection ""{importModel.ConnectionString}""", (output, process) =>
         {
-            if (!ValidateRequest(args, out var importModel, out var errorMessage))
+            if (output.Data?.Trim().StartsWith("Stored Procedures:") == true)
             {
-                return Fail(errorMessage!);
+                capture = true;
             }
-
-            if (importModel is null)
+            else if (output.Data?.Trim().StartsWith("Error:") == true)
             {
-                return Fail("Problem validating request model.");
+                executionResult.Errors.Add(output.Data.Trim().RemovePrefix("Error:"));
+                process.Kill(true);
             }
-
-            
-
-            var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(StoredProcList).Assembly.Location)!, @"../content/tool");
-            const string executableName = "dotnet";
-            var executableArgs = $@"""{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}"" list-stored-proc --connection ""{importModel.ConnectionString}""";
-            
-            Logging.Log.Info($"Executing: {executableName} {executableArgs}");
-
-            var process = new Process
+            else if (capture && output.Data?.Trim() == ".")
             {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = executableName,
-                    Arguments = executableArgs,
-                    RedirectStandardInput = true,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = false,
-                    UseShellExecute = false,
-                    WorkingDirectory = toolDirectory,
-                    EnvironmentVariables =
-                    {
-                        ["DOTNET_CLI_UI_LANGUAGE"] = "en"
-                    }
-                }
-            };
-            
-            var succeeded = false;
-            var storedProcs = new List<string>();
-            var capture = false;
-
-            process.OutputDataReceived += (_, eventArgs) =>
-            {
-                if (eventArgs.Data?.Trim().StartsWith("Stored Procedures:") == true)
-                {
-                    capture = true;
-                }
-                else if (eventArgs.Data?.Trim().StartsWith("Error:") == true)
-                {
-                    Logging.Log.Failure(eventArgs.Data);
-                    succeeded = false;
-                    errorMessage = eventArgs.Data?.Trim();
-                    process.Kill(true);
-                }
-                else if (capture && eventArgs.Data?.Trim() == ".")
-                {
-                    capture = false;
-                    succeeded = true;
-                    process.Kill(true);
-                }
-                else if (capture)
-                {
-                    storedProcs.Add(eventArgs.Data ?? "");
-                    Logging.Log.Info(eventArgs.Data);
-                }
-            };
-
-            process.Start();
-            process.BeginOutputReadLine();
-            process.WaitForExit();
-
-            if (!succeeded)
-            {
-                return Fail(errorMessage!);
+                capture = false;
+                process.Kill(true);
             }
+            else if (capture)
+            {
+                storedProcs.Add(output.Data ?? "");
+            }
+        });
 
+        if (executionResult.Errors.Count == 0)
+        {
             var resultModel = new StoredProcListResultModel
             {
                 StoredProcs = storedProcs
@@ -119,47 +69,9 @@ public class StoredProcList : IModuleTask
                     .GroupBy(k => k.Schema, v => v.Name)
                     .ToDictionary(k => k.Key, v => v.ToArray())
             };
-            var resultJson = JsonSerializer.Serialize(resultModel, SerializerOptions);
-            Logging.Log.Info(resultJson);
-            return resultJson;
-        }
-        catch (Exception e)
-        {
-            Logging.Log.Failure($@"Failed to execute: ""Intent.SQLSchemaExtractor.dll"".
-Please see reasons below:");
-            Logging.Log.Failure(e);
-            return Fail(e.GetBaseException().Message);
-        }
-    }
-
-    private bool ValidateRequest(string[] args, out StoredProcListInputModel? importModel, out string? errorMessage)
-    {
-        importModel = null;
-        errorMessage = null;
-
-        if (args.Length < 1)
-        {
-            errorMessage = "Expected 1 argument received 0";
-            return false;
+            executionResult.ResultModel = resultModel;
         }
 
-        var settings = JsonSerializer.Deserialize<StoredProcListInputModel>(args[0], SerializerOptions);
-        if (settings == null)
-        {
-            errorMessage = $"Unable to deserialize : {args[0]}";
-            return false;
-        }
-        
-        importModel = settings;
-        
-        return true;
-    }
-    
-    private static string Fail(string reason)
-    {
-        Logging.Log.Failure(reason);
-        var errorObject = new { errorMessage = reason };
-        var json = JsonSerializer.Serialize(errorObject);
-        return json;
+        return executionResult;
     }
 }

@@ -119,6 +119,11 @@ public static class SettingsHelper
             {
                 package.AddMetadata("sql-import-repository:connectionString", connectionString);
             }
+
+            if (settings.SettingPersistence == RepositorySettingPersistence.InheritDb)
+            {
+                package.RemoveMetadata("sql-import-repository:connectionString");
+            }
         }
     }
     
