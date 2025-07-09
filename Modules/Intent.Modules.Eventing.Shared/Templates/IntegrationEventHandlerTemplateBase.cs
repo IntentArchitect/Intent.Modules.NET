@@ -40,6 +40,7 @@ public abstract class IntegrationEventHandlerTemplateBase : CSharpTemplateBase<I
                     @class.AddMethod("Task", "HandleAsync", method =>
                     {
                         method.Async();
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                         method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.RepresentsModel(subscription);
@@ -53,6 +54,7 @@ public abstract class IntegrationEventHandlerTemplateBase : CSharpTemplateBase<I
                     @class.AddMethod("Task", "HandleAsync", method =>
                     {
                         method.Async();
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
                         method.AddParameter(this.GetIntegrationCommandName(subscription.TypeReference.Element.AsIntegrationCommandModel()), "message");
                         method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                         method.RepresentsModel(subscription);
@@ -62,13 +64,14 @@ public abstract class IntegrationEventHandlerTemplateBase : CSharpTemplateBase<I
             })
             .AfterBuild(file =>
             {
-                foreach (var handleMethod in file.Classes.First().Methods.Where(x => x.Name == "Handle"))
+                foreach (var method in file.Classes.First().Methods.Where(x => x.Name.StartsWith("Handle")))
                 {
-                    if (handleMethod.Statements.Count == 0)
+                    if (method.Statements.Count == 0)
                     {
-                        handleMethod.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                        handleMethod.AddStatement($"// TODO: Implement {handleMethod.Name} ({file.Classes.First().Name}) functionality");
-                        handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
+                        method.Attributes.OfType<CSharpIntentManagedAttribute>().FirstOrDefault()?.WithBodyMerge();
+                        method.AddStatement("// IntentInitialGen");
+                        method.AddStatement($"// TODO: Implement {method.Name} ({file.Classes.First().Name}) functionality");
+                        method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                     }
                 }
             }, 1000);

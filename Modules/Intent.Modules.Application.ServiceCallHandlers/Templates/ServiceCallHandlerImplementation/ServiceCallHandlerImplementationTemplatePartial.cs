@@ -71,10 +71,10 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
                             method.AddOptionalCancellationTokenParameter(this);
                         }
 
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
 
-                        method.AddStatement(
-                            @"throw new NotImplementedException(""Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class."");");
+                        method.AddStatement("// IntentInitialGen");
+                        method.AddStatement("""throw new NotImplementedException("Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class.");""");
                     });
                 });
         }

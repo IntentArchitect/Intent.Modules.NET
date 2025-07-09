@@ -64,13 +64,13 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                         {
                             foreach (var genericType in operation.GenericTypes)
                             {
-                                @method.AddGenericParameter(genericType);
+                                method.AddGenericParameter(genericType);
                             }
 
                             method.TryAddXmlDocComments(operation.InternalElement);
                             method.AddMetadata("model", operation);
                             method.RepresentsModel(operation);
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
 
                             foreach (var parameter in operation.Parameters)
                             {
@@ -90,8 +90,9 @@ namespace Intent.Modules.Application.ServiceImplementations.Templates.ServiceImp
                                     .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
 
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} ({priClass.Name}) functionality");
-                            method.AddStatement($@"throw new NotImplementedException(""Write your implementation for this service here..."");");
+                            method.AddStatement("""throw new NotImplementedException("Write your implementation for this service here...");""");
                         });
                     }
                 })

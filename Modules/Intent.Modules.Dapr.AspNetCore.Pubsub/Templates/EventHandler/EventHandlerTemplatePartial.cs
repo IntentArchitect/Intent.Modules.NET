@@ -42,7 +42,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                 .AddClass($"{Model.Name.ToPascalCase()}", @class =>
                 {
                     @class.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
-                    @class.AddConstructor(ctor => { ctor.AddAttribute(CSharpIntentManagedAttribute.Merge()); });
+                    @class.AddConstructor(ctor => ctor.AddAttribute(CSharpIntentManagedAttribute.Merge()));
 
                     foreach (var subscription in Model.IntegrationEventSubscriptions())
                     {
@@ -50,6 +50,7 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                         @class.AddMethod("Task", "HandleAsync", method =>
                         {
                             method.Async();
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method.AddParameter(this.GetIntegrationEventMessageName(subscription.TypeReference.Element.AsMessageModel()), "message");
                             method.AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
                             method.RepresentsModel(subscription);
@@ -63,7 +64,8 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandler
                     {
                         if (handleMethod.Statements.Count == 0)
                         {
-                            handleMethod.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyMerge();
+                            handleMethod.AddStatement("// IntentInitialGen");
                             handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         }
                     }

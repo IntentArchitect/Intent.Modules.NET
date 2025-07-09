@@ -57,7 +57,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         {
                             method.RepresentsModel(handledDomainEvents);
                             method.RegisterAsProcessingHandlerForModel(handledDomainEvents);
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyFully());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method.Async();
                             method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType(handledDomainEvents)}>", "notification");
                             method.AddParameter("CancellationToken", "cancellationToken");
@@ -72,7 +72,6 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         if (interactions.Any())
                         {
                             var method = handler.Method;
-                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
                             if (!method.Statements.Any(x => x.ToString().Equals("var domainEvent = notification.DomainEvent;")))
                             {
                                 method.AddStatement("var domainEvent = notification.DomainEvent;");
@@ -96,6 +95,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DomainEventHandler
                         var method = (CSharpClassMethod)file.Classes.First().GetReferenceForModel(handledDomainEvents);
                         if (method.Statements.Count == 0)
                         {
+                            method.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyMerge();
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} {file.Classes.First().Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         }

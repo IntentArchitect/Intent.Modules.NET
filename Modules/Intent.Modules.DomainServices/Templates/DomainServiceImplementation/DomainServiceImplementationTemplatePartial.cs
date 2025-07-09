@@ -63,7 +63,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                             }
 
                             method.TryAddXmlDocComments(operation.InternalElement);
-                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
 
                             foreach (var parameter in operation.Parameters)
                             {
@@ -79,6 +79,7 @@ namespace Intent.Modules.DomainServices.Templates.DomainServiceImplementation
                                     .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken", p => p.WithDefaultValue("default"));
                             }
 
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your domain service logic here...\");");
                         });

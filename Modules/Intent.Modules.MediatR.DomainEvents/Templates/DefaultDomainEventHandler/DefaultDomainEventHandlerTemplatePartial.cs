@@ -44,7 +44,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
 
                     @class.AddMethod("Task", "Handle", method =>
                     {
-                        method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                         method.Async();
                         method.AddParameter($"{GetDomainEventNotificationType()}<{GetDomainEventType()}>", "notification");
                         method.AddParameter("CancellationToken", "cancellationToken");
@@ -54,6 +54,8 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.DefaultDomainEventHandle
                     var handleMethod = file.Classes.First().FindMethod("Handle");
                     if (handleMethod?.Statements.Count == 0)
                     {
+                        handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyMerge();
+                        handleMethod.AddStatement("// IntentInitialGen");
                         handleMethod.AddStatement($"// TODO: Implement {handleMethod.Name} {file.Classes.First().Name}) functionality");
                         handleMethod.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                     }

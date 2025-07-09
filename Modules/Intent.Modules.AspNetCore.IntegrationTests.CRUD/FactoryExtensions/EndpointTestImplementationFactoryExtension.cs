@@ -116,8 +116,9 @@ namespace Intent.Modules.AspNetCore.IntegrationTests.CRUD.FactoryExtensions
                         .AddStatement($"var client = new {template.GetTypeName("Intent.AspNetCore.IntegrationTesting.HttpClient", crudTest.Proxy.Id)}(CreateClient());")
                         .AddStatement("// Act", s => s.SeparatedFromPrevious())
                         .AddStatement($"// Unable to generate test: Can't determine how to mock data for ({string.Join(",", crudTest.Dependencies.Where(d => d.CrudMap is null).Select(d => d.EntityName))})", s => s.SeparatedFromPrevious())
+                        .AddStatement("// IntentInitialGen")
                         .AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality")
-                        .AddStatement($@"throw new NotImplementedException(""Your implementation here..."");")
+                        .AddStatement("""throw new NotImplementedException("Your implementation here...");""")
                         ;
                 });
             });

@@ -24,21 +24,22 @@ public abstract class IntegrationEventHandlerImplementationTemplateBase : CSharp
             .AddUsing("System.Threading.Tasks")
             .AddClass($"{Model.TypeReference.Element.Name.RemoveSuffix("Event").ToPascalCase()}EventHandler", @class =>
             {
-                @class.AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]");
+                @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
                 @class.WithBaseType($"{this.GetIntegrationEventHandlerInterfaceName()}<{GetMessageName()}>");
 
                 @class.AddConstructor(constructor =>
                 {
-                    constructor.AddAttribute("[IntentManaged(Mode.Merge)]");
+                    constructor.AddAttribute(CSharpIntentManagedAttribute.Merge());
                 });
 
                 @class.AddMethod("void", "HandleAsync", method =>
                 {
-                    method.AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]");
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                     method.Async();
                     method.AddParameter(GetMessageName(), "message");
                     method.AddOptionalCancellationTokenParameter(this);
 
+                    method.AddStatement("// IntentInitialGen");
                     method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                     method.AddStatement("throw new NotImplementedException();");
                 });

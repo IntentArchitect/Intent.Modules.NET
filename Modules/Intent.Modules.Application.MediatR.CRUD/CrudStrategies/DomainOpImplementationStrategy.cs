@@ -129,6 +129,7 @@ namespace Intent.Modules.Application.MediatR.CRUD.CrudStrategies
             }
             else if (commandReturnType?.Element != null)
             {
+                codeLines.Add("// IntentInitialGen");
                 codeLines.Add("#warning Return type does not match any known convention");
                 codeLines.Add("throw new NotImplementedException();");
             }

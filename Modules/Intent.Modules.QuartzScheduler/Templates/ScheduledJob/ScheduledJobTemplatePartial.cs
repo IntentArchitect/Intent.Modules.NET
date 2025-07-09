@@ -53,15 +53,16 @@ namespace Intent.Modules.QuartzScheduler.Templates.ScheduledJob
                         method.AddParameter("IJobExecutionContext", "context");
                         if (model.PublishedCommand() != null)
                         {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithSignatureFully());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully());
                             method.AddStatement($"var command = new {GetTypeName("Application.Contract.Command", model.PublishedCommand())}();");
                             method.AddStatement("await _mediator.Send(command);");
                         }
                         else
                         {
-                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             AddUsing("System");
-                            method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                            method.AddStatement("// IntentInitialGen");
+                            method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                         }
                     });
                 });

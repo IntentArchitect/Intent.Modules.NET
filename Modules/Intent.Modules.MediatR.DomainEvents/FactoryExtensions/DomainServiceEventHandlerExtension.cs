@@ -48,9 +48,11 @@ namespace Intent.Modules.MediatR.DomainEvents.FactoryExtensions
                         @class.AddMethod("Task", "Handle", method =>
                         {
                             method.Async();
-                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                             method.AddParameter($"{template.GetDomainEventNotificationName()}<{template.GetTypeName(DomainEventTemplate.TemplateId, domainEvent)}>", "notification");
                             method.AddParameter($"CancellationToken", "cancellationToken");
+
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} {@class.Name}) functionality");
                             method.AddStatement("throw new NotImplementedException(\"Implement your handler logic here...\");");
                         });

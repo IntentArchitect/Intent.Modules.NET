@@ -33,20 +33,27 @@ namespace Intent.Modules.Dapr.AspNetCore.Pubsub.Templates.EventHandlerImplementa
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("MediatR")
                 .IntentManagedFully()
-                .AddClass($"{Model.Name.RemoveSuffix("Event", "Message")}EventHandler", @class => @class
-                    .ImplementsInterface($"IRequestHandler<{this.GetIntegrationEventMessageName()}>")
-                    .AddAttribute("[IntentManaged(Mode.Merge, Signature = Mode.Fully)]")
-                    .AddConstructor(constructor => constructor
-                        .AddAttribute("[IntentManaged(Mode.Ignore)]")
-                    )
-                    .AddMethod("Task", "Handle", method => method
-                        .Async()
-                        .AddAttribute("[IntentManaged(Mode.Fully, Body = Mode.Ignore)]")
-                        .AddParameter(this.GetIntegrationEventMessageName(), "@event")
-                        .AddParameter("CancellationToken", "cancellationToken")
-                        .AddStatement("throw new NotImplementedException();")
-                    )
-                );
+                .AddClass($"{Model.Name.RemoveSuffix("Event", "Message")}EventHandler", @class =>
+                {
+                    @class.ImplementsInterface($"IRequestHandler<{this.GetIntegrationEventMessageName()}>");
+                    @class.AddAttribute(CSharpIntentManagedAttribute.Merge().WithSignatureFully());
+
+                    @class.AddConstructor(constructor =>
+                    {
+                        constructor.AddAttribute(CSharpIntentManagedAttribute.Ignore());
+                    });
+
+                    @class.AddMethod("Task", "Handle", method =>
+                    {
+                        method.Async();
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddParameter(this.GetIntegrationEventMessageName(), "@event");
+                        method.AddParameter("CancellationToken", "cancellationToken");
+
+                        method.AddStatement("// IntentInitialGen");
+                        method.AddStatement("throw new NotImplementedException();");
+                    });
+                });
         }
 
         [IntentManaged(Mode.Fully)]

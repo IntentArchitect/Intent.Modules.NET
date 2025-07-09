@@ -67,12 +67,13 @@ namespace Intent.Modules.Application.MediatR.Templates.CommandHandler
                         method.RegisterAsProcessingHandlerForModel(model);
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                         method.AddParameter(GetCommandModelName(template, model), "request", p => p.RepresentsModel(model));
                         method.AddParameter("CancellationToken", "cancellationToken");
 
+                        method.AddStatement("// IntentInitialGen");
                         method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
-                        method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                        method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                     });
                 });
         }

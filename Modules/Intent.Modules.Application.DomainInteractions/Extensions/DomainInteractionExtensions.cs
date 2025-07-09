@@ -96,8 +96,9 @@ public static class DomainInteractionExtensions
         }
         else
         {
-            statements.Add(new CSharpStatement($"// TODO: Implement return type mapping...").SeparatedFromPrevious());
-            statements.Add("throw new NotImplementedException(\"Implement return type mapping...\");");
+            statements.Add(new CSharpStatement("// IntentInitialGen").SeparatedFromPrevious());
+            statements.Add("// TODO: Implement return type mapping...");
+            statements.Add("""throw new NotImplementedException("Implement return type mapping...");""");
         }
 
         return statements;

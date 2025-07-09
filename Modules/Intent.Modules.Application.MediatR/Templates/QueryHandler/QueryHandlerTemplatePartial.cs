@@ -27,8 +27,6 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
         [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
         public QueryHandlerTemplate(IOutputTarget outputTarget, QueryModel model) : base(TemplateId, outputTarget, model)
         {
-
-
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
             CSharpFile = new CSharpFile($"{this.GetQueryNamespace()}", $"{this.GetQueryFolderPath()}");
             Configure(this, model);
@@ -69,11 +67,13 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryHandler
                         method.RegisterAsProcessingHandlerForModel(model);
                         method.TryAddXmlDocComments(model.InternalElement);
                         method.Async();
-                        method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
                         method.AddParameter(GetQueryModelName(template, model), "request");
                         method.AddParameter("CancellationToken", "cancellationToken");
+
+                        method.AddStatement("// IntentInitialGen");
                         method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
-                        method.AddStatement($@"throw new NotImplementedException(""Your implementation here..."");");
+                        method.AddStatement("""throw new NotImplementedException("Your implementation here...");""");
                     });
                 });
 
