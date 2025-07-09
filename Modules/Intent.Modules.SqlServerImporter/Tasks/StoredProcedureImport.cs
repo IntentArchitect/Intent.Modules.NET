@@ -74,9 +74,6 @@ public class RepositoryImport : IModuleTask
             const string executableName = "dotnet";
             var executableArgs = $"\"{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}\" --serialized-config \"{sqlImportSettings}\"";
 
-            var warnings = new StringBuilder();
-            var succeeded = false;
-
             Logging.Log.Info($"Executing: {executableName} {executableArgs}");
 
             var process = new Process
@@ -96,6 +93,9 @@ public class RepositoryImport : IModuleTask
                     }
                 }
             };
+            
+            var warnings = new StringBuilder();
+            var succeeded = false;
 
             process.OutputDataReceived += (_, eventArgs) =>
             {

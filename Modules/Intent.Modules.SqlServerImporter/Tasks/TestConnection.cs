@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Threading;
-using Intent.Modules.SqlServerImporter.Tasks.Helpers;
 using Intent.Modules.SqlServerImporter.Tasks.Models;
 using Intent.Plugins;
 using Intent.Utils;
+using Serilog;
 
 namespace Intent.Modules.SqlServerImporter.Tasks;
 
-public class StoredProcList : IModuleTask
+public class TestConnection : IModuleTask
 {
     private static readonly JsonSerializerOptions SerializerOptions = new()
     {
@@ -22,8 +20,8 @@ public class StoredProcList : IModuleTask
         Converters = { new JsonStringEnumConverter() }
     };
     
-    public string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcList";
-    public string TaskTypeName => "SqlServer Stored Procedure List";
+    public string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.TestConnection";
+    public string TaskTypeName => "SqlServer Database Connection Tester";
     public int Order => 0;
 
     public string Execute(params string[] args)
@@ -39,12 +37,10 @@ public class StoredProcList : IModuleTask
             {
                 return Fail("Problem validating request model.");
             }
-
             
-
-            var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(StoredProcList).Assembly.Location)!, @"../content/tool");
+            var toolDirectory = Path.Combine(Path.GetDirectoryName(typeof(TestConnection).Assembly.Location)!, @"../content/tool");
             const string executableName = "dotnet";
-            var executableArgs = $@"""{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}"" list-stored-proc --connection ""{importModel.ConnectionString}""";
+            var executableArgs = $@"""{Path.Combine(toolDirectory, "Intent.SQLSchemaExtractor.dll")}"" test-connection --connection ""{importModel.ConnectionString}""";
             
             Logging.Log.Info($"Executing: {executableName} {executableArgs}");
 
@@ -67,14 +63,12 @@ public class StoredProcList : IModuleTask
             };
             
             var succeeded = false;
-            var storedProcs = new List<string>();
-            var capture = false;
 
             process.OutputDataReceived += (_, eventArgs) =>
             {
-                if (eventArgs.Data?.Trim().StartsWith("Stored Procedures:") == true)
+                if (eventArgs.Data?.Trim().Equals("Successfully established a connection.") == true)
                 {
-                    capture = true;
+                    succeeded = true;
                 }
                 else if (eventArgs.Data?.Trim().StartsWith("Error:") == true)
                 {
@@ -83,41 +77,16 @@ public class StoredProcList : IModuleTask
                     errorMessage = eventArgs.Data?.Trim();
                     process.Kill(true);
                 }
-                else if (capture && eventArgs.Data?.Trim() == ".")
-                {
-                    capture = false;
-                    succeeded = true;
-                    process.Kill(true);
-                }
-                else if (capture)
-                {
-                    storedProcs.Add(eventArgs.Data ?? "");
-                    Logging.Log.Info(eventArgs.Data);
-                }
             };
 
             process.Start();
             process.BeginOutputReadLine();
             process.WaitForExit();
 
-            if (!succeeded)
+            var resultModel = new TestConnectionResultModel
             {
-                return Fail(errorMessage!);
-            }
-
-            var resultModel = new StoredProcListResultModel
-            {
-                StoredProcs = storedProcs
-                    .Where(p => !string.IsNullOrWhiteSpace(p))
-                    .Select(s =>
-                    {
-                        var parts = s.Split(".");
-                        var schema = parts[0];
-                        var name = parts[1];
-                        return new { Schema = schema, Name = name };
-                    })
-                    .GroupBy(k => k.Schema, v => v.Name)
-                    .ToDictionary(k => k.Key, v => v.ToArray())
+                Success = succeeded,
+                Message = errorMessage
             };
             var resultJson = JsonSerializer.Serialize(resultModel, SerializerOptions);
             Logging.Log.Info(resultJson);
@@ -132,7 +101,7 @@ Please see reasons below:");
         }
     }
 
-    private bool ValidateRequest(string[] args, out StoredProcListInputModel? importModel, out string? errorMessage)
+    private bool ValidateRequest(string[] args, out TestConnectionInputModel? importModel, out string? errorMessage)
     {
         importModel = null;
         errorMessage = null;
@@ -143,7 +112,7 @@ Please see reasons below:");
             return false;
         }
 
-        var settings = JsonSerializer.Deserialize<StoredProcListInputModel>(args[0], SerializerOptions);
+        var settings = JsonSerializer.Deserialize<TestConnectionInputModel>(args[0], SerializerOptions);
         if (settings == null)
         {
             errorMessage = $"Unable to deserialize : {args[0]}";
