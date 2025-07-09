@@ -18,20 +18,20 @@ namespace Entities.PrivateSetters.EF.SqlServer.Application.Implementation
     {
         private readonly IAuditedRepository _auditedRepository;
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public AuditedService(IAuditedRepository auditedRepository)
         {
             _auditedRepository = auditedRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Create(CancellationToken cancellationToken = default)
         {
             var audited = new Audited();
             _auditedRepository.Add(audited);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Update(Guid id, CancellationToken cancellationToken = default)
         {
             var audited = await _auditedRepository.FindByIdAsync(id, cancellationToken) ?? throw new NotFoundException("Not found");

@@ -11,13 +11,12 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.UpdateTestC
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateTestClassCommandValidator : AbstractValidator<UpdateTestClassCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateTestClassCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Att100)

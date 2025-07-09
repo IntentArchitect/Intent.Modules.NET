@@ -16,7 +16,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Servi
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void UpdateLineItems(Guid orderId, IEnumerable<OrderItemUpdateDC> orderLineItems)
         {
             // TODO: Implement UpdateLineItems (OrderDomainService) functionality

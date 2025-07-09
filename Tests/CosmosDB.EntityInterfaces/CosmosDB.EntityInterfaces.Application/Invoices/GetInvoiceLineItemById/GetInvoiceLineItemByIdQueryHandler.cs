@@ -20,7 +20,7 @@ namespace CosmosDB.EntityInterfaces.Application.Invoices.GetInvoiceLineItemById
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoiceLineItemByIdQueryHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;

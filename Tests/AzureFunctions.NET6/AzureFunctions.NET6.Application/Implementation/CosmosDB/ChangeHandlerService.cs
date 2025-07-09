@@ -19,7 +19,7 @@ namespace AzureFunctions.NET6.Application.Implementation.CosmosDB
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task AcceptChanges(List<CosmosChangeDto> changes, CancellationToken cancellationToken = default)
         {
             // TODO: Implement AcceptChanges (ChangeHandlerService) functionality

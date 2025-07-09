@@ -18,7 +18,7 @@ namespace AspNetCore.Controllers.Secured.Application.Products.GetProducts
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetProductsQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;

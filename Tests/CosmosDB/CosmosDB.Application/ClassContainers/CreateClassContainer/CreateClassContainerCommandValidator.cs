@@ -10,13 +10,12 @@ namespace CosmosDB.Application.ClassContainers.CreateClassContainer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateClassContainerCommandValidator : AbstractValidator<CreateClassContainerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateClassContainerCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.ClassPartitionKey)

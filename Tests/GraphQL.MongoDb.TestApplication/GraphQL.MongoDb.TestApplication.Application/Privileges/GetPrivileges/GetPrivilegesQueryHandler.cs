@@ -18,7 +18,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Privileges.GetPrivileges
         private readonly IPrivilegeRepository _privilegeRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetPrivilegesQueryHandler(IPrivilegeRepository privilegeRepository, IMapper mapper)
         {
             _privilegeRepository = privilegeRepository;

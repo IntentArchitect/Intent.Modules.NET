@@ -27,7 +27,7 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
         private readonly IMapper _mapper;
         private readonly IEventBus _eventBus;
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public RolesService(IRoleRepository roleRepository, IEventBus eventBus, IMapper mapper)
         {
             _roleRepository = roleRepository;
@@ -131,7 +131,6 @@ namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Implementation
         [IntentManaged(Mode.Fully)]
         private static Priviledge CreateOrUpdatePriviledge(Priviledge? entity, Roles.PriviledgeDto dto)
         {
-
             entity ??= new Priviledge();
             entity.Id = dto.Id;
             entity.Name = dto.Name;

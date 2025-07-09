@@ -17,9 +17,10 @@ namespace CosmosDB.PrivateSetters.Application.DerivedOfTS.CreateDerivedOfT
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> Handle(CreateDerivedOfTCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CreateDerivedOfTCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

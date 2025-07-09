@@ -18,14 +18,14 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task OperationA(CancellationToken cancellationToken = default)
         {
             // TODO: Implement OperationA (OpenApiIgnoreSingleService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task OperationB(CancellationToken cancellationToken = default)
         {
             // TODO: Implement OperationB (OpenApiIgnoreSingleService) functionality

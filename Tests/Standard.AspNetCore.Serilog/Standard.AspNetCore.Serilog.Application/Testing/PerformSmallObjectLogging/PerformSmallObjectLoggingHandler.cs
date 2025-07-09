@@ -21,7 +21,7 @@ namespace Standard.AspNetCore.Serilog.Application.Testing.PerformSmallObjectLogg
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(PerformSmallObjectLogging request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Small Object Logging: {Request}", new DeepCollectionsObject());

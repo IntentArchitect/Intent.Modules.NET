@@ -10,13 +10,12 @@ namespace CosmosDB.Application.Clients.DeleteClient
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteClientCommandValidator : AbstractValidator<DeleteClientCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteClientCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Identifier)

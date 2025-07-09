@@ -22,7 +22,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public InvoiceService(
             IInvoiceRepository invoiceRepository,
             ITagRepository tagRepository,
@@ -33,7 +33,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Create(CreateInvoiceDto dto, CancellationToken cancellationToken = default)
         {
             var tags = await _tagRepository.FindAllAsync();
@@ -48,7 +48,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
             _invoiceRepository.Add(invoice);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<InvoiceDto>> GetAll(CancellationToken cancellationToken = default)
         {
             var results = await _invoiceRepository.FindAllAsync();

@@ -34,7 +34,7 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
         private readonly IDaprInvoiceRepository _daprInvoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetDaprInvoiceDaprLineByIdQueryHandler(IDaprInvoiceRepository daprInvoiceRepository, IMapper mapper)
         {
             _daprInvoiceRepository = daprInvoiceRepository;
@@ -68,7 +68,6 @@ namespace CleanArchitecture.SingleFiles.Application.DaprInvoices
         [IntentManaged(Mode.Merge)]
         public GetDaprInvoiceDaprLineByIdQueryValidator()
         {
-            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

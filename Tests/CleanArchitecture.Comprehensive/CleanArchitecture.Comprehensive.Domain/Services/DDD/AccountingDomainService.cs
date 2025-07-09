@@ -15,9 +15,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DDD
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Transfer(string fromAccNumber, string toAccNumber, Money amount, string description)
         {
+            // TODO: Implement Transfer (AccountingDomainService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

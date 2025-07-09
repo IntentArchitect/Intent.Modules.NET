@@ -19,13 +19,12 @@ namespace SharedKernel.Kernel.Tests.Application.EventHandlers
         {
         }
 
-        [IntentIgnore]
-        public Task Handle(
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+        public async Task Handle(
             DomainEventNotification<CurrencyCreated> notification,
             CancellationToken cancellationToken)
         {
             notification.DomainEvent.Currency.Description = "KernelEventSet";
-            return Task.CompletedTask;
         }
     }
 }

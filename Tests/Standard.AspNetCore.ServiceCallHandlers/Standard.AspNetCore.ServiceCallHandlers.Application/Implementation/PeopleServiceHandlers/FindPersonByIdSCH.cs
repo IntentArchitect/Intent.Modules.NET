@@ -19,7 +19,7 @@ namespace Standard.AspNetCore.ServiceCallHandlers.Application.Implementation.Peo
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PersonDto> Handle(Guid id, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Implement your business logic for this service call in the <#=ClassName#> (SCH = Service Call Handler) class.");

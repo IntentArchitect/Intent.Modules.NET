@@ -14,7 +14,7 @@ namespace AspNetControllers.SecuredByDefault.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Operation(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation (TestService) functionality

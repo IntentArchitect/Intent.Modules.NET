@@ -18,7 +18,7 @@ namespace OpenApiImporterTest.Application.Pets.GetByTags
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<Pet>> Handle(GetByTagsQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetByTagsQueryHandler) functionality

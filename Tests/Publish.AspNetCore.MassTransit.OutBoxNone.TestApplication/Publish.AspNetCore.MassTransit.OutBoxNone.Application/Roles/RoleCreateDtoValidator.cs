@@ -1,7 +1,6 @@
 using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.DependencyInjection;
 using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Validation;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -9,16 +8,15 @@ using Publish.AspNetCore.MassTransit.OutBoxNone.Application.Common.Validation;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class RoleCreateDtoValidator : AbstractValidator<RoleCreateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public RoleCreateDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Name)

@@ -20,7 +20,7 @@ namespace Intent.Modules.NET.Tests.Module2.Application.IntegrationEvents.EventHa
             _repo = repo;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(CustomerCreatedIEEvent message, CancellationToken cancellationToken = default)
         {
             MyCustomer customer = new MyCustomer() { Id = message.Customer.Id, Name = message.Customer.Name };

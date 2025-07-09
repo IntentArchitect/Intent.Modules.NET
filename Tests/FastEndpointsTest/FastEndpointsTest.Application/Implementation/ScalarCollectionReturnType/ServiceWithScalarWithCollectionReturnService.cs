@@ -18,7 +18,7 @@ namespace FastEndpointsTest.Application.Implementation.ScalarCollectionReturnTyp
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<string>> DoScalarWithCollectionReturn(CancellationToken cancellationToken = default)
         {
             // TODO: Implement DoScalarWithCollectionReturn (ServiceWithScalarWithCollectionReturnService) functionality

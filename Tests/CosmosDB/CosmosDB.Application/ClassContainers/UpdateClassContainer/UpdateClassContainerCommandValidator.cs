@@ -10,13 +10,12 @@ namespace CosmosDB.Application.ClassContainers.UpdateClassContainer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateClassContainerCommandValidator : AbstractValidator<UpdateClassContainerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateClassContainerCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -7,16 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateUserCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)
@@ -30,7 +29,6 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.UpdateUser
 
             RuleFor(v => v.Email)
                 .NotNull();
-
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AzureFunctions.NET8.Application.Implementation.Queues.Bindings
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> BindingTest(CustomerDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement BindingTest (BindingService) functionality

@@ -18,7 +18,7 @@ namespace RichDomain.Application.People.GetPersonById
         private readonly IPersonRepository _personRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetPersonByIdQueryHandler(IPersonRepository personRepository, IMapper mapper)
         {
             _personRepository = personRepository;

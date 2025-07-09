@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManySour
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOptionalToManySourceCommandValidator : AbstractValidator<CreateOptionalToManySourceCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateOptionalToManySourceCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

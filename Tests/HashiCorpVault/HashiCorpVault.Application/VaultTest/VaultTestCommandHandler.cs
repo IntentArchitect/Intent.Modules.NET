@@ -21,7 +21,7 @@ namespace HashiCorpVault.Application.VaultTest
             _configuration = configuration;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(VaultTestCommand request, CancellationToken cancellationToken)
         {
             var test = _configuration["passcode"];

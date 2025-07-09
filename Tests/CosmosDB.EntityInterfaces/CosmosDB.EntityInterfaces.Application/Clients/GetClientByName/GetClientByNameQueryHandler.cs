@@ -18,16 +18,17 @@ namespace CosmosDB.EntityInterfaces.Application.Clients.GetClientByName
         private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetClientByNameQueryHandler(IClientRepository clientRepository, IMapper mapper)
         {
             _clientRepository = clientRepository;
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ClientDto>> Handle(GetClientByNameQuery request, CancellationToken cancellationToken)
         {
+            // IntentIgnore
             var clients = await _clientRepository.FindAllAsync(x => x.Name.StartsWith(request.SearchText), cancellationToken);
             return clients.MapToClientDtoList(_mapper);
         }

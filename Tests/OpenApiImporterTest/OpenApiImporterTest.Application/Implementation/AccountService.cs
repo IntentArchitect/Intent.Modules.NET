@@ -19,35 +19,35 @@ namespace OpenApiImporterTest.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> CreateAccount(CreateAccountCommand dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateAccount (AccountService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<AccountDto>> GetAccounts(CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetAccounts (AccountService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteAccount(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteAccount (AccountService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateAccount(UpdateAccountCommand dto, Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateAccount (AccountService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<AccountDto> GetAccount(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetAccount (AccountService) functionality

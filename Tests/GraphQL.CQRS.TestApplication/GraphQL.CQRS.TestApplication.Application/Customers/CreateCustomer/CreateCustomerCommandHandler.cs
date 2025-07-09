@@ -19,13 +19,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.CreateCustomer
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
         }
-
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)

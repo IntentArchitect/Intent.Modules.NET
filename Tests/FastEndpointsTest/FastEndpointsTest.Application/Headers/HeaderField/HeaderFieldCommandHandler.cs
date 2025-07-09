@@ -17,7 +17,7 @@ namespace FastEndpointsTest.Application.Headers.HeaderField
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(HeaderFieldCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (HeaderFieldCommandHandler) functionality

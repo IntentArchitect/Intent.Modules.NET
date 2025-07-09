@@ -24,7 +24,7 @@ namespace CloudBlobStorageClients.Application.Tests.TestAzure
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestAzureCommand request, CancellationToken cancellationToken)
         {
             const string containerName = "dan-test-bucket";

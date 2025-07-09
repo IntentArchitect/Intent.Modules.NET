@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManySour
     public class CreateOptionalToManySourceCommandHandler : IRequestHandler<CreateOptionalToManySourceCommand, Guid>
     {
         private readonly IOptionalToManySourceRepository _optionalToManySourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOptionalToManySourceCommandHandler(IOptionalToManySourceRepository optionalToManySourceRepository)
         {
             _optionalToManySourceRepository = optionalToManySourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOptionalToManySourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "optionalOneToManyDests" parameter
+            var newOptionalToManySource = new OptionalToManySource(request.Attribute, optionalOneToManyDests: default);
+
+            _optionalToManySourceRepository.Add(newOptionalToManySource);
+            await _optionalToManySourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOptionalToManySource.Id;
         }
     }
 }

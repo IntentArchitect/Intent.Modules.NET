@@ -17,9 +17,10 @@ namespace OpenApiImporterTest.Application.Pets.CreatePet
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Pet> Handle(CreatePetCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CreatePetCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

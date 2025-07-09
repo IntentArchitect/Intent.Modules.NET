@@ -18,7 +18,7 @@ namespace FastEndpointsTest.Application.ScalarCollectionReturnType.QueryWithColl
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<string>> Handle(QueryWithCollectionReturn request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (QueryWithCollectionReturnHandler) functionality

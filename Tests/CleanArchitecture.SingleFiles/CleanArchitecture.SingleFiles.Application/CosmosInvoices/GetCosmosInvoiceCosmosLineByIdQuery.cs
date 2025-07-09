@@ -34,7 +34,7 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
         private readonly ICosmosInvoiceRepository _cosmosInvoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCosmosInvoiceCosmosLineByIdQueryHandler(ICosmosInvoiceRepository cosmosInvoiceRepository, IMapper mapper)
         {
             _cosmosInvoiceRepository = cosmosInvoiceRepository;
@@ -68,7 +68,6 @@ namespace CleanArchitecture.SingleFiles.Application.CosmosInvoices
         [IntentManaged(Mode.Merge)]
         public GetCosmosInvoiceCosmosLineByIdQueryValidator()
         {
-            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

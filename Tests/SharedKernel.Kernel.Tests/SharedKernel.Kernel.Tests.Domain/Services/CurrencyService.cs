@@ -23,7 +23,7 @@ namespace SharedKernel.Kernel.Tests.Domain.Services
             _currencyRepository = currencyRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Currency GetDefaultCurrency(Guid countryId)
         {
             var currencies = _currencyRepository.FindAllAsync().GetAwaiter().GetResult();
@@ -34,7 +34,7 @@ namespace SharedKernel.Kernel.Tests.Domain.Services
             return currencies.First();
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Currency> GetDefaultCurrencyAsync(Guid countryId, CancellationToken cancellationToken = default)
         {
             var currencies = await _currencyRepository.FindAllAsync(cancellationToken);

@@ -10,13 +10,12 @@ namespace CosmosDB.Application.Invoices.DeleteInvoiceLineItem
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteInvoiceLineItemCommandValidator : AbstractValidator<DeleteInvoiceLineItemCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteInvoiceLineItemCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.InvoiceId)

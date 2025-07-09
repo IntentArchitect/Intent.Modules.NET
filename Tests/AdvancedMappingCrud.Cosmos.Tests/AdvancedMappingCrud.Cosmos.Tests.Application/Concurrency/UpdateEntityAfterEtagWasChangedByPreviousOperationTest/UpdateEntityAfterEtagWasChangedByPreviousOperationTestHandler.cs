@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Concurrency.UpdateEntityA
             _customerRepository = customerRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             UpdateEntityAfterEtagWasChangedByPreviousOperationTest request,
             CancellationToken cancellationToken)

@@ -10,13 +10,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateBasketCommandValidator : AbstractValidator<UpdateBasketCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateBasketCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Number)

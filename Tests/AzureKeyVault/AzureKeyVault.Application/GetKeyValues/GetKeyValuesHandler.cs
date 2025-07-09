@@ -16,13 +16,13 @@ namespace AzureKeyVault.Application.GetKeyValues
     {
         private readonly IConfiguration _configuration;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetKeyValuesHandler(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<KeyValuesDTO> Handle(GetKeyValues request, CancellationToken cancellationToken)
         {
             return new KeyValuesDTO()

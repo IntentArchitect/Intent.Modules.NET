@@ -24,8 +24,7 @@ namespace TrainingModel.Tests.Application.EventHandlers
             _productRepository = productRepository;
         }
 
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<BrandDeactivationEvent> notification,
             CancellationToken cancellationToken)

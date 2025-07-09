@@ -17,9 +17,10 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.UpdateClassContain
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(UpdateClassContainerCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (UpdateClassContainerCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

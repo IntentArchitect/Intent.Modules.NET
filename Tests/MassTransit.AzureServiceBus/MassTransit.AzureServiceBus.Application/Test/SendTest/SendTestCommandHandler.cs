@@ -26,7 +26,7 @@ namespace MassTransit.AzureServiceBus.Application.Test.SendTest
             _cqrsService = cqrsService;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(SendTestCommand request, CancellationToken cancellationToken)
         {
             _eventBus.Publish(new TestMessageEvent() { Message = request.Message });

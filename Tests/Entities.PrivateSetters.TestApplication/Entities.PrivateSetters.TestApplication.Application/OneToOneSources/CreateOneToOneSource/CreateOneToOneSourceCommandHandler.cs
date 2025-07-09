@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.Cr
     public class CreateOneToOneSourceCommandHandler : IRequestHandler<CreateOneToOneSourceCommand, Guid>
     {
         private readonly IOneToOneSourceRepository _oneToOneSourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOneToOneSourceCommandHandler(IOneToOneSourceRepository oneToOneSourceRepository)
         {
             _oneToOneSourceRepository = oneToOneSourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOneToOneSourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "oneToOneDest" parameter
+            var newOneToOneSource = new OneToOneSource(request.Attribute, oneToOneDest: default);
+
+            _oneToOneSourceRepository.Add(newOneToOneSource);
+            await _oneToOneSourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOneToOneSource.Id;
         }
     }
 }

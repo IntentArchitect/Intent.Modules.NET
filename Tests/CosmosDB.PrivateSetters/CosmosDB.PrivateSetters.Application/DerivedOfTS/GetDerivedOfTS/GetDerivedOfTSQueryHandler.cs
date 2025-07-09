@@ -18,7 +18,7 @@ namespace CosmosDB.PrivateSetters.Application.DerivedOfTS.GetDerivedOfTS
         private readonly IDerivedOfTRepository _derivedOfTRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetDerivedOfTSQueryHandler(IDerivedOfTRepository derivedOfTRepository, IMapper mapper)
         {
             _derivedOfTRepository = derivedOfTRepository;

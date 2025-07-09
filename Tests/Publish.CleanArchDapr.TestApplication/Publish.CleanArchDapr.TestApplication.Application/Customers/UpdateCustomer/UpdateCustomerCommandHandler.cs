@@ -17,7 +17,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
     {
         private readonly ICustomerRepository _customerRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateCustomerCommandHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
@@ -33,7 +33,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.UpdateCust
             }
 
             existingCustomer.Name = request.Name;
-
         }
     }
 }

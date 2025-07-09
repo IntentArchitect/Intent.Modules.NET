@@ -19,7 +19,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> CreateSingleIndexEntityMultiParent(
             SingleIndexEntityMultiParentCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -28,7 +28,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<SingleIndexEntityMultiParentDto> FindSingleIndexEntityMultiParentById(
             string id,
             CancellationToken cancellationToken = default)
@@ -37,14 +37,14 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<SingleIndexEntityMultiParentDto>> FindSingleIndexEntityMultiParents(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindSingleIndexEntityMultiParents (SingleIndexEntityMultiParentsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateSingleIndexEntityMultiParent(
             string id,
             SingleIndexEntityMultiParentUpdateDto dto,
@@ -54,7 +54,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteSingleIndexEntityMultiParent(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteSingleIndexEntityMultiParent (SingleIndexEntityMultiParentsService) functionality

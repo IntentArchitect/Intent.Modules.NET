@@ -22,7 +22,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.UploadF
             _fileUploadRepository = fileUploadRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> Handle(UploadFileCommand request, CancellationToken cancellationToken)
         {
             var entity = new FileUpload()

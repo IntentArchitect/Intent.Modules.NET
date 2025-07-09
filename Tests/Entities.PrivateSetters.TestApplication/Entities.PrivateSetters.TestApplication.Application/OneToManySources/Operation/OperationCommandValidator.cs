@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.O
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OperationCommandValidator : AbstractValidator<OperationCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public OperationCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

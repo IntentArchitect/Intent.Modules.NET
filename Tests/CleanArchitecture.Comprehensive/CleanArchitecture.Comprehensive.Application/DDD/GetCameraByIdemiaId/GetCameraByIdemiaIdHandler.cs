@@ -12,14 +12,15 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.GetCameraByIdemiaId
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCameraByIdemiaIdHandler : IRequestHandler<GetCameraByIdemiaId, GetCameraDto>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCameraByIdemiaIdHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<GetCameraDto> Handle(GetCameraByIdemiaId request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetCameraByIdemiaIdHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

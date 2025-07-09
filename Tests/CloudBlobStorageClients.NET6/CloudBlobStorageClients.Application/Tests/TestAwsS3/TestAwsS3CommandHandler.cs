@@ -24,7 +24,7 @@ namespace CloudBlobStorageClients.Application.Tests.TestAwsS3
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestAwsS3Command request, CancellationToken cancellationToken)
         {
             const string bucketName = "dan-test-bucket-4-24";

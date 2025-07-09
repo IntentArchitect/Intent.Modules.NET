@@ -19,20 +19,26 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateCustomerCommandHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<CustomerDto> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
             var existingCustomer = await _customerRepository.FindByIdAsync(request.Id, cancellationToken);
+            if (existingCustomer is null)
+            {
+                throw new NotFoundException($"Could not find Customer '{request.Id}'");
+            }
+
             existingCustomer.Name = request.Name;
             existingCustomer.Surname = request.Surname;
             existingCustomer.Email = request.Email;
+            await _customerRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return existingCustomer.MapToCustomerDto(_mapper);
         }
     }

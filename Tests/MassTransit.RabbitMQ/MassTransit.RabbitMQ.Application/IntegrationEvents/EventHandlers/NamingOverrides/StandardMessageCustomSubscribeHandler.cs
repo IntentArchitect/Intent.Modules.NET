@@ -23,6 +23,7 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(
             StandardMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)
@@ -31,12 +32,14 @@ namespace MassTransit.RabbitMQ.Application.IntegrationEvents.EventHandlers.Namin
             await _mediator.Send(command, cancellationToken);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(
             OverrideMessageStandardSubscribeEvent message,
             CancellationToken cancellationToken = default)
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(
             OverrideMessageCustomSubscribeEvent message,
             CancellationToken cancellationToken = default)

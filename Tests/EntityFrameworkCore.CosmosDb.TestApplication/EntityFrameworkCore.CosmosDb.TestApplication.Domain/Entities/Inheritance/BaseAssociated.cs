@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritance
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class BaseAssociated : IHasDomainEvent
     {
         public BaseAssociated()
@@ -15,6 +14,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Inheritan
             PartitionKey = null!;
             BaseAssociatedField1 = null!;
         }
+
         public Guid Id { get; set; }
 
         public string PartitionKey { get; set; }

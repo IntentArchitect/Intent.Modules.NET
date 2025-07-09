@@ -18,7 +18,7 @@ namespace CosmosDB.EntityInterfaces.Application.DerivedOfTS.GetDerivedOfTById
         private readonly IDerivedOfTRepository _derivedOfTRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetDerivedOfTByIdQueryHandler(IDerivedOfTRepository derivedOfTRepository, IMapper mapper)
         {
             _derivedOfTRepository = derivedOfTRepository;

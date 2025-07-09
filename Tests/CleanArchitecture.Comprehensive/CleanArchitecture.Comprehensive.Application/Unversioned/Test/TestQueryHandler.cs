@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(TestQuery request, CancellationToken cancellationToken)
         {
             return int.Parse(request.Value);

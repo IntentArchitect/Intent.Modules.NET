@@ -25,9 +25,10 @@ namespace CosmosDB.Application.Clients.GetClientsByIds
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<ClientDto>> Handle(GetClientsByIdsQuery request, CancellationToken cancellationToken)
         {
+            // IntentIgnore
             var clients = await _clientRepository.FindByIdsAsync(request.Ids, cancellationToken);
             return clients.MapToClientDtoList(_mapper);
         }

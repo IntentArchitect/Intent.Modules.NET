@@ -13,18 +13,18 @@ using Subscribe.CleanArchDapr.TestApplication.Application.IntegrationServices.Pu
 
 namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHandlers
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OrderCreatedEventHandler : IIntegrationEventHandler<OrderCreatedEvent>
     {
         private readonly IMyProxy _myProxy;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public OrderCreatedEventHandler(IMyProxy myProxy)
         {
             _myProxy = myProxy;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(OrderCreatedEvent message, CancellationToken cancellationToken = default)
         {
             await _myProxy.OrderConfirmedAsync(message.Id, new OrderConfirmed() { RefNo = "Bob", Id = message.Id }, cancellationToken);

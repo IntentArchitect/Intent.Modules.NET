@@ -17,7 +17,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.CreateInvoice
     {
         private readonly IInvoiceRepository _invoiceRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateInvoiceCommandHandler(IInvoiceRepository invoiceRepository)
         {
             _invoiceRepository = invoiceRepository;

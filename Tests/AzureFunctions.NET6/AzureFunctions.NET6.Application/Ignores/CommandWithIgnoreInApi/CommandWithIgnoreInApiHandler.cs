@@ -17,10 +17,10 @@ namespace AzureFunctions.NET6.Application.Ignores.CommandWithIgnoreInApi
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(CommandWithIgnoreInApi request, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (IgnoreInApiCommandHandler) functionality
+            // TODO: Implement Handle (CommandWithIgnoreInApiHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

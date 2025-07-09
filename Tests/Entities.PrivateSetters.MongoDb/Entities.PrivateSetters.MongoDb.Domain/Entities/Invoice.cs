@@ -8,7 +8,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.MongoDb.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
         private List<string> _tagsIds = [];

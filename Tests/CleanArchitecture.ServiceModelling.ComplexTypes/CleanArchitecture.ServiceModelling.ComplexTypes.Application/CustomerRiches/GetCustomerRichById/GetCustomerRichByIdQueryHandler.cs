@@ -18,7 +18,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
         private readonly ICustomerRichRepository _customerRichRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomerRichByIdQueryHandler(ICustomerRichRepository customerRichRepository, IMapper mapper)
         {
             _customerRichRepository = customerRichRepository;

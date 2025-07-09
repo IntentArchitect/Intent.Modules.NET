@@ -17,7 +17,7 @@ namespace OpenApiImporterTest.Application.Stores.GetOrder
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Order> Handle(GetOrderQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetOrderQueryHandler) functionality

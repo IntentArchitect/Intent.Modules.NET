@@ -6,7 +6,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedComposition
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class ClassB
     {
         public ClassB()
@@ -14,6 +13,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.NestedCom
             ClassBAttr = null!;
             ClassC = null!;
         }
+
         public Guid Id { get; set; }
 
         public string ClassBAttr { get; set; }

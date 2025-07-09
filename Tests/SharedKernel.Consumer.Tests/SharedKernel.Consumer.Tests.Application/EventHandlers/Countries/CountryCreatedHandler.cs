@@ -20,12 +20,12 @@ namespace SharedKernel.Consumer.Tests.Application.EventHandlers.Countries
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             SharedKernel.Kernel.Tests.Application.Common.Models.DomainEventNotification<CountryCreated> notification,
             CancellationToken cancellationToken)
         {
-            notification.DomainEvent.Country.Code = "Comsumer";
+            notification.DomainEvent.Country.Code = "Consumer";
         }
     }
 }

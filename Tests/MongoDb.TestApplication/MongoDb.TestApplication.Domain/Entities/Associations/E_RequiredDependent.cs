@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Domain.Entities.Associations
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class E_RequiredDependent
     {
         public E_RequiredDependent()
@@ -13,6 +12,7 @@ namespace MongoDb.TestApplication.Domain.Entities.Associations
             Attribute = null!;
             E_RequiredCompositeNav = null!;
         }
+
         public string Attribute { get; set; }
 
         public E_RequiredCompositeNav E_RequiredCompositeNav { get; set; }

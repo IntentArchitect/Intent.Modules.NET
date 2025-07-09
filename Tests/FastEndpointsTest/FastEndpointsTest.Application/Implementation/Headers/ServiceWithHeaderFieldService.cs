@@ -18,7 +18,7 @@ namespace FastEndpointsTest.Application.Implementation.Headers
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DoHeaderField(string param, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DoHeaderField (ServiceWithHeaderFieldService) functionality

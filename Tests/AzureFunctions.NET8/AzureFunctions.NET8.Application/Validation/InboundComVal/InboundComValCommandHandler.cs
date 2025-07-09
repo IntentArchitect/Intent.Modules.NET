@@ -17,9 +17,10 @@ namespace AzureFunctions.NET8.Application.Validation.InboundComVal
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(InboundComValCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (InboundComValCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

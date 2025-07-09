@@ -17,7 +17,7 @@ namespace OpenTelemetry.OpenTelemetryProtocol.Application.Test
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestCommand request, CancellationToken cancellationToken)
         {
 

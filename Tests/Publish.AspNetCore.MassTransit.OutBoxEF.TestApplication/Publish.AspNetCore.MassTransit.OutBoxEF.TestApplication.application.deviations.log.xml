@@ -1,44 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#eef0e2ce-9726-46f0-b58e-818de6323ba5</correlationId>
-      <path>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/PreferenceDtoValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:38.0337199Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:38.0337219Z</approvedAt>
-      <deviationsHash>6E11BEE1C5D06A9333D94A94E41F085B64559010ABC1EEA81FBBDB40EB70E61C</deviationsHash>
-      <fileHash>C486D9591BE772563029857934D50E5D506B747B79454A0E2276008BF4BB3D09</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#1e8d933e-42c0-4e92-a59d-5d066af4338e</correlationId>
-      <path>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserCreateDtoValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:38.0348869Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:38.034889Z</approvedAt>
-      <deviationsHash>D0DD83ABCA04D4CDF1DD9AE41B8CC24C2484F2B6E5BC44D4F2647FDA33C137E8</deviationsHash>
-      <fileHash>B0F40B37C24B4FD38856B04B7AB677188F91DD1C589C6085151F60A8AF16F3DF</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.FluentValidation.Dtos.DTOValidator#ced362ed-87a0-4d7c-b118-821aafea5933</correlationId>
-      <path>Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application/Users/UserUpdateDtoValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:14:38.0361622Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:14:38.0361646Z</approvedAt>
-      <deviationsHash>7DA3A8F2227EBD1F3086E3ADC5C31DA4E4BE3156B4BC29749F56ACB2D49C97F5</deviationsHash>
-      <fileHash>35B338A3C45FF47B5C1A57B2E0CDC8F1AF3F8C83BFB724B4CDEBAC7FB874CB2A</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

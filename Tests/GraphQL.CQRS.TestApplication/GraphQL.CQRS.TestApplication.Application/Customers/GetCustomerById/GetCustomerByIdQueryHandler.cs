@@ -18,7 +18,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.GetCustomerById
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;

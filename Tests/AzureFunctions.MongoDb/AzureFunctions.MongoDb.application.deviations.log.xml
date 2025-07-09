@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.MongoDb.ApplicationMongoDbContext</correlationId>
-      <path>AzureFunctions.MongoDb.Infrastructure/Persistence/ApplicationMongoDbContext.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-06-09T16:28:32.3766484Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-06-09T16:28:32.376807Z</approvedAt>
-      <deviationsHash>8420CC46235CB60CBE9E42BC3D2BECF56B6B5311D103F5C6F69A42229C823328</deviationsHash>
-      <fileHash>514A07F175C4CE87884F1A9DFF2C6C6510EF55AA417CFE93544E387F295545E9</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

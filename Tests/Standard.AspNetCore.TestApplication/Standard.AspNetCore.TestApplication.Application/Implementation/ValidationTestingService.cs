@@ -19,7 +19,7 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task InboundValidationDtoAction(
             InboundValidationDto dto,
             CancellationToken cancellationToken = default)

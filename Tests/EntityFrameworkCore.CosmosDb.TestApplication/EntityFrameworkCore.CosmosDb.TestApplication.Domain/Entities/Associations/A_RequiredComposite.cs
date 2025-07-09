@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class A_RequiredComposite : IHasDomainEvent
     {
         public A_RequiredComposite()
@@ -15,6 +14,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
             RequiredCompositeAttr = null!;
             PartitionKey = null!;
         }
+
         public Guid Id { get; set; }
 
         public string RequiredCompositeAttr { get; set; }

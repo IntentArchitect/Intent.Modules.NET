@@ -9,17 +9,15 @@ using MongoDb.TestApplication.Application.Common.Validation;
 
 namespace MongoDb.TestApplication.Application.TextIndexEntitySingleParents
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TextIndexEntitySingleParentCreateDtoValidator : AbstractValidator<TextIndexEntitySingleParentCreateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TextIndexEntitySingleParentCreateDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.SomeField)

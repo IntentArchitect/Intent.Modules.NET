@@ -18,7 +18,7 @@ namespace CosmosDB.EntityInterfaces.Application.Regions.GetRegionsByName
         private readonly IRegionRepository _regionRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetRegionsByNameQueryHandler(IRegionRepository regionRepository, IMapper mapper)
         {
             _regionRepository = regionRepository;

@@ -5,15 +5,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.MongoDb.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Line
     {
         private string? _id;
+
         public Line(string description, int quantity)
         {
             Description = description;
             Quantity = quantity;
         }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

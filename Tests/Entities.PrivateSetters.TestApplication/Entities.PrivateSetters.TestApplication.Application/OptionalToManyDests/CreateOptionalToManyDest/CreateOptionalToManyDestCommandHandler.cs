@@ -16,16 +16,21 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDest
     public class CreateOptionalToManyDestCommandHandler : IRequestHandler<CreateOptionalToManyDestCommand, Guid>
     {
         private readonly IOptionalToManyDestRepository _optionalToManyDestRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOptionalToManyDestCommandHandler(IOptionalToManyDestRepository optionalToManyDestRepository)
         {
             _optionalToManyDestRepository = optionalToManyDestRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOptionalToManyDestCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            var newOptionalToManyDest = new OptionalToManyDest(request.Attribute);
+
+            _optionalToManyDestRepository.Add(newOptionalToManyDest);
+            await _optionalToManyDestRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOptionalToManyDest.Id;
         }
     }
 }

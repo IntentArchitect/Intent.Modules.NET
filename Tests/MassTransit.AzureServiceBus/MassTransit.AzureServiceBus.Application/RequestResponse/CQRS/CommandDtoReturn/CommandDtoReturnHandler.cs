@@ -17,7 +17,7 @@ namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandDt
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CommandResponseDto> Handle(CommandDtoReturn request, CancellationToken cancellationToken)
         {
             return CommandResponseDto.Create($"{request.Input} - {DateTime.Now:s}");

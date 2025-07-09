@@ -14,34 +14,33 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class ProductsService : IProductsService
     {
-
         [IntentManaged(Mode.Merge)]
         public ProductsService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ProductDto> CreateProduct(ProductCreateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateProduct (ProductsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ProductDto> FindProductById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindProductById (ProductsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<ProductDto>> FindProducts(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindProducts (ProductsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ProductDto> UpdateProduct(
             Guid id,
             ProductUpdateDto dto,
@@ -51,7 +50,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ProductDto> DeleteProduct(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteProduct (ProductsService) functionality

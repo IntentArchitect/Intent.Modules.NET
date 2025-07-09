@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestQueryV2
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(TestQueryV2 request, CancellationToken cancellationToken)
         {
             return int.Parse(request.Value) + 5;

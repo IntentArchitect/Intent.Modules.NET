@@ -19,7 +19,7 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> CreateMultikeyIndexEntity(
             MultikeyIndexEntityCreateDto dto,
             CancellationToken cancellationToken = default)
@@ -28,7 +28,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<MultikeyIndexEntityDto> FindMultikeyIndexEntityById(
             string id,
             CancellationToken cancellationToken = default)
@@ -37,14 +37,14 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<MultikeyIndexEntityDto>> FindMultikeyIndexEntities(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindMultikeyIndexEntities (MultikeyIndexEntitiesService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateMultikeyIndexEntity(
             string id,
             MultikeyIndexEntityUpdateDto dto,
@@ -54,7 +54,7 @@ namespace MongoDb.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteMultikeyIndexEntity(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteMultikeyIndexEntity (MultikeyIndexEntitiesService) functionality

@@ -17,9 +17,10 @@ namespace AzureFunctions.NET6.Application.RabbitMQTrigger.CommandForRabbitMQTrig
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(CommandForRabbitMQTrigger request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CommandForRabbitMQTriggerHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

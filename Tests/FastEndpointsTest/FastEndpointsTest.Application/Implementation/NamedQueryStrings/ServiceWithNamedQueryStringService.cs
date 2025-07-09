@@ -18,7 +18,7 @@ namespace FastEndpointsTest.Application.Implementation.NamedQueryStrings
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DoNamedQueryString(string customName, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DoNamedQueryString (ServiceWithNamedQueryStringService) functionality

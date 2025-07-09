@@ -20,10 +20,11 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.CreateCust
         private readonly ICustomerRepository _customerRepository;
         private readonly IEventBus _eventBus;
 
-        [IntentManaged(Mode.Ignore)]
-        public CreateCustomerCommandHandler(ICustomerRepository customerRepository)
+        [IntentManaged(Mode.Merge)]
+        public CreateCustomerCommandHandler(ICustomerRepository customerRepository, IEventBus eventBus)
         {
             _customerRepository = customerRepository;
+            _eventBus = eventBus;
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]

@@ -7,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Application.CompoundIndexEntitySingleParents
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CompoundIndexEntitySingleChildDtoValidator : AbstractValidator<CompoundIndexEntitySingleChildDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CompoundIndexEntitySingleChildDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.CompoundOne)

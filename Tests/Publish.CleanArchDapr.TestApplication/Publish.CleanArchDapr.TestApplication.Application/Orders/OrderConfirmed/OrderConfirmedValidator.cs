@@ -7,21 +7,19 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirmed
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OrderConfirmedValidator : AbstractValidator<OrderConfirmed>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public OrderConfirmedValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.RefNo)
                 .NotNull();
-
         }
     }
 }

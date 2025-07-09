@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Op
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OperationAsyncCommandValidator : AbstractValidator<OperationAsyncCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public OperationAsyncCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

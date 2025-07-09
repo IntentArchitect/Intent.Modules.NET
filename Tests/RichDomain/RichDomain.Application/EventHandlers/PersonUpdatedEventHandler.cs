@@ -19,11 +19,12 @@ namespace RichDomain.Application.EventHandlers
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<PersonUpdatedEvent> notification,
             CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle PersonUpdatedEventHandler) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

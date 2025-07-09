@@ -12,14 +12,15 @@ namespace CleanArchitecture.Comprehensive.Application.RequestSuffixQueriesWithTy
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class MyRequestQueryHandler : IRequestHandler<MyRequestQuery, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public MyRequestQueryHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(MyRequestQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (MyRequestQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

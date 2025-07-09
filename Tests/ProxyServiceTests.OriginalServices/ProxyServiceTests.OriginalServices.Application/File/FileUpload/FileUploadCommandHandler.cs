@@ -17,7 +17,7 @@ namespace ProxyServiceTests.OriginalServices.Application.File.FileUpload
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(FileUploadCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (FileUploadCommandHandler) functionality

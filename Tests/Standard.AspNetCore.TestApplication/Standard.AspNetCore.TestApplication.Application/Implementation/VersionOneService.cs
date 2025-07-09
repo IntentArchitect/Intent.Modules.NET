@@ -16,12 +16,12 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
     {
         public const string ReferenceNumber = "refnumber_1234";
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public VersionOneService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task OperationForVersionOne(string param, CancellationToken cancellationToken = default)
         {
             Assert.Equal(ReferenceNumber, param);

@@ -10,13 +10,12 @@ namespace CosmosDB.Application.ClassContainers.DeleteClassContainer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteClassContainerCommandValidator : AbstractValidator<DeleteClassContainerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteClassContainerCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

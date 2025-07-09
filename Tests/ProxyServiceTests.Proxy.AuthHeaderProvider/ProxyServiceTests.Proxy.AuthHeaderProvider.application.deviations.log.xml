@@ -5,14 +5,14 @@
       <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</correlationId>
       <path>ProxyServiceTests.Proxy.AuthHeaderProvider.Infrastructure/DependencyInjection.cs</path>
       <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-07-18T06:46:26.7091254Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-07-18T06:46:26.7092592Z</approvedAt>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T13:18:04.6035553Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T13:35:00.8526654Z</approvedAt>
       <deviationsHash>8A61D0448734C486580A96CE1B3E8E7035D1FDF66415C01747F6B3D1820EE9D4</deviationsHash>
-      <fileHash>A81E594C5AB109B3760EC0E37625DCFEE6189C7358D392DEEFE03CA03CA0BC2F</fileHash>
+      <fileHash>239FEE6A32D81549267271237DB0F441F615BD6EE08078A8E7A9B13DBCF3638D</fileHash>
     </file>
   </files>
 </deviationsLog>

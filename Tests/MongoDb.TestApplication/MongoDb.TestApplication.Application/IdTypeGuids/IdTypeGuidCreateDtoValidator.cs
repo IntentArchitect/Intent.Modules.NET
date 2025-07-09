@@ -7,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Application.IdTypeGuids
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class IdTypeGuidCreateDtoValidator : AbstractValidator<IdTypeGuidCreateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public IdTypeGuidCreateDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

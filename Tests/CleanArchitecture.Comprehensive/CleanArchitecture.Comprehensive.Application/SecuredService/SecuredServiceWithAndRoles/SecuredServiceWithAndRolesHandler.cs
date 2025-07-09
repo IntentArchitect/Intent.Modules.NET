@@ -17,9 +17,10 @@ namespace CleanArchitecture.Comprehensive.Application.SecuredService.SecuredServ
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(SecuredServiceWithAndRoles request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (SecuredServiceWithAndRolesHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

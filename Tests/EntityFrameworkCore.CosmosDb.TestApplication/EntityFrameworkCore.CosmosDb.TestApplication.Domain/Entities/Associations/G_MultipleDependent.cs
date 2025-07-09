@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associations
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class G_MultipleDependent
     {
         public G_MultipleDependent()
@@ -13,6 +12,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Domain.Entities.Associati
             MultipleDepAttr = null!;
             G_RequiredCompositeNav = null!;
         }
+
         public Guid Id { get; set; }
 
         public string MultipleDepAttr { get; set; }

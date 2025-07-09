@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDest
         private readonly IOptionalToManyDestRepository _optionalToManyDestRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOptionalToManyDestsQueryHandler(IOptionalToManyDestRepository optionalToManyDestRepository,
             IMapper mapper)
         {

@@ -17,9 +17,10 @@ namespace OpenApiImporterTest.Application.Pets.DeletePet
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DeletePetCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (DeletePetCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

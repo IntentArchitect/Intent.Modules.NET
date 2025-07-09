@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Domain.Entities.Indexes
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class CompoundIndexEntitySingleChild
     {
         public CompoundIndexEntitySingleChild()
@@ -13,7 +12,6 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
             CompoundOne = null!;
             CompoundTwo = null!;
         }
-        private string? _id;
 
         public string CompoundOne { get; set; }
 

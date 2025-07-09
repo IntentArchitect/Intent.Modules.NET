@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManySources.
     public class CreateManyToManySourceCommandHandler : IRequestHandler<CreateManyToManySourceCommand, Guid>
     {
         private readonly IManyToManySourceRepository _manyToManySourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateManyToManySourceCommandHandler(IManyToManySourceRepository manyToManySourceRepository)
         {
             _manyToManySourceRepository = manyToManySourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateManyToManySourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "manyToManyDests" parameter
+            var newManyToManySource = new ManyToManySource(request.Attribute, manyToManyDests: default);
+
+            _manyToManySourceRepository.Add(newManyToManySource);
+            await _manyToManySourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newManyToManySource.Id;
         }
     }
 }

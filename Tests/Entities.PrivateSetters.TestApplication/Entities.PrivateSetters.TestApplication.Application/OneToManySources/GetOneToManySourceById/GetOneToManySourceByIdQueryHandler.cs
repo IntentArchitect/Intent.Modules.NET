@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.G
         private readonly IOneToManySourceRepository _oneToManySourceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOneToManySourceByIdQueryHandler(IOneToManySourceRepository oneToManySourceRepository, IMapper mapper)
         {
             _oneToManySourceRepository = oneToManySourceRepository;

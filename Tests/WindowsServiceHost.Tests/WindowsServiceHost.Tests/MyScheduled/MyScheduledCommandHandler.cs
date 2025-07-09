@@ -21,7 +21,7 @@ namespace WindowsServiceHost.Tests.MyScheduled
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(MyScheduledCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("My Schedule");

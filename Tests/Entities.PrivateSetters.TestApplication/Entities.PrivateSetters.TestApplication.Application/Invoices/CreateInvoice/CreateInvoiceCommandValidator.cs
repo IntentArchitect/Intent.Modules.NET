@@ -10,13 +10,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices.CreateInv
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateInvoiceCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Lines)

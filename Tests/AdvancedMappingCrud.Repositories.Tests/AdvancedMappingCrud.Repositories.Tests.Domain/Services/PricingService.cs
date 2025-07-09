@@ -16,15 +16,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<decimal> GetProductPriceAsync(Guid productId, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement GetProductPriceAsync (PricingService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public decimal SumPrices(decimal prices)
         {
+            // TODO: Implement SumPrices (PricingService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

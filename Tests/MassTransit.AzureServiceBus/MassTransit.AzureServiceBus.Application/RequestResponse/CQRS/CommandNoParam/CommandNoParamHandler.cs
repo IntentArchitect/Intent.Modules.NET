@@ -17,9 +17,10 @@ namespace MassTransit.AzureServiceBus.Application.RequestResponse.CQRS.CommandNo
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(CommandNoParam request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CommandNoParamHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

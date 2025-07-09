@@ -11,13 +11,12 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateOrderCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Number)

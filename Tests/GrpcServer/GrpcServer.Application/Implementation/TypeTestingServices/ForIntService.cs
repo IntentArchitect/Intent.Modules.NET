@@ -18,25 +18,25 @@ namespace GrpcServer.Application.Implementation.TypeTestingServices
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Operation(int param, CancellationToken cancellationToken = default)
         {
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<int>> OperationCollection(List<int> param, CancellationToken cancellationToken = default)
         {
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int?> OperationNullable(int? param, CancellationToken cancellationToken = default)
         {
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<int>?> OperationNullableCollection(
             List<int>? param,
             CancellationToken cancellationToken = default)

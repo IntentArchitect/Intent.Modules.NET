@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Cr
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateManyToManyDestCommandValidator : AbstractValidator<CreateManyToManyDestCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateManyToManyDestCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

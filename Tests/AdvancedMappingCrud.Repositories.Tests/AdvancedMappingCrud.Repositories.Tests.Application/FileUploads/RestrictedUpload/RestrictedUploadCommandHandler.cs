@@ -17,9 +17,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.Restric
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(RestrictedUploadCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (RestrictedUploadCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

@@ -14,14 +14,15 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues.Bindings
     [IntentManaged(Mode.Merge)]
     public class BindingService : IBindingService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public BindingService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> BindingTest(CustomerDto dto, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement BindingTest (BindingService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

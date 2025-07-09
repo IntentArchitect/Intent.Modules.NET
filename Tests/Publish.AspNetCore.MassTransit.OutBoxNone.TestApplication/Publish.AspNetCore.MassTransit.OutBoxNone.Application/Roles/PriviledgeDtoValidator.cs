@@ -7,16 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Publish.AspNetCore.MassTransit.OutBoxNone.Application.Roles
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class PriviledgeDtoValidator : AbstractValidator<PriviledgeDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public PriviledgeDtoValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

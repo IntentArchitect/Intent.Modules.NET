@@ -18,7 +18,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.IntegrationEventHand
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(FullNamespaceEvent message, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException("Implement your handler logic here...");

@@ -18,20 +18,16 @@ namespace Solace.Tests.Application.IntegrationEvents.EventHandlers
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(AccountCreatedEvent message, CancellationToken cancellationToken = default)
         {
-            //IntentIgnore
             Console.WriteLine("Received:AccountCreatedEvent");
-
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(PurchaseCreated message, CancellationToken cancellationToken = default)
         {
-            //IntentIgnore
             Console.WriteLine("Received:PurchaseCreated");
-
         }
     }
 }

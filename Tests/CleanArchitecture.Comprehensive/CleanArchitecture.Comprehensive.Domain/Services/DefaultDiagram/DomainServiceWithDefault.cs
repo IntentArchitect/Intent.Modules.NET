@@ -14,9 +14,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DefaultDiagram
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void OperationWithDefault(string param1 = "Operation Param 1 Value")
         {
+            // TODO: Implement OperationWithDefault (DomainServiceWithDefault) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

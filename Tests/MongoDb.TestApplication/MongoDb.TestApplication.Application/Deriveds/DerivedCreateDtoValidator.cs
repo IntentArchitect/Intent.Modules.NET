@@ -7,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Application.Deriveds
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DerivedCreateDtoValidator : AbstractValidator<DerivedCreateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DerivedCreateDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.DerivedAttribute)

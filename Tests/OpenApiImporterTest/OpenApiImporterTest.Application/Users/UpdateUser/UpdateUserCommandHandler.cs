@@ -17,9 +17,10 @@ namespace OpenApiImporterTest.Application.Users.UpdateUser
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(UpdateUserCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (UpdateUserCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

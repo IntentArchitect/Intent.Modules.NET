@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateB
     {
         public AggregateB()
@@ -13,6 +12,7 @@ namespace MongoDb.TestApplication.Domain.Entities.NestedAssociations
             Id = null!;
             Attribute = null!;
         }
+
         public string Id { get; set; }
 
         public string Attribute { get; set; }

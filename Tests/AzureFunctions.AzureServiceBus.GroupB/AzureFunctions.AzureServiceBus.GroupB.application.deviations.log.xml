@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#36242578-736b-43e2-8f4c-573e0be908b8</correlationId>
-      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-23T15:32:27.4998323Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-06-23T15:44:55.1803528Z</approvedAt>
-      <deviationsHash>B482CFE077B19226094F197651B154CEBA89FA7693FDA50868F353B91784DF05</deviationsHash>
-      <fileHash>4E47E1A74E5E2F133AF8A805CC1F18557B44E79186F0405267DCAEC9093B18A9</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#f5120547-565a-4e57-b0d7-fe13320fd839</correlationId>
-      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/CreateOrgIntegrationCommandHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-23T15:32:27.4998559Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-06-23T15:44:55.1864252Z</approvedAt>
-      <deviationsHash>5779FF1DF9F68F2C7780BD18D9681D6743D1DB6C21B78FC70086756267E79D69</deviationsHash>
-      <fileHash>497424F963A61E8A821357DF63D8DD69C6C33FA0F81D2B926AC5DC07A4482F62</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

@@ -16,7 +16,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void UpdateLineItems(Guid orderId, IEnumerable<OrderItemUpdateDC> orderLineItems)
         {
             // TODO: Implement UpdateLineItems (OrderDomainService) functionality

@@ -16,7 +16,7 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.Comments
     [IntentManaged(Mode.Merge)]
     public class CommentTestService : ICommentTestService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CommentTestService()
         {
         }
@@ -25,9 +25,10 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.Comments
         /// My Op Comments
         /// </summary>
         /// <param name="param1">Param 1 Comment</param>
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task MyOp(string param1, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement MyOp (CommentTestService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
     }

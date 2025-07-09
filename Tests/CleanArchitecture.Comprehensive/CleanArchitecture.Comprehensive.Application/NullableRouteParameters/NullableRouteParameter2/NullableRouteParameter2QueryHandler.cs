@@ -17,10 +17,10 @@ namespace CleanArchitecture.Comprehensive.Application.NullableRouteParameters.Nu
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(NullableRouteParameter2Query request, CancellationToken cancellationToken)
         {
-            // TODO: Implement Handle (NullableRouteParameterQueryHandler) functionality
+            // TODO: Implement Handle (NullableRouteParameter2QueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

@@ -14,7 +14,7 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Servi
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void DoIt()
         {
             // TODO: Implement DoIt (SecondService) functionality

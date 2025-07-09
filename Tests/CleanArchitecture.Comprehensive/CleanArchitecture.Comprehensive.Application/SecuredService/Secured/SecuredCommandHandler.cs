@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.SecuredService.Secured
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(SecuredCommand request, CancellationToken cancellationToken)
         {
             // NOP

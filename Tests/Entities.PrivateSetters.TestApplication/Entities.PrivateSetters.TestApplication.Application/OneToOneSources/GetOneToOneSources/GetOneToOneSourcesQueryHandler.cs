@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.Ge
         private readonly IOneToOneSourceRepository _oneToOneSourceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOneToOneSourcesQueryHandler(IOneToOneSourceRepository oneToOneSourceRepository, IMapper mapper)
         {
             _oneToOneSourceRepository = oneToOneSourceRepository;

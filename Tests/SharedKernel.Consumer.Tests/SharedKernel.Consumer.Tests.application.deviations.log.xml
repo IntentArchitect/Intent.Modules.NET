@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#a461d437-a1ca-4d0d-b267-11f0658938bc</correlationId>
-      <path>SharedKernel.Consumer.Tests.Application/EventHandlers/Countries/CountryCreatedHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-10-22T11:10:29.0589929Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-10-22T13:36:47.9357092Z</approvedAt>
-      <deviationsHash>2E9D0DE516F68E9027F39927B92AC2699F5A8F7487B013B2A52074B80BFFF75C</deviationsHash>
-      <fileHash>EB52BA84526DA123F24A21756FBB8381682DAB812DF48FC8AB10EF7E096C57B5</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#770108a3-abe8-46e4-924d-a829bf47b7ee</correlationId>
-      <path>SharedKernel.Consumer.Tests.Application/EventHandlers/Orders/OrderCreatedHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-10-22T11:14:11.2311426Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-10-22T13:36:47.9317702Z</approvedAt>
-      <deviationsHash>527DD70D8188052BF1266447D04F761FEB04E7AF72E33788ED9AA5C2616B1449</deviationsHash>
-      <fileHash>36D3917FCE05A645D14290FF397BF21BF02CA90A4C6CB832BD4882AA24D5A718</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

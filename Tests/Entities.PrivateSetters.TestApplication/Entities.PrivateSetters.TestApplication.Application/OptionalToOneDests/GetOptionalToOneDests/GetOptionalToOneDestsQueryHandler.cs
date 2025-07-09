@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToOneDests
         private readonly IOptionalToOneDestRepository _optionalToOneDestRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOptionalToOneDestsQueryHandler(IOptionalToOneDestRepository optionalToOneDestRepository, IMapper mapper)
         {
             _optionalToOneDestRepository = optionalToOneDestRepository;

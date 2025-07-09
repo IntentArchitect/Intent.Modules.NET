@@ -31,13 +31,6 @@ namespace MongoDb.MultiTenancy.SeperateDb.Api.Configuration
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantExtendedInfo> options)
-        {
-            // configure in memory store:
-            options.IsCaseSensitive = false;
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public static void InitializeStore(IServiceProvider sp)
         {
             var scopeServices = sp.CreateScope().ServiceProvider;
@@ -45,6 +38,13 @@ namespace MongoDb.MultiTenancy.SeperateDb.Api.Configuration
 
             store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-1", Identifier = "tenant1", Name = "Tenant 1", ConnectionString = "Tenant1Connection", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant1" }).Wait();
             store.TryAddAsync(new TenantExtendedInfo() { Id = "sample-tenant-2", Identifier = "tenant2", Name = "Tenant 2", ConnectionString = "Tenant2Connection", MongoDbConnection = "mongodb://localhost/MongoDbMultiTenancySeperateDb-tenant2" }).Wait();
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        private static void SetupInMemoryStore(InMemoryStoreOptions<TenantExtendedInfo> options)
+        {
+            // configure in memory store:
+            options.IsCaseSensitive = false;
         }
     }
 }

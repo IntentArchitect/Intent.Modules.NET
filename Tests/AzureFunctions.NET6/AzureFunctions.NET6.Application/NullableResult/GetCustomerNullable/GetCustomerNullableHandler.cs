@@ -13,14 +13,15 @@ namespace AzureFunctions.NET6.Application.NullableResult.GetCustomerNullable
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCustomerNullableHandler : IRequestHandler<GetCustomerNullable, CustomerDto>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomerNullableHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> Handle(GetCustomerNullable request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetCustomerNullableHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

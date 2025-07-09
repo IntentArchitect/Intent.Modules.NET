@@ -37,6 +37,7 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 {
     public class ApplicationDbContext : DbContext, IUnitOfWork
     {
+        private readonly ICurrentUserService _currentUserService;
         private readonly IDomainEventService _domainEventService;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options,
@@ -46,7 +47,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             _currentUserService = currentUserService;
             _domainEventService = domainEventService;
         }
-        private readonly ICurrentUserService _currentUserService;
 
         [IntentManaged(Mode.Ignore)]
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -55,40 +55,21 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             _currentUserService = new DummyCurrentUserService();
         }
 
+        public DbSet<ExplicitKeyClass> ExplicitKeyClasses { get; set; }
+        public DbSet<NormalEntity> NormalEntities { get; set; }
+        public DbSet<SelfContainedEntity> SelfContainedEntities { get; set; }
         public DbSet<A_RequiredComposite> A_RequiredComposites { get; set; }
-        public DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
-        public DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
-        public DbSet<Associated> Associateds { get; set; }
         public DbSet<B_OptionalAggregate> B_OptionalAggregates { get; set; }
         public DbSet<B_OptionalDependent> B_OptionalDependents { get; set; }
-        public DbSet<Base> Bases { get; set; }
-        public DbSet<BaseAssociated> BaseAssociateds { get; set; }
         public DbSet<C_RequiredComposite> C_RequiredComposites { get; set; }
-        public DbSet<ClassA> ClassAs { get; set; }
-        public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
-        public DbSet<Composite> Composites { get; set; }
-        public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
-        public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
         public DbSet<D_MultipleDependent> D_MultipleDependents { get; set; }
         public DbSet<D_OptionalAggregate> D_OptionalAggregates { get; set; }
-        public DbSet<Derived> Deriveds { get; set; }
-        public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
-        public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
-        public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
-        public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
-        public DbSet<MiddleAbstract_Leaf> MiddleAbstract_Leaves { get; set; }
-        public DbSet<MiddleAbstract_Root> MiddleAbstract_Roots { get; set; }
-        public DbSet<DictionaryWithKvPNormal> DictionaryWithKvPNormals { get; set; }
-        public DbSet<DictionaryWithKvPSerialized> DictionaryWithKvPSerializeds { get; set; }
         public DbSet<E_RequiredCompositeNav> E_RequiredCompositeNavs { get; set; }
-        public DbSet<ExplicitKeyClass> ExplicitKeyClasses { get; set; }
         public DbSet<F_OptionalAggregateNav> F_OptionalAggregateNavs { get; set; }
         public DbSet<F_OptionalDependent> F_OptionalDependents { get; set; }
         public DbSet<G_RequiredCompositeNav> G_RequiredCompositeNavs { get; set; }
         public DbSet<H_MultipleDependent> H_MultipleDependents { get; set; }
         public DbSet<H_OptionalAggregateNav> H_OptionalAggregateNavs { get; set; }
-        public DbSet<NormalEntity> NormalEntities { get; set; }
-        public DbSet<SelfContainedEntity> SelfContainedEntities { get; set; }
         public DbSet<J_MultipleAggregate> J_MultipleAggregates { get; set; }
         public DbSet<J_RequiredDependent> J_RequiredDependents { get; set; }
         public DbSet<K_SelfReference> K_SelfReferences { get; set; }
@@ -105,14 +86,33 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
         public DbSet<Audit_DerivedClass> Audit_DerivedClasses { get; set; }
         public DbSet<Audit_SoloClass> Audit_SoloClasses { get; set; }
         public DbSet<FolderEntity> FolderEntities { get; set; }
-        public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
-        public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
+        public DbSet<Associated> Associateds { get; set; }
+        public DbSet<Base> Bases { get; set; }
+        public DbSet<BaseAssociated> BaseAssociateds { get; set; }
+        public DbSet<Composite> Composites { get; set; }
+        public DbSet<Derived> Deriveds { get; set; }
+        public DbSet<WeirdClass> WeirdClasses { get; set; }
+        public DbSet<AbstractBaseClass> AbstractBaseClasses { get; set; }
+        public DbSet<AbstractBaseClassAssociated> AbstractBaseClassAssociateds { get; set; }
+        public DbSet<ConcreteBaseClass> ConcreteBaseClasses { get; set; }
+        public DbSet<ConcreteBaseClassAssociated> ConcreteBaseClassAssociateds { get; set; }
+        public DbSet<DerivedClassForAbstract> DerivedClassForAbstracts { get; set; }
+        public DbSet<DerivedClassForAbstractAssociated> DerivedClassForAbstractAssociateds { get; set; }
+        public DbSet<DerivedClassForConcrete> DerivedClassForConcretes { get; set; }
+        public DbSet<DerivedClassForConcreteAssociated> DerivedClassForConcreteAssociateds { get; set; }
+        public DbSet<MiddleAbstract_Leaf> MiddleAbstract_Leaves { get; set; }
+        public DbSet<MiddleAbstract_Root> MiddleAbstract_Roots { get; set; }
+        public DbSet<StandaloneDerived> StandaloneDeriveds { get; set; }
+        public DbSet<ClassA> ClassAs { get; set; }
         public DbSet<Poly_BaseClassNonAbstract> Poly_BaseClassNonAbstracts { get; set; }
         public DbSet<Poly_ConcreteA> Poly_ConcreteAs { get; set; }
         public DbSet<Poly_ConcreteB> Poly_ConcreteBs { get; set; }
         public DbSet<Poly_SecondLevel> Poly_SecondLevels { get; set; }
-        public DbSet<StandaloneDerived> StandaloneDeriveds { get; set; }
-        public DbSet<WeirdClass> WeirdClasses { get; set; }
+        public DbSet<ClassWithSoftDelete> ClassWithSoftDeletes { get; set; }
+        public DbSet<DictionaryWithKvPNormal> DictionaryWithKvPNormals { get; set; }
+        public DbSet<DictionaryWithKvPSerialized> DictionaryWithKvPSerializeds { get; set; }
+        public DbSet<PersonWithAddressNormal> PersonWithAddressNormals { get; set; }
+        public DbSet<PersonWithAddressSerialized> PersonWithAddressSerializeds { get; set; }
 
         public override async Task<int> SaveChangesAsync(
             bool acceptAllChangesOnSuccess,
@@ -203,11 +203,10 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
             // Seed data
             // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
             /* Eg.
-            
             modelBuilder.Entity<Car>().HasData(
-            new Car() { CarId = 1, Make = "Ferrari", Model = "F40" },
-            new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
-            new Car() { CarId = 3, Make = "Labourghini", Model = "Countach" });
+                new Car() { CarId = 1, Make = "Ferrari", Model = "F40" },
+                new Car() { CarId = 2, Make = "Ferrari", Model = "F50" },
+                new Car() { CarId = 3, Make = "Lamborghini", Model = "Countach" });
             */
         }
 
@@ -280,7 +279,6 @@ namespace EntityFrameworkCore.CosmosDb.TestApplication.Infrastructure.Persistenc
 
         private void SetSoftDeleteProperties()
         {
-
             var entities = ChangeTracker
                 .Entries()
                 .Where(t => t.Entity is ISoftDelete && t.State == EntityState.Deleted)

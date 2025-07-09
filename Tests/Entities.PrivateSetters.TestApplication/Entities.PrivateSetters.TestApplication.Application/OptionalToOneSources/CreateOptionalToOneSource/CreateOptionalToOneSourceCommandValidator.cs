@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToOneSourc
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOptionalToOneSourceCommandValidator : AbstractValidator<CreateOptionalToOneSourceCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateOptionalToOneSourceCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

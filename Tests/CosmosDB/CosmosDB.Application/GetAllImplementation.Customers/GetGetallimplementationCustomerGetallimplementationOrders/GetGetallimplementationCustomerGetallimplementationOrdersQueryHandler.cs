@@ -18,6 +18,7 @@ namespace CosmosDB.Application.GetAllImplementation.Customers.GetGetallimplement
     {
         private readonly IGetAllImplementationCustomerRepository _getAllImplementationCustomerRepository;
         private readonly IMapper _mapper;
+
         [IntentManaged(Mode.Merge)]
         public GetGetallimplementationCustomerGetallimplementationOrdersQueryHandler(IGetAllImplementationCustomerRepository getAllImplementationCustomerRepository, IMapper mapper)
         {

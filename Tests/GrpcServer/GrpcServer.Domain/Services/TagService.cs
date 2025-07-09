@@ -18,7 +18,7 @@ namespace GrpcServer.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<IEnumerable<Tag>> GetOrCreateAsync(
             IEnumerable<string> tagNames,
             CancellationToken cancellationToken = default)

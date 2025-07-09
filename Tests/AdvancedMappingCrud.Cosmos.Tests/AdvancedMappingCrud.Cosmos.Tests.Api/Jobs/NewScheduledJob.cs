@@ -16,7 +16,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Api.Jobs
         {
         }
 
-        [IntentManaged(Mode.Ignore, Signature = Mode.Fully)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Execute(IJobExecutionContext context)
         {
             // NO-OP

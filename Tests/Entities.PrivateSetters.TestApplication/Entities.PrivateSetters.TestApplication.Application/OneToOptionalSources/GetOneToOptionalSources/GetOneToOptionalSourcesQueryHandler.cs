@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOptionalSourc
         private readonly IOneToOptionalSourceRepository _oneToOptionalSourceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOneToOptionalSourcesQueryHandler(IOneToOptionalSourceRepository oneToOptionalSourceRepository,
             IMapper mapper)
         {

@@ -7,7 +7,6 @@ using Standard.AspNetCore.TestApplication.Application.IntegrationServices;
 using Standard.AspNetCore.TestApplication.Infrastructure.HttpClients;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClientConfiguration", Version = "2.0")]
 
 namespace Standard.AspNetCore.TestApplication.Infrastructure.Configuration

@@ -24,7 +24,7 @@ namespace OutputCachingRedis.Tests.Application.Files.GetFilesById
             _filesRepository = filesRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<FileDownloadDto> Handle(GetFilesByIdQuery request, CancellationToken cancellationToken)
         {
             var files = await _filesRepository.FindByIdAsync(request.Id, cancellationToken);
@@ -33,6 +33,7 @@ namespace OutputCachingRedis.Tests.Application.Files.GetFilesById
                 throw new NotFoundException($"Could not find Files '{request.Id}'");
             }
 
+            // IntentIgnore
             return new FileDownloadDto() { Content = new MemoryStream(files.Content), ContentType = files.ContentType };
         }
     }

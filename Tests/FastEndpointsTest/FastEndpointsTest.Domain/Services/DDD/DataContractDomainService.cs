@@ -15,7 +15,7 @@ namespace FastEndpointsTest.Domain.Services.DDD
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public DataContractObject Operation()
         {
             // TODO: Implement Operation (DataContractDomainService) functionality

@@ -24,7 +24,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.SimpleD
             _fileUploadRepository = fileUploadRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<SimpleFileDownloadDto> Handle(SimpleDownloadQuery request, CancellationToken cancellationToken)
         {
             var file = await _fileUploadRepository.FindByIdAsync(request.Id, cancellationToken);

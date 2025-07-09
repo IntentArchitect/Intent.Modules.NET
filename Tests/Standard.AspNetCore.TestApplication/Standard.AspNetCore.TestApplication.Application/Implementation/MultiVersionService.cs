@@ -13,18 +13,18 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
     [IntentManaged(Mode.Merge)]
     public class MultiVersionService : IMultiVersionService
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public MultiVersionService()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task OperationForVersionOne(CancellationToken cancellationToken = default)
         {
 
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task OperationForVersionTwo(CancellationToken cancellationToken = default)
         {
 

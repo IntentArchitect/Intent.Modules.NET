@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Domain.Entities.Mappings
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class MapAggPeerAggMore
     {
         public MapAggPeerAggMore()
@@ -13,6 +12,7 @@ namespace MongoDb.TestApplication.Domain.Entities.Mappings
             Id = null!;
             MapAggPeerAggMoreAtt = null!;
         }
+
         public string Id { get; set; }
 
         public string MapAggPeerAggMoreAtt { get; set; }

@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToManyDest
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOptionalToManyDestCommandValidator : AbstractValidator<CreateOptionalToManyDestCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateOptionalToManyDestCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

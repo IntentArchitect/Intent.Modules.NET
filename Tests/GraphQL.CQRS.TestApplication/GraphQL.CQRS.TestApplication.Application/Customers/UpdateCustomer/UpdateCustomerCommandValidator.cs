@@ -7,16 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateCustomerCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)
@@ -27,7 +26,6 @@ namespace GraphQL.CQRS.TestApplication.Application.Customers.UpdateCustomer
 
             RuleFor(v => v.Email)
                 .NotNull();
-
         }
     }
 }

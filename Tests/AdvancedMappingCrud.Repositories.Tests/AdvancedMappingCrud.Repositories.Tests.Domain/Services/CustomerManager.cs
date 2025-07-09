@@ -17,15 +17,17 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public CustomerStatistics GetCustomerStatistics(Guid customerId)
         {
+            // TODO: Implement GetCustomerStatistics (CustomerManager) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeactivateCustomerAsync(Guid customerId, CancellationToken cancellationToken = default)
         {
+            // TODO: Implement DeactivateCustomerAsync (CustomerManager) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

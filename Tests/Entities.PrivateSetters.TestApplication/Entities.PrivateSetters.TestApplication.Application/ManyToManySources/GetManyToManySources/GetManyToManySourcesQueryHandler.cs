@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManySources.
         private readonly IManyToManySourceRepository _manyToManySourceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetManyToManySourcesQueryHandler(IManyToManySourceRepository manyToManySourceRepository, IMapper mapper)
         {
             _manyToManySourceRepository = manyToManySourceRepository;

@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.EF.CosmosDb.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Line
     {
         public Line(string description, int quantity)

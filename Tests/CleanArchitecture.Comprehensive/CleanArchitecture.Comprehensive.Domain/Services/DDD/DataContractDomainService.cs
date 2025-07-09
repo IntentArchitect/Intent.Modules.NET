@@ -15,9 +15,10 @@ namespace CleanArchitecture.Comprehensive.Domain.Services.DDD
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public DataContractObject Operation()
         {
+            // TODO: Implement Operation (DataContractDomainService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

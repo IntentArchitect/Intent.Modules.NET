@@ -25,9 +25,10 @@ namespace EfCore.SecondLevelCaching.Application.Invoices.GetInvoices
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<InvoiceDto>> Handle(GetInvoicesQuery request, CancellationToken cancellationToken)
         {
+            // IntentIgnore
             var invoices = await _invoiceRepository.FindAllAsyncCacheable(cancellationToken);
             return invoices.MapToInvoiceDtoList(_mapper);
         }

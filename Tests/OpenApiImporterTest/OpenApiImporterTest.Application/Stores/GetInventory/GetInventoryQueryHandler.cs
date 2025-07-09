@@ -18,7 +18,7 @@ namespace OpenApiImporterTest.Application.Stores.GetInventory
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Dictionary<string, int>> Handle(GetInventoryQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetInventoryQueryHandler) functionality

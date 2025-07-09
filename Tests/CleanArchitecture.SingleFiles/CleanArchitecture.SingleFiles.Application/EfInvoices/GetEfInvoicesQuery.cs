@@ -27,7 +27,7 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
         private readonly IEfInvoiceRepository _efInvoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetEfInvoicesQueryHandler(IEfInvoiceRepository efInvoiceRepository, IMapper mapper)
         {
             _efInvoiceRepository = efInvoiceRepository;
@@ -48,7 +48,6 @@ namespace CleanArchitecture.SingleFiles.Application.EfInvoices
         [IntentManaged(Mode.Merge)]
         public GetEfInvoicesQueryValidator()
         {
-            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

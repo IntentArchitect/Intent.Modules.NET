@@ -18,7 +18,7 @@ namespace GraphQL.MongoDb.TestApplication.Application.Users.GetUserById
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetUserByIdQueryHandler(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;

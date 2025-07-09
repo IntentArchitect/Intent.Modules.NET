@@ -20,28 +20,28 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> CreateCustomer(CustomerCreateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateCustomer (CustomersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> FindCustomerById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindCustomerById (CustomersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<CustomerDto>> FindCustomers(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindCustomers (CustomersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> UpdateCustomer(
             Guid id,
             CustomerUpdateDto dto,
@@ -51,14 +51,14 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteCustomer (CustomersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<CustomerDto>> GetCustomersPaged(
             int pageNo,
             int pageCount,

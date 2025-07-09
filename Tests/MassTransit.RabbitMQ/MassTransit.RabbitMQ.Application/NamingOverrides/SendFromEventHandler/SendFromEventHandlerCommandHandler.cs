@@ -17,7 +17,7 @@ namespace MassTransit.RabbitMQ.Application.NamingOverrides.SendFromEventHandler
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(SendFromEventHandlerCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (SendFromEventHandlerCommandHandler) functionality

@@ -30,7 +30,7 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         private readonly IMongoInvoiceRepository _mongoInvoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetMongoInvoiceByIdQueryHandler(IMongoInvoiceRepository mongoInvoiceRepository, IMapper mapper)
         {
             _mongoInvoiceRepository = mongoInvoiceRepository;
@@ -56,7 +56,6 @@ namespace CleanArchitecture.SingleFiles.Application.MongoInvoices
         [IntentManaged(Mode.Merge)]
         public GetMongoInvoiceByIdQueryValidator()
         {
-            // IntentFully(Match = "ConfigureValidationRules")
             ConfigureValidationRules();
         }
 

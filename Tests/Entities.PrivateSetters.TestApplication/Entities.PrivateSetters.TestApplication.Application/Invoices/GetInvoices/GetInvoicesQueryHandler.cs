@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices.GetInvoic
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoicesQueryHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;

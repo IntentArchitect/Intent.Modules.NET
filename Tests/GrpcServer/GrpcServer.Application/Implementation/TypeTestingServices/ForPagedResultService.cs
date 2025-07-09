@@ -19,7 +19,7 @@ namespace GrpcServer.Application.Implementation.TypeTestingServices
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<ComplexTypeDto>> Operation(
             PagedResult<ComplexTypeDto> param,
             CancellationToken cancellationToken = default)
@@ -27,7 +27,7 @@ namespace GrpcServer.Application.Implementation.TypeTestingServices
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<PagedResult<ComplexTypeDto>>> OperationCollection(
             List<PagedResult<ComplexTypeDto>> param,
             CancellationToken cancellationToken = default)
@@ -35,7 +35,7 @@ namespace GrpcServer.Application.Implementation.TypeTestingServices
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<ComplexTypeDto>> OperationNullable(
             PagedResult<ComplexTypeDto> param,
             CancellationToken cancellationToken = default)
@@ -43,7 +43,7 @@ namespace GrpcServer.Application.Implementation.TypeTestingServices
             return param;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<PagedResult<ComplexTypeDto>>> OperationNullableCollection(
             List<PagedResult<ComplexTypeDto>> param,
             CancellationToken cancellationToken = default)

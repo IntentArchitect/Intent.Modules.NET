@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneSources.C
     public class CreateManyToOneSourceCommandHandler : IRequestHandler<CreateManyToOneSourceCommand, Guid>
     {
         private readonly IManyToOneSourceRepository _manyToOneSourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateManyToOneSourceCommandHandler(IManyToOneSourceRepository manyToOneSourceRepository)
         {
             _manyToOneSourceRepository = manyToOneSourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateManyToOneSourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "manyToOneDest" parameter
+            var newManyToOneSource = new ManyToOneSource(request.Attribute, manyToOneDest: default);
+
+            _manyToOneSourceRepository.Add(newManyToOneSource);
+            await _manyToOneSourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newManyToOneSource.Id;
         }
     }
 }

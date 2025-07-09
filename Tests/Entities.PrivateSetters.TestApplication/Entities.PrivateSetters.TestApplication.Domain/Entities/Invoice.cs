@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.TestApplication.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
         private List<Line> _lines = [];
@@ -42,7 +41,6 @@ namespace Entities.PrivateSetters.TestApplication.Domain.Entities
             private set => _tags = new List<Tag>(value);
         }
 
-        [IntentManaged(Mode.Fully)]
         public void Operation(DateTime date, IEnumerable<Tag> tags, IEnumerable<LineDataContract> lines)
         {
             Date = date;

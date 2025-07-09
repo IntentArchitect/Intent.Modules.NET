@@ -17,9 +17,10 @@ namespace CleanArchitecture.Comprehensive.Application.RequestSuffixCommandsWithT
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(MyCommandRequest request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (MyCommandRequestHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

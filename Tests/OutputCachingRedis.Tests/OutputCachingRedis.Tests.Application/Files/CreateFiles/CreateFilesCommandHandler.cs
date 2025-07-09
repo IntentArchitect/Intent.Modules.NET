@@ -23,7 +23,7 @@ namespace OutputCachingRedis.Tests.Application.Files.CreateFiles
             _filesRepository = filesRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateFilesCommand request, CancellationToken cancellationToken)
         {
             var files = new Domain.Entities.Files
@@ -31,6 +31,7 @@ namespace OutputCachingRedis.Tests.Application.Files.CreateFiles
                 ContentType = request.ContentType
             };
 
+            // IntentIgnore
             using (MemoryStream ms = new())
             {
                 await request.Content.CopyToAsync(ms);

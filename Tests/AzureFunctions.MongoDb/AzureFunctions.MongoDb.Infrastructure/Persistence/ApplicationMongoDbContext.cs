@@ -16,7 +16,6 @@ using MongoFramework;
 using MongoFramework.Infrastructure.Mapping;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.MongoDb.ApplicationMongoDbContext", Version = "1.0")]
 
 namespace AzureFunctions.MongoDb.Infrastructure.Persistence

@@ -5,40 +5,14 @@
       <correlationId>Intent.AzureFunctions.AzureEventGrid.AzureFunctionConsumer#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
       <path>AzureFunctions.AzureEventGrid.Api/ClientCreatedEventConsumer.cs</path>
       <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-05-29T10:56:55.4851969Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-05-29T12:51:38.6042582Z</approvedAt>
-      <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
-      <fileHash>05C9D7DFF2AA5F9369A3015F62BC5922A5EE4EF5519DA6D9B1068DA02570DF64</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#66b5e5fc-b2f0-429a-8c71-cf88ff0e22cf</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/ClientCreatedEventHandler.cs</path>
-      <count>1</count>
       <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-23T15:32:10.7992684Z</updatedAt>
+      <updatedAt>2025-07-09T09:19:10.6622421Z</updatedAt>
       <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
       <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-06-23T15:45:15.8168924Z</approvedAt>
-      <deviationsHash>B482CFE077B19226094F197651B154CEBA89FA7693FDA50868F353B91784DF05</deviationsHash>
-      <fileHash>55A8599B6B3508FEFDCF50075DEB6BB8332E9DC88650288FFF0C6EB5D9DFCF57</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Eventing.AzureEventGrid.IntegrationEventHandler#8a259139-702a-4f1c-8cc0-8c93fe618080</correlationId>
-      <path>AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/OrderCreatedEventHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2025-07-03T16:23:21.1243627Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2025-07-03T16:23:21.1245053Z</approvedAt>
-      <deviationsHash>A6C4AA5AA69CF185D578A384A4B77176C956BD895CCCFB34FBB7B6E468A337CD</deviationsHash>
-      <fileHash>E195A0A24443112C39A636AB0718AF2D80386DDBC493B5429E9E3664C5142625</fileHash>
+      <approvedAt>2025-07-09T09:19:10.662346Z</approvedAt>
+      <deviationsHash>5262BB5A0A249F73ABD69F8A1AEEAA8CCBA5E02E546EA61F707D66BBA2414E33</deviationsHash>
+      <fileHash>05C9D7DFF2AA5F9369A3015F62BC5922A5EE4EF5519DA6D9B1068DA02570DF64</fileHash>
     </file>
   </files>
 </deviationsLog>

@@ -16,16 +16,21 @@ namespace Entities.PrivateSetters.TestApplication.Application.OptionalToOneDests
     public class CreateOptionalToOneDestCommandHandler : IRequestHandler<CreateOptionalToOneDestCommand, Guid>
     {
         private readonly IOptionalToOneDestRepository _optionalToOneDestRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOptionalToOneDestCommandHandler(IOptionalToOneDestRepository optionalToOneDestRepository)
         {
             _optionalToOneDestRepository = optionalToOneDestRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOptionalToOneDestCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            var newOptionalToOneDest = new OptionalToOneDest(request.Attribute);
+
+            _optionalToOneDestRepository.Add(newOptionalToOneDest);
+            await _optionalToOneDestRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOptionalToOneDest.Id;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace CosmosDB.PrivateSetters.Application.Invoices.GetInvoices
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoicesQueryHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;

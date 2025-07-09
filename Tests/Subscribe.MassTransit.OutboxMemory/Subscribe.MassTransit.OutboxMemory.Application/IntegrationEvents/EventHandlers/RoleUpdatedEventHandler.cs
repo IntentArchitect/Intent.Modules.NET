@@ -11,7 +11,7 @@ using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
 
 namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEvents.EventHandlers
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class RoleUpdatedEventHandler : IIntegrationEventHandler<RoleUpdatedEvent>
     {
         private readonly ILogger<RoleUpdatedEventHandler> _logger;
@@ -22,7 +22,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEvents.Event
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(RoleUpdatedEvent message, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Received message: {Message}", message);

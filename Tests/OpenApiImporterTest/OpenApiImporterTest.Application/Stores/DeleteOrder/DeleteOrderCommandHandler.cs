@@ -17,7 +17,7 @@ namespace OpenApiImporterTest.Application.Stores.DeleteOrder
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (DeleteOrderCommandHandler) functionality

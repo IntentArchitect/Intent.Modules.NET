@@ -10,13 +10,12 @@ namespace CosmosDB.Application.Clients.CreateClient
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateClientCommandValidator : AbstractValidator<CreateClientCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateClientCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Type)

@@ -6,13 +6,13 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.CQRS.TestApplication.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Invoice
     {
         public Invoice()
         {
             Customer = null!;
         }
+
         public Guid Id { get; set; }
 
         public int No { get; set; }

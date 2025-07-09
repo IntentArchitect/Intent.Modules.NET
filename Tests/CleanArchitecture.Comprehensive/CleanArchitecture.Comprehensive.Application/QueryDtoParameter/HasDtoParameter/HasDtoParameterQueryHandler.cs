@@ -12,14 +12,15 @@ namespace CleanArchitecture.Comprehensive.Application.QueryDtoParameter.HasDtoPa
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class HasDtoParameterQueryHandler : IRequestHandler<HasDtoParameterQuery, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public HasDtoParameterQueryHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(HasDtoParameterQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (HasDtoParameterQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

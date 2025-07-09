@@ -17,7 +17,7 @@ namespace FastEndpointsTest.Application.Unversioned.Test
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (TestCommandHandler) functionality

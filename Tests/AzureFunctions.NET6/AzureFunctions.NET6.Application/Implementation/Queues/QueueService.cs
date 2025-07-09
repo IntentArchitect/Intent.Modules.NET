@@ -19,14 +19,14 @@ namespace AzureFunctions.NET6.Application.Implementation.Queues
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task CreateCustomerOp(CustomerDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateCustomerOp (QueueService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task CreateCustomerOpWrapped(CustomerDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateCustomerOpWrapped (QueueService) functionality

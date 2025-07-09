@@ -10,13 +10,12 @@ namespace CosmosDB.Application.DerivedOfTS.CreateDerivedOfT
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateDerivedOfTCommandValidator : AbstractValidator<CreateDerivedOfTCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateDerivedOfTCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.DerivedAttribute)

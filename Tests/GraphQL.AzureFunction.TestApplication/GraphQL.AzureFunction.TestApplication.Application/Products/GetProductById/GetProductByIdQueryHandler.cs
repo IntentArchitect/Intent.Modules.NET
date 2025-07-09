@@ -18,7 +18,7 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Products.GetProductB
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetProductByIdQueryHandler(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;

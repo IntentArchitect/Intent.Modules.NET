@@ -11,13 +11,12 @@ namespace GraphQL.AzureFunction.TestApplication.Application.Validators.Products.
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateProductCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

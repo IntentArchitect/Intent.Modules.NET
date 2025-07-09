@@ -14,7 +14,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesPaged
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetInvoicesPagedQueryHandler : IRequestHandler<GetInvoicesPagedQuery, PagedResult<InvoiceDto>>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoicesPagedQueryHandler()
         {
         }
@@ -22,11 +22,12 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesPaged
         /// <summary>
         /// Returns the paged result of invoices
         /// </summary>
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<InvoiceDto>> Handle(
             GetInvoicesPagedQuery request,
             CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetInvoicesPagedQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

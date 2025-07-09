@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             _fileUploadRepository = fileUploadRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> Upload(
             Stream content,
             string? filename,
@@ -50,7 +50,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             return entity.Id;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<FileDownloadDto> Download(Guid id, CancellationToken cancellationToken = default)
         {
             var file = await _fileUploadRepository.FindByIdAsync(id, cancellationToken);

@@ -10,13 +10,12 @@ namespace CosmosDB.Application.ClassContainers.GetClassContainerById
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetClassContainerByIdQueryValidator : AbstractValidator<GetClassContainerByIdQuery>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetClassContainerByIdQueryValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

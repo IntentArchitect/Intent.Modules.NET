@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.CustomResponseCodes.Put.Cu
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> Handle(CustomResponse208WithResponse request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (CustomResponse208WithResponseHandler) functionality

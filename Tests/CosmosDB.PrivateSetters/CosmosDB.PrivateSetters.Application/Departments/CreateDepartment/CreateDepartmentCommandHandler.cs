@@ -17,7 +17,7 @@ namespace CosmosDB.PrivateSetters.Application.Departments.CreateDepartment
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (CreateDepartmentCommandHandler) functionality

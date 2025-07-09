@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Application.MediatR.FluentValidation.CommandValidator#0057290f-7adb-4ab5-a6cd-e5e45b2de9d4</correlationId>
-      <path>SignalR.Application/TestSendMessage/TestSendMessageCommandValidator.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T20:12:14.6196249Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T20:12:14.6197386Z</approvedAt>
-      <deviationsHash>11EDC19E9649DFEA11FF90CD02FD69EEA7C4F3CA2C3D500885621A944753C2AD</deviationsHash>
-      <fileHash>CBD9F5F2D7C027E7A3862A0C66F965E0A0344B1442668987FA1A77247FF000DD</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

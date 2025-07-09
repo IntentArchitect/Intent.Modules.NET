@@ -68,14 +68,14 @@ namespace Publish.AspNetCore.MassTransit.OutBoxEF.TestApplication.Application.Im
             return user.Id;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<UserDto> FindUserById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindUserById (UsersService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<UserDto>> FindUsers(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindUsers (UsersService) functionality

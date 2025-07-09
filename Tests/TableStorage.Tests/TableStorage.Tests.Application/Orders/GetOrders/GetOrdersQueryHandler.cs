@@ -18,7 +18,7 @@ namespace TableStorage.Tests.Application.Orders.GetOrders
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOrdersQueryHandler(IOrderRepository orderRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;

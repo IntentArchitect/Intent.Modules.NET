@@ -12,12 +12,12 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.OrderConfirme
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class OrderConfirmedHandler : IRequestHandler<OrderConfirmed>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public OrderConfirmedHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(OrderConfirmed request, CancellationToken cancellationToken)
         {
 

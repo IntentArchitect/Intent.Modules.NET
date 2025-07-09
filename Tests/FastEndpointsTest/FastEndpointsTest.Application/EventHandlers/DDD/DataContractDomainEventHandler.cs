@@ -19,7 +19,7 @@ namespace FastEndpointsTest.Application.EventHandlers.DDD
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(
             DomainEventNotification<DataContractDomainEvent> notification,
             CancellationToken cancellationToken)

@@ -16,16 +16,21 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToOneDests.Cre
     public class CreateManyToOneDestCommandHandler : IRequestHandler<CreateManyToOneDestCommand, Guid>
     {
         private readonly IManyToOneDestRepository _manyToOneDestRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateManyToOneDestCommandHandler(IManyToOneDestRepository manyToOneDestRepository)
         {
             _manyToOneDestRepository = manyToOneDestRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateManyToOneDestCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            var newManyToOneDest = new ManyToOneDest(request.Attribute);
+
+            _manyToOneDestRepository.Add(newManyToOneDest);
+            await _manyToOneDestRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newManyToOneDest.Id;
         }
     }
 }

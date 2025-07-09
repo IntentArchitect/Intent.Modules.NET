@@ -17,9 +17,10 @@ namespace CosmosDB.PrivateSetters.Application.Regions.CreateRegion
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> Handle(CreateRegionCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CreateRegionCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

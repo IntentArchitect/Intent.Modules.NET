@@ -22,7 +22,7 @@ namespace MassTransitFinbuckle.Test.Application.RequestResponse.Initial
             _requestResponseService = requestResponseService;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(InitialCommand request, CancellationToken cancellationToken)
         {
             await _requestResponseService.TestAsync(TestCommand.Create(request.Value), cancellationToken);

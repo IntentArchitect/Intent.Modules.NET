@@ -12,12 +12,12 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestQueryV1
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestQueryV1Handler : IRequestHandler<TestQueryV1, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TestQueryV1Handler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(TestQueryV1 request, CancellationToken cancellationToken)
         {
             return int.Parse(request.Value);

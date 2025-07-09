@@ -9,13 +9,12 @@ namespace RichDomain.Application.People.UpdatePersonPerson
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdatePersonPersonCommandValidator : AbstractValidator<UpdatePersonPersonCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdatePersonPersonCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.FirstName)

@@ -17,9 +17,10 @@ namespace CosmosDB.PrivateSetters.Application.Invoices.UpdateInvoiceLineItem
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(UpdateInvoiceLineItemCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (UpdateInvoiceLineItemCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

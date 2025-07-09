@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.AspNetCore.Controllers.Controller#00000000-0000-0000-0000-000000000000</correlationId>
-      <path>AzureKeyVault.Api/Controllers/DefaultController.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:41:21.9346Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:41:21.9346979Z</approvedAt>
-      <deviationsHash>B7203BFB9686F060DB0ACAA7C53E52041597E3DB8BC78F5BAE12E1FBA6835020</deviationsHash>
-      <fileHash>8940D59AEA24423E16D0ACC61B1731B79856AE846C3B742490E627FA9B5B7164</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.Application.MediatR.QueryHandler#d9bcbcd0-2c66-4a7e-8349-8f5d2dcbb499</correlationId>
-      <path>AzureKeyVault.Application/GetKeyValues/GetKeyValuesHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2024-06-20T19:41:21.9469088Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2024-06-20T19:41:21.9469118Z</approvedAt>
-      <deviationsHash>EEFFE92CBF376555EFF5291E6A169AB344AEB7DE9DA94E2D72FE37F06B77A2B5</deviationsHash>
-      <fileHash>AC61244A378140D3F35F52211F9188B33A5D4433721E8307A00F4EE504AFF6F2</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

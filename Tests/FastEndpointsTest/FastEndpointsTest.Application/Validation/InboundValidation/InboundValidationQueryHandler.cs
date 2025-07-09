@@ -17,7 +17,7 @@ namespace FastEndpointsTest.Application.Validation.InboundValidation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<DummyResultDto> Handle(InboundValidationQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (InboundValidationQueryHandler) functionality

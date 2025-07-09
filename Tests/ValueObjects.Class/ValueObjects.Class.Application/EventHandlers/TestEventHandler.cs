@@ -19,9 +19,10 @@ namespace ValueObjects.Class.Application.EventHandlers
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<TestEvent> notification, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle TestEventHandler) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

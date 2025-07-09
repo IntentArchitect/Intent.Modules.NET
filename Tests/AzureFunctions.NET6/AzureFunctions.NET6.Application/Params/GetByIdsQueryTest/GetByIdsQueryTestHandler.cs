@@ -12,14 +12,15 @@ namespace AzureFunctions.NET6.Application.Params.GetByIdsQueryTest
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetByIdsQueryTestHandler : IRequestHandler<GetByIdsQueryTest, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetByIdsQueryTestHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(GetByIdsQueryTest request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetByIdsQueryTestHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

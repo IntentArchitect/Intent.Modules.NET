@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.MediatR.DomainEvents.DomainEventHandler#18204415-bd22-47b5-a91c-6e4410c2022d</correlationId>
-      <path>SharedKernel.Kernel.Tests.Application/EventHandlers/CurrencyCreatedHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2024-10-22T13:21:55.9622964Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2024-10-22T13:36:35.0271729Z</approvedAt>
-      <deviationsHash>F109E95ACC1553801FB292A60B25F860CC3B277000F69BE9797B06C3C240BF91</deviationsHash>
-      <fileHash>C629F413C228766D49050E51E55131B209177C250CCE72A067170A1F18F4EB4E</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

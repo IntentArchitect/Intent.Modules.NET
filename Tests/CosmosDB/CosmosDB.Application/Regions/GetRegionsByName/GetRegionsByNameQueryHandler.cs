@@ -18,16 +18,17 @@ namespace CosmosDB.Application.Regions.GetRegionsByName
         private readonly IRegionRepository _regionRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetRegionsByNameQueryHandler(IRegionRepository regionRepository, IMapper mapper)
         {
             _regionRepository = regionRepository;
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<List<RegionDto>> Handle(GetRegionsByNameQuery request, CancellationToken cancellationToken)
         {
+            // IntentIgnore
             var regions = await _regionRepository.FindAllAsync(x => x.Name == request.Name, cancellationToken);
             return regions.MapToRegionDtoList(_mapper);
         }

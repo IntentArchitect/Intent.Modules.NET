@@ -22,7 +22,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application.IntegrationEvents.EventHand
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(UserUpdatedEvent message, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Received message: {Message}", message);

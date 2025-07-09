@@ -20,7 +20,7 @@ namespace WindowsServiceHost.Tests.Jobs
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Execute(IJobExecutionContext context)
         {
             _logger.LogInformation("15 seconds");

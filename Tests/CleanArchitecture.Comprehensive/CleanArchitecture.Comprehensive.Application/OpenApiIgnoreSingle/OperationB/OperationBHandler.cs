@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.OpenApiIgnoreSingle.Operat
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(OperationB request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (OperationBHandler) functionality

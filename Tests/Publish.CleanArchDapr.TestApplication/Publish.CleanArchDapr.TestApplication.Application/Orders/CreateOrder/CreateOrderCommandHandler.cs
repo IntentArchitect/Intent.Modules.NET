@@ -20,7 +20,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.CreateOrder
         private readonly IOrderRepository _orderRepository;
         private readonly IEventBus _eventBus;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public CreateOrderCommandHandler(IOrderRepository orderRepository, IEventBus eventBus)
         {
             _orderRepository = orderRepository;

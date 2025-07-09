@@ -12,14 +12,12 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreatePurchaseCommandValidator : AbstractValidator<CreatePurchaseCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreatePurchaseCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Cost)

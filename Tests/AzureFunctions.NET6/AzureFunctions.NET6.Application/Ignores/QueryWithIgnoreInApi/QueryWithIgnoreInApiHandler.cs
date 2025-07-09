@@ -17,7 +17,7 @@ namespace AzureFunctions.NET6.Application.Ignores.QueryWithIgnoreInApi
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<bool> Handle(QueryWithIgnoreInApi request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (QueryWithIgnoreInApiHandler) functionality

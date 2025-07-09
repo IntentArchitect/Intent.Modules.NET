@@ -16,16 +16,21 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Cr
     public class CreateManyToManyDestCommandHandler : IRequestHandler<CreateManyToManyDestCommand, Guid>
     {
         private readonly IManyToManyDestRepository _manyToManyDestRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateManyToManyDestCommandHandler(IManyToManyDestRepository manyToManyDestRepository)
         {
             _manyToManyDestRepository = manyToManyDestRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateManyToManyDestCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+            var newManyToManyDest = new ManyToManyDest(request.Attribute);
+
+            _manyToManyDestRepository.Add(newManyToManyDest);
+            await _manyToManyDestRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newManyToManyDest.Id;
         }
     }
 }

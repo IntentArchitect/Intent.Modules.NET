@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.MassTransit.IntegrationEventHandler#b20e9df4-1f8d-4297-bc0c-944d873f93e8</correlationId>
-      <path>Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/IntegrationEvents/EventHandlers/CustomerCreatedIEHandler.cs</path>
-      <count>1</count>
-      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
-      <updatedAt>2025-06-23T15:34:37.2146099Z</updatedAt>
-      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
-      <approvedAt>2025-06-23T15:45:42.6166535Z</approvedAt>
-      <deviationsHash>D20033EEFBE11FDFA7544F54958EEE21F974E4EEA86393CF7A27E2AA809496C8</deviationsHash>
-      <fileHash>F566EB04100AB172B588F5A1EA85FCB513893CB03F0480CC75E05F0FD0166674</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

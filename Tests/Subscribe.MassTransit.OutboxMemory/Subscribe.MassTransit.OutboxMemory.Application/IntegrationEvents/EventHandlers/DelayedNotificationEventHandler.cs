@@ -10,7 +10,7 @@ using Subscribe.MassTransit.OutboxMemory.Application.Common.Eventing;
 
 namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEvents.EventHandlers
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DelayedNotificationEventHandler : IIntegrationEventHandler<DelayedNotificationEvent>
     {
         [IntentManaged(Mode.Merge)]
@@ -18,7 +18,7 @@ namespace Subscribe.MassTransit.OutboxMemory.Application.IntegrationEvents.Event
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(DelayedNotificationEvent message, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();

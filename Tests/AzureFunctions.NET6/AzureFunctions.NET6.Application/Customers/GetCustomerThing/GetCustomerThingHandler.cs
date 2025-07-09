@@ -20,7 +20,7 @@ namespace AzureFunctions.NET6.Application.Customers.GetCustomerThing
         /// <summary>
         /// Check CustomerId route parameter generates correctly
         /// </summary>
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> Handle(GetCustomerThing request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetCustomerThingHandler) functionality

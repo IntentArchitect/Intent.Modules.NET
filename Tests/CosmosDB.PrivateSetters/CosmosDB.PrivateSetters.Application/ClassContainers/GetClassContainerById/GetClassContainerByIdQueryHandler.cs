@@ -18,7 +18,7 @@ namespace CosmosDB.PrivateSetters.Application.ClassContainers.GetClassContainerB
         private readonly IClassContainerRepository _classContainerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetClassContainerByIdQueryHandler(IClassContainerRepository classContainerRepository, IMapper mapper)
         {
             _classContainerRepository = classContainerRepository;

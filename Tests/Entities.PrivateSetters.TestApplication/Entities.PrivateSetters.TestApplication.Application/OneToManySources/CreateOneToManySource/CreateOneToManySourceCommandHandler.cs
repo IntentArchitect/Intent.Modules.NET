@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToManySources.C
     public class CreateOneToManySourceCommandHandler : IRequestHandler<CreateOneToManySourceCommand, Guid>
     {
         private readonly IOneToManySourceRepository _oneToManySourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOneToManySourceCommandHandler(IOneToManySourceRepository oneToManySourceRepository)
         {
             _oneToManySourceRepository = oneToManySourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOneToManySourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "owneds" parameter
+            var newOneToManySource = new OneToManySource(request.Attribute, owneds: default);
+
+            _oneToManySourceRepository.Add(newOneToManySource);
+            await _oneToManySourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOneToManySource.Id;
         }
     }
 }

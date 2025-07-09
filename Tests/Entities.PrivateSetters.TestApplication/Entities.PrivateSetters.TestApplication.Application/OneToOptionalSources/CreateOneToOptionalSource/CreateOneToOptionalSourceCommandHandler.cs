@@ -16,16 +16,22 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOptionalSourc
     public class CreateOneToOptionalSourceCommandHandler : IRequestHandler<CreateOneToOptionalSourceCommand, Guid>
     {
         private readonly IOneToOptionalSourceRepository _oneToOptionalSourceRepository;
+
         [IntentManaged(Mode.Merge)]
         public CreateOneToOptionalSourceCommandHandler(IOneToOptionalSourceRepository oneToOptionalSourceRepository)
         {
             _oneToOptionalSourceRepository = oneToOptionalSourceRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<Guid> Handle(CreateOneToOptionalSourceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException("Your implementation here...");
+#warning No supported convention for populating "oneToOptionalDest" parameter
+            var newOneToOptionalSource = new OneToOptionalSource(request.Attribute, oneToOptionalDest: default);
+
+            _oneToOptionalSourceRepository.Add(newOneToOptionalSource);
+            await _oneToOptionalSourceRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newOneToOptionalSource.Id;
         }
     }
 }

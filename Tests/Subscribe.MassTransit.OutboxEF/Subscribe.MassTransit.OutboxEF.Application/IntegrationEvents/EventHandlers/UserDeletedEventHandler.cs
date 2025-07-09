@@ -11,7 +11,7 @@ using Subscribe.MassTransit.OutboxEF.Application.Common.Eventing;
 
 namespace Subscribe.MassTransit.OutboxEF.Application.IntegrationEvents.EventHandlers
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UserDeletedEventHandler : IIntegrationEventHandler<UserDeletedEvent>
     {
         private readonly ILogger<UserDeletedEventHandler> _logger;
@@ -22,7 +22,7 @@ namespace Subscribe.MassTransit.OutboxEF.Application.IntegrationEvents.EventHand
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(UserDeletedEvent message, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Received message: {Message}", message);

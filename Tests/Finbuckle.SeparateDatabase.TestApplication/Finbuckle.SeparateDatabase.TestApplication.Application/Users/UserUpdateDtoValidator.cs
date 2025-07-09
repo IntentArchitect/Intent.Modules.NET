@@ -9,16 +9,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Finbuckle.SeparateDatabase.TestApplication.Application.Users
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UserUpdateDtoValidator : AbstractValidator<UserUpdateDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UserUpdateDtoValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Email)

@@ -19,42 +19,42 @@ namespace OpenApiImporterTest.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> CreateCustomer(CreateCustomerCommand dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateCustomer (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<CustomerDto>> GetCustomers(CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetCustomers (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteCustomer (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateCustomer(UpdateCustomerCommand dto, Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateCustomer (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> GetCustomer(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetCustomer (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> CreateOrder(
             CreateCustomerOrderCommand dto,
             Guid customerId,
@@ -64,21 +64,21 @@ namespace OpenApiImporterTest.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<CustomerOrderDto>> GetOrders(Guid customerId, CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetOrders (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteOrder(Guid customerId, Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteOrder (CustomerService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateOrder(
             UpdateCustomerOrderCommand dto,
             Guid customerId,
@@ -89,7 +89,7 @@ namespace OpenApiImporterTest.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerOrderDto> GetOrder(Guid customerId, Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetOrder (CustomerService) functionality

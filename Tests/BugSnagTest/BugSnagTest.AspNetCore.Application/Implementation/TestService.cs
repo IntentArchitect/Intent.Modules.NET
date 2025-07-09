@@ -18,7 +18,7 @@ namespace BugSnagTest.AspNetCore.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task TestError(RequestDto dto, CancellationToken cancellationToken = default)
         {
             throw new Exception("Breaking the application on purpose for testing purposes");

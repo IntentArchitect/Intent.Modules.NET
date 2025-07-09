@@ -18,7 +18,7 @@ namespace GraphQL.CQRS.TestApplication.Application.Invoices.GetInvoicesForCustom
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoicesForCustomerQueryHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;

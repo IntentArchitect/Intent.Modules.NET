@@ -17,7 +17,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Application.Jobs.MyTimedJob
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(MyTimedJobCommand request, CancellationToken cancellationToken)
         {
             // NO-OP

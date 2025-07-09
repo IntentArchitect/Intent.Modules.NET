@@ -7,21 +7,19 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.MongoDb.TestApplication.Application.Users.DeleteUser
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteUserCommandValidator : AbstractValidator<DeleteUserCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteUserCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)
                 .NotNull();
-
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TagService(
             ITagRepository tagRepository,
             IMapper mapper)
@@ -28,7 +28,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Create(CreateTagDto dto, CancellationToken cancellationToken = default)
         {
             var tag = new Tag(dto.Name);
@@ -36,7 +36,7 @@ namespace Entities.PrivateSetters.MongoDb.Application.Implementation
             _tagRepository.Add(tag);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<TagDto>> GetAll(CancellationToken cancellationToken = default)
         {
             var results = await _tagRepository.FindAllAsync();

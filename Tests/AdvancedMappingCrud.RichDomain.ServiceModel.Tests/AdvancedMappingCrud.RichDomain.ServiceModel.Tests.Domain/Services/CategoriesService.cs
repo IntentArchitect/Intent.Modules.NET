@@ -18,22 +18,23 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<IEnumerable<Category>> GetOrCreateCategoriesAsync(
             IEnumerable<string> names,
             CancellationToken cancellationToken = default)
         {
+            // TODO: Implement GetOrCreateCategoriesAsync (CategoriesService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void DoIt<T>(T it)
         {
             // TODO: Implement DoIt (CategoriesService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task ManualAsync(CancellationToken cancellationToken = default)
         {
             // TODO: Implement ManualAsync (CategoriesService) functionality

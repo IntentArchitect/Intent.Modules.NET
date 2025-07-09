@@ -18,7 +18,7 @@ namespace CosmosDB.Application.Clients.GetClientsPaged
         private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetClientsPagedQueryHandler(IClientRepository clientRepository, IMapper mapper)
         {
             _clientRepository = clientRepository;

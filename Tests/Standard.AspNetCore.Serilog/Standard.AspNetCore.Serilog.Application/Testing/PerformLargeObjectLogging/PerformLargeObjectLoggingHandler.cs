@@ -21,7 +21,7 @@ namespace Standard.AspNetCore.Serilog.Application.Testing.PerformLargeObjectLogg
             _logger = logger;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(PerformLargeObjectLogging request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Large Object Logging: {Request}", new ComplexTypeTest());

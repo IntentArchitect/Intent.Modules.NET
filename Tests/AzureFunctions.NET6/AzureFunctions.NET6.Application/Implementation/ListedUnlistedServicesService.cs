@@ -18,14 +18,14 @@ namespace AzureFunctions.NET6.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task ListedServiceFunc(string param, CancellationToken cancellationToken = default)
         {
             // TODO: Implement ListedServiceFunc (ListedUnlistedServicesService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UnlistedServiceFunc(CancellationToken cancellationToken = default)
         {
             // TODO: Implement UnlistedServiceFunc (ListedUnlistedServicesService) functionality

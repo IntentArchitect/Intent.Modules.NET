@@ -21,7 +21,7 @@ namespace SignalR.Application.TestSendMessage
             _hub = hub;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestSendMessageCommand request, CancellationToken cancellationToken)
         {
             await _hub.SendAsync(new MessageToAllDto { Message = request.Message });

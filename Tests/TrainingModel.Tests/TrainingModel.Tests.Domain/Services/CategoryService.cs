@@ -22,7 +22,7 @@ namespace TrainingModel.Tests.Domain.Services
             _categoriesRepository = categoriesRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<IEnumerable<Category>> GetOrCreateCategoriesAsync(
             IEnumerable<string> categoryNames,
             CancellationToken cancellationToken = default)

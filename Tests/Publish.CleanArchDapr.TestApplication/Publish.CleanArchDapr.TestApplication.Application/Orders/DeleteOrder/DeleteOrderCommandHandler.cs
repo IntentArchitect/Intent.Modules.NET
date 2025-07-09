@@ -16,7 +16,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
     {
         private readonly IOrderRepository _orderRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DeleteOrderCommandHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
@@ -32,7 +32,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.DeleteOrder
             }
 
             _orderRepository.Remove(existingOrder);
-
         }
     }
 }

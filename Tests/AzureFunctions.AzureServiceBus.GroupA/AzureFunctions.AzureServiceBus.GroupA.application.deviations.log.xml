@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.Eventing.AzureServiceBus.IntegrationEventHandler#b142d75d-46bd-40bd-8700-b73152b53cc0</correlationId>
-      <path>AzureFunctions.AzureServiceBus.Application/IntegrationEvents/EventHandlers/SpecificQueueMessageHandler.cs</path>
-      <count>2</count>
-      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
-      <updatedAt>2025-06-26T11:58:08.3719438Z</updatedAt>
-      <approvedByAccountName>theunis.vanderstoep@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Theunis van der Stoep</approvedByDisplayName>
-      <approvedAt>2025-06-26T11:58:08.3719663Z</approvedAt>
-      <deviationsHash>5B3CCCD016961B394C69F3C0E76D05D2A2D7B45A0B381377A15193594AD0592B</deviationsHash>
-      <fileHash>4DBC60774535B60896FC65D3919C49E752A581181A95D8E198282044701DD4C6</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

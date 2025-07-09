@@ -17,7 +17,7 @@ namespace CosmosDB.PrivateSetters.Application.Departments.UpdateDepartment
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(UpdateDepartmentCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (UpdateDepartmentCommandHandler) functionality

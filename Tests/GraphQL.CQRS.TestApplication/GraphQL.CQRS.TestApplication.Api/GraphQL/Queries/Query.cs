@@ -60,7 +60,6 @@ namespace GraphQL.CQRS.TestApplication.Api.GraphQL.Queries
             return entities.MapToCustomerDtoList(mapper);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public IQueryable<Invoice> GetSpecialInvoices(
             CancellationToken cancellationToken,
             [Service] IInvoiceRepository repository)

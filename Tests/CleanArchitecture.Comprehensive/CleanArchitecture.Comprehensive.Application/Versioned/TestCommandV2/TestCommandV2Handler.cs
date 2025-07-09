@@ -23,7 +23,7 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestCommandV2
         /// <summary>
         /// Command comment
         /// </summary>
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestCommandV2 request, CancellationToken cancellationToken)
         {
             Assert.Equal(ExpectedInput, request.Value);

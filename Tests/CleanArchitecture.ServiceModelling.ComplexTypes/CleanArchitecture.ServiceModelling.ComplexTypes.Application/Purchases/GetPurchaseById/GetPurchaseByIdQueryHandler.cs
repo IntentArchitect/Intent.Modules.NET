@@ -18,7 +18,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Purchases.
         private readonly IPurchaseRepository _purchaseRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetPurchaseByIdQueryHandler(IPurchaseRepository purchaseRepository, IMapper mapper)
         {
             _purchaseRepository = purchaseRepository;

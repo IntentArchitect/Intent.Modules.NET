@@ -10,13 +10,12 @@ namespace CosmosDB.Application.DerivedOfTS.UpdateDerivedOfT
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateDerivedOfTCommandValidator : AbstractValidator<UpdateDerivedOfTCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateDerivedOfTCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

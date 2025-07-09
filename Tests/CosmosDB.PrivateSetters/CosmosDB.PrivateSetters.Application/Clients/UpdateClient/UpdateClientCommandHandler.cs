@@ -17,9 +17,10 @@ namespace CosmosDB.PrivateSetters.Application.Clients.UpdateClient
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(UpdateClientCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (UpdateClientCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

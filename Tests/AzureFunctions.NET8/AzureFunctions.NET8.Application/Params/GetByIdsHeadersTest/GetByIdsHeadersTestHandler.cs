@@ -16,9 +16,10 @@ namespace AzureFunctions.NET8.Application.Params.GetByIdsHeadersTest
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(GetByIdsHeadersTest request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetByIdsHeadersTestHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

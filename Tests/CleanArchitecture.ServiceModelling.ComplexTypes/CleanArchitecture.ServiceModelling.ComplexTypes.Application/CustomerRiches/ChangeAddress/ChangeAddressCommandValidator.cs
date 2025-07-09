@@ -12,14 +12,12 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerRi
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class ChangeAddressCommandValidator : AbstractValidator<ChangeAddressCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public ChangeAddressCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Address)

@@ -24,12 +24,14 @@ namespace Kafka.Consumer.Application.IntegrationEvents.EventHandlers.Invoices
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(InvoiceCreatedEvent message, CancellationToken cancellationToken = default)
         {
             var command = new CreateInvoiceCommand(id: message.Id, note: message.Note);
             await _mediator.Send(command, cancellationToken);
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task HandleAsync(InvoiceUpdatedEvent message, CancellationToken cancellationToken = default)
         {
             var command = new UpdateInvoiceCommand(id: message.Id, note: message.Note);

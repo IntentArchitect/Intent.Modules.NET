@@ -18,7 +18,7 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.CustomerAn
         private readonly ICustomerAnemicRepository _customerAnemicRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomerAnemicsQueryHandler(ICustomerAnemicRepository customerAnemicRepository, IMapper mapper)
         {
             _customerAnemicRepository = customerAnemicRepository;

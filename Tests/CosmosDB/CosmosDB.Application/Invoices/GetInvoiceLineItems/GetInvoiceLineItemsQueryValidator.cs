@@ -10,13 +10,12 @@ namespace CosmosDB.Application.Invoices.GetInvoiceLineItems
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetInvoiceLineItemsQueryValidator : AbstractValidator<GetInvoiceLineItemsQuery>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoiceLineItemsQueryValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.InvoiceId)

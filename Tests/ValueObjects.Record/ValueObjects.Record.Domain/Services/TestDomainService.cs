@@ -14,9 +14,10 @@ namespace ValueObjects.Record.Domain.Services
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void TestOperation(Money amount, Address address)
         {
+            // TODO: Implement TestOperation (TestDomainService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

@@ -19,7 +19,7 @@ namespace SharedKernel.Consumer.Tests.Application.EventHandlers.Orders
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<OrderCreated> notification, CancellationToken cancellationToken)
         {
         }

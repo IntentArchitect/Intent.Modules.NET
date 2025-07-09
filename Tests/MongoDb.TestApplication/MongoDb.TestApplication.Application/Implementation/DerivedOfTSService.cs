@@ -19,35 +19,35 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> CreateDerivedOfT(DerivedOfTCreateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateDerivedOfT (DerivedOfTSService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<DerivedOfTDto> FindDerivedOfTById(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindDerivedOfTById (DerivedOfTSService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<DerivedOfTDto>> FindDerivedOfTS(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindDerivedOfTS (DerivedOfTSService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateDerivedOfT(string id, DerivedOfTUpdateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateDerivedOfT (DerivedOfTSService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteDerivedOfT(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteDerivedOfT (DerivedOfTSService) functionality

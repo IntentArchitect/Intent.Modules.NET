@@ -7,12 +7,12 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.Constants.TestApplication.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TestClass : IHasDomainEvent
     {
         public const int Att100MaxLength = 100;
         public const int VarChar200MaxLength = 200;
         public const int NVarChar300MaxLength = 300;
+
         public TestClass()
         {
             Att100 = null!;

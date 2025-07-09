@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
-[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.Integration.HttpClients.HttpClientConfiguration", Version = "2.0")]
 
 namespace MinimalHostingModel.Infrastructure.Configuration
@@ -19,7 +18,6 @@ namespace MinimalHostingModel.Infrastructure.Configuration
             {
                 clientCredentialsBuilder.AddClient(clientCredentials.Key, clientCredentials.Bind);
             }
-
         }
 
         private static void ApplyAppSettings(

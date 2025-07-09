@@ -18,7 +18,7 @@ namespace Subscribe.CleanArchDapr.TestApplication.Application.IntegrationEventHa
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(CustomerCreatedEvent message, CancellationToken cancellationToken = default)
         {
         }

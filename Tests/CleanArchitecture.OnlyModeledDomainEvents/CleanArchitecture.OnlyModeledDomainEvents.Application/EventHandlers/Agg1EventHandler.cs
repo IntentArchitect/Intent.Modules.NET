@@ -19,9 +19,10 @@ namespace CleanArchitecture.OnlyModeledDomainEvents.Application.EventHandlers
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<Agg1Event> notification, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle Agg1EventHandler) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

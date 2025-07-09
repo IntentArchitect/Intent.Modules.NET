@@ -19,7 +19,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation.Cust
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PersonDto> GetPersonById(Guid personId, CancellationToken cancellationToken = default)
         {
             // TODO: Implement GetPersonById (PersonService) functionality

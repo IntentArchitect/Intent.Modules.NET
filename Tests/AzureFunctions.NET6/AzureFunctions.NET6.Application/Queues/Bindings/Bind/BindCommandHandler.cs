@@ -18,9 +18,10 @@ namespace AzureFunctions.NET6.Application.Queues.Bindings.Bind
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<CustomerDto> Handle(BindCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (BindCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

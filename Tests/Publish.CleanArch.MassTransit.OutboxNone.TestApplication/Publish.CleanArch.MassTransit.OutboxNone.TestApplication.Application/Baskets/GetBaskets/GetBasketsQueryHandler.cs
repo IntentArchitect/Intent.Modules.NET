@@ -18,7 +18,7 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.B
         private readonly IBasketRepository _basketRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetBasketsQueryHandler(IBasketRepository basketRepository, IMapper mapper)
         {
             _basketRepository = basketRepository;

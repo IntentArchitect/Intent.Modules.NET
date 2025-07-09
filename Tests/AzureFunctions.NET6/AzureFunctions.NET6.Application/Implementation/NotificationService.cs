@@ -19,7 +19,7 @@ namespace AzureFunctions.NET6.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task SendNotification<T>(
             Guid entityId,
             string subject,

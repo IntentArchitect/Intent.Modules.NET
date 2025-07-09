@@ -10,13 +10,12 @@ namespace CosmosDB.Application.Clients.UpdateClient
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateClientCommandValidator : AbstractValidator<UpdateClientCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateClientCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Identifier)

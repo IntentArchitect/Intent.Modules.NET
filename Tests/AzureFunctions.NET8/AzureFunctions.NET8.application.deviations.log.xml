@@ -1,31 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files>
-    <file>
-      <correlationId>Intent.AzureFunctions.AzureFunctionClass#386bb437-ea36-4345-8a68-22e9754475c1</correlationId>
-      <path>AzureFunctions.NET8.Api/FunctionWithIgnoreInApi.cs</path>
-      <count>1</count>
-      <updatedByAccountName>dandre.jvv@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Dandre Jansen van Vuuren</updatedByDisplayName>
-      <updatedAt>2024-10-29T13:38:34.8631077Z</updatedAt>
-      <approvedByAccountName>dandre.jvv@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Dandre Jansen van Vuuren</approvedByDisplayName>
-      <approvedAt>2024-11-03T22:14:25.8561097Z</approvedAt>
-      <deviationsHash>27F327EF59C8165415235EBD7624BA54DF96967871F79D2E5C5969879FC9ED16</deviationsHash>
-      <fileHash>28A1FCF4312F0C7C5BD7AAA80F1E0BA873EBBCA8D9D5D9225D2AE735682AA753</fileHash>
-    </file>
-    <file>
-      <correlationId>Intent.AzureFunctions.AzureFunctionClass#9e636440-d5fd-4b08-ac78-47b0e306892b</correlationId>
-      <path>AzureFunctions.NET8.Api/UnMappedAzureFunction.cs</path>
-      <count>1</count>
-      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
-      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
-      <updatedAt>2025-04-03T06:56:25.8243481Z</updatedAt>
-      <approvedByAccountName>joel.turner@intentarchitect.com</approvedByAccountName>
-      <approvedByDisplayName>Joel Turner</approvedByDisplayName>
-      <approvedAt>2025-04-03T06:56:25.8244713Z</approvedAt>
-      <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
-      <fileHash>74586F41F2CB7767AA4997B17A914386676BB52B8D60057A1AF739B5ECF90348</fileHash>
-    </file>
-  </files>
+  <files />
 </deviationsLog>

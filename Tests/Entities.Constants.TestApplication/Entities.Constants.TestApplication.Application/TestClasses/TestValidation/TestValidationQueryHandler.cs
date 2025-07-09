@@ -12,14 +12,15 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.TestValidat
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestValidationQueryHandler : IRequestHandler<TestValidationQuery, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TestValidationQueryHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<int> Handle(TestValidationQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (TestValidationQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

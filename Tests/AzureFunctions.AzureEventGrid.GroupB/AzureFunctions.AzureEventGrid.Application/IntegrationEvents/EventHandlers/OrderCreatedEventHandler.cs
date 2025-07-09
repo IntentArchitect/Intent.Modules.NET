@@ -24,7 +24,7 @@ namespace AzureFunctions.AzureEventGrid.Application.IntegrationEvents.EventHandl
             _eventContext = eventContext;
         }
 
-        [IntentIgnore]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(OrderCreatedEvent message, CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Received: {Message}, Data: {Data}", message, _eventContext.AdditionalData);

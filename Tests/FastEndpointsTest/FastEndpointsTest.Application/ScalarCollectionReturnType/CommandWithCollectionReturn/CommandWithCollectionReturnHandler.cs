@@ -18,7 +18,7 @@ namespace FastEndpointsTest.Application.ScalarCollectionReturnType.CommandWithCo
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<string>> Handle(CommandWithCollectionReturn request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (CommandWithCollectionReturnHandler) functionality

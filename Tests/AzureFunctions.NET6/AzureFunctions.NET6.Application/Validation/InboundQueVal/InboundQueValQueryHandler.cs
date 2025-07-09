@@ -17,9 +17,10 @@ namespace AzureFunctions.NET6.Application.Validation.InboundQueVal
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<DummyResultDto> Handle(InboundQueValQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (InboundQueValQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

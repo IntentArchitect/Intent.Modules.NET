@@ -9,13 +9,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.OneToOneSources.Cr
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateOneToOneSourceCommandValidator : AbstractValidator<CreateOneToOneSourceCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateOneToOneSourceCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

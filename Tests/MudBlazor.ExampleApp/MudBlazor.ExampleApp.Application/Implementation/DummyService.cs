@@ -14,7 +14,7 @@ namespace MudBlazor.ExampleApp.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DummyOperation(Guid id, string name, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DummyOperation (DummyService) functionality

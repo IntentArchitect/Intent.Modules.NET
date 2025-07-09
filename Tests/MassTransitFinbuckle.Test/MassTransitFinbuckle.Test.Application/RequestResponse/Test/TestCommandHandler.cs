@@ -24,7 +24,7 @@ namespace MassTransitFinbuckle.Test.Application.RequestResponse.Test
             _tenantInfo = tenantInfo;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(TestCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Current Tenant: {Tenant}", _tenantInfo.Identifier);

@@ -18,7 +18,7 @@ namespace OpenApiImporterTest.Application.Pets.GetByStatuses
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<Pet>> Handle(GetByStatusesQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetByStatusesQueryHandler) functionality

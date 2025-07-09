@@ -16,9 +16,10 @@ namespace AzureFunctions.NET8.Application.CosmosDB.CosmosChange
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(CosmosChangeCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (CosmosChangeCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

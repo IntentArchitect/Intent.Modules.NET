@@ -18,10 +18,12 @@ namespace AzureFunctions.AzureServiceBus.Application.IntegrationEvents.EventHand
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(SpecificTopicOneMessageEvent message, CancellationToken cancellationToken = default)
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(SpecificTopicTwoMessageEvent message, CancellationToken cancellationToken = default)
         {
         }

@@ -17,7 +17,7 @@ namespace OpenApiImporterTest.Application.Users.GetLogin
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> Handle(GetLoginQuery request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (GetLoginQueryHandler) functionality

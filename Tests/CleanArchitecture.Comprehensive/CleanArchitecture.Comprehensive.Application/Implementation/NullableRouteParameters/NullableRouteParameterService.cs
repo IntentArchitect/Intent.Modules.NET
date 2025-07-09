@@ -19,7 +19,7 @@ namespace CleanArchitecture.Comprehensive.Application.Implementation.NullableRou
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task RoutedOperation(
             string? nullableString,
             int? nullableInt,

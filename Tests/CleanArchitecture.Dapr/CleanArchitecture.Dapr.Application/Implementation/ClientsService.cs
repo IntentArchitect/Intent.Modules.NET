@@ -19,35 +19,35 @@ namespace CleanArchitecture.Dapr.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> CreateClient(ClientCreateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateClient (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<ClientDto> FindClientById(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindClientById (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<ClientDto>> FindClients(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindClients (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateClient(string id, ClientUpdateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateClient (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteClient(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteClient (ClientsService) functionality

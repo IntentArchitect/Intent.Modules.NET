@@ -11,13 +11,12 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.TestValidat
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestValidationQueryValidator : AbstractValidator<TestValidationQuery>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TestValidationQueryValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Att100)

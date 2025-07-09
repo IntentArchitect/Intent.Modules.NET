@@ -18,7 +18,7 @@ namespace CosmosDB.PrivateSetters.Application.Clients.GetClientById
         private readonly IClientRepository _clientRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetClientByIdQueryHandler(IClientRepository clientRepository, IMapper mapper)
         {
             _clientRepository = clientRepository;

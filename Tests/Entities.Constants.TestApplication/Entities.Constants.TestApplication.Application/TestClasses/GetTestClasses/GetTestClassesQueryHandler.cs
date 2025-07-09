@@ -18,7 +18,7 @@ namespace Entities.Constants.TestApplication.Application.TestClasses.GetTestClas
         private readonly ITestClassRepository _testClassRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetTestClassesQueryHandler(ITestClassRepository testClassRepository, IMapper mapper)
         {
             _testClassRepository = testClassRepository;

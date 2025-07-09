@@ -17,7 +17,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
     {
         private readonly IOrderRepository _orderRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public UpdateOrderCommandHandler(IOrderRepository orderRepository)
         {
             _orderRepository = orderRepository;
@@ -33,7 +33,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Orders.UpdateOrder
             }
 
             existingOrder.CustomerId = request.CustomerId;
-
         }
     }
 }

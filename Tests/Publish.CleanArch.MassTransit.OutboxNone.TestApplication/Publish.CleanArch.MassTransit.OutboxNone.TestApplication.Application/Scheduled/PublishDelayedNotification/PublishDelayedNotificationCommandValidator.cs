@@ -10,13 +10,12 @@ namespace Publish.CleanArch.MassTransit.OutboxNone.TestApplication.Application.S
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class PublishDelayedNotificationCommandValidator : AbstractValidator<PublishDelayedNotificationCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public PublishDelayedNotificationCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

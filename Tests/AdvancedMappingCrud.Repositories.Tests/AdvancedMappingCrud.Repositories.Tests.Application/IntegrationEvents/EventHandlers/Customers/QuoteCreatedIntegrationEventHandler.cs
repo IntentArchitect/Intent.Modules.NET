@@ -18,6 +18,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.IntegrationEvents.E
         {
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task HandleAsync(QuoteCreatedIntegrationEvent message, CancellationToken cancellationToken = default)
         {
         }

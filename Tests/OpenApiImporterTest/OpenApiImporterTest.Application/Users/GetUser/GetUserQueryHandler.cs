@@ -17,9 +17,10 @@ namespace OpenApiImporterTest.Application.Users.GetUser
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<User> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (GetUserQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

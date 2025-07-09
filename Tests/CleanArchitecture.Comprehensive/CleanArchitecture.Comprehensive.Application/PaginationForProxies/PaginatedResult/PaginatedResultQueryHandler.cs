@@ -13,14 +13,15 @@ namespace CleanArchitecture.Comprehensive.Application.PaginationForProxies.Pagin
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class PaginatedResultQueryHandler : IRequestHandler<PaginatedResultQuery, PagedResult<string>>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public PaginatedResultQueryHandler()
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<string>> Handle(PaginatedResultQuery request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (PaginatedResultQueryHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

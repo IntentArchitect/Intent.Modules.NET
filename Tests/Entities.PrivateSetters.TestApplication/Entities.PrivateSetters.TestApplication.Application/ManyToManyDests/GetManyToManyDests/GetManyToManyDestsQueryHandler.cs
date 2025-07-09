@@ -18,7 +18,7 @@ namespace Entities.PrivateSetters.TestApplication.Application.ManyToManyDests.Ge
         private readonly IManyToManyDestRepository _manyToManyDestRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetManyToManyDestsQueryHandler(IManyToManyDestRepository manyToManyDestRepository, IMapper mapper)
         {
             _manyToManyDestRepository = manyToManyDestRepository;

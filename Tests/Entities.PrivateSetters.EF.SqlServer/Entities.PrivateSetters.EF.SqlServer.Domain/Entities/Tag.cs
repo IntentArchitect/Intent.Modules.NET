@@ -6,7 +6,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Entities.PrivateSetters.EF.SqlServer.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Tag
     {
         public Tag(string name)

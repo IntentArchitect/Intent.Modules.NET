@@ -19,35 +19,35 @@ namespace MongoDb.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<string> CreateDerived(DerivedCreateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateDerived (DerivedsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<DerivedDto> FindDerivedById(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindDerivedById (DerivedsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<DerivedDto>> FindDeriveds(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindDeriveds (DerivedsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateDerived(string id, DerivedUpdateDto dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateDerived (DerivedsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteDerived(string id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteDerived (DerivedsService) functionality

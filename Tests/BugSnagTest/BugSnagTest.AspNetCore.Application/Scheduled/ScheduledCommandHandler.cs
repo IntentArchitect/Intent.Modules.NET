@@ -17,7 +17,7 @@ namespace BugSnagTest.AspNetCore.Application.Scheduled
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(ScheduledCommand request, CancellationToken cancellationToken)
         {
             // TODO: Implement Handle (ScheduledCommandHandler) functionality

@@ -18,7 +18,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.GetCustome
         private readonly ICustomerRepository _customerRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomersQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
         {
             _customerRepository = customerRepository;

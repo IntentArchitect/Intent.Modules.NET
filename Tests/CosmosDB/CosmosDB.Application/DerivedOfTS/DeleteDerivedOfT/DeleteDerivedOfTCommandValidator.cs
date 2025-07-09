@@ -10,13 +10,12 @@ namespace CosmosDB.Application.DerivedOfTS.DeleteDerivedOfT
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDerivedOfTCommandValidator : AbstractValidator<DeleteDerivedOfTCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteDerivedOfTCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

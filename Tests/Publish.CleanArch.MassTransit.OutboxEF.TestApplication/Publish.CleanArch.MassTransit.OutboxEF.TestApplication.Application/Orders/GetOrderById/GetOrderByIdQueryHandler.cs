@@ -18,7 +18,7 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetOrderByIdQueryHandler(IOrderRepository orderRepository, IMapper mapper)
         {
             _orderRepository = orderRepository;
@@ -33,7 +33,6 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Ord
             {
                 throw new NotFoundException($"Could not find Order '{request.Id}'");
             }
-
             return order.MapToOrderDto(_mapper);
         }
     }

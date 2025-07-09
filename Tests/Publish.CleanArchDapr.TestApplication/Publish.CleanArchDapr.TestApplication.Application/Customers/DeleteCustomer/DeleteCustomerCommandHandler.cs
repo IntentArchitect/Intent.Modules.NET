@@ -16,7 +16,7 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
     {
         private readonly ICustomerRepository _customerRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public DeleteCustomerCommandHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
@@ -32,7 +32,6 @@ namespace Publish.CleanArchDapr.TestApplication.Application.Customers.DeleteCust
             }
 
             _customerRepository.Remove(existingCustomer);
-
         }
     }
 }

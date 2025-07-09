@@ -17,9 +17,10 @@ namespace CleanArchitecture.Dapr.Application.Scheduled.Daily
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DailyCommand request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (DailyCommandHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

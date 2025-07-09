@@ -17,9 +17,10 @@ namespace MassTransit.RabbitMQ.Application.RequestResponse.CQRS.QueryGuidReturn
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> Handle(QueryGuidReturn request, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (QueryGuidReturnHandler) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

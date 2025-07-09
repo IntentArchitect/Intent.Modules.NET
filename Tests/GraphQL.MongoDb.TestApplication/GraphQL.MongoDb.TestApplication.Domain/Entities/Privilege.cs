@@ -7,7 +7,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace GraphQL.MongoDb.TestApplication.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Privilege : IHasDomainEvent
     {
         public Privilege()
@@ -15,6 +14,7 @@ namespace GraphQL.MongoDb.TestApplication.Domain.Entities
             Id = null!;
             Name = null!;
         }
+
         public string Id { get; set; }
 
         public string Name { get; set; }

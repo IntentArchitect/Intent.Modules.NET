@@ -10,13 +10,12 @@ namespace Entities.PrivateSetters.TestApplication.Application.Invoices.Operation
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class OperationCommandValidator : AbstractValidator<OperationCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public OperationCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.Lines)

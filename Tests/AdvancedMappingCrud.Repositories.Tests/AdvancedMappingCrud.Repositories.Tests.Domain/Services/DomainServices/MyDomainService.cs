@@ -14,9 +14,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Services.DomainServices
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void DoSomething()
         {
+            // TODO: Implement DoSomething (MyDomainService) functionality
             throw new NotImplementedException("Implement your domain service logic here...");
         }
     }

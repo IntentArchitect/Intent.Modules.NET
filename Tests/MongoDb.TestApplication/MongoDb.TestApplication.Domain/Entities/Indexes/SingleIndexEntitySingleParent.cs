@@ -5,7 +5,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace MongoDb.TestApplication.Domain.Entities.Indexes
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class SingleIndexEntitySingleParent
     {
         public SingleIndexEntitySingleParent()
@@ -14,6 +13,7 @@ namespace MongoDb.TestApplication.Domain.Entities.Indexes
             SomeField = null!;
             SingleIndexEntitySingleChild = null!;
         }
+
         public string Id { get; set; }
 
         public string SomeField { get; set; }

@@ -20,28 +20,28 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Guid> CreateClient(ClientCreate dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement CreateClient (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<Client> FindClientById(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindClientById (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<Client>> FindClients(CancellationToken cancellationToken = default)
         {
             // TODO: Implement FindClients (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<PagedResult<Client>> FindClientsPaged(
             int pageNo,
             int pageSize,
@@ -51,14 +51,14 @@ namespace Standard.AspNetCore.TestApplication.Application.Implementation
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task UpdateClient(Guid id, ClientUpdate dto, CancellationToken cancellationToken = default)
         {
             // TODO: Implement UpdateClient (ClientsService) functionality
             throw new NotImplementedException("Write your implementation for this service here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task DeleteClient(Guid id, CancellationToken cancellationToken = default)
         {
             // TODO: Implement DeleteClient (ClientsService) functionality
