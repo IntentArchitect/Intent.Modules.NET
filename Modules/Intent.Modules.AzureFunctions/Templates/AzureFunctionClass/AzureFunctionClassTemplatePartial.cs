@@ -86,7 +86,8 @@ namespace Intent.Modules.AzureFunctions.Templates.AzureFunctionClass
                     var method = @class.FindMethod("Run");
                     if (method?.Statements.Any() == false)
                     {
-                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                        method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                        method.AddStatement("// IntentInitialGen");
                         method.AddNotImplementedException();
                     }
                 });

@@ -17,15 +17,17 @@ namespace <#= Namespace #>;
 
 public class <#= ClassName #> : <#= this.GetAccountEmailSenderInterfaceName() #>
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendEmailConfirmationRequest(string email, string userId, string code)
     {
+        // IntentInitialGen
         throw new NotImplementedException();
     }
 
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendPasswordResetCode(string email, string userId, string resetCode)
     {
+        // IntentInitialGen
         throw new NotImplementedException();
     }
 }

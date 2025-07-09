@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using Intent.Application.FluentValidation.Api;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
@@ -14,17 +13,13 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.TypeResolvers;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
-using Intent.RoslynWeaver.Attributes;
-using Intent.Templates;
 using Intent.Utils;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 #nullable enable
 
 namespace Intent.Modules.FluentValidation.Shared;
 
-public static class ValidationRulesExtensions
+internal static class ValidationRulesExtensions
 {
     public static bool HasValidationRules(
         DTOModel dtoModel,
@@ -123,12 +118,13 @@ public static class ValidationRulesExtensions
                             @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}", $"Validate{field.Name.ToPascalCase()}Async", method =>
                             {
                                 method
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge())
                                     .Private()
                                     .Async();
                                 method.AddParameter(template.GetTypeName(field), "value");
                                 method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement("// IntentInitialGen");
                                 method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                             });
@@ -140,12 +136,13 @@ public static class ValidationRulesExtensions
                             @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
                             {
                                 method
-                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge())
                                     .Private()
                                     .Async();
                                 method.AddParameter(toValidateTypeName, modelParameterName);
                                 method.AddParameter(template.GetTypeName(field), "value");
                                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                                method.AddStatement("// IntentInitialGen");
                                 method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
                             });
@@ -234,9 +231,9 @@ public static class ValidationRulesExtensions
                 if (@class != null && file.Template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.SonarQube"))
                 {
                     var method = @class.FindMethod("ConfigureValidationRules");
-                    if(method != null)
+                    if (method != null)
                     {
-                        if(method.Statements.Count == 0 ||  (method.Statements.Count == 1 && method.Statements.First().ToString().Trim().StartsWith("//")))
+                        if (method.Statements.Count == 0 || (method.Statements.Count == 1 && method.Statements.First().ToString().Trim().StartsWith("//")))
                         {
                             method.AddAttribute("System.Diagnostics.CodeAnalysis.SuppressMessage", cfg =>
                             {
@@ -431,12 +428,12 @@ public static class ValidationRulesExtensions
 
             // if the template is null for use the less efficient method of putting the Regex declaration in the Matches call
             if (template is null || template is not ICSharpFileBuilderTemplate)
-            { 
+            {
                 validationRuleChain.AddChainStatement($@"Matches({invocation})");
             }
             else
             {
-                if(template is ICSharpFileBuilderTemplate builderTemplate)
+                if (template is ICSharpFileBuilderTemplate builderTemplate)
                 {
                     // really should always be a class, just double checking
                     if (builderTemplate.CSharpFile.Classes.Any())
@@ -458,7 +455,7 @@ public static class ValidationRulesExtensions
                 }
             }
 
-            if(!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
+            if (!string.IsNullOrWhiteSpace(validations.RegularExpressionMessage()))
             {
                 validationRuleChain.AddChainStatement($@"WithMessage(""{validations.RegularExpressionMessage()}"")");
             }

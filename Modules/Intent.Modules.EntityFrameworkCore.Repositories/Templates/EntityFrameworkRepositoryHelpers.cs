@@ -500,8 +500,9 @@ internal static class EntityFrameworkRepositoryHelpers
 
         if (parameterFactory is DefaultDbParameterFactory)
         {
+            method.AddStatement("// IntentInitialGen");
             method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}();");
-            
+
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
         }

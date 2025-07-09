@@ -205,6 +205,8 @@ namespace Intent.Modules.AspNetCore.Grpc.Templates.TraditionalService
                             }
                             else
                             {
+                                method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                                method.AddStatement("// IntentInitialGen");
                                 method.AddStatement($"throw new {UseType("System.NotImplementedException")}();");
                             }
                         });

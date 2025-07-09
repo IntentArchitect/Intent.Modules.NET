@@ -22,7 +22,7 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AccountEmailSenderTemplate : CSharpTemplateBase<object>
     {
@@ -35,36 +35,38 @@ namespace Intent.Modules.AspNetCore.Identity.AccountController.Templates.Account
             this.Write("using System;\r\nusing System.Threading.Tasks;\r\nusing Intent.RoslynWeaver.Attribute" +
                     "s;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Fully)]\r\n\r\nnamespace ");
             
-            #line 16 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
+            #line 16 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write(";\r\n\r\npublic class ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.AspNetCore.Identity.AccountController\Templates\AccountEmailSender\AccountEmailSenderTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetAccountEmailSenderInterfaceName()));
             
             #line default
             #line hidden
             this.Write(@"
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendEmailConfirmationRequest(string email, string userId, string code)
     {
+        // IntentInitialGen
         throw new NotImplementedException();
     }
 
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendPasswordResetCode(string email, string userId, string resetCode)
     {
+        // IntentInitialGen
         throw new NotImplementedException();
     }
 }");

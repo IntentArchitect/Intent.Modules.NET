@@ -31,7 +31,7 @@ public static class RepositoryOperationHelper
 					method.Async();
 				}
 
-				method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+				method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
 
 				foreach (var parameterModel in operationModel.Parameters)
 				{

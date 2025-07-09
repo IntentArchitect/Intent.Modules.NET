@@ -1,26 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using Intent.Engine;
-using Intent.Metadata.RDBMS.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
-using Intent.Modules.Constants;
 using Intent.Modules.Dapper.Templates.EntityRepositoryInterface;
-using Intent.Modules.Dapper.Templates.RepositoryInterface;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
-using static Intent.Modules.Constants.TemplateRoles.Domain;
-using static Intent.Modules.Constants.TemplateRoles.Repository;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -157,6 +148,7 @@ namespace Intent.Modules.Dapper.Templates.Repository
                     {
                         if (!method.Statements.Any())
                         {
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                             method.AddStatement($"""throw new {UseType("System.NotImplementedException")}("Your implementation here...");""");
                         }

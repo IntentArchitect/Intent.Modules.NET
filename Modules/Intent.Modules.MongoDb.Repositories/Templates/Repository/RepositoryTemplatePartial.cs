@@ -88,6 +88,8 @@ namespace Intent.Modules.MongoDb.Repositories.Templates.Repository
                                 {
                                     method.Override();
                                     method.AddParameter(EntityInterfaceName, "entity");
+                                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                                    method.AddStatement("// IntentInitialGen");
                                     method.AddStatement($@"throw NotImplementedException(""Composite Keys not supported and needs to be implemented manually"");");
                                 });
                             }

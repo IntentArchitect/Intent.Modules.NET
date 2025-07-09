@@ -266,8 +266,8 @@ namespace Intent.Modules.Entities.Templates.DomainEntity
 
                         if (!method.Statements.Any())
                         {
-                            method.AddAttribute(CSharpIntentManagedAttribute.IgnoreBody());
-                            method.AddStatement("// [IntentFully]");
+                            method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                            method.AddStatement("// IntentInitialGen");
                             method.AddStatement($"// TODO: Implement {method.Name} ({file.Classes.First().Name}) functionality");
                             method.AddStatement(@$"throw new {UseType("System.NotImplementedException")}(""Replace with your implementation..."");");
                         }

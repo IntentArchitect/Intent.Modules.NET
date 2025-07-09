@@ -23,7 +23,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+    #line 1 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "17.0.0.0")]
     public partial class AggregateManagerTemplate : CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>
     {
@@ -36,58 +36,58 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
             this.Write("using MediatR;\r\nusing System;\r\nusing System.Threading;\r\nusing System.Threading.Ta" +
                     "sks;\r\n\r\n[assembly: DefaultIntentManaged(Mode.Merge)]\r\n\r\nnamespace ");
             
-            #line 18 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 18 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Namespace));
             
             #line default
             #line hidden
             this.Write("\r\n{\r\n    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]\r\n    public class ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 21 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write(" : ");
             
-            #line 21 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 21 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetInterfaces()));
             
             #line default
             #line hidden
             this.Write("\r\n    {\r\n        [IntentInitialGen]\r\n        public ");
             
-            #line 24 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 24 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
             #line hidden
             this.Write("()\r\n        {\r\n        }\r\n");
             
-            #line 27 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 27 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
   foreach(var domainEvent in GetDomainEventModels()) {
             
             #line default
             #line hidden
-            this.Write("\r\n        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]\r\n        public async T" +
-                    "ask Handle(");
+            this.Write("\r\n        [IntentManaged(Mode.Fully, Body = Mode.Merge)]\r\n        public async Ta" +
+                    "sk Handle(");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 30 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetDomainEventNotificationName()));
             
             #line default
             #line hidden
             this.Write("<");
             
-            #line 30 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 30 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.GetDomainEventName(domainEvent)));
             
             #line default
             #line hidden
-            this.Write("> notification, CancellationToken cancellationToken)\r\n        {\r\n            // T" +
-                    "ODO: Implement Handle (");
+            this.Write("> notification, CancellationToken cancellationToken)\r\n        {\r\n            // I" +
+                    "ntentInitialGen\r\n            // TODO: Implement Handle (");
             
-            #line 32 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 33 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ClassName));
             
             #line default
@@ -95,7 +95,7 @@ namespace Intent.Modules.MediatR.DomainEvents.Templates.AggregateManager
             this.Write(") functionality\r\n            throw new NotImplementedException(\"Implement your ha" +
                     "ndler logic here...\");\r\n        }\r\n");
             
-            #line 35 "C:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
+            #line 36 "D:\Dev\Intent.Modules.NET\Modules\Intent.Modules.MediatR.DomainEvents\Templates\AggregateManager\AggregateManagerTemplate.tt"
   }
             
             #line default

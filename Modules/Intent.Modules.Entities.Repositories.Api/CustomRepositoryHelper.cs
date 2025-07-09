@@ -88,7 +88,8 @@ public static class CustomRepositoryHelper
             {
                 if (!method.Statements.Any())
                 {
-                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored());
+                    method.AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge());
+                    method.AddStatement("// IntentInitialGen");
                     method.AddStatement($"// TODO: Implement {method.Name} ({template.CSharpFile.Classes.First().Name}) functionality");
                     method.AddStatement($"""throw new {template.UseType("System.NotImplementedException")}("Your implementation here...");""");
                 }

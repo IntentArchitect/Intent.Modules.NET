@@ -41,6 +41,7 @@ public static class CreateCustomValidationsExtensions
                 method.AddParameter(template.GetTypeName(field.TypeReference), "value");
                 method.AddParameter($"ValidationContext<{toValidateTypeName}>", "validationContext");
                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                method.AddStatement("// IntentInitialGen");
                 method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
             });
@@ -53,12 +54,13 @@ public static class CreateCustomValidationsExtensions
             @class.AddMethod($"{template.UseType("System.Threading.Tasks.Task")}<bool>", $"Validate{field.Name.ToPascalCase()}Async", method =>
             {
                 method
-                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyIgnored())
+                    .AddAttribute(CSharpIntentManagedAttribute.Fully().WithBodyMerge())
                     .Private()
                     .Async();
                 method.AddParameter(toValidateTypeName, "model");
                 method.AddParameter(template.GetTypeName(field.TypeReference), "value");
                 method.AddParameter(template.UseType("System.Threading.CancellationToken"), "cancellationToken");
+                method.AddStatement("// IntentInitialGen");
                 method.AddStatement($"// TODO: Implement {method.Name} ({@class.Name}) functionality");
                 method.AddStatement($"throw new {template.UseType("System.NotImplementedException")}(\"Your custom validation rules here...\");");
             });
