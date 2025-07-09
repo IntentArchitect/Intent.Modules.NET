@@ -8,7 +8,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class AggregateRoot : IHasDomainEvent
     {
         public AggregateRoot()
@@ -32,11 +31,11 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.CRUD
 
         public EnumWithoutDefaultLiteral EnumType3 { get; set; }
 
+        public Guid? AggregateId { get; set; }
+
         public virtual ICollection<CompositeManyB> Composites { get; set; } = null;
 
         public virtual CompositeSingleA? Composite { get; set; }
-
-        public Guid? AggregateId { get; set; }
 
         public virtual AggregateSingleC? Aggregate { get; set; }
 

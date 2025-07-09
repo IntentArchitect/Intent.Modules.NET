@@ -7,15 +7,16 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Dapr.Domain.Entities
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class Client : IHasDomainEvent
     {
         private string? _id;
+
         public Client()
         {
             Id = null!;
             Name = null!;
         }
+
         public string Id
         {
             get => _id ??= Guid.NewGuid().ToString();

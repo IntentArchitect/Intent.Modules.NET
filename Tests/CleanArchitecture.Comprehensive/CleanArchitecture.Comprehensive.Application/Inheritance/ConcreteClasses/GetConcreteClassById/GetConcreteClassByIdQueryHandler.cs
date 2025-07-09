@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.Inheritance.ConcreteClasse
         private readonly IConcreteClassRepository _concreteClassRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetConcreteClassByIdQueryHandler(IConcreteClassRepository concreteClassRepository, IMapper mapper)
         {
             _concreteClassRepository = concreteClassRepository;

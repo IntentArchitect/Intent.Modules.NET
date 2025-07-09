@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.ClassWithEnums.GetClassWit
         private readonly IClassWithEnumsRepository _classWithEnumsRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetClassWithEnumsByIdQueryHandler(IClassWithEnumsRepository classWithEnumsRepository, IMapper mapper)
         {
             _classWithEnumsRepository = classWithEnumsRepository;

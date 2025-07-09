@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.ODataAggs.GetODataAggById
         private readonly IODataAggRepository _oDataAggRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetODataAggByIdQueryHandler(IODataAggRepository oDataAggRepository, IMapper mapper)
         {
             _oDataAggRepository = oDataAggRepository;

@@ -12,7 +12,7 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestQueryHandler : IRequestHandler<TestQuery, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TestQueryHandler()
         {
         }

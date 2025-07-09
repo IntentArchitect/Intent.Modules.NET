@@ -30,7 +30,7 @@ namespace CleanArchitecture.Comprehensive.Application.Ones.CreateOne
                 .ForEach(x => x.SetValidator(provider.GetValidator<CreateOneCommandTwosDto>()!));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         private async Task<bool> ValidateOneIdAsync(CreateOneCommand command, int value, CancellationToken cancellationToken)
         {
             return true;

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Server.AppRazorTemplate</correlationId>
+      <path>MudBlazor.ExampleApp.Api/Components/App.razor</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T19:12:25.791194Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T19:12:25.7914229Z</approvedAt>
+      <deviationsHash>87AB4612F3F6950F3751F72EA4F9D2B9571B76D70A0F3637EDB53B58FB744402</deviationsHash>
+      <fileHash>A8BE5E09AD6271A240BED59C108553597471D121286416EF10714422421F4629</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#03d22c9a-2ea7-4c62-a54b-addae3c7f0b5</correlationId>
+      <path>MudBlazor.ExampleApp.Client/Pages/Invoices/Components/InvoiceForm.razor.cs</path>
+      <count>3</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T19:12:25.8078246Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T19:12:25.8078356Z</approvedAt>
+      <deviationsHash>6285757C30695C99B42C5EE748BA9830BF731585D7C07F37D9F95232120658E2</deviationsHash>
+      <fileHash>4D3CE72521ACAF78F6A47F34B85ACACEDD2DA9F94F20B18C0CE22B3D75FC878F</fileHash>
+    </file>
+  </files>
 </deviationsLog>

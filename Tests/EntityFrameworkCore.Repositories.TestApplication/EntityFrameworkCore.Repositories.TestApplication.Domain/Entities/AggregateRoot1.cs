@@ -27,6 +27,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Entities
 
         public AggregateRoot1 Operation(object param1)
         {
+            // TODO: Implement Operation (AggregateRoot1) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

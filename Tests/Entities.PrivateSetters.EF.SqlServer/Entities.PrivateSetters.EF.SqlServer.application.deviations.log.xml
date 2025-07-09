@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.Identity.CurrentUserService</correlationId>
+      <path>Entities.PrivateSetters.EF.SqlServer.Api/Services/CurrentUserService.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T18:55:25.817179Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T18:55:25.8172797Z</approvedAt>
+      <deviationsHash>19F38C4AC26CE12317F366DC72D65C72FFEEDAD5F4BE87CE6EE47A4737A7F807</deviationsHash>
+      <fileHash>D552665C14D8BADFD49E5CD1807311D7CAEA97A717C7D8A1C1675F024317BBC5</fileHash>
+    </file>
+  </files>
 </deviationsLog>

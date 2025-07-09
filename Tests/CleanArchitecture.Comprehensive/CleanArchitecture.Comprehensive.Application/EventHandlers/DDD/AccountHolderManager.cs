@@ -15,9 +15,10 @@ namespace CleanArchitecture.Comprehensive.Application.EventHandlers.DDD
     public class AccountHolderManager : INotificationHandler<DomainEventNotification<AccountTransferStarted>>
     {
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<AccountTransferStarted> notification, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (AccountHolderManager) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

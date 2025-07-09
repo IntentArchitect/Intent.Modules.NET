@@ -22,21 +22,21 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public PersonDC GetPersonByName(string name)
         {
             // TODO: Implement GetPersonByName (PersonRepository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<PersonDC> GetPersonsBySurname(string surname)
         {
             // TODO: Implement GetPersonsBySurname (PersonRepository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<Guid> SetPersons(IEnumerable<PersonDC> people)
         {
             // TODO: Implement SetPersons (PersonRepository) functionality

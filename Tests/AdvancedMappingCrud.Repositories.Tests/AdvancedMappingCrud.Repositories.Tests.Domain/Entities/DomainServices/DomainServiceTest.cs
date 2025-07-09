@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices
 
         public void MyOp(IMyDomainService service)
         {
-            // [IntentFully]
+            // TODO: Implement MyOp (DomainServiceTest) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

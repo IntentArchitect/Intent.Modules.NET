@@ -26,6 +26,7 @@ namespace AzureFunctions.NET6.Api
     public class UnMappedAzureFunction
     {
         private readonly IUnitOfWork _unitOfWork;
+
         public UnMappedAzureFunction(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));

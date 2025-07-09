@@ -14,6 +14,7 @@ namespace FastEndpointsTest.Domain.Entities.DDD
         {
             Name = null!;
         }
+
         public Guid Id { get; set; }
 
         public string Name { get; set; }
@@ -22,7 +23,6 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public void Change(DataContractObject obj)
         {
-            // [IntentFully]
             // TODO: Implement Change (DataContractClass) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

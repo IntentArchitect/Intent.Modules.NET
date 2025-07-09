@@ -7,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Application.DDD
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateCustomerAddressDtoValidator : AbstractValidator<CreateCustomerAddressDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateCustomerAddressDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Line1)

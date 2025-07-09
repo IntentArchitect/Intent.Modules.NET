@@ -19,7 +19,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Repositories.Ser
             _dbContext = dbContext;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<GetDataEntry> GetData()
         {
             // TODO: Implement GetData (ServiceStoredProcRepository) functionality

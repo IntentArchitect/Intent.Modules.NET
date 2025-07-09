@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestCommandV1
         public TestCommandV1Validator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

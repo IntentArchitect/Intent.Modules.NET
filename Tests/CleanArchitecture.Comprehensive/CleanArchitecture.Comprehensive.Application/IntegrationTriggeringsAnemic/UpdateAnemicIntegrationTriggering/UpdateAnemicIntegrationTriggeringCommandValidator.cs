@@ -1,4 +1,3 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -14,10 +13,8 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
         public UpdateAnemicIntegrationTriggeringCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

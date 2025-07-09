@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Params.FromBodyTest
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class FromBodyTestCommandValidator : AbstractValidator<FromBodyTestCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public FromBodyTestCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Ids)

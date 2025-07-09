@@ -45,25 +45,25 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public Company TestEntity()
         {
-            // [IntentFully]
+            // TODO: Implement TestEntity (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
 
         public AddressDC? TestDC(int index)
         {
-            // [IntentFully]
+            // TODO: Implement TestDC (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
 
         public ContactDetailsVO TestVO()
         {
-            // [IntentFully]
+            // TODO: Implement TestVO (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
 
         public void AddCollections(IEnumerable<AddressDC> addresses, IEnumerable<ContactDetailsVO> contacts)
         {
-            // [IntentFully]
+            // TODO: Implement AddCollections (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

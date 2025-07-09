@@ -1,4 +1,3 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -7,17 +6,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Application.DDD
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAccountDtoValidator : AbstractValidator<CreateAccountDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAccountDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.AccNumber)

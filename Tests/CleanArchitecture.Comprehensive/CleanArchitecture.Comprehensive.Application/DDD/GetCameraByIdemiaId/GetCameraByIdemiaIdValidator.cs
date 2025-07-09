@@ -10,14 +10,12 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.GetCameraByIdemiaId
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetCameraByIdemiaIdValidator : AbstractValidator<GetCameraByIdemiaId>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetCameraByIdemiaIdValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.IdemiaId)

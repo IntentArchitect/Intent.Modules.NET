@@ -25,7 +25,7 @@ namespace AzureFunctions.NET6.Api.Queues.Bindings
         }
 
         [FunctionName("Queues_Bindings_QueueClientBinding")]
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Run(
             [QueueTrigger("queue1")] Application.Queues.CreateCustomerMessage.CreateCustomerMessage message,
             [Queue("out-queue")] QueueClient queueClient,

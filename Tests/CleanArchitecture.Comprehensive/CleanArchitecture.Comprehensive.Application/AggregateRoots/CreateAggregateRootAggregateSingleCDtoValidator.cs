@@ -7,17 +7,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Application.AggregateRoots
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAggregateRootAggregateSingleCDtoValidator : AbstractValidator<CreateAggregateRootAggregateSingleCDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CreateAggregateRootAggregateSingleCDtoValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.AggregationAttr)

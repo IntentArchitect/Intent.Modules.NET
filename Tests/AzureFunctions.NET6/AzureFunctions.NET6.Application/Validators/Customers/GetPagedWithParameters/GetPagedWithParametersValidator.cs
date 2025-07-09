@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Customers.GetPagedWithParam
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetPagedWithParametersValidator : AbstractValidator<Application.Customers.GetPagedWithParameters.GetPagedWithParameters>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetPagedWithParametersValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SearchCriteria)

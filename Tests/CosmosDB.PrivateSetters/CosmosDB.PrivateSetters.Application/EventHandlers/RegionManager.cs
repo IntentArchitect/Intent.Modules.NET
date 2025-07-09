@@ -15,9 +15,10 @@ namespace CosmosDB.PrivateSetters.Application.EventHandlers
     public class RegionManager : INotificationHandler<DomainEventNotification<RegionChangedDomainEvent>>
     {
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Handle(DomainEventNotification<RegionChangedDomainEvent> notification, CancellationToken cancellationToken)
         {
+            // TODO: Implement Handle (RegionManager) functionality
             throw new NotImplementedException("Implement your handler logic here...");
         }
     }

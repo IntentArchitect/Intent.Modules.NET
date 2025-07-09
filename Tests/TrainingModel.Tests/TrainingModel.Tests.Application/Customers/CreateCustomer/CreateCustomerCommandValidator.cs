@@ -40,7 +40,7 @@ namespace TrainingModel.Tests.Application.Customers.CreateCustomer
                 .ForEach(x => x.SetValidator(provider.GetValidator<CreateCustomerCommandAddressDto>()!));
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         private async Task ValidateAddressAsync(
             IEnumerable<CreateCustomerCommandAddressDto> value,
             ValidationContext<CreateCustomerCommand> validationContext,

@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.SecureServices.Secure
         public SecureCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Message)

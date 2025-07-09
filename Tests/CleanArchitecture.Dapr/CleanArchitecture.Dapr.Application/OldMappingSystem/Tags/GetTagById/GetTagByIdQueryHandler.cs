@@ -18,7 +18,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Tags.GetTagById
         private readonly ITagRepository _tagRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetTagByIdQueryHandler(ITagRepository tagRepository, IMapper mapper)
         {
             _tagRepository = tagRepository;

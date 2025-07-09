@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Params.GetByIdsHeadersTest
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetByIdsHeadersTestValidator : AbstractValidator<Application.Params.GetByIdsHeadersTest.GetByIdsHeadersTest>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetByIdsHeadersTestValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Ids)

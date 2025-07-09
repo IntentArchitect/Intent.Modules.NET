@@ -86,9 +86,10 @@ WHERE Id = @Id
             }
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<Customer> SearchCustomer(string searchTerm)
         {
+            // TODO: Implement SearchCustomer (CustomerRepository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
     }

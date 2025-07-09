@@ -1,4 +1,3 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,13 +9,12 @@ namespace CleanArchitecture.Dapr.Application.DerivedOfTS.GetDerivedOfTById
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetDerivedOfTByIdQueryValidator : AbstractValidator<GetDerivedOfTByIdQuery>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetDerivedOfTByIdQueryValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

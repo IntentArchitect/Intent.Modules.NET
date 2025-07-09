@@ -25,7 +25,7 @@ namespace FastEndpointsTest.Application.Unversioned.Test
                 .MustAsync(ValidateValueAsync);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         private async Task<bool> ValidateValueAsync(TestCommand command, string value, CancellationToken cancellationToken)
         {
             // TODO: Implement ValidateValueAsync (TestCommandValidator) functionality

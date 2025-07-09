@@ -8,7 +8,6 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.Domain.Entities.Nullability
 {
-    [DefaultIntentManaged(Mode.Fully, Targets = Targets.Methods, Body = Mode.Ignore, AccessModifiers = AccessModifiers.Public)]
     public class TestNullablity : IHasDomainEvent
     {
         public TestNullablity(Guid id,

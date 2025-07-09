@@ -1,4 +1,3 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,13 +9,12 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Invoices.UpdateInv
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateInvoiceInvoiceLineCommandValidator : AbstractValidator<UpdateInvoiceInvoiceLineCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateInvoiceInvoiceLineCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.InvoiceId)

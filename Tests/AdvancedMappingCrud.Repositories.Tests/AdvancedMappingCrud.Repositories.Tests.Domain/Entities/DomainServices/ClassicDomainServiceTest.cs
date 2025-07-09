@@ -27,7 +27,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices
 
         public void ClassicOp(IMyDomainService service)
         {
-            // [IntentFully]
+            // TODO: Implement ClassicOp (ClassicDomainServiceTest) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

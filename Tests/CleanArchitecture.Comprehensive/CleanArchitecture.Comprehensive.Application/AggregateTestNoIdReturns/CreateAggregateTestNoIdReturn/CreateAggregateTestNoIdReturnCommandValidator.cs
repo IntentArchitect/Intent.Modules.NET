@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateTestNoIdReturns.C
         public CreateAggregateTestNoIdReturnCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Attribute)

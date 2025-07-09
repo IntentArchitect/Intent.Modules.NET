@@ -16,10 +16,8 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
         public TestCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)
@@ -27,7 +25,7 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
                 .MustAsync(ValidateValueAsync);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         private async Task<bool> ValidateValueAsync(TestCommand command, string value, CancellationToken cancellationToken)
         {
             return true;

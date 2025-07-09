@@ -12,7 +12,7 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestQueryV2
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class TestQueryV2Handler : IRequestHandler<TestQueryV2, int>
     {
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public TestQueryV2Handler()
         {
         }

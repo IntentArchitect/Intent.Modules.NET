@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Customers.UpdateCustomer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public UpdateCustomerCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

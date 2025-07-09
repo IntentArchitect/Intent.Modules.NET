@@ -37,7 +37,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Domain.Entities.OperationMappin
 
         public void AddTask(string listName, TaskItemContract task)
         {
-            // [IntentFully]
             // TODO: Implement AddTask (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

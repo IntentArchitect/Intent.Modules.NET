@@ -34,7 +34,6 @@ namespace AdvancedMappingCrud.RichDomain.ServiceModel.Tests.Domain.Entities
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {
-            // [IntentFully]
             // TODO: Implement UpdateStockLevel (Stock) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

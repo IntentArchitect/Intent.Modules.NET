@@ -12,14 +12,12 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestQueryValidator : AbstractValidator<TestQuery>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TestQueryValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)
@@ -28,7 +26,7 @@ namespace CleanArchitecture.Comprehensive.Application.Unversioned.Test
                 .WithMessage("Must be all lower case");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         private async Task<bool> ValidateValueAsync(TestQuery command, string value, CancellationToken cancellationToken)
         {
             return true;

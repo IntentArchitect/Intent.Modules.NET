@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Clas
         private readonly IAggregateWithUniqueConstraintIndexElementRepository _aggregateWithUniqueConstraintIndexElementRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetAggregateWithUniqueConstraintIndexElementsQueryHandler(IAggregateWithUniqueConstraintIndexElementRepository aggregateWithUniqueConstraintIndexElementRepository,
             IMapper mapper)
         {

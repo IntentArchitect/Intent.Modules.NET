@@ -25,7 +25,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.Downloa
             _fileUploadRepository = fileUploadRepository;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task<FileDownloadDto> Handle(DownloadFileQuery request, CancellationToken cancellationToken)
         {
             var file = await _fileUploadRepository.FindByIdAsync(request.Id, cancellationToken);
@@ -33,8 +33,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.FileUploads.Downloa
             {
                 throw new NotFoundException($"Could not find FileUpload '{request.Id}'");
             }
-            return new FileDownloadDto() { Content = new MemoryStream(file.Content), ContentType = file.ContentType };
 
+            // IntentIgnore
+            return new FileDownloadDto() { Content = new MemoryStream(file.Content), ContentType = file.ContentType };
         }
     }
 }

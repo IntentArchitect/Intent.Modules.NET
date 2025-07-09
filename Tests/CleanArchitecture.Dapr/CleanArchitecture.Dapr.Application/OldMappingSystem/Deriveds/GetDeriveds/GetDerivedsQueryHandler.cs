@@ -18,7 +18,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Deriveds.GetDerive
         private readonly IDerivedRepository _derivedRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetDerivedsQueryHandler(IDerivedRepository derivedRepository, IMapper mapper)
         {
             _derivedRepository = derivedRepository;

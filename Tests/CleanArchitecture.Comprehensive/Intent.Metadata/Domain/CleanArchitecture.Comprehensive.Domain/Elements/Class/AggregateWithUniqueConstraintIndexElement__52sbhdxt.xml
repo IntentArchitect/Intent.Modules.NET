@@ -269,6 +269,19 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="decc0844-b9bf-4e34-800a-8740f7b17904" type="Class Constructor" typeId="dec2bd12-4699-4f45-8ec9-3b62dc692d2b">
+      <name>Constructor</name>
+      <display>AggregateWithUniqueConstraintIndexElement()</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>864aa549-6d79-4a29-bd0a-6d78fd7e99da</parentFolderId>
+      <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
+      <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="37eee591-1b4a-4758-9848-12ee1c266cc9" type="Index" typeId="436e3afe-b4ef-481c-b803-0d1e7d263561">
       <name>IX_AggregateWithUniqueConstraintIndexElements_SingleUniqueField</name>
       <display>IX_AggregateWithUniqueConstraintIndexElements_SingleUniqueField</display>

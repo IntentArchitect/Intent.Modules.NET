@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 [assembly: IntentTemplate("Intent.AspNetCore.Controllers.Controller", Version = "1.0")]
 
 namespace AzureKeyVault.Api.Controllers

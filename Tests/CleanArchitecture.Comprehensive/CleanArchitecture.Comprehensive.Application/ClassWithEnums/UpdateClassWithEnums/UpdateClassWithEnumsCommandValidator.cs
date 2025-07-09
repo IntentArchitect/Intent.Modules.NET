@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.ClassWithEnums.UpdateClass
         public UpdateClassWithEnumsCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.EnumWithDefaultLiteral)

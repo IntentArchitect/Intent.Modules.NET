@@ -66,7 +66,7 @@ namespace AdvancedMappingCrud.RichDomain.Tests.Domain.Entities
 
         public void AddCollections(IEnumerable<AddressDC> addresses, IEnumerable<ContactDetailsVO> contacts)
         {
-            // [IntentFully]
+            // TODO: Implement AddCollections (User) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

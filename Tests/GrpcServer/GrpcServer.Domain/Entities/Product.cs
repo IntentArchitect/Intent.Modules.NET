@@ -30,7 +30,6 @@ namespace GrpcServer.Domain.Entities
     ITagService tagService,
     CancellationToken cancellationToken = default)
         {
-            // [IntentFully]
             // TODO: Implement ApplyTagsAsync (Product) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

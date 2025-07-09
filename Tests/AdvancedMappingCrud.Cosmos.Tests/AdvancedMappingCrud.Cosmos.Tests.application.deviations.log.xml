@@ -1,4 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#59027c95-28c7-4012-bf97-5b301e23d8fc</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/FindCustomerByNameOrSurname/FindCustomerByNameOrSurnameQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:10:27.6104501Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:10:27.6104547Z</approvedAt>
+      <deviationsHash>7109C9564B9C765AC88DDFD85C9B089A6C043F5F22944F61906AC68DE443AA20</deviationsHash>
+      <fileHash>9B22A7062D9208E675BE6D0DF5FD24FF8CDACB63BAF121C99644F5A99F2CAB36</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#c0652db6-5aab-463c-9f1e-29453ffbbd82</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersLinq/GetCustomersLinqQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:10:27.591617Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:10:27.5917783Z</approvedAt>
+      <deviationsHash>B08CC297F4A3C64C5E19D8A8958A7E6CDC56E1FC4D4BAA26281FF061A3C3CAAC</deviationsHash>
+      <fileHash>B2F83BE94F71BF053FE810531C2A5ED2FC8F38417F0D20F890CBF728132A03BE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#c9e6d676-0a31-4177-9d15-97c992c4dce5</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.Application/Customers/GetCustomersPaged/GetCustomersPagedQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:10:27.6054924Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:10:27.6054963Z</approvedAt>
+      <deviationsHash>3C156904585BD0F27172493F86BB1C60197CD7165755ED125DEA98907E163ADF</deviationsHash>
+      <fileHash>7D5CC3B7896A0FB2D172A7DCEE9C55FC5DB125C2D74D85A1B997E48034889FF2</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#964f72f6-6eff-495c-84a9-8017b11c7184</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/ExplicitETags/UpdateExplicitETagTests.cs</path>
+      <count>2</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:10:27.6073088Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:10:27.607315Z</approvedAt>
+      <deviationsHash>5E59C7CC9482CA806ED02150400FDCEB5AE4BDFE286B658948E067EF14CFC0EF</deviationsHash>
+      <fileHash>A45A895C84EB4175492E1CBAA80FED8B0BE998A46295F64F07FDCE5C3F3CB299</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AspNetCore.IntegrationTesting.ServiceEndpointTest#a2164dbe-ebe9-4b56-bff0-b4122484afb2</correlationId>
+      <path>AdvancedMappingCrud.Cosmos.Tests.IntegrationTests/Tests/Parents/UpdateParentTests.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:10:27.6089568Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:10:27.6089625Z</approvedAt>
+      <deviationsHash>674446CFE0029713758B3CAF3A7273C1C25FFED73809AE15E83F30B635B94965</deviationsHash>
+      <fileHash>35F044D2C5E1C35DD9DA92EE0FE1510B5686F8189DC9428B3B84FD0D0F100E4C</fileHash>
+    </file>
+  </files>
 </deviationsLog>

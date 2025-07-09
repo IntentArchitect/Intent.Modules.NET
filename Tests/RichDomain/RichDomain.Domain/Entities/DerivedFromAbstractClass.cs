@@ -15,6 +15,7 @@ namespace RichDomain.Domain.Entities
 
         public override bool AbstractOp(string thing)
         {
+            // TODO: Implement AbstractOp (DerivedFromAbstractClass) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }
     }

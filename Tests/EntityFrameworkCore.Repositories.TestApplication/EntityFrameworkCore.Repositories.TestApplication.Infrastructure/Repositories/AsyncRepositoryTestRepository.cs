@@ -19,7 +19,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             _dbContext = dbContext;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Operation(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation (AsyncRepositoryTestRepository) functionality

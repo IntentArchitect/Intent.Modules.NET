@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Queues.Bindings.Bind
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class BindCommandValidator : AbstractValidator<BindCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public BindCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

@@ -9,13 +9,13 @@ namespace Application.Identity.AccountController.Application.Account;
 
 public class AccountEmailSender : IAccountEmailSender
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendEmailConfirmationRequest(string email, string userId, string code)
     {
         throw new NotImplementedException();
     }
 
-    [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public async Task SendPasswordResetCode(string email, string userId, string resetCode)
     {
         throw new NotImplementedException();

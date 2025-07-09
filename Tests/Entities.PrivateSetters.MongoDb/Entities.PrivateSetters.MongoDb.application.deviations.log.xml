@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Entities.DomainEntity#1719967b-12e5-469c-b69d-689abe37aa89</correlationId>
+      <path>Entities.PrivateSetters.MongoDb.Domain/Entities/Invoice.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T18:57:32.3301295Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T18:57:32.330267Z</approvedAt>
+      <deviationsHash>F16162E04F95365690177735A45017B40FCD2C0FF1EEDEC0318576E885FBE2D9</deviationsHash>
+      <fileHash>5CAF5F12C3BF5FBAE01CE251EB95CF43DEFB7CBF5C5A653F70F29AE69B8978DE</fileHash>
+    </file>
+  </files>
 </deviationsLog>

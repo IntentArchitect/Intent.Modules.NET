@@ -9,9 +9,6 @@
   <parentFolderId>b3c546a2-cbe8-4dc1-9bbc-b294e4eb1662</parentFolderId>
   <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
   <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
-  <traits>
-    <trait id="20ce5b45-803a-4e2d-9f62-53b90f856529" name="[Injectable Service]" />
-  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="6ad19817-2014-464b-a525-409b3a5230d1" name="Service Registration Settings">
       <addedByDefault>true</addedByDefault>
@@ -41,6 +38,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -63,6 +64,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -109,6 +114,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -131,6 +140,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -180,6 +193,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -205,6 +222,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>
@@ -254,6 +275,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements />
@@ -279,6 +304,10 @@
       <parentFolderId>8a932b0b-fad7-4321-910d-be00d175bd06</parentFolderId>
       <packageId>0f985dac-a68e-44ed-90eb-6d7e523fa74f</packageId>
       <packageName>CleanArchitecture.Comprehensive.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes />
       <metadata />
       <childElements>

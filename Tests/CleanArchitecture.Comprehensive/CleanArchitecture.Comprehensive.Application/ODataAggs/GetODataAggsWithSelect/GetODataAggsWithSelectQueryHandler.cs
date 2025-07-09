@@ -17,7 +17,7 @@ namespace CleanArchitecture.Comprehensive.Application.ODataAggs.GetODataAggsWith
     {
         private readonly IODataAggRepository _oDataAggRepository;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetODataAggsWithSelectQueryHandler(IODataAggRepository oDataAggRepository)
         {
             _oDataAggRepository = oDataAggRepository;

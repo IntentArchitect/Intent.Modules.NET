@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#386bb437-ea36-4345-8a68-22e9754475c1</correlationId>
+      <path>AzureFunctions.NET6.Api/FunctionWithIgnoreInApi.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:16:37.6454023Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:17:28.0150338Z</approvedAt>
+      <deviationsHash>27F327EF59C8165415235EBD7624BA54DF96967871F79D2E5C5969879FC9ED16</deviationsHash>
+      <fileHash>09C89FB1ECCC965C21278498BEE6D004D4AF48412EE48C7CF416577E1078914D</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.AzureFunctions.AzureFunctionClass#9e636440-d5fd-4b08-ac78-47b0e306892b</correlationId>
+      <path>AzureFunctions.NET6.Api/UnMappedAzureFunction.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:16:37.6457819Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T15:17:28.008891Z</approvedAt>
+      <deviationsHash>F663514D0B361158C48F917EA7662B395F053813F38F9BA559FFE0D1A8E50105</deviationsHash>
+      <fileHash>44885FF1FED1634C5C4E8A0751CA2DAC474DDDF77B1CEB127E419535428A9E48</fileHash>
+    </file>
+  </files>
 </deviationsLog>

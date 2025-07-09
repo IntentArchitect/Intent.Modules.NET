@@ -19,7 +19,7 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Invoices.GetInvoic
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetInvoiceInvoiceLinesQueryHandler(IInvoiceRepository invoiceRepository, IMapper mapper)
         {
             _invoiceRepository = invoiceRepository;

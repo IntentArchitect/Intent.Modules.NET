@@ -33,112 +33,112 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Operation_Params0_ReturnsV_Collection0()
         {
             // TODO: Implement Operation_Params0_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public SpResult Operation_Params0_ReturnsD_Collection0()
         {
             // TODO: Implement Operation_Params0_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<SpResult> Operation_Params0_ReturnsD_Collection1()
         {
             // TODO: Implement Operation_Params0_ReturnsD_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public AggregateRoot1 Operation_Params0_ReturnsE_Collection0()
         {
             // TODO: Implement Operation_Params0_ReturnsE_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<AggregateRoot1> Operation_Params0_ReturnsE_Collection1()
         {
             // TODO: Implement Operation_Params0_ReturnsE_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Operation_Params0_ReturnsV_Collection0Async(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation_Params0_ReturnsV_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<SpResult> Operation_Params0_ReturnsD_Collection0Async(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation_Params0_ReturnsD_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<SpResult>> Operation_Params0_ReturnsD_Collection1Async(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation_Params0_ReturnsD_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<AggregateRoot1> Operation_Params0_ReturnsE_Collection0Async(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation_Params0_ReturnsE_Collection0Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<AggregateRoot1>> Operation_Params0_ReturnsE_Collection1Async(CancellationToken cancellationToken = default)
         {
             // TODO: Implement Operation_Params0_ReturnsE_Collection1Async (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Operation_Params1_ReturnsV_Collection0(SpParameter param)
         {
             // TODO: Implement Operation_Params1_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public SpResult Operation_Params1_ReturnsD_Collection0(SpParameter param)
         {
             // TODO: Implement Operation_Params1_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<SpResult> Operation_Params1_ReturnsD_Collection1(SpParameter param)
         {
             // TODO: Implement Operation_Params1_ReturnsD_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public AggregateRoot1 Operation_Params1_ReturnsE_Collection0(SpParameter param)
         {
             // TODO: Implement Operation_Params1_ReturnsE_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<AggregateRoot1> Operation_Params1_ReturnsE_Collection1(SpParameter param)
         {
             // TODO: Implement Operation_Params1_ReturnsE_Collection1 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Operation_Params1_ReturnsV_Collection0Async(
             SpParameter param,
             CancellationToken cancellationToken = default)
@@ -147,7 +147,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<SpResult> Operation_Params1_ReturnsD_Collection0Async(
             SpParameter param,
             CancellationToken cancellationToken = default)
@@ -156,7 +156,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<SpResult>> Operation_Params1_ReturnsD_Collection1Async(
             SpParameter param,
             CancellationToken cancellationToken = default)
@@ -165,7 +165,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<AggregateRoot1> Operation_Params1_ReturnsE_Collection0Async(
             SpParameter param,
             CancellationToken cancellationToken = default)
@@ -174,7 +174,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<AggregateRoot1>> Operation_Params1_ReturnsE_Collection1Async(
             SpParameter param,
             CancellationToken cancellationToken = default)
@@ -183,21 +183,21 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void Operation_Params3_ReturnsV_Collection0(SpParameter param, AggregateRoot1 aggrParam, string strParam)
         {
             // TODO: Implement Operation_Params3_ReturnsV_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public SpResult Operation_Params3_ReturnsD_Collection0(SpParameter param, AggregateRoot1 aggrParam, string strParam)
         {
             // TODO: Implement Operation_Params3_ReturnsD_Collection0 (AggregateRoot1Repository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<SpResult> Operation_Params3_ReturnsD_Collection1(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -207,7 +207,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public AggregateRoot1 Operation_Params3_ReturnsE_Collection0(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -217,7 +217,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<AggregateRoot1> Operation_Params3_ReturnsE_Collection1(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -227,7 +227,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task Operation_Params3_ReturnsV_Collection0Async(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -238,7 +238,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<SpResult> Operation_Params3_ReturnsD_Collection0Async(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -249,7 +249,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<SpResult>> Operation_Params3_ReturnsD_Collection1Async(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -260,7 +260,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<AggregateRoot1> Operation_Params3_ReturnsE_Collection0Async(
             SpParameter param,
             AggregateRoot1 aggrParam,
@@ -271,7 +271,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<AggregateRoot1>> Operation_Params3_ReturnsE_Collection1Async(
             SpParameter param,
             AggregateRoot1 aggrParam,

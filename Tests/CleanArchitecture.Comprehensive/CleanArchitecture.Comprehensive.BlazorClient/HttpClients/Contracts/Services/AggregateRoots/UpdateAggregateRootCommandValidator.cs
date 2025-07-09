@@ -7,7 +7,7 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Services.AggregateRoots
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class UpdateAggregateRootCommandValidator : AbstractValidator<UpdateAggregateRootCommand>
     {
         [IntentManaged(Mode.Merge)]
@@ -16,7 +16,6 @@ namespace CleanArchitecture.Comprehensive.BlazorClient.HttpClients.Contracts.Ser
             ConfigureValidationRules(provider);
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules(IValidatorProvider provider)
         {
             RuleFor(v => v.AggregateAttr)

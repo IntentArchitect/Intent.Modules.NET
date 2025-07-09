@@ -28,7 +28,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
         {
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public Guid ExtendedSaveOrderOperation()
         {
             // TODO: Implement ExtendedSaveOrderOperation (OrderCosmosDBRepository) functionality

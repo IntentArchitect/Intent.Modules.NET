@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateRootLongs.GetAggr
         private readonly IAggregateRootLongRepository _aggregateRootLongRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetAggregateRootLongsQueryHandler(IAggregateRootLongRepository aggregateRootLongRepository, IMapper mapper)
         {
             _aggregateRootLongRepository = aggregateRootLongRepository;

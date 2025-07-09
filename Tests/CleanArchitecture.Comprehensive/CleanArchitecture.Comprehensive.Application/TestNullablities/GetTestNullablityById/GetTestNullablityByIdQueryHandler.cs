@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.TestNullablities.GetTestNu
         private readonly ITestNullablityRepository _testNullablityRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetTestNullablityByIdQueryHandler(ITestNullablityRepository testNullablityRepository, IMapper mapper)
         {
             _testNullablityRepository = testNullablityRepository;

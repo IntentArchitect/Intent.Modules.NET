@@ -10,12 +10,12 @@ using MediatR;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.DeactivateCustomer
 {
-    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class DeactivateCustomerCommandHandler : IRequestHandler<DeactivateCustomerCommand>
     {
         private readonly ICustomerManager _customerManager;
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Merge)]
         public DeactivateCustomerCommandHandler(ICustomerManager customerManager)
         {
             _customerManager = customerManager;

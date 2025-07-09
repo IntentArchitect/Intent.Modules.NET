@@ -10,12 +10,12 @@ using MediatR;
 
 namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerStatistics
 {
-    [IntentManaged(Mode.Fully, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class GetCustomerStatisticsQueryHandler : IRequestHandler<GetCustomerStatisticsQuery, int>
     {
         private readonly ICustomerManager _customerManager;
 
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Merge)]
         public GetCustomerStatisticsQueryHandler(ICustomerManager customerManager)
         {
             _customerManager = customerManager;
@@ -26,7 +26,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustom
         {
             var result = _customerManager.GetCustomerStatistics(request.CustomerId);
 
-            // [IntentIgnore(Match = "throw")]
+            // TODO: Implement return type mapping...
             throw new NotImplementedException("Implement return type mapping...");
         }
     }

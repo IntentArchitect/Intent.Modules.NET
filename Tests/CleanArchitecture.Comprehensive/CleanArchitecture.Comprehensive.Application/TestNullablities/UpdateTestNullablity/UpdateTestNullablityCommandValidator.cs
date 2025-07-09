@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.TestNullablities.UpdateTes
         public UpdateTestNullablityCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.SampleEnum)

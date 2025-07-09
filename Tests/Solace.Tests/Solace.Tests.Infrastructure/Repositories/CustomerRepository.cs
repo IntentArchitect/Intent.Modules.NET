@@ -25,21 +25,14 @@ namespace Solace.Tests.Infrastructure.Repositories
         {
         }
 
-        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
-            Guid id,
-            CancellationToken cancellationToken = default)
-        {
-            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
-        }
-
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<Customer>> SearchDapperAsync(CancellationToken cancellationToken = default)
         {
             var customers = await GetConnection().QueryAsync<Customer>("Select * from [dbo].[Customers]");
             return customers.ToList();
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<Customer>> SearchSqlEFAsync(CancellationToken cancellationToken = default)
         {
             //return await _dbContext.Customers.FromSql($"Select c.* from [dbo].[Customers] c where IsActive = {true}").Include(c => c.Addresses).ToListAsync(cancellationToken);
@@ -48,10 +41,17 @@ namespace Solace.Tests.Infrastructure.Repositories
 
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task<List<CustomerCustom>> SearchCustomResultAsync(CancellationToken cancellationToken = default)
         {
             return await _dbContext.Database.SqlQuery<CustomerCustom>($"Select * from [dbo].[Customers]").ToListAsync(cancellationToken);
+        }
+
+        public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(
+            Guid id,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindProjectToAsync<TProjection>(x => x.Id == id, cancellationToken);
         }
 
         public async Task<Customer?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default)

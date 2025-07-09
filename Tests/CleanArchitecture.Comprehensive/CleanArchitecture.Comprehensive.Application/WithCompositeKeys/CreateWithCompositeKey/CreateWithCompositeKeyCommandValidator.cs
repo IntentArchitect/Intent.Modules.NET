@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.WithCompositeKeys.CreateWi
         public CreateWithCompositeKeyCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

@@ -18,16 +18,13 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint
             CompUniqueFieldB = compUniqueFieldB;
         }
 
-        /// <summary>
-        /// Required by Entity Framework.
-        /// </summary>
-        [IntentManaged(Mode.Ignore)]
         public AggregateWithUniqueConstraintIndexElement()
         {
             SingleUniqueField = null!;
             CompUniqueFieldA = null!;
             CompUniqueFieldB = null!;
         }
+
         public Guid Id { get; set; }
 
         public string SingleUniqueField { get; set; }

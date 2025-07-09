@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.Pagination.GetLogEntries
         private readonly ILogEntryRepository _logEntryRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetLogEntriesQueryHandler(ILogEntryRepository logEntryRepository, IMapper mapper)
         {
             _logEntryRepository = logEntryRepository;

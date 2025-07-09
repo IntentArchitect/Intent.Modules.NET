@@ -11,13 +11,12 @@ namespace AzureFunctions.NET6.Application.Validators.Params.GetByIdsQueryTest
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class GetByIdsQueryTestValidator : AbstractValidator<Application.Params.GetByIdsQueryTest.GetByIdsQueryTest>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public GetByIdsQueryTestValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Ids)

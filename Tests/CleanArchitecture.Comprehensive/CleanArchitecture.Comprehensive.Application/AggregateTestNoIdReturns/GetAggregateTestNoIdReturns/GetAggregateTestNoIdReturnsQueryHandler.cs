@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.AggregateTestNoIdReturns.G
         private readonly IAggregateTestNoIdReturnRepository _aggregateTestNoIdReturnRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetAggregateTestNoIdReturnsQueryHandler(IAggregateTestNoIdReturnRepository aggregateTestNoIdReturnRepository,
             IMapper mapper)
         {

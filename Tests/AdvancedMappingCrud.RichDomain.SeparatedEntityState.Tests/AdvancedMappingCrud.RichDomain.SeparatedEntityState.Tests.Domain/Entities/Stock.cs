@@ -13,7 +13,6 @@ namespace AdvancedMappingCrud.RichDomain.SeparatedEntityState.Tests.Domain.Entit
 
         public void UpdateStockLevel(Guid id, int total, DateTime dateUpdated)
         {
-            // [IntentFully]
             // TODO: Implement UpdateStockLevel (Stock) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

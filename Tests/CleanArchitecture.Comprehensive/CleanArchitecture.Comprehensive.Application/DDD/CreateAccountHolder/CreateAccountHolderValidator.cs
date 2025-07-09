@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.DDD.CreateAccountHolder
         public CreateAccountHolderValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

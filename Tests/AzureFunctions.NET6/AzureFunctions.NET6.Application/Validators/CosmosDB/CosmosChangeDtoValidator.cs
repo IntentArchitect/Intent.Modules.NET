@@ -8,16 +8,15 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace AzureFunctions.NET6.Application.Validators.CosmosDB
 {
-    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CosmosChangeDtoValidator : AbstractValidator<CosmosChangeDto>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public CosmosChangeDtoValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Name)

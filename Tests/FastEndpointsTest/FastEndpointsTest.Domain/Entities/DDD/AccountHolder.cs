@@ -33,7 +33,6 @@ namespace FastEndpointsTest.Domain.Entities.DDD
 
         public void Transfer(string description, IAccountingDomainService service, decimal amount, string currency)
         {
-            // [IntentFully]
             // TODO: Implement Transfer (AccountHolder) functionality
             throw new NotImplementedException("Replace with your implementation...");
         }

@@ -10,14 +10,12 @@ namespace CleanArchitecture.Comprehensive.Application.Versioned.TestQueryV2
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class TestQueryV2Validator : AbstractValidator<TestQueryV2>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public TestQueryV2Validator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

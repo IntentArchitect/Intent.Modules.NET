@@ -14,10 +14,8 @@ namespace CleanArchitecture.Comprehensive.Application.IntegrationTriggeringsAnem
         public CreateAnemicIntegrationTriggeringCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Value)

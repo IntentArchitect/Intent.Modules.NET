@@ -17,7 +17,7 @@ namespace Hangfire.Tests.Api.HangfireJobs
 
         [AutomaticRetry(Attempts = 10, OnAttemptsExceeded = AttemptsExceededAction.Fail)]
         [DisableConcurrentExecution(6)]
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public async Task ExecuteAsync()
         {
             // TODO: Implement job functionality

@@ -12,14 +12,13 @@ namespace CleanArchitecture.Comprehensive.Application.AccountHolders.UpdateNoteA
     public class UpdateNoteAccountHolderCommandValidator : AbstractValidator<UpdateNoteAccountHolderCommand>
     {
         private static readonly Regex NoteRegex = new Regex(@"^[a-z]*$", RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+
         [IntentManaged(Mode.Merge)]
         public UpdateNoteAccountHolderCommandValidator()
         {
             ConfigureValidationRules();
-
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Note)

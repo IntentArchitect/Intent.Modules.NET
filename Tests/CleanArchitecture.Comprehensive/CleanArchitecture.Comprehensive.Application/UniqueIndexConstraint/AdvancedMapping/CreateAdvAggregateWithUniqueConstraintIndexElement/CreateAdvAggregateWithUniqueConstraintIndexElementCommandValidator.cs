@@ -1,5 +1,3 @@
-using System.Threading;
-using System.Threading.Tasks;
 using CleanArchitecture.Comprehensive.Application.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
@@ -12,7 +10,7 @@ namespace CleanArchitecture.Comprehensive.Application.UniqueIndexConstraint.Adva
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator : AbstractValidator<CreateAdvAggregateWithUniqueConstraintIndexElementCommand>
     {
-        [IntentManaged(Mode.Fully)]
+        [IntentManaged(Mode.Merge)]
         public CreateAdvAggregateWithUniqueConstraintIndexElementCommandValidator(IValidatorProvider provider)
         {
             ConfigureValidationRules(provider);

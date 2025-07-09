@@ -1,4 +1,3 @@
-using System;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 
@@ -10,13 +9,12 @@ namespace CleanArchitecture.Dapr.Application.OldMappingSystem.Deriveds.DeleteDer
     [IntentManaged(Mode.Fully, Body = Mode.Merge)]
     public class DeleteDerivedCommandValidator : AbstractValidator<DeleteDerivedCommand>
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Merge)]
+        [IntentManaged(Mode.Merge)]
         public DeleteDerivedCommandValidator()
         {
             ConfigureValidationRules();
         }
 
-        [IntentManaged(Mode.Fully)]
         private void ConfigureValidationRules()
         {
             RuleFor(v => v.Id)

@@ -19,21 +19,21 @@ namespace SqlServerImporterTests.Infrastructure.Repositories.Dbo
             _dbContext = dbContext;
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<GetCustomerOrdersResponse> GetCustomerOrders(Guid customerId)
         {
             // TODO: Implement GetCustomerOrders (OperationRepository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public List<GetOrderItemDetailsResponse> GetOrderItemDetails(Guid orderId)
         {
             // TODO: Implement GetOrderItemDetails (OperationRepository) functionality
             throw new NotImplementedException("Your implementation here...");
         }
 
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public void InsertBrand(IEnumerable<BrandType> brand)
         {
             // TODO: Implement InsertBrand (OperationRepository) functionality

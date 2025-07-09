@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <deviationsLog>
-  <files />
+  <files>
+    <file>
+      <correlationId>Intent.Application.MediatR.QueryHandler#7021eb2e-a354-48fa-8806-80fe2f872557</correlationId>
+      <path>CosmosDB.PrivateSetters.Application/Clients/GetClientByName/GetClientByNameQueryHandler.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-09T15:18:44.5320898Z</updatedAt>
+      <approvedByAccountName>jonathan.lydall@intentarchitect.com</approvedByAccountName>
+      <approvedByDisplayName>Jonathan Lydall</approvedByDisplayName>
+      <approvedAt>2025-07-09T18:54:17.1924581Z</approvedAt>
+      <deviationsHash>10D1A2ABF37D1D1F6796CD2E43198F2B8B26381BFBF171DE92AF44925BBEF165</deviationsHash>
+      <fileHash>A47F20B0E3DC905DB5B8620089BF19EEEAB007532E78D587F447A56D085BEB78</fileHash>
+    </file>
+  </files>
 </deviationsLog>

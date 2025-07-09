@@ -9,7 +9,7 @@ namespace AdvancedMappingCrud.Cosmos.Tests.Infrastructure.Repositories
 {
     public class CustomRepository : ICustomRepository
     {
-        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        [IntentManaged(Mode.Fully, Body = Mode.Merge)]
         public int CustomRepoOperation()
         {
             // TODO: Implement CustomRepoOperation (CustomRepository) functionality

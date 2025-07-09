@@ -18,7 +18,7 @@ namespace CleanArchitecture.Comprehensive.Application.WithCompositeKeys.GetWithC
         private readonly IWithCompositeKeyRepository _withCompositeKeyRepository;
         private readonly IMapper _mapper;
 
-        [IntentManaged(Mode.Ignore)]
+        [IntentManaged(Mode.Merge)]
         public GetWithCompositeKeysQueryHandler(IWithCompositeKeyRepository withCompositeKeyRepository, IMapper mapper)
         {
             _withCompositeKeyRepository = withCompositeKeyRepository;
