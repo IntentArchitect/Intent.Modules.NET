@@ -4,9 +4,11 @@
 - Improvement: Event Domains support added. ❇️
 - Improvement: `AzureEventGridEventBus` is enhanced to do more efficient message publishing using `SendEventsAsync`. ❇️
 
-> NOTE! ⚠️
->
-> The Publish-configuration in `AzureEventGridConfiguration.cs` have been renamed from `Add` to `AddTopic` for Custom Topic Events.
+  > NOTE! ⚠️
+  >
+  > The Publish-configuration in `AzureEventGridConfiguration.cs` has been renamed from `Add` to `AddTopic` for Custom Topic Events.
+
+- Improvement: Handlers with no auto-implementation will now generate with an `IntentManaged` Body mode of Merge and their `throw new NotImplemented()` statements have been commented with [IntentInitialGen to prevent them from returning when deleted](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-csharp/code-management-csharp.html#the--intentinitialgen-instruction). (Note: A side effect of this improvement is that entries may appear in the Customizations tab of the Software Factory or existing entries may no longer be approved and they will need to reviewed).
 
 ### Version 1.1.1
 
