@@ -212,17 +212,24 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
 
                         m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
-                        m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
 
-                        m.AddStatement("user.RefreshToken = refreshToken.Token;");
-                        m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
-                        m.AddStatement("await _userManager.UpdateAsync(user);");
+                        var hasRefreshToken = ExecutionContext.MetadataManager.IdentityClassHasRefreshToken(ExecutionContext.GetApplicationConfig().Id);
+                        if (hasRefreshToken)
+                        {
+                            m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
+                            m.AddStatement("user.RefreshToken = refreshToken.Token;");
+                            m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
+                            m.AddStatement("await _userManager.UpdateAsync(user);");
+                        }
 
                         m.AddObjectInitializerBlock("var response = new AccessTokenResponseDto", c =>
                         {
                             c.AddInitStatement("AccessToken", "token.Token");
                             c.AddInitStatement("ExpiresIn", "token.Expiry");
-                            c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            if (hasRefreshToken)
+                            {
+                                c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            }
                             c.AddInitStatement("TokenType", "\"Bearer\"");
                             c.WithSemicolon();
                         });
@@ -244,7 +251,9 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
 
                         m.AddStatement("var user = await _userManager.FindByEmailAsync(username);");
 
-                        m.AddIfStatement("user == null || user.RefreshToken != refreshRequest.RefreshToken", i =>
+                        var hasRefreshToken = ExecutionContext.MetadataManager.IdentityClassHasRefreshToken(ExecutionContext.GetApplicationConfig().Id);
+
+                        m.AddIfStatement($"user == null {(hasRefreshToken ? "|| user.RefreshToken != refreshRequest.RefreshToken" : "")}", i =>
                         {
                             i.AddStatement("throw new ForbiddenAccessException();");
                         });
@@ -257,17 +266,23 @@ namespace Intent.Modules.AspNetCore.IdentityService.Templates.IdentityServiceMan
                         });
 
                         m.AddStatement("var token = _tokenService.GenerateAccessToken(user.UserName, claims);");
-                        m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
-
-                        m.AddStatement("user.RefreshToken = refreshToken.Token;");
-                        m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
-                        m.AddStatement("await _userManager.UpdateAsync(user);");
+                        
+                        if (hasRefreshToken)
+                        {
+                            m.AddStatement("var refreshToken = _tokenService.GenerateRefreshToken(user.UserName);");
+                            m.AddStatement("user.RefreshToken = refreshToken.Token;");
+                            m.AddStatement("user.RefreshTokenExpired = refreshToken.Expiry;");
+                            m.AddStatement("await _userManager.UpdateAsync(user);");
+                        }
 
                         m.AddObjectInitializerBlock("var response = new AccessTokenResponseDto", c =>
                         {
                             c.AddInitStatement("AccessToken", "token.Token");
                             c.AddInitStatement("ExpiresIn", "token.Expiry");
-                            c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            if (hasRefreshToken)
+                            {
+                                c.AddInitStatement("RefreshToken", "refreshToken.Token");
+                            }
                             c.AddInitStatement("TokenType", "\"Bearer\"");
                             c.WithSemicolon();
                         });

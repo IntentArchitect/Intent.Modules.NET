@@ -3,6 +3,7 @@ using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Entities.Templates.DomainEntity;
+using Intent.Modules.EntityFrameworkCore.Templates.DbContext;
 using Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Intent.Modules.AspNetCore.Identity.MockTemplateRegistrations
@@ -26,7 +28,11 @@ namespace Intent.Modules.AspNetCore.Identity.MockTemplateRegistrations
         [IntentManaged(Mode.Fully)]
         public override ITemplate CreateTemplateInstance(IOutputTarget outputTarget, ClassModel model)
         {
-            var result = base.CreateTemplateInstance(outputTarget, model) as ICSharpFileBuilderTemplate;
+            // create the template and do not publish in this specific instance
+            var template = base.CreateTemplateInstance(outputTarget, model) as EntityTypeConfigurationTemplate;
+            template.PublishCreatedEvent = false;
+
+            var result = template as ICSharpFileBuilderTemplate;
             //Want the template to construct for CRUD inspection but not to actually run
             //result.CanRun = false;
             result.CSharpFile.AfterBuild(file =>

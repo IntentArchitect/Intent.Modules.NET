@@ -1,6 +1,7 @@
 ### Version 5.0.25
 
 - Improvement: Added Validation when modeling composite entities with multiple owners.
+- Improvement: Added functionality to optionally not publish entity configuration creation event.
 
 ### Version 5.0.24
 

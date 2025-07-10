@@ -1,6 +1,7 @@
 ### Version 4.2.1
 
-Fixed: small bug fixes
+Fixed: Mismatch between DBbContext interface and DbContext properties
+Fixed: Small bug fixes
 
 ### Version 4.2.0
 

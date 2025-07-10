@@ -175,6 +175,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         public CSharpFile CSharpFile { get; }
 
+        public bool PublishCreatedEvent { get; set; } = true;
+
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         protected override CSharpFileConfig DefineFileConfig()
@@ -191,7 +193,10 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
         public override void BeforeTemplateExecution()
         {
             base.BeforeTemplateExecution();
-            ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
+            if (PublishCreatedEvent)
+            {
+                ExecutionContext.EventDispatcher.Publish(new EntityTypeConfigurationCreatedEvent(this));
+            }
         }
 
         private bool ForCosmosDb()

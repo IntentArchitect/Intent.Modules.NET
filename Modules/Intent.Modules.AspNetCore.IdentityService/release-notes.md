@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Fixed: Refresh Token information no longer added if not available on the identity user.
+
 ### Version 1.0.2
 
 - Improvement: Updated to the lastes Intent.AspNetCore.Identity. ApplicationIdentityUser now inherits from the base type and can be modified within the domain designer.
