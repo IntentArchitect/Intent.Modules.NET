@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Improvement: Updated dependency on `Intent.Application.DomainInteractions` to `1.0.1`
+
 ### Version 5.1.0
 
 - Improvement: Upgraded to support implentations of interactions using the new interaction strategy mechanism.
