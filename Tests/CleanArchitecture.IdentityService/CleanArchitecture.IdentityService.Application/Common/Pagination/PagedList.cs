@@ -1,5 +1,6 @@
 using CleanArchitecture.IdentityService.Domain.Repositories;
 using Intent.RoslynWeaver.Attributes;
+using Microsoft.EntityFrameworkCore;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.EntityFrameworkCore.PagedList", Version = "1.0")]
@@ -31,6 +32,25 @@ namespace CleanArchitecture.IdentityService.Application.Common.Pagination
 
             var remainder = totalCount % pageSize;
             return (totalCount / pageSize) + (remainder == 0 ? 0 : 1);
+        }
+    }
+
+    public static class QueryablePaginationExtension
+    {
+        public static async Task<PagedList<T>> ToPagedListAsync<T>(
+            this IQueryable<T> queryable,
+            int pageNo,
+            int pageSize,
+            CancellationToken cancellationToken = default)
+        {
+            var count = await queryable.CountAsync(cancellationToken);
+            var skip = ((pageNo - 1) * pageSize);
+
+            var results = await queryable
+                .Skip(skip)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+            return new PagedList<T>(count, pageNo, pageSize, results);
         }
     }
 }

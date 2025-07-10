@@ -1,3 +1,4 @@
+using CleanArchitecture.IdentityService.Application.Common.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Entities;
 using CleanArchitecture.IdentityService.Infrastructure.Persistence.Configurations;
@@ -11,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.IdentityService.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser, IdentityRole<string>, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IUnitOfWork
+    public class ApplicationDbContext : IdentityDbContext<ApplicationIdentityUser, IdentityRole<string>, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, IdentityRoleClaim<string>, IdentityUserToken<string>>, IApplicationDbContext, IUnitOfWork
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

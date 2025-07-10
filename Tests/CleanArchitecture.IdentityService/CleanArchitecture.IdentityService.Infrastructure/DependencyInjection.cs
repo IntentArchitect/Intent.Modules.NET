@@ -1,3 +1,4 @@
+using CleanArchitecture.IdentityService.Application.Common.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Common.Interfaces;
 using CleanArchitecture.IdentityService.Domain.Repositories;
 using CleanArchitecture.IdentityService.Infrastructure.Persistence;
@@ -22,6 +23,7 @@ namespace CleanArchitecture.IdentityService.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
             services.AddTransient<IApplicationIdentityUserRepository, ApplicationIdentityUserRepository>();
             return services;
         }
