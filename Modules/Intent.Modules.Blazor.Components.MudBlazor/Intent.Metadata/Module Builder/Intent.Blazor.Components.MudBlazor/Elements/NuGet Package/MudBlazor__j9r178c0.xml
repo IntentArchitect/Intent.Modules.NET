@@ -215,7 +215,7 @@
     <childElement id="e8c1514a-7083-432d-b3dd-3e3ffc053468" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment />
       <name>8.9.0</name>
-      <display>8.6.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.9.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -282,7 +282,7 @@
     </childElement>
     <childElement id="d8480efb-395e-4ed9-b226-f020ed3567b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>8.9.0</name>
-      <display>8.6.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>8.9.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />

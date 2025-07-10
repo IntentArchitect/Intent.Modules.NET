@@ -142,18 +142,6 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                         link.Remove();
                         continue;
                     }
-                    // Remove app.css:
-                    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.StartsWith("app.css") == true)
-                    {
-                        link.Remove();
-                        continue;
-                    }
-                    // Remove *.styles.css:
-                    if (link.HasAttribute("rel", "stylesheet") && link.GetAttribute("href")?.Value.EndsWith(".styles.css") == true)
-                    {
-                        link.Remove();
-                        continue;
-                    }
                 }
             });
         }
