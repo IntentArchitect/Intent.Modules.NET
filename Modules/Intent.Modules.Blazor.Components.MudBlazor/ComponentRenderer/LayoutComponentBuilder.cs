@@ -39,7 +39,6 @@ public class LayoutComponentBuilder : IRazorComponentBuilder
         {
             layoutHtml.AddHtmlElement("MudAppBar", appBar =>
             {
-                appBar.AddAttribute("Elevation", "1");
                 if (layoutModel.Sider != null)
                 {
                     appBar.AddHtmlElement("MudIconButton", drawerToggle =>
