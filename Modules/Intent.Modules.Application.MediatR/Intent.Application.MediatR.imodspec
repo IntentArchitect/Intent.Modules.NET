@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.MediatR</id>
-  <version>4.4.1-pre.1</version>
+  <version>4.4.1-pre.2</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the MediatR middleware</summary>
   <description>Provides the MediatR middleware</description>
@@ -69,7 +69,7 @@
     <dependency id="Intent.Modelers.Domain" version="3.4.4" />
     <dependency id="Intent.Modelers.Services" version="4.0.0" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>
   <interoperability>
     <detect id="Intent.AzureFunctions">
@@ -127,11 +127,6 @@
     <detect id="Intent.Dapr.AspNetCore.StateManagement">
       <install>
         <package id="Intent.Dapr.AspNetCore.StateManagement" version="1.2.4" />
-      </install>
-    </detect>
-    <detect id="Intent.OutputManager.RoslynWeaver">
-      <install>
-        <package id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
       </install>
     </detect>
     <!-- /Minimum Compatible Versions -->

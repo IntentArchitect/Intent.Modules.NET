@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Entities</id>
-  <version>5.1.14-pre.0</version>
+  <version>5.1.14-pre.1</version>
   <supportedClientVersions>[4.3.3, 5.0.0-a)</supportedClientVersions>
   <summary>A simple and extensible Entities pattern in C#.</summary>
   <description>A simple and extensible Entities pattern in C#.</description>
@@ -83,21 +83,12 @@
     </template>
   </templates>
   <decorators></decorators>
-  <interoperability>
-    <!-- Minimum Compatible Versions -->
-    <detect id="Intent.OutputManager.RoslynWeaver">
-      <install>
-        <package id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
-      </install>
-    </detect>
-    <!-- /Minimum Compatible Versions -->
-  </interoperability>
   <dependencies>
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.8.5" />
     <dependency id="Intent.Common.Types" version="4.0.0" />
     <dependency id="Intent.Modelers.Domain" version="3.8.0" />
-    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.9.10" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
