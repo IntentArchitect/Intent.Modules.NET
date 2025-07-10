@@ -84,7 +84,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
 	    const string promptTemplate =
-		    """
+            """
 		    ## Role and Context
 		    You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
 
@@ -113,7 +113,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		       - Mark both with `[IntentIgnore]`
 		       - Use this method in implementing the handler's Handle method (IMPORTANT).
 		    5. Implement the handler's Handle method using the appropriate repository methods.
-		    6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`
+		    6. Update the `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]` or `[IntentManaged(Mode.Fully, Body = Mode.Merge)]` attribute to `[IntentManaged(Mode.Fully, Body = Mode.Ignore)]`
 
 		    ## Code Preservation Requirements (CRITICAL)
 		    1. **NEVER remove or modify existing class members, methods, or properties**

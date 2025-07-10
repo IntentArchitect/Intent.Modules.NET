@@ -117,7 +117,10 @@
         taskName: "AI: Unit tests for " + element.getName()
     });
 
-    element.addStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"); // Unit Test stereotype 
+    if(!element.hasStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"))
+    {
+        element.addStereotype("4965bed2-6320-49d1-beba-0fbc6fd4dfe6"); // Unit Test stereotype
+    }
 
     return result;
 }</script>
