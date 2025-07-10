@@ -1,3 +1,7 @@
+### Version 1.1.7
+
+- Fixed: The importer would fail silently if you didn't have a particular older version of the .NET Runtime installed.
+
 ### Version 1.1.6
 
 - Fixed: Primary Keys with Identity properties are now correctly imported due to a recent Stereotype update.

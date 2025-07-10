@@ -92,7 +92,8 @@ public class RepositoryImport : IModuleTask
                     WorkingDirectory = toolDirectory,
                     EnvironmentVariables =
                     {
-                        ["DOTNET_CLI_UI_LANGUAGE"] = "en"
+                        ["DOTNET_CLI_UI_LANGUAGE"] = "en",
+                        ["DOTNET_ROLL_FORWARD"] = "LatestMajor"
                     }
                 }
             };

@@ -1,7 +1,8 @@
 ### Version 1.1.5
 
+- Improvement: Error messages spanning multiple lines will now be presented to the front-end.
 - Fixed: Parsing errors from OpenAPI readers will now be presented to the front-end.
-- Improved: Error messages spanning multiple lines will now be presented to the front-end.
+- Fixed: The importer would fail silently if you didn't have a particular older version of the .NET Runtime installed.
 
 ### Version 1.1.4
 
