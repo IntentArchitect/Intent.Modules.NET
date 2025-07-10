@@ -20,9 +20,6 @@ namespace CleanArchitecture.Comprehensive.Domain.Entities.UniqueIndexConstraint
 
         public AggregateWithUniqueConstraintIndexElement()
         {
-            SingleUniqueField = null!;
-            CompUniqueFieldA = null!;
-            CompUniqueFieldB = null!;
         }
 
         public Guid Id { get; set; }
