@@ -19,18 +19,18 @@ public class RepositoryImport : ModuleTaskSingleInputBase<RepositoryImportModel>
     public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcedureImport";
     public override string TaskTypeName => "SqlServer Stored Procedure Import";
 
-    protected override ValidationResult ValidateInputModel(RepositoryImportModel importModel)
+    protected override ValidationResult ValidateInputModel(RepositoryImportModel inputModel)
     {
-        var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
+        var designer = _metadataManager.GetDesigner(inputModel.ApplicationId, "Domain");
         if (designer == null)
         {
             return ValidationResult.ErrorResult("Unable to find domain designer in application");
         }
 
-        var package = designer.Packages.FirstOrDefault(p => p.Id == importModel.PackageId);
+        var package = designer.Packages.FirstOrDefault(p => p.Id == inputModel.PackageId);
         if (package == null)
         {
-            return ValidationResult.ErrorResult($"Unable to find package with Id : {importModel.PackageId}");
+            return ValidationResult.ErrorResult($"Unable to find package with Id : {inputModel.PackageId}");
         }
 
         return ValidationResult.SuccessResult();

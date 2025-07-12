@@ -20,7 +20,7 @@ public class StoredProcList : ModuleTaskSingleInputBase<StoredProcListInputModel
     public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.StoredProcList";
     public override string TaskTypeName => "SqlServer Stored Procedure List";
 
-    protected override ValidationResult ValidateInputModel(StoredProcListInputModel importModel)
+    protected override ValidationResult ValidateInputModel(StoredProcListInputModel inputModel)
     {
         return ValidationResult.SuccessResult();
     }

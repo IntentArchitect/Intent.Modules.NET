@@ -5,7 +5,7 @@ using Intent.Utils;
 
 namespace Intent.Modules.SqlServerImporter.Tasks.Helpers;
 
-public static class SqlSchemaExtractorRunner
+internal static class SqlSchemaExtractorRunner
 {
     private static readonly string ToolDirectory = Path.Combine(Path.GetDirectoryName(typeof(SqlSchemaExtractorRunner).Assembly.Location)!, @"../content/tool");
     private static readonly string ToolExecutable = Path.Combine(ToolDirectory, "Intent.SQLSchemaExtractor.dll");

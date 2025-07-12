@@ -48,18 +48,21 @@ public class FilterViewModel
 public class FilterLoadInputModel
 {
     public string ImportFilterFilePath { get; set; } = null!;
-    public string? PackageFileName { get; set; }
+    public string PackageId { get; set; }
+    public string ApplicationId { get; set; }
 }
 
 public class FilterSaveInputModel
 {
     public string ImportFilterFilePath { get; set; } = null!;
-    public string? PackageFileName { get; set; }
+    public string PackageId { get; set; }
+    public string ApplicationId { get; set; }
     public ImportFilterModel FilterData { get; set; } = null!;
 }
 
-public class PackageLocationInputModel
+public class PathResolutionInputModel
 {
-    public string ApplicationId { get; set; } = null!;
-    public string PackageId { get; set; } = null!;
+    public string SelectedFilePath { get; set; } = null!;
+    public string PackageId { get; set; }
+    public string ApplicationId { get; set; }
 } 

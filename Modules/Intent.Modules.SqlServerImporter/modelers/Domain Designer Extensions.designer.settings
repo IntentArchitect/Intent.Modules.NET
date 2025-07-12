@@ -301,7 +301,28 @@ class DatabaseImportStrategy {
                             openFileOptions: {
                                 fileFilters: [{ name: "JSON", extensions: ["json"] }]
                             },
-                            onChange: (form) =&gt; {
+                            onChange: async (form) =&gt; {
+                                var _a, _b;
+                                const selectedFilePath = form.getField("importFilterFilePath").value;
+                                if (!selectedFilePath) {
+                                    return;
+                                }
+                                try {
+                                    // Use the new PathResolution task to resolve the path
+                                    const pathResolutionModel = {
+                                        selectedFilePath: selectedFilePath,
+                                        applicationId: application.id,
+                                        packageId: packageId
+                                    };
+                                    const pathResolutionResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.PathResolution", pathResolutionModel);
+                                    if (((_a = pathResolutionResult.errors) !== null &amp;&amp; _a !== void 0 ? _a : []).length === 0 &amp;&amp; ((_b = pathResolutionResult.result) === null || _b === void 0 ? void 0 : _b.resolvedPath)) {
+                                        form.getField("importFilterFilePath").value = pathResolutionResult.result.resolvedPath;
+                                    }
+                                }
+                                catch (error) {
+                                    console.warn("Error processing file path for relative conversion:", error);
+                                    // On error, keep the original absolute path
+                                }
                             }
                         },
                         {
@@ -358,29 +379,23 @@ class DatabaseImportStrategy {
         return importConfig;
     }
     async presentManageFiltersDialog(connectionString, packageId, importFilterFilePath) {
-        var _a, _b;
+        var _a;
         try {
             const metadata = await this.fetchDatabaseMetadata(connectionString);
             if (!metadata) {
                 return;
             }
-            // Get package location for relative path resolution
-            const packageLocationModel = {
-                applicationId: application.id,
-                packageId: packageId
-            };
-            const packageLocationResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.PackageLocationGet", packageLocationModel);
-            const packageFileName = ((_a = packageLocationResult.result) === null || _a === void 0 ? void 0 : _a.PackageDirectory) || null;
             // Load existing filter data if file path exists
             let existingFilter = null;
             if (importFilterFilePath) {
                 try {
                     const filterLoadModel = {
                         importFilterFilePath: importFilterFilePath,
-                        packageFileName: packageFileName
+                        applicationId: application.id,
+                        packageId: packageId
                     };
                     const filterLoadResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.FilterLoad", filterLoadModel);
-                    if (((_b = filterLoadResult.errors) !== null &amp;&amp; _b !== void 0 ? _b : []).length === 0 &amp;&amp; filterLoadResult.result) {
+                    if (((_a = filterLoadResult.errors) !== null &amp;&amp; _a !== void 0 ? _a : []).length === 0 &amp;&amp; filterLoadResult.result) {
                         existingFilter = filterLoadResult.result;
                     }
                 }
@@ -520,7 +535,7 @@ class DatabaseImportStrategy {
                 const result = await dialogService.openForm(formConfig);
                 if (result) {
                     // Handle the save operation when dialog is closed with OK
-                    await this.saveFilterData(result, packageId, importFilterFilePath, packageFileName);
+                    await this.saveFilterData(result, packageId, importFilterFilePath);
                 }
             }
             catch (error) {
@@ -659,7 +674,7 @@ class DatabaseImportStrategy {
             }
         }
     }
-    async saveFilterData(formResult, packageId, importFilterFilePath, packageFileName) {
+    async saveFilterData(formResult, packageId, importFilterFilePath) {
         var _a;
         try {
             // Extract selections from form result
@@ -774,7 +789,8 @@ class DatabaseImportStrategy {
             // Save the filter data
             const saveModel = {
                 importFilterFilePath: savePath,
-                packageFileName: packageFileName,
+                applicationId: application.id,
+                packageId: packageId,
                 filterData: filterModel
             };
             const saveResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.FilterSave", saveModel);

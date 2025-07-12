@@ -54,7 +54,7 @@ public abstract class ModuleTaskSingleInputBase<TInputModel> : IModuleTask
         }
     }
 
-    protected abstract ValidationResult ValidateInputModel(TInputModel importModel);
+    protected abstract ValidationResult ValidateInputModel(TInputModel inputModel);
     protected abstract ExecuteResult ExecuteModuleTask(TInputModel importModel);
     
     protected record ValidationResult

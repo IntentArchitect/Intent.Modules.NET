@@ -20,18 +20,11 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
     public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.DatabaseImport";
     public override string TaskTypeName => "SqlServer Database Import";
 
-    protected override ValidationResult ValidateInputModel(DatabaseImportModel importModel)
+    protected override ValidationResult ValidateInputModel(DatabaseImportModel inputModel)
     {
-        var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
-        if (designer == null)
+        if (!_metadataManager.TryGetApplicationPackage(inputModel.ApplicationId, inputModel.PackageId, out _, out var errorMessage))
         {
-            return ValidationResult.ErrorResult("Unable to find domain designer in application");
-        }
-
-        var package = designer.Packages.FirstOrDefault(p => p.Id == importModel.PackageId);
-        if (package == null)
-        {
-            return ValidationResult.ErrorResult($"Unable to find package with Id : {importModel.PackageId}");
+            return ValidationResult.ErrorResult(errorMessage);
         }
 
         return ValidationResult.SuccessResult();
@@ -82,18 +75,19 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
         return executionResult;
     }
 
-    private void PrepareInputModel(DatabaseImportModel importModel)
+    private void PrepareInputModel(DatabaseImportModel inputModel)
     {
-        // After validation, we can safely assume the following lookups:
-        var designer = _metadataManager.GetDesigner(importModel.ApplicationId, "Domain");
-        var package = designer.Packages.First(p => p.Id == importModel.PackageId);
+        if (!_metadataManager.TryGetApplicationPackage(inputModel.ApplicationId, inputModel.PackageId, out var package, out _))
+        {
+            return;
+        }
 
         // Required for the underlying CLI tool
-        importModel.PackageFileName = package.FileLocation;
+        inputModel.PackageFileName = package.FileLocation;
 
-        if (string.IsNullOrWhiteSpace(importModel.StoredProcedureType))
+        if (string.IsNullOrWhiteSpace(inputModel.StoredProcedureType))
         {
-            importModel.StoredProcedureType = "Default";
+            inputModel.StoredProcedureType = "Default";
         }
     }
 }

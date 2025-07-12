@@ -13,9 +13,9 @@ public class DatabaseMetadataExtract : ModuleTaskSingleInputBase<DatabaseMetadat
     public override string TaskTypeId => "Intent.Modules.SqlServerImporter.Tasks.DatabaseMetadataExtract";
     public override string TaskTypeName => "SqlServer Database Metadata Extract";
 
-    protected override ValidationResult ValidateInputModel(DatabaseMetadataInputModel importModel)
+    protected override ValidationResult ValidateInputModel(DatabaseMetadataInputModel inputModel)
     {
-        if (string.IsNullOrWhiteSpace(importModel.ConnectionString))
+        if (string.IsNullOrWhiteSpace(inputModel.ConnectionString))
         {
             return ValidationResult.ErrorResult("Connection string is required");
         }

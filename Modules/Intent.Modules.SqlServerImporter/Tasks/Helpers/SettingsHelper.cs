@@ -8,7 +8,7 @@ using Microsoft.Data.SqlClient;
 
 namespace Intent.Modules.SqlServerImporter.Tasks.Helpers;
 
-public static class SettingsHelper
+internal static class SettingsHelper
 {
     public static void PersistSettings(DatabaseImportModel importModel)
     {
