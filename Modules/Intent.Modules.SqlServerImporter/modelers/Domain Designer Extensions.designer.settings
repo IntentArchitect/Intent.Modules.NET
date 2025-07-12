@@ -358,22 +358,29 @@ class DatabaseImportStrategy {
         return importConfig;
     }
     async presentManageFiltersDialog(connectionString, packageId, importFilterFilePath) {
-        var _a;
+        var _a, _b;
         try {
             const metadata = await this.fetchDatabaseMetadata(connectionString);
             if (!metadata) {
                 return;
             }
+            // Get package location for relative path resolution
+            const packageLocationModel = {
+                applicationId: application.id,
+                packageId: packageId
+            };
+            const packageLocationResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.PackageLocationGet", packageLocationModel);
+            const packageFileName = ((_a = packageLocationResult.result) === null || _a === void 0 ? void 0 : _a.PackageDirectory) || null;
             // Load existing filter data if file path exists
             let existingFilter = null;
             if (importFilterFilePath) {
                 try {
                     const filterLoadModel = {
                         importFilterFilePath: importFilterFilePath,
-                        packageFileName: null // Will be resolved by the backend
+                        packageFileName: packageFileName
                     };
                     const filterLoadResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.FilterLoad", filterLoadModel);
-                    if (((_a = filterLoadResult.errors) !== null &amp;&amp; _a !== void 0 ? _a : []).length === 0 &amp;&amp; filterLoadResult.result) {
+                    if (((_b = filterLoadResult.errors) !== null &amp;&amp; _b !== void 0 ? _b : []).length === 0 &amp;&amp; filterLoadResult.result) {
                         existingFilter = filterLoadResult.result;
                     }
                 }
@@ -513,7 +520,7 @@ class DatabaseImportStrategy {
                 const result = await dialogService.openForm(formConfig);
                 if (result) {
                     // Handle the save operation when dialog is closed with OK
-                    await this.saveFilterData(result, packageId, importFilterFilePath);
+                    await this.saveFilterData(result, packageId, importFilterFilePath, packageFileName);
                 }
             }
             catch (error) {
@@ -540,7 +547,7 @@ class DatabaseImportStrategy {
         }
         return metadata;
     }
-    createSchemaTreeNodes(schemaName, metadata, existingFilter = null, filterType = "include") {
+    createSchemaTreeNodes(schemaName, metadata, existingFilter = null, filterType) {
         var _a, _b, _c;
         const nodes = [];
         if ((_a = metadata.tables[schemaName]) === null || _a === void 0 ? void 0 : _a.some(x =&gt; x)) {
@@ -554,12 +561,13 @@ class DatabaseImportStrategy {
         }
         return nodes;
     }
-    createCategoryNode(schemaName, category, label, specializationId, icon, items, existingFilter = null, filterType = "include") {
+    createCategoryNode(schemaName, category, label, specializationId, icon, items, existingFilter = null, filterType) {
         return {
             id: `${schemaName}.${category}`,
             label: label,
             specializationId: specializationId,
             icon: icon,
+            isSelected: this.isCategorySelected(category, existingFilter, filterType),
             children: items.map(item =&gt; ({
                 id: `${schemaName}.${category}.${item}`,
                 label: item,
@@ -585,10 +593,40 @@ class DatabaseImportStrategy {
             return false;
         }
         // Check if any tables, views, or stored procedures from this schema are in exclude lists
-        const excludedTables = (_b = (_a = existingFilter.excludeTables) === null || _a === void 0 ? void 0 : _a.some(table =&gt; table.startsWith(`${schemaName}.`))) !== null &amp;&amp; _b !== void 0 ? _b : false;
-        const excludedViews = (_d = (_c = existingFilter.excludeViews) === null || _c === void 0 ? void 0 : _c.some(view =&gt; view.startsWith(`${schemaName}.`))) !== null &amp;&amp; _d !== void 0 ? _d : false;
-        const excludedStoredProcs = (_f = (_e = existingFilter.excludeStoredProcedures) === null || _e === void 0 ? void 0 : _e.some(sp =&gt; sp.startsWith(`${schemaName}.`))) !== null &amp;&amp; _f !== void 0 ? _f : false;
+        const excludedTables = (_b = (_a = existingFilter.exclude_tables) === null || _a === void 0 ? void 0 : _a.some(table =&gt; table.startsWith(`${schemaName}.`))) !== null &amp;&amp; _b !== void 0 ? _b : false;
+        const excludedViews = (_d = (_c = existingFilter.exclude_views) === null || _c === void 0 ? void 0 : _c.some(view =&gt; view.startsWith(`${schemaName}.`))) !== null &amp;&amp; _d !== void 0 ? _d : false;
+        const excludedStoredProcs = (_f = (_e = existingFilter.exclude_stored_procedures) === null || _e === void 0 ? void 0 : _e.some(sp =&gt; sp.startsWith(`${schemaName}.`))) !== null &amp;&amp; _f !== void 0 ? _f : false;
         return excludedTables || excludedViews || excludedStoredProcs;
+    }
+    isCategorySelected(category, existingFilter, filterType) {
+        var _a, _b, _c, _d, _e, _f;
+        if (!existingFilter) {
+            return false;
+        }
+        if (filterType === "include") {
+            switch (category) {
+                case "tables":
+                    return ((_a = existingFilter.include_tables) === null || _a === void 0 ? void 0 : _a.length) &gt; 0;
+                case "views":
+                    return ((_b = existingFilter.include_views) === null || _b === void 0 ? void 0 : _b.length) &gt; 0;
+                case "storedProcedures":
+                    return ((_c = existingFilter.include_stored_procedures) === null || _c === void 0 ? void 0 : _c.length) &gt; 0;
+                default:
+                    return false;
+            }
+        }
+        else {
+            switch (category) {
+                case "tables":
+                    return ((_d = existingFilter.exclude_tables) === null || _d === void 0 ? void 0 : _d.length) &gt; 0;
+                case "views":
+                    return ((_e = existingFilter.exclude_views) === null || _e === void 0 ? void 0 : _e.length) &gt; 0;
+                case "storedProcedures":
+                    return ((_f = existingFilter.exclude_stored_procedures) === null || _f === void 0 ? void 0 : _f.length) &gt; 0;
+                default:
+                    return false;
+            }
+        }
     }
     isItemSelected(schemaName, category, item, existingFilter, filterType) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
@@ -599,11 +637,11 @@ class DatabaseImportStrategy {
         if (filterType === "include") {
             switch (category) {
                 case "tables":
-                    return (_b = (_a = existingFilter.includeTables) === null || _a === void 0 ? void 0 : _a.some(table =&gt; table.name === fullItemName)) !== null &amp;&amp; _b !== void 0 ? _b : false;
+                    return (_b = (_a = existingFilter.include_tables) === null || _a === void 0 ? void 0 : _a.some(table =&gt; table.name === fullItemName)) !== null &amp;&amp; _b !== void 0 ? _b : false;
                 case "views":
-                    return (_d = (_c = existingFilter.includeViews) === null || _c === void 0 ? void 0 : _c.some(view =&gt; view.name === fullItemName)) !== null &amp;&amp; _d !== void 0 ? _d : false;
+                    return (_d = (_c = existingFilter.include_views) === null || _c === void 0 ? void 0 : _c.some(view =&gt; view.name === fullItemName)) !== null &amp;&amp; _d !== void 0 ? _d : false;
                 case "storedProcedures":
-                    return (_f = (_e = existingFilter.includeStoredProcedures) === null || _e === void 0 ? void 0 : _e.includes(fullItemName)) !== null &amp;&amp; _f !== void 0 ? _f : false;
+                    return (_f = (_e = existingFilter.include_stored_procedures) === null || _e === void 0 ? void 0 : _e.includes(fullItemName)) !== null &amp;&amp; _f !== void 0 ? _f : false;
                 default:
                     return false;
             }
@@ -611,17 +649,17 @@ class DatabaseImportStrategy {
         else {
             switch (category) {
                 case "tables":
-                    return (_h = (_g = existingFilter.excludeTables) === null || _g === void 0 ? void 0 : _g.includes(fullItemName)) !== null &amp;&amp; _h !== void 0 ? _h : false;
+                    return (_h = (_g = existingFilter.exclude_tables) === null || _g === void 0 ? void 0 : _g.includes(fullItemName)) !== null &amp;&amp; _h !== void 0 ? _h : false;
                 case "views":
-                    return (_k = (_j = existingFilter.excludeViews) === null || _j === void 0 ? void 0 : _j.includes(fullItemName)) !== null &amp;&amp; _k !== void 0 ? _k : false;
+                    return (_k = (_j = existingFilter.exclude_views) === null || _j === void 0 ? void 0 : _j.includes(fullItemName)) !== null &amp;&amp; _k !== void 0 ? _k : false;
                 case "storedProcedures":
-                    return (_m = (_l = existingFilter.excludeStoredProcedures) === null || _l === void 0 ? void 0 : _l.includes(fullItemName)) !== null &amp;&amp; _m !== void 0 ? _m : false;
+                    return (_m = (_l = existingFilter.exclude_stored_procedures) === null || _l === void 0 ? void 0 : _l.includes(fullItemName)) !== null &amp;&amp; _m !== void 0 ? _m : false;
                 default:
                     return false;
             }
         }
     }
-    async saveFilterData(formResult, packageId, importFilterFilePath) {
+    async saveFilterData(formResult, packageId, importFilterFilePath, packageFileName) {
         var _a;
         try {
             // Extract selections from form result
@@ -630,12 +668,12 @@ class DatabaseImportStrategy {
             // Create filter model from selections
             const filterModel = {
                 schemas: [],
-                includeTables: [],
-                includeViews: [],
-                includeStoredProcedures: [],
-                excludeTables: [],
-                excludeViews: [],
-                excludeStoredProcedures: []
+                include_tables: [],
+                include_views: [],
+                include_stored_procedures: [],
+                exclude_tables: [],
+                exclude_views: [],
+                exclude_stored_procedures: []
             };
             // Process inclusive selections
             inclusiveSelections.forEach((selection) =&gt; {
@@ -644,31 +682,69 @@ class DatabaseImportStrategy {
                     filterModel.schemas.push(schemaName);
                 }
                 else if (selection.includes('.tables.')) {
-                    const tableName = selection.replace(/.*\.tables\./, '');
-                    filterModel.includeTables.push({ name: tableName, excludeColumns: [] });
+                    // Extract schema and table name from ID like "schema.tables.tableName"
+                    const parts = selection.split('.');
+                    console.log(`INCLUDE ${selection} =&gt; ${JSON.stringify(parts)}`);
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const tableName = parts[2];
+                        const fullTableName = `${schemaName}.${tableName}`;
+                        const filterTableModel = { name: fullTableName, exclude_columns: [] };
+                        filterModel.include_tables.push(filterTableModel);
+                    }
                 }
                 else if (selection.includes('.views.')) {
-                    const viewName = selection.replace(/.*\.views\./, '');
-                    filterModel.includeViews.push({ name: viewName, excludeColumns: [] });
+                    // Extract schema and view name from ID like "schema.views.viewName"
+                    const parts = selection.split('.');
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const viewName = parts[2];
+                        const fullViewName = `${schemaName}.${viewName}`;
+                        filterModel.include_views.push({ name: fullViewName, exclude_columns: [] });
+                    }
                 }
                 else if (selection.includes('.storedProcedures.')) {
-                    const spName = selection.replace(/.*\.storedProcedures\./, '');
-                    filterModel.includeStoredProcedures.push(spName);
+                    // Extract schema and stored procedure name from ID like "schema.storedProcedures.spName"
+                    const parts = selection.split('.');
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const spName = parts[2];
+                        const fullSpName = `${schemaName}.${spName}`;
+                        filterModel.include_stored_procedures.push(fullSpName);
+                    }
                 }
             });
             // Process exclusive selections
             exclusiveSelections.forEach((selection) =&gt; {
                 if (selection.includes('.tables.')) {
-                    const tableName = selection.replace(/.*\.tables\./, '');
-                    filterModel.excludeTables.push(tableName);
+                    // Extract schema and table name from ID like "schema.tables.tableName"
+                    const parts = selection.split('.');
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const tableName = parts[2];
+                        const fullTableName = `${schemaName}.${tableName}`;
+                        filterModel.exclude_tables.push(fullTableName);
+                    }
                 }
                 else if (selection.includes('.views.')) {
-                    const viewName = selection.replace(/.*\.views\./, '');
-                    filterModel.excludeViews.push(viewName);
+                    // Extract schema and view name from ID like "schema.views.viewName"
+                    const parts = selection.split('.');
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const viewName = parts[2];
+                        const fullViewName = `${schemaName}.${viewName}`;
+                        filterModel.exclude_views.push(fullViewName);
+                    }
                 }
                 else if (selection.includes('.storedProcedures.')) {
-                    const spName = selection.replace(/.*\.storedProcedures\./, '');
-                    filterModel.excludeStoredProcedures.push(spName);
+                    // Extract schema and stored procedure name from ID like "schema.storedProcedures.spName"
+                    const parts = selection.split('.');
+                    if (parts.length &gt;= 3) {
+                        const schemaName = parts[0];
+                        const spName = parts[2];
+                        const fullSpName = `${schemaName}.${spName}`;
+                        filterModel.exclude_stored_procedures.push(fullSpName);
+                    }
                 }
             });
             // Determine save path
@@ -698,7 +774,7 @@ class DatabaseImportStrategy {
             // Save the filter data
             const saveModel = {
                 importFilterFilePath: savePath,
-                packageFileName: null,
+                packageFileName: packageFileName,
                 filterData: filterModel
             };
             const saveResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.FilterSave", saveModel);

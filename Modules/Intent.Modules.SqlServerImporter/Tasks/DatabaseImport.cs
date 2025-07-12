@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text;
 using System.Text.Json;
 using Intent.Engine;
 using Intent.Modules.Common.Templates;
@@ -44,20 +45,34 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
 
         var sqlImportSettings = JsonSerializer.Serialize(importModel).Replace("\"", "\\\"");
 
+        var errorMessage = new StringBuilder();
         SqlSchemaExtractorRunner.Run($@"--serialized-config ""{sqlImportSettings}""", (output, process) =>
         {
             if (output.Data?.Trim().StartsWith("Error:") == true)
             {
                 var error = output.Data.Trim().RemovePrefix("Error:");
-                executionResult.Errors.Add(error);
-                process.Kill(true);
+                errorMessage.AppendLine(error);
             }
             else if (output.Data?.Trim().StartsWith("Warning:") == true)
             {
                 var warning = output.Data.Trim().RemovePrefix("Warning:");
                 executionResult.Warnings.Add(warning);
             }
+            else if (errorMessage.Length > 0)
+            {
+                if (output.Data.Trim().Equals("."))
+                {
+                    process.Kill(true);
+                    return;
+                }
+                errorMessage.AppendLine(output.Data);
+            }
         });
+
+        if (errorMessage.Length > 0)
+        {
+            executionResult.Errors.Add(errorMessage.ToString());
+        }
 
         if (executionResult.Errors.Count == 0)
         {
