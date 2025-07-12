@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 using Intent.Engine;
@@ -84,6 +85,15 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
 
         // Required for the underlying CLI tool
         inputModel.PackageFileName = package.FileLocation;
+        
+        if (!Path.IsPathRooted(inputModel.ImportFilterFilePath) && !string.IsNullOrWhiteSpace(package.FileLocation))
+        {
+            var packageDirectory = Path.GetDirectoryName(package.FileLocation);
+            if (!string.IsNullOrWhiteSpace(packageDirectory))
+            {
+                inputModel.ImportFilterFilePath = Path.Combine(packageDirectory, inputModel.ImportFilterFilePath);
+            }
+        }
 
         if (string.IsNullOrWhiteSpace(inputModel.StoredProcedureType))
         {
