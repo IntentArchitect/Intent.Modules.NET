@@ -1,3 +1,11 @@
+### Version 1.2.0
+
+- Improvement: Enhanced SQL Server import dialog with improved organization and user experience. The dialog now features collapsible sections: "Connection & Settings", "Import Options", and "Filtering", making it easier to navigate and configure import settings.
+- Improvement: Added visual "Manage Filters" dialog that allows users to interactively select which database objects (tables, views, stored procedures) to include or exclude from the import process through a hierarchical tree view.
+- Improvement: Enhanced filter file management with automatic path resolution and improved file browser integration for selecting JSON filter files.
+- Improvement: Added "Test Connection" button to validate database connectivity before proceeding with import operations.
+
+
 ### Version 1.1.7
 
 - Fixed: The importer would fail silently if you didn't have a particular older version of the .NET Runtime installed.
