@@ -6,6 +6,7 @@ using Intent.Engine;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.SqlServerImporter.Tasks.Helpers;
 using Intent.Modules.SqlServerImporter.Tasks.Models;
+using Intent.Utils;
 
 namespace Intent.Modules.SqlServerImporter.Tasks;
 
@@ -61,6 +62,10 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
                 }
                 errorMessage.AppendLine(output.Data);
             }
+            else if (output.Data is not null)
+            {
+                Logging.Log.Info(output.Data);
+            }
         });
 
         if (errorMessage.Length > 0)
@@ -83,17 +88,9 @@ public class DatabaseImport : ModuleTaskSingleInputBase<DatabaseImportModel>
             return;
         }
 
-        // Required for the underlying CLI tool
-        inputModel.PackageFileName = package.FileLocation;
+        // Making required changes for the underlying CLI tool
         
-        if (!Path.IsPathRooted(inputModel.ImportFilterFilePath) && !string.IsNullOrWhiteSpace(package.FileLocation))
-        {
-            var packageDirectory = Path.GetDirectoryName(package.FileLocation);
-            if (!string.IsNullOrWhiteSpace(packageDirectory))
-            {
-                inputModel.ImportFilterFilePath = Path.Combine(packageDirectory, inputModel.ImportFilterFilePath);
-            }
-        }
+        inputModel.PackageFileName = package.FileLocation;
 
         if (string.IsNullOrWhiteSpace(inputModel.StoredProcedureType))
         {

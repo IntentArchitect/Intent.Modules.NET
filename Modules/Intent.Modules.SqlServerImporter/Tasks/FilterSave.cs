@@ -53,7 +53,7 @@ public class FilterSave : ModuleTaskSingleInputBase<FilterSaveInputModel>
             var filePath = inputModel.ImportFilterFilePath;
             
             // Handle relative paths relative to package directory
-            if (!Path.IsPathRooted(filePath) && !string.IsNullOrWhiteSpace(package.FileLocation))
+            if (!string.IsNullOrWhiteSpace(filePath) && !Path.IsPathRooted(filePath))
             {
                 var packageDirectory = Path.GetDirectoryName(package.FileLocation);
                 if (!string.IsNullOrWhiteSpace(packageDirectory))

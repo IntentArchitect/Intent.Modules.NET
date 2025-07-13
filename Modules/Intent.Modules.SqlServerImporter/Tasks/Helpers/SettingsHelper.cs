@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.IArchitect.Agent.Persistence.Serialization;
@@ -12,6 +13,8 @@ internal static class SettingsHelper
 {
     public static void PersistSettings(DatabaseImportModel importModel)
     {
+        ArgumentNullException.ThrowIfNull(importModel);
+        
         Logging.Log.Info($"PackageFileName: {importModel.PackageFileName}");
         var package = LoadPackage(importModel.PackageFileName!);
         

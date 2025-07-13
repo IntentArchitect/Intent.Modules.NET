@@ -336,7 +336,10 @@ class DatabaseImportStrategy {
                                     return;
                                 }
                                 let importFilterFilePath = form.getField("importFilterFilePath").value;
-                                await this.presentManageFiltersDialog(connectionString, packageId, importFilterFilePath);
+                                let returnedImportFilterFilePath = await this.presentManageFiltersDialog(connectionString, packageId, importFilterFilePath);
+                                if (returnedImportFilterFilePath != null) {
+                                    form.getField("importFilterFilePath").value = returnedImportFilterFilePath;
+                                }
                             }
                         }
                     ],
@@ -383,7 +386,7 @@ class DatabaseImportStrategy {
         try {
             const metadata = await this.fetchDatabaseMetadata(connectionString);
             if (!metadata) {
-                return;
+                return null;
             }
             // Load existing filter data if file path exists
             let existingFilter = null;
@@ -535,16 +538,22 @@ class DatabaseImportStrategy {
                 const result = await dialogService.openForm(formConfig);
                 if (result) {
                     // Handle the save operation when dialog is closed with OK
-                    await this.saveFilterData(result, packageId, importFilterFilePath);
+                    let returnedImportFilterFilePath = await this.saveFilterData(result, packageId, importFilterFilePath);
+                    if (returnedImportFilterFilePath != null) {
+                        return returnedImportFilterFilePath;
+                    }
                 }
             }
             catch (error) {
                 console.error("Error in filter selection dialog:", error);
+                return null;
             }
         }
         catch (error) {
             await dialogService.error(`Error loading database metadata: ${error}`);
+            return null;
         }
+        return importFilterFilePath;
     }
     async fetchDatabaseMetadata(connectionString) {
         var _a;
@@ -781,7 +790,7 @@ class DatabaseImportStrategy {
                 };
                 const fileNameResult = await dialogService.openForm(fileNameConfig);
                 if (!fileNameResult || !fileNameResult.fileName) {
-                    return;
+                    return null;
                 }
                 // Note: Package directory resolution will be handled by the backend
                 savePath = fileNameResult.fileName;
@@ -796,13 +805,16 @@ class DatabaseImportStrategy {
             const saveResult = await executeImporterModuleTask("Intent.Modules.SqlServerImporter.Tasks.FilterSave", saveModel);
             if (((_a = saveResult.errors) !== null &amp;&amp; _a !== void 0 ? _a : []).length &gt; 0) {
                 await displayExecutionResultErrors(saveResult);
+                return null;
             }
             else {
                 await dialogService.info("Filters saved successfully.");
             }
+            return savePath;
         }
         catch (error) {
             await dialogService.error(`Error saving filters: ${error}`);
+            return null;
         }
     }
 }

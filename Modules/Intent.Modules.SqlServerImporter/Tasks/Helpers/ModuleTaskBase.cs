@@ -50,6 +50,7 @@ public abstract class ModuleTaskSingleInputBase<TInputModel> : IModuleTask
         }
         catch (Exception e)
         {
+            Logging.Log.Failure(e);
             return Fail(e.GetBaseException().Message);
         }
     }
