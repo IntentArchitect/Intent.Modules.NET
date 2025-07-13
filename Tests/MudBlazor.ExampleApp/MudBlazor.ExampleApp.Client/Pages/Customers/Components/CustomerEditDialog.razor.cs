@@ -17,11 +17,11 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         public Guid CustomerId { get; set; }
         public CustomerDto? Model { get; set; }
         [Inject]
+        public ICustomersService CustomersService { get; set; } = default!;
+        [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         [Inject]
         public IDialogService DialogService { get; set; } = default!;
-        [Inject]
-        public ICustomersService Customers { get; set; } = default!;
         [CascadingParameter]
         public IMudDialogInstance Dialog { get; set; }
 
@@ -29,7 +29,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         {
             try
             {
-                Model = await Customers.GetCustomerByIdAsync(CustomerId);
+                Model = await CustomersService.GetCustomerByIdAsync(CustomerId);
             }
             catch (Exception e)
             {
@@ -48,7 +48,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await Customers.UpdateCustomerAsync(new UpdateCustomerCommand
+                await CustomersService.UpdateCustomerAsync(new UpdateCustomerCommand
                 {
                     Id = CustomerId,
                     Name = Model.Name,
@@ -97,7 +97,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await Customers.DeleteCustomerAsync(CustomerId);
+                await CustomersService.DeleteCustomerAsync(CustomerId);
                 Dialog.Close(true);
             }
             catch (Exception e)

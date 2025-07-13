@@ -14,7 +14,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
         private bool _onSaveClickedProcessing = false;
         public CustomerDto Model { get; set; } = new();
         [Inject]
-        public ICustomersService Customers { get; set; } = default!;
+        public ICustomersService CustomersService { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
         [CascadingParameter]
@@ -30,7 +30,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Customers.Components
                 {
                     return;
                 }
-                await Customers.CreateCustomerAsync(new CreateCustomerCommand
+                await CustomersService.CreateCustomerAsync(new CreateCustomerCommand
                 {
                     Name = Model.Name,
                     AccountNo = Model.AccountNo,

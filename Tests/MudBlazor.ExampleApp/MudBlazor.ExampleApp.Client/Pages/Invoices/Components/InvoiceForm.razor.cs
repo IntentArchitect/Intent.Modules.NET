@@ -26,9 +26,9 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         [Parameter]
         public EventCallback CancelClicked { get; set; }
         [Inject]
-        public IProductsService ProductsService { get; set; } = default!;
+        public ICustomersService CustomersService { get; set; } = default!;
         [Inject]
-        public ICustomersService Customers { get; set; } = default!;
+        public IProductsService ProductsService { get; set; } = default!;
         [Inject]
         public ISnackbar Snackbar { get; set; } = default!;
 
@@ -36,7 +36,7 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
         {
             try
             {
-                CustomerOptions = await Customers.GetCustomersLookupAsync();
+                CustomerOptions = await CustomersService.GetCustomersLookupAsync();
                 ProductOptions = await ProductsService.GetProductsLookupAsync();
             }
             catch (Exception e)
