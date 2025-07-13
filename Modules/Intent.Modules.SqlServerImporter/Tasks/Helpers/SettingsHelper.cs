@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.IArchitect.Agent.Persistence.Serialization;
@@ -8,10 +9,12 @@ using Microsoft.Data.SqlClient;
 
 namespace Intent.Modules.SqlServerImporter.Tasks.Helpers;
 
-public static class SettingsHelper
+internal static class SettingsHelper
 {
     public static void PersistSettings(DatabaseImportModel importModel)
     {
+        ArgumentNullException.ThrowIfNull(importModel);
+        
         Logging.Log.Info($"PackageFileName: {importModel.PackageFileName}");
         var package = LoadPackage(importModel.PackageFileName!);
         
@@ -118,6 +121,11 @@ public static class SettingsHelper
             else
             {
                 package.AddMetadata("sql-import-repository:connectionString", connectionString);
+            }
+
+            if (settings.SettingPersistence == RepositorySettingPersistence.InheritDb)
+            {
+                package.RemoveMetadata("sql-import-repository:connectionString");
             }
         }
     }
