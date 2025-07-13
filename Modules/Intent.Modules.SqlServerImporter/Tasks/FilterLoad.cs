@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 using Intent.Engine;
@@ -71,10 +72,7 @@ public class FilterLoad : ModuleTaskSingleInputBase<FilterLoadInputModel>
                 return executionResult;
             }
 
-            var filterModel = JsonSerializer.Deserialize<ImportFilterModel>(jsonContent, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
+            var filterModel = JsonSerializer.Deserialize<ImportFilterModel>(jsonContent);
 
             executionResult.ResultModel = filterModel ?? new ImportFilterModel();
         }

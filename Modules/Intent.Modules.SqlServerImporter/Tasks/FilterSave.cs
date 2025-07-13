@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Intent.Engine;
 using Intent.Modules.SqlServerImporter.Tasks.Helpers;
 using Intent.Modules.SqlServerImporter.Tasks.Models;
@@ -72,7 +73,7 @@ public class FilterSave : ModuleTaskSingleInputBase<FilterSaveInputModel>
             var jsonContent = JsonSerializer.Serialize(inputModel.FilterData, new JsonSerializerOptions
             {
                 WriteIndented = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                DefaultIgnoreCondition = JsonIgnoreCondition.Never
             });
 
             File.WriteAllText(filePath, jsonContent);

@@ -681,11 +681,14 @@ class DatabaseImportStrategy {
             const filterModel = {
                 schemas: [],
                 include_tables: [],
+                include_dependant_tables: false,
                 include_views: [],
-                include_stored_procedures: [],
                 exclude_tables: [],
                 exclude_views: [],
-                exclude_stored_procedures: []
+                include_stored_procedures: [],
+                exclude_stored_procedures: [],
+                exclude_table_columns: [],
+                exclude_view_columns: []
             };
             // Process inclusive selections
             inclusiveSelections.forEach((selection) =&gt; {
