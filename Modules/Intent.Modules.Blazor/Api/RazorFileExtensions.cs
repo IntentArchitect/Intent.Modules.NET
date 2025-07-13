@@ -9,6 +9,7 @@ using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
+using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
 using Intent.Templates;
 
@@ -44,18 +45,20 @@ public static class RazorFileExtensions
         }
     }
 
-    public static void InjectServiceProperty(this IBuildsCSharpMembers block, string fullyQualifiedTypeName, string? propertyName = null)
+    public static string InjectServiceProperty(this IBuildsCSharpMembers block, string fullyQualifiedTypeName, string? propertyName = null)
     {
+        var type = block.Template.UseType(fullyQualifiedTypeName);
+        propertyName ??= type.Length > 2 && type[0] == 'I' && char.IsUpper(type[1]) ? type[1..] : type; // remove 'I' prefix if necessary.
+
         if (block is IRazorCodeBlock razorCodeBlock)
         {
             razorCodeBlock.RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
         }
         else if (block is ICSharpClass @class)
         {
-            var type = block.Template.UseType(fullyQualifiedTypeName);
             if (@class.Properties.Any(x => x.Type == type))
             {
-                return;
+                return propertyName;
             }
             @class.AddProperty(
                 type: type,
@@ -66,6 +69,7 @@ public static class RazorFileExtensions
                     property.WithInitialValue("default!");
                 });
         }
+        return propertyName;
     }
 
     public static void AddCodeBlockMembers(this IBuildsCSharpMembers block, IRazorComponentTemplate template, IElement componentElement)
@@ -181,9 +185,8 @@ public static class RazorFileExtensions
                             {
                                 var serviceCall = action.AsCallServiceOperationActionTargetEndModel();
                                 var parentElement = ((IElement)serviceCall.Element).ParentElement;
-                                var serviceName = parentElement.Name.ToPropertyName();
 
-                                block.InjectServiceProperty(block.Template.GetTypeName(parentElement), serviceName);
+                                var serviceName = block.InjectServiceProperty(block.Template.GetTypeName(parentElement));
                                 var invocationMapping = serviceCall.GetMapInvocationMapping();
 
                                 const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
@@ -273,8 +276,8 @@ public static class RazorFileExtensions
                                     }
                                 }
 
-                                block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
-                                method.AddStatement($"NavigationManager.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
+                                var serviceName = block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
+                                method.AddStatement($"{serviceName}.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
                                 continue;
                             }
 
@@ -308,12 +311,12 @@ public static class RazorFileExtensions
                                     .AddArgument("new DialogOptions() { FullWidth = true }"))));
                                 method.AddStatement(new CSharpAssignmentStatement("var result", new CSharpAwaitExpression(new CSharpStatement($"dialog.Result;"))));
                                 method.AddStatement(new CSharpIfStatement("result.Canceled").AddStatement("return;"));
-                                
+
                                 const string StaticMappableResponseId = "f815a2ce-59e4-4e53-bea1-dd4ba46a8b7a";
-                                
+
                                 mappingManager.SetFromReplacement(navigationModel, null);
                                 mappingManager.SetFromReplacement(new StaticMetadata(StaticMappableResponseId), "result.Data");
-                                
+
                                 continue;
                             }
                         }
@@ -439,7 +442,7 @@ public static class RazorFileExtensions
     {
         if (mappingEnds.Any())
         {
-            var route = new RouteManager(mappingEnds[0].SourcePath != null 
+            var route = new RouteManager(mappingEnds[0].SourcePath != null
                 ? $"{mappingEnds[0].SourcePath.Last().Element.AsNavigationTargetEndModel().TypeReference.Element.AsComponentModel().GetPage().Route()}"
                 : mappingEnds[0].MappingExpression);
             var complexRoute = false;

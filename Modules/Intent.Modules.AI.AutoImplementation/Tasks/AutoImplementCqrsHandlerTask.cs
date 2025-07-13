@@ -81,9 +81,9 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         return "success";
     }
 
-    private static KernelFunction CreatePromptFunction(Kernel kernel)
+    private KernelFunction CreatePromptFunction(Kernel kernel)
     {
-	    const string promptTemplate =
+        const string promptTemplate =
             """
 		    ## Role and Context
 		    You are a senior C# developer specializing in clean architecture with Entity Framework Core. You're implementing business logic in a system that strictly follows the repository pattern.
@@ -100,6 +100,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		       - Implement the method in the corresponding concrete repository class
 		       - Apply `[IntentIgnore]` attribute to both declaration and implementation
 		       - Then call this method from your handler
+		       - Utilize the Entity Framework Core Linq queries to fetch out data in a way this performant and readable.
 		    5. Repository methods cannot return DTOs and must define their own data contracts alongside the interface if needed. If a new data contract is defined, then add the [IntentIgnore] attribute over the class.
 
 		    ## Implementation Process
