@@ -1,3 +1,7 @@
+### Version 4.3.7
+
+- Improvement: SQL Lite ambient transaction suppression.
+
 ### Version 4.3.6
 
 - Improvement: Locked MediatR NuGet package version

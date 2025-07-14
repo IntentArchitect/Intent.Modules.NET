@@ -1,3 +1,7 @@
+### Version 1.0.26
+
+- Improvement: Removed internal shared project reference.
+
 ### Version 1.0.25
 
 - Improvement: Updated NuGet package versions.

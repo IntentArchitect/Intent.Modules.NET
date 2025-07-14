@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: SQL Lite ambient transaction suppression.
+
 ### Version 1.1.1
 
 - Improvement: Updated referenced packages versions

@@ -1,3 +1,7 @@
+### Version 1.0.3
+
+- Improvement: SQL Lite ambient transaction suppression.
+
 ### Version 1.0.2
 
 - Fixed: Issue with unit of work not being correctly injected into the constructor

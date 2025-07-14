@@ -134,6 +134,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="4e14f73f-3f86-4f56-a7f0-5c4a03623bbf" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SQL Lite</name>
+          <display>SQL Lite = sql-lite</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-lite</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
     <childElement id="49b09c68-e86a-4e15-96ab-cd482168ef22" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">

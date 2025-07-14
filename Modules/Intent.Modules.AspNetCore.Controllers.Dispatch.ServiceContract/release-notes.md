@@ -1,3 +1,7 @@
+### Version 5.2.15
+
+- Improvement: SQL Lite ambient transaction suppression.
+
 ### Version 5.2.14
 
 - Improvement: Updated package references

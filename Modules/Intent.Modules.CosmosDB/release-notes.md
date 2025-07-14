@@ -1,5 +1,9 @@
 ### Version 1.2.18
 
+- Improvement: Removed internal unused shared project.
+
+### Version 1.2.18
+
 - Improvement: Updated NuGet package versions.
 
 ### Version 1.2.17

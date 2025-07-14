@@ -17,6 +17,7 @@ namespace Intent.Modules.EntityFrameworkCore
         public const string MicrosoftEntityFrameworkCoreDesignPackageName = "Microsoft.EntityFrameworkCore.Design";
         public const string MicrosoftEntityFrameworkCoreInMemoryPackageName = "Microsoft.EntityFrameworkCore.InMemory";
         public const string MicrosoftEntityFrameworkCoreProxiesPackageName = "Microsoft.EntityFrameworkCore.Proxies";
+        public const string MicrosoftEntityFrameworkCoreSqlitePackageName = "Microsoft.EntityFrameworkCore.Sqlite";
         public const string MicrosoftEntityFrameworkCoreSqlServerPackageName = "Microsoft.EntityFrameworkCore.SqlServer";
         public const string MicrosoftEntityFrameworkCoreSqlServerNetTopologySuitePackageName = "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite";
         public const string MicrosoftEntityFrameworkCoreToolsPackageName = "Microsoft.EntityFrameworkCore.Tools";
@@ -170,6 +171,23 @@ namespace Intent.Modules.EntityFrameworkCore
                             .WithNugetDependency("Castle.Core", "4.4.0")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore", "3.1.32"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreProxiesPackageName}'"),
+                    }
+                );
+            NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlitePackageName,
+                (framework) => (framework.Major, framework.Minor) switch
+                    {
+                        ( >= 9, >= 0) => new PackageVersion("9.0.6", locked: true),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.17"),
+                        ( >= 6, >= 0) => new PackageVersion("7.0.20")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Core", "7.0.20")
+                            .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.1.4"),
+                        ( >= 2, >= 1) => new PackageVersion("5.0.17")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Core", "5.0.17")
+                            .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.0.4"),
+                        ( >= 2, >= 0) => new PackageVersion("3.1.32")
+                            .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Core", "3.1.32")
+                            .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.1.2"),
+                        _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftEntityFrameworkCoreSqlitePackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftEntityFrameworkCoreSqlServerPackageName,
@@ -383,6 +401,8 @@ namespace Intent.Modules.EntityFrameworkCore
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreCosmos(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftEntityFrameworkCoreCosmosPackageName, outputTarget.GetMaxNetAppVersion());
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreInMemory(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftEntityFrameworkCoreInMemoryPackageName, outputTarget.GetMaxNetAppVersion());
         public static NugetPackageInfo MicrosoftEntityFrameworkCoreProxies(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftEntityFrameworkCoreProxiesPackageName, outputTarget.GetMaxNetAppVersion());
+
+        public static NugetPackageInfo MicrosoftEntityFrameworkCoreSqlite(IOutputTarget outputTarget) => NugetRegistry.GetVersion(MicrosoftEntityFrameworkCoreSqlitePackageName, outputTarget.GetMaxNetAppVersion());
 
         public static NugetPackageInfo NpgsqlEntityFrameworkCorePostgreSQL(IOutputTarget outputTarget) => NugetRegistry.GetVersion(NpgsqlEntityFrameworkCorePostgreSQLPackageName, outputTarget.GetMaxNetAppVersion());
 

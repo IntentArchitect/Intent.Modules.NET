@@ -1,3 +1,7 @@
+### Version 5.0.26
+
+- Improvement: SQL Lite support.
+
 ### Version 5.0.25
 
 - Improvement: Added Validation when modeling composite entities with multiple owners.

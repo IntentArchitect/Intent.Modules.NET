@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.25-pre.2</version>
+  <version>5.0.26-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -130,6 +130,7 @@
             <option value="postgresql" description="PostgreSQL" />
             <option value="my-sql" description="MySQL" />
             <option value="oracle" description="Oracle" />
+            <option value="sql-lite" description="SQL Lite" />
           </options>
         </setting>
         <setting id="49b09c68-e86a-4e15-96ab-cd482168ef22" title="Table naming convention" type="select">

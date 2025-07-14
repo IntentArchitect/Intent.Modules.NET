@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Intent.Engine;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
@@ -392,6 +393,8 @@ internal static class PersistenceUnitOfWork
         if (template.GetTemplate<ICSharpTemplate>(TemplateRoles.Infrastructure.Data.DbContext, TemplateDiscoveryOptions) == null)
             return;
 
+        bool supportsAmbientTransactions = EFProviderSupportsAmbientTransactions(template);
+
         var shouldAddServiceResolution = false;
         var variableName = config.VariableOverrides.GetValueOrDefault(ChainEntityFramework, "unitOfWork");
 
@@ -419,8 +422,11 @@ internal static class PersistenceUnitOfWork
             {
                 currentBlock.AddStatement($"var {variableName} = {config.ServiceProviderVariableName}.GetRequiredService<{typeName}>();");
             }
-            
-            if (config is { AllowTransactionScope: true, IncludeComments: true })
+
+            var doingTransacion = config.AllowTransactionScope && supportsAmbientTransactions;
+
+
+            if (doingTransacion && config.IncludeComments)
             {
                 currentBlock.AddStatement(
                     """
@@ -434,7 +440,7 @@ internal static class PersistenceUnitOfWork
                     stmt => stmt.SeparatedFromPrevious());
             }
 
-            if (config.AllowTransactionScope)
+            if (doingTransacion)
             {
                 var transactionScope = template.UseType("System.Transactions.TransactionScope");
                 var transactionScopeOption = template.UseType("System.Transactions.TransactionScopeOption");
@@ -455,7 +461,7 @@ internal static class PersistenceUnitOfWork
 
             next(blockStack);
 
-            if (config is { AllowTransactionScope: true, IncludeComments: true })
+            if (doingTransacion && config.IncludeComments)
             {
                 currentBlock.AddStatement(
                     """
@@ -471,18 +477,34 @@ internal static class PersistenceUnitOfWork
                 $"await {fieldOrVariable}.SaveChangesAsync({config.CancellationTokenExpression});",
                 s => s.AddMetadata("transaction", "save-changes"));
 
-            if (config is { AllowTransactionScope: true, IncludeComments: true })
+            if (doingTransacion && config.IncludeComments)
             {
                 currentBlock.AddStatement("// Commit transaction if everything succeeds, transaction will auto-rollback when", stmt=>stmt.SeparatedFromPrevious());
                 currentBlock.AddStatement("// disposed if anything failed.");
             }
-            if (config.AllowTransactionScope)
+            if (doingTransacion)
             {
                 currentBlock.AddStatement("transaction.Complete();", s => s.AddMetadata("transaction", "complete"));
             }
         });
     }
-    
+
+    private static bool EFProviderSupportsAmbientTransactions(ICSharpFileBuilderTemplate template)
+    {
+        var databaseSettingGroup = template.ExecutionContext.GetSettings().GetGroup("ac0a788e-d8b3-4eea-b56d-538608f1ded9"); // Database Settings
+
+        if (databaseSettingGroup is null)
+        {
+            return true;
+        }
+        var provider = databaseSettingGroup.GetSetting("00bb780c-57bf-43c1-b952-303f11096be7")?.Value;// Database Provider
+        if (provider is null)
+        {
+            return true;
+        }
+        return  provider != "sql-lite";
+    }
+
     private static void SeparatedFromPrevious(CSharpStatement statement)
     {
         var index = statement.Parent.Statements.IndexOf(statement);
