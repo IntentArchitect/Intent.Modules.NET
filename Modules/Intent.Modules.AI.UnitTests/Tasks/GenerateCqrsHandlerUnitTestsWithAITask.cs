@@ -223,11 +223,11 @@ public class GenerateCqrsHandlerUnitTestsWithAITask : IModuleTask
         var queriedEntity = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
             .Select(x => x.TypeReference.Element.AsClassModel())
             .ToList();
-        if (queriedEntity.Count == 0)
+        if (queriedEntity.Count == 0 || queriedEntity.All(e => e is null))
         {
             return [];
         }
-        var relatedClasses = queriedEntity.Select(x => x.InternalElement)
+        var relatedClasses = queriedEntity.Where(x => x is not null).Select(x => x.InternalElement)
             .Concat(queriedEntity.SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
             .ToList();
         return relatedClasses;
