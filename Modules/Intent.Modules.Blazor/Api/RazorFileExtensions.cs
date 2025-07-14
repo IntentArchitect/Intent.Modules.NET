@@ -183,6 +183,7 @@ public static class RazorFileExtensions
                                 var parentElement = ((IElement)serviceCall.Element).ParentElement;
                                 var serviceName = parentElement.Name.ToPropertyName();
 
+                                block.InjectServiceProperty(block.Template.GetTypeName(parentElement), serviceName);
                                 var invocationMapping = serviceCall.GetMapInvocationMapping();
 
                                 const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
