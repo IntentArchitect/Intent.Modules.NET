@@ -1,4 +1,4 @@
-### Version 1.2.18
+### Version 1.2.19
 
 - Improvement: Removed internal unused shared project.
 
