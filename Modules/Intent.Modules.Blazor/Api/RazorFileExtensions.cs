@@ -5,6 +5,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -182,17 +183,22 @@ public static class RazorFileExtensions
                                 var parentElement = ((IElement)serviceCall.Element).ParentElement;
                                 var serviceName = parentElement.Name.ToPropertyName();
 
-                                block.InjectServiceProperty(block.Template.GetTypeName(parentElement), serviceName);
                                 var invocationMapping = serviceCall.GetMapInvocationMapping();
 
                                 const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
                                 const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
                                 const string dtoFieldTypeId = "7baed1fd-469b-4980-8fd9-4cefb8331eb2";
+                                const string httpSettingsDefinitionId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
 
                                 CSharpStatement? invocation;
                                 var targetElement = (IElement)invocationMapping.TargetElement;
                                 if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                 {
+                                    if (!targetElement.HasStereotype(httpSettingsDefinitionId))
+                                    {
+                                        throw new ElementException(action, "Target CQRS request is not exposed with HTTP");
+                                    }
+
                                     var nameOfMethodToInvoke = block.Template
                                         .GetAllTypeInfo(parentElement.AsTypeReference())
                                         .Select(x => x.Template)
