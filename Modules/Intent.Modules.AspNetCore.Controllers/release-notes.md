@@ -1,6 +1,7 @@
 ﻿### Version 7.1.5
 
 - Improvement: `Required` attribute automatically added to qualifying parameter.
+- Improvement: Casing of `route` parameters will now match the casing of the method parameter, so binding is successful.
 
 ### Version 7.1.4
 

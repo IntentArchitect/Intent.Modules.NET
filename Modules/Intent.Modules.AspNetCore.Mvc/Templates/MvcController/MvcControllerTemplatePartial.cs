@@ -153,7 +153,23 @@ namespace Intent.Modules.AspNetCore.Mvc.Templates.MvcController
 
             if (!string.IsNullOrWhiteSpace(mvcSettings.Route()))
             {
-                arguments.Add($"\"{mvcSettings.Route()}\"");
+                var route = mvcSettings.Route();
+
+                foreach (var parameter in operation.Parameters)
+                {
+                    // check if the path contains the parameter name, ignoring case
+                    if (route?.IndexOf($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        // get the location of the parameter in the path
+                        int index = route.IndexOf($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase);
+                        string matchedSubstring = route.Substring(index, parameter.Name.Length + 2);
+
+                        // Replace using the actual substring
+                        route = route.Replace(matchedSubstring, $"{{{parameter.Name}}}");
+                    }
+                }
+
+                arguments.Add($"\"{route}\"");
             }
 
             if (!string.IsNullOrWhiteSpace(mvcSettings.Name()))

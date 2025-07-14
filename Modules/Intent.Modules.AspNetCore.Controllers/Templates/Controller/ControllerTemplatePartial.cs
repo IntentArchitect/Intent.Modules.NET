@@ -437,6 +437,21 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         private static string GetPath(IControllerOperationModel operation)
         {
             var path = operation.Route;
+
+            foreach(var parameter in operation.Parameters.Where(p => p.Source == HttpInputSource.FromRoute))
+            {
+                // check if the path contains the parameter name, ignoring case
+                if (path?.IndexOf($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    // get the location of the parameter in the path
+                    int index = path.IndexOf($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase);
+                    string matchedSubstring = path.Substring(index, parameter.Name.Length + 2);
+
+                    // Replace using the actual substring
+                    path = path.Replace(matchedSubstring, $"{{{parameter.Name}}}");
+                }
+            }
+                    
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
