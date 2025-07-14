@@ -30,7 +30,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
         var databaseProvider = dbSettings.DatabaseProvider().AsEnum();
         var field = new EfCoreFieldConfigStatement($"builder.Property(x => x.{attribute.Name.ToPascalCase()})", attribute);
 
-		if (!attribute.Type.IsNullable)
+        if (!attribute.Type.IsNullable)
         {
             field.AddStatement(".IsRequired()");
         }
@@ -53,7 +53,7 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
 
         return field;
     }
-    
+
     public static EfCoreFieldConfigStatement CreateOwnsMany(AttributeModel attribute)
     {
         return new EfCoreFieldConfigStatement($"builder.OwnsMany(x => x.{attribute.Name.ToPascalCase()}, Configure{attribute.Name.ToPascalCase()})", attribute);
@@ -177,16 +177,22 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
                 }
                 else if (!string.IsNullOrEmpty(dbSettings.DecimalPrecisionAndScale()))
                 {
-                    var safeString = dbSettings.DecimalPrecisionAndScale().Trim().Replace("(","").Replace(")", "");
+                    var safeString = dbSettings.DecimalPrecisionAndScale().Trim().Replace("(", "").Replace(")", "");
                     statements.Add($".HasColumnType(\"decimal({safeString})\")");
                 }
             }
-            else if (attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries" && 
+            else if (attribute.Type.Element.GetStereotype("C#")?.GetProperty("Namespace")?.Value == "NetTopologySuite.Geometries" &&
                      dbSettings.DatabaseProvider().IsPostgresql())
             {
                 // https://www.npgsql.org/efcore/mapping/nts.html#constraining-your-type-names
                 statements.Add($@".HasColumnType(""geography ({attribute.Type.Element.Name.ToLower()})"")");
             }
+        }
+
+        var collation = attribute.GetColumn()?.Collation()?.Trim();
+        if (!string.IsNullOrWhiteSpace(collation))
+        {
+            statements.Add($".UseCollation(\"{EscapeHelper.EscapeName(collation)}\")");
         }
 
         var columnName = attribute.GetColumn()?.Name();
@@ -195,13 +201,13 @@ public class EfCoreFieldConfigStatement : CSharpStatement, IHasCSharpStatements
             statements.Add($".HasColumnName(\"{EscapeHelper.EscapeName(columnName)}\")");
         }
 
-		var columnOrder = attribute.GetColumn()?.Order();
-		if (columnOrder != null || implicitColumnOrder != null)
-		{
-			statements.Add($".HasColumnOrder({columnOrder ?? implicitColumnOrder})");
-		}
+        var columnOrder = attribute.GetColumn()?.Order();
+        if (columnOrder != null || implicitColumnOrder != null)
+        {
+            statements.Add($".HasColumnOrder({columnOrder ?? implicitColumnOrder})");
+        }
 
-		var computedValueSql = attribute.GetComputedValue()?.SQL();
+        var computedValueSql = attribute.GetComputedValue()?.SQL();
         if (!string.IsNullOrWhiteSpace(computedValueSql))
         {
 

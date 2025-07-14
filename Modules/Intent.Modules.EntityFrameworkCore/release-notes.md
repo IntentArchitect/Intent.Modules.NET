@@ -1,6 +1,7 @@
 ### Version 5.0.26
 
 - Improvement: SQL Lite support.
+- Improvement: Added support for column collation.
 
 ### Version 5.0.25
 
