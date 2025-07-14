@@ -35,8 +35,11 @@ namespace Intent.Modules.Application.ServiceCallHandlers.Templates.ServiceCallHa
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<OperationModel> GetModels(IApplication application)
         {
+            const string contractOnlyId = "f7a2e653-d654-48d6-9a44-18cf49c9233e";
+
             var serviceModels = _metadataManager.Services(application).GetServiceModels()
                 .SelectMany(s => s.Operations)
+                .Where(x => !x.ParentService.HasStereotype(contractOnlyId))
                 .ToList();
             return serviceModels;
         }
