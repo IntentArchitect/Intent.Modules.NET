@@ -438,7 +438,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
         {
             var path = operation.Route;
 
-            foreach(var parameter in operation.Parameters.Where(p => p.Source == HttpInputSource.FromRoute))
+            foreach (var parameter in operation.Parameters.Where(p => p.Source == HttpInputSource.FromRoute))
             {
                 // check if the path contains the parameter name, ignoring case
                 if (path?.IndexOf($"{{{parameter.Name}}}", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -451,7 +451,7 @@ namespace Intent.Modules.AspNetCore.Controllers.Templates.Controller
                     path = path.Replace(matchedSubstring, $"{{{parameter.Name}}}");
                 }
             }
-                    
+
             return !string.IsNullOrWhiteSpace(path) ? path : null;
         }
 
