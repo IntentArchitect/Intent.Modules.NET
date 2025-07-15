@@ -93,12 +93,10 @@
     <application id="95a85ee6-e01b-438f-8749-3e4da534d9a6" name="Kafka.Producer" relativePath="Kafka.Producer/Kafka.Producer.application.config" />
     <application id="6d3a5ef5-a5b1-4a13-a6ce-a2d002a696f3" name="Kafka.Consumer" relativePath="Kafka.Consumer/Kafka.Consumer.application.config" />
     <application id="f829f9a9-22e7-4c53-b644-4254eacfb4e8" name="EfCore.SecondLevelCaching" relativePath="EfCore.SecondLevelCaching/EfCore.SecondLevelCaching.application.config" />
-    <application id="a5bda094-e905-46f8-8348-5afef353db68" name="SqlServerImporterTests" relativePath="SqlServerImporterTests/SqlServerImporterTests.application.config" />
     <application id="d9d69a96-1190-44a7-bc7d-8a992b0218b4" name="EntityFrameworkCore.SqlServer.EF8" relativePath="EntityFrameworkCore.SqlServer.EF8/EntityFrameworkCore.SqlServer.EF8.application.config" />
     <application id="6533a96e-1ae3-47fb-8637-9e4768f42103" name="EntityFrameworkCore.SqlServer.EF7" relativePath="EntityFrameworkCore.SqlServer.EF7/EntityFrameworkCore.SqlServer.EF7.application.config" />
     <application id="6e5e03eb-f608-4392-9a67-c392120303a3" name="Standard.AspNetCore.Serilog" relativePath="Standard.AspNetCore.Serilog/Standard.AspNetCore.Serilog.application.config" />
     <application id="c2454583-1a5c-4a5a-8b45-e67cb3c6da9a" name="CosmosDB.MultiTenancy.SeperateDB" relativePath="CosmosDB.MultiTenancy.SeperateDB/CosmosDB.MultiTenancy.SeperateDB.application.config" />
-    <application id="0182502f-bb90-4223-aedc-7226f030cdbd" name="OpenApiImporterTest" relativePath="OpenApiImporterTest/OpenApiImporterTest.application.config" />
     <application id="555d779f-5d5d-49fd-b0eb-598c02922aeb" name="OutputCachingRedis.Tests" relativePath="OutputCachingRedis.Tests/OutputCachingRedis.Tests.application.config" />
     <application id="f307217e-62d5-4ad2-8cd6-2f601ca8bdc5" name="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.WithDefaultDbContext/EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.application.config" />
     <application id="52adfd77-8ba4-4570-940a-61cf3d6c85f6" name="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext" relativePath="EntityFrameworkCore.MultiDbContext.NoDefaultDbContext/EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.application.config" />
