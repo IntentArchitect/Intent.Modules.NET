@@ -31,7 +31,7 @@
       <name>Intent.Application.Contracts.Clients</name>
       <display>Intent.Application.Contracts.Clients 5.1.1</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.1</value>
+      <value>5.1.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -59,7 +59,7 @@
       <name>Intent.Application.DependencyInjection.MediatR</name>
       <display>Intent.Application.DependencyInjection.MediatR 3.5.16</display>
       <isAbstract>false</isAbstract>
-      <value>3.5.16</value>
+      <value>3.5.17</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -73,7 +73,7 @@
       <name>Intent.Application.Dtos.AutoMapper</name>
       <display>Intent.Application.Dtos.AutoMapper 4.0.15</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.15</value>
+      <value>4.0.16</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -87,7 +87,7 @@
       <name>Intent.Application.FluentValidation.Dtos</name>
       <display>Intent.Application.FluentValidation.Dtos 3.12.1</display>
       <isAbstract>false</isAbstract>
-      <value>3.12.1</value>
+      <value>3.12.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -129,7 +129,7 @@
       <name>Intent.Application.MediatR.FluentValidation</name>
       <display>Intent.Application.MediatR.FluentValidation 4.9.1</display>
       <isAbstract>false</isAbstract>
-      <value>4.9.1</value>
+      <value>4.9.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -157,7 +157,7 @@
       <name>Intent.AspNetCore</name>
       <display>Intent.AspNetCore 6.1.1</display>
       <isAbstract>false</isAbstract>
-      <value>6.1.1</value>
+      <value>6.1.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -171,7 +171,7 @@
       <name>Intent.AspNetCore.Controllers.Dispatch.MediatR</name>
       <display>Intent.AspNetCore.Controllers.Dispatch.MediatR 6.1.1</display>
       <isAbstract>false</isAbstract>
-      <value>6.1.1</value>
+      <value>6.1.2</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -185,7 +185,7 @@
       <name>Intent.AspNetCore.Controllers.Dispatch.ServiceContract</name>
       <display>Intent.AspNetCore.Controllers.Dispatch.ServiceContract 5.2.13</display>
       <isAbstract>false</isAbstract>
-      <value>5.2.13</value>
+      <value>5.2.14</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -199,7 +199,7 @@
       <name>Intent.AspNetCore.DistributedCaching</name>
       <display>Intent.AspNetCore.DistributedCaching 1.0.0-beta.10</display>
       <isAbstract>false</isAbstract>
-      <value>1.0.0-beta.10</value>
+      <value>1.0.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -213,7 +213,7 @@
       <name>Intent.AspNetCore.Identity</name>
       <display>Intent.AspNetCore.Identity 4.2.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.2.0</value>
+      <value>4.2.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -255,7 +255,7 @@
       <name>Intent.Common.CSharp</name>
       <display>Intent.Common.CSharp 3.9.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.9.0</value>
+      <value>3.9.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -283,7 +283,7 @@
       <name>Intent.Dapr.AspNetCore</name>
       <display>Intent.Dapr.AspNetCore 2.0.10</display>
       <isAbstract>false</isAbstract>
-      <value>2.0.10</value>
+      <value>2.0.11</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -311,7 +311,7 @@
       <name>Intent.Entities.Repositories.Api</name>
       <display>Intent.Entities.Repositories.Api 5.1.6</display>
       <isAbstract>false</isAbstract>
-      <value>5.1.6</value>
+      <value>5.1.7</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -437,7 +437,7 @@
       <name>Intent.Metadata.WebApi</name>
       <display>Intent.Metadata.WebApi 4.7.9</display>
       <isAbstract>false</isAbstract>
-      <value>4.7.9</value>
+      <value>4.7.10</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -465,7 +465,7 @@
       <name>Intent.Modelers.Domain.Events</name>
       <display>Intent.Modelers.Domain.Events 4.4.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.4.0</value>
+      <value>4.4.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -549,7 +549,7 @@
       <name>Intent.Modelers.Services</name>
       <display>Intent.Modelers.Services 4.0.0</display>
       <isAbstract>false</isAbstract>
-      <value>4.0.0</value>
+      <value>4.0.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -563,7 +563,7 @@
       <name>Intent.Modelers.Services.CQRS</name>
       <display>Intent.Modelers.Services.CQRS 6.0.0</display>
       <isAbstract>false</isAbstract>
-      <value>6.0.0</value>
+      <value>6.0.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -577,7 +577,7 @@
       <name>Intent.Modelers.Services.DomainInteractions</name>
       <display>Intent.Modelers.Services.DomainInteractions 2.2.0</display>
       <isAbstract>false</isAbstract>
-      <value>2.2.0</value>
+      <value>2.3.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -591,7 +591,7 @@
       <name>Intent.Modelers.Services.EventInteractions</name>
       <display>Intent.Modelers.Services.EventInteractions 2.0.0</display>
       <isAbstract>false</isAbstract>
-      <value>2.0.0</value>
+      <value>2.0.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>
@@ -619,7 +619,7 @@
       <name>Intent.Modelers.Types.ServiceProxies</name>
       <display>Intent.Modelers.Types.ServiceProxies 5.5.0</display>
       <isAbstract>false</isAbstract>
-      <value>5.5.0</value>
+      <value>5.5.1</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>9e26eea6-f2d4-4d99-9dcc-5daa442503e4</parentFolderId>

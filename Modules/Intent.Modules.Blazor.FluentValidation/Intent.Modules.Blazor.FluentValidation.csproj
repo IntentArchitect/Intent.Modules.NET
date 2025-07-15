@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.7.3" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.1-pre.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.1" />
     <PackageReference Include="Intent.Modules.Modelers.Services" Version="3.7.0" />
     <PackageReference Include="Intent.Modules.Modelers.UI" Version="1.0.0-beta.7" />
     <PackageReference Include="Intent.Packager" Version="3.5.0">
