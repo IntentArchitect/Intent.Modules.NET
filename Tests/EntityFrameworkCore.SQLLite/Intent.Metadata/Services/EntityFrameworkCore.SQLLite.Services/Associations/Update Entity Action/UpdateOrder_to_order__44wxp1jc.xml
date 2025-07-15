@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="fafc293c-f856-48d6-ad5e-48298948965a">
+  <sourceEnd id="cd65d8dc-99f3-4808-a4ed-fa2b904d2245" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : OrdersService.UpdateOrder</display>
+    <order>0</order>
+    <typeReference id="af0cb8fe-b615-4498-b152-8f981ec0230f">
+      <typeId>c6c5e4b5-ab67-48bf-b461-ce6b31680fda</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Services</typePackageName>
+      <typePackageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="fafc293c-f856-48d6-ad5e-48298948965a" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>order</name>
+    <display>[update] order: Order</display>
+    <order>2</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="eae81084-83a1-4cee-9940-51fe370350a0">
+      <typeId>c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+      <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c6c5e4b5-ab67-48bf-b461-ce6b31680fda" location="[EntityFrameworkCore.SQLLite].[Services].[UpdateOrder]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" location="[EntityFrameworkCore.SQLLite].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{id}</expression>
+            <path>
+              <target id="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="0cc6076e-193e-4bac-b05d-4f58de851750" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="c6c5e4b5-ab67-48bf-b461-ce6b31680fda" name="UpdateOrder" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="00486b36-657c-4f46-9005-6e88025d927e" name="id" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="c6c5e4b5-ab67-48bf-b461-ce6b31680fda" location="[EntityFrameworkCore.SQLLite].[Services].[UpdateOrder]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" location="[EntityFrameworkCore.SQLLite].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{dto.RefNo}</expression>
+            <path>
+              <target id="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c2fb3437-812e-48f3-a973-3b35c613b845" name="RefNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.RefNo" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="c6c5e4b5-ab67-48bf-b461-ce6b31680fda" name="UpdateOrder" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="49170852-02b1-4e8b-b80c-6c40c7dc1875" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="a1993965-0d9c-4e44-9775-7643193fd2ff" name="RefNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

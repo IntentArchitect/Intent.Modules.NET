@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{649B6662-B3BD-4ACF-9605-B77CE904F830}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SQLLite.Api", "EntityFrameworkCore.SQLLite.Api\EntityFrameworkCore.SQLLite.Api.csproj", "{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2808F169-FC52-4C0A-8576-119AAAE9DA87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SQLLite.Application", "EntityFrameworkCore.SQLLite.Application\EntityFrameworkCore.SQLLite.Application.csproj", "{59297BE8-0027-453C-BCEC-F7B360C996EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{442F49E2-CA47-4840-B6A1-77DF8035F742}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SQLLite.Domain", "EntityFrameworkCore.SQLLite.Domain\EntityFrameworkCore.SQLLite.Domain.csproj", "{233A7E52-CD60-4B8F-AF65-ADE625500388}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{3A129BEF-BBCE-4173-8561-C1E1CFAC6B07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCore.SQLLite.Infrastructure", "EntityFrameworkCore.SQLLite.Infrastructure\EntityFrameworkCore.SQLLite.Infrastructure.csproj", "{2628206E-E983-454A-BE6D-6D4BA123201F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99} = {649B6662-B3BD-4ACF-9605-B77CE904F830}
+		{59297BE8-0027-453C-BCEC-F7B360C996EC} = {2808F169-FC52-4C0A-8576-119AAAE9DA87}
+		{233A7E52-CD60-4B8F-AF65-ADE625500388} = {442F49E2-CA47-4840-B6A1-77DF8035F742}
+		{2628206E-E983-454A-BE6D-6D4BA123201F} = {3A129BEF-BBCE-4173-8561-C1E1CFAC6B07}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A91BF54-FA9D-4EB1-A1CC-B6CAADDEDC99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59297BE8-0027-453C-BCEC-F7B360C996EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59297BE8-0027-453C-BCEC-F7B360C996EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59297BE8-0027-453C-BCEC-F7B360C996EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59297BE8-0027-453C-BCEC-F7B360C996EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233A7E52-CD60-4B8F-AF65-ADE625500388}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233A7E52-CD60-4B8F-AF65-ADE625500388}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233A7E52-CD60-4B8F-AF65-ADE625500388}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233A7E52-CD60-4B8F-AF65-ADE625500388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2628206E-E983-454A-BE6D-6D4BA123201F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2628206E-E983-454A-BE6D-6D4BA123201F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2628206E-E983-454A-BE6D-6D4BA123201F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2628206E-E983-454A-BE6D-6D4BA123201F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

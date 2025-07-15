@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2cc81181-b64c-478b-b35d-5c20ddad3f72">
+  <sourceEnd id="a9d9845d-1ab7-46ff-a69e-a40a6c6e0fae" type="Update Entity Action Source End" typeId="6bc95978-6def-4d0c-a4f5-25bdeda8a9f6">
+    <display>updated by : Customers.UpdateCustomerCommand</display>
+    <order>0</order>
+    <typeReference id="bf3c5dd9-73dc-4dbc-ba43-1d91d5470fcf">
+      <typeId>8a0466cb-bf2b-4612-b167-ec9041745e17</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Services</typePackageName>
+      <typePackageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2cc81181-b64c-478b-b35d-5c20ddad3f72" type="Update Entity Action Target End" typeId="516069f6-09cc-4de8-8e31-3c71ca823452">
+    <name>customer</name>
+    <display>[update] customer: Customer</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="eb3ebc2d-0bca-4336-8a21-7b27aecf12a8">
+      <typeId>fe7aed22-656e-48b3-8f6f-f566c49288ed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+      <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8a0466cb-bf2b-4612-b167-ec9041745e17" location="[EntityFrameworkCore.SQLLite].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fe7aed22-656e-48b3-8f6f-f566c49288ed" location="[EntityFrameworkCore.SQLLite].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="fe7aed22-656e-48b3-8f6f-f566c49288ed" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3ae07b13-537e-42d5-b639-b2e076be8555" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="8a0466cb-bf2b-4612-b167-ec9041745e17" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="7f2cc36c-225d-4303-99e2-bb29cd686ed9" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+      <mapping type="Update Entity Mapping" typeId="01721b1a-a85d-4320-a5cd-8bd39247196a">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="8a0466cb-bf2b-4612-b167-ec9041745e17" location="[EntityFrameworkCore.SQLLite].[Services].[UpdateCustomerCommand]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fe7aed22-656e-48b3-8f6f-f566c49288ed" location="[EntityFrameworkCore.SQLLite].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Name}</expression>
+            <path>
+              <target id="fe7aed22-656e-48b3-8f6f-f566c49288ed" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="05e2a43b-42c0-4000-b0ab-4179f9973d2b" name="Name" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Name" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="8a0466cb-bf2b-4612-b167-ec9041745e17" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="48776783-e6e3-4ed4-b03f-ef0c74101e41" name="Name" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Suranme}</expression>
+            <path>
+              <target id="fe7aed22-656e-48b3-8f6f-f566c49288ed" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="1d1b74d2-aa9a-4ac0-a002-6a59e6625f05" name="Suranme" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Suranme" mappingType="Data Mapping" mappingTypeId="ca88649b-f20b-44db-a9c0-017c26155ba8">
+                <path>
+                  <target id="8a0466cb-bf2b-4612-b167-ec9041745e17" name="UpdateCustomerCommand" type="element" specialization="Command" specializationId="ccf14eb6-3a55-4d81-b5b9-d27311c70cb9" />
+                  <target id="3d15dc8a-738a-465e-9c86-5f0c61905eb3" name="Suranme" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Update Entity Action</associationType>
+  <associationTypeId>9ea0382a-4617-412a-a8c8-af987bbce226</associationTypeId>
+  <stereotypes />
+</association>

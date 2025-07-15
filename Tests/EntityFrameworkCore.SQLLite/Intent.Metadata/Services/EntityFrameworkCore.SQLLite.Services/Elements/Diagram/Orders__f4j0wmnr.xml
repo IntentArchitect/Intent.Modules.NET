@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5e0b35be-ef30-4a1d-a7d4-7a45eefc8bcc" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Orders</name>
+  <display>Orders</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>47b437f7-3228-410d-90cc-2bdf2dca6c9e</parentFolderId>
+  <packageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</packageId>
+  <packageName>EntityFrameworkCore.SQLLite.Services</packageName>
+  <diagram>
+    <targetPackageId>5e0b35be-ef30-4a1d-a7d4-7a45eefc8bcc</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="71abdfb8-6300-4c4a-a53f-9cf600548c7e">
+  <sourceEnd id="2df32397-5ae0-4cd1-9d55-121c4849d28e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="34413018-307d-4132-b011-355ab47c6bd4">
+      <typeId>76c8aa5e-cfd9-4e9c-8fa9-37ecac5c1f09</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Services</typePackageName>
+      <typePackageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="71abdfb8-6300-4c4a-a53f-9cf600548c7e" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="19b1339f-b2c6-45d0-9f18-4a1cc8e616bd">
+      <typeId>fe7aed22-656e-48b3-8f6f-f566c49288ed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+      <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="76c8aa5e-cfd9-4e9c-8fa9-37ecac5c1f09" location="[EntityFrameworkCore.SQLLite].[Services].[GetCustomerByIdQuery]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="fe7aed22-656e-48b3-8f6f-f566c49288ed" location="[EntityFrameworkCore.SQLLite].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="fe7aed22-656e-48b3-8f6f-f566c49288ed" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3ae07b13-537e-42d5-b639-b2e076be8555" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="76c8aa5e-cfd9-4e9c-8fa9-37ecac5c1f09" name="GetCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="f61e3420-ac24-44d9-ad8e-48733f4519b7" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

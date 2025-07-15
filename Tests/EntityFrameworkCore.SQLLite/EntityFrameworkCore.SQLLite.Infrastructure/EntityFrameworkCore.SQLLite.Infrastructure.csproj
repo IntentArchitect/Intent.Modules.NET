@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EntityFrameworkCore.SQLLite.Domain\EntityFrameworkCore.SQLLite.Domain.csproj" />
+    <ProjectReference Include="..\EntityFrameworkCore.SQLLite.Application\EntityFrameworkCore.SQLLite.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.17" />
+  </ItemGroup>
+  </Project>

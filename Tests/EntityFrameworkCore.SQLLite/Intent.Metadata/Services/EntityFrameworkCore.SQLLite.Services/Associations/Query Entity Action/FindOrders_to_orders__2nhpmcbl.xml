@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="2e738226-1f60-48a1-bac9-86f7cbc16758">
+  <sourceEnd id="ab9ce2f3-a8ca-4b32-a376-2d9981ff3009" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: FindOrders</display>
+    <order>0</order>
+    <typeReference id="6f8de2f9-5939-4787-be01-d61770fa06de">
+      <typeId>f3ba2190-e02d-4d0c-a787-5dd4fa0f5f22</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Services</typePackageName>
+      <typePackageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="2e738226-1f60-48a1-bac9-86f7cbc16758" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>orders</name>
+    <display>[query] orders: Order[*]</display>
+    <order>0</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="f5eeac6c-4ff7-46fd-98b0-83aaf77f52a6">
+      <typeId>c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+      <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="f3ba2190-e02d-4d0c-a787-5dd4fa0f5f22" location="[EntityFrameworkCore.SQLLite].[Services].[FindOrders]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" location="[EntityFrameworkCore.SQLLite].[Services].[Order]" />
+        <mappedEnds />
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

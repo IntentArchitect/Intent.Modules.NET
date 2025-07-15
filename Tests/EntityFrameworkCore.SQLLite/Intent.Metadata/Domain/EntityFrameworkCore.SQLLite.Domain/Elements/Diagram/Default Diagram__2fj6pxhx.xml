@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="240a4023-63d5-4654-84c4-700606c943be" type="Diagram" typeId="4d66fecd-e9b8-436f-aa50-c59040ad0879">
+  <name>Default Diagram</name>
+  <display>Default Diagram</display>
+  <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c78d51a0-1cf7-4b04-8a65-77287d209e75</parentFolderId>
+  <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+  <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+  <diagram>
+    <targetPackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>
