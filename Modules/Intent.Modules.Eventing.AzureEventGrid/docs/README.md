@@ -206,7 +206,7 @@ Configure your Event Grid settings in `appsettings.json`:
     "Topics": {
       "ClientCreatedEvent": {
         "Source": "client-created-event",
-        "Key": "4L6y6Nk8LFHXm0KnbK7gYpLtD0OL6Ear9VnY5ihQio8DhtljnGAdJQQJ99BDACrIdLPXJ3w3AAABAZEGvWZM",
+        "Key": "<Azure Event Grid Key>",
         "Endpoint": "https://client-created-event.your-region.eventgrid.azure.net/api/events"
       },
       "OrderCreatedEvent": {
