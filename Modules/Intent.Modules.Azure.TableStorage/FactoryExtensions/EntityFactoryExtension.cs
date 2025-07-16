@@ -66,12 +66,12 @@ namespace Intent.Modules.Azure.TableStorage.FactoryExtensions
                             if (@class is not null)
                             {
                                 // only if the attribute is a PK, is not "user supplied" and doesn't already have a PK
-                                foreach (var attribute in model.Attributes.Where(a => a.HasPrimaryKey() 
+                                foreach (var attribute in model.Attributes.Where(a => a.HasPrimaryKey()
                                     && a.GetPrimaryKey().DataSource().AsEnum() != AttributeModelStereotypeExtensions.PrimaryKey.DataSourceOptionsEnum.UserSupplied
                                     && string.IsNullOrWhiteSpace(a.Value)))
                                 {
                                     // get the c# property which matches the attribute on the model
-                                    var properties = @class.Properties.Where(a => a.HasMetadata("model") 
+                                    var properties = @class.Properties.Where(a => a.HasMetadata("model")
                                         && a.TryGetMetadata<AttributeModel>("model", out var metaAttribute) && metaAttribute.Id == attribute.Id);
 
                                     // should really only be one
@@ -81,7 +81,7 @@ namespace Intent.Modules.Azure.TableStorage.FactoryExtensions
                                     }
 
                                     var constructor = @class.Constructors.FirstOrDefault(c => c.Parameters.Count == 0);
-                                    if(constructor is not null)
+                                    if (constructor is not null)
                                     {
                                         var removeStatement = constructor.Statements.FirstOrDefault(s => s.Text == $"{attribute.Name.ToPascalCase()} = null!;");
                                         if (removeStatement is not null)
