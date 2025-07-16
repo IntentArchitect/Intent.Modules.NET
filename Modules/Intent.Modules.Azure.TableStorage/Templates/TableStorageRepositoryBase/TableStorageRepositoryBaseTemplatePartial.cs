@@ -53,7 +53,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
 
                     @class
                         .AddGenericParameter("TTable", out var tTable)
-                        .AddGenericParameter("TTableInterfae", out var tTableInterface)
+                        .AddGenericParameter("TTableInterface", out var tTableInterface)
                         .ImplementsInterface($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomain}, {tTableInterface}>")
                         .AddGenericTypeConstraint(tDomainState, constraint =>
                         {
@@ -175,6 +175,32 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
 
                             .AddStatement("Track(results);")
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
+                    });
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method
+                            .AddStatement(
+                                "var documents = _tableClient.QueryAsync(AdaptFilterPredicate(filterExpression), cancellationToken: cancellationToken);"
+                                , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
+                            .AddAssignmentStatement("TDomain? entity", new CSharpStatement("null;"))
+                            .AddStatement(@"
+                                await foreach (var document in documents)
+                                {
+                                    entity = document.ToEntity();
+                                    break;
+                                }")
+
+                            .AddIfStatement("entity is null", stmt =>
+                            {
+                                stmt.AddStatement("return default;");
+                            })
+                            .AddStatement("Track(entity);")
+                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
                     });
 
                     @class.AddMethod($"Expression<Func<{tTable}, bool>>", "AdaptFilterPredicate", method =>

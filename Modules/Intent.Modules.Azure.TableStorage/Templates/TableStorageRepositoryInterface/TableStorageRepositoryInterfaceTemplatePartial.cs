@@ -51,6 +51,10 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                         .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                     )
+                    .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                        .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                    )
                 );
         }
 
