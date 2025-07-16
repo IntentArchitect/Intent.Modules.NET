@@ -17,7 +17,7 @@ using TableStorage.Tests.Infrastructure.Persistence.Tables;
 
 namespace TableStorage.Tests.Infrastructure.Repositories
 {
-    internal abstract class TableStorageRepositoryBase<TDomain, TTable, TTableInterfae> : ITableStorageRepository<TDomain, TTableInterfae>
+    internal abstract class TableStorageRepositoryBase<TDomain, TTable, TTableInterface> : ITableStorageRepository<TDomain, TTableInterface>
         where TDomain : class
         where TTable : class, ITableAdapter<TDomain, TTable>, new()
     {
@@ -77,19 +77,8 @@ namespace TableStorage.Tests.Infrastructure.Repositories
             return results;
         }
 
-        public async Task<TDomain?> FindByIdAsync(
-            (string partitionKey, string rowKey) id,
-            CancellationToken cancellationToken = default)
-        {
-            var response = await _tableClient.GetEntityAsync<TTable>(id.partitionKey, id.rowKey, cancellationToken: cancellationToken);
-            var entity = response.Value.ToEntity();
-            Track(entity);
-
-            return entity;
-        }
-
         public virtual async Task<List<TDomain>> FindAllAsync(
-            Expression<Func<TTableInterfae, bool>> filterExpression,
+            Expression<Func<TTableInterface, bool>> filterExpression,
             CancellationToken cancellationToken = default)
         {
             var results = new List<TDomain>();
@@ -104,12 +93,44 @@ namespace TableStorage.Tests.Infrastructure.Repositories
             return results;
         }
 
-        /// <summary>
-        /// Adapts a <typeparamref name="TTableInterfae"/> predicate to a <typeparamref name="TTable"/> predicate.
-        /// </summary>
-        private static Expression<Func<TTable, bool>> AdaptFilterPredicate(Expression<Func<TTableInterfae, bool>> expression)
+        public async Task<TDomain?> FindByIdAsync(
+            (string partitionKey, string rowKey) id,
+            CancellationToken cancellationToken = default)
         {
-            if (!typeof(TTableInterfae).IsAssignableFrom(typeof(TTable))) throw new Exception($"typeof(TTableInterfae) is not assignable from typeof(TTable).");
+            var response = await _tableClient.GetEntityAsync<TTable>(id.partitionKey, id.rowKey, cancellationToken: cancellationToken);
+            var entity = response.Value.ToEntity();
+            Track(entity);
+
+            return entity;
+        }
+
+        public async Task<TDomain?> FindAsync(
+            Expression<Func<TTableInterface, bool>> filterExpression,
+            CancellationToken cancellationToken = default)
+        {
+            var documents = _tableClient.QueryAsync(AdaptFilterPredicate(filterExpression), cancellationToken: cancellationToken);
+            TDomain? entity = null;
+            await foreach (var document in documents)
+            {
+                entity = document.ToEntity();
+                break;
+            }
+
+            if (entity is null)
+            {
+                return default;
+            }
+            Track(entity);
+
+            return entity;
+        }
+
+        /// <summary>
+        /// Adapts a <typeparamref name="TTableInterface"/> predicate to a <typeparamref name="TTable"/> predicate.
+        /// </summary>
+        private static Expression<Func<TTable, bool>> AdaptFilterPredicate(Expression<Func<TTableInterface, bool>> expression)
+        {
+            if (!typeof(TTableInterface).IsAssignableFrom(typeof(TTable))) throw new Exception($"typeof(TTableInterface) is not assignable from typeof(TTable).");
             var beforeParameter = expression.Parameters.Single();
             var afterParameter = Expression.Parameter(typeof(TTable), beforeParameter.Name);
             var visitor = new SubstitutionExpressionVisitor(beforeParameter, afterParameter);

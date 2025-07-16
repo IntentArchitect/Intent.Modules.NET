@@ -16,6 +16,7 @@ namespace TableStorage.Tests.Domain.Repositories
         ITableStorageUnitOfWork UnitOfWork { get; }
         Task<List<TDomain>> FindAllAsync(CancellationToken cancellationToken = default);
         Task<TDomain?> FindByIdAsync((string partitionKey, string rowKey) id, CancellationToken cancellationToken = default);
+        Task<TDomain?> FindAsync(Expression<Func<TTableInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
         Task<List<TDomain>> FindAllAsync(Expression<Func<TTableInterface, bool>> filterExpression, CancellationToken cancellationToken = default);
     }
 }

@@ -11,15 +11,14 @@ namespace TableStorage.Tests.Domain.Entities
     {
         public Invoice()
         {
-            PartitionKey = null!;
-            RowKey = null!;
             OrderPartitionKey = null!;
             OrderRowKey = null!;
             Order = null!;
         }
-        public string PartitionKey { get; set; }
 
-        public string RowKey { get; set; }
+        public string PartitionKey { get; set; } = Guid.NewGuid().ToString();
+
+        public string RowKey { get; set; } = Guid.NewGuid().ToString();
 
         public DateTime IssuedData { get; set; }
 
