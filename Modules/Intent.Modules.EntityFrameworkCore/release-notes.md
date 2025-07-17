@@ -1,5 +1,6 @@
 ### Version 5.0.26
 
+- Improvement: Updated NuGet package versions.
 - Improvement: SQL Lite support.
 - Improvement: Added support for column collation.
 
