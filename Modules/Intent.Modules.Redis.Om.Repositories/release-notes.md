@@ -1,5 +1,6 @@
 ### Version 1.0.12
 
+- Improvement: Updated NuGet package versions.
 - Improvement: Removed internal shared project.
 
 ### Version 1.0.11

@@ -1,3 +1,7 @@
+### Version 1.0.4
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 1.0.3
 
 - Fixed: Refresh Token information no longer added if not available on the identity user.

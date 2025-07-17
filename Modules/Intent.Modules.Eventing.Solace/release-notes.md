@@ -1,5 +1,6 @@
 ### Version 2.0.7
 
+- Improvement: Updated NuGet package versions.
 - Improvement: SQL Lite ambient transaction suppression.
 
 ### Version 2.0.6

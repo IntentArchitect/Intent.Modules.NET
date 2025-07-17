@@ -32,22 +32,22 @@ namespace Intent.Modules.ModularMonolith.Host
             NugetRegistry.Register(MassTransitPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("8.5.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.0")
+                        ( >= 9, >= 0) => new PackageVersion("8.5.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "9.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("8.5.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.0")
+                        ( >= 8, >= 0) => new PackageVersion("8.5.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.1")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Options", "8.0.0"),
-                        ( >= 2, >= 0) => new PackageVersion("8.5.0")
-                            .WithNugetDependency("MassTransit.Abstractions", "8.5.0")
+                        ( >= 2, >= 0) => new PackageVersion("8.5.1")
+                            .WithNugetDependency("MassTransit.Abstractions", "8.5.1")
                             .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "8.0.0")
                             .WithNugetDependency("Microsoft.Extensions.Diagnostics.HealthChecks", "8.0.0")
@@ -58,7 +58,7 @@ namespace Intent.Modules.ModularMonolith.Host
                             .WithNugetDependency("System.Memory", "4.6.3")
                             .WithNugetDependency("System.Reflection.Emit", "4.7.0")
                             .WithNugetDependency("System.Reflection.Emit.Lightweight", "4.7.0")
-                            .WithNugetDependency("System.Text.Json", "8.0.5")
+                            .WithNugetDependency("System.Text.Json", "8.0.6")
                             .WithNugetDependency("System.Threading.Channels", "8.0.0")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.6.3"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MassTransitPackageName}'"),
@@ -67,15 +67,15 @@ namespace Intent.Modules.ModularMonolith.Host
             NugetRegistry.Register(SwashbuckleAspNetCorePackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.1")
-                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "8.0.0"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.1")
-                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.1")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.3")
+                            .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "9.0.0"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.Swagger", "9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerGen", "9.0.3")
+                            .WithNugetDependency("Swashbuckle.AspNetCore.SwaggerUI", "9.0.3")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "8.0.0"),
                         ( >= 2, >= 0) => new PackageVersion("8.1.4")
                             .WithNugetDependency("Microsoft.Extensions.ApiDescription.Server", "6.0.5")

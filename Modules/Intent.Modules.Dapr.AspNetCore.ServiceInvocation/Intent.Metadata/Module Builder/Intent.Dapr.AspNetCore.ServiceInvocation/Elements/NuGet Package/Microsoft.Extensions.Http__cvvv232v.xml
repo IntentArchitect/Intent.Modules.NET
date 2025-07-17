@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="c819fb94-9538-4e25-a67c-3ae5c3f29dca" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,86 +47,68 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="a9ff0ff4-a70d-49a5-875c-df7c934ef802" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="704656ed-17af-4ca1-8fd1-bcc42aa43eef" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="100c9957-e6c6-4ade-be3f-7750f83ad24f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="60211eed-1cbb-4569-86a9-a6cdde03c341" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d43069cb-2fe5-4976-ac30-3e136171b81e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d640e206-8017-48a7-a281-f8f04fa807ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="66af6926-20a7-46e3-a1be-5ddc73a50553" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="8c786591-cf59-4bfe-b9f4-9688dec2627e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="6d36c227-d0ce-4ecd-83b5-4a42e4980be9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cf853c7c-d178-4ed9-bbad-ea8eb6fcc1c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="b3534c68-a622-4b89-9485-6978e4525ede" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="d609c884-459f-4d1c-abf0-528237ecfb90" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>c819fb94-9538-4e25-a67c-3ae5c3f29dca</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,7 +116,7 @@
       </childElements>
     </childElement>
     <childElement id="e9da2de3-fd1a-4b09-9dc9-f237c77604c7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -156,72 +138,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="36fa27e0-b6ee-401f-8246-95948a40ed96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b08a5bac-0f18-4fc1-8b34-06bf30f64578" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="105f8333-49a2-43b2-a097-65def79a0f54" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="ebc1d146-d752-420b-af4b-2c105a1b77c6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="faf5edcc-a044-4cd8-a401-3a8aad6cecf2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="4d056fed-cd4f-4a83-8887-f21fd2831fa6" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="64f52c6b-9bdd-4660-ae23-669bd9586e4b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="80881282-fc64-4a29-a52d-fec75fd3c2d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="d02ead4d-7a9f-4538-aaf2-6cb07cf9f99a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c629f0e0-619f-4ce5-a477-e5ea77c88fd9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>e9da2de3-fd1a-4b09-9dc9-f237c77604c7</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -229,7 +196,7 @@
       </childElements>
     </childElement>
     <childElement id="d59055a9-4e53-4fbd-96d1-72bae31e9dce" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -251,86 +218,68 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="f51f93c8-6ad0-4ebc-bc1c-6401b96acbc1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4099f657-7242-4845-9b07-abe5a159f28e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="446e7e49-a6df-47cc-9efa-7fb7215a4258" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e7593fe2-1e4d-4b07-8682-b7f743d3bc50" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e677fd90-c1ee-4d01-a965-f772ea050a6e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0c3b3a77-90aa-4348-98b4-db3a3aeca360" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="8abc0b1e-d002-4f9e-9542-7ed5108023dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5a2662dd-8916-422c-8d89-95bcbe3424b4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4929623a-4ca8-41b3-b66b-38f8399ab381" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="e698755e-c240-4a1b-85ce-b266d2bc0fd9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="0e2a83db-c5ad-4802-8eee-6afd9db515b5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="774bcfd9-52f8-4191-9ad6-32462d9dd98b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d59055a9-4e53-4fbd-96d1-72bae31e9dce</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

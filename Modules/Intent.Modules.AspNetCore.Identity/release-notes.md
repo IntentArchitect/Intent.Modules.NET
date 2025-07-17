@@ -1,3 +1,7 @@
+### Version 4.2.2
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.2.1
 
 Fixed: Mismatch between DBbContext interface and DbContext properties

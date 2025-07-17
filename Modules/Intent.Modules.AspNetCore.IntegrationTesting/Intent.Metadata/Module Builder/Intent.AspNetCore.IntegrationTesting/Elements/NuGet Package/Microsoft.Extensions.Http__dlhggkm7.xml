@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="001f3ac7-fee0-40a5-8696-829a2a4e89a6" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,86 +47,68 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="23c750be-0824-4ed1-9717-f80776d7f4bf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c6c4fa64-24d9-4e90-9299-6f416c9f0976" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="6ff60b14-dc96-4310-9101-f152977db1de" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1bb1ca62-d5c5-4007-9511-f1fb0296fc53" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="38856b27-bb59-439b-81aa-28d84a434fd0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1044b71c-a5f8-4f76-81c2-2e9d4dd23d8c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="9cd4352a-300c-4d2c-ab6f-d28705140d93" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="240f584f-a870-42ad-b54b-9e8a69126529" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="41556d17-5779-4a2d-8268-5bf626602199" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b2837bed-36b4-4f57-b599-fa1f20f82378" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="370f5852-dc6d-47ca-afa2-15657a8f9546" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="42667206-75b1-45fb-a9fa-3999bf604f61" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>001f3ac7-fee0-40a5-8696-829a2a4e89a6</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -134,7 +116,7 @@
       </childElements>
     </childElement>
     <childElement id="fc284efd-0222-47cb-aff3-bb6ed7c77d02" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -156,72 +138,57 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="606befd6-eb9a-4eed-bc8d-3756614097bb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="0807a962-adcc-4abe-b2b2-81803dbd18b0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="69aaed89-6fcb-488d-aed0-4d669a71e194" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b8102867-e9d3-4528-a3d3-33c8ce35b6ab" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="3212893f-a857-4c98-b8c1-b050fe8766fe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="49b1d9e2-8d0b-4677-9b8a-c9e73abb0630" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="16359d36-091b-4a13-b2e5-7e1861caee79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="d9841876-1fb2-4642-b506-3f60c593a6ea" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="e5cc1800-be19-4b6d-8ca5-380a54999bdc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0c484df9-e668-43d5-a97a-05e7837d469c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fc284efd-0222-47cb-aff3-bb6ed7c77d02</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -229,7 +196,7 @@
       </childElements>
     </childElement>
     <childElement id="3d84659a-621b-4648-8bf1-70d6574a5b97" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -251,86 +218,68 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c38dcec2-9e02-43ca-9f61-0231b888758c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="4ade4223-8655-4cf8-a6b9-cdf9885cd911" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Configuration.Abstractions</name>
-          <display>Microsoft.Extensions.Configuration.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="a41b42e1-020d-45a9-85e0-8437fc045a5f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="61137e0e-cbd8-41e7-ad4f-a057e87462fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.DependencyInjection.Abstractions</name>
-          <display>Microsoft.Extensions.DependencyInjection.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1e4551c5-11cd-489e-a7b6-d305015f520e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="78ad9df9-0094-4db3-9751-19317cc5789e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Diagnostics</name>
-          <display>Microsoft.Extensions.Diagnostics (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f411e720-38b7-4823-9bff-e742501583a2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="1e67bb9a-fc24-4ec0-a466-1d21d88a71c8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e604024f-32f8-48e0-8695-60f801948a72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging.Abstractions</name>
-          <display>Microsoft.Extensions.Logging.Abstractions (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="384b5fea-046c-4f4b-924c-e3ebf864638a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Options</name>
-          <display>Microsoft.Extensions.Options (9.0.6)</display>
+        <childElement id="a15e6634-2912-43b8-9c33-5840d83117bd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
-          <packageId>4ece5953-d069-4257-9f0e-6c14afb2bb67</packageId>
-          <packageName>Intent.AspNetCore.IntegrationTesting</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="94a25cc7-6d7c-4ab8-8e78-896c683d9159" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Options</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>3d84659a-621b-4648-8bf1-70d6574a5b97</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

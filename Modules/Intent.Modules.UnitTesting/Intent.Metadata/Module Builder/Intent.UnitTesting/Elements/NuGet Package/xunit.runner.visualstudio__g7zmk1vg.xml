@@ -48,7 +48,7 @@
       <childElements />
     </childElement>
     <childElement id="dccb106a-d6d5-49dd-aaf3-a702924de05c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>3.1.1</name>
+      <name>3.1.2</name>
       <display>3.1.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

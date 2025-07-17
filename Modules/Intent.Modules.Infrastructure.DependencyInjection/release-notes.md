@@ -1,3 +1,7 @@
+### Version 4.1.9
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.1.8
 
 - Improvement: Updated NuGet package versions.

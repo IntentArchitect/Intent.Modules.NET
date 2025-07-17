@@ -177,7 +177,7 @@ namespace Intent.Modules.EntityFrameworkCore
                 (framework) => (framework.Major, framework.Minor) switch
                     {
                         ( >= 9, >= 0) => new PackageVersion("9.0.6", locked: true),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.17"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.17", locked: true),
                         ( >= 6, >= 0) => new PackageVersion("7.0.20")
                             .WithNugetDependency("Microsoft.EntityFrameworkCore.Sqlite.Core", "7.0.20")
                             .WithNugetDependency("SQLitePCLRaw.bundle_e_sqlite3", "2.1.4"),

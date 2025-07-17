@@ -78,7 +78,7 @@
       </childElements>
     </childElement>
     <childElement id="4b621e86-d89f-4cb1-a76b-bee264488388" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.17</name>
+      <name>8.0.18</name>
       <display>8.0.17 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,30 +100,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="c97e50a9-42d3-4e9c-ab3a-373ece5265cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="93804d72-01f2-407d-bcf9-12c0bd4aa34f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (8.0.17)</display>
           <isAbstract>false</isAbstract>
-          <value>8.0.17</value>
+          <value>8.0.18</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b621e86-d89f-4cb1-a76b-bee264488388</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="389e8619-c48c-423a-b068-7ecb58cd373a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="fff42366-9e3e-42e7-b921-42111fd97c30" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (8.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4b621e86-d89f-4cb1-a76b-bee264488388</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -131,7 +125,7 @@
       </childElements>
     </childElement>
     <childElement id="4f7af1f7-a219-4727-90ca-b609da6d4fe9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -153,16 +147,13 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="debb87cd-74cd-43df-80d6-d6b81bd03820" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a90cbbf2-deee-482b-9e89-3867dd96c6dd" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Net.Http.Headers</name>
-          <display>Microsoft.Net.Http.Headers (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4f7af1f7-a219-4727-90ca-b609da6d4fe9</parentFolderId>
-          <packageId>88700928-697c-4905-9f55-7aeec936b295</packageId>
-          <packageName>Intent.Blazor.HttpClients</packageName>
           <stereotypes />
           <metadata />
           <childElements />

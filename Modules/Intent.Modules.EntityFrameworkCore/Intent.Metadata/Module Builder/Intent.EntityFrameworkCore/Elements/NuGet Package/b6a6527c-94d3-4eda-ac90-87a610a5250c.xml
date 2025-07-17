@@ -184,8 +184,9 @@
       </childElements>
     </childElement>
     <childElement id="69b2bd44-73c0-4f8d-b1de-44d7e260ab65" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
       <name>8.0.17</name>
-      <display>8.0.17 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>8.0.17 ( &gt;= .NETCoreApp,Version=v8.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -199,7 +200,7 @@
           <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
           <properties>
             <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
-            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="true" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
@@ -207,6 +208,7 @@
       <childElements />
     </childElement>
     <childElement id="2ccd0b49-94bd-4afa-9e6e-5b37428a8677" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <comment>Not all the .net8 providers  (Oracle and MySql) have upgraded to support 9.0.0.</comment>
       <name>9.0.6</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 ) [locked]</display>
       <isAbstract>false</isAbstract>
