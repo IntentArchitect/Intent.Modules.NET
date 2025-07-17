@@ -19,6 +19,6 @@
     <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
     <PackageReference Include="Dapr.AspNetCore" Version="1.15.4" />
     <PackageReference Include="Man.Dapr.Sidekick.AspNetCore" Version="1.2.2" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
   </Project>
