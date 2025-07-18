@@ -121,7 +121,7 @@ Please see the [RDBMS README](https://docs.intentarchitect.com/articles/modules-
 
 ### Row Version - Attribute stereotype
 
-The `Row Version` stereotype when applied to a byte[] `Attribute`, denotes that it should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion` type.
+The `Row Version` stereotype when applied to a `binary` `Attribute`, denotes that it should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion` type.
 
 The `Row Version` stereotype can be manually applied. This stereotype is visualized by the time stamp icon.
 
