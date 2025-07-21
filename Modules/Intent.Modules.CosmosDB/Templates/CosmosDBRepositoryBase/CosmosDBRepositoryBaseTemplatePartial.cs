@@ -32,7 +32,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBRepositoryBase
         public CosmosDBRepositoryBaseTemplate(IOutputTarget outputTarget, IList<ClassModel> model) : base(TemplateId, outputTarget, model)
         {
             var createEntityInterfaces = ExecutionContext.Settings.GetDomainSettings().CreateEntityInterfaces();
-            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDb().UseOptimisticConcurrency();
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDB().UseOptimisticConcurrency();
             AddNugetDependency(NugetPackages.IEvangelistAzureCosmosRepository(outputTarget));
             AddNugetDependency(NugetPackages.NewtonsoftJson(outputTarget));
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <class id="3e1a00f7-c6f1-4785-a544-bbcb17602b31" type="Document Db Provider" typeId="fcfbd83f-a3eb-4eff-b341-5a812b016d31">
-  <name>CosmosDB</name>
-  <display>CosmosDB</display>
+  <name>Cosmos DB</name>
+  <display>Cosmos DB</display>
   <isAbstract>false</isAbstract>
   <genericTypes />
   <isMapped>false</isMapped>

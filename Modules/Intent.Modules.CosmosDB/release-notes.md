@@ -2,6 +2,8 @@
 
 - Improvement: Removed internal unused shared project.
 - Improvement: Added configuration stereotype to define which querying types the provider supports.
+- Improvement: Moved the `Serialization Setting` stereotype to the `Intent.Metadata.DocumentDB` module.
+- Fixed: Application settings section was named `CosmosDb` instead of `Cosmos DB`.
 
 ### Version 1.2.18
 
