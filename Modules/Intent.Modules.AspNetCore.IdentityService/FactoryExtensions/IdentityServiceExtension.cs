@@ -84,6 +84,10 @@ namespace Intent.Modules.AspNetCore.IdentityService.FactoryExtensions
         private void ModifyIdentityServiceController(IApplication application, ServiceModel identityService)
         {
             var serviceImplementationTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Controllers.Controller", identityService.Id);
+            if (serviceImplementationTemplate is null)
+            {
+                return;
+            }
 
             serviceImplementationTemplate.CSharpFile.AfterBuild(file =>
             {

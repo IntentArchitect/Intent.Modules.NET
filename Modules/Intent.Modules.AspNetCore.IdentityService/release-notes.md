@@ -1,6 +1,7 @@
 ### Version 1.0.4
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Had assumption ASP.NET Core Controllers module was installed.
 
 ### Version 1.0.3
 
