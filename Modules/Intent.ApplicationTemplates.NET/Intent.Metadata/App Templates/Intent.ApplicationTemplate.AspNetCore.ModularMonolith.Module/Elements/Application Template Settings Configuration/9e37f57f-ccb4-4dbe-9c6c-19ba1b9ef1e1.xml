@@ -4,7 +4,7 @@
   <display>Basic Settings</display>
   <isAbstract>false</isAbstract>
   <sort-children>manually</sort-children>
-  <order>10</order>
+  <order>9</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</parentFolderId>
@@ -86,34 +86,6 @@
           <display>.NET 6.0 = 16d99e3e-7b91-42f8-ae3b-2686edde94b7</display>
           <isAbstract>false</isAbstract>
           <value>16d99e3e-7b91-42f8-ae3b-2686edde94b7</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
-          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="52b33ee2-7c51-492a-b757-f2a45061ecc5" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
-          <name>.NET 5.0</name>
-          <display>.NET 5.0 = 9880b776-9b13-4ff6-87b3-2219cfa66652</display>
-          <isAbstract>false</isAbstract>
-          <value>9880b776-9b13-4ff6-87b3-2219cfa66652</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
-          <packageId>78f3ed7b-d5e0-49d8-a2f9-24016bc6a03a</packageId>
-          <packageName>Intent.ApplicationTemplate.AspNetCore.ModularMonolith.Module</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="a41af498-b22e-4284-82fd-1fdb9a6fe96e" type="Application Template Settings Field Option" typeId="7194651e-45da-4a0c-b1ab-0351a5c08fc8">
-          <name>.NET Core 3.1</name>
-          <display>.NET Core 3.1 = d603dbfd-3361-4406-b5c0-efc2ac6f33fc</display>
-          <isAbstract>false</isAbstract>
-          <value>d603dbfd-3361-4406-b5c0-efc2ac6f33fc</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4e256dca-d391-41a5-9027-8f8ab47568f2</parentFolderId>
