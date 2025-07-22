@@ -1,6 +1,7 @@
 ### Version 6.0.4
 
 - Improvement: Updated NuGet package versions.
+- Fixed: Bumped min module version on `Intent.Application.Contracts.Clients`.
 
 ### Version 6.0.3
 
