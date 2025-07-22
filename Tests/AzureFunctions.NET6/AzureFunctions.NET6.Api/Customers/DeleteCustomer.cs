@@ -8,6 +8,7 @@ using System.Transactions;
 using AzureFunctions.NET6.Application.Customers.DeleteCustomer;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -46,6 +47,10 @@ namespace AzureFunctions.NET6.Api.Customers
             {
                 await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
                 return new OkResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

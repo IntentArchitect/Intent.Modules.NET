@@ -2,6 +2,7 @@ using System.Net;
 using AzureFunctions.NET8.Application.Params.GetByIdsHeadersTest;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,10 @@ namespace AzureFunctions.NET8.Api.Params
                     , (string val, out int parsed) => int.TryParse(val, out parsed)).ToList();
                 var result = await _mediator.Send(new Application.Params.GetByIdsHeadersTest.GetByIdsHeadersTest(ids: ids), cancellationToken);
                 return result != null ? new OkObjectResult(result) : new NotFoundResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

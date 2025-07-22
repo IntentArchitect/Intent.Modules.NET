@@ -77,7 +77,11 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
             }
             if (result is null)
             {
-                template.TryGetTemplate(TemplateRoles.Application.Validation.Dto, template.Model.InternalElement, out result);
+                var requestDtoTypeName = template.Model.GetRequestDtoParameter();
+                if (requestDtoTypeName is not null)
+                {
+                    template.TryGetTemplate(TemplateRoles.Application.Validation.Dto, requestDtoTypeName.TypeReference.Element, out result);
+                }
             }
             return result;
         }

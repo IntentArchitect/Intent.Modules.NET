@@ -3,6 +3,7 @@ using AzureFunctions.NET8.Application.Validation;
 using AzureFunctions.NET8.Application.Validation.InboundQueVal;
 using AzureFunctions.NET8.Domain.Common.Exceptions;
 using AzureFunctions.NET8.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -67,6 +68,10 @@ namespace AzureFunctions.NET8.Api.Validation
                 string regexField = req.Query["regexField"];
                 var result = await _mediator.Send(new InboundQueValQuery(rangeStr: rangeStr, minStr: minStr, maxStr: maxStr, rangeInt: rangeInt, minInt: minInt, maxInt: maxInt, isRequired: isRequired, isRequiredEmpty: isRequiredEmpty, decimalRange: decimalRange, decimalMin: decimalMin, decimalMax: decimalMax, stringOption: stringOption, stringOptionNonEmpty: stringOptionNonEmpty, myEnum: myEnum, regexField: regexField), cancellationToken);
                 return result != null ? new OkObjectResult(result) : new NotFoundResult();
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

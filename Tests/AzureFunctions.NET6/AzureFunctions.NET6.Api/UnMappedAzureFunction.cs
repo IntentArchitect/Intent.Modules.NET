@@ -9,7 +9,6 @@ using System.Transactions;
 using AzureFunctions.NET6.Application.SampleDomains;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
-using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -45,10 +44,6 @@ namespace AzureFunctions.NET6.Api
                 var request = await AzureFunctionHelper.DeserializeJsonContentAsync<SampleDomainDto>(req.Body, cancellationToken);
                 //IntentIgnore
                 return new NoContentResult();
-            }
-            catch (ValidationException exception)
-            {
-                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {
