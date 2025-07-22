@@ -207,8 +207,13 @@ public static class RazorFileExtensions
                                         .GetAllTypeInfo(parentElement.AsTypeReference())
                                         .Select(x => x.Template)
                                         .OfType<ICSharpTemplate>()
-                                        .First(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
-                                        .RootCodeContext.GetReferenceForModel(targetElement.Id).Name;
+                                        .FirstOrDefault(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
+                                        ?.RootCodeContext.GetReferenceForModel(targetElement.Id).Name;
+
+                                    if (nameOfMethodToInvoke == null)
+                                    {
+                                        throw new FriendlyException("Unable to resolve the service type for the service call to `" + targetElement.DisplayText + "`. Try installing a module to realize this service (e.g. `Intent.Blazor.HttpClients`)");
+                                    }
 
                                     var csharpInvocationStatement = new CSharpInvocationStatement(nameOfMethodToInvoke);
                                     if (targetElement.ChildElements.Any(x => x.SpecializationTypeId is dtoFieldTypeId))
