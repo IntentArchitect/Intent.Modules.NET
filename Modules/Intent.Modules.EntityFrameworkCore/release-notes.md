@@ -3,6 +3,7 @@
 - Improvement: Updated NuGet package versions.
 - Improvement: SQL Lite support.
 - Improvement: Added support for column collation.
+- Fixed:This module was introducing an artificial dependency between PagedList in Application and the IDBContextInterface which should be movable.
 
 ### Version 5.0.25
 

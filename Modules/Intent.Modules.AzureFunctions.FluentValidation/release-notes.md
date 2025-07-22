@@ -1,3 +1,7 @@
+### Version 5.1.1
+
+- Improvement: Improved logic around fluent validators being configured for `Query`s.
+
 ### Version 5.1.0
 
 - Improvement: Updated NuGet package versions.

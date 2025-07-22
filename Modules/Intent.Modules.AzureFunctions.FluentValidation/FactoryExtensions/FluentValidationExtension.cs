@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
@@ -8,6 +9,7 @@ using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Constants;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -29,11 +31,10 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
             var templates = application.FindTemplateInstances<AzureFunctionClassTemplate>(TemplateDependency.OnTemplate(AzureFunctionClassTemplate.TemplateId));
             foreach (var template in templates)
             {
-                var requestDtoTypeName = template.Model.GetRequestDtoParameter() != null
-                    ? template.GetTypeName(template.Model.GetRequestDtoParameter().TypeReference)
-                    : null;
 
-                if (requestDtoTypeName == null || template.Model.TriggerType != TriggerType.HttpTrigger)
+                var validator = TryGetValidator(template); 
+
+                if (validator == null || template.Model.TriggerType != TriggerType.HttpTrigger)
                 {
                     continue;
                 }
@@ -64,6 +65,21 @@ namespace Intent.Modules.AzureFunctions.FluentValidation.FactoryExtensions
 
                 }, 10);
             }
+        }
+
+        private ICSharpFileBuilderTemplate TryGetValidator(AzureFunctionClassTemplate template)
+        {
+            ICSharpFileBuilderTemplate result = null;
+            template.TryGetTemplate(TemplateRoles.Application.Validation.Command, template.Model.InternalElement, out result);
+            if (result is null)
+            {
+                template.TryGetTemplate(TemplateRoles.Application.Validation.Query, template.Model.InternalElement, out result);
+            }
+            if (result is null)
+            {
+                template.TryGetTemplate(TemplateRoles.Application.Validation.Dto, template.Model.InternalElement, out result);
+            }
+            return result;
         }
     }
 }
