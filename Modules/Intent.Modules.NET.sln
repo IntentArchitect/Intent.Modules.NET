@@ -258,6 +258,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.Eventing.Kaf
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Intent.Modules.Eventing.Shared", "Intent.Modules.Eventing.Shared\Intent.Modules.Eventing.Shared.shproj", "{57C3C1AD-5CF7-4E51-8B9A-860B11FF7196}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.SqlServerImporter", "Intent.Modules.SqlServerImporter\Intent.Modules.SqlServerImporter.csproj", "{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.AspNetCore.DistributedCaching", "Intent.Modules.AspNetCore.DistributedCaching\Intent.Modules.AspNetCore.DistributedCaching.csproj", "{6755D512-DE99-44B6-B3B8-29BC0878EE25}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intent.Modules.EntityFrameworkCore.SecondLevelCaching", "Intent.Modules.EntityFrameworkCore.SecondLevelCaching\Intent.Modules.EntityFrameworkCore.SecondLevelCaching.csproj", "{97A4546B-440F-472D-910E-475B0E90B26B}"
@@ -850,6 +852,10 @@ Global
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A62D0C8F-724C-42A8-81F0-D930A724244E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6755D512-DE99-44B6-B3B8-29BC0878EE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1220,6 +1226,7 @@ Global
 		{992BB1F9-CDD6-4A3D-BF90-6554358DD319} = {F24A3FC4-85CD-4089-9C1C-0A9DA1900B86}
 		{14629E11-96B5-4050-A853-12D4FC016914} = {F75494CA-24E5-4CF2-8123-55A41BC20BC6}
 		{AC620C37-6585-4E04-B43E-0BAEFAE34E3C} = {5F9FE51C-33D0-4FDE-81AF-20FD12C6AF27}
+		{04EF8E79-E4BC-4DC3-8547-C4C8C7E7079C} = {1595E08E-BAD2-4F90-8BD9-65F6A846526B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A00AF88A-EA58-4AEA-B65F-92354533E2CA}
