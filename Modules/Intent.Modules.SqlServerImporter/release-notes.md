@@ -1,6 +1,6 @@
 ### Version 1.2.1
 
-- Obsolete: Please install [alternative module name if applicable] as this module is no longer in use. It can be safely removed.
+- Obsolete: Please install `Intent.Rdbms.Importer` as this module is no longer in use. It can be safely removed.
 
 ### Version 1.2.0
 
