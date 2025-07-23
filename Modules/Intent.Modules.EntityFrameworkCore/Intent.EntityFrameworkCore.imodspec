@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore</id>
-  <version>5.0.26-pre.4</version>
+  <version>5.0.26-pre.5</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Provides the Entity Framework Core, Object Relational Mapper framework</summary>
   <description>Provides the Entity Framework Core, Object Relational Mapper framework</description>
@@ -149,7 +149,7 @@
         </setting>
         <setting id="85dea0e8-8981-4c7b-908e-d99294fc37f1" title="Generate DbContext interface" type="switch">
           <isRequired>false</isRequired>
-          <hint>Generates an IApplicationDbContext file when enabled.</hint>
+          <hint>Exposes a LINQ-capable interface in the Application layer, decoupled from the concrete DbContext.</hint>
           <defaultValue>false</defaultValue>
         </setting>
         <setting id="ef908c62-0692-405f-849e-ac09c30181dd" title="Enable split queries globally" type="switch">
