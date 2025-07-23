@@ -21,8 +21,6 @@
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />
-    <file src="$outDir$/NuGet.Versioning.dll" inspect="false" />
-    <file src="$outDir$/Microsoft.Data.SqlClient.dll" />
   </files>
   <content></content>
   <tags />
