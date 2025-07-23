@@ -291,8 +291,8 @@
       </childElements>
     </childElement>
     <childElement id="c6fa2c54-fc14-4652-b309-34b019920850" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Kafka (BETA)</name>
-      <display>Kafka (BETA) (1)</display>
+      <name>Kafka</name>
+      <display>Kafka (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
