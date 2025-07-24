@@ -6,17 +6,21 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories.I
 {
     internal interface IDbParameterFactory
     {
-        CSharpStatement CreateForOutput(string invocationPrefix,
+        CSharpStatement CreateForOutput(
+            string invocationPrefix,
             string valueVariableName,
+            string spParameterName,
             Parameter parameter);
 
         CSharpStatement CreateForInput(
             string invocationPrefix,
             string valueVariableName,
+            string spParameterName,
             Parameter parameter);
 
         CSharpStatement CreateForTableType(
             string invocationPrefix,
+            string valueVariableName,
             Parameter parameter);
 
         string GenerateScalarSqlStatement(string storeProcedureName, List<SqlParameter> parameters);

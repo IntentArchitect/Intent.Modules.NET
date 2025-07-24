@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Common;
@@ -12,7 +9,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories.Interfaces;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
-using Intent.Templates;
 
 namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
 {
@@ -32,20 +28,28 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
         private string ParameterDirectionTypeName => _parameterDirectionTypeName ??= _template.UseType("System.Data.ParameterDirection");
         private string DbTypeTypeName => _dbTypeTypeName ??= _template.UseType("NpgsqlTypes.NpgsqlDbType");
 
-        public CSharpStatement CreateForInput(string invocationPrefix, string valueVariableName, Parameter parameter)
+        public CSharpStatement CreateForInput(
+            string invocationPrefix,
+            string valueVariableName,
+            string spParameterName,
+            Parameter parameter)
         {
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
 
             statement.AddObjectInitStatement("Direction", $"{ParameterDirectionTypeName}.Input");
             statement.AddObjectInitStatement("NpgsqlDbType", $"{DbTypeTypeName}.{GetPostgresSqlDbType(parameter)}");
-            statement.AddObjectInitStatement("ParameterName", $"\"{valueVariableName}\"");
+            statement.AddObjectInitStatement("ParameterName", $"\"{spParameterName}\"");
             statement.AddObjectInitStatement("Value", valueVariableName);
             statement.WithSemicolon();
 
             return statement;
         }
 
-        public CSharpStatement CreateForOutput(string invocationPrefix, string valueVariableName, Parameter parameter)
+        public CSharpStatement CreateForOutput(
+            string invocationPrefix,
+            string valueVariableName,
+            string spParameterName,
+            Parameter parameter)
         {
             var statement = new CSharpObjectInitializerBlock($"{invocationPrefix}new {ParameterTypeName}");
 
@@ -86,7 +90,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
             return statement;
         }
 
-        public CSharpStatement CreateForTableType(string invocationPrefix, Parameter parameter)
+        public CSharpStatement CreateForTableType(
+            string invocationPrefix,
+            string valueVariableName,
+            Parameter parameter)
         {
             var dataContractModel = parameter.TypeReference.Element.AsDataContractModel();
             var userDefinedTableName = dataContractModel.GetUserDefinedTableTypeSettings()?.Name();
@@ -102,7 +109,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
 
             statement.AddObjectInitStatement("IsNullable", parameter.TypeReference.IsNullable ? "true" : "false");
             statement.AddObjectInitStatement("NpgsqlDbType", $"{DbTypeTypeName}.Unknown");
-            statement.AddObjectInitStatement("Value", $"{parameter.InternalElement.Name.ToLocalVariableName()}.ToDataTable()");
+            statement.AddObjectInitStatement("Value", $"{valueVariableName}.ToDataTable()");
             statement.AddObjectInitStatement("TypeName", $"\"{userDefinedTableName}\"");
             statement.WithSemicolon();
 

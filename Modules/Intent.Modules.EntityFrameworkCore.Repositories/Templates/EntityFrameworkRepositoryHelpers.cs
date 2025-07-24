@@ -5,12 +5,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
-using Intent.EntityFrameworkCore.Repositories.Api;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
-using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -26,8 +24,6 @@ using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Utils;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
-using static Intent.Modules.Constants.TemplateRoles.Repository;
 using OperationModel = Intent.Modelers.Domain.Api.OperationModel;
 using OperationModelExtensions = Intent.Modelers.Domain.Api.OperationModelExtensions;
 
@@ -35,7 +31,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 
 internal static class EntityFrameworkRepositoryHelpers
 {
-    public static void ApplyEFInterfaceMethods<TTemplate, TModel>(
+    public static void ApplyEFInterfaceMethods<TTemplate>(
         TTemplate template,
         RepositoryModel repositoryModel)
         where TTemplate : ICSharpFileBuilderTemplate
@@ -105,7 +101,7 @@ internal static class EntityFrameworkRepositoryHelpers
     /// <summary>
     /// Apply any custom repository methods to the first class of the provided <paramref name="template"/>.
     /// </summary>
-    public static void ApplyEFImplementationMethods<TTemplate, TModel>(
+    public static void ApplyEFImplementationMethods<TTemplate>(
         TTemplate template,
         RepositoryModel repositoryModel)
        where TTemplate : ICSharpFileBuilderTemplate
@@ -115,7 +111,7 @@ internal static class EntityFrameworkRepositoryHelpers
         template.AddTypeSource(TemplateRoles.Domain.DataContract);
 
         var dbContextInstance = new DbContextInstance(repositoryModel.InternalElement.Package.AsDomainPackageModel());
-        var dbcontextName = dbContextInstance.GetTypeName(template);
+        var dbContextName = dbContextInstance.GetTypeName(template);
 
         // The .Value of this must only be called from AfterBuild when the DbContext file has been built
         var dbSetPropertiesByModelId = new Lazy<Dictionary<string, CSharpProperty>>(() =>
@@ -133,14 +129,14 @@ internal static class EntityFrameworkRepositoryHelpers
 
         var @class = template.CSharpFile.Classes.First();
 
-        // if its a non-entity repository, then add the constructor
+        // If it's a non-entity repository, then add the constructor
         if (repositoryModel.TypeReference.Element == null)
         {
             @class.AddConstructor(ctor =>
             {
-                if (!string.IsNullOrWhiteSpace(dbcontextName))
+                if (!string.IsNullOrWhiteSpace(dbContextName))
                 {
-                    ctor.AddParameter(dbcontextName, "dbContext", p => p.IntroduceReadonlyField());
+                    ctor.AddParameter(dbContextName, "dbContext", p => p.IntroduceReadonlyField());
                 }
             });
         }
@@ -154,7 +150,6 @@ internal static class EntityFrameworkRepositoryHelpers
                 {
                     var method = @class.Methods.First(m => m.Name == operationModel.Name.ToPascalCase());
 
-                    var returnType = operationModel.ReturnType is null ? "void" : template.GetTypeName(operationModel.ReturnType, "System.Collections.Generic.List<{0}>");
                     var hasStoredProcStereotype = false;
                     if (operationModel.TryGetStoredProcedure(out var stereotype))
                     {
@@ -162,8 +157,8 @@ internal static class EntityFrameworkRepositoryHelpers
                         hasStoredProcStereotype = true;
                     }
 
-                    if (method != null && (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true)
-                        || hasStoredProcStereotype))
+                    if (operationModel.StoredProcedureInvocationTargets().Any(x => x.TypeReference.Element?.IsStoredProcedureModel() == true)
+                        || hasStoredProcStereotype)
                     {
                         template.CSharpFile.AddUsing("System.Threading");
                         template.CSharpFile.AddUsing("System.Threading.Tasks");
@@ -189,27 +184,35 @@ internal static class EntityFrameworkRepositoryHelpers
                             assignResultToVariable: hasReturnType,
                             resultExpressionsByModel: out var resultExpressionsByModel);
 
-                        if (hasReturnType)
+                        if (!hasReturnType)
                         {
-                            var resultStaticElement = new StaticMetadata("1eba9280-3bf0-46f8-981c-414dee8e35c3");
-                            var mappingManager = new CSharpClassMappingManager(template);
-                            mappingManager.AddMappingResolver(new MappingResolver(template));
-
-                            var targetEndModel = operationModel.StoredProcedureInvocationTargets().First();
-                            var resultMapping = targetEndModel.GetMapResultMapping();
-
-                            foreach (var (model, expression) in resultExpressionsByModel)
-                            {
-                                var type = model.Id == generalizedStoredProcedure.Id
-                                    ? resultStaticElement
-                                    : model;
-
-                                mappingManager.SetFromReplacement(type, expression);
-                            }
-
-                            var generateTargetStatementForMapping = mappingManager.GenerateCreationStatement(resultMapping);
-                            method.AddStatement(new CSharpReturnStatement(generateTargetStatementForMapping), s => s.SeparatedFromPrevious());
+                            return;
                         }
+
+                        if (generalizedStoredProcedure.TypeReference.Equals(operationModel.TypeReference))
+                        {
+                            method.AddStatement(new CSharpReturnStatement(generalizedStoredProcedure.TypeReference.IsCollection ? "results" : "result"), s => s.SeparatedFromPrevious());
+                            return;
+                        }
+
+                        var resultStaticElement = new StaticMetadata("1eba9280-3bf0-46f8-981c-414dee8e35c3");
+                        var mappingManager = new CSharpClassMappingManager(template);
+                        mappingManager.AddMappingResolver(new MappingResolver(template));
+
+                        var targetEndModel = operationModel.StoredProcedureInvocationTargets().First();
+                        var resultMapping = targetEndModel.GetMapResultMapping();
+
+                        foreach (var (model, expression) in resultExpressionsByModel)
+                        {
+                            var type = model.Id == generalizedStoredProcedure.Id
+                                ? resultStaticElement
+                                : model;
+
+                            mappingManager.SetFromReplacement(type, expression);
+                        }
+
+                        var generateTargetStatementForMapping = mappingManager.GenerateCreationStatement(resultMapping);
+                        method.AddStatement(new CSharpReturnStatement(generateTargetStatementForMapping), s => s.SeparatedFromPrevious());
 
                         return;
                     }
@@ -228,8 +231,6 @@ internal static class EntityFrameworkRepositoryHelpers
                             applyReturnStatement: true,
                             assignResultToVariable: true,
                             resultExpressionsByModel: out _);
-
-                        return;
                     }
                 }, 2);
             }
@@ -411,25 +412,25 @@ internal static class EntityFrameworkRepositoryHelpers
             // Check per Package
             switch (stereotype.DatabaseProvider().AsEnum())
             {
-                case Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer:
-                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.SQLServer:
+                    provider = DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer;
                     break;
-                case Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL:
-                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql;
+                case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.PostgreSQL:
+                    provider = DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Postgresql;
                     break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.MySQL:
-                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql;
+                    provider = DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.MySql;
                     break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Oracle:
-                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle;
+                    provider = DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Oracle;
                     break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.Default:
                     break;
                 case DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum.InMemory:
-                    provider = Intent.Modules.EntityFrameworkCore.Settings.DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory;
+                    provider = DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.InMemory;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(Intent.EntityFrameworkCore.Api.DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum), stereotype.DatabaseProvider().AsEnum(), "Unsupported provider");
+                    throw new ArgumentOutOfRangeException(nameof(DomainPackageModelStereotypeExtensions.DatabaseSettings.DatabaseProviderOptionsEnum), stereotype.DatabaseProvider().AsEnum(), "Unsupported provider");
             }
         }
 
@@ -444,7 +445,7 @@ internal static class EntityFrameworkRepositoryHelpers
             _ => new DefaultDbParameterFactory(template)
         };
 
-        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails != null && x.StoredProcedureDetails.Direction == StoredProcedureParameterDirection.Both))
+        if (storedProcedure.Parameters.Any(x => x.StoredProcedureDetails is { Direction: StoredProcedureParameterDirection.Both }))
         {
             method.AddStatement($"throw new {template.UseType("System.NotSupportedException")}(\"" +
                                 $"One or more parameters have a direction of both which is not presently supported, " +
@@ -480,20 +481,23 @@ internal static class EntityFrameworkRepositoryHelpers
             {
                 method.AddStatement(parameterFactory.CreateForOutput(
                     invocationPrefix: $"var {variableName} = ",
-                    valueVariableName: spParameterName,
+                    valueVariableName: sourceExpression,
+                    spParameterName: spParameterName,
                     parameter: parameter));
             }
             else if (returnsScalar)
             {
                 method.AddStatement(parameterFactory.CreateForInput(
                     invocationPrefix: $"var {variableName} = ",
-                    valueVariableName: spParameterName,
+                    valueVariableName: sourceExpression,
+                    spParameterName: spParameterName,
                     parameter: parameter));
             }
             else if (isUserDefinedTableType)
             {
                 method.AddStatement(parameterFactory.CreateForTableType(
                     invocationPrefix: $"var {variableName} = ",
+                    valueVariableName: sourceExpression,
                     parameter: parameter));
             }
         }
@@ -506,83 +510,81 @@ internal static class EntityFrameworkRepositoryHelpers
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
         }
-        else
+
+        if (returnsScalar)
         {
-            if (returnsScalar)
-            {
-                var sql = parameterFactory.GenerateScalarSqlStatement(spName, parameters);
+            var sql = parameterFactory.GenerateScalarSqlStatement(spName, parameters);
 
-                method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure.TypeReference)}>",
-                    s =>
-                    {
-                        s.AddArgument(sql);
-
-                        foreach (var parameter in parameters)
-                        {
-                            s.AddArgument($"{parameter.VariableName}");
-                        }
-                    });
-
-                if (applyReturnStatement)
+            method.AddInvocationStatement($"var result = await _dbContext.ExecuteScalarAsync<{template.GetTypeName(storedProcedure.TypeReference)}>",
+                s =>
                 {
-                    AddReturnStatement(outputs.Select(x => x.Expression), method);
-                }
-            }
-            else if (returnTypeElement == null)
-            {
-                var sql = parameterFactory.GenerateTypeElementSqlStatement(spName, parameters);
+                    s.AddArgument(sql);
 
-                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-                method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
-
-                if (applyReturnStatement)
-                {
-                    AddReturnStatement(outputs.Select(x => x.Expression), method);
-                }
-            }
-            else
-            {
-                var sql = parameterFactory.GenerateTableTypeSqlStatement(spName, parameters);
-
-                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-                var assignment = assignResultToVariable
-                    ? $"var {resultVariableName} = "
-                    : string.Empty;
-                var (openingBracket, closingBracket) = assignResultToVariable && !returnsCollection
-                    ? ("(", ")")
-                    : (string.Empty, string.Empty);
-                method.AddMethodChainStatement($"{assignment}{openingBracket}await GetSet()", chainStatement =>
-                {
-                    if (template is not RepositoryTemplate repositoryTemplate ||
-                        repositoryTemplate.Model.Id != returnTypeElement.Id)
+                    foreach (var parameter in parameters)
                     {
-                        // If we do this too early the DbSets have not yet been generated:
-                        template.CSharpFile.AfterBuild(_ =>
-                        {
-                            chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
-                        }, 1000);
-                    }
-
-                    template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
-                    chainStatement
-                        .AddChainStatement($"FromSqlInterpolated({sql})")
-                        .AddChainStatement("IgnoreQueryFilters()")
-                        .AddChainStatement($"ToArrayAsync(cancellationToken){closingBracket}");
-
-                    if (!returnsCollection)
-                    {
-                        template.CSharpFile.AddUsing("System.Linq");
-                        chainStatement.AddChainStatement(storedProcedure.TypeReference.IsNullable
-                            ? "SingleOrDefault()"
-                            : "Single()");
-                    }
-
-                    if (applyReturnStatement)
-                    {
-                        AddReturnStatement(outputs.Select(x => x.Expression), method);
+                        s.AddArgument($"{parameter.VariableName}");
                     }
                 });
+
+            if (applyReturnStatement)
+            {
+                AddReturnStatement(outputs.Select(x => x.Expression), method);
             }
+        }
+        else if (returnTypeElement == null)
+        {
+            var sql = parameterFactory.GenerateTypeElementSqlStatement(spName, parameters);
+
+            template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+            method.AddStatement($"await _dbContext.Database.ExecuteSqlInterpolatedAsync({sql}, cancellationToken);");
+
+            if (applyReturnStatement)
+            {
+                AddReturnStatement(outputs.Select(x => x.Expression), method);
+            }
+        }
+        else
+        {
+            var sql = parameterFactory.GenerateTableTypeSqlStatement(spName, parameters);
+
+            template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+            var assignment = assignResultToVariable
+                ? $"var {resultVariableName} = "
+                : string.Empty;
+            var (openingBracket, closingBracket) = assignResultToVariable && !returnsCollection
+                ? ("(", ")")
+                : (string.Empty, string.Empty);
+            method.AddMethodChainStatement($"{assignment}{openingBracket}await GetSet()", chainStatement =>
+            {
+                if (template is not RepositoryTemplate repositoryTemplate ||
+                    repositoryTemplate.Model.Id != returnTypeElement.Id)
+                {
+                    // If we do this too early the DbSets have not yet been generated:
+                    template.CSharpFile.AfterBuild(_ =>
+                    {
+                        chainStatement.Text = chainStatement.Text.Replace("GetSet()", $"_dbContext.{dbSetPropertiesByModelId.Value[returnTypeElement.Id].Name}");
+                    }, 1000);
+                }
+
+                template.CSharpFile.AddUsing("Microsoft.EntityFrameworkCore");
+                chainStatement
+                    .AddChainStatement($"FromSqlInterpolated({sql})")
+                    .AddChainStatement("IgnoreQueryFilters()")
+                    .AddChainStatement($"ToArrayAsync(cancellationToken){closingBracket}");
+
+                if (!returnsCollection)
+                {
+                    template.CSharpFile.AddUsing("System.Linq");
+                    chainStatement.AddChainStatement(storedProcedure.TypeReference.IsNullable
+                        ? "SingleOrDefault()"
+                        : "Single()");
+                }
+
+                if (applyReturnStatement)
+                {
+                    AddReturnStatement(outputs.Select(x => x.Expression), method);
+                }
+            });
         }
 
         resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression);

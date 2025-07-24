@@ -53,31 +53,31 @@
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{paramSomething1}</expression>
+            <expression>{paramSomething1WithAltName}</expression>
             <path>
               <target id="8f2cae22-88d0-49b3-89c7-09ff185c34e6" name="MappedSp" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
               <target id="84420057-eafe-4123-8664-90d6c34bc1fd" name="param1" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
             </path>
             <sources>
-              <source identifier="paramSomething1" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
+              <source identifier="paramSomething1WithAltName" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
                 <path>
                   <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
-                  <target id="aef63b2c-075a-438f-bba7-682194cd0d38" name="paramSomething1" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  <target id="aef63b2c-075a-438f-bba7-682194cd0d38" name="paramSomething1WithAltName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
                 </path>
               </source>
             </sources>
           </mappedEnd>
           <mappedEnd>
-            <expression>{paramName2}</expression>
+            <expression>{paramName2WithAltName}</expression>
             <path>
               <target id="8f2cae22-88d0-49b3-89c7-09ff185c34e6" name="MappedSp" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
               <target id="3d422431-f5f3-49a3-b63f-cf79d077a643" name="param2" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
             </path>
             <sources>
-              <source identifier="paramName2" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
+              <source identifier="paramName2WithAltName" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
                 <path>
                   <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
-                  <target id="7aea1864-e5c2-47d6-8140-944203d65c77" name="paramName2" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                  <target id="7aea1864-e5c2-47d6-8140-944203d65c77" name="paramName2WithAltName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
                 </path>
               </source>
             </sources>
@@ -100,7 +100,7 @@
                   <target id="a9613ae9-e210-4213-86c1-8c8b835275ec" name="MappedOperation" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
                   <target id="fd515490-9466-4e90-8983-c3289d954908" name="mappedResult" type="association" specialization="Stored Procedure Invocation Target End" specializationId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d" />
                   <target id="1eba9280-3bf0-46f8-981c-414dee8e35c3" name="result" type="static-mappable" specialization="result" specializationId="1eba9280-3bf0-46f8-981c-414dee8e35c3">
-                    <typeReference id="6303dbd9-5e26-41b8-9703-201900ef63ad">
+                    <typeReference>
                       <typeId>dc5425b9-511f-4b4f-bb3e-4eeb7a7e3df9</typeId>
                       <isNavigable>true</isNavigable>
                       <isNullable>false</isNullable>

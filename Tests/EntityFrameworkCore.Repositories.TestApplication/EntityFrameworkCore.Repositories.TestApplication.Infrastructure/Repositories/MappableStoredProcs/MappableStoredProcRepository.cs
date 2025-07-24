@@ -86,8 +86,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         }
 
         public async Task<MappedSpResult> MappedOperation(
-            string paramName2,
-            string paramSomething1,
+            string paramName2WithAltName,
+            string paramSomething1WithAltName,
             CancellationToken cancellationToken = default)
         {
             var outputParam1Parameter = new SqlParameter
@@ -107,7 +107,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             };
 
             var result = (await _dbContext.MappedSpResultItems
-                .FromSqlInterpolated($"EXECUTE MappedSp {paramSomething1}, {paramName2}, {outputParam1Parameter} OUTPUT, {outputParam2Parameter} OUTPUT")
+                .FromSqlInterpolated($"EXECUTE MappedSp {paramSomething1WithAltName}, {paramName2WithAltName}, {outputParam1Parameter} OUTPUT, {outputParam2Parameter} OUTPUT")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken))
                 .Single();
@@ -116,8 +116,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
         }
 
         public async Task<MappedSpResultCollection> MappedOperationWithCollection(
-            string paramRandom2,
-            string paramElse1,
+            string paramRandom2WithAltName,
+            string paramElse1WithAltName,
             CancellationToken cancellationToken = default)
         {
             var outputParam2Parameter = new SqlParameter
@@ -137,11 +137,28 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             };
 
             var results = await _dbContext.MappedSpResultItems
-                .FromSqlInterpolated($"EXECUTE MappedSpCollection {paramRandom2}, {paramElse1}, {outputParam2Parameter} OUTPUT, {outputParam1Parameter} OUTPUT")
+                .FromSqlInterpolated($"EXECUTE MappedSpCollection {paramRandom2WithAltName}, {paramElse1WithAltName}, {outputParam2Parameter} OUTPUT, {outputParam1Parameter} OUTPUT")
                 .IgnoreQueryFilters()
                 .ToArrayAsync(cancellationToken);
 
             return new MappedSpResultCollection(result: results, simpleString: (string)outputParam2Parameter.Value);
+        }
+
+        public async Task<int> MappedOperationCallingScalar(
+            int param1WithDiffName,
+            CancellationToken cancellationToken = default)
+        {
+            var param1Parameter = new SqlParameter
+            {
+                Direction = ParameterDirection.Input,
+                SqlDbType = SqlDbType.Int,
+                ParameterName = "@param1",
+                Value = param1WithDiffName
+            };
+
+            var result = await _dbContext.ExecuteScalarAsync<int>("EXECUTE MappedSpReturningScalar @param1", param1Parameter);
+
+            return result;
         }
     }
 }

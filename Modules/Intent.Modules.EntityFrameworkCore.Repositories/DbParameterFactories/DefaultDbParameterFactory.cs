@@ -15,17 +15,17 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.DbParameterFactories
             _template = template;
         }
 
-        public CSharpStatement CreateForInput(string invocationPrefix, string valueVariableName, Parameter parameter)
+        public CSharpStatement CreateForInput(string invocationPrefix, string valueVariableName, string spParameterName, Parameter parameter)
         {
             return new CSharpStatement();
         }
 
-        public CSharpStatement CreateForOutput(string invocationPrefix, string valueVariableName, Parameter parameter)
+        public CSharpStatement CreateForOutput(string invocationPrefix, string valueVariableName, string spParameterName, Parameter parameter)
         {
             return new CSharpStatement();
         }
 
-        public CSharpStatement CreateForTableType(string invocationPrefix, Parameter parameter)
+        public CSharpStatement CreateForTableType(string invocationPrefix, string valueVariableName, Parameter parameter)
         {
             return new CSharpStatement();
         }
