@@ -28,20 +28,31 @@ namespace Intent.Modules.SqlServerImporter.Migrations
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
 
             var packages = app.GetDesigners().SelectMany(x => x.GetPackages()).ToList();
-            
+
             foreach (var package in packages)
             {
                 bool changed = false;
-                var metaEntries = package.Metadata.Where(p => p.Key.StartsWith("sql-import:") || p.Key.StartsWith("sql-import-repository:")).ToList();
-                foreach (var metaEntry in metaEntries)
+
+                var schemaVersion = package.Metadata.Where(x => x.Key == "sql-import:schemaVersion").FirstOrDefault();
+                if (schemaVersion is not null)
                 {
-                    var newKey = metaEntry.Key
-                        .Replace("sql-import:", "rdbms-import:")
-                        .Replace("sql-import-repository:", "rdbms-import-repository:");
-                    if (newKey != metaEntry.Key)
+                    package.Metadata.Remove(schemaVersion);
+                    changed = true;
+                }
+
+                if (!package.Metadata.Any(x => x.Key.StartsWith("rdbms-import:")))
+                {
+                    var metaEntries = package.Metadata.Where(p => p.Key.StartsWith("sql-import:") || p.Key.StartsWith("sql-import-repository:")).ToList();
+                    foreach (var metaEntry in metaEntries)
                     {
-                        metaEntry.Key = newKey;
-                        changed = true;
+                        var newKey = metaEntry.Key
+                            .Replace("sql-import:", "rdbms-import:")
+                            .Replace("sql-import-repository:", "rdbms-import-repository:");
+                        if (newKey != metaEntry.Key)
+                        {
+                            metaEntry.Key = newKey;
+                            changed = true;
+                        }
                     }
                 }
 
