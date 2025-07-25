@@ -12,7 +12,7 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Application.Common.Paginat
             Data = null!;
         }
 
-        public IEnumerable<T> Data { get; set; } = Enumerable.Empty<T>();
+        public IEnumerable<T> Data { get; set; }
         public string? CursorToken { get; set; }
         public int PageSize { get; set; }
         public bool HasMoreResults => !string.IsNullOrEmpty(CursorToken);

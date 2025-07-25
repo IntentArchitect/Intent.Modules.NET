@@ -14,7 +14,7 @@ namespace EntityFrameworkCore.Oracle.TestApplication.Application.Common.Paginati
             Data = null!;
         }
 
-        public IEnumerable<T> Data { get; set; } = Enumerable.Empty<T>();
+        public IEnumerable<T> Data { get; set; }
         public string? CursorToken { get; set; }
         public int PageSize { get; set; }
         public bool HasMoreResults => !string.IsNullOrEmpty(CursorToken);

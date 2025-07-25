@@ -34,7 +34,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.CursorPagedResult
                     AddUsing("System.Collections.Generic");
                     AddUsing("System.Linq");
 
-                    @class.AddProperty($"IEnumerable<{tDataType}>", "Data", prop => prop.WithInitialValue($"Enumerable.Empty<{tDataType}>()"));
+                    @class.AddProperty($"IEnumerable<{tDataType}>", "Data");
                     @class.AddProperty("string?", "CursorToken");
                     @class.AddProperty("int", "PageSize");
                     @class.AddProperty("bool", "HasMoreResults", prop =>
