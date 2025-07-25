@@ -14,6 +14,6 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Repositor
         Task TestProc(CancellationToken cancellationToken = default);
         Task UpdateProductName(int productId, string newName, CancellationToken cancellationToken = default);
         Task<bool> UpdateProductPrice(int productId, decimal newPrice, CancellationToken cancellationToken = default);
-        Task<IReadOnlyCollection<ProductInMemory>> GetProductsByName(string search, CancellationToken cancellationToken = default);
+        Task<List<ProductInMemory>> GetProductsByName(string search, CancellationToken cancellationToken = default);
     }
 }

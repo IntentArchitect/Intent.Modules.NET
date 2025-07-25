@@ -17,7 +17,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
         [IntentManaged(Mode.Fully)]
         Task<TProjection?> FindByIdProjectToAsync<TProjection>(Guid id, CancellationToken cancellationToken = default);
         Task<MockEntity> GetMockEntityById(Guid id, CancellationToken cancellationToken = default);
-        Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default);
+        Task<List<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]
         Task<MockEntity?> FindByIdAsync(Guid id, CancellationToken cancellationToken = default);
         [IntentManaged(Mode.Fully)]

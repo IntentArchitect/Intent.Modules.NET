@@ -35,7 +35,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input0_tableType0_output0_return1")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;
@@ -67,7 +67,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input0_tableType0_output1_return1 {output0Parameter} OUTPUT")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return (result, (int)output0Parameter.Value);
@@ -103,7 +103,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input0_tableType1_output0_return1 {tableType0Parameter}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;
@@ -155,7 +155,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input0_tableType1_output1_return1 {output0Parameter} OUTPUT, {tableType0Parameter}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return (result, (int)output0Parameter.Value);
@@ -173,7 +173,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input1_tableType0_output0_return1 {input0}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;
@@ -207,7 +207,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input1_tableType0_output1_return1 {output0Parameter} OUTPUT, {input0}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return (result, (int)output0Parameter.Value);
@@ -245,7 +245,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input1_tableType1_output0_return1 {tableType0Parameter}, {input0}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;
@@ -299,7 +299,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE input1_tableType1_output1_return1 {output0Parameter} OUTPUT, {tableType0Parameter}, {input0}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return (result, (int)output0Parameter.Value);

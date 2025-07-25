@@ -570,8 +570,13 @@ internal static class EntityFrameworkRepositoryHelpers
                 chainStatement
                     .AddChainStatement($"FromSqlInterpolated({sql})")
                     .AddChainStatement("IgnoreQueryFilters()")
-                    .AddChainStatement($"ToArrayAsync(cancellationToken){closingBracket}");
+                    .AddChainStatement($"ToListAsync(cancellationToken){closingBracket}");
 
+                // NB: "ToArrayAsync" is required as use of "SingleAsync" or "SingleOrDefaultAsync" will cause
+                // the following exception:
+                //
+                // 'FromSql' or 'SqlQuery' was called with non-composable SQL and with a query composing over it.
+                // Consider calling 'AsEnumerable' after the method to perform the composition on the client side
                 if (!returnsCollection)
                 {
                     template.CSharpFile.AddUsing("System.Linq");
@@ -705,7 +710,7 @@ internal static class EntityFrameworkRepositoryHelpers
         {
             tupleProperties.Insert(0, new TupleEntry(
                 Name: storedProcedure.TypeReference.IsCollection ? "Results" : "Result",
-                TypeName: template.GetTypeName(storedProcedure.TypeReference, "System.Collections.Generic.IReadOnlyCollection<{0}>")
+                TypeName: template.GetTypeName(storedProcedure.TypeReference, "System.Collections.Generic.List<{0}>")
             ));
         }
 

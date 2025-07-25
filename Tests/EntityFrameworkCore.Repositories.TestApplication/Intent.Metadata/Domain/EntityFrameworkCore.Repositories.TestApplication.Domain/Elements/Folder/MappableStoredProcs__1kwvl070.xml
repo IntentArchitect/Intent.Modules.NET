@@ -393,6 +393,42 @@
         </childElement>
       </childElements>
     </childElement>
+    <childElement id="4adee984-b406-466f-8b66-5914e6222be3" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
+      <name>MappedSpCollectionPassthrough</name>
+      <display>MappedSpCollectionPassthrough(): MappedSpCollectionPassthroughResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="61a25805-4799-4bf9-b36b-bf43126b80e1">
+        <typeId>c47f5017-635c-4ac9-ac1b-3a8d5eeb79f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>bac1d216-e144-4b8a-9468-b4be84118dae</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="8ca606b1-406a-4b16-a7e7-8ffe1a215ecf" name="Stored Procedure Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.EntityFrameworkCore.Repositories</definitionPackageName>
+          <definitionPackageId>5869084c-2a08-4e40-a5c9-ff26220470c8</definitionPackageId>
+          <properties>
+            <property name="1ae41308-484e-41e1-ac94-66f33bc88c36" display="Name in Schema" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
     <childElement id="9ee5f3c5-b938-4bc4-95f3-0b1b96a9afcb" type="Stored Procedure" typeId="575edd35-9438-406d-b0a7-b99d6f29b560">
       <name>MappedSpReturningScalar</name>
       <display>MappedSpReturningScalar(param1: int): int</display>

@@ -25,7 +25,7 @@ namespace SqlDbProject.Infrastructure.Repositories
             var result = (await _dbContext.AccountHolderPeople
                 .FromSqlInterpolated($"EXECUTE GetAccountHolderPerson {stakeholderId}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;

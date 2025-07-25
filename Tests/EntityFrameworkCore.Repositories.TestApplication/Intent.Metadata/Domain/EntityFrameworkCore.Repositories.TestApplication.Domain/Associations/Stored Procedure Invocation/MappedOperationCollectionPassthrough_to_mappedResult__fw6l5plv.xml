@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="b1daccc8-f9b6-4d33-859b-3acf62c56c1b">
+  <sourceEnd id="ee21f4e2-f1a4-4a88-b09d-6da0259f7837" type="Stored Procedure Invocation Source End" typeId="7b7d3fd8-5e32-4f8c-b4cc-7b92f45a8577">
+    <display>: MappedOperationCollectionPassthrough</display>
+    <order>0</order>
+    <typeReference id="b4a9a83e-8c61-40d7-88b9-bf6bc05e8d52">
+      <typeId>5e8a107b-8006-4ed4-869d-6279e6484a66</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="b1daccc8-f9b6-4d33-859b-3acf62c56c1b" type="Stored Procedure Invocation Target End" typeId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d">
+    <name>mappedResult</name>
+    <display>mappedResult: MappedSpCollectionPassthrough</display>
+    <order>0</order>
+    <typeReference id="99e47ccc-43b5-40b4-97fe-a698efa36007">
+      <typeId>4adee984-b406-466f-8b66-5914e6222be3</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Stored Procedure Invocation" typeId="a7dbfc5c-f4f4-4f61-a176-6b652192ebfc">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="5e8a107b-8006-4ed4-869d-6279e6484a66" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedOperationCollectionPassthrough]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="4adee984-b406-466f-8b66-5914e6222be3" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedSpCollectionPassthrough]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MappedOperationCollectionPassthrough}</expression>
+            <path>
+              <target id="4adee984-b406-466f-8b66-5914e6222be3" name="MappedSpCollectionPassthrough" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+            </path>
+            <sources>
+              <source identifier="MappedOperationCollectionPassthrough" mappingType="Invocation Mapping" mappingTypeId="125fe452-48cc-4082-bfde-3d65470ab345">
+                <path>
+                  <target id="5e8a107b-8006-4ed4-869d-6279e6484a66" name="MappedOperationCollectionPassthrough" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Stored Procedure Invocation</associationType>
+  <associationTypeId>adf062ed-c0a4-421f-9940-318a91e9a52c</associationTypeId>
+  <stereotypes />
+</association>

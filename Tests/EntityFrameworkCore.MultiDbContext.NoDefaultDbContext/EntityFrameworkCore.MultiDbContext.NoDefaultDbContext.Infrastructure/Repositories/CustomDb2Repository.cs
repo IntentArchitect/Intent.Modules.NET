@@ -50,14 +50,14 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
             return (bool)successParameter.Value;
         }
 
-        public async Task<IReadOnlyCollection<ProductInMemory>> GetProductsByName(
+        public async Task<List<ProductInMemory>> GetProductsByName(
             string search,
             CancellationToken cancellationToken = default)
         {
             var results = await _dbContext.ProductInMemories
                 .FromSqlInterpolated($"EXECUTE GetProductsByName {search}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken);
+                .ToListAsync(cancellationToken);
 
             return results;
         }
