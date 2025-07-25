@@ -74,7 +74,7 @@
     </detect>
     <detect id="Intent.Entities.Repositories.Api">
       <install>
-        <package id="Intent.Entities.Repositories.Api" version="5.1.8-pre.0" />
+        <package id="Intent.Entities.Repositories.Api" version="5.1.8-pre.1" />
       </install>
     </detect>
     <detect id="Intent.Azure.TableStorage">

@@ -93,6 +93,11 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.CursorPagedResult
                 });
         }
 
+        public override bool CanRunTemplate()
+        {
+            return TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var interfaceName) && !string.IsNullOrWhiteSpace(interfaceName);
+        }
+
         private string GetCursorPagedListInterfaceName()
         {
             return TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var interfaceName) ? interfaceName : "";

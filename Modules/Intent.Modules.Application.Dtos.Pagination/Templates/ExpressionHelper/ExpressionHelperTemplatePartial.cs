@@ -27,7 +27,7 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.ExpressionHelper
                     AddUsing("System.Linq.Expressions");
                     @class.Static();
 
-                    @class.AddMethod("Expression<Func<T, bool>>", "Combine", method =>
+                    @class.AddMethod($"Expression<{UseType("System.Func<T, bool>")}>", "Combine", method =>
                     {
                         method.Static();
                         method.AddGenericParameter("T");
