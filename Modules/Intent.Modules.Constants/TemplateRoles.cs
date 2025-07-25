@@ -64,6 +64,7 @@ namespace Intent.Modules.Constants
                 [Obsolete("This template has been moved Repository.Interface.PagedList")]
                 public const string PagedResult = "Repository.Interface.PagedResult";
                 public const string PagedList = "Repository.Interface.PagedList";
+                public const string CursorPagedList = "Repository.Interface.CursorPagedList";
             }
 
             public static class Implementation
@@ -91,6 +92,7 @@ namespace Intent.Modules.Constants
                 public const string ConnectionStringDbContextInterface = "Application.Common.ConnectionStringDbContextInterface";
                 public const string ValidationServiceInterface = "Application.Common.ValidatonServiceInterface";
                 public const string PagedList = "Application.Common.PagedList";
+                public const string CursorPagedList = "Application.Common.CursorPagedList";
             }
 
             public static class Contracts

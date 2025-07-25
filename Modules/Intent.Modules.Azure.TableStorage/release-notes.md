@@ -1,5 +1,6 @@
 ### Version 1.0.0
 
+- Improvement: Added support for cursor-based pagination.
 - Improvement: Added FindAsync method and ability to set PK source as "Auto-generated"
 - Improvement: Updated NuGet package versions.
 - Improvement: Included module help topic.

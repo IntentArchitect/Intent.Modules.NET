@@ -1,5 +1,6 @@
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Application.Dtos.Pagination.Templates.CursorPagedResult;
 using Intent.Modules.Application.Dtos.Pagination.Templates.PagedResult;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Plugins;
@@ -22,7 +23,8 @@ namespace Intent.Modules.Application.Dtos.Pagination.FactoryExtensions
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
             var pagedResultTemplate = application.FindTemplateInstance<PagedResultTemplate>(PagedResultTemplate.TemplateId);
-            if (pagedResultTemplate == null)
+            var cursorPagedResultTemplate = application.FindTemplateInstance<CursorPagedResultTemplate>(CursorPagedResultTemplate.TemplateId);
+            if (pagedResultTemplate == null && cursorPagedResultTemplate == null)
             {
                 return;
             }
@@ -36,15 +38,26 @@ namespace Intent.Modules.Application.Dtos.Pagination.FactoryExtensions
             // This is not ideal. See what I did for the Blazor Http Clients that also need
             // to resolve a paged result. It uses our standard type resolution mechanisms (which are far more
             // intuitive)
-            var templates = pagedResultTemplate.ExecutionContext
+            var templates = pagedResultTemplate?.ExecutionContext
                 .OutputTargets
                 .SelectMany(s => s.TemplateInstances)
                 .OfType<IntentTemplateBase>()
                 .Where(p => p.HasTypeResolver())
                 .ToArray();
-            foreach (var template in templates)
+            if (templates != null)
             {
-                template.AddTypeSource(new PagedResultTypeSource(pagedResultTemplate));
+                foreach (var template in templates)
+                {
+                    if (pagedResultTemplate != null)
+                    {
+                        template.AddTypeSource(new PagedResultTypeSource(pagedResultTemplate));
+                    }
+
+                    if (cursorPagedResultTemplate != null)
+                    {
+                        template.AddTypeSource(new CursorPagedResultTypeSource(cursorPagedResultTemplate));
+                    }
+                }
             }
         }
     }

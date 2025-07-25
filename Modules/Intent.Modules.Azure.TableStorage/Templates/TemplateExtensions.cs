@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Azure.TableStorage.Templates.CursorPagedList;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepository;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase;
 using Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInterface;
@@ -19,6 +20,10 @@ namespace Intent.Modules.Azure.TableStorage.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCursorPagedListName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CursorPagedListTemplate.TemplateId);
+        }
         public static string GetTableStorageRepositoryName<T>(this IIntentTemplate<T> template) where T : ClassModel
         {
             return template.GetTypeName(TableStorageRepositoryTemplate.TemplateId, template.Model);

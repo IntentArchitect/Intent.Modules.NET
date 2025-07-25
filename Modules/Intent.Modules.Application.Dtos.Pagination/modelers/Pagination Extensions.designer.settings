@@ -11,116 +11,1216 @@
       <contextMenuOptions>
         <runScript group="2" type="run-script">
           <text>Paginate</text>
-          <shortcut>ctrl + shift + g</shortcut>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
-          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
-          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-function changeReturnType(element) {
-    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
-    let currentReturnType = element.typeReference.typeId;
-    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
-    element.typeReference.setIsCollection(false);
-    element.typeReference.setIsNullable(false);
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-function addPagingParameters(element, childElementType) {
-    var _a;
-    const commonTypes = {
-        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
-        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
-        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
-        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
-    };
-    var pageOffsetAttributes = ["pageno", "pageindex"];
-    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
-        let pageSize = createElement(childElementType, "PageNo", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
-        let pageSize = createElement(childElementType, "PageSize", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
-    //https://github.com/TurnerSoftware/MongoFramework/issues/383
-    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
-        return;
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
-        let pageSize = createElement(childElementType, "OrderBy", element.id);
-        pageSize.typeReference.setType(commonTypes.string);
-        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
     }
 }
-/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
  *
  * Source code here:
- * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/service/add-pagination-service.ts
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/sub-menu/is-select-menu-enabled.ts
  */
-function addPagination(element) {
-    addPagingParameters(element, "Parameter");
-    changeReturnType(element);
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <subMenuOptions>
+            <runScript group="2" type="run-script">
+              <text>Offset Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+              <dependencies>
+                <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+              </dependencies>
+              <script>OffsetPaginateApi.addServicePagination(element);</script>
+            </runScript>
+            <runScript group="2" type="run-script">
+              <text>Cursor Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+              <dependencies>
+                <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+              </dependencies>
+              <script>CursorPaginateApi.addServicePagination(element);</script>
+            </runScript>
+          </subMenuOptions>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addServicePagination(element);</script>
+        </runScript>
+        <runScript group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-addPagination(element);
-</script>
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/offset/is-offset-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addServicePagination(element);</script>
+        </runScript>
+        <runScript group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
+}
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/cursor/is-cursor-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showOffsetPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+          </dependencies>
+          <script>CursorPaginateApi.addServicePagination(element);</script>
         </runScript>
       </contextMenuOptions>
       <creationOptions />
       <scriptOptions>
         <option group="2" type="run-script">
           <text>Paginate</text>
-          <shortcut>ctrl + shift + g</shortcut>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
-          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
-          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-function changeReturnType(element) {
-    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
-    let currentReturnType = element.typeReference.typeId;
-    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
-    element.typeReference.setIsCollection(false);
-    element.typeReference.setIsNullable(false);
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-function addPagingParameters(element, childElementType) {
-    var _a;
-    const commonTypes = {
-        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
-        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
-        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
-        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
-    };
-    var pageOffsetAttributes = ["pageno", "pageindex"];
-    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
-        let pageSize = createElement(childElementType, "PageNo", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
-        let pageSize = createElement(childElementType, "PageSize", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
-    //https://github.com/TurnerSoftware/MongoFramework/issues/383
-    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
-        return;
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
-        let pageSize = createElement(childElementType, "OrderBy", element.id);
-        pageSize.typeReference.setType(commonTypes.string);
-        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
     }
 }
-/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
  *
  * Source code here:
- * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/service/add-pagination-service.ts
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/sub-menu/is-select-menu-enabled.ts
  */
-function addPagination(element) {
-    addPagingParameters(element, "Parameter");
-    changeReturnType(element);
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <subMenuOptions>
+            <runScript group="2" type="run-script">
+              <text>Offset Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+              <dependencies>
+                <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+              </dependencies>
+              <script>OffsetPaginateApi.addServicePagination(element);</script>
+            </runScript>
+            <runScript group="2" type="run-script">
+              <text>Cursor Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+              <dependencies>
+                <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+              </dependencies>
+              <script>CursorPaginateApi.addServicePagination(element);</script>
+            </runScript>
+          </subMenuOptions>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addServicePagination(element);</script>
+        </option>
+        <option group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-addPagination(element);
-</script>
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/offset/is-offset-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addServicePagination(element);</script>
+        </option>
+        <option group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
+}
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/cursor/is-cursor-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showOffsetPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+          </dependencies>
+          <script>CursorPaginateApi.addServicePagination(element);</script>
         </option>
       </scriptOptions>
       <mappingOptions />
@@ -131,116 +1231,1216 @@ addPagination(element);
       <contextMenuOptions>
         <runScript group="2" type="run-script">
           <text>Paginate</text>
-          <shortcut>ctrl + shift + g</shortcut>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
-          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
-          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-function changeReturnType(element) {
-    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
-    let currentReturnType = element.typeReference.typeId;
-    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
-    element.typeReference.setIsCollection(false);
-    element.typeReference.setIsNullable(false);
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-function addPagingParameters(element, childElementType) {
-    var _a;
-    const commonTypes = {
-        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
-        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
-        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
-        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
-    };
-    var pageOffsetAttributes = ["pageno", "pageindex"];
-    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
-        let pageSize = createElement(childElementType, "PageNo", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
-        let pageSize = createElement(childElementType, "PageSize", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
-    //https://github.com/TurnerSoftware/MongoFramework/issues/383
-    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
-        return;
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
-        let pageSize = createElement(childElementType, "OrderBy", element.id);
-        pageSize.typeReference.setType(commonTypes.string);
-        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
     }
 }
-/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
  *
  * Source code here:
- * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/cqrs/add-pagination-cqrs.ts
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/sub-menu/is-select-menu-enabled.ts
  */
-function addPagination(element) {
-    addPagingParameters(element, "DTO-Field");
-    changeReturnType(element);
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <subMenuOptions>
+            <runScript group="2" type="run-script">
+              <text>Offset Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+              <dependencies>
+                <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+              </dependencies>
+              <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+            </runScript>
+            <runScript group="2" type="run-script">
+              <text>Cursor Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+              <dependencies>
+                <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+              </dependencies>
+              <script>CursorPaginateApi.addCqrsPagination(element);</script>
+            </runScript>
+          </subMenuOptions>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+        </runScript>
+        <runScript group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-addPagination(element);
-</script>
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/offset/is-offset-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+        </runScript>
+        <runScript group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
+}
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/cursor/is-cursor-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showOffsetPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+          </dependencies>
+          <script>CursorPaginateApi.addCqrsPagination(element);</script>
         </runScript>
       </contextMenuOptions>
       <creationOptions />
       <scriptOptions>
         <option group="2" type="run-script">
           <text>Paginate</text>
-          <shortcut>ctrl + shift + g</shortcut>
           <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
-          <isOptionVisibleFunction>return typeReference.getIsCollection();</isOptionVisibleFunction>
-          <script>/// &lt;reference path="../../../typings/elementmacro.context.api.d.ts" /&gt;
-function changeReturnType(element) {
-    const pagedResultType = "9204e067-bdc8-45e7-8970-8a833fdc5253";
-    let currentReturnType = element.typeReference.typeId;
-    element.typeReference.setType(pagedResultType, [{ typeId: currentReturnType, isCollection: false, isNullable: false }]);
-    element.typeReference.setIsCollection(false);
-    element.typeReference.setIsNullable(false);
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-function addPagingParameters(element, childElementType) {
-    var _a;
-    const commonTypes = {
-        guid: "6b649125-18ea-48fd-a6ba-0bfff0d8f488",
-        long: "33013006-E404-48C2-AC46-24EF5A5774FD",
-        int: "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74",
-        string: "d384db9c-a279-45e1-801e-e4e8099625f2"
-    };
-    var pageOffsetAttributes = ["pageno", "pageindex"];
-    if (!element.getChildren(childElementType).find(x =&gt; pageOffsetAttributes.includes(x.getName().toLowerCase()))) {
-        let pageSize = createElement(childElementType, "PageNo", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "pagesize")) {
-        let pageSize = createElement(childElementType, "PageSize", element.id);
-        pageSize.typeReference.setType(commonTypes.int);
-    }
-    // Dynamic OrderBy doesn't work for Mongo have logged a ticket 
-    //https://github.com/TurnerSoftware/MongoFramework/issues/383
-    if (application.installedModules.find(m =&gt; m.id == "Intent.MongoDb")) {
-        return;
-    }
-    if (!element.getChildren(childElementType).find(x =&gt; x.getName().toLowerCase() == "orderby")) {
-        let pageSize = createElement(childElementType, "OrderBy", element.id);
-        pageSize.typeReference.setType(commonTypes.string);
-        (_a = pageSize.typeReference) === null || _a === void 0 ? void 0 : _a.setIsNullable(true);
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
     }
 }
-/// &lt;reference path="../common/common-paginate.ts" /&gt;
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
 /**
  * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
  *
  * Source code here:
- * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/cqrs/add-pagination-cqrs.ts
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/sub-menu/is-select-menu-enabled.ts
  */
-function addPagination(element) {
-    addPagingParameters(element, "DTO-Field");
-    changeReturnType(element);
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <subMenuOptions>
+            <runScript group="2" type="run-script">
+              <text>Offset Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+              <dependencies>
+                <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+              </dependencies>
+              <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+            </runScript>
+            <runScript group="2" type="run-script">
+              <text>Cursor Pagination</text>
+              <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+              <dependencies>
+                <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+              </dependencies>
+              <script>CursorPaginateApi.addCqrsPagination(element);</script>
+            </runScript>
+          </subMenuOptions>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+        </option>
+        <option group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAABCpJREFUeF7tnE1oE0EUx/9b0480bf1CaRX0oqAHQQQL6knPWgTBQ3v04E3xqOhJz6InDx489SKIYhX8LCJ+xosfaKtVlFqNommpbWrS7u7Ia7K21m12dmcSdrfvXfPeZOaX/5v/zJLEAIcSAUOpmovBABVFwAAZoCIBxXJWIANUJKBYzgqMGsCd3bkTBrBVcd7S5QaQsSDO3etqei5d5COx6grc1Z27CmCPjzmqpRqGKWxxxzLMQ/e7Fg+oDfZ/dawBNiSAvFlctGHgukgYB3v3N37RCTHWAA9sqcXlPhPDv8VfiFPCPKJTibEGeL4jicefTfS8M/EjV4QoBG4IQxzVtSfGGuCFvUkULCA9ZOJKf0mJhmFCiNs2xDEdEGMPkFRn2sCTIRPdL6eKe6JGY1kQAB3TeDA4C6ImY5EGeDqd13L0ePldHC9Yot3LCan1RguC9qzAQS08NwiiTmORBngmXVBYin8GY5MC/VkbmfHgb+sGkNpZp7GEFiAhn5gSeJO18XUsGEQ3gDSuTmMJHcCmOgP1CSA7UYRGi331wwoEcT6AOo0ldABbm2uwYUUNXmQsjJQOwKTE1z9tfMv52xPLAdRlLKEEuG3NomkFvvo2A9HZE/1AlAFIIN2M5W5narfMzh1agDR5UiBBdNrZr7HIAnQzlt6ulBQbqSRaTLVcmFqYFOjEaL4I0bmK+TGWza0z43ipqWAJDI0K0IdEERuAtBiCSHuiDmPxAum8HiuATjvrMJYFC5AWrsNYFjRAHcay4AE6e2JQY2GAJQKVNpbYmYibcuicONtYvucEnn61ZEVWNi+yAJcmjemrnGyQsXwYtmHZwNDIJO69/SVbisbmFBJ1ta75kQUovXqXxIHBEVy82S89xNpN69GyfAkDdAgwQGntuCcyQEWAbCIMUJGAYjkrUBHgx8w4rj3+/M8oyZYUVq5d5XtkPsaUkNExhY4rfqPqAC89/IL3mXG/8/SVv2/Haqxra5q3xs2FGeAsXF4AI93CYVBgpE0kM5xHrlD6NqOvxpRPblvagBR9a3KeiDRAeQyVy2SAimwjfZXT1cKp+gTaljUEQhlpgLpMhI4p5LZBggEC0+e8oAAj/UA1DApkEwnSt7NqGKAiQLcWrq2rRbI55Xvkqt+Ffc+wAgWRvgs/6suCjjKVjO0bl5c94kQaoC4TKfcBeD1MYIAe8vUCGGkTCUMLRxpgJfc+2bEZoCwpfpylSCqOAHW5sMpdONItzAA9usrrZw4MUBFgGB6o5k2kb30yT+nYYXs7Uz0y44TuhzYyk54vxwB6DrfXd6iM4beWAfolNiefATLAGQLcwupq4D1QhSErUIUe/Y1JmF34bLpA/7oW6rCBZ0fa609Wc5LSLlzNSUXpvRig4qfFABmgIgHFclYgA1QkoFjOCmSAigQUy/8AJFjufj+llI8AAAAASUVORK5CYII=" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
 }
-addPagination(element);
-</script>
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/offset/is-offset-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showOffsetPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showCursorPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456" />
+          </dependencies>
+          <script>OffsetPaginateApi.addCqrsPagination(element);</script>
+        </option>
+        <option group="2" type="run-script">
+          <text>Paginate</text>
+          <shortcut>ctrl + shift + g</shortcut>
+          <icon type="UrlImagePath" source="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAAAXNSR0IArs4c6QAAAfJJREFUeF7t3T1KA1EYheGboAR/GgsRLOwEN2AKN2ClpdsQ7a3sFbdhqZUbsIgbEOwsBLGw8YegRJtAQEnuzH1J+BJe63uS6/OdTGYmBhvJHyTQKEmf3X6001xzrSQbNvPdez7eWezU3V8R4EWne/WT0l7dJ4u8vpHS9WG7tV93jwL2xQSsW50/60MCXt7cp4fHV/irsfjmxko62N3KPoiAQ4gEzHZn9IKpBnx6eUvvn1+QgMWXFubT+upy9kFCvoSzuw60QEA4DAEFhAIwbgMFhAIwHrKBXokMmWrVuzECCpg9MIz1dpZXIrCB2fEFWhDyTSSQT3YrAmaJRi8QUEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOM2UEAoAOMTbeB5p3vSTGkb7jlUvJfS3VG7dVp3U0W39Os+ySyvFxBOV0ABoQCM20ABoQCMFzXQ05iBehFg1b+NgcOdaHyiJ9IC2sB/7baB8AUvoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZtoIBQAMZt4CwC+lWvIVOtekPVb2sKmD0wjPUzERsIG5gdX6AFvgvDYQgoIBSAcRsoIBSA8ZAN9EoEnsZ4Hihg9sDglUifKOQxMDu+QAsEhMMQcJoA/WcEg2kVvYnAYc9U/Bc1xBJvjxp2NgAAAABJRU5ErkJggg==" />
+          <isOptionVisibleFunction>/// &lt;reference path="../../typings/elementmacro.context.api.d.ts" /&gt;
+class PaginateHelper {
+    static showCursorPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, it means the reference is not added or an older version of the module is installed
+        // default to not showing the menu
+        if (providers.length == 0) {
+            return false;
+        }
+        // if there is only 1 package, we will try find the selected provider
+        if (packages.length == 1) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Cursor Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Cursor Enabled");
+            }
+            // finally check all domain packages to see if any one has cursor pagination enabled
+            let anyEnabled = packages.some(domainPackage =&gt; PaginateHelper.packageQualifiesForPagination(domainPackage, providers, "Cursor Enabled"));
+            return anyEnabled;
+        }
+        else {
+            if (PaginateHelper.packageQualifiesForPagination(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers, "Cursor Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    static showOffsetPaginateMenuItem(element) {
+        var _a, _b, _c, _d;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return false;
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        // if no providers could be found, means only EF installed, and normal offset paging  should be shown
+        if (providers.length == 0) {
+            return true;
+        }
+        // if there is only 1 package, and its a document store, then try find the setting
+        if (packages.length == 1 &amp;&amp; packages[0].hasStereotype(documentStoreId)) {
+            return PaginateHelper.packageQualifiesForPagination(packages[0], providers, "Offset Enabled");
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            // try lookup the package of the element the return DTO is mapped to
+            var returnDtoPackage = (_d = (_c = (_b = (_a = element.typeReference) === null || _a === void 0 ? void 0 : _a.getType()) === null || _b === void 0 ? void 0 : _b.getMapping()) === null || _c === void 0 ? void 0 : _c.getElement()) === null || _d === void 0 ? void 0 : _d.getPackage();
+            if (returnDtoPackage != null) {
+                return PaginateHelper.packageQualifiesForPagination(returnDtoPackage, providers, "Offset Enabled");
+            }
+            return true;
+        }
+        else {
+            const linkedPackage = queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage();
+            // if not a document db, then show the menu item
+            if (!linkedPackage.hasStereotype(documentStoreId)) {
+                return true;
+            }
+            // else, actually check the values to see if it should be shown
+            if (PaginateHelper.packageQualifiesForPagination(linkedPackage, providers, "Offset Enabled") == false) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+    // looks at the domain package and tries to determine based on a number of factors, if the menu option should be shown
+    static packageQualifiesForPagination(domainPackage, providers, paginationPropertyName) {
+        var _a, _b;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return false;
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return false;
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return false;
+        }
+        // if cursor is not enabled OR it is enabled AND offset is enabled
+        if (((_a = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _a === void 0 ? void 0 : _a.getValue()) == null ||
+            ((_b = provider.getStereotype(paginationSupportId).getProperty(paginationPropertyName)) === null || _b === void 0 ? void 0 : _b.getValue()) != "true") {
+            return false;
+        }
+        return true;
+    }
+    static getCursorFiltering(element) {
+        const packages = lookupTypesOf("Domain Package");
+        if (packages.length == 0) {
+            return new CursorFiltering(false, false);
+        }
+        const providers = lookupTypesOf("Document Db Provider");
+        if (packages.length == 1) {
+            return PaginateHelper.getPackageCursorFilter(packages[0], providers);
+        }
+        // if more than one package, then need to look at the entity linked to the query
+        let queryAssociation = element.getAssociations().find(x =&gt; { var _a; return x.isTargetEnd() &amp;&amp; ((_a = x === null || x === void 0 ? void 0 : x.typeReference.getType()) === null || _a === void 0 ? void 0 : _a.specialization) == "Class"; });
+        if (queryAssociation == null) {
+            return new CursorFiltering(false, false);
+        }
+        else {
+            return PaginateHelper.getPackageCursorFilter(queryAssociation === null || queryAssociation === void 0 ? void 0 : queryAssociation.typeReference.getType().getPackage(), providers);
+        }
+    }
+    static getPackageCursorFilter(domainPackage, providers) {
+        var _a;
+        const documentStoreId = "8b68020c-6652-484b-85e8-6c33e1d8031f";
+        const paginationSupportId = "03385443-bbd6-46d9-87f2-6813f7833a38";
+        // make sure its a documentDB store for now. This is the only one supported
+        if (!domainPackage.hasStereotype(documentStoreId)) {
+            return new CursorFiltering(false, false);
+        }
+        // get the provider selected on the package
+        let docDatabase = domainPackage.getStereotype(documentStoreId);
+        let selectedProvider = docDatabase.getProperty("Provider");
+        // if no provider selected, then take the first provider of type "Document Db Provider".
+        let provider = null;
+        if ((selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == '' || (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()) == null) {
+            provider = providers[0];
+        }
+        else if (providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue())).length &gt; 0) {
+            // if we have a "Document Db Provider" for the selected value
+            provider = providers.filter(p =&gt; p.id == (selectedProvider === null || selectedProvider === void 0 ? void 0 : selectedProvider.getValue()))[0];
+        }
+        if (provider == null) {
+            return new CursorFiltering(false, false);
+        }
+        if (!provider.hasStereotype(paginationSupportId)) {
+            return new CursorFiltering(false, false);
+        }
+        let cursorFiltering = (_a = provider.getStereotype(paginationSupportId).getProperty("Cursor Filtering")) === null || _a === void 0 ? void 0 : _a.getValue();
+        if (cursorFiltering == "Disabled") {
+            return new CursorFiltering(false, false);
+        }
+        if (cursorFiltering == "Enabled (Nullable)") {
+            return new CursorFiltering(true, true);
+        }
+        if (cursorFiltering == "Enabled (Not Nullable)") {
+            return new CursorFiltering(true, false);
+        }
+        return new CursorFiltering(false, false);
+    }
+}
+class CursorFiltering {
+    constructor(enabled, nullable) {
+        this.enabled = enabled;
+        this.nullable = nullable;
+    }
+}
+/// &lt;reference path="../../../common/paginateHelper.ts" /&gt;
+/**
+ * Used by Intent.Modules\Modules\Intent.Modules.Application.Dtos.Pagination
+ *
+ * Source code here:
+ * https://github.com/IntentArchitect/Intent.Modules/blob/master/DesignerMacros/src/services-add-paginate/menu-enabled/cursor/is-cursor-pagination-enabled.ts
+ */
+// COMMENT THE BELOW LINE IN WHEN COPYING INTO THE MODULE
+return typeReference.getIsCollection() &amp;&amp; PaginateHelper.showCursorPaginateMenuItem(element) &amp;&amp; !PaginateHelper.showOffsetPaginateMenuItem(element);
+</isOptionVisibleFunction>
+          <dependencies>
+            <dependency name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799" />
+          </dependencies>
+          <script>CursorPaginateApi.addCqrsPagination(element);</script>
         </option>
       </scriptOptions>
       <mappingOptions />
@@ -253,5 +2453,12 @@ addPagination(element);
   <mappingSettings />
   <mappableElementPackages />
   <mappableElementPackageExtensions />
-  <scripts />
+  <scripts>
+    <script name="AddCursorPagination" id="ffca365f-0fdc-427b-b019-7bafdc04e799">
+      <filePath>add-cursor-pagination.js</filePath>
+    </script>
+    <script name="AddOffsetPagination" id="a95a1975-4686-4b3b-a903-010b676f9456">
+      <filePath>add-offset-pagination.js</filePath>
+    </script>
+  </scripts>
 </settings>

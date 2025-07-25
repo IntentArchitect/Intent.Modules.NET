@@ -1,6 +1,7 @@
 ### Version 1.2.19
 
 - Improvement: Removed internal unused shared project.
+- Improvement: Added configuration stereotype to define which querying types the provider supports.
 
 ### Version 1.2.18
 

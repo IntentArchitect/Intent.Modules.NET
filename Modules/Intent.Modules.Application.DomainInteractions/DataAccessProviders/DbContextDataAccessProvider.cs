@@ -285,6 +285,13 @@ public class DbContextDataAccessProvider : IDataAccessProvider
 
         return "queryable";
     }
+
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements)
+    {
+        // for now cursor based is not implements with EF
+        prerequisiteStatements = new List<CSharpStatement>();
+        return new CSharpStatement("");
+    }
 }
 
 public static class CSharpStatementMappingExtensions

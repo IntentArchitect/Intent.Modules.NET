@@ -1,3 +1,7 @@
+### Version 4.1.2
+
+- Improvement: Added support for cursor based pagination.
+
 ### Version 4.1.1
 
 - Improvement: Separated context menu option for `Paginate` accelerator into a separate group from adding child element menu options.

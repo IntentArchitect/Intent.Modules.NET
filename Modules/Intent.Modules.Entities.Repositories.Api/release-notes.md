@@ -1,6 +1,7 @@
 ### Version 5.1.8
 
 - Fixed: When a repository method name was suffixed with `Async` a Software Factory error would occur due to generation of multiple `cancellationToken` parameters.
+- Improvement: Added support for cursor based pagination.
 
 ### Version 5.1.7
 

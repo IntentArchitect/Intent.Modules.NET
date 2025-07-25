@@ -65,20 +65,22 @@ public static class DomainInteractionExtensions
                 statements.Add($"return {entityDetails.VariableName}{nullable}.MapTo{returnDto}{(returnType.IsCollection ? "List" : "")}({autoMapperFieldName});");
             }
         }
-        else if (returnType.IsResultPaginated() &&
+        else if ((returnType.IsResultPaginated() || returnType.IsResultCursorPaginated()) &&
                  returnType.GenericTypeParameters.FirstOrDefault()?.Element.AsDTOModel()?.IsMapped == true &&
                  method.TrackedEntities().Values.Any(x => x.ElementModel?.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId) &&
                  _template.TryGetTypeName("Application.Contract.Dto", returnType.GenericTypeParameters.First().Element, out returnDto))
         {
+            var mappingMethod = returnType.IsResultPaginated() ? "MapToPagedResult" : "MapToCursorPagedResult";
+
             var entityDetails = method.TrackedEntities().Values.First(x => x.ElementModel.Id == returnType.GenericTypeParameters.First().Element.AsDTOModel().Mapping.ElementId);
             if (entityDetails.ProjectedType == returnDto)
             {
-                statements.Add($"return {entityDetails.VariableName}.MapToPagedResult();");
+                statements.Add($"return {entityDetails.VariableName}.{mappingMethod}();");
             }
             else
             {
                 var autoMapperFieldName = method.Class.InjectService(_template.UseType("AutoMapper.IMapper"));
-                statements.Add($"return {entityDetails.VariableName}.MapToPagedResult(x => x.MapTo{returnDto}({autoMapperFieldName}));");
+                statements.Add($"return {entityDetails.VariableName}.{mappingMethod}(x => x.MapTo{returnDto}({autoMapperFieldName}));");
             }
         }
         else if (returnType.Element.IsTypeDefinitionModel() && (nonUserSuppliedEntitiesReturningPks.Count == 1 || entitiesReturningPk.Count == 1)) // No need for TrackedEntities thus no check for it

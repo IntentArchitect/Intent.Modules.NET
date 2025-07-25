@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Application.Dtos.Pagination</id>
-  <version>4.1.1</version>
+  <version>4.1.2-pre.0</version>
   <supportedClientVersions>[4.3.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Enable Service Operations to expose a paginated interface for a DTO type</summary>
   <description>Enable Service Operations to expose a paginated interface for a DTO type</description>
@@ -10,6 +10,30 @@
   <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDdhOTI4ZjExLTE1ZDYtNDIxNS05ZGJiLTI4NjU4NTJkMmM5YSIgeDE9IjI1IiB5MT0iLjkiIHgyPSIyNSIgeTI9IjQ5LjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOWM1N2IzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjEiIHN0b3AtY29sb3I9IiM5MjRmYTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNyIgc3RvcC1jb2xvcj0iIzczMzM4NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NzI5N2EiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQuNCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ3YTkyOGYxMS0xNWQ2LTQyMTUtOWRiYi0yODY1ODUyZDJjOWEpIi8+CiAgICAgIDxwYXRoIGQ9Ik0zOS4zLDE4LjdoLTQuOHYtMS43aDExLjZ2MS43aC00Ljh2MTRoLTJ2LTE0WiIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBkPSJNMzIuNiwyNS40aC02LjF2NS43aDYuOHYxLjdoLTguOHYtMTUuN2g4LjV2MS43aC02LjR2NWg2LjF2MS43aC0uMVoiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTkuMiwzMi43di0xNS43aDIuMmw1LDcuOWMxLjIsMS44LDIuMSwzLjUsMi44LDUuMWgwYy0uMi0yLjEtLjItNC0uMi02LjV2LTYuNmgxLjl2MTUuN2gtMmwtNS04Yy0xLjEtMS43LTIuMS0zLjUtMi45LTUuMmgwYy4xLDIsLjIsMy45LjIsNi41djYuN2gtMloiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTMuOCwzMS41YzAtLjkuNi0xLjUsMS40LTEuNXMxLjQuNiwxLjQsMS41LS41LDEuNS0xLjQsMS41LTEuNC0uNi0xLjQtMS41WiIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+</iconUrl>
   <releaseNotes>release-notes.md</releaseNotes>
   <templates>
+    <template id="Intent.Application.Dtos.Pagination.CursorPagedResult" externalReference="3a25260a-172a-4161-addb-20eef02114f5">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contract.Dto.Pagination.CursorResult</role>
+      <location>Common/Pagination</location>
+    </template>
+    <template id="Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions" externalReference="2d33eff0-ddb7-40b9-b29f-5e597ef1ca52">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Mappings</role>
+      <location>Common/Pagination</location>
+    </template>
+    <template id="Intent.Application.Dtos.Pagination.ExpressionHelper" externalReference="28abd89f-8bed-413a-9e8b-446492ca8418">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Application.Contract.Dto.Pagination.ExpressionHelper</role>
+      <location>Common/Pagination</location>
+    </template>
     <template id="Intent.Application.Dtos.Pagination.PagedResult" externalReference="9d3fa7ac-3146-4995-8af1-c3b204065b4e">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -38,10 +62,42 @@
     <dependency id="Intent.Common.CSharp" version="3.8.0" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" version="3.5.1" />
-    <dependency id="Intent.Modelers.Services" version="3.8.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.2-pre.0" />
     <dependency id="Intent.Modelers.Services.CQRS" version="4.1.1" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
+  <interoperability>
+    <detect id="Intent.Application.DomainInteractions">
+      <install>
+        <package id="Intent.Application.DomainInteractions" version="1.0.2-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Entities.Repositories.Api">
+      <install>
+        <package id="Intent.Entities.Repositories.Api" version="5.1.8-pre.0" />
+      </install>
+    </detect>
+    <detect id="Intent.Azure.TableStorage">
+      <install>
+        <package id="Intent.Azure.TableStorage" version="1.0.0-beta.28" />
+      </install>
+    </detect>
+    <detect id="Intent.CosmosDB">
+      <install>
+        <package id="Intent.CosmosDB" version="1.2.19-pre.1" />
+      </install>
+    </detect>
+    <detect id="Intent.MongoDb">
+      <install>
+        <package id="Intent.MongoDb" version="1.0.26-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Redis.Om.Repositories">
+      <install>
+        <package id="Intent.Redis.Om.Repositories" version="1.0.12-pre.2" />
+      </install>
+    </detect>
+  </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
     <file src="$outDir$/$id$.pdb" />

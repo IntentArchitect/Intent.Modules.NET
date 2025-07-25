@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Redis.Om.Repositories</id>
-  <version>1.0.12-pre.1</version>
+  <version>1.0.12-pre.2</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</summary>
   <description>Implements the Repository pattern using Redis OM .NET for handling documents in the Redis Stack.</description>
@@ -143,7 +143,8 @@
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Entities.Repositories.Api" version="5.1.0" />
     <dependency id="Intent.Metadata.DocumentDB" version="1.1.9" />
-    <dependency id="Intent.Modelers.Domain" version="3.5.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.9.0" />
+    <dependency id="Intent.Modelers.Services" version="4.0.2-pre.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <files>
@@ -153,7 +154,7 @@
   <tags />
   <moduleSettingsExtensions />
   <metadata>
-    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Redis.Om.Repositories/Intent.Redis.Om.Repositories.pkg.config" externalReference="739f3162-d1f8-4609-86df-756c6ff6b7e3" />
+    <install target="Domain;Services" src="Intent.Metadata/Module Builder/Intent.Redis.Om.Repositories/Intent.Redis.Om.Repositories.pkg.config" externalReference="739f3162-d1f8-4609-86df-756c6ff6b7e3" />
     <install target="Domain" src="modelers/Redis OM Key Automation.designer.settings" externalReference="2c841f19-9f06-4814-abae-07d8cf4698e3" />
   </metadata>
   <releaseNotes>release-notes.md</releaseNotes>

@@ -94,6 +94,11 @@ public static class DataAccessProviderExtensions
                     queryInvocation = dataAccess.FindAllAsync(queryMapping, pageNo, pageSize, orderBy, orderByIsNUllable, out var requiredStatements);
                     prerequisiteStatement.AddRange(requiredStatements);
                 }
+                else if (TryGetCursorPaginationValues(interaction, _csharpMapping, out var cursorPageSize, out var cursorToken))
+                {
+                    queryInvocation = dataAccess.FindAllAsync(queryMapping, cursorPageSize, cursorToken, out var requiredStatements);
+                    prerequisiteStatement.AddRange(requiredStatements);
+                }
                 else if (interaction.TypeReference.IsCollection)
                 {
                     queryInvocation = dataAccess.FindAllAsync(queryMapping, out var requiredStatements);
@@ -111,7 +116,9 @@ public static class DataAccessProviderExtensions
         statements.AddRange(prerequisiteStatement);
         statements.Add(new CSharpAssignmentStatement(new CSharpVariableDeclaration(entityVariableName), queryInvocation).SeparatedFromPrevious());
 
-        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated())
+        if (!interaction.TypeReference.IsNullable && !interaction.TypeReference.IsCollection 
+            && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultPaginated()
+            && !interaction.OtherEnd().TypeReference.Element.TypeReference.IsResultCursorPaginated())
         {
             var queryFields = queryMapping.MappedEnds
                 .Select(x => new CSharpStatement($"{{{_csharpMapping.GenerateSourceStatementForMapping(queryMapping, x)}}}"))
@@ -177,9 +184,47 @@ public static class DataAccessProviderExtensions
         return returnsPagedResult;
     }
 
+    private static bool TryGetCursorPaginationValues(IAssociationEnd associationEnd, CSharpClassMappingManager mappingManager, out string pageSize, out string? cursorToken)
+    {
+        var handler = (IElement)associationEnd.OtherEnd().TypeReference.Element;
+        var returnsPagedResult = handler.TypeReference.IsResultCursorPaginated();
+
+        var pageSizeVar = handler.ChildElements.SingleOrDefault(IsPageSizeParam)?.Name;
+        var cursorTokenVar = handler.ChildElements.SingleOrDefault(IsTokenParam)?.Name;
+        
+        var accessVariable = mappingManager.GetFromReplacement(handler);
+
+        if (!returnsPagedResult)
+        {
+            pageSize = "";
+            cursorToken = "";
+            return false;
+        }
+
+        if (string.IsNullOrEmpty(pageSizeVar))
+        {
+            throw new ElementException(handler, "Paged endpoints require a 'PageSize' property");
+        }
+
+        if (string.IsNullOrEmpty(cursorTokenVar))
+        {
+            throw new ElementException(handler, "Paged endpoints require a 'CursorToken' property");
+        }
+
+        pageSize = $"{(accessVariable != null ? $"{accessVariable}." : "")}{pageSizeVar}";
+        cursorToken = $"{(accessVariable != null ? $"{accessVariable}." : "")}{cursorTokenVar}";
+
+        return returnsPagedResult;
+    }
+
     public static bool IsResultPaginated(this ITypeReference returnType)
     {
         return returnType.Element?.Name == "PagedResult";
+    }
+
+    public static bool IsResultCursorPaginated(this ITypeReference returnType)
+    {
+        return returnType.Element?.Name == "CursorPagedResult";
     }
 
     private static bool IsPageNumberParam(IElement param)
@@ -248,6 +293,23 @@ public static class DataAccessProviderExtensions
         switch (param.Name.ToLower())
         {
             case "orderby":
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private static bool IsTokenParam(IElement param)
+    {
+        if (param.TypeReference.Element.Name != "string")
+        {
+            return false;
+        }
+
+        switch (param.Name.ToLower())
+        {
+            case "token":
+            case "cursortoken":
                 return true;
             default:
                 return false;
