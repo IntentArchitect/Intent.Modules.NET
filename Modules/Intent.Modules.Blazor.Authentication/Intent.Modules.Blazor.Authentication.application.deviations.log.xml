@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#b1dde391-adec-41d2-a5c8-e4d2bb58db7c</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderPagesFolderFilesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
+      <updatedAt>2025-07-21T13:56:26.7432321Z</updatedAt>
+      <deviationsHash>00D95780A49470FE38A8E04E67911B4F8AD57CB013B131D1AF05442A97E06C6C</deviationsHash>
+      <fileHash>AFFFAFF241D41358FE65FE7B6B23B04DB71286A76AEAD4206922112C8F6F68E9</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1145f97b-3ae3-4bc4-8759-87905618b27f</correlationId>
+      <path>Intent.Modules.Blazor.Authentication/Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>theunis.vanderstoep@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Theunis van der Stoep</updatedByDisplayName>
+      <updatedAt>2025-07-21T13:58:11.9385949Z</updatedAt>
+      <deviationsHash>95D1082FC93ABF1086D923B6466F153C03C2B3C085CB9C8818D35FEA25460363</deviationsHash>
+      <fileHash>85D7EA97C1870CC16C08E64BAECAEA5DD0E13847F3933124B7E813F7F0C27421</fileHash>
+    </file>
+  </files>
+</deviationsLog>

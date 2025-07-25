@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="472bc746-3023-4cf6-97d7-5f25394e6c38" type="Factory Extension" typeId="7d008e84-bb28-4b10-ba28-7439202fca76">
+  <name>ClientAddAuthentication</name>
+  <display>ClientAddAuthentication</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>729632e9-98b5-41f7-9f8f-27ff390d3b1f</parentFolderId>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

@@ -37,7 +37,12 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
             {
                 var securedComponents = ExecutionContext.MetadataManager.UserInterface(ExecutionContext.GetApplicationConfig().Id)
                     .Elements
-                    .Where(e => e.HasStereotype("Secured"));
+                    .Where(e => e.HasStereotype("Secured")).Any();
+
+                if(ExecutionContext.GetInstalledModules().FirstOrDefault(m => m.ModuleId == "Intent.Blazor.Authentication") is not null)
+                {
+                    securedComponents = true;
+                }
 
                 file.AddHtmlElement("Router", router =>
                 {
@@ -46,7 +51,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor
                     {
                         found.AddAttribute("Context", "routeData");
 
-                        if (!securedComponents.Any())
+                        if (!securedComponents)
                         {
                             found.AddHtmlElement("RouteView", html =>
                             {

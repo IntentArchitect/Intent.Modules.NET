@@ -1,4 +1,5 @@
 using Intent.Engine;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.AppStartup;
@@ -38,9 +39,15 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                 startup.StartupFile.ConfigureServices((statements, context) =>
                 {
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Services}.AddRazorComponents()");
-                    addRazorComponents.AddChainStatement("AddInteractiveServerComponents()")
-                        .AddChainStatement("AddInteractiveWebAssemblyComponents()")
-                        .WithSemicolon();
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyComponents()");
+                    }
+                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveServerComponents()");
+                    }
+                    addRazorComponents.WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
 
@@ -68,10 +75,18 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
                 startup.StartupFile.ConfigureEndpoints((statements, context) =>
                 {
+                    
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Endpoints}.MapRazorComponents<{startup.GetAppRazorTemplateName()}>()");
-                    addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()")
-                        .AddChainStatement("AddInteractiveWebAssemblyRenderMode()")
-                        .AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)")
+
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyRenderMode()");
+                    }
+                    else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
+                    {
+                        addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()");
+                    }
+                    addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)")
                         .WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
