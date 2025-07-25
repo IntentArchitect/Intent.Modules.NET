@@ -148,6 +148,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08ea9e77-7089-453f-9ee3-bb08823f637d</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
@@ -400,6 +424,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Finbuckle.SharedDatabase.TestApplication.Domain.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>12bcee79-6414-4eee-99e1-27c5c92fec60</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Finbuckle.SharedDatabase.TestApplication.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

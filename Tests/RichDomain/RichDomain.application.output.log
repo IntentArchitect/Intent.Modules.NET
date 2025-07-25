@@ -300,6 +300,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>1afa16d7-e865-4692-8052-9d0bc0589822</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1afa16d7-e865-4692-8052-9d0bc0589822</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1afa16d7-e865-4692-8052-9d0bc0589822</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1afa16d7-e865-4692-8052-9d0bc0589822</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
@@ -736,6 +760,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>RichDomain.Domain/Repositories/IBaseClassRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IBaseClassRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>0e3e7a2b-d532-4b83-8c37-45b03236274e</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>RichDomain.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

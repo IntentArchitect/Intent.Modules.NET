@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Azure;
 using Azure.Data.Tables;
 using Intent.RoslynWeaver.Attributes;
+using TableStorage.Tests.Application.Common.Pagination;
 using TableStorage.Tests.Domain.Common.Interfaces;
 using TableStorage.Tests.Domain.Repositories;
 using TableStorage.Tests.Infrastructure.Persistence;
@@ -91,6 +92,39 @@ namespace TableStorage.Tests.Infrastructure.Repositories
             Track(results);
 
             return results;
+        }
+
+        public async Task<ICursorPagedList<TDomain>> FindAllAsync(
+            int pageSize,
+            string? cursorToken,
+            CancellationToken cancellationToken = default)
+        {
+            return await FindAllAsync(_ => true, pageSize, cursorToken, cancellationToken);
+        }
+
+        public async Task<ICursorPagedList<TDomain>> FindAllAsync(
+            Expression<Func<TTableInterface, bool>> filterExpression,
+            int pageSize,
+            string? cursorToken,
+            CancellationToken cancellationToken = default)
+        {
+            var results = new List<TDomain>();
+            var nextCursorToken = string.Empty;
+            var response = _tableClient.QueryAsync(AdaptFilterPredicate(filterExpression), cancellationToken: cancellationToken)
+                .AsPages(cursorToken, pageSize);
+
+            await foreach (var page in response)
+            {
+                foreach (var document in page.Values)
+                {
+                    results.Add(document.ToEntity());
+                }
+                nextCursorToken = page.ContinuationToken;
+                break;
+            }
+            Track(results);
+
+            return new CursorPagedList<TDomain>(nextCursorToken, pageSize, results);
         }
 
         public async Task<TDomain?> FindByIdAsync(

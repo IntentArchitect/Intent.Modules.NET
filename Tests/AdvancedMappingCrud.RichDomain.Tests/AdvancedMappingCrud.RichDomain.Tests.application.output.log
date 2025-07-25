@@ -324,6 +324,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>640374c2-6811-457c-85ed-81f114cd4f57</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>640374c2-6811-457c-85ed-81f114cd4f57</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>640374c2-6811-457c-85ed-81f114cd4f57</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>640374c2-6811-457c-85ed-81f114cd4f57</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
@@ -2544,6 +2568,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/ICompanyRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICompanyRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4fe59f1e-4c8e-435c-a094-5d5cbd04d78a</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AdvancedMappingCrud.RichDomain.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

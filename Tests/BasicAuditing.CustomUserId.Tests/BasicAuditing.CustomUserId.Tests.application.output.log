@@ -260,6 +260,30 @@
     </FileLog>
     <FileLog>
       <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d6f58e3d-2260-4cff-9feb-3ecb1cad4b6d</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
@@ -424,6 +448,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/ICosmosDBRepository.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ICosmosDBRepository.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>edb9e882-2d42-428e-ad8a-04c0af1c11ab</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>BasicAuditing.CustomUserId.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

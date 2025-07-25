@@ -1,0 +1,30 @@
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.Dtos.Pagination.CursorPagedResult", Version = "1.0")]
+
+namespace Intent.Modules.NET.Tests.Module2.Application.Common.Pagination
+{
+    public class CursorPagedResult<T>
+    {
+        public CursorPagedResult()
+        {
+            Data = null!;
+        }
+
+        public IEnumerable<T> Data { get; set; } = Enumerable.Empty<T>();
+        public string? CursorToken { get; set; }
+        public int PageSize { get; set; }
+        public bool HasMoreResults => !string.IsNullOrEmpty(CursorToken);
+
+        public static CursorPagedResult<T> Create(int pageSize, string? cursorToken, IEnumerable<T> data)
+        {
+            return new CursorPagedResult<T>
+            {
+                CursorToken = cursorToken,
+                PageSize = pageSize,
+                Data = data
+            };
+        }
+    }
+}

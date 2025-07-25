@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="cf324e99-0757-4eaa-97d8-c031ecf81e9b">
+  <sourceEnd id="4da49c43-ba11-467b-a96f-21288ce64811" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPagedInvoicesQuery</display>
+    <order>0</order>
+    <typeReference id="0945f46d-ed11-48ba-8b91-5b30d6b72678">
+      <typeId>7156e1e3-13cc-4c77-95d7-0aea729af733</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Services</typePackageName>
+      <typePackageId>540d236a-f1d9-4593-a796-7c6f504faa03</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="cf324e99-0757-4eaa-97d8-c031ecf81e9b" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>invoice</name>
+    <display>[query] invoice: Invoice</display>
+    <order>3</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="15190fe1-4f9b-450a-917b-e09ddac07dcf">
+      <typeId>d2bce3e0-08f3-42ec-a4df-f03d7dfa8f79</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Domain</typePackageName>
+      <typePackageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3d450dd7-4b01-4641-9828-8ba27fcdd370" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="7156e1e3-13cc-4c77-95d7-0aea729af733" location="[TableStorage.Tests].[Services].[GetPagedInvoicesQuery]" />
+        <target applicationId="3d450dd7-4b01-4641-9828-8ba27fcdd370" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="d2bce3e0-08f3-42ec-a4df-f03d7dfa8f79" location="[TableStorage.Tests].[Services].[Invoice]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PartitionKey}</expression>
+            <path>
+              <target id="d2bce3e0-08f3-42ec-a4df-f03d7dfa8f79" name="Invoice" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ae3a3b09-4991-4b2d-9be7-42296d02efb0" name="PartitionKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PartitionKey" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="7156e1e3-13cc-4c77-95d7-0aea729af733" name="GetPagedInvoicesQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="c23e2f12-9666-416f-8060-67ca0ad8b60f" name="PartitionKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

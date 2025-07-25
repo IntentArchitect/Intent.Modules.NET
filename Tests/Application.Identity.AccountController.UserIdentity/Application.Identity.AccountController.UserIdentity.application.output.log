@@ -292,6 +292,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d041a6a5-fafb-49a2-9ba6-a00caf903254</ProjectId>
+      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d041a6a5-fafb-49a2-9ba6-a00caf903254</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Application.Identity.AccountController.UserIdentity.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>

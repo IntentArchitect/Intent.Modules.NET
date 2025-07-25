@@ -8,12 +8,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using TableStorage.Tests.Application.Common.Pagination;
 using TableStorage.Tests.Application.Orders;
 using TableStorage.Tests.Application.Orders.CreateOrder;
 using TableStorage.Tests.Application.Orders.DeleteOrder;
 using TableStorage.Tests.Application.Orders.GetOrderById;
 using TableStorage.Tests.Application.Orders.GetOrders;
 using TableStorage.Tests.Application.Orders.GetOrdersFiltered;
+using TableStorage.Tests.Application.Orders.GetPagedOrders;
 using TableStorage.Tests.Application.Orders.UpdateOrder;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -169,6 +171,25 @@ namespace TableStorage.Tests.Api.Controllers
         public async Task<ActionResult<List<OrderDto>>> GetOrders(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetOrdersQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified CursorPagedResult&lt;OrderDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/order/paged")]
+        [ProducesResponseType(typeof(CursorPagedResult<OrderDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CursorPagedResult<OrderDto>>> GetPagedOrders(
+            [FromQuery] string partitionKey,
+            [FromQuery] int pageSize,
+            [FromQuery] string? cursorToken,
+            [FromQuery] string? orderNo,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetPagedOrdersQuery(partitionKey: partitionKey, pageSize: pageSize, cursorToken: cursorToken, orderNo: orderNo), cancellationToken);
             return Ok(result);
         }
     }
