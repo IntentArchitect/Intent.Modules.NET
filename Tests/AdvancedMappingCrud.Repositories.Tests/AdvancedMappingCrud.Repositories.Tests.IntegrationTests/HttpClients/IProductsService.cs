@@ -16,5 +16,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients
         Task UpdateProductAsync(Guid id, ProductUpdateDto dto, CancellationToken cancellationToken = default);
         Task DeleteProductAsync(Guid id, CancellationToken cancellationToken = default);
         Task<PagedResult<ProductDto>> FindProductsPagedAsync(int pageNo, int pageSize, string orderBy, CancellationToken cancellationToken = default);
+        Task PatchProductAsync(Guid id, ProductPatchDto dto, CancellationToken cancellationToken = default);
     }
 }

@@ -17,6 +17,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.IntegrationTests.HttpClients.Cu
         Task CreateQuoteAsync(CreateQuoteCommand command, CancellationToken cancellationToken = default);
         Task DeactivateCustomerAsync(DeactivateCustomerCommand command, CancellationToken cancellationToken = default);
         Task DeleteCustomerAsync(Guid id, CancellationToken cancellationToken = default);
+        Task PatchCustomerAsync(Guid id, PatchCustomerCommand command, CancellationToken cancellationToken = default);
         Task UpdateCorporateFuneralCoverQuoteAsync(Guid id, UpdateCorporateFuneralCoverQuoteCommand command, CancellationToken cancellationToken = default);
         Task UpdateCustomerAsync(Guid id, UpdateCustomerCommand command, CancellationToken cancellationToken = default);
         Task<CustomerDto> GetCustomerByIdAsync(Guid id, CancellationToken cancellationToken = default);

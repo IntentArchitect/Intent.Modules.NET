@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="1df11872-d681-46bc-9727-12328d1bdd25" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : PerformPassthroughAsync(...): null</display>
+    <display>[call] : PerformPassthroughAsync(...): void</display>
     <order>2</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

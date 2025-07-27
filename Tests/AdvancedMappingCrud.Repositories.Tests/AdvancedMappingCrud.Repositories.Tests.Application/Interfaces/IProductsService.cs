@@ -20,5 +20,6 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Interfaces
         Task DeleteProduct(Guid id, CancellationToken cancellationToken = default);
         Task<decimal> GetProductPrice(Guid productId, decimal prices, CancellationToken cancellationToken = default);
         Task<PagedResult<ProductDto>> FindProductsPaged(int pageNo, int pageSize, string orderBy, CancellationToken cancellationToken = default);
+        Task PatchProduct(Guid id, ProductPatchDto dto, CancellationToken cancellationToken = default);
     }
 }
