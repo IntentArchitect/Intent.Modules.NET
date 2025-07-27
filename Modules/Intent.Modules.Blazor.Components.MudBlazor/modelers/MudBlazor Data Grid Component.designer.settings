@@ -208,7 +208,8 @@ mapping.addMappedEnd(dataBindingMappingTypeId, newProperty.getMappingPath(), tab
 const totalCount = element.getChildren().filter(x =&gt; x.getName() == "TotalCount")[0];
 mapping.addMappedEnd(dataBindingMappingTypeId, totalCount.getMappingPath(), table.getMappingPath().concat(["a5e50b44-c402-4006-bcea-a25ab7dc0c56"])); // Total Items
 
-autoMapOnLoadDataBinding(table, mapping);
+const loadDataOperation = tryFindLoadDataOperation(mapping) ?? createLoadDataOperation(table);
+autoMapOnLoadDataBinding(table, loadDataOperation, mapping);
 
 dataCollection.getChildren().filter(x =&gt; x.specialization == "Property" || x.specialization == "DTO-Field").forEach(p =&gt; {
     if (p.typeReference.getTypeId() == "d384db9c-a279-45e1-801e-e4e8099625f2" || // string
@@ -348,6 +349,16 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
               <canBeModified>false</canBeModified>
               <represents>event</represents>
               <iconOverride type="UrlImagePath" source="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA1MCA1MCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTAgNTAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMjguNTIiIHkxPSI0Ny45NjMiIHgyPSIyOC41MiIgeTI9IjIuNjE0OSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDUwKSI+DQoJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGQkIwNDEiLz4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0ZDQjY0NSIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRjU3RjIwIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cGF0aCBmaWxsPSJ1cmwoI1NWR0lEXzFfKSIgZD0iTTMyLjMsMTYuOEwzMi4zLDE2LjhsNy4zLTE0LjZIMjFMOC41LDI3aDE0LjhMMTMsNDcuM2gzLjVsMzItMzAuNUgzMi4zeiBNMjguOSwyMy42SDE0LjFsOS0xNy45SDM0DQoJCWwtNy4zLDE0LjVoMTMuMmwtMTgsMTcuMUwyOC45LDIzLjZ6Ii8+DQoJDQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMDAwMDAwMzgzNzUxNzE2NTE0NzY2NDY1OTAwMDAwMTc5NDgxMjkxMzg1NzM2NzI4NjZfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjM5LjY1NzYiIHkxPSI0Ni42NzE2IiB4Mj0iMzkuNjU3NiIgeTI9IjIuMjQ0Ij4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0Y1N0YyMCIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRjU3RjIwIi8+DQoJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNGQkIwNDEiLz4NCgk8L2xpbmVhckdyYWRpZW50Pg0KCTxwYXRoIGZpbGw9InVybCgjU1ZHSURfMDAwMDAwMzgzNzUxNzE2NTE0NzY2NDY1OTAwMDAwMTc5NDgxMjkxMzg1NzM2NzI4NjZfKSIgZD0iTTMyLjEsMzUuMXYxMS41aDE1LjJWMzUuMUgzMi4xeiBNNDMuNSw0My44aC03LjYNCgkJVjM4aDcuNlY0My44eiIvPg0KCQ0KCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMDc3MzA5NDE0Nzg3MTUwODIyMzAwMDAwMDE1OTQxMzM2NjU0NTc1NDQyMDc3XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI4LjUxNSIgeTE9IjQ3LjQyMzYiIHgyPSI4LjUxNSIgeTI9IjEuOTU2OCI+DQoJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGQkIwNDEiLz4NCgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6I0Y1N0YyMCIvPg0KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojRkJCMDQxIi8+DQoJPC9saW5lYXJHcmFkaWVudD4NCgk8cGF0aCBmaWxsPSJ1cmwoI1NWR0lEXzAwMDAwMDc3MzA5NDE0Nzg3MTUwODIyMzAwMDAwMDE1OTQxMzM2NjU0NTc1NDQyMDc3XykiIGQ9Ik0yLjQsMi4ydjkuM2gxMi4zVjIuMkgyLjR6IE0xMS42LDkuMkg1LjRWNC41DQoJCWg2LjJWOS4yeiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
+              <onMappingsChangedScript>
+const pageNoParam = element.getChildren()[0];
+if (pageNoParam)
+    mapping.addMappingExpression(pageNoParam.getMappingPath(), "pageNo")    
+const pageSizeParam = element.getChildren()[1];
+if (pageSizeParam)
+    mapping.addMappingExpression(pageSizeParam.getMappingPath(), "pageSize")    
+const sortingParam = element.getChildren()[2];
+if (sortingParam)
+    mapping.addMappingExpression(sortingParam.getMappingPath(), "sorting")    </onMappingsChangedScript>
               <scriptOptions>
                 <option type="run-script">
                   <text>Auto-map to Operation</text>
@@ -356,7 +367,8 @@ mapping.addMappedEnd(dataMappingTypeId, newProperty.getMappingPath(), element.ge
                   <dependencies>
                     <dependency name="Auto-map `On Load Data`" id="9d86979e-4f2d-453a-834c-92a1f64db398" />
                   </dependencies>
-                  <script>autoMapOnLoadDataBinding(element.getParent(), mapping);</script>
+                  <script>const loadDataOperation = createLoadDataOperation(element.getParent());
+autoMapOnLoadDataBinding(element.getParent(), loadDataOperation, mapping);</script>
                 </option>
               </scriptOptions>
             </staticMappableSetting>
@@ -445,20 +457,38 @@ const param = createElement("Parameter", "rowId", newOperation.id);</script>
   </mappableElementPackageExtensions>
   <scripts>
     <script name="Auto-map `On Load Data`" id="9d86979e-4f2d-453a-834c-92a1f64db398">
-      <script>
-function autoMapOnLoadDataBinding(dataGrid, mapping) {
-    const invocationMappingTypeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
-    const onPageChangedOperation = createElement("Component Operation", `Fetch${dataGrid.getName()}Data`, mapping.getSourceElement().id);
-    const pageNoParam = createElement("Parameter", "pageNo", onPageChangedOperation.id);
-    pageNoParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
-    const pageSizeParam = createElement("Parameter", "pageSize", onPageChangedOperation.id);
-    pageSizeParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
-    const sortingParam = createElement("Parameter", "sorting", onPageChangedOperation.id);
+      <script>function autoMapOnLoadDataBinding(dataGrid, operation, mapping) {
+    const pageNoParam = operation.getChild(c =&gt; c.getName() == "pageNo");
+    const pageSizeParam = operation.getChild(c =&gt; c.getName() == "pageSize");
+    const sortingParam = operation.getChild(c =&gt; c.getName() == "sorting" || "orderBy");
 
-    mapping.addMappedEnd(invocationMappingTypeId, onPageChangedOperation.getMappingPath(), dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748"])); // On Load Data
-    mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageNoParam.id]), "pageNo"); // On Load Data -&gt; Parameter (synced)
-    mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageSizeParam.id]), "pageSize"); // On Load Data-&gt; Parameter (synced)
-    mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", sortingParam.id]), "sorting"); // On Load Data -&gt; Parameter (synced)
+    const invocationMappingTypeId = "e4f0c63b-0f00-42bd-a703-00adf44f3364";
+    mapping.addMappedEnd(invocationMappingTypeId, operation.getMappingPath(), dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748"])); // On Load Data
+    if (pageNoParam != null) {
+        mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageNoParam.id]), "pageNo"); // On Load Data -&gt; Parameter (synced)
+    }
+    if (pageSizeParam != null) {
+        mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", pageSizeParam.id]), "pageSize"); // On Load Data -&gt; Parameter (synced)
+    }
+    if (sortingParam != null) {
+        mapping.addMappingExpression(dataGrid.getMappingPath().concat(["53a618ca-e5aa-49ca-a993-8cd935683748", sortingParam.id]), "sorting"); // On Load Data -&gt; Parameter (synced)
+    }
+}
+
+function tryFindLoadDataOperation(mapping) {
+    const existing = mapping.getSourceElement().getChild(x =&gt; x.specialization == "Component Operation" &amp;&amp; x.getChild(c =&gt; c.getName() == "pageNo") &amp;&amp; x.getChild(c =&gt; c.getName() == "pageSize"));
+    return existing;
+}
+
+function createLoadDataOperation(dataGrid) {
+    const fetchDataOperation = createElement("Component Operation", `Fetch${dataGrid?.getName() ?? "DataGrid"}Data`, mapping.getSourceElement().id);
+    const pageNoParam = createElement("Parameter", "pageNo", fetchDataOperation.id);
+    pageNoParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
+    const pageSizeParam = createElement("Parameter", "pageSize", fetchDataOperation.id);
+    pageSizeParam.typeReference.setType("fb0a362d-e9e2-40de-b6ff-5ce8167cbe74"); // int
+    const sortingParam = createElement("Parameter", "sorting", fetchDataOperation.id);
+
+    return fetchDataOperation;
 }</script>
     </script>
   </scripts>
