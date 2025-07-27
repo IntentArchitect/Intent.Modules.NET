@@ -26,10 +26,15 @@ public class RazorTextDirectiveMapping : CSharpMappingBase
     }
 }
 
-public class RazorPropertyBindingMapping : CSharpMappingBase
+public class RazorPropertyBindingMapping : TypeConvertingCSharpMapping
 {
     public RazorPropertyBindingMapping(MappingModel model, ICSharpTemplate template) : base(model, template)
     {
+    }
+
+    public override CSharpStatement GetSourceStatement(bool? targetIsNullable = null)
+    {
+        return GetTypeConvertedSourceStatement();
     }
 }
 
