@@ -1,3 +1,7 @@
+### Version 1.1.0
+
+- Improvement: Created `EntityPatchMappingTypeResolver` to support PATCH type update operations with null checks before assignment.
+
 ### Version 1.0.2
 
 - Improvement: Added support for cursor based pagination

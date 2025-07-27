@@ -1,4 +1,8 @@
-﻿### Version 7.0.2
+﻿### Version 7.1.0
+
+- Improvement: Added support for PATCH implementations of updates. This is currently only available for HTTP exposed Commands with the HTTP `PATCH` Verb
+
+### Version 7.0.2
 
 - Improvement: Updated referenced package version
 
