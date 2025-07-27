@@ -45,7 +45,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.PatchOrder
 
             if (request.OrderStatus is not null)
             {
-                order.OrderStatus = request.OrderStatus;
+                order.OrderStatus = request.OrderStatus.Value;
             }
 
             if (request.CustomerId is not null)
@@ -67,9 +67,9 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Orders.PatchOrder
                 order.BillingAddress = request.BillingAddress is not null
                     ? new Address(
                         line1: request.BillingAddress.Line1,
-                        line2: request.BillingAddress?.Line2 ?? order.BillingAddress.Line2,
-                        city: request.BillingAddress?.City ?? order.BillingAddress.City,
-                        postal: request.BillingAddress?.Postal ?? order.BillingAddress.Postal)
+                        line2: request.BillingAddress?.Line2 ?? order.BillingAddress?.Line2,
+                        city: request.BillingAddress?.City ?? order.BillingAddress?.City,
+                        postal: request.BillingAddress?.Postal ?? order.BillingAddress?.Postal)
                     : null;
             }
         }
