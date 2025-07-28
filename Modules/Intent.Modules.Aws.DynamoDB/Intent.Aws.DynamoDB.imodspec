@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <id>Intent.Aws.DynamoDB</id>
+  <version>1.0.0-beta.0</version>
+  <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
+  <summary>DynamoDB Database Provider Repository.</summary>
+  <description>DynamoDB Database Provider Repository.</description>
+  <authors>Intent.Modules.NET</authors>
+  <iconUrl>data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIEdlbmVyYXRvcjogU1ZHIFJlcG8gTWl4ZXIgVG9vbHMgLS0+Cjxzdmcgdmlld0JveD0iLTE2LjUgMCAyODkgMjg5IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KCTxnPgoJCTxwYXRoIGQ9Ik0xNjUuMjU4LDI4OC41MDEgTDE2OC43NjYsMjg4LjUwMSBMMjI2LjAyNywyNTkuODY3IEwyMjYuOTgsMjU4LjUyIEwyMjYuOTgsMjkuOTY0IEwyMjYuMDI3LDI4LjYxIEwxNjguNzY2LDAgTDE2NS4yMTUsMCBMMTY1LjI1OCwyODguNTAxIiBmaWxsPSIjNTI5NENGIj4KCjwvcGF0aD4KCQk8cGF0aCBkPSJNOTAuNzQxLDI4OC41MDEgTDg3LjE4NCwyODguNTAxIEwyOS45NzIsMjU5Ljg2NyBMMjguODExLDI1Ny44NyBMMjguMjIyLDMxLjEyOCBMMjkuOTcyLDI4LjYxIEw4Ny4xODQsMCBMOTAuNzg1LDAgTDkwLjc0MSwyODguNTAxIiBmaWxsPSIjMUY1Qjk4Ij4KCjwvcGF0aD4KCQk8cGF0aCBkPSJNODcuMjg1LDAgTDE2OC43MTEsMCBMMTY4LjcxMSwyODguNTAxIEw4Ny4yODUsMjg4LjUwMSBMODcuMjg1LDAgWiIgZmlsbD0iIzJENzJCOCI+Cgo8L3BhdGg+CgkJPHBhdGggZD0iTTI1NiwxMzcuNzY5IEwyNTQuMDY1LDEzNy4zNCBMMjI2LjQzNywxMzQuNzY0IEwyMjYuMDI3LDEzNC45NjggTDE2OC43MTUsMTMyLjY3NiBMODcuMjg1LDEzMi42NzYgTDI5Ljk3MiwxMzQuOTY4IEwyOS45NzIsOTEuMjY0IEwyOS45MTIsOTEuMjk2IEwyOS45NzIsOTEuMTY4IEw4Ny4yODUsNzcuODg4IEwxNjguNzE1LDc3Ljg4OCBMMjI2LjAyNyw5MS4xNjggTDI0Ny4wOTYsMTAyLjM2NyBMMjQ3LjA5Niw5NS4xNjcgTDI1Niw5NC4xOTMgTDI1NS4wNzgsOTIuMzk1IEwyMjYuODg2LDcyLjIzNiBMMjI2LjAyNyw3Mi41MTUgTDE2OC43MTUsNTQuNzU2IEw4Ny4yODUsNTQuNzU2IEwyOS45NzIsNzIuNTE1IEwyOS45NzIsMjguNjEgTDAsNjMuNzIzIEwwLDk0LjM4OSBMMC4yMzIsOTQuMjIxIEw4LjkwNCw5NS4xNjcgTDguOTA0LDEwMi41MTUgTDAsMTA3LjI4IEwwLDEzNy43OTMgTDAuMjMyLDEzNy43NjkgTDguOTA0LDEzNy44OTcgTDguOTA0LDE1MC43MDQgTDEuNDIyLDE1MC44MTYgTDAsMTUwLjY4IEwwLDE4MS4yMDUgTDguOTA0LDE4NS45OTMgTDguOTA0LDE5My40MjYgTDAuMzczLDE5NC4zNjggTDAsMTk0LjA4OCBMMCwyMjQuNzQ5IEwyOS45NzIsMjU5Ljg2NyBMMjkuOTcyLDIxNS45NjYgTDg3LjI4NSwyMzMuNzI1IEwxNjguNzE1LDIzMy43MjUgTDIyNi4xOTYsMjE1LjkxNCBMMjI2Ljk2LDIxNi4yNDkgTDI1NC43ODEsMTk2LjM4NyBMMjU2LDE5NC40MDggTDI0Ny4wOTYsMTkzLjQyNiBMMjQ3LjA5NiwxODYuMTQyIEwyNDUuOTI5LDE4NS42NzYgTDIyNi44ODYsMTk1Ljk0MSBMMjI2LjE5NiwxOTcuMzgxIEwxNjguNzE1LDIxMC41ODQgTDE2OC43MTUsMjEwLjYgTDg3LjI4NSwyMTAuNiBMODcuMjg1LDIxMC41ODQgTDI5Ljk3MiwxOTcuMzI1IEwyOS45NzIsMTUzLjQ2MSBMODcuMjg1LDE1NS43NDUgTDg3LjI4NSwxNTUuODAxIEwxNjguNzE1LDE1NS44MDEgTDIyNi4wMjcsMTUzLjQ2MSBMMjI3LjMzMiwxNTQuMDYxIEwyNTQuMTExLDE1MS43NTUgTDI1NiwxNTAuODMyIEwyNDcuMDk2LDE1MC43MDQgTDI0Ny4wOTYsMTM3Ljg5NyBMMjU2LDEzNy43NjkiIGZpbGw9IiMxQTQ3NkYiPgoKPC9wYXRoPgoJCTxwYXRoIGQ9Ik0yMjYuMDI3LDIxNS45NjYgTDIyNi4wMjcsMjU5Ljg2NyBMMjU2LDIyNC43NDkgTDI1NiwxOTQuMjg4IEwyMjYuMiwyMTUuOTE0IEwyMjYuMDI3LDIxNS45NjYiIGZpbGw9IiMyRDcyQjgiPgoKPC9wYXRoPgoJCTxwYXRoIGQ9Ik0yMjYuMDI3LDE5Ny40MjEgTDIyNi4yLDE5Ny4zODEgTDI1NiwxODEuMzUzIEwyNTYsMTUwLjcwNCBMMjI2LjAyNywxNTMuNDYxIEwyMjYuMDI3LDE5Ny40MjEiIGZpbGw9IiMyRDcyQjgiPgoKPC9wYXRoPgoJCTxwYXRoIGQ9Ik0yMjYuMiw5MS4yMDggTDIyNi4wMjcsOTEuMTY4IEwyMjYuMDI3LDEzNC45NjggTDI1NiwxMzcuNzY5IEwyNTYsMTA3LjEzNSBMMjI2LjIsOTEuMjA4IiBmaWxsPSIjMkQ3MkI4Ij4KCjwvcGF0aD4KCQk8cGF0aCBkPSJNMjI2LjIsNzIuNjg3IEwyNTYsOTQuMTkzIEwyNTYsNjMuNzMxIEwyMjYuMDI3LDI4LjYxIEwyMjYuMDI3LDcyLjUxNSBMMjI2LjIsNzIuNTc1IEwyMjYuMiw3Mi42ODciIGZpbGw9IiMyRDcyQjgiPgoKPC9wYXRoPgoJPC9nPgo8L3N2Zz4=</iconUrl>
+  <templates>
+    <template id="Intent.Aws.DynamoDB.DynamoDBDocument" externalReference="9037cc75-09ff-4977-8a64-efcaa5c8f5ab">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DynamoDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBDocumentOfTInterface" externalReference="e6ab6ff2-f53e-4c9a-a4d5-8b744197b50e">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DynamoDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBRepository" externalReference="425e96f3-3008-4ffa-bcab-60ff39222f7c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBRepositoryBase" externalReference="e9f0a1f4-e587-43cb-a91c-1d6347ee8372">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Implementation</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBRepositoryInterface" externalReference="e29826b7-a256-426e-9869-53a7693825dc">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Repository.Interface.Contract</role>
+      <location>Repositories</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBTableInitializer" externalReference="2377c357-e036-4d81-ba7b-c0f15e563486">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DynamoDB.TableInitializer</role>
+      <location>Persistence</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBUnitOfWork" externalReference="d4e4eae8-b8b3-4714-be94-3be33e25f17b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.UnitOfWork.DynamoDB</role>
+      <location>Persistence</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBUnitOfWorkInterface" externalReference="4c09aa22-d5fc-423f-bbce-989432eef36d">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Domain.UnitOfWork.DynamoDB</role>
+      <location>Common/Interfaces</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.DynamoDBValueObjectDocument" externalReference="b5c47292-b29a-4856-b70a-728b6151178b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DynamoDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.EnumAsStringConverter" externalReference="26b549a4-34c4-4296-bae2-5276b54d887c">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.DynamoDB.EnumAsStringConverter</role>
+      <location>Persistence</location>
+    </template>
+    <template id="Intent.Aws.DynamoDB.ReflectionHelper" externalReference="1f1c450f-5d3e-41c7-9166-660e53e5ccdf">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Data.CosmosDB.Document</role>
+      <location>Persistence/Documents</location>
+    </template>
+  </templates>
+  <decorators></decorators>
+  <factoryExtensions>
+    <factoryExtension id="Intent.Aws.DynamoDB.DiConfigurationExtension" externalReference="b4c1e60b-dc33-40f6-ac21-6afa69ed883c" />
+    <factoryExtension id="Intent.Aws.DynamoDB.EnsureParameterlessConstructorsExtension" externalReference="d21fc1b9-ded0-494e-b829-b6c04e8cabe3" />
+    <factoryExtension id="Intent.Aws.DynamoDB.EntityFactoryExtension" externalReference="1708b699-fba7-419b-a0ad-c4a7cefb568f" />
+  </factoryExtensions>
+  <moduleSettings>
+    <group id="bdef1cd0-dfc7-4a5c-9eb1-0496f0ceac38" title="DynamoDB Settings" type="application-settings" externalReference="bdef1cd0-dfc7-4a5c-9eb1-0496f0ceac38">
+      <settings>
+        <setting id="3f304c01-ceda-4823-b17d-6a0c3662143f" title="Use optimistic concurrency" type="switch">
+          <hint>Ensures updates are applied only when document versions match, for improved concurrency management</hint>
+          <defaultValue>true</defaultValue>
+        </setting>
+        <setting id="e2fd9bd6-4015-4ce0-adce-6ca60b6af951" title="Store enums as strings" type="switch">
+          <hint>Enables a convention to convert enums to/from strings.</hint>
+          <defaultValue>false</defaultValue>
+        </setting>
+      </settings>
+    </group>
+  </moduleSettings>
+  <dependencies>
+    <dependency id="Intent.Aws.Common" version="1.0.0-pre.0" />
+    <dependency id="Intent.Common" version="3.7.2" />
+    <dependency id="Intent.Common.CSharp" version="3.8.0" />
+    <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Entities.Repositories.Api" version="5.1.5" />
+    <dependency id="Intent.Metadata.DocumentDB" version="1.3.3-pre.1" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.3" />
+    <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+  </dependencies>
+  <files>
+    <file src="$outDir$/$id$.dll" />
+    <file src="$outDir$/$id$.pdb" />
+  </files>
+  <tags />
+  <releaseNotes>release-notes.md</releaseNotes>
+  <moduleSettingsExtensions />
+  <metadata>
+    <install target="Domain" src="Intent.Metadata/Module Builder/Intent.Aws.DynamoDB/Intent.Aws.DynamoDB.pkg.config" externalReference="519202d6-a4a4-48f5-8fde-70ff3bfd63ba" />
+  </metadata>
+  <migrations />
+</package>

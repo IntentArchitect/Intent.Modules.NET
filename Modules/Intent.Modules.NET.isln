@@ -7,7 +7,7 @@
   <iconType>UrlImagePath</iconType>
   <metadataRelativePath>Intent.Metadata</metadataRelativePath>
   <modulesCacheRelativePath>.intent/modules</modulesCacheRelativePath>
-  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.0.17" />
+  <lastUsedApplicationTemplate id="Intent.ApplicationTemplate.ModuleBuilder" version="4.1.2" />
   <applications>
     <application id="ad79943a-b771-42b0-9563-9e01f7ea2dbc" name="VisualStudio.Projects" solutionFolder="Developer Tooling" relativePath="Intent.Modules.VisualStudio.Projects\VisualStudio.Projects.application.config" />
     <application id="d0170c2a-3918-4877-bc3c-7ae70a4885e0" name="Intent.Modules.IdentityServer4.X509CertSigning" solutionFolder="Obsolete" relativePath="Intent.Modules.IdentityServer4.X509CertSigning\Intent.Modules.IdentityServer4.X509CertSigning.application.config" />
@@ -168,5 +168,7 @@
     <application id="0848134b-a122-45f5-b75f-b37fb6b6b2af" name="Intent.Modules.Application.DomainInteractions" solutionFolder="Application" relativePath="Intent.Modules.Application.DomainInteractions/Intent.Modules.Application.DomainInteractions.application.config" />
     <application id="659818a0-001b-4e3b-b373-02ff314cedd5" name="Intent.Modules.AspNetCore.IdentityService" solutionFolder="API Frameworks" relativePath="Intent.Modules.AspNetCore.IdentityService/Intent.Modules.AspNetCore.IdentityService.application.config" />
     <application id="7e0c3699-1d96-4208-badc-b087aef1f67d" name="Blazor.JwtAuth" solutionFolder="Blazor" relativePath="Intent.Modules.Blazor.JwtAuth/Intent.Modules.Blazor.JwtAuth.application.config" />
+    <application id="d331955b-6e1f-47d1-b7d7-ad53f636f1f0" name="Intent.Modules.Aws.DynamoDB" solutionFolder="Persistence" relativePath="Intent.Modules.Aws.DynamoDB/Intent.Modules.Aws.DynamoDB.application.config" />
+    <application id="75504337-fcbb-4352-809b-8054f7a6af95" name="Intent.Modules.Aws.Common" solutionFolder="Amazon" relativePath="Intent.Modules.Aws.Common/Intent.Modules.Aws.Common.application.config" />
   </applications>
 </solution>
