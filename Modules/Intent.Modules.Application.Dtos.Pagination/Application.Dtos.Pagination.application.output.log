@@ -82,22 +82,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#28abd89f-8bed-413a-9e8b-446492ca8418</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ExpressionHelper/ExpressionHelperTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper/ExpressionHelperTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#28abd89f-8bed-413a-9e8b-446492ca8418</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/ExpressionHelper/ExpressionHelperTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper/ExpressionHelperTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>

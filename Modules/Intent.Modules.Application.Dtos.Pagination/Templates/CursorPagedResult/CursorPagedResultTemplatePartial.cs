@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -73,6 +76,18 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.CursorPagedResult
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        public override bool CanRunTemplate()
+        {
+            var cursorResult = "CursorPagedResult";
+
+            var isPagingUsed = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
+                        .GetQueryModels().Any(x => x.TypeReference?.Element?.Name == cursorResult) ||
+                    ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
+                        .GetServiceModels().Any(x => x.Operations.Any(o => o.TypeReference?.Element?.Name == cursorResult));
+
+            return base.CanRunTemplate() && isPagingUsed;
         }
     }
 }

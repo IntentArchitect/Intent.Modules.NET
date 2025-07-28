@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.CQRS.Api;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -90,12 +92,38 @@ namespace Intent.Modules.Application.Dtos.Pagination.Templates.CursorPagedResult
 
                     });
 
+                    AddUsing("System.Linq.Expressions");
+                    @class.AddMethod($"Expression<{UseType("System.Func<T, bool>")}>", "Combine", method =>
+                    {
+                        method.Static();
+                        method.AddGenericParameter("T");
+
+                        method.AddParameter("Expression<Func<T, bool>>", "first", prm =>
+                        {
+                            prm.WithThisModifier();
+                        });
+                        method.AddParameter("Expression<Func<T, bool>>", "second");
+
+                        method.AddObjectInitStatement("var param", "Expression.Parameter(typeof(T));");
+                        method.AddObjectInitStatement("var body", "Expression.AndAlso(Expression.Invoke(first, param), Expression.Invoke(second, param));");
+
+                        method.AddReturn("Expression.Lambda<Func<T, bool>>(body, param)");
+                    });
+
                 });
         }
 
         public override bool CanRunTemplate()
         {
-            return TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var interfaceName) && !string.IsNullOrWhiteSpace(interfaceName);
+            var cursorResult = "CursorPagedResult";
+            var isPagingUsed = ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
+                        .GetQueryModels().Any(x => x.TypeReference?.Element?.Name == cursorResult) ||
+                    ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id)
+                        .GetServiceModels().Any(x => x.Operations.Any(o => o.TypeReference?.Element?.Name == cursorResult));
+
+            return TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var interfaceName) 
+                && !string.IsNullOrWhiteSpace(interfaceName)
+                && isPagingUsed;
         }
 
         private string GetCursorPagedListInterfaceName()
