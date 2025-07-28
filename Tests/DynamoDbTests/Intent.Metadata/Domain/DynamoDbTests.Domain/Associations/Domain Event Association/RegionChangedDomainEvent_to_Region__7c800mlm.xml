@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="70e7896a-7b5b-4844-bd20-8b9933cb88ca">
+  <sourceEnd id="13a1f2fe-aa6e-4fc5-8af9-475e4c8a0699" type="Domain Event Association Source End" typeId="ad8998ec-ee85-4544-9267-8ec150a2f257">
+    <display>handles event : RegionChangedDomainEvent</display>
+    <order>3</order>
+    <typeReference id="93dd1b24-80d5-40af-85e8-92a01cb39459">
+      <typeId>40a17e7a-31a9-452a-a972-14d371a63b85</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="70e7896a-7b5b-4844-bd20-8b9933cb88ca" type="Domain Event Association Target End" typeId="fe0d0f78-fb7e-4685-ab2d-bae88054a78e">
+    <display>handled by : Region</display>
+    <order>1</order>
+    <typeReference id="6b801d13-9025-4185-aed8-9dfb0e0abec2">
+      <typeId>faa3d820-00cf-41a9-b041-79d7caa7162d</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Domain Event Association</associationType>
+  <associationTypeId>8014b71d-627b-4349-b6d7-5011dfa1bb09</associationTypeId>
+  <stereotypes />
+</association>

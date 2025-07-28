@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d715f445-ff73-4efc-b415-7048dafb131d">
+  <sourceEnd id="af7255e8-a2ef-4c2c-bcf7-48b530e8766f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Customer</name>
+    <display>Customer: Customer</display>
+    <order>0</order>
+    <typeReference id="465d283e-dc1a-4237-abe9-73a2e010c891">
+      <typeId>3933f64d-614a-4ad7-a8a8-9397b67f4e78</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d715f445-ff73-4efc-b415-7048dafb131d" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>DeliveryAddress</name>
+    <display>DeliveryAddress: Address</display>
+    <order>3</order>
+    <typeReference id="1d31420a-adc9-44e3-acd4-412f963a5dde">
+      <typeId>476090a8-55bd-45d5-8b7a-9836760e753a</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

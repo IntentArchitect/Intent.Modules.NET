@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="e6bfeb84-ee67-4b23-b783-83a86026ac1e" type="Folder" typeId="4d95d53a-8855-4f35-aa82-e312643f5c5f">
+  <name>Folder</name>
+  <display>Folder</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0950a114-2a37-4be1-8238-6662e663b48b</parentFolderId>
+  <packageId>0950a114-2a37-4be1-8238-6662e663b48b</packageId>
+  <packageName>DynamoDbTests.Domain.ContainerPackage</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="66fd9e66-42c7-4ef9-a778-b68e009272b9" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.Common.CSharp</definitionPackageName>
+      <definitionPackageId>730e1275-0c32-44f7-991a-9619d07ca68d</definitionPackageId>
+      <properties>
+        <property name="96df2fa6-7361-4e43-9acf-dbcea23b650a" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+    <stereotype stereotypeDefinitionId="6f32b3ab-384d-4696-8427-86156189346b" name="Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Aws.DynamoDB</definitionPackageName>
+      <definitionPackageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</definitionPackageId>
+      <properties>
+        <property name="5227f984-a290-4f6a-9f0a-940dcd8a93c6" display="Name" value="Folder" isActive="true" />
+        <property name="53973836-dc92-4f6b-80e6-17934f84aad3" display="Partition Key" value="FolderPartitionKey" isActive="true" />
+        <property name="ace7ecc8-2874-4afc-8e4d-b4cad3c93488" display="Throughput Mode" value="Provisioned" isActive="true" />
+        <property name="fe066a7d-71ef-487e-8955-922d35a7493b" display="Maximum Read Throughput (Units)" isActive="false" />
+        <property name="2f4bdce8-b053-47f8-9ee6-79a8f673c782" display="Maximum Write Throughput (Units)" isActive="false" />
+        <property name="6e49570f-ce07-4010-8147-582bd2431b5e" display="Read Throughput (Units)" value="5" isActive="true" />
+        <property name="cddbd29b-2c22-45a2-986a-54604f4c7936" display="Write Throughput (Units)" value="5" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="currentPartitionKey" value="FolderPartitionKey" />
+  </metadata>
+  <childElements />
+</class>

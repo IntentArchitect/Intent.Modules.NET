@@ -1,0 +1,157 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <NoWarn>1701,1702</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Intent.RoslynWeaver.Attributes" Version="2.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\IBaseOfT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseOfT.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IBaseType.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BaseType.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICategory.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClient.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Client.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICountry.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Country.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ICustomer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDepartment.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedOfT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedOfT.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedType.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedType.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IDerivedTypeAggregate.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DerivedTypeAggregate.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IEntityOfT.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EntityOfT.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IIdTesting.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdTesting.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IInvoice.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IInvoiceLogo.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InvoiceLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ILineItem.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LineItem.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IProduct.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IRegion.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Region.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IUniversity.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>University.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IWithGuidId.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WithGuidId.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IClassContainer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ClassContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Folder\IFolderContainer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FolderContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\INonStringPartitionKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>NonStringPartitionKey.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IOnDemand.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OnDemand.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IOrder.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IOrderItem.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IPackageContainer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PackageContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\Throughput\IProvisioned.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Provisioned.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IWithoutPartitionKey.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>WithoutPartitionKey.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

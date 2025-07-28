@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d650f451-6e2e-4f63-a6a3-0b5aeb078ba6">
+  <sourceEnd id="d6c9f76b-f314-4377-a158-f47f0d7f0785" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Products</name>
+    <display>Products: Product[*]</display>
+    <order>0</order>
+    <typeReference id="1c914f38-8aac-4c87-8aa9-cf7578412f4f">
+      <typeId>e09d2b27-a739-4e23-a442-d264785f243f</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d650f451-6e2e-4f63-a6a3-0b5aeb078ba6" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Categories</name>
+    <display>Categories: Category[*]</display>
+    <order>3</order>
+    <typeReference id="7b6cfd53-e882-4994-b572-989adaf43626">
+      <typeId>91ec52e3-c8e3-4d41-84c1-16a848db0fed</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>DynamoDbTests.Domain</typePackageName>
+      <typePackageId>0c0abbad-5585-497e-9c17-ab8f06a14cc0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>

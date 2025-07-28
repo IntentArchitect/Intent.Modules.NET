@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a5f4f4d9-dd9a-4b76-abd3-b880a95cfd80" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
+  <name>NonStringPartitionKey</name>
+  <display>NonStringPartitionKey</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0950a114-2a37-4be1-8238-6662e663b48b</parentFolderId>
+  <packageId>0950a114-2a37-4be1-8238-6662e663b48b</packageId>
+  <packageName>DynamoDbTests.Domain.ContainerPackage</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="6f32b3ab-384d-4696-8427-86156189346b" name="Table">
+      <addedByDefault>false</addedByDefault>
+      <definitionPackageName>Intent.Aws.DynamoDB</definitionPackageName>
+      <definitionPackageId>519202d6-a4a4-48f5-8fde-70ff3bfd63ba</definitionPackageId>
+      <properties>
+        <property name="5227f984-a290-4f6a-9f0a-940dcd8a93c6" display="Name" value="NonStringPartitionKey" isActive="true" />
+        <property name="53973836-dc92-4f6b-80e6-17934f84aad3" display="Partition Key" value="PartInt" isActive="true" />
+        <property name="ace7ecc8-2874-4afc-8e4d-b4cad3c93488" display="Throughput Mode" value="Provisioned" isActive="true" />
+        <property name="fe066a7d-71ef-487e-8955-922d35a7493b" display="Maximum Read Throughput (Units)" isActive="false" />
+        <property name="2f4bdce8-b053-47f8-9ee6-79a8f673c782" display="Maximum Write Throughput (Units)" isActive="false" />
+        <property name="6e49570f-ce07-4010-8147-582bd2431b5e" display="Read Throughput (Units)" value="5" isActive="true" />
+        <property name="cddbd29b-2c22-45a2-986a-54604f4c7936" display="Write Throughput (Units)" value="5" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata>
+    <entry key="currentPartitionKey" value="PartInt" />
+  </metadata>
+  <childElements>
+    <childElement id="8e416b94-3dde-4a90-b69f-3bfc5003dcb4" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Id</name>
+      <display>Id: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="431c3b9d-c8a0-4bb4-95c1-931c4ed7ac5e">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a5f4f4d9-dd9a-4b76-abd3-b880a95cfd80</parentFolderId>
+      <packageId>0950a114-2a37-4be1-8238-6662e663b48b</packageId>
+      <packageName>DynamoDbTests.Domain.ContainerPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="Default" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="e7794e44-f36a-4716-8572-a2ff9339714c" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PartInt</name>
+      <display>PartInt: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4b55eb6f-777c-4c3c-8b23-741460a2763c">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a5f4f4d9-dd9a-4b76-abd3-b880a95cfd80</parentFolderId>
+      <packageId>0950a114-2a37-4be1-8238-6662e663b48b</packageId>
+      <packageName>DynamoDbTests.Domain.ContainerPackage</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="64f6a994-4909-4a9d-a0a9-afc5adf2ef74" name="Primary Key">
+          <addedByDefault>false</addedByDefault>
+          <definitionPackageName>Intent.Metadata.DocumentDB</definitionPackageName>
+          <definitionPackageId>1c7eab18-9482-4b4e-b61b-1fbd2d2427b6</definitionPackageId>
+          <properties>
+            <property name="ce12cf69-e97f-401b-9b08-7e2c62171d4e" display="Data source" value="User supplied" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata>
+        <entry key="partition-key" value="true" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9a385099-5050-45cd-86b7-591cf0c72e66" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Name</name>
+      <display>Name: string</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c441476b-f27c-4b2a-b306-5fa56f0fefdd">
+        <typeId>d384db9c-a279-45e1-801e-e4e8099625f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>a5f4f4d9-dd9a-4b76-abd3-b880a95cfd80</parentFolderId>
+      <packageId>0950a114-2a37-4be1-8238-6662e663b48b</packageId>
+      <packageName>DynamoDbTests.Domain.ContainerPackage</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

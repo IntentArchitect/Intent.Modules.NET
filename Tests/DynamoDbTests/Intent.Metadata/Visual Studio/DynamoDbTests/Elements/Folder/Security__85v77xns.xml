@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="915c7b76-4630-4d90-b5a8-6e30c5740ea0" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Security</name>
+  <display>Security</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>e9681af5-37a5-4e85-b302-d4db779eccdc</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="3a272f52-58d9-4536-80a1-e286070cb77e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Application.Identity.AuthorizeAttribute</name>
+      <display>Intent.Application.Identity.AuthorizeAttribute</display>
+      <externalReference>Intent.Application.Identity</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>915c7b76-4630-4d90-b5a8-6e30c5740ea0</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<deviationsLog>
+  <files>
+    <file>
+      <correlationId>Intent.Infrastructure.DependencyInjection.DependencyInjection</correlationId>
+      <path>DynamoDbTests.PrivateSetters.Infrastructure/DependencyInjection.cs</path>
+      <count>1</count>
+      <updatedByAccountName>jonathan.lydall@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Jonathan Lydall</updatedByDisplayName>
+      <updatedAt>2025-07-28T21:14:11.9619095Z</updatedAt>
+      <deviationsHash>C964CA59B2AE569C4CF74B30E5EFCC0CE179EFA49CC86D5E8584FED18702D2BC</deviationsHash>
+      <fileHash>D9EA36C0ADFA3104C658822A8C328D4325EBDDB6BFD1C0C3DB732A31AFC88151</fileHash>
+    </file>
+  </files>
+</deviationsLog>

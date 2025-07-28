@@ -1,0 +1,28 @@
+using DynamoDbTests.EntityInterfaces.Domain.Common;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: IntentTemplate("Intent.Entities.DomainEntity", Version = "2.0")]
+
+namespace DynamoDbTests.EntityInterfaces.Domain.Entities
+{
+    public class IdTesting : IIdTesting, IHasDomainEvent
+    {
+        private string? _identifier;
+
+        public IdTesting()
+        {
+            Identifier = null!;
+            Id = null!;
+        }
+
+        public string Identifier
+        {
+            get => _identifier ??= Guid.NewGuid().ToString();
+            set => _identifier = value;
+        }
+
+        public string Id { get; set; }
+
+        public List<DomainEvent> DomainEvents { get; set; } = [];
+    }
+}
