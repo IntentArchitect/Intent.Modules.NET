@@ -1,3 +1,7 @@
+### Version 5.2.16
+
+- Improvement: Added support for DynamoDB unit of work.
+
 ### Version 5.2.15
 
 - Improvement: SQL Lite ambient transaction suppression.

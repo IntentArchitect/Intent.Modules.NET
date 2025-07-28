@@ -1,4 +1,8 @@
-﻿### Version 3.0.5
+﻿### Version 3.0.6
+
+- Improvement: Added support for DynamoDB unit of work.
+
+### Version 3.0.5
 
 - Improvement: SQL Lite ambient transaction suppression.
 
