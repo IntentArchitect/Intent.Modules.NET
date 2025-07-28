@@ -564,14 +564,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7f920cbf-ffa8-4dfb-8cba-f0f8ac58c5f6</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7f920cbf-ffa8-4dfb-8cba-f0f8ac58c5f6</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Subscribe.MassTransit.OutboxMemory.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>

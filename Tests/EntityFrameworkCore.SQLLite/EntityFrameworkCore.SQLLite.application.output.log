@@ -578,14 +578,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>958556ff-334e-4732-90c9-f88671a66547</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>958556ff-334e-4732-90c9-f88671a66547</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#fe7aed22-656e-48b3-8f6f-f566c49288ed</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.SQLLite.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

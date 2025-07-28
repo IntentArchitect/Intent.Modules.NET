@@ -1076,14 +1076,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cd6e04b5-aad2-444a-9d33-2ec221a6f91b</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#5385562b-8635-4601-978d-a7f20bd628d9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>OutputCachingRedis.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

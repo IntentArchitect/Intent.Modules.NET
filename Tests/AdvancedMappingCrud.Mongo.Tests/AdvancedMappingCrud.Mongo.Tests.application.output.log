@@ -1188,14 +1188,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>f4c9b206-4fe9-45d8-912b-332fe7b1fef4</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#a45dd931-55a8-4f02-8b91-bd479bd0359e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrudMongo.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

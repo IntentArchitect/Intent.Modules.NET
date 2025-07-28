@@ -474,14 +474,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>7b887595-0134-4799-8f92-069ceb87c751</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>7b887595-0134-4799-8f92-069ceb87c751</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#caa85a9d-ee26-4ced-bef9-2aa2018564f0</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

@@ -362,14 +362,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0e616d7d-7f5a-444c-802e-34cd730ff6ea</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CleanArchitecture.Dapr.DomainEntityInterfaces.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0e616d7d-7f5a-444c-802e-34cd730ff6ea</ProjectId>
       <CorrelationId>Intent.Dapr.AspNetCore.StateManagement.DaprStateStoreGenericRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CleanArchitecture.Dapr.DomainEntityInterfaces.Domain/Repositories/IDaprStateStoreGenericRepository.cs</ApplicationRelativeFilePath>

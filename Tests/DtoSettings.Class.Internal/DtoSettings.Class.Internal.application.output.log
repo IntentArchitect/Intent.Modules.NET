@@ -564,14 +564,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>10008be3-2f5a-43fb-9528-ddf8c2114b08</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>10008be3-2f5a-43fb-9528-ddf8c2114b08</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#903959ee-06fa-4831-854d-531bb8ad9b4d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Internal.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

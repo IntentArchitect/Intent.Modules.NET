@@ -564,14 +564,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>3953040c-c513-41c6-b3a3-99559ccfcff5</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3953040c-c513-41c6-b3a3-99559ccfcff5</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#d7916913-fc81-4c07-94d9-75ad6f612166</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>CosmosDB.MultiTenancy.SeperateDB.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

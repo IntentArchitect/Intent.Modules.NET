@@ -820,14 +820,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2ef09607-1eb6-4f8c-8d06-701fa6bc1b37</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>ProxyServiceTests.Proxy.PTH.Domain/Repositories/IEFRepository.cs</ApplicationRelativeFilePath>

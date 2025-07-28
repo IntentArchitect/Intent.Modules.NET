@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Common;
@@ -10,12 +11,11 @@ namespace TableStorage.Tests.Domain.Entities
     {
         public Order()
         {
-            PartitionKey = null!;
             RowKey = null!;
             OrderNo = null!;
             Customer = null!;
         }
-        public string PartitionKey { get; set; }
+        public string PartitionKey { get; set; } = Guid.NewGuid().ToString();
 
         public string RowKey { get; set; }
 

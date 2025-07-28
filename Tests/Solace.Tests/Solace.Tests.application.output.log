@@ -1060,14 +1060,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>6ca2cdbb-127b-4a4b-844a-4478547911bb</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Solace.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6ca2cdbb-127b-4a4b-844a-4478547911bb</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#add7afb7-e3ce-4b1d-a0fc-31296f8cb518</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Solace.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

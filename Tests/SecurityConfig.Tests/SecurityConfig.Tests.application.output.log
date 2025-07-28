@@ -732,14 +732,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>31f90ef7-8b8e-425c-950a-8b3be0a17112</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>SecurityConfig.Tests.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>31f90ef7-8b8e-425c-950a-8b3be0a17112</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#2326e47e-6a1f-40c6-b776-c6b5f8eb50ba</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>SecurityConfig.Tests.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

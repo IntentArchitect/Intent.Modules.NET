@@ -2020,14 +2020,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb591d79-7dd4-4b3f-a82f-d318da089e7f</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>cb591d79-7dd4-4b3f-a82f-d318da089e7f</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#83691e7d-b435-45cf-bbee-791979bb4c9d</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>

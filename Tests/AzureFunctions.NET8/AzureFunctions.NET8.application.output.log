@@ -1556,14 +1556,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>6af56d8a-505e-4dba-9538-cf184d053839</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>6af56d8a-505e-4dba-9538-cf184d053839</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#7434dfda-7ada-49d6-8a4d-c50f345cc011</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.NET8.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
