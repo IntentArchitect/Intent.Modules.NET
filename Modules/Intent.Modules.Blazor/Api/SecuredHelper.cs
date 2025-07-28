@@ -10,11 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Intent.Blazor.Api.ButtonModelStereotypeExtensions;
-using static Intent.Modules.Constants.TemplateRoles.Blazor.Client;
 
 namespace Intent.Modules.Blazor.Api;
-public static class SecuredHelper
+internal static class SecuredHelper
 {
     public static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
     {

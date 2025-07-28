@@ -1,7 +1,9 @@
+using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
@@ -21,6 +23,21 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
+
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            base.OnBeforeTemplateRegistrations(application);
+            ConfigureRazorWeaving(application);
+        }
+
+        private void ConfigureRazorWeaving(IApplication application)
+        {
+            application.ConfigureRazor(configurator =>
+            {
+                configurator.AddTagNameAttributeMatch("link", "href");
+                configurator.AddTagNameAttributeMatch("script", "src");
+            });
+        }
 
         [IntentIgnore]
         protected override void OnAfterTemplateRegistrations(IApplication application)

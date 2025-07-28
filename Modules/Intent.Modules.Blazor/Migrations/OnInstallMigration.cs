@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -35,18 +37,18 @@ namespace Intent.Modules.Blazor.Migrations
         public void OnInstall()
         {
             var app = ApplicationPersistable.Load(_configurationProvider.GetApplicationConfig().FilePath);
-            var designer = app.GetDesigner(VisualStudioDesignerId);
-            var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
+            if (app == null)
+                return;
 
-            foreach (var package in packages)
+            bool changes = false;
+            changes |= EnsureBlazorRoleInVSDesigner(app);
+            changes |= MigrationHelper.InitializeIncludeSamplesSetting(app, "true");
+            if (changes)
             {
-                var elements = package.GetElementsOfType(RoleSpecializationId);
-                if (elements.Any(x => x.Name == "Blazor"))
-                {
-                    return;
-                }
+                app.SaveAllChanges();
             }
 
+            /*
             var visualStudioMetadataInstallationFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../content", "visual-studio.metadata.config");
             if (File.Exists(visualStudioMetadataInstallationFile))
             {
@@ -60,6 +62,38 @@ namespace Intent.Modules.Blazor.Migrations
             else
             {
                 throw new Exception("File not found: " + visualStudioMetadataInstallationFile);
+            }*/
+        }
+
+        private static bool EnsureBlazorRoleInVSDesigner(ApplicationPersistable app)
+        {
+            var designer = app.GetDesigner(VisualStudioDesignerId);
+            var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
+
+            ElementPersistable? startupRole = null;
+            foreach (var package in packages)
+            {
+                var elements = package.GetElementsOfType(RoleSpecializationId);
+                if (elements.Any(x => x.Name == "Blazor"))
+                {
+                    return false;
+                }
+                if (startupRole == null)
+                {
+                    startupRole = elements.FirstOrDefault(x => x.Name == "Startup");
+                }
+            }
+
+            if (startupRole != null)
+            {
+                var package = packages.First(p => p.Id == startupRole.PackageId);
+                var project = startupRole.Parent;
+                project.AddElement(new ElementPersistable { SpecializationTypeId = RoleSpecializationId, SpecializationType = "Role", Name = "Blazor" });
+                return true;
+            }
+            else
+            {
+                throw new Exception("Could not find (Startup) or (Blazor) Role.");
             }
         }
 

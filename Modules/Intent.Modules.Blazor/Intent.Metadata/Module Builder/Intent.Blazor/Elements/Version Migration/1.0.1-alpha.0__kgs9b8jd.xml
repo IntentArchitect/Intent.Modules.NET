@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="7434e0fc-5aab-4d54-a959-463966cf8156" type="Version Migration" typeId="03f24c57-66d8-4868-95a7-6daef900dc7f">
+  <name>1.0.1-alpha.0</name>
+  <display>1.0.1-alpha.0</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>7c23dc05-1b7d-4103-bbae-20271400fdf3</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

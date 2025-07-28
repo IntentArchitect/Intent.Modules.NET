@@ -3,7 +3,6 @@ using Intent.Modelers.UI.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
 using Intent.Modules.Blazor.Templates.Templates.Client.DependencyInjection;
 using Intent.Modules.Blazor.Templates.Templates.Client.ModelDefinition;
-using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
@@ -40,11 +39,6 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetModelDefinitionTemplateName(this IIntentTemplate template, ModelDefinitionModel model)
         {
             return template.GetTypeName(ModelDefinitionTemplate.TemplateId, model);
-        }
-
-        public static string GetProgramTemplateName(this IIntentTemplate template)
-        {
-            return template.GetTypeName(ProgramTemplate.TemplateId);
         }
 
         public static string GetRazorComponentCodeBehindTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel

@@ -84,5 +84,7 @@ namespace Intent.Modules.Blazor.Settings
             InteractiveWebAssembly,
             InteractiveAuto,
         }
+
+        public bool IncludeSamplePages() => bool.TryParse(_groupSettings.GetSetting("bbddad39-3601-4244-bf8d-0da805ee6376")?.Value.ToPascalCase(), out var result) && result;
     }
 }

@@ -9,83 +9,19 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#ff1ddb80-16e4-4e63-ace3-4ef96a03b4b0</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/AutoCompleteModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>AutoCompleteModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <ProjectId>dab870d2-16e4-46ee-82d9-e78558ed569d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#39c87006-657c-4f64-b82c-d9dd57f9670b</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/NoSamplePages/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/NoSamplePages/readme.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#4474d808-f6fd-405f-a9c7-6998cd000ede</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ButtonModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ButtonModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#be9ecdbd-6ded-4057-af76-1b09f3a6cea3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/CheckboxModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CheckboxModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#b1c481e1-e91e-4c29-9817-00ab9cad4b6b</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/ComponentModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ComponentModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#a274918b-72d1-4913-95de-0a801ac90ce4</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/LinkModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>LinkModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#adbf2fa8-6833-4c24-960a-31d8a41fd1ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/MenuItemModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>MenuItemModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#4af9a7f0-ca24-4681-8e32-2a8d3dacb6ed</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/RadioGroupModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RadioGroupModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#78e0bdf7-424f-4820-95d5-b756b0ebc87a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/SelectModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>SelectModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#eee93c29-3d58-4e42-aea9-c00451d17469</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/TableModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TableModelStereotypeExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>3b8eaec8-b2cd-4178-99ac-745a364eba89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Api.ApiElementModelExtensions#4803bf60-c626-4cbe-94ed-0f1eafff9fe3</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Api/TextInputModelStereotypeExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TextInputModelStereotypeExtensions.cs</ProjectRelativeFilePath>
+      <ProjectId>dab870d2-16e4-46ee-82d9-e78558ed569d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/SamplePages/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/SamplePages/readme.txt</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -110,6 +46,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Intent.Modules.Blazor.csproj</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Intent.Modules.Blazor.csproj</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>61f8de8f-cbf0-44e7-8366-5a53ba2021e0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#7434e0fc-5aab-4d54-a959-463966cf8156</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Migrations/Migration_01_00_01_Alpha_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_01_00_01_Alpha_00.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -214,22 +158,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Client/ModelDefinition/ModelDefinitionTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Client/ModelDefinition/ModelDefinitionTemplateRegistration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Client/Program/ProgramTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Client/Program/ProgramTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Client/Program/ProgramTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Client/Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -342,6 +270,22 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Server/ServerImportsRazor/ServerImportsRazorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Static/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Static/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Static/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Static/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

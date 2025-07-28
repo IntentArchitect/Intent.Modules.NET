@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.0.0-beta.31</version>
+  <version>1.0.1-alpha.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -32,14 +32,6 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Model.Definition</role>
-      <location></location>
-    </template>
-    <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9">
-      <config>
-        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
-        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
-      </config>
-      <role>Blazor.Client.Program</role>
       <location></location>
     </template>
     <template id="Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate" externalReference="7fd439ee-bc05-4db6-a66a-f3b07b024d74">
@@ -80,7 +72,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Routes</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Server.AppRazorTemplate" externalReference="b7665695-e7e7-4a21-883a-da6fa2d84710">
       <config>
@@ -98,6 +90,14 @@
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
+      <role>Blazor.NoSample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration" externalReference="0a626c1c-206c-4b4f-b299-a0bbb8ba0eea">
+      <role>Blazor.Sample</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
@@ -112,12 +112,15 @@
         </setting>
         <setting id="3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa" title="Render Mode" type="select">
           <hint>Determines how the page content is rendered at runtime.</hint>
-          <defaultValue>interactive-web-assembly</defaultValue>
+          <defaultValue>interactive-server</defaultValue>
           <options>
             <option value="interactive-server" description="Interactive Server" />
             <option value="interactive-web-assembly" description="Interactive Web Assembly" />
             <option value="interactive-auto" description="Interactive Auto" />
           </options>
+        </setting>
+        <setting id="bbddad39-3601-4244-bf8d-0da805ee6376" title="Include Sample Pages" type="switch">
+          <defaultValue>false</defaultValue>
         </setting>
       </settings>
     </group>
@@ -127,14 +130,18 @@
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.9.2-pre.5" />
     <dependency id="Intent.Common.Types" version="4.0.0-pre.1" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.14" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-pre.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.VisualStudio.Projects">
       <install>
         <package id="Intent.VisualStudio.Projects" version="3.8.0-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Modelers.UI.Core">
+      <install>
+        <package id="Intent.Modelers.UI.Core" version="1.0.1-alpha.0" />
       </install>
     </detect>
   </interoperability>
@@ -148,5 +155,7 @@
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
     <install target="User Interface;Module Builder" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
-  <migrations has-on-install-migration="true" />
+  <migrations has-on-install-migration="true">
+    <migration version="1.0.1-alpha.0" />
+  </migrations>
 </package>

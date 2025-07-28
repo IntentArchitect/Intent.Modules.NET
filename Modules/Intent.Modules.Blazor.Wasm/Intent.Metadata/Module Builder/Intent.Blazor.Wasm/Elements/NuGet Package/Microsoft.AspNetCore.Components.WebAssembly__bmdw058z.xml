@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="98e0c099-3793-4c35-a25b-4d31cc0c0a17" type="NuGet Package" typeId="f747cc37-29ee-488a-8dbe-755e856a842d">
+  <name>Microsoft.AspNetCore.Components.WebAssembly</name>
+  <display>Microsoft.AspNetCore.Components.WebAssembly</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>9c5585cc-6532-4e22-a365-51eba3f2f73c</parentFolderId>
+  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+  <packageName>Intent.Blazor.Wasm</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="265221a5-779c-46c9-a367-8b07b435803b" name="Package Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+      <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+      <properties>
+        <property name="4de9cc21-d4fb-4d52-8dfd-2eb6cf267a9a" display="Friendly Name" isActive="true" />
+        <property name="67c7c4d8-40ed-48f9-a83c-985eedb32141" display="Locked" value="false" isActive="true" />
+        <property name="c166c7cf-45e3-484b-9ec5-f7300951f897" display="Private Assets" value="[]" isActive="true" />
+        <property name="6bd6430c-8011-435e-bb73-6013477a875d" display="Include Assets" value="[]" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="fa487a69-844e-4f6c-97e5-43deafd5a25c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>6.0.36</name>
+      <display>6.0.36 ( &gt;= .NETCoreApp,Version=v6.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>98e0c099-3793-4c35-a25b-4d31cc0c0a17</parentFolderId>
+      <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+      <packageName>Intent.Blazor.Wasm</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v6.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="034268a5-ca84-41ba-9e7a-c804c2be174c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (6.0.36)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.36</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fa487a69-844e-4f6c-97e5-43deafd5a25c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="2a44b366-361b-4ba0-8bdd-96843d290480" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (6.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fa487a69-844e-4f6c-97e5-43deafd5a25c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="fa8fd6ef-6da2-42e5-add1-182b761acf8e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (6.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fa487a69-844e-4f6c-97e5-43deafd5a25c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13a53b3e-4534-4996-a327-b837b9a025ae" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (6.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fa487a69-844e-4f6c-97e5-43deafd5a25c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e659e6e4-8802-43ae-85c5-22ce6f73d603" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.JSInterop.WebAssembly</name>
+          <display>Microsoft.JSInterop.WebAssembly (6.0.36)</display>
+          <isAbstract>false</isAbstract>
+          <value>6.0.36</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>fa487a69-844e-4f6c-97e5-43deafd5a25c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>7.0.20</name>
+      <display>7.0.20 ( &gt;= .NETCoreApp,Version=v7.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>98e0c099-3793-4c35-a25b-4d31cc0c0a17</parentFolderId>
+      <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+      <packageName>Intent.Blazor.Wasm</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v7.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="b2dde35c-1516-437f-815b-7442e915e5e4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3f3d47e8-1358-4b49-8b11-7d3101f527c7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (7.0.4)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.4</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0f6aa848-03b0-47aa-97f5-c6cf3f6dc311" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0a80253e-4f6b-43bb-b85f-9f770341effe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (7.0.0)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.0</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="428a1a05-ebaa-4d9b-854e-7a688f48a696" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.JSInterop.WebAssembly</name>
+          <display>Microsoft.JSInterop.WebAssembly (7.0.20)</display>
+          <isAbstract>false</isAbstract>
+          <value>7.0.20</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>b34b5cde-41ab-4ae6-a1d9-9b430a66d3e7</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="7a1fc549-f9f8-486c-a75b-f5b69269ab9c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>8.0.18</name>
+      <display>8.0.18 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>98e0c099-3793-4c35-a25b-4d31cc0c0a17</parentFolderId>
+      <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+      <packageName>Intent.Blazor.Wasm</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v8.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="35398341-3aa2-4a88-a803-d323d5e2230e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (8.0.18)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.18</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a1fc549-f9f8-486c-a75b-f5b69269ab9c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="e2f39d1c-322f-4efb-8f69-28836d503125" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (8.0.2)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.2</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a1fc549-f9f8-486c-a75b-f5b69269ab9c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="b61568f0-1e35-428b-9f91-503a771446f8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a1fc549-f9f8-486c-a75b-f5b69269ab9c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="0cdb0741-123f-4654-8bc6-96efd3294767" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (8.0.1)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.1</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a1fc549-f9f8-486c-a75b-f5b69269ab9c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="6d4dad9b-6063-4cd5-ac1c-3726f7f7cf96" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.JSInterop.WebAssembly</name>
+          <display>Microsoft.JSInterop.WebAssembly (8.0.18)</display>
+          <isAbstract>false</isAbstract>
+          <value>8.0.18</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>7a1fc549-f9f8-486c-a75b-f5b69269ab9c</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="517e1ea3-5979-4d54-abf9-91034d64078b" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
+      <name>9.0.7</name>
+      <display>9.0.7 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>98e0c099-3793-4c35-a25b-4d31cc0c0a17</parentFolderId>
+      <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+      <packageName>Intent.Blazor.Wasm</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ModuleBuilder.CSharp</definitionPackageName>
+          <definitionPackageId>f2bfb0f7-d304-466f-b923-021d4016b48d</definitionPackageId>
+          <properties>
+            <property name="b01cea92-0ca1-4dbe-acab-d0f52b39e003" display="Minimum Target Framework" value=".NETCoreApp,Version=v9.0" isActive="true" />
+            <property name="d00692b1-6d17-4f1e-9386-a1d0d3ab7b57" display="Locked" value="false" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4d48aa09-82f3-45f7-8bb7-de9670e8ea45" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.AspNetCore.Components.Web</name>
+          <display>Microsoft.AspNetCore.Components.Web (9.0.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>517e1ea3-5979-4d54-abf9-91034d64078b</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="ef4cb852-1129-436f-b5dd-a42dc6ff5f11" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Binder</name>
+          <display>Microsoft.Extensions.Configuration.Binder (9.0.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>517e1ea3-5979-4d54-abf9-91034d64078b</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="62617e49-edad-460a-807f-5a614a3c849e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Configuration.Json</name>
+          <display>Microsoft.Extensions.Configuration.Json (9.0.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>517e1ea3-5979-4d54-abf9-91034d64078b</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="cd45968e-588d-4610-a6f1-b3faa4515601" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>517e1ea3-5979-4d54-abf9-91034d64078b</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="4c9eed73-8311-44db-b11c-561d67bf6906" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.JSInterop.WebAssembly</name>
+          <display>Microsoft.JSInterop.WebAssembly (9.0.7)</display>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>517e1ea3-5979-4d54-abf9-91034d64078b</parentFolderId>
+          <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+          <packageName>Intent.Blazor.Wasm</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

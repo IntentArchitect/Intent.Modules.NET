@@ -29,6 +29,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
     [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore, Comments = Mode.Fully)]
     public class RazorComponentTemplate : RazorComponentTemplateBase<ComponentModel>
     {
+        public const string SecuredStereotypeId = "012f5173-6419-4006-a9a8-ab5c20b8a42e";
         /// <inheritdoc cref="IntentTemplateBase.Id"/>
         [IntentManaged(Mode.Fully)]
         public const string TemplateId = "Intent.Blazor.Templates.Client.RazorComponentTemplate";
