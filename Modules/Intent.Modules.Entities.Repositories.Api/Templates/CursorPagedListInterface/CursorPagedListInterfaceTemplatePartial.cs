@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -57,6 +58,19 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates.CursorPagedListInte
         public override string TransformText()
         {
             return CSharpFile.ToString();
+        }
+
+        public override bool CanRunTemplate()
+        {
+            var cursorResult = "CursorPagedResult";
+
+            var isPagingUsed = ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, "81104ae6-2bc5-4bae-b05a-f987b0372d81")
+                       .GetElementsOfType("e71b0662-e29d-4db2-868b-8a12464b25d0").ToList().Any(x => x.TypeReference?.Element?.Name == cursorResult) ||
+                    ExecutionContext.MetadataManager.GetDesigner(ExecutionContext.GetApplicationConfig().Id, "81104ae6-2bc5-4bae-b05a-f987b0372d81")
+                        .GetElementsOfType("b16578a5-27b1-4047-a8df-f0b783d706bd")
+                            .Any(x => x.ChildElements.GetElementsOfType("e030c97a-e066-40a7-8188-808c275df3cb").Any(o => o.TypeReference?.Element?.Name == cursorResult));
+
+            return base.CanRunTemplate() && isPagingUsed;
         }
     }
 }

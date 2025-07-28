@@ -74,6 +74,11 @@ namespace Intent.Modules.Azure.TableStorage.FactoryExtensions
                                     var properties = @class.Properties.Where(a => a.HasMetadata("model")
                                         && a.TryGetMetadata<AttributeModel>("model", out var metaAttribute) && metaAttribute.Id == attribute.Id);
 
+                                    if (properties != null && properties.Any())
+                                    {
+                                        file.AddUsing("System");
+                                    }
+
                                     // should really only be one
                                     foreach (var attr in properties)
                                     {
