@@ -8,6 +8,7 @@ using AdvancedMappingCrud.Repositories.Tests.Domain.Entities;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainInvoke;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.DomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.EdgeCompositeHandling;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Domain.Entities.MappingTests;
@@ -17,6 +18,7 @@ using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configur
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.AnemicChild;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainInvoke;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.DomainServices;
+using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.EdgeCompositeHandling;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.ExtensiveDomainServices;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.Indexing;
 using AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence.Configurations.MappingTests;
@@ -67,6 +69,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
         public DbSet<Farmer> Farmers { get; set; }
         public DbSet<ClassicDomainServiceTest> ClassicDomainServiceTests { get; set; }
         public DbSet<DomainServiceTest> DomainServiceTests { get; set; }
+        public DbSet<External> Externals { get; set; }
+        public DbSet<Level1> Level1s { get; set; }
+        public DbSet<Level2> Level2s { get; set; }
+        public DbSet<Root> Roots { get; set; }
         public DbSet<BaseEntityA> BaseEntityAs { get; set; }
         public DbSet<BaseEntityB> BaseEntityBs { get; set; }
         public DbSet<ConcreteEntityA> ConcreteEntityAs { get; set; }
@@ -121,6 +127,10 @@ namespace AdvancedMappingCrud.Repositories.Tests.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new FarmerConfiguration());
             modelBuilder.ApplyConfiguration(new ClassicDomainServiceTestConfiguration());
             modelBuilder.ApplyConfiguration(new DomainServiceTestConfiguration());
+            modelBuilder.ApplyConfiguration(new ExternalConfiguration());
+            modelBuilder.ApplyConfiguration(new Level1Configuration());
+            modelBuilder.ApplyConfiguration(new Level2Configuration());
+            modelBuilder.ApplyConfiguration(new RootConfiguration());
             modelBuilder.ApplyConfiguration(new BaseEntityAConfiguration());
             modelBuilder.ApplyConfiguration(new BaseEntityBConfiguration());
             modelBuilder.ApplyConfiguration(new ConcreteEntityAConfiguration());

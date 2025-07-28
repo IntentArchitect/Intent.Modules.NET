@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="44958497-91d6-4514-9bdf-7f743b141eb0">
+  <sourceEnd id="b110e980-ab77-4705-be05-b0f93e4a3b1f" type="Association Source End" typeId="8d9d2e5b-bd55-4f36-9ae4-2b9e84fd4e58">
+    <name>Externals</name>
+    <display>Externals: External[*]</display>
+    <order>0</order>
+    <typeReference id="1a61ef6f-5496-4b75-a8c2-0bbcca308995">
+      <typeId>41cf8eec-95a5-4129-8731-75fe60682393</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>true</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="44958497-91d6-4514-9bdf-7f743b141eb0" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
+    <name>Level2</name>
+    <display>Level2: Level2</display>
+    <order>2</order>
+    <typeReference id="18c06225-9e03-4fbd-b5ef-32f0530c0f1d">
+      <typeId>b746a107-e1fa-4403-93e7-1d07bc857338</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>AdvancedMappingCrud.Repositories.Tests.Domain</typePackageName>
+      <typePackageId>e5ed367e-aea5-4a03-890f-dd671a48d907</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Association</associationType>
+  <associationTypeId>eaf9ed4e-0b61-4ac1-ba88-09f912c12087</associationTypeId>
+  <stereotypes />
+</association>
