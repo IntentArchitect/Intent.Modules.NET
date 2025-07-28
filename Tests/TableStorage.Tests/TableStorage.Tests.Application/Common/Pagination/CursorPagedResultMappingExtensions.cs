@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 using Intent.RoslynWeaver.Attributes;
 using TableStorage.Tests.Domain.Repositories;
 
@@ -47,6 +48,15 @@ namespace TableStorage.Tests.Application.Common.Pagination
                 pageSize: pagedList.PageSize,
                 cursorToken: pagedList.CursorToken,
                 data: pagedList);
+        }
+
+        public static Expression<Func<T, bool>> Combine<T>(
+            this Expression<Func<T, bool>> first,
+            Expression<Func<T, bool>> second)
+        {
+            var param = Expression.Parameter(typeof(T));
+            var body = Expression.AndAlso(Expression.Invoke(first, param), Expression.Invoke(second, param));
+            return Expression.Lambda<Func<T, bool>>(body, param);
         }
     }
 }

@@ -244,30 +244,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a2cfe276-0c62-43db-945b-571ec161bafa</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>GraphQL.MongoDb.TestApplication.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>

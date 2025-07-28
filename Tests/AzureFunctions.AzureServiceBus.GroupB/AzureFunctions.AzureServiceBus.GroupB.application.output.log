@@ -290,30 +290,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>fab27214-895e-4575-a650-0d16387425e2</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fab27214-895e-4575-a650-0d16387425e2</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fab27214-895e-4575-a650-0d16387425e2</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fab27214-895e-4575-a650-0d16387425e2</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureServiceBus.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>

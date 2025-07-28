@@ -300,30 +300,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>983956f4-bab1-4e94-a187-81d960f407bc</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>983956f4-bab1-4e94-a187-81d960f407bc</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>983956f4-bab1-4e94-a187-81d960f407bc</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>983956f4-bab1-4e94-a187-81d960f407bc</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../GraphQL.CQRS.TestApplication/GraphQL.CQRS.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>

@@ -140,30 +140,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>2179ed2a-4c31-4350-b993-722888956004</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DtoSettings.Class.Init.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>

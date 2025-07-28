@@ -360,30 +360,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>15b0d8ce-5e48-41e7-8752-40164cdd694d</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Modules/Module2/Intent.Modules.NET.Tests.Module2.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>

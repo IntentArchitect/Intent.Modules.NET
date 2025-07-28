@@ -79,19 +79,5 @@
       </metadata>
       <childElements />
     </childElement>
-    <childElement id="eba4d205-85d9-4b0c-9856-e5ef1b7f8c05" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Application.Dtos.Pagination.ExpressionHelper</name>
-      <display>Intent.Application.Dtos.Pagination.ExpressionHelper</display>
-      <externalReference>Intent.Application.Dtos.Pagination</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>be389bfe-ddf0-48d7-8532-22cd4f94039c</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
   </childElements>
 </class>

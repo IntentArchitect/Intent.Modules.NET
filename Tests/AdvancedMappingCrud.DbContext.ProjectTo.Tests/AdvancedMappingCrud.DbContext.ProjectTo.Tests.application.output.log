@@ -300,22 +300,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0ce61e3f-64ac-41ae-8c11-d05d81d25993</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0ce61e3f-64ac-41ae-8c11-d05d81d25993</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0ce61e3f-64ac-41ae-8c11-d05d81d25993</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.DbContext.ProjectTo.Tests.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>

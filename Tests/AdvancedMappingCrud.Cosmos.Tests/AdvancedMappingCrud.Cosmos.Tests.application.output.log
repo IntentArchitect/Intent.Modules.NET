@@ -500,30 +500,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>fb8e9cc5-2d12-4e93-b4d4-a1a6121f94cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb8e9cc5-2d12-4e93-b4d4-a1a6121f94cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb8e9cc5-2d12-4e93-b4d4-a1a6121f94cd</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>fb8e9cc5-2d12-4e93-b4d4-a1a6121f94cd</ProjectId>
       <CorrelationId>Intent.Application.Dtos.Pagination.PagedResult</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AdvancedMappingCrud.Cosmos.Tests.Application/Common/Pagination/PagedResult.cs</ApplicationRelativeFilePath>

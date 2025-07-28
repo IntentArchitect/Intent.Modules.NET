@@ -153,22 +153,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>34fa2d69-59a8-4605-b326-d254a0630e6c</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>34fa2d69-59a8-4605-b326-d254a0630e6c</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../Intent.Modules.NET.Tests/Intent.Modules.NET.Tests.Host/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <ProjectId>c7d31070-6496-40e6-a888-3987c0ea573d</ProjectId>
       <CorrelationId>Intent.AspNetCore.Versioning.ApiVersioningConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

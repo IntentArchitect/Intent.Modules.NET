@@ -156,30 +156,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>de7916fc-31ff-4b05-a0c7-247145f3e6b0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResult</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.Application/Common/Pagination/CursorPagedResult.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResult.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>de7916fc-31ff-4b05-a0c7-247145f3e6b0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.CursorPagedResultMappingExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.Application/Common/Pagination/CursorPagedResultMappingExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>de7916fc-31ff-4b05-a0c7-247145f3e6b0</ProjectId>
-      <CorrelationId>Intent.Application.Dtos.Pagination.ExpressionHelper</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.Application/Common/Pagination/ExpressionHelper.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ExpressionHelper.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>de7916fc-31ff-4b05-a0c7-247145f3e6b0</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.PagedList</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>../../Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication/Application.Identity.MSAL.TestApplication.Application/Common/Pagination/PagedList.cs</ApplicationRelativeFilePath>
