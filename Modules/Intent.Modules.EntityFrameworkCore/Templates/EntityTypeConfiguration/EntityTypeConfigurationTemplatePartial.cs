@@ -264,7 +264,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private IEnumerable<CSharpStatement> GetTableMapping(ClassExtensionModel model)
         {
-            if (model.HasView() && model.HasTable())
+            if (model.HasView() && model.ShouldOptOutOfCompositeModel(ExecutionContext))
             {
                 throw new Exception($"Class \"{model.Name}\" [{model.Id}] has both a \"Table\" and \"View\" stereotype applied to it.");
             }
@@ -274,7 +274,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 yield return
                     $@"builder.ToView(""{model.GetView()?.Name() ?? GetTableNameByConvention(model.Name)}""{(!string.IsNullOrWhiteSpace(model.FindSchema()) ? @$", ""{model.FindSchema()}""" : "")});";
             }
-            else if (model.HasTable() && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable().Name()) || !string.IsNullOrWhiteSpace(model.FindSchema())))
+            else if (model.ShouldOptOutOfCompositeModel(ExecutionContext) && (IsInheriting(model) || !string.IsNullOrWhiteSpace(model.GetTable()?.Name()) || !string.IsNullOrWhiteSpace(model.FindSchema())))
             {
                 yield return ToTableStatement(model);
             }
@@ -361,7 +361,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 
         private bool IsTableInlined(ClassExtensionModel model)
         {
-            if (model.HasView() || model.HasTable())
+            if (model.HasView() || model.ShouldOptOutOfCompositeModel(ExecutionContext))
             {
                 return false;
             }
