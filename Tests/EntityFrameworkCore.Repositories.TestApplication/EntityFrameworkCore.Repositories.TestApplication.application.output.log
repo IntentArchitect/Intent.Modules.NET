@@ -1700,6 +1700,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#02c58a57-19d5-4182-97b8-9f7315d2430c</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/AggregateRoot5EntityWithRepoConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AggregateRoot5EntityWithRepoConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
       <CorrelationId>Intent.EntityFrameworkCore.EntityTypeConfiguration#24505add-1596-426a-af05-9618eac22d67</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/CustomPkName/CustomPkCompConfiguration.cs</ApplicationRelativeFilePath>

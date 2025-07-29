@@ -20,9 +20,6 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
     {
         public AggregateRoot5EntityWithRepoRepository(ApplicationDbContext dbContext, IMapper mapper) : base(dbContext, mapper)
         {
-            // The AggregateRoot5EntityWithRepo has no EntityFrameworkCore type configuration associated with it.
-            // Add the 'Table' stereotype to this entity in the Domain designer.
-            throw new NotSupportedException($"Cannot create a repository for type AggregateRoot5EntityWithRepo.");
         }
 
         public async Task<TProjection?> FindByIdProjectToAsync<TProjection>(

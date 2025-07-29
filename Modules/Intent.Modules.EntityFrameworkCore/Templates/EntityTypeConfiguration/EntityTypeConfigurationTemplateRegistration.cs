@@ -112,6 +112,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     continue;
                 }
 
+                if (entity.HasStereotype("Repository"))
+                {
+                    optOutSet.Add(entity.Id);
+                    continue;
+                }
+
                 // INHERITANCE SAFETY: Don't auto-opt-out abstract classes in inheritance hierarchies
                 if (entity.IsAbstract && entity.GeneralizationEnds().Count > 0)
                     continue;

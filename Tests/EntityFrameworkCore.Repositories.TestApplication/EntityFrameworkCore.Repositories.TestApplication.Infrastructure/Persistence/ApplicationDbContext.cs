@@ -49,6 +49,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         public DbSet<AggregateRoot4Nullable> AggregateRoot4Nullables { get; set; }
         public DbSet<AggregateRoot4Single> AggregateRoot4Singles { get; set; }
         public DbSet<AggregateRoot5> AggregateRoot5s { get; set; }
+        public DbSet<AggregateRoot5EntityWithRepo> AggregateRoot5EntityWithRepos { get; set; }
         public DbSet<EntityWithNoPk> EntityWithNoPks { get; set; }
         public DbSet<CustomPk> CustomPks { get; set; }
         public DbSet<CustomPkComp> CustomPkComps { get; set; }
@@ -129,6 +130,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             modelBuilder.ApplyConfiguration(new AggregateRoot4NullableConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot4SingleConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot5Configuration());
+            modelBuilder.ApplyConfiguration(new AggregateRoot5EntityWithRepoConfiguration());
             modelBuilder.ApplyConfiguration(new EntityWithNoPkConfiguration());
             modelBuilder.ApplyConfiguration(new CustomPkConfiguration());
             modelBuilder.ApplyConfiguration(new CustomPkCompConfiguration());

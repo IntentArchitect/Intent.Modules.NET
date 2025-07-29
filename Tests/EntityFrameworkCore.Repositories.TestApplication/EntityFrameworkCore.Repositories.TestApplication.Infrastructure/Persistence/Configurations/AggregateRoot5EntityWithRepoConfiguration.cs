@@ -8,19 +8,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persistence.Configurations
 {
-    public class AggregateRoot5Configuration : IEntityTypeConfiguration<AggregateRoot5>
+    public class AggregateRoot5EntityWithRepoConfiguration : IEntityTypeConfiguration<AggregateRoot5EntityWithRepo>
     {
-        public void Configure(EntityTypeBuilder<AggregateRoot5> builder)
+        public void Configure(EntityTypeBuilder<AggregateRoot5EntityWithRepo> builder)
         {
             builder.HasKey(x => x.Id);
-
-            builder.HasOne(x => x.AggregateRoot5EntityWithRepo)
-                .WithOne()
-                .HasForeignKey<AggregateRoot5EntityWithRepo>(x => x.Id)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
-
-            builder.Ignore(e => e.DomainEvents);
         }
     }
 }
