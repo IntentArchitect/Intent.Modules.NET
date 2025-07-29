@@ -187,5 +187,36 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
             result = await _appService.FindProductsPaged(pageNo, pageSize, orderBy, cancellationToken);
             return Ok(result);
         }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPatch("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> PatchProduct(
+            [FromRoute] Guid id,
+            ProductPatchDto dto,
+            CancellationToken cancellationToken = default)
+        {
+            using (_distributedCacheWithUnitOfWork.EnableUnitOfWork())
+            {
+                using (var transaction = new TransactionScope(TransactionScopeOption.Required,
+                    new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }, TransactionScopeAsyncFlowOption.Enabled))
+                {
+                    await _appService.PatchProduct(id, dto, cancellationToken);
+                    await _unitOfWork.SaveChangesAsync(cancellationToken);
+                    transaction.Complete();
+                }
+
+                await _distributedCacheWithUnitOfWork.SaveChangesAsync(cancellationToken);
+            }
+            await _eventBus.FlushAllAsync(cancellationToken);
+            return NoContent();
+        }
     }
 }

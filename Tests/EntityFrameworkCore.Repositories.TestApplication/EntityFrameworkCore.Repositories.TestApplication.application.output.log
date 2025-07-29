@@ -1020,6 +1020,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#c47f5017-635c-4ac9-ac1b-3a8d5eeb79f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpCollectionPassthroughResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpCollectionPassthroughResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#bf174a01-db59-483e-a976-4113c761e571</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/MappableStoredProcs/MappedSpResult.cs</ApplicationRelativeFilePath>
@@ -1720,6 +1728,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/MappableStoredProcs/EntityRecordConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>MappableStoredProcs/EntityRecordConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#c47f5017-635c-4ac9-ac1b-3a8d5eeb79f2</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/MappableStoredProcs/MappedSpCollectionPassthroughResultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>MappableStoredProcs/MappedSpCollectionPassthroughResultConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

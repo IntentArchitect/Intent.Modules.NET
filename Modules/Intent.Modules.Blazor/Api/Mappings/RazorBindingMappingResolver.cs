@@ -31,11 +31,11 @@ public class RazorBindingMappingResolver : IMappingTypeResolver
             return new RazorEventBindingMapping(mappingModel, _template);
         }
 
-        //
-        //if (mappingModel.Mapping != null)
-        //{
-        //    return new RazorPropertyBindingMapping(mappingModel, _template);
-        //}
+        if (mappingModel.Model?.TypeReference?.Element?.IsTypeDefinitionModel() == true
+            || mappingModel.Model?.TypeReference?.Element?.IsEnumModel() == true)
+        {
+            return new RazorPropertyBindingMapping(mappingModel, _template);
+        }
 
         return null;
     }

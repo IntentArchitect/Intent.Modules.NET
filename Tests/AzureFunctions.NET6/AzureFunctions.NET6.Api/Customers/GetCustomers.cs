@@ -8,6 +8,7 @@ using AzureFunctions.NET6.Application.Customers;
 using AzureFunctions.NET6.Application.Customers.GetCustomers;
 using AzureFunctions.NET6.Domain.Common.Exceptions;
 using AzureFunctions.NET6.Domain.Common.Interfaces;
+using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -43,6 +44,10 @@ namespace AzureFunctions.NET6.Api.Customers
             {
                 var result = await _mediator.Send(new GetCustomersQuery(), cancellationToken);
                 return new OkObjectResult(result);
+            }
+            catch (ValidationException exception)
+            {
+                return new BadRequestObjectResult(exception.Errors);
             }
             catch (NotFoundException exception)
             {

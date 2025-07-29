@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="d43cd7c5-1dba-4124-8100-9626a2846bd6">
+  <sourceEnd id="ef005199-f58e-433f-ac2a-99dfe8625ff1" type="Create Entity Action Source End" typeId="a3e7c59e-b0a1-47e1-ba29-66f2c7047b0a">
+    <display>created by : OrdersService.CreateOrder</display>
+    <order>0</order>
+    <typeReference id="5d362823-1986-4074-afd1-ffcea7e40a5a">
+      <typeId>72042004-1d49-46ac-a18f-80bee7d4d5af</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Services</typePackageName>
+      <typePackageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="d43cd7c5-1dba-4124-8100-9626a2846bd6" type="Create Entity Action Target End" typeId="328f54e5-7bad-4b5f-90ca-03ce3105d016">
+    <name>order</name>
+    <display>[create] order: Order</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="c5b1a754-0542-4e7e-8f32-0387a9fd9629">
+      <typeId>c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+      <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Create Entity Mapping" typeId="5f172141-fdba-426b-980e-163e782ff53e">
+        <source applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="72042004-1d49-46ac-a18f-80bee7d4d5af" location="[EntityFrameworkCore.SQLLite].[Services].[CreateOrder]" />
+        <target applicationId="c6bdb9c8-c162-46ae-b50b-4d7b54f84569" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" location="[EntityFrameworkCore.SQLLite].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{CreateOrder}</expression>
+            <path>
+              <target id="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+            </path>
+            <sources>
+              <source identifier="CreateOrder" mappingType="Invocation Mapping" mappingTypeId="47dc4a51-30a3-4ee8-8c7d-25a35bb965b9">
+                <path>
+                  <target id="72042004-1d49-46ac-a18f-80bee7d4d5af" name="CreateOrder" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{dto.RefNo}</expression>
+            <path>
+              <target id="c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="c2fb3437-812e-48f3-a973-3b35c613b845" name="RefNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="dto.RefNo" mappingType="Data Mapping" mappingTypeId="50dccfb2-bd24-4135-adf6-ed31f28f8fe0">
+                <path>
+                  <target id="72042004-1d49-46ac-a18f-80bee7d4d5af" name="CreateOrder" type="element" specialization="Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
+                  <target id="8c2f497e-cd87-4193-8d7c-c75435f210a2" name="dto" type="element" specialization="Parameter" specializationId="00208d20-469d-41cb-8501-768fd5eb796b" />
+                  <target id="bcff5c2b-01e3-471a-af59-c865e3cc6a1a" name="RefNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Create Entity Action</associationType>
+  <associationTypeId>7a3f0474-3cf8-4249-baac-8c07c49465e0</associationTypeId>
+  <stereotypes />
+</association>

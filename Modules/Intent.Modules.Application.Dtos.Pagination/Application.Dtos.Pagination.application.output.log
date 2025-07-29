@@ -50,6 +50,38 @@
     </FileLog>
     <FileLog>
       <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#3a25260a-172a-4161-addb-20eef02114f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedResult/CursorPagedResultTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult/CursorPagedResultTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#3a25260a-172a-4161-addb-20eef02114f5</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedResult/CursorPagedResultTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResult/CursorPagedResultTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#2d33eff0-ddb7-40b9-b29f-5e597ef1ca52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileListModel#2d33eff0-ddb7-40b9-b29f-5e597ef1ca52</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedResultMappingExtensions/CursorPagedResultMappingExtensionsTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>08d002d7-2682-431e-a332-b2317a15d68a</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#9d3fa7ac-3146-4995-8af1-c3b204065b4e</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/PagedResult/PagedResultTemplatePartial.cs</ApplicationRelativeFilePath>

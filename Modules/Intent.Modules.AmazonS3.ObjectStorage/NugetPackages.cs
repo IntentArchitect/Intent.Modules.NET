@@ -35,8 +35,8 @@ namespace Intent.Modules.AmazonS3.ObjectStorage
             NugetRegistry.Register(AWSSDKS3PackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 0, >= 0) => new PackageVersion("4.0.4")
-                            .WithNugetDependency("AWSSDK.Core", "4.0.0.14"),
+                        ( >= 0, >= 0) => new PackageVersion("4.0.5")
+                            .WithNugetDependency("AWSSDK.Core", "4.0.0.16"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{AWSSDKS3PackageName}'"),
                     }
                 );

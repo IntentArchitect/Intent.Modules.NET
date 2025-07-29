@@ -9,6 +9,7 @@ using Intent.Modules.Application.MediatR.CRUD.CrudStrategies;
 using Intent.Modules.Application.MediatR.Settings;
 using Intent.Modules.Application.MediatR.Templates.CommandHandler;
 using Intent.Modules.Application.MediatR.Templates.CommandModels;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping.Resolvers;
@@ -73,6 +74,12 @@ namespace Intent.Modules.Application.MediatR.CRUD.Decorators
                     handleMethod.Attributes.OfType<CSharpIntentManagedAttribute>().SingleOrDefault()?.WithBodyFully();
 
                     var csharpMapping = handleMethod.GetMappingManager();
+
+                    if (model.GetStereotype("Http Settings")?.TryGetProperty("Verb", out var verb) == true && verb.Value == "PATCH")
+                    {
+                        csharpMapping.AddMappingResolver(new EntityPatchMappingTypeResolver(t));
+                    }
+
                     csharpMapping.AddMappingResolver(new EntityCreationMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new EntityUpdateMappingTypeResolver(t));
                     csharpMapping.AddMappingResolver(new StandardDomainMappingTypeResolver(t));

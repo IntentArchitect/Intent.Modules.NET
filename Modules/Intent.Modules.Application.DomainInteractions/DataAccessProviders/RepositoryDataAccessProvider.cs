@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Application.DomainInteractions.Extensions;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Interactions;
 using Intent.Modules.Common.CSharp.Mapping;
@@ -12,6 +10,10 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using static Intent.Modules.Constants.TemplateRoles.Domain;
 
 namespace Intent.Modules.Application.DomainInteractions;
@@ -145,6 +147,11 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return _queryImplementation.FindAllAsync(expression, pageNo, pageSize, orderBy, orderByIsNullable, out prerequisiteStatements);
     }
 
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements)
+    {
+        return _queryImplementation.FindAllAsync(queryMapping, pageSize, cursorToken, out prerequisiteStatements);
+    }
+
     private FilterExpressionResult CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
     {
         requiredStatements = new List<CSharpStatement>();
@@ -157,7 +164,6 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         }
 
         var elementId = queryMapping.TargetElement.Id;
-
         string typeName;
         if (_template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Repository.Interface.Entity, elementId, out var repositoryInterfaceTemplate) &&
             repositoryInterfaceTemplate.CSharpFile.TryGetMetadata<string>("entity-state-template-id", out var entityStateTemplateId))
@@ -169,6 +175,16 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             typeName = _template.GetTypeName((IElement)queryMapping.TargetElement);
         }
 
+        if (!ProviderSupportsQueryable(queryMapping))
+        {
+            return GenerateExpressionFilter(queryMapping, requiredStatements, expression, typeName);
+        }
+
+        return GenerateQueryableFilter(queryMapping, requiredStatements, expression, typeName);
+    }
+
+    private FilterExpressionResult GenerateQueryableFilter(IElementToElementMapping queryMapping, IList<CSharpStatement> requiredStatements, string expression, string typeName)
+    {
         var filterName = $"Filter{queryMapping.TargetElement.Name.ToPascalCase().Pluralize()}";
         var block = new CSharpLocalMethod($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", filterName, _template.CSharpFile);
         block.AddParameter($"{_template.UseType("System.Linq.IQueryable")}<{typeName}>", "queryable");
@@ -192,16 +208,73 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
         return new FilterExpressionResult(true, filterName);
     }
 
+    private FilterExpressionResult GenerateExpressionFilter(IElementToElementMapping queryMapping, IList<CSharpStatement> requiredStatements, string expression, string typeName)
+    {
+        var filterName = $"filter{queryMapping.TargetElement.Name.ToPascalCase().Pluralize()}";
+        _template.AddUsing("System.Linq.Expressions");
+
+        requiredStatements.Add(new CSharpObjectInitStatement($"Expression<Func<{typeName}, bool>> {filterName}", "entity => true;"));
+
+        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement != null && !x.SourceElement.TypeReference.IsNullable))
+        {
+            var assignement = new CSharpAssignmentStatement(filterName, new CSharpStatement($"{filterName}.Combine(entity => entity.{mappedEnd.TargetElement.Name} == {_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd)});"));
+            requiredStatements.Add(assignement);
+        }
+
+        foreach (var mappedEnd in queryMapping.MappedEnds.Where(x => x.SourceElement != null && x.SourceElement.TypeReference.IsNullable))
+        {
+            var ifBlock = new CSharpIfStatement(_mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd) + " != null");
+            ifBlock.AddAssignmentStatement("var requestField", _mappingManager.GenerateSourceStatementForMapping(queryMapping, mappedEnd).WithSemicolon());
+            ifBlock.AddAssignmentStatement(filterName, new CSharpStatement($"{filterName}.Combine(entity => entity.{mappedEnd.TargetElement.Name} == requestField);"));
+            
+            requiredStatements.Add(ifBlock);
+        }
+
+        return new FilterExpressionResult(true, filterName);
+    }
+
+    private bool ProviderSupportsQueryable(IElementToElementMapping queryMapping)
+    {
+        // JPS - this entire method is a temporary hack as there is no way to currently lookup
+        // the metadata required to make the decision.
+
+        var targetElement = queryMapping.TargetElement;
+        var package = targetElement?.Package;
+
+        // Document DB provider stereotypeId
+        if (!package.HasStereotype("8b68020c-6652-484b-85e8-6c33e1d8031f"))
+        {
+            return true;
+        }
+
+        var docDbProvider = package.GetStereotype("8b68020c-6652-484b-85e8-6c33e1d8031f");
+
+        // if the provider is not selected, it means only one document db provider installed
+        // check if its Table Storage
+        // OR Table Storage is explicitly selected
+        if ((string.IsNullOrWhiteSpace(docDbProvider.GetProperty("Provider")?.Value) 
+            && _template.ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Azure.TableStorage")) ||
+            docDbProvider.GetProperty("Provider")?.Value == "1d05ee8e-747f-4120-9647-29ac784ef633")
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     private interface IQueryImplementation
     {
         CSharpStatement FindAllAsync(CSharpStatement? expression);
         CSharpStatement FindAllAsync(CSharpStatement? expression, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements);
         CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
         CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageNo, string pageSize, string? orderBy, bool orderByIsNullable, out IList<CSharpStatement> prerequisiteStatements);
+        CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements);
         CSharpStatement FindAsync(CSharpStatement? expression);
         CSharpStatement FindAsync(IElementToElementMapping queryMapping, out IList<CSharpStatement> prerequisiteStatements);
         CSharpStatement FindByIdAsync(List<PrimaryKeyFilterMapping> pkMaps);
         CSharpStatement FindByIdsAsync(List<PrimaryKeyFilterMapping> pkMaps);
+
+
     }
 
     private class SpecificationImplementation : DefaultQueryImplementation
@@ -263,6 +336,18 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             {
                 result.AddArgument($"queryOptions => queryOptions.OrderBy({Provider.GetOrderByValue(orderByIsNullable, orderBy)})");
             }
+            result.AddArgument("cancellationToken");
+            return result;
+        }
+
+        public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements)
+        {
+            prerequisiteStatements = new List<CSharpStatement>();
+            var result = new CSharpInvocationStatement($"await {_repositoryFieldName}", $"FindAllAsync")
+                .AddArgument($"new {_specificationType}()")
+                .AddArgument($"{pageSize}")
+                .AddArgument($"{cursorToken}");
+
             result.AddArgument("cancellationToken");
             return result;
         }
@@ -408,6 +493,33 @@ public class RepositoryDataAccessProvider : IDataAccessProvider
             }
 
             invocation.AddArgument("cancellationToken");
+            return invocation;
+        }
+
+        public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements)
+        {
+            var expressionResult = _provider.CreateQueryFilterExpression(queryMapping, out prerequisiteStatements);
+            var expression = expressionResult.Statement;
+            var invocation = new CSharpInvocationStatement($"await {_repositoryFieldName}", _isUsingProjections ? $"FindAllProjectToAsync<{_queryContext!.GetDtoProjectionReturnType()}>" : $"FindAllAsync");
+            if (expression is not null && !expressionResult.UsesFilterMethod)
+            {
+                // When passing in Expression<Func<TDomain, boolean>> (predicate):
+                invocation.AddArgument(expressionResult.Statement);
+            }
+
+            if (expression is not null && expressionResult.UsesFilterMethod)
+            {
+                //if (orderBy != null)
+                //{
+                //    expression = new CSharpStatement($"q => {expression.GetText("")}(q).OrderBy({_provider.GetOrderByValue(orderByIsNullable, orderBy)})");
+                //}
+                // When passing in Func<IQueryable, IQueryable> (query option):
+                invocation.AddArgument(expression);
+            }
+            invocation.AddArgument($"{pageSize}");
+            invocation.AddArgument($"{cursorToken}");
+            invocation.AddArgument("cancellationToken");
+
             return invocation;
         }
     }

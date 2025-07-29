@@ -121,14 +121,49 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Implementation
             return products.MapToPagedResult(x => x.MapToProductDto(_mapper));
         }
 
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task PatchProduct(Guid id, ProductPatchDto dto, CancellationToken cancellationToken = default)
+        {
+            var product = await _productRepository.FindByIdAsync(id, cancellationToken);
+            if (product is null)
+            {
+                throw new NotFoundException($"Could not find Product '{id}'");
+            }
+
+
+            if (dto.Name is not null)
+            {
+                product.Name = dto.Name;
+            }
+
+            if (dto.Tags is not null)
+            {
+                product.Tags = UpdateHelper.CreateOrUpdateCollection(product.Tags, dto.Tags, (e, d) => e.Equals(new Tag(
+                name: d.Name,
+                value: d.Value)), CreateOrUpdateTag);
+            }
+        }
+
         [IntentManaged(Mode.Fully)]
         private static Tag CreateOrUpdateTag(Tag? valueObject, UpdateProductTagDto dto)
         {
             if (valueObject is null)
             {
                 return new Tag(
-    name: dto.Name,
-    value: dto.Value);
+                    name: dto.Name,
+                    value: dto.Value);
+            }
+            return valueObject;
+        }
+
+        [IntentManaged(Mode.Fully)]
+        private static Tag? CreateOrUpdateTag(Tag? valueObject, PatchProductTagDto dto)
+        {
+            if (valueObject is null)
+            {
+                return new Tag(
+                    name: dto.Name,
+                    value: dto.Value);
             }
             return valueObject;
         }

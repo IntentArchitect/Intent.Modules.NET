@@ -1,3 +1,7 @@
+### Version 1.1.8
+
+- Improvement: Removed internal shared project.
+
 ### Version 1.1.7
 
 - Improvement: Updated to use improved common infrastructure shared with other service proxy modules.

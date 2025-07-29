@@ -1,3 +1,7 @@
+### Version 1.1.2
+
+- Improvement: Updated referenced package version
+
 ### Version 1.1.1
 
 - Improvement: Updated referenced packages versions

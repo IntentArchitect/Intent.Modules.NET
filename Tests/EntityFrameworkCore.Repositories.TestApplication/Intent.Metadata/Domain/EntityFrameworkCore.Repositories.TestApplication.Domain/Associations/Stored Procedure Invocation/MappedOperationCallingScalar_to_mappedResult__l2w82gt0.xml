@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="e0dd7108-d3d8-4398-9eb9-ceda4811e560">
+  <sourceEnd id="83ca9477-ef93-41f9-a186-799d44900981" type="Stored Procedure Invocation Source End" typeId="7b7d3fd8-5e32-4f8c-b4cc-7b92f45a8577">
+    <display>: MappedOperationCallingScalar</display>
+    <order>0</order>
+    <typeReference id="d6b06f3e-ebc3-4ace-b9e9-9faca6bc79d1">
+      <typeId>ad42ed65-6141-47d4-9331-3db09b852c2e</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="e0dd7108-d3d8-4398-9eb9-ceda4811e560" type="Stored Procedure Invocation Target End" typeId="d0b0b24a-db0f-4aff-873a-a0e9c2dce12d">
+    <name>mappedResult</name>
+    <display>mappedResult: MappedSpReturningScalar</display>
+    <order>1</order>
+    <typeReference id="8d741fc6-33ae-4559-90fd-afeb0cb0633b">
+      <typeId>9ee5f3c5-b938-4bc4-95f3-0b1b96a9afcb</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+      <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Stored Procedure Invocation" typeId="a7dbfc5c-f4f4-4f61-a176-6b652192ebfc">
+        <source applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="ad42ed65-6141-47d4-9331-3db09b852c2e" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedOperationCallingScalar]" />
+        <target applicationId="91f282fa-515e-4580-b0ea-4c849d546cdc" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="9ee5f3c5-b938-4bc4-95f3-0b1b96a9afcb" location="[EntityFrameworkCore.Repositories.TestApplication].[Domain].[MappedSpReturningScalar]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{MappedOperationCallingScalar}</expression>
+            <path>
+              <target id="9ee5f3c5-b938-4bc4-95f3-0b1b96a9afcb" name="MappedSpReturningScalar" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+            </path>
+            <sources>
+              <source identifier="MappedOperationCallingScalar" mappingType="Invocation Mapping" mappingTypeId="125fe452-48cc-4082-bfde-3d65470ab345">
+                <path>
+                  <target id="ad42ed65-6141-47d4-9331-3db09b852c2e" name="MappedOperationCallingScalar" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{param1WithDiffName}</expression>
+            <path>
+              <target id="9ee5f3c5-b938-4bc4-95f3-0b1b96a9afcb" name="MappedSpReturningScalar" type="element" specialization="Stored Procedure" specializationId="575edd35-9438-406d-b0a7-b99d6f29b560" />
+              <target id="83477c30-73f1-43c0-af88-b8744c1b394a" name="param1" type="element" specialization="Stored Procedure Parameter" specializationId="5823b192-eb03-47c8-90d8-5501c922e9a5" />
+            </path>
+            <sources>
+              <source identifier="param1WithDiffName" mappingType="Data Mapping" mappingTypeId="d4c1f7fe-1f40-4e01-8e83-1120acb6143b">
+                <path>
+                  <target id="ad42ed65-6141-47d4-9331-3db09b852c2e" name="MappedOperationCallingScalar" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+                  <target id="954a43ec-6655-4b7e-8ddc-36b598a1bd00" name="param1WithDiffName" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Stored Procedure Invocation</associationType>
+  <associationTypeId>adf062ed-c0a4-421f-9940-318a91e9a52c</associationTypeId>
+  <stereotypes />
+</association>

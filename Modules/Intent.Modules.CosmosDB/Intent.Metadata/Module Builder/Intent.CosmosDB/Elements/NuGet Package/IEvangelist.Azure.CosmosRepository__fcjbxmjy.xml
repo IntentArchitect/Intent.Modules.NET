@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.2</name>
-      <display>9.0.1 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
+      <display>9.0.2 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,88 +49,112 @@
       <childElements>
         <childElement id="01acb923-9e99-4b7d-ad28-4df99046bdd4" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
+          <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="290683b2-0e02-460f-9bce-93d592abf4c3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
           <value>3.46.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fe6d8644-8cf8-4b62-ad6a-de39417b49fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5570543b-9fdb-4a69-aab7-700f3e0aac60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="9055c946-1417-42c9-92e5-346b6a19480a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="89972be3-a518-4df0-b506-8f61c50ac6ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="c044f3fe-16b1-4005-a5a6-5545201b59a9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>13.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="5acec5fb-a098-4376-9119-81ae8ba45f52" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.10.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8c2471e-e4fd-4b2c-8e7e-97f4edcc22d8</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -139,7 +163,7 @@
     </childElement>
     <childElement id="273dab87-1f03-4014-87bd-ebb6a5e741b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.2</name>
-      <display>9.0.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>9.0.2 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -162,88 +186,112 @@
       <childElements>
         <childElement id="03371777-44ad-4e6f-ba8b-f2944e34585e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
+          <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="972b5a4b-7885-47cf-a1db-fd950801219b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
           <value>3.46.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="50947091-4a93-4d8d-b46a-8202234aca1a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="4c858cf8-dabb-4d93-878f-59db89934bbe" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="93c3d29f-e674-4456-8a8f-30b7b6b22879" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="2c63c27e-29de-4aae-ac99-355837ab3b60" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="a2dfb743-f9e4-4ab1-8cf9-7d203377ccc9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>13.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="14a94b5c-e8a0-46fc-8296-7e29ff47d28d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.10.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>273dab87-1f03-4014-87bd-ebb6a5e741b9</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -252,7 +300,7 @@
     </childElement>
     <childElement id="44b876be-b94c-4ceb-b946-24db6c12a97c" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>9.0.2</name>
-      <display>9.0.1 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
+      <display>9.0.2 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -275,88 +323,112 @@
       <childElements>
         <childElement id="b995799f-c512-4c1d-8293-3a16007311d9" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Identity</name>
+          <display>Azure.Identity (1.13.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.13.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="cd56aad3-9bf5-4a6a-8ae1-ca06d54dce71" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Azure.Cosmos</name>
+          <display>Microsoft.Azure.Cosmos (3.46.0)</display>
           <isAbstract>false</isAbstract>
           <value>3.46.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="ed9ce782-28d2-43c3-abde-24ebfe43a705" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Hosting.Abstractions</name>
+          <display>Microsoft.Extensions.Hosting.Abstractions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="39b1faa2-e333-406c-b838-a91f34d23033" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Http</name>
+          <display>Microsoft.Extensions.Http (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="fd47884e-87bb-4741-b66b-5faa6f806012" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Logging</name>
+          <display>Microsoft.Extensions.Logging (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="442bbfe8-2107-4e98-b680-96f926c0b10b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Options.ConfigurationExtensions</name>
+          <display>Microsoft.Extensions.Options.ConfigurationExtensions (9.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="e53c1648-8051-49de-b23b-f9085ff12893" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Newtonsoft.Json</name>
+          <display>Newtonsoft.Json (13.0.3)</display>
           <isAbstract>false</isAbstract>
           <value>13.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
         <childElement id="8d8c17a0-3f87-43ee-9734-5b75abd1816b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>OpenTelemetry.Extensions.Hosting</name>
+          <display>OpenTelemetry.Extensions.Hosting (1.10.0)</display>
           <isAbstract>false</isAbstract>
           <value>1.10.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>44b876be-b94c-4ceb-b946-24db6c12a97c</parentFolderId>
+          <packageId>b52e75f6-d86b-4c53-b4bd-8a8c2c267865</packageId>
+          <packageName>Intent.CosmosDB</packageName>
           <stereotypes />
           <metadata />
           <childElements />

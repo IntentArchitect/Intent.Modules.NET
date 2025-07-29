@@ -1,3 +1,9 @@
+### Version 1.0.26
+
+- Improvement: Updated NuGet package versions.
+- Improvement: Removed internal shared project reference.
+- Improvement: Added configuration stereotype to define which querying types the provider supports.
+
 ### Version 1.0.25
 
 - Improvement: Updated NuGet package versions.

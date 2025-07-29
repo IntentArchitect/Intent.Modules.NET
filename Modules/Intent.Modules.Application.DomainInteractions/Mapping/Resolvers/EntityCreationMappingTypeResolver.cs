@@ -16,12 +16,12 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
         _sourceTemplate = sourceTemplate;
     }
 
-    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    public ICSharpMapping? ResolveMappings(MappingModel mappingModel, MappingTypeResolverDelegate next)
     {
         var model = mappingModel.Model;
         if (mappingModel.MappingTypeId != "5f172141-fdba-426b-980e-163e782ff53e") // Command to Class Creation Mapping
         {
-            return null;
+            return next != null ? next(mappingModel) : null;
         }
 
         if (model.IsGeneralizationTargetEndModel())
@@ -30,16 +30,16 @@ public class EntityCreationMappingTypeResolver : IMappingTypeResolver
             return mapping;
         }
 
-		if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
+        if (model.SpecializationType == "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
         {
             return new ObjectInitializationMapping(mappingModel, _sourceTemplate);
         }
 
-		if ((model.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract") && model.TypeReference.IsCollection)
-		{
-			return new SelectToListMapping(mappingModel, _sourceTemplate);
-		}
+        if ((model.TypeReference?.Element?.SpecializationType is "Value Object" or "Data Contract") && model.TypeReference.IsCollection)
+        {
+            return new SelectToListMapping(mappingModel, _sourceTemplate);
+        }
 
-		return null;
+        return next != null ? next(mappingModel) : null;
     }
 }

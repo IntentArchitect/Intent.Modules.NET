@@ -131,7 +131,10 @@ public class AutoImplementServiceOperationTask : IModuleTask
                - Repository interfaces (adding new methods only)
                - Repository concrete classes (implementing new methods only)
             2. Preserve all existing code, attributes, and file paths exactly
-
+            
+            ## Design and Intent Context
+            {{$designContext}}
+            
             ## Additional User Context (Optional)
             {{$userProvidedContext}}
 
@@ -143,8 +146,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
 
             ## Required Output Format
             Your response MUST include:
-            1. Respond ONLY with JSON that matches the following schema:
-            ```json
+            1. Respond ONLY with deserializable JSON that matches the following schema:
             {
                 "type": "object",
                 "properties": {
@@ -164,7 +166,22 @@ public class AutoImplementServiceOperationTask : IModuleTask
                 "required": ["FileChanges"],
                 "additionalProperties": false
             }
-            ```
+            
+            EXAMPLE RESPONSE BEGIN
+            {
+                "FileChanges": [
+                    {
+                        "FilePath": <some-file-path_1>,
+                        "Content": <some-file-content_1>
+                    },
+                    {
+                        "FilePath": <some-file-path_2>,
+                        "Content": <some-file-content_2>
+                    }
+                ]
+            }
+            EXAMPLE RESPONSE END
+            
             2. The Content must contain:
             2.1. The fully implemented handler class with the Handle method
             2.2. Any modified repository interfaces (if you added methods)
@@ -198,7 +215,7 @@ public class AutoImplementServiceOperationTask : IModuleTask
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
-        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+        inputFiles.AddRange(GetRelatedElements(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
 
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
@@ -211,18 +228,20 @@ public class AutoImplementServiceOperationTask : IModuleTask
         return inputFiles;
     }
 
-    private static List<ICanBeReferencedType> GetRelatedDomainEntities(IElement element)
+    private static List<ICanBeReferencedType> GetRelatedElements(IElement element)
     {
-        var queriedEntity = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
-            .Select(x => x.TypeReference.Element.AsClassModel())
+        var relatedElements = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
+            .Select(x => x.TypeReference.Element)
             .ToList();
-        if (queriedEntity.Count == 0)
+        if (relatedElements.Count == 0)
         {
             return [];
         }
-        var relatedClasses = queriedEntity.Select(x => x.InternalElement)
-            .Concat(queriedEntity.SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
-            .Distinct()
+        var relatedClasses = relatedElements
+            .Concat(relatedElements.Where(x => x.TypeReference?.Element?.IsDTOModel() == true).Select(x => x.TypeReference.Element))
+            .Concat(relatedElements.Where(Intent.Modelers.Services.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modelers.Services.Api.OperationModelExtensions.AsOperationModel(x).ParentService.InternalElement))
+            .Concat(relatedElements.Where(Intent.Modules.Common.Types.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modules.Common.Types.Api.OperationModelExtensions.AsOperationModel(x).InternalElement.ParentElement))
+            .Concat(relatedElements.Where(x => x.IsClassModel()).Select(x => x.AsClassModel()).SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
             .ToList();
         return relatedClasses;
     }

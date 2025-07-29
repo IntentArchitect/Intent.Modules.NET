@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="09a2672a-ec45-490c-87a8-5f916926fdf1" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,30 +47,24 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="016b8192-556e-4e13-bed8-a9f7d5ead64d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="abe2a83a-3351-4f64-bfe6-844e2413eb89" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>09a2672a-ec45-490c-87a8-5f916926fdf1</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b3e3cb8f-32e7-444c-bf3b-c78ba7194d98" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2a815cd8-cb91-4c4b-b7be-240d32b5af00" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>09a2672a-ec45-490c-87a8-5f916926fdf1</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -78,7 +72,7 @@
       </childElements>
     </childElement>
     <childElement id="ec2561cf-4929-4f18-9504-ece670b61806" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -100,100 +94,79 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="149adc7a-2720-4e55-940c-5c3076cf6a9f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e0251e79-8c12-4324-8fd4-012b39fa81a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Bcl.AsyncInterfaces</name>
-          <display>Microsoft.Bcl.AsyncInterfaces (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="327614f4-6b9b-4341-acd1-3184f3e4b2d2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="d779edf7-19c4-4137-a96f-6a287edfdba5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.IO.Pipelines</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="886be87e-41fe-43d9-970e-f6764411ceb2" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>System.Text.Encodings.Web</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="13504e11-1a63-49f2-b8d2-14301fa325a5" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Buffers</name>
-          <display>System.Buffers (4.5.1)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1506b17a-1c55-4aaa-adf7-147839947465" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.IO.Pipelines</name>
-          <display>System.IO.Pipelines (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="5c35625b-8ab5-429c-8c29-9fee163ea5cb" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bed399a0-8882-4b4c-906c-f6c8dfb07b86" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Memory</name>
-          <display>System.Memory (4.5.5)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.5</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="b0db2c5e-b3df-449f-ae7d-bf296b762445" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a73b4578-276a-4752-bbd5-11df81a7ca81" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Runtime.CompilerServices.Unsafe</name>
-          <display>System.Runtime.CompilerServices.Unsafe (6.0.0)</display>
           <isAbstract>false</isAbstract>
           <value>6.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="cb3269e0-84cb-4a4f-9251-611d4922eb62" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>System.Text.Encodings.Web</name>
-          <display>System.Text.Encodings.Web (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="35d6ff6f-cf23-45c3-a890-71dd8deb8a0e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="1bd5782d-d97d-44b0-a7b8-05d2f80a7233" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>System.Threading.Tasks.Extensions</name>
-          <display>System.Threading.Tasks.Extensions (4.5.4)</display>
           <isAbstract>false</isAbstract>
           <value>4.5.4</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>ec2561cf-4929-4f18-9504-ece670b61806</parentFolderId>
-          <packageId>018fe0c6-cc90-4ef3-9e75-6998dff76a4f</packageId>
-          <packageName>Intent.Dapr.AspNetCore.ServiceInvocation</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -201,7 +174,7 @@
       </childElements>
     </childElement>
     <childElement id="e433871a-f348-47fa-b7c9-3e84ee62660e" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <genericTypes />

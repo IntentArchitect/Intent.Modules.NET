@@ -153,6 +153,12 @@ public class CompositeDataAccessProvider : IDataAccessProvider
         //throw new Exception("Not Implemented");
     }
 
+    public CSharpStatement FindAllAsync(IElementToElementMapping queryMapping, string pageSize, string? cursorToken, out IList<CSharpStatement> prerequisiteStatements)
+    {
+        prerequisiteStatements = new List<CSharpStatement>();
+        return new CSharpStatement("");
+    }
+
     // private CSharpStatement CreateQueryFilterExpression(IElementToElementMapping queryMapping, out IList<CSharpStatement> requiredStatements)
     // {
     //     requiredStatements = new List<CSharpStatement>();

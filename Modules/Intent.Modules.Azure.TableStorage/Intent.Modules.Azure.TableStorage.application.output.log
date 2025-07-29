@@ -66,6 +66,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#4edb8eda-e695-4288-a09d-a88bc2dc6f79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedList/CursorPagedListTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedList/CursorPagedListTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.Custom#4edb8eda-e695-4288-a09d-a88bc2dc6f79</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/CursorPagedList/CursorPagedListTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CursorPagedList/CursorPagedListTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>024c8637-194f-4014-83e5-8a69a333f07d</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#fdb71443-1048-4459-83a1-4173b5c5c4af</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/TableStorageRepository/TableStorageRepositoryTemplatePartial.cs</ApplicationRelativeFilePath>

@@ -1,3 +1,7 @@
+### Version 2.2.22
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 2.2.21
 
 - Improvement: Now supports generation of implicit service proxies for "Perform Invocation" relationships to HTTP Endpoints.

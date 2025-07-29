@@ -35,18 +35,18 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await GetSet()
                 .FromSqlInterpolated($"EXECUTE GetMockEntityById {id}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;
         }
 
-        public async Task<IReadOnlyCollection<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default)
+        public async Task<List<MockEntity>> GetMockEntities(CancellationToken cancellationToken = default)
         {
             var results = await GetSet()
                 .FromSqlInterpolated($"EXECUTE GetMockEntities")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken);
+                .ToListAsync(cancellationToken);
 
             return results;
         }

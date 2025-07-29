@@ -1,4 +1,8 @@
-﻿### Version 3.0.4
+﻿### Version 3.0.5
+
+- Improvement: SQL Lite ambient transaction suppression.
+
+### Version 3.0.4
 
 - Improvement: Handlers with no auto-implementation will now generate with an `IntentManaged` Body mode of Merge and their `throw new NotImplemented()` statements have been commented with [IntentInitialGen to prevent them from returning when deleted](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-csharp/code-management-csharp.html#the--intentinitialgen-instruction). (Note: A side effect of this improvement is that entries may appear in the Customizations tab of the Software Factory or existing entries may no longer be approved and they will need to reviewed).
 

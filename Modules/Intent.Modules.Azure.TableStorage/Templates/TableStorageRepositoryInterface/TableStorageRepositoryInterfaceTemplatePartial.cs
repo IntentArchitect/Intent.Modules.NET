@@ -33,10 +33,17 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                 .AddUsing("System.Linq.Expressions")
                 .AddUsing("System.Threading")
                 .AddUsing("System.Threading.Tasks")
-                .AddInterface($"ITableStorageRepository", @interface => @interface
-                    .AddGenericParameter("TDomain", out var tDomain)
+                .AddInterface($"ITableStorageRepository")
+                
+                .OnBuild(file =>
+                {
+                    var @interface = file.Interfaces.First();
+                    var cursorPagedListInterface = TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var name)
+                            ? name : null;
+
+                    @interface.AddGenericParameter("TDomain", out var tDomain)
                     .AddGenericParameter("TTableInterface", out var tTableInterface)
-                    .ImplementsInterfaces(new[] { $"{this.GetRepositoryInterfaceName()}<{tDomain}>" })
+                    .ImplementsInterfaces([$"{this.GetRepositoryInterfaceName()}<{tDomain}>"])
                     .AddProperty(this.GetTableStorageUnitOfWorkInterfaceName(), "UnitOfWork", property => property
                         .WithoutSetter()
                     )
@@ -51,7 +58,27 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
                         .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
                         .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
                     )
-                );
+                    .AddMethod($"Task<{tDomain}?>", "FindAsync", method => method
+                        .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                        .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                    );
+
+                    if (cursorPagedListInterface is not null)
+                    {
+                        @interface.AddMethod($"Task<{cursorPagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("string?", "cursorToken")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        );
+
+                        @interface.AddMethod($"Task<{cursorPagedListInterface}<{tDomain}>>", "FindAllAsync", method => method
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("string?", "cursorToken")
+                            .AddParameter("CancellationToken", "cancellationToken", x => x.WithDefaultValue("default"))
+                        );
+                    }
+                });
         }
 
         public override void AfterTemplateRegistration()
@@ -61,6 +88,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryInte
             foreach (var model in Model)
             {
                 var template = GetTemplate<ICSharpFileBuilderTemplate>(EntityRepositoryInterfaceTemplate.TemplateId, model.Id);
+                template.CSharpFile.OnBuild(file => file.Metadata["entity-state-template-id"] = TableStorageTableEntityInterfaceTemplate.TemplateId);
                 template.CSharpFile.AfterBuild(file =>
                 {
                     var @interface = file.Interfaces.Single();

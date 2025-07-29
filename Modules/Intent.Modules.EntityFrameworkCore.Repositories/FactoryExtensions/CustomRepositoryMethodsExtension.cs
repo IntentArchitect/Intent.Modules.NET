@@ -153,12 +153,12 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             {
                 if (TryGetTemplate(application, "Intent.Entities.Repositories.Api.CustomRepositoryInterface", repository, out ICSharpFileBuilderTemplate interfaceTemplate))
                 {
-                    EntityFrameworkRepositoryHelpers.ApplyEFInterfaceMethods<ICSharpFileBuilderTemplate, ClassModel>(interfaceTemplate, repository);
+                    EntityFrameworkRepositoryHelpers.ApplyEFInterfaceMethods<ICSharpFileBuilderTemplate>(interfaceTemplate, repository);
                 }
 
                 if (TryGetTemplate(application, "Intent.Entities.Repositories.Api.CustomRepository", repository, out ICSharpFileBuilderTemplate implementationTemplate))
                 {
-                    EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods<ICSharpFileBuilderTemplate, ClassModel>(implementationTemplate, repository);
+                    EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods<ICSharpFileBuilderTemplate>(implementationTemplate, repository);
                 }
             }
 
@@ -171,7 +171,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             {
                 if (TryGetTemplate<EntityRepositoryInterfaceTemplate>(application, EntityRepositoryInterfaceTemplate.TemplateId, entity, out var interfaceTemplate))
                 {
-                    EntityFrameworkRepositoryHelpers.ApplyEFInterfaceMethods<EntityRepositoryInterfaceTemplate, ClassModel>(interfaceTemplate, repository);
+                    EntityFrameworkRepositoryHelpers.ApplyEFInterfaceMethods<EntityRepositoryInterfaceTemplate>(interfaceTemplate, repository);
                 }
 
                 if (!TryGetTemplate<RepositoryTemplate>(application, RepositoryTemplate.TemplateId, entity, out var implementationTemplate))
@@ -240,7 +240,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     }, 10);
                 }
 
-                EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods<ICSharpFileBuilderTemplate, ClassModel>(implementationTemplate, repository);
+                EntityFrameworkRepositoryHelpers.ApplyEFImplementationMethods<ICSharpFileBuilderTemplate>(implementationTemplate, repository);
             }
         }
 

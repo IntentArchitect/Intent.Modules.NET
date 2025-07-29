@@ -140,7 +140,7 @@
       <childElements />
     </childElement>
     <childElement id="6cfff7c5-68d9-4d2f-80d8-2f5a82fdad15" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.0.17</name>
+      <name>8.0.18</name>
       <display>8.0.16 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -162,7 +162,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="788b56c1-c6ce-4775-baae-c1856a6675cf" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="e71f57b4-2a16-498f-aad7-42f1bd7c0b48" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>7.1.2</value>
@@ -176,7 +176,7 @@
       </childElements>
     </childElement>
     <childElement id="bd6e645d-4b23-4b37-b4a4-5231190337b0" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.5 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -198,7 +198,7 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="73665ed5-3756-4cbf-bb50-cdbb2a51b181" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="f8ccfb91-9c0e-4438-8052-205e1cdba7d7" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.IdentityModel.Protocols.OpenIdConnect</name>
           <isAbstract>false</isAbstract>
           <value>8.0.1</value>

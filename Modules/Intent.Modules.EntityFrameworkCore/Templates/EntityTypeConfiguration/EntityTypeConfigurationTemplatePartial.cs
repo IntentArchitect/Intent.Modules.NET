@@ -301,7 +301,15 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     }
                 }
 
-                yield return $@"builder.HasBaseType<{GetTypeName(TemplateRoles.Domain.Entity.Primary, model.ParentClass)}>();";
+                if (model.InternalElement.AssociatedElements.Any(a => a.IsGeneralizationEndModel()) && model.InternalElement.AssociatedElements.First(a => a.IsGeneralizationEndModel()).TypeReference.GenericTypeParameters.Any())
+                {
+                    var genericArgs = string.Join(",", model.InternalElement.AssociatedElements.First(a => a.IsGeneralizationEndModel()).TypeReference.GenericTypeParameters.Select(x => GetTypeName(x)));
+                    yield return $@"builder.HasBaseType<{GetTypeName(TemplateRoles.Domain.Entity.Primary, model.ParentClass)}<{genericArgs}>>();";
+                }
+                else
+                {
+                    yield return $@"builder.HasBaseType<{GetTypeName(TemplateRoles.Domain.Entity.Primary, model.ParentClass)}>();";
+                }
             }
             else if (model.Triggers.Any())
             {

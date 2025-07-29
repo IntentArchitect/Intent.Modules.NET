@@ -100,10 +100,10 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftAspNetCoreWebUtilitiesPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.6"),
-                        ( >= 8, >= 0) => new PackageVersion("8.0.17")
-                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.17")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "9.0.7"),
+                        ( >= 8, >= 0) => new PackageVersion("8.0.18")
+                            .WithNugetDependency("Microsoft.Net.Http.Headers", "8.0.18")
                             .WithNugetDependency("System.IO.Pipelines", "8.0.0"),
                         ( >= 2, >= 0) => new PackageVersion("2.3.0")
                             .WithNugetDependency("Microsoft.Net.Http.Headers", "2.3.0")
@@ -114,43 +114,43 @@ namespace Intent.Modules.Dapr.AspNetCore.ServiceInvocation
             NugetRegistry.Register(MicrosoftExtensionsHttpPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.6"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.6"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.6")
-                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.6"),
+                        ( >= 9, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Diagnostics", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Configuration.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.DependencyInjection.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Logging.Abstractions", "9.0.7")
+                            .WithNugetDependency("Microsoft.Extensions.Options", "9.0.7"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftExtensionsHttpPackageName}'"),
                     }
                 );
             NugetRegistry.Register(SystemTextJsonPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("9.0.6"),
-                        ( >= 8, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.6")
-                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.6"),
-                        ( >= 2, >= 0) => new PackageVersion("9.0.6")
-                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.6")
+                        ( >= 9, >= 0) => new PackageVersion("9.0.7"),
+                        ( >= 8, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("System.IO.Pipelines", "9.0.7")
+                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.7"),
+                        ( >= 2, >= 0) => new PackageVersion("9.0.7")
+                            .WithNugetDependency("Microsoft.Bcl.AsyncInterfaces", "9.0.7")
                             .WithNugetDependency("System.Buffers", "4.5.1")
-                            .WithNugetDependency("System.IO.Pipelines", "9.0.6")
+                            .WithNugetDependency("System.IO.Pipelines", "9.0.7")
                             .WithNugetDependency("System.Memory", "4.5.5")
                             .WithNugetDependency("System.Runtime.CompilerServices.Unsafe", "6.0.0")
-                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.6")
+                            .WithNugetDependency("System.Text.Encodings.Web", "9.0.7")
                             .WithNugetDependency("System.Threading.Tasks.Extensions", "4.5.4"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{SystemTextJsonPackageName}'"),
                     }

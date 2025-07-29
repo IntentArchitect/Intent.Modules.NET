@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
@@ -26,16 +25,14 @@ namespace TableStorage.Tests.Application.Invoices.CreateInvoice
         [IntentManaged(Mode.Fully, Body = Mode.Fully)]
         public async Task Handle(CreateInvoiceCommand request, CancellationToken cancellationToken)
         {
-            var newInvoice = new Invoice
+            var invoice = new Invoice
             {
-                PartitionKey = request.PartitionKey,
-                RowKey = request.RowKey,
                 IssuedData = request.IssuedData,
                 OrderPartitionKey = request.OrderPartitionKey,
-                OrderRowKey = request.OrderRowKey,
+                OrderRowKey = request.OrderRowKey
             };
 
-            _invoiceRepository.Add(newInvoice);
+            _invoiceRepository.Add(invoice);
         }
     }
 }

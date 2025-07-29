@@ -1,3 +1,10 @@
+### Version 5.0.26
+
+- Improvement: Updated NuGet package versions.
+- Improvement: SQL Lite support.
+- Improvement: Added support for column collation.
+- Fixed:This module was introducing an artificial dependency between PagedList in Application and the IDBContextInterface which should be movable.
+
 ### Version 5.0.25
 
 - Improvement: Added Validation when modeling composite entities with multiple owners.

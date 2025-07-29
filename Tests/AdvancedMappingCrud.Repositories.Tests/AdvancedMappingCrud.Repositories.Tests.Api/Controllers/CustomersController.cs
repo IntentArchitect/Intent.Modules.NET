@@ -21,6 +21,7 @@ using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersP
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersPaginatedWithOrder;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomerStatistics;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.GetCustomersWithParams;
+using AdvancedMappingCrud.Repositories.Tests.Application.Customers.PatchCustomer;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCorporateFuneralCoverQuote;
 using AdvancedMappingCrud.Repositories.Tests.Application.Customers.UpdateCustomer;
 using Intent.RoslynWeaver.Attributes;
@@ -172,6 +173,35 @@ namespace AdvancedMappingCrud.Repositories.Tests.Api.Controllers
         {
             await _mediator.Send(new DeleteCustomerCommand(id: id), cancellationToken);
             return Ok();
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="204">Successfully updated.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        /// <response code="404">One or more entities could not be found with the provided parameters.</response>
+        [HttpPatch("api/customer/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> PatchCustomer(
+            [FromRoute] Guid id,
+            [FromBody] PatchCustomerCommand command,
+            CancellationToken cancellationToken = default)
+        {
+            if (command.Id == Guid.Empty)
+            {
+                command.Id = id;
+            }
+
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            await _mediator.Send(command, cancellationToken);
+            return NoContent();
         }
 
         /// <summary>

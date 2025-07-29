@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Intent.Configuration;
 using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Services.Api;
+using Intent.Modelers.Services.DomainInteractions.Api;
 using Intent.Modules.Common.AI;
 using Intent.Plugins;
 using Intent.Registrations;
@@ -14,6 +16,7 @@ using Intent.Utils;
 using Microsoft.SemanticKernel;
 using Newtonsoft.Json;
 using Intent.Modules.AI.AutoImplementation.Tasks.Helpers;
+using ApiMetadataDesignerExtensions = Intent.Modelers.Domain.Api.ApiMetadataDesignerExtensions;
 
 namespace Intent.Modules.AI.AutoImplementation.Tasks;
 
@@ -57,17 +60,24 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         var element = _metadataManager.Services(applicationId).Elements.FirstOrDefault(x => x.Id == elementId);
         if (element == null)
         {
-	        throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
+            throw new Exception($"An element was selected to be executed upon but could not be found. Please ensure you have saved your designer and try again.");
         }
         var inputFiles = GetInputFiles(element);
+        foreach (var inputFile in inputFiles)
+        {
+            Logging.Log.Info($"Including file: {inputFile.FilePath}");
+        }
         var jsonInput = JsonConvert.SerializeObject(inputFiles, Formatting.Indented);
+
+        var designContext = GetDesignContext(element);
 
         var requestFunction = CreatePromptFunction(kernel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
-	        ["inputFilesJson"] = jsonInput,
-	        ["userProvidedContext"] = userProvidedContext,
-	        ["targetFileName"] = element.Name + "Handler"
+            ["inputFilesJson"] = jsonInput,
+            ["designContext"] = designContext,
+            ["userProvidedContext"] = userProvidedContext,
+            ["targetFileName"] = element.Name + "Handler"
         });
 
         // Output the updated file changes.
@@ -132,6 +142,9 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		       - Repository concrete classes (implementing new methods only)
 		    2. Preserve all existing code, attributes, and file paths exactly
 
+		    ## Design and Intent Context
+		    {{$designContext}}
+		    
 		    ## Additional User Context (Optional)
 		    {{$userProvidedContext}}
 
@@ -143,8 +156,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 
 		    ## Required Output Format
 		    Your response MUST include:
-		    1. Respond ONLY with JSON that matches the following schema:
-		    ```json
+		    1. Respond ONLY with deserializable JSON that matches the following schema:
 		    {
 		        "type": "object",
 		        "properties": {
@@ -164,12 +176,27 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		        "required": ["FileChanges"],
 		        "additionalProperties": false
 		    }
-		    ```
+		    
+		    EXAMPLE RESPONSE BEGIN
+		    {
+		        "FileChanges": [
+		            {
+		                "FilePath": <some-file-path_1>,
+		                "Content": <some-file-content_1>
+		            },
+		            {
+		                "FilePath": <some-file-path_2>,
+		                "Content": <some-file-content_2>
+		            }
+		        ]
+		    }
+		    EXAMPLE RESPONSE END
+		    
 		    2. The Content must contain:
 		    2.1. The fully implemented handler class with the Handle method
 		    2.2. Any modified repository interfaces (if you added methods)
 		    2.3. Any modified repository concrete classes (if you added implementations)
-		    2.4. All files must maintain their exact original paths
+		    2.4. All files must maintain their exact original paths (CRITICAL)
 		    2.5. All existing code and attributes must be preserved unless explicitly modified
 
 		    ## Important Reminders
@@ -180,10 +207,45 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
 		    - ALL new repository methods must be marked with `[IntentIgnore]`
 		    - Performance and clean architecture are key priorities
 		    """;
-	    
-	    var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
-	    return requestFunction;
+
+        var requestFunction = kernel.CreateFunctionFromPrompt(promptTemplate);
+        return requestFunction;
     }
+
+    /// <summary>
+    /// Returns important design guidelines for the LLM based on what the user has modeled in the designer.
+    /// </summary>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    private string GetDesignContext(IElement element)
+    {
+        var designContext = new StringBuilder();
+        var associatedServices = element.AssociatedElements.Select(x => x.TypeReference.Element).ToList();
+        if (associatedServices.Count > 0)
+        {
+            designContext.AppendLine("You are expected to use EACH of the following services to implement this handler (IMPORTANT):");
+            foreach (var associatedService in associatedServices)
+            {
+                var filesProvider = _applicationConfigurationProvider.GeneratedFilesProvider();
+                var codeFiles = filesProvider.GetFilesForMetadata(associatedService).ToList();
+                if (((IElement)associatedService).ParentElement != null)
+                {
+                    codeFiles.AddRange(filesProvider.GetFilesForMetadata(((IElement)associatedService).ParentElement));
+                }
+                foreach (var interfaceFile in codeFiles.Where(x => Path.GetFileName(x.FilePath).StartsWith("I") && char.IsUpper(Path.GetFileName(x.FilePath)[1])))
+                {
+                    designContext.AppendLine($"- {Path.GetFileNameWithoutExtension(interfaceFile.FilePath)}");
+                }
+            }
+        }
+        else
+        {
+            designContext.AppendLine("NONE");
+        }
+
+        return designContext.ToString();
+    }
+
 
     private List<ICodebaseFile> GetInputFiles(IElement element)
     {
@@ -197,7 +259,7 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         {
             inputFiles.AddRange(filesProvider.GetFilesForMetadata(dto));
         }
-        inputFiles.AddRange(GetRelatedDomainEntities(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+        inputFiles.AddRange(GetRelatedElements(element).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
 
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.RepositoryBase"));
@@ -210,17 +272,21 @@ public class AutoImplementCqrsHandlerTask : IModuleTask
         return inputFiles;
     }
 
-    private static List<ICanBeReferencedType> GetRelatedDomainEntities(IElement element)
+
+    private static List<ICanBeReferencedType> GetRelatedElements(IElement element)
     {
-        var queriedEntity = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
-            .Select(x => x.TypeReference.Element.AsClassModel())
+        var relatedElements = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
+            .Select(x => x.TypeReference.Element)
             .ToList();
-        if (queriedEntity.Count == 0)
+        if (relatedElements.Count == 0)
         {
             return [];
         }
-        var relatedClasses = queriedEntity.Select(x => x.InternalElement)
-            .Concat(queriedEntity.SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
+        var relatedClasses = relatedElements
+            .Concat(relatedElements.Where(x => x.TypeReference?.Element?.IsDTOModel() == true).Select(x => x.TypeReference.Element))
+            .Concat(relatedElements.Where(Intent.Modelers.Services.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modelers.Services.Api.OperationModelExtensions.AsOperationModel(x).ParentService.InternalElement))
+            .Concat(relatedElements.Where(Intent.Modules.Common.Types.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modules.Common.Types.Api.OperationModelExtensions.AsOperationModel(x).InternalElement.ParentElement))
+            .Concat(relatedElements.Where(x => x.IsClassModel()).Select(x => x.AsClassModel()).SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
             .ToList();
         return relatedClasses;
     }

@@ -1,3 +1,11 @@
+### Version 5.2.0
+
+- Improvement: Added support for PATCH implementations of updates. This is currently only available for HTTP exposed Operations with the HTTP `PATCH` Verb.
+
+### Version 5.1.2
+
+- Improvement: Updated referenced package version
+
 ### Version 5.1.1
 
 - Improvement: Updated dependency on `Intent.Application.DomainInteractions` to `1.0.1`

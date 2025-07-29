@@ -22,6 +22,7 @@ This setting allows you to configure which `Database Provider` you want Entity F
 * SQL Server
 * PostgresSQL
 * My SQL
+* SQL Lite
 * Cosmos DB
 
 ![Database Settings - `Database Provider`](images/database-provider.png)
@@ -120,7 +121,7 @@ Please see the [RDBMS README](https://docs.intentarchitect.com/articles/modules-
 
 ### Row Version - Attribute stereotype
 
-The `Row Version` stereotype when applied to a byte[] `Attribute`, denotes that it should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion` type.
+The `Row Version` stereotype when applied to a `binary` `Attribute`, denotes that it should map to a database type that provides automatic row-versioning, such as the SQL Server `rowversion` type.
 
 The `Row Version` stereotype can be manually applied. This stereotype is visualized by the time stamp icon.
 

@@ -106,8 +106,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
 
             ## Required Output Format
             Your response MUST include:
-            1. Respond ONLY with JSON that matches the following schema:
-            ```json
+            1. Respond ONLY with deserializable JSON that matches the following schema:
             {
                 "type": "object",
                 "properties": {
@@ -127,7 +126,22 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 "required": ["FileChanges"],
                 "additionalProperties": false
             }
-            ```
+            
+            EXAMPLE RESPONSE BEGIN
+            {
+                "FileChanges": [
+                    {
+                        "FilePath": <some-file-path_1>,
+                        "Content": <some-file-content_1>
+                    },
+                    {
+                        "FilePath": <some-file-path_2>,
+                        "Content": <some-file-content_2>
+                    }
+                ]
+            }
+            EXAMPLE RESPONSE END
+            
             2. The Content must contain:
             2.1. Your test file as pure code (no markdown).
             2.2. The file must have an appropriate path in the appropriate Tests project. Look for a project in the .sln file that would be appropriate and use the following relative path: '{{$slnRelativePath}}'.
@@ -350,7 +364,7 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
                 inputFiles.AddRange(filesProvider.GetFilesForMetadata(paramType));
             }
 
-            inputFiles.AddRange(GetRelatedDomainEntities(operation).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
+            inputFiles.AddRange(GetRelatedElements(operation).SelectMany(x => filesProvider.GetFilesForMetadata(x)));
         }
 
         inputFiles.AddRange(filesProvider.GetFilesForTemplate("Intent.EntityFrameworkCore.Repositories.EFRepositoryInterface"));
@@ -365,17 +379,20 @@ public class GenerateServiceUnitTestsWithAITask : IModuleTask
         return inputFiles;
     }
 
-    private static List<ICanBeReferencedType> GetRelatedDomainEntities(IElement element)
+    private static List<ICanBeReferencedType> GetRelatedElements(IElement element)
     {
-        var queriedEntity = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
-            .Select(x => x.TypeReference.Element.AsClassModel())
+        var relatedElements = element.AssociatedElements.Where(x => x.TypeReference.Element != null)
+            .Select(x => x.TypeReference.Element)
             .ToList();
-        if (queriedEntity.Count == 0)
+        if (relatedElements.Count == 0)
         {
             return [];
         }
-        var relatedClasses = queriedEntity.Select(x => x.InternalElement)
-            .Concat(queriedEntity.SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
+        var relatedClasses = relatedElements
+            .Concat(relatedElements.Where(x => x.TypeReference?.Element?.IsDTOModel() == true).Select(x => x.TypeReference.Element))
+            .Concat(relatedElements.Where(Intent.Modelers.Services.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modelers.Services.Api.OperationModelExtensions.AsOperationModel(x).ParentService.InternalElement))
+            .Concat(relatedElements.Where(Intent.Modules.Common.Types.Api.OperationModelExtensions.IsOperationModel).Select(x => Intent.Modules.Common.Types.Api.OperationModelExtensions.AsOperationModel(x).InternalElement.ParentElement))
+            .Concat(relatedElements.Where(x => x.IsClassModel()).Select(x => x.AsClassModel()).SelectMany(x => x.AssociatedClasses.Select(y => y.TypeReference.Element)))
             .ToList();
         return relatedClasses;
     }

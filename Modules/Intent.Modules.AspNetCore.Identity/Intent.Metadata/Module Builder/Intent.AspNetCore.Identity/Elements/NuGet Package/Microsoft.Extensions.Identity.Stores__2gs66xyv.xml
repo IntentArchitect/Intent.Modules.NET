@@ -25,7 +25,7 @@
   <metadata />
   <childElements>
     <childElement id="19a14323-b767-441c-87eb-33aa01a16bd3" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -47,44 +47,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="1c1cebfb-bdf2-4b8d-b7fe-f8c10f1f2528" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="b349a61a-3b38-4346-b397-32fb88888067" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="2b795bac-8110-4c21-b249-d9dea4e76f3f" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="0f0e552b-7223-44a3-8612-b412f89e5f1c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
+        <childElement id="11a18030-03a3-4ae1-8dcb-9f88f37af4be" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="3b2831c2-019a-4cb3-b59d-eb05007e713b" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>19a14323-b767-441c-87eb-33aa01a16bd3</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />
@@ -92,7 +83,7 @@
       </childElements>
     </childElement>
     <childElement id="d2ea5581-b0f4-4df1-b5a9-184e4a6a0870" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.6</name>
+      <name>9.0.7</name>
       <display>9.0.6 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -114,44 +105,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="59fb8f00-8f16-471e-bc36-73b48e5a19ce" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Caching.Abstractions</name>
-          <display>Microsoft.Extensions.Caching.Abstractions (9.0.6)</display>
-          <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
-          <genericTypes />
-          <isMapped>false</isMapped>
-          <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
-          <stereotypes />
-          <metadata />
-          <childElements />
-        </childElement>
-        <childElement id="60020a5b-635c-4f34-aa21-41522c4151a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="782191b2-944d-4c09-9037-b92120f5a25c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Identity.Core</name>
-          <display>Microsoft.Extensions.Identity.Core (9.0.6)</display>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f9991cdf-f8a6-481a-996f-02ba29efc58e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
-          <name>Microsoft.Extensions.Logging</name>
-          <display>Microsoft.Extensions.Logging (9.0.6)</display>
+        <childElement id="334bde55-3680-4f3f-91c2-08fe44a6c645" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Caching.Abstractions</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.6</value>
+          <value>9.0.7</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
-          <packageId>7061eb5a-c934-46e4-8c73-e3df67edf43a</packageId>
-          <packageName>Intent.AspNetCore.Identity</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="908b4373-6330-49a2-821c-e95610198c49" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+          <name>Microsoft.Extensions.Logging</name>
+          <isAbstract>false</isAbstract>
+          <value>9.0.7</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>d2ea5581-b0f4-4df1-b5a9-184e4a6a0870</parentFolderId>
           <stereotypes />
           <metadata />
           <childElements />

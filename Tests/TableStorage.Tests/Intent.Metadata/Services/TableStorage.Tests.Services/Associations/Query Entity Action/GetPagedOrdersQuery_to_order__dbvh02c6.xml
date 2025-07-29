@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="332ab2b2-f494-452c-a5f6-ecf947639e97">
+  <sourceEnd id="284adf8b-37db-4d80-9edf-d3141c1762fd" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetPagedOrdersQuery</display>
+    <order>0</order>
+    <typeReference id="8dbc085f-f4f9-41d3-814e-61ac920de282">
+      <typeId>da911766-eeed-4a7e-993d-d94ee0bcc8ce</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Services</typePackageName>
+      <typePackageId>540d236a-f1d9-4593-a796-7c6f504faa03</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="332ab2b2-f494-452c-a5f6-ecf947639e97" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>order</name>
+    <display>[query] order: Order</display>
+    <order>4</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="1a77b2d5-1529-434e-b43f-1de6250eb138">
+      <typeId>20e1d859-198e-4570-b6bb-565dd2986020</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>TableStorage.Tests.Domain</typePackageName>
+      <typePackageId>0d498098-1bfb-49eb-b1de-76f363a6feb9</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="3d450dd7-4b01-4641-9828-8ba27fcdd370" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="da911766-eeed-4a7e-993d-d94ee0bcc8ce" location="[TableStorage.Tests].[Services].[GetPagedOrdersQuery]" />
+        <target applicationId="3d450dd7-4b01-4641-9828-8ba27fcdd370" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="20e1d859-198e-4570-b6bb-565dd2986020" location="[TableStorage.Tests].[Services].[Order]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{PartitionKey}</expression>
+            <path>
+              <target id="20e1d859-198e-4570-b6bb-565dd2986020" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="7616879f-2aca-4652-83b1-b5654702a78d" name="PartitionKey" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="PartitionKey" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="da911766-eeed-4a7e-993d-d94ee0bcc8ce" name="GetPagedOrdersQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="89459c66-7228-4a8a-85aa-2d700069c465" name="PartitionKey" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{OrderNo}</expression>
+            <path>
+              <target id="20e1d859-198e-4570-b6bb-565dd2986020" name="Order" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="ead175c2-f7b5-4044-a3f7-b2307e31d01a" name="OrderNo" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="OrderNo" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="da911766-eeed-4a7e-993d-d94ee0bcc8ce" name="GetPagedOrdersQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="68be1557-1bcc-4292-ad4f-b3173ac6c864" name="OrderNo" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>

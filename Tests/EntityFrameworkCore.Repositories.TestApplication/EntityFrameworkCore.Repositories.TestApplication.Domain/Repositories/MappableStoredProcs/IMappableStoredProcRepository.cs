@@ -17,8 +17,10 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Domain.Repositories.M
         Task<string> GetEntityName(Guid id, CancellationToken cancellationToken = default);
         Task DoSomething(CancellationToken cancellationToken = default);
         Task CreateEntity(Guid id, string name, CancellationToken cancellationToken = default);
-        Task<IReadOnlyCollection<EntityRecord>> GetEntities(CancellationToken cancellationToken = default);
-        Task<MappedSpResult> MappedOperation(string paramName2, string paramSomething1, CancellationToken cancellationToken = default);
-        Task<MappedSpResultCollection> MappedOperationWithCollection(string paramRandom2, string paramElse1, CancellationToken cancellationToken = default);
+        Task<List<EntityRecord>> GetEntities(CancellationToken cancellationToken = default);
+        Task<MappedSpResult> MappedOperation(string paramName2WithAltName, string paramSomething1WithAltName, CancellationToken cancellationToken = default);
+        Task<MappedSpResultCollection> MappedOperationWithCollection(string paramRandom2WithAltName, string paramElse1WithAltName, CancellationToken cancellationToken = default);
+        Task<int> MappedOperationCallingScalar(int param1WithDiffName, CancellationToken cancellationToken = default);
+        Task<List<MappedSpCollectionPassthroughResult>> MappedOperationCollectionPassthrough(CancellationToken cancellationToken = default);
     }
 }

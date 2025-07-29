@@ -35,6 +35,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                     "postgresql" => DatabaseProviderOptionsEnum.Postgresql,
                     "my-sql" => DatabaseProviderOptionsEnum.MySql,
                     "oracle" => DatabaseProviderOptionsEnum.Oracle,
+                    "sql-lite" => DatabaseProviderOptionsEnum.SqlLite,
                     _ => throw new ArgumentOutOfRangeException(nameof(Value), $"{Value} is out of range")
                 };
             }
@@ -59,6 +60,11 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
                 return Value == "oracle";
             }
 
+            public bool IsSqlLite()
+            {
+                return Value == "sql-lite";
+            }
+
             public bool IsPostgresql()
             {
                 return Value == "postgresql";
@@ -78,6 +84,7 @@ namespace Intent.Modules.EntityFrameworkCore.Settings
             MySql,
             Cosmos,
             Oracle,
+            SqlLite,
         }
 
         public static TableNamingConventionOptions TableNamingConvention(this DatabaseSettings groupSettings) => new TableNamingConventionOptions(groupSettings.GetSetting("49b09c68-e86a-4e15-96ab-cd482168ef22")?.Value);

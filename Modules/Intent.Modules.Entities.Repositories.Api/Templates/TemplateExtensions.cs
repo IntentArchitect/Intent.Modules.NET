@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Entities.Repositories.Api.Templates.CursorPagedListInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.CustomRepository;
 using Intent.Modules.Entities.Repositories.Api.Templates.CustomRepositoryInterface;
 using Intent.Modules.Entities.Repositories.Api.Templates.EntityRepositoryInterface;
@@ -18,6 +19,10 @@ namespace Intent.Modules.Entities.Repositories.Api.Templates
 {
     public static class TemplateExtensions
     {
+        public static string GetCursorPagedListInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CursorPagedListInterfaceTemplate.TemplateId);
+        }
         public static string GetCustomRepositoryName<T>(this IIntentTemplate<T> template) where T : RepositoryModel
         {
             return template.GetTypeName(CustomRepositoryTemplate.TemplateId, template.Model);

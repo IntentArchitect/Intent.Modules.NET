@@ -116,12 +116,16 @@ Learn more:
           <defaultValue>f8b1618d-1e64-4c2c-9787-e0725c3633a1</defaultValue>
           <isRequired>true</isRequired>
           <options>
+            <option value="e70e92fe-878e-451d-a196-0062a53216f4" description=".NET 9.0" />
             <option value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" description=".NET 8.0" />
             <option value="0cd4e056-3bc1-4f8c-9cba-7d362d42c33c" description=".NET 7.0" />
             <option value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" description=".NET 6.0" />
-            <option value="9880b776-9b13-4ff6-87b3-2219cfa66652" description=".NET 5.0" />
-            <option value="d603dbfd-3361-4406-b5c0-efc2ac6f33fc" description=".NET Core 3.1" />
           </options>
+        </setting>
+        <setting id="top-level-statements" title="Use Top-Level Statements" type="checkbox">
+          <defaultValue>false</defaultValue>
+          <isRequired>false</isRequired>
+          <options />
         </setting>
       </settings>
     </group>

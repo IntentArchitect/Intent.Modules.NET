@@ -55,6 +55,17 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreInMemory(dependencyInjectionTemplate.OutputTarget.GetProject()));
                         break;
 
+                    case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlLite:
+                        dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlite(dependencyInjectionTemplate.OutputTarget.GetProject()));
+
+                        application.EventDispatcher.Publish(new ConnectionStringRegistrationRequest(
+                            name: dbContextInstance.ConnectionStringName,
+                            connectionString:
+                            $"Data Source={dependencyInjectionTemplate.OutputTarget.ApplicationName()}.db",
+                            providerName: "System.Data.SqlClient"));
+
+                        break;
+
                     case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:
                         dependencyInjectionTemplate.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlServer(dependencyInjectionTemplate.OutputTarget.GetProject()));
 
@@ -184,6 +195,14 @@ namespace Intent.Modules.EntityFrameworkCore.FactoryExtensions
 
                     statements.Add(new CSharpInvocationStatement("options.UseInMemoryDatabase")
                         .AddArgument($"{connectionString}", a => a.AddMetadata("is-connection-string", true)));
+                    break;
+                case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlLite:
+                    dependencyInjection.AddNugetDependency(NugetPackages.MicrosoftEntityFrameworkCoreSqlite(dependencyInjection.OutputTarget.GetProject()));
+
+                    statements.Add(new CSharpInvocationStatement("options.UseSqlite")
+                        .WithArgumentsOnNewLines()
+                        .AddArgument($"configuration.GetConnectionString({connectionString})", a => a.AddMetadata("is-connection-string", true))
+                        .AddArgument(dbContextOptionsBuilderStatement));
                     break;
 
                 case DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.SqlServer:

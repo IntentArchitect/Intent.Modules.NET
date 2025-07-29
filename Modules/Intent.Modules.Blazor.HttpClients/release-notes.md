@@ -1,3 +1,7 @@
+### Version 4.0.12
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 4.0.11
 
 - Improvement: Now supports generation of implicit service proxies for "Call Service Operation Action" relationships directly to HTTP Endpoints.

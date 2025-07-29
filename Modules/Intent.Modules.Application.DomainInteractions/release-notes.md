@@ -1,3 +1,11 @@
+### Version 1.1.0
+
+- Improvement: Created `EntityPatchMappingTypeResolver` to support PATCH type update operations with null checks before assignment.
+
+### Version 1.0.2
+
+- Improvement: Added support for cursor based pagination
+
 ### Version 1.0.1
 
 - Improvement: `CommandQueryMappingResolver` no longer assumes that Commands and Queries always have parameterized constructors and can now also detect if object initialization is needed, for example for "DTO" versions of requests for Service Proxy invocations.

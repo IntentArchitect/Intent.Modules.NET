@@ -157,6 +157,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>2dd4005b-a5d8-453f-9e2b-78cdd45f3be7</parentFolderId>
+      <packageId>f26a082d-9708-449d-96d4-797c3a4c7b37</packageId>
+      <packageName>Intent.Modules.NET</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

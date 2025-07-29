@@ -8,11 +8,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using TableStorage.Tests.Application.Common.Pagination;
 using TableStorage.Tests.Application.Invoices;
 using TableStorage.Tests.Application.Invoices.CreateInvoice;
 using TableStorage.Tests.Application.Invoices.DeleteInvoice;
 using TableStorage.Tests.Application.Invoices.GetInvoiceById;
 using TableStorage.Tests.Application.Invoices.GetInvoices;
+using TableStorage.Tests.Application.Invoices.GetPagedInvoices;
 using TableStorage.Tests.Application.Invoices.UpdateInvoice;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -152,6 +154,24 @@ namespace TableStorage.Tests.Api.Controllers
         public async Task<ActionResult<List<InvoiceDto>>> GetInvoices(CancellationToken cancellationToken = default)
         {
             var result = await _mediator.Send(new GetInvoicesQuery(), cancellationToken);
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <response code="200">Returns the specified CursorPagedResult&lt;InvoiceDto&gt;.</response>
+        /// <response code="400">One or more validation errors have occurred.</response>
+        [HttpGet("api/invoice/paged")]
+        [ProducesResponseType(typeof(CursorPagedResult<InvoiceDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<CursorPagedResult<InvoiceDto>>> GetPagedInvoices(
+            [FromQuery] string partitionKey,
+            [FromQuery] int pageSize,
+            [FromQuery] string? cursorToken,
+            CancellationToken cancellationToken = default)
+        {
+            var result = await _mediator.Send(new GetPagedInvoicesQuery(partitionKey: partitionKey, pageSize: pageSize, cursorToken: cursorToken), cancellationToken);
             return Ok(result);
         }
     }

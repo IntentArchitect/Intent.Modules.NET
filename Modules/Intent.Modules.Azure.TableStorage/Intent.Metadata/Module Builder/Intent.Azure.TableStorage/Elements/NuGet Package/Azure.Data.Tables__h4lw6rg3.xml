@@ -26,7 +26,7 @@
   <childElements>
     <childElement id="becf96ad-c109-411d-bbf7-20a9a5f83a12" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.11.0</name>
-      <display>12.9.1 ( &gt;= .NETStandard,Version=v2.0 )</display>
+      <display>12.11.0 ( &gt;= .NETStandard,Version=v2.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
@@ -49,11 +49,14 @@
       <childElements>
         <childElement id="97d0ff91-cc93-41fb-8400-5462e3caa7a8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.44.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>becf96ad-c109-411d-bbf7-20a9a5f83a12</parentFolderId>
+          <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+          <packageName>Intent.Azure.TableStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -62,10 +65,14 @@
     </childElement>
     <childElement id="4840df87-433c-42d4-9a1d-c2ce26f93bd2" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <name>12.11.0</name>
+      <display>12.11.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-by-name</sort-children>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>913a30db-52d9-45bb-8bda-a5efe03ec25b</parentFolderId>
+      <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+      <packageName>Intent.Azure.TableStorage</packageName>
       <stereotypes>
         <stereotype stereotypeDefinitionId="7af88c37-ce54-49fc-b577-bde869c23462" name="Package Version Settings">
           <addedByDefault>false</addedByDefault>
@@ -81,11 +88,14 @@
       <childElements>
         <childElement id="d366ff70-fc69-419e-aede-8896e4e80a7c" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Azure.Core</name>
+          <display>Azure.Core (1.44.1)</display>
           <isAbstract>false</isAbstract>
           <value>1.44.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>4840df87-433c-42d4-9a1d-c2ce26f93bd2</parentFolderId>
+          <packageId>17a7166d-9245-4414-82bf-0c32c64a7c45</packageId>
+          <packageName>Intent.Azure.TableStorage</packageName>
           <stereotypes />
           <metadata />
           <childElements />

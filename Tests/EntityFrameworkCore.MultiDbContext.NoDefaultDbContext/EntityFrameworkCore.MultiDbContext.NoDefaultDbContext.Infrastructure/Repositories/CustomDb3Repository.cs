@@ -53,14 +53,12 @@ namespace EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.R
             await _dbContext.Database.ExecuteSqlInterpolatedAsync($"CALL update_product_name({product_id}, {new_name})", cancellationToken);
         }
 
-        public async Task<IReadOnlyCollection<Product>> Get_products_by_name(
-            string search,
-            CancellationToken cancellationToken = default)
+        public async Task<List<Product>> Get_products_by_name(string search, CancellationToken cancellationToken = default)
         {
             var results = await _dbContext.Products
                 .FromSqlInterpolated($"SELECT * FROM get_products_by_name({search})")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken);
+                .ToListAsync(cancellationToken);
 
             return results;
         }

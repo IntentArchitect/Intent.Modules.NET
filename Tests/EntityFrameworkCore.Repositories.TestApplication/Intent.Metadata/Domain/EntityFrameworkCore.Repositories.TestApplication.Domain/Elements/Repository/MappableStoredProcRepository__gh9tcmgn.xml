@@ -422,7 +422,7 @@
     </childElement>
     <childElement id="a9613ae9-e210-4213-86c1-8c8b835275ec" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
       <name>MappedOperation</name>
-      <display>MappedOperation(paramName2: string, paramSomething1: string): MappedSpResult</display>
+      <display>MappedOperation(paramName2WithAltName: string, paramSomething1WithAltName: string): MappedSpResult</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -448,8 +448,8 @@
       <metadata />
       <childElements>
         <childElement id="7aea1864-e5c2-47d6-8140-944203d65c77" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>paramName2</name>
-          <display>in : paramName2: string</display>
+          <name>paramName2WithAltName</name>
+          <display>in : paramName2WithAltName: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="cbb86a7c-6432-4e9a-8311-fb7a18d90f34">
@@ -472,8 +472,8 @@
           <childElements />
         </childElement>
         <childElement id="aef63b2c-075a-438f-bba7-682194cd0d38" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>paramSomething1</name>
-          <display>in : paramSomething1: string</display>
+          <name>paramSomething1WithAltName</name>
+          <display>in : paramSomething1WithAltName: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="56fbccf7-b638-4637-ab7d-287c7d05b282">
@@ -499,7 +499,7 @@
     </childElement>
     <childElement id="f641c0e9-7597-4edb-bb76-510c538c50dc" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
       <name>MappedOperationWithCollection</name>
-      <display>MappedOperationWithCollection(paramRandom2: string, paramElse1: string): MappedSpResultCollection</display>
+      <display>MappedOperationWithCollection(paramRandom2WithAltName: string, paramElse1WithAltName: string): MappedSpResultCollection</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -525,8 +525,8 @@
       <metadata />
       <childElements>
         <childElement id="56b123a4-1db9-472b-860f-2a2f03e1139e" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>paramRandom2</name>
-          <display>in : paramRandom2: string</display>
+          <name>paramRandom2WithAltName</name>
+          <display>in : paramRandom2WithAltName: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="deb7819e-07ba-4e13-8cf2-25b82547573c">
@@ -549,8 +549,8 @@
           <childElements />
         </childElement>
         <childElement id="ef82ae7e-d20d-4b7b-8da4-d0e1c409854a" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
-          <name>paramElse1</name>
-          <display>in : paramElse1: string</display>
+          <name>paramElse1WithAltName</name>
+          <display>in : paramElse1WithAltName: string</display>
           <isAbstract>false</isAbstract>
           <genericTypes />
           <typeReference id="e1f6a065-fb2c-459f-8a44-9f46690b407c">
@@ -573,6 +573,86 @@
           <childElements />
         </childElement>
       </childElements>
+    </childElement>
+    <childElement id="ad42ed65-6141-47d4-9331-3db09b852c2e" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>MappedOperationCallingScalar</name>
+      <display>MappedOperationCallingScalar(param1WithDiffName: int): int</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <typeReference id="c5f7e56a-c64e-4f47-b07c-3ce2499e8578">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3391b7d1-e5ee-4518-a1e1-713572f5f04a</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements>
+        <childElement id="954a43ec-6655-4b7e-8ddc-36b598a1bd00" type="Parameter" typeId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b">
+          <name>param1WithDiffName</name>
+          <display>in : param1WithDiffName: int</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <typeReference id="c89d0f76-bac8-475e-8c53-000bf9ec9891">
+            <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+            <isNavigable>true</isNavigable>
+            <isNullable>false</isNullable>
+            <isCollection>false</isCollection>
+            <isRequired>true</isRequired>
+            <typePackageName>Intent.Common.Types</typePackageName>
+            <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+            <stereotypes />
+            <genericTypeParameters />
+          </typeReference>
+          <isMapped>false</isMapped>
+          <parentFolderId>ad42ed65-6141-47d4-9331-3db09b852c2e</parentFolderId>
+          <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+          <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="5e8a107b-8006-4ed4-869d-6279e6484a66" type="Operation" typeId="e042bb67-a1df-480c-9935-b26210f78591">
+      <name>MappedOperationCollectionPassthrough</name>
+      <display>MappedOperationCollectionPassthrough(): MappedSpCollectionPassthroughResult[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2d1b3432-5b1f-480e-a235-6844a6e42ed5">
+        <typeId>c47f5017-635c-4ac9-ac1b-3a8d5eeb79f2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.Repositories.TestApplication.Domain</typePackageName>
+        <typePackageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>3391b7d1-e5ee-4518-a1e1-713572f5f04a</parentFolderId>
+      <packageId>b3728b2a-36f7-45dc-b2d7-5301260b6b81</packageId>
+      <packageName>EntityFrameworkCore.Repositories.TestApplication.Domain</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
     </childElement>
   </childElements>
 </class>

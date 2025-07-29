@@ -1,3 +1,7 @@
+### Version 5.0.11
+
+- Improvement: Updated NuGet package versions.
+
 ### Version 5.0.10
 
 - Improvement: Locked MediatR NuGet package version

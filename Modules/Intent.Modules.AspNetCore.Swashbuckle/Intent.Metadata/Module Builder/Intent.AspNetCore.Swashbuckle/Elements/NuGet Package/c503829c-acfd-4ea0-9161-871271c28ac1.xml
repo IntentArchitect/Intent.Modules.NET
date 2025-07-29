@@ -94,7 +94,7 @@
       </childElements>
     </childElement>
     <childElement id="581896b3-d99c-4ea3-bd23-e4a0c44ed284" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.1</name>
+      <name>9.0.3</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -112,10 +112,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="34985cec-947c-48a8-acfa-b7233d2c300a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bd7536ea-8b9d-4732-8fa5-401c3a6e92e3" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
@@ -123,10 +123,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="44a2a2d9-6762-45c7-a6e4-759f2e3f478a" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="8d0d4079-5df0-4719-b1ab-dd96bd1b38fa" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
@@ -134,10 +134,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="665fcde3-f6dc-4cf8-8759-bd36cf255327" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a369cc7b-7795-46ad-a2a9-041fff8fb7af" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
@@ -145,10 +145,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="329e0abb-8839-4007-97f9-af7076928cc0" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3c632130-7b1b-4928-b730-50c97d942642" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ApiDescription.Server</name>
           <isAbstract>false</isAbstract>
-          <value>8.0.0</value>
+          <value>9.0.0</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>581896b3-d99c-4ea3-bd23-e4a0c44ed284</parentFolderId>
@@ -159,7 +159,7 @@
       </childElements>
     </childElement>
     <childElement id="220a1b4b-6e48-4c30-9acb-3aead57cdd60" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>9.0.1</name>
+      <name>9.0.3</name>
       <isAbstract>false</isAbstract>
       <genericTypes />
       <isMapped>false</isMapped>
@@ -177,10 +177,10 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="e5c2442d-6019-4f66-9c02-3977cd2faf9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="b1b0808a-e67d-4d0c-bcd6-b57cabde9788" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.Swagger</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
@@ -188,10 +188,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="df95b229-0cd2-491a-ab1a-6f6fa1bfca72" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="9239902b-f190-489d-8ac0-d8b2cc3a73d8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerGen</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
@@ -199,10 +199,10 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="1c59cb7b-31ab-4065-a38b-d5446532294e" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="c9836133-e2a9-4c37-8992-07e8fa870b79" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Swashbuckle.AspNetCore.SwaggerUI</name>
           <isAbstract>false</isAbstract>
-          <value>9.0.1</value>
+          <value>9.0.3</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>220a1b4b-6e48-4c30-9acb-3aead57cdd60</parentFolderId>
@@ -210,7 +210,7 @@
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="ef6657b1-1c33-42ea-815e-f92a0ac07d63" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="76dcde8a-196a-46df-b0e5-1e17e1f3c408" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.ApiDescription.Server</name>
           <isAbstract>false</isAbstract>
           <value>8.0.0</value>

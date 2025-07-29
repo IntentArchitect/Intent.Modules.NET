@@ -134,6 +134,20 @@
           <metadata />
           <childElements />
         </childElement>
+        <childElement id="4e14f73f-3f86-4f56-a7f0-5c4a03623bbf" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
+          <name>SQL Lite</name>
+          <display>SQL Lite = sql-lite</display>
+          <isAbstract>false</isAbstract>
+          <value>sql-lite</value>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>00bb780c-57bf-43c1-b952-303f11096be7</parentFolderId>
+          <packageId>a9d2a398-04e4-4300-9fbb-768568c65f9e</packageId>
+          <packageName>Intent.EntityFrameworkCore</packageName>
+          <stereotypes />
+          <metadata />
+          <childElements />
+        </childElement>
       </childElements>
     </childElement>
     <childElement id="49b09c68-e86a-4e15-96ab-cd482168ef22" type="Module Settings Field Configuration" typeId="88e29cab-1342-40c7-b052-5fcd68ffafec">
@@ -251,7 +265,7 @@
           <properties>
             <property name="e33ce4e3-a3c5-4a3c-a6b8-96418be03de0" display="Control Type" value="Switch" isActive="true" />
             <property name="7070a9ce-ff31-422e-9cff-d82876c5efdf" display="Is Required" value="false" isActive="false" />
-            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Generates an IApplicationDbContext file when enabled." isActive="true" />
+            <property name="01489021-8311-43d5-b41b-e7628a512c1d" display="Hint" value="Exposes a LINQ-capable interface in the Application layer, decoupled from the concrete DbContext." isActive="true" />
             <property name="653d889c-626f-45c5-a6e6-72b74a2f805c" display="Default Value" value="false" isActive="true" />
             <property name="c3456e79-0607-41a5-9b85-e0712f4f4834" display="Is Active Function" value="" isActive="true" />
             <property name="fa54329f-d4e5-48bc-8027-e17206e9fc89" display="Is Required Function" value="" isActive="true" />

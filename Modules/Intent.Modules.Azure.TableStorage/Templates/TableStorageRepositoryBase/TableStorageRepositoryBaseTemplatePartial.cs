@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
+using Intent.Modules.Azure.TableStorage.Templates.CursorPagedList;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -53,7 +54,7 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
 
                     @class
                         .AddGenericParameter("TTable", out var tTable)
-                        .AddGenericParameter("TTableInterfae", out var tTableInterface)
+                        .AddGenericParameter("TTableInterface", out var tTableInterface)
                         .ImplementsInterface($"{this.GetTableStorageRepositoryInterfaceName()}<{tDomain}, {tTableInterface}>")
                         .AddGenericTypeConstraint(tDomainState, constraint =>
                         {
@@ -177,6 +178,105 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
                             .AddStatement("return results;", s => s.SeparatedFromPrevious());
                     });
 
+                    if (CursorPagedListInterfaceName is not null)
+                    {
+                        @class.AddMethod($"Task<{CursorPagedListInterfaceName}<{tDomain}>>", "FindAllAsync", method =>
+                        {
+                            method.Async();
+
+                            method.AddParameter("int", "pageSize")
+                            .AddParameter("string?", "cursorToken")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                            var returnStatement = new CSharpInvocationStatement("await FindAllAsync")
+                            .AddArgument("_ => true")
+                            .AddArgument("pageSize")
+                            .AddArgument("cursorToken")
+                            .AddArgument("cancellationToken")
+                            .WithoutSemicolon();
+
+                            method.AddReturn(returnStatement);
+                        });
+
+                        @class.AddMethod($"Task<{CursorPagedListInterfaceName}<{tDomain}>>", "FindAllAsync", method =>
+                        {
+                            method.Async();
+                            AddUsing("System.Collections.Generic");
+
+                            method.AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                            .AddParameter("int", "pageSize")
+                            .AddParameter("string?", "cursorToken")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                            method.AddObjectInitStatement("var results", $"new List<{tDomain}>();");
+                            method.AddObjectInitStatement("var nextCursorToken", "string.Empty;");
+
+                            var queryInvocation = new CSharpInvocationStatement("_tableClient.QueryAsync")
+                            .AddArgument(
+                                new CSharpInvocationStatement("AdaptFilterPredicate")
+                                .AddArgument("filterExpression")
+                                .WithoutSemicolon())
+                            .AddArgument("cancellationToken", "cancellationToken")
+                            .AddInvocation("AsPages", pages =>
+                            {
+                                pages.AddArgument("cursorToken")
+                                .AddArgument("pageSize");
+                                pages.OnNewLine();
+                            });
+
+                            method.AddObjectInitStatement("var response", queryInvocation);
+
+                            method.AddForEachStatement("page", "response", pageFor =>
+                            {
+                                pageFor.Await();
+
+                                pageFor.AddForEachStatement("document", "page.Values", docFor =>
+                                {
+                                    docFor.AddStatement("results.Add(document.ToEntity());");
+                                });
+
+                                pageFor.AddAssignmentStatement("nextCursorToken", new CSharpStatement("page.ContinuationToken;"));
+                                pageFor.AddStatement("break;");
+                            });
+
+                            method.AddInvocationStatement("Track", invoc => invoc.AddArgument("results"));
+
+                            var resultStatement = new CSharpInvocationStatement($"new {CursorPagedListName}<{tDomain}>")
+                            .AddArgument("nextCursorToken")
+                            .AddArgument("pageSize")
+                            .AddArgument("results")
+                            .WithoutSemicolon();
+
+                            method.AddReturn(resultStatement, ret => ret.SeparatedFromPrevious());
+                        });
+                    }
+
+                    @class.AddMethod($"Task<{tDomain}?>", "FindAsync", method =>
+                    {
+                        method.Async();
+                        method.AddParameter($"Expression<Func<{tTableInterface}, bool>>", "filterExpression")
+                            .AddParameter("CancellationToken", "cancellationToken", param => param.WithDefaultValue("default"));
+
+                        method
+                            .AddStatement(
+                                "var documents = _tableClient.QueryAsync(AdaptFilterPredicate(filterExpression), cancellationToken: cancellationToken);"
+                                , c => c.AddMetadata(MetadataNames.DocumentsDeclarationStatement, true))
+                            .AddAssignmentStatement("TDomain? entity", new CSharpStatement("null;"))
+                            .AddStatement(@"
+                                await foreach (var document in documents)
+                                {
+                                    entity = document.ToEntity();
+                                    break;
+                                }")
+
+                            .AddIfStatement("entity is null", stmt =>
+                            {
+                                stmt.AddStatement("return default;");
+                            })
+                            .AddStatement("Track(entity);")
+                            .AddStatement("return entity;", s => s.SeparatedFromPrevious());
+                    });
+
                     @class.AddMethod($"Expression<Func<{tTable}, bool>>", "AdaptFilterPredicate", method =>
                     {
                         method
@@ -243,6 +343,11 @@ namespace Intent.Modules.Azure.TableStorage.Templates.TableStorageRepositoryBase
             base.AfterTemplateRegistration();
             this.ApplyAppSetting("TableStorageConnectionString", "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;");
         }
+
+        public string? CursorPagedListInterfaceName => TryGetTypeName(TemplateRoles.Repository.Interface.CursorPagedList, out var name)
+            ? name : null;
+
+        public string? CursorPagedListName => GetTypeName(CursorPagedListTemplate.TemplateId);
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

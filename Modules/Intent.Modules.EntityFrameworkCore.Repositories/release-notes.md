@@ -1,3 +1,9 @@
+### Version 4.7.14
+
+- Fixed: Stored procedure implementations would generate incorrect code if parameter input names differed from those of the containing method.
+- Fixed: Repository method implementations for mapped stored procedures returning scalar values would have an incorrect return statement generated.
+- Fixed: Updated stored procedure implementations to use `.ToListAsync(...)` and to always return `List<T>` to align with other repository operations as well as the calling operations which typically return `List<T>` as well.
+
 ### Version 4.7.13
 
 - Improvement: Methods with no auto-implementation will now generate with an `IntentManaged` Body mode of Merge and their `throw new NotImplemented()` statements have been commented with [IntentInitialGen to prevent them from returning when deleted](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-csharp/code-management-csharp.html#the--intentinitialgen-instruction). (Note: A side effect of this improvement is that entries may appear in the Customizations tab of the Software Factory or existing entries may no longer be approved and they will need to reviewed).

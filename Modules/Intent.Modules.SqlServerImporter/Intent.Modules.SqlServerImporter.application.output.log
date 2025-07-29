@@ -25,19 +25,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>e5797d25-2faa-48f9-8a82-b8eae39681c3</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.DesignerSettings#eff0c63a-8e7c-4ee9-96f4-cfa04076299f</CorrelationId>
+      <ProjectId>39f61245-1acb-47cf-a197-24988bd6c81d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#9f2555bd-7b8e-40f8-a26a-6d9f7766a8d6</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>modelers/Domain Designer Extensions.designer.settings</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Domain Designer Extensions.designer.settings</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>93037f76-a9ae-4fe4-99ae-117f49abc1ca</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.DocumentationTemplate#b8e9cc1e-d045-448b-abe7-c70ae74213c5</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>resources/documentation.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>documentation.json</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Migrations/Migration_01_02_01_Pre_02.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_01_02_01_Pre_02.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

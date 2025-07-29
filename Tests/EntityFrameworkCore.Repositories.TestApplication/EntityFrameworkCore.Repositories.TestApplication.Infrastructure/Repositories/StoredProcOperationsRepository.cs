@@ -39,7 +39,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             var result = (await _dbContext.SpResults
                 .FromSqlInterpolated($"EXECUTE MyProc {paramParameter}")
                 .IgnoreQueryFilters()
-                .ToArrayAsync(cancellationToken))
+                .ToListAsync(cancellationToken))
                 .Single();
 
             return result;

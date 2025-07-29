@@ -39,6 +39,8 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
         [IntentManaged(Mode.Merge, Signature = Mode.Fully, Body = Mode.Ignore)]
         public DbContextTemplate(IOutputTarget outputTarget, DbContextInstance model) : base(TemplateId, outputTarget, model)
         {
+            ProviderHelper.ValidateModuleSetupForProvider(this);
+
             _interfaceTemplate = new Lazy<DbContextInterfaceTemplate>(() => GetTemplate<DbContextInterfaceTemplate>(
                 templateId: DbContextInterfaceTemplate.TemplateId,
                 model: model,

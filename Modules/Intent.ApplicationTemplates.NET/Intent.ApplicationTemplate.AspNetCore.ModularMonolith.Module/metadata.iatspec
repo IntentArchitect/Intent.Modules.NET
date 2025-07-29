@@ -308,15 +308,6 @@ Learn more:
     </group>
   </componentGroups>
   <additionalSettings>
-    <group id="ad8ff485-19a7-4f22-9593-d8e6796d9e24" title="Visual Studio Solution Settings">
-      <settings>
-        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
-          <defaultValue>true</defaultValue>
-          <isRequired>false</isRequired>
-          <options />
-        </setting>
-      </settings>
-    </group>
     <group id="9e37f57f-ccb4-4dbe-9c6c-19ba1b9ef1e1" title="Basic Settings">
       <settings>
         <setting id="target-framework" title="Target Framework" type="select">
@@ -327,8 +318,6 @@ Learn more:
             <option value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" description=".NET 8.0" />
             <option value="0cd4e056-3bc1-4f8c-9cba-7d362d42c33c" description=".NET 7.0" />
             <option value="16d99e3e-7b91-42f8-ae3b-2686edde94b7" description=".NET 6.0" />
-            <option value="9880b776-9b13-4ff6-87b3-2219cfa66652" description=".NET 5.0" />
-            <option value="d603dbfd-3361-4406-b5c0-efc2ac6f33fc" description=".NET Core 3.1" />
           </options>
         </setting>
         <setting id="top-level-statements" title="Use Top-Level Statements" type="checkbox">
@@ -347,6 +336,15 @@ Learn more:
         </setting>
         <setting id="14bc1e98-930b-494c-97a9-5da4e1f3a5fa" title="Default Mapping Mode" type="hidden">
           <defaultValue>advanced</defaultValue>
+          <isRequired>false</isRequired>
+          <options />
+        </setting>
+      </settings>
+    </group>
+    <group id="ad8ff485-19a7-4f22-9593-d8e6796d9e24" title="Visual Studio Solution Settings">
+      <settings>
+        <setting id="707a9eec-1407-4fe3-bd32-7c1b31efa3f1" title="Generate Git ignore file" type="hidden">
+          <defaultValue>true</defaultValue>
           <isRequired>false</isRequired>
           <options />
         </setting>

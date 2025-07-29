@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="bf81c0fa-9a2f-4301-bfc3-23beabbac0c1" type="Diagram" typeId="8c90aca5-86f4-47f1-bd58-116fe79f5c55">
+  <name>Customers</name>
+  <display>Customers</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>46a5c8fb-ea52-4644-b5e2-3447cc2edb11</parentFolderId>
+  <packageId>c3cf4dfd-1733-4a5b-92af-9914099154c0</packageId>
+  <packageName>EntityFrameworkCore.SQLLite.Services</packageName>
+  <diagram>
+    <targetPackageId>bf81c0fa-9a2f-4301-bfc3-23beabbac0c1</targetPackageId>
+  </diagram>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

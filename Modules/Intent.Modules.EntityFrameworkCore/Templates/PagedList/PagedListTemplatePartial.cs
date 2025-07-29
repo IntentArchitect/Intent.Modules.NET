@@ -77,12 +77,12 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.PagedList
                 })
                 .AfterBuild(file =>
                 {
-                    var dbContextInterface = GetTemplate<DbContextInterfaceTemplate>(TemplateRoles.Application.Common.DbContextInterface, TemplateDiscoveryOptions.DoNotThrow);
+                    //Not introducing a hard dependency
+                    var dbContextInterface = this.ExecutionContext.FindTemplateInstance<DbContextInterfaceTemplate>(TemplateRoles.Application.Common.DbContextInterface);
                     if (dbContextInterface?.IsEnabled != true)
                     {
                         return;
                     }
-
                     file.AddUsing("Microsoft.EntityFrameworkCore");
                     file.AddClass("QueryablePaginationExtension", @class =>
                     {
