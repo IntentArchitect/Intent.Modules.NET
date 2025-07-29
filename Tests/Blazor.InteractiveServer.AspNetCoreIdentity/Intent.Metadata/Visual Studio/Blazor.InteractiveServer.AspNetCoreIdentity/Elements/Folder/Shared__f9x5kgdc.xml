@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="6450b9c0-96ff-4afe-abf7-16f1f8e203a1" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Shared</name>
+  <display>Shared</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>6015ce4b-985b-4a65-bf4e-c4099ac87b92</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="ecbf495c-4697-4626-830a-833afef614b9" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="120fb32a-abd1-423a-8a1e-df662e6271cf" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration</name>
+      <display>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

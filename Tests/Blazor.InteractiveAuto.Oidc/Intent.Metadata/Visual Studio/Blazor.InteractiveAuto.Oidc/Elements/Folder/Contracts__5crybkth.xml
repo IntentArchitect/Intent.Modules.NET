@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="f129d74d-d3ec-411e-a374-a8fb34ff0b20" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Contracts</name>
+  <display>Contracts</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="72c0c796-6cc3-477b-9e11-604ad1656745" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</name>
+      <display>Intent.Blazor.HttpClients.Dtos.FluentValidation.DtoValidator</display>
+      <externalReference>Intent.Blazor.HttpClients.Dtos.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f129d74d-d3ec-411e-a374-a8fb34ff0b20</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="438d79a4-dbba-4db7-8281-3d1505350f66" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.DtoContract</name>
+      <display>Intent.Blazor.HttpClients.DtoContract</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f129d74d-d3ec-411e-a374-a8fb34ff0b20</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="be71902e-8a31-4e63-9558-442266a81dbb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.EnumContract</name>
+      <display>Intent.Blazor.HttpClients.EnumContract</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>f129d74d-d3ec-411e-a374-a8fb34ff0b20</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

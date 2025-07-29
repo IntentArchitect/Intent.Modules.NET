@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="dda8d270-f9d5-4724-bb30-d0ff7fffd2fc" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Common</name>
+  <display>Common</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>58c84e69-0119-43d6-9d34-40590dddb774</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="d972876a-7d74-40ef-b7be-fc5954dc126f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.HttpClientRequestException</name>
+      <display>Intent.Blazor.HttpClients.HttpClientRequestException</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2e813af4-2e9e-48e5-bbf3-28a52df9fa15" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.JsonResponse</name>
+      <display>Intent.Blazor.HttpClients.JsonResponse</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="496d0991-56a4-4c8a-a0fd-a1ed5f7f4dc1" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.PagedResult</name>
+      <display>Intent.Blazor.HttpClients.PagedResult</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="9e730a84-090c-4cfd-9df6-b239a94dddd7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</name>
+      <display>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="dd8ebb4b-f83f-4ba5-ab4d-25800f74ce02" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.PersistentAuthenticationStateProviderTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

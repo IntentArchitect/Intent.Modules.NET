@@ -1,0 +1,57 @@
+@page "/Account/ResendEmailConfirmation"
+@using System.ComponentModel.DataAnnotations
+@using Blazor.InteractiveAuto.Jwt.Common
+@inject IAuthService AuthService
+
+<PageTitle>Resend email confirmation</PageTitle>
+<h1>Resend email confirmation</h1>
+<h2>Enter your email.</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm Model="Input"
+                  FormName="resend-email-confirmation"
+                  OnValidSubmit="OnValidSubmitAsync"
+                  method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger"
+                               role="alert" />
+            <div class="form-floating mb-3">
+                <InputText class="form-control"
+                           @bind-Value="Input.Email"
+                           autocomplete="username"
+                           aria-required="true"
+                           placeholder="name@example.com" />
+                <label class="form-label"
+                       for="email">
+                    Email
+                </label>
+                <ValidationMessage class="text-danger"
+                                   For="() => Input.Email" />
+                <button class="w-100 btn btn-lg btn-primary"
+                        type="submit">
+                    Resend
+                </button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+@code {
+
+    private string? message;
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+
+    private async Task OnValidSubmitAsync()
+    {
+        await AuthService.ResendEmailConfirmation(Input.Email);
+        message = "Verification email sent. Please check your email.";
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = "";
+    }
+}

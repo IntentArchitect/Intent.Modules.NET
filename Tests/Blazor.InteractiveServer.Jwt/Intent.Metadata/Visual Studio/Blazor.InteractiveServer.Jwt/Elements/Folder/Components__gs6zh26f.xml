@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0b06e0d5-4e2d-4eef-bc0e-6ae04832373c" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Components</name>
+  <display>Components</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>8840a1e1-f6c0-4df8-9444-d1e629932d69</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="380fcc1a-7a8b-4099-9592-e22689a91015" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.AppRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.AppRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0b06e0d5-4e2d-4eef-bc0e-6ae04832373c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="91baf8d0-3d00-4358-a9a0-9d9b905b6279" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Server.ServerImportsRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>0b06e0d5-4e2d-4eef-bc0e-6ae04832373c</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

@@ -1,0 +1,25 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+@layout Blazor.InteractiveAuto.Jwt.Client.Layout.MainLayout
+@if(HttpContext is null)
+{
+<p>Loading...</p>
+}
+else
+{
+@Body
+}
+@code {
+
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (HttpContext is null)
+        {
+            NavigationManager.Refresh(forceReload: true);
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="f2c4dfac-fffc-43fe-82da-46d070696b12">
+  <sourceEnd id="e92a0fc1-3e2d-48f2-8723-dca8027fa2f8" type="Navigation Source End" typeId="97a3de8a-c9bf-4cf2-bc0a-b8692b02211b">
+    <display>: ExamplePage</display>
+    <order>0</order>
+    <typeReference id="4c992d57-d957-44aa-8797-09174932087c">
+      <typeId>d4fcc6e8-b3c8-4b43-877c-6e605cec0faf</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>false</isRequired>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="f2c4dfac-fffc-43fe-82da-46d070696b12" type="Navigation Target End" typeId="2b191288-ecae-4743-b069-cbdd927ef349">
+    <name>NavigateToHome</name>
+    <display>[navigate] Home</display>
+    <order>0</order>
+    <typeReference id="3b402497-e5a3-4610-945d-6349c240e8cb">
+      <typeId>51619c95-636d-4a62-b413-59fa4c6c4367</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>false</isRequired>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Navigation</associationType>
+  <associationTypeId>6d2b2070-c1cb-4cd2-88b4-4e5f8414bd9e</associationTypeId>
+  <externalReference>e9626fc0-0be4-4af9-91f8-2aaa5919edbf</externalReference>
+  <stereotypes />
+</association>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="48075161-1e18-414b-ac43-af1ac95dd1bb" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Shared</name>
+  <display>Shared</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>2f0b1d2e-5012-4ef0-976d-d78022b1059a</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="b30785ab-2dee-4d98-ad38-bbec288656ec" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>48075161-1e18-414b-ac43-af1ac95dd1bb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0f8d380e-076c-49ee-9537-b2188a2cf5ee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>48075161-1e18-414b-ac43-af1ac95dd1bb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="b217b766-177c-44cc-96e4-7fa08e018eb6" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>48075161-1e18-414b-ac43-af1ac95dd1bb</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

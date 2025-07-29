@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="84114d4c-e676-42f6-bc36-7bf9d2646f13" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Validation</name>
+  <display>Validation</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>96bbcd32-e404-4221-b567-e3ca8ad7e29d</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="011a3b11-e95d-42f7-b33b-315dc3462399" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.FluentValidation.ValidatorProvider</name>
+      <display>Intent.Blazor.FluentValidation.ValidatorProvider</display>
+      <externalReference>Intent.Blazor.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84114d4c-e676-42f6-bc36-7bf9d2646f13</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="22737dea-9693-48ee-ac31-361543226e58" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.FluentValidation.ValidatorProviderInterface</name>
+      <display>Intent.Blazor.FluentValidation.ValidatorProviderInterface</display>
+      <externalReference>Intent.Blazor.FluentValidation</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84114d4c-e676-42f6-bc36-7bf9d2646f13</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="134c7db5-149a-4225-add6-05c2d6504d75" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions</name>
+      <display>Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions</display>
+      <externalReference>Intent.Blazor.Components.MudBlazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>84114d4c-e676-42f6-bc36-7bf9d2646f13</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

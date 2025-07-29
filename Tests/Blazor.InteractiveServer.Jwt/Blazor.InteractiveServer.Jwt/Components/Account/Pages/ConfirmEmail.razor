@@ -1,0 +1,27 @@
+@page "/Account/ConfirmEmail"
+@using Blazor.InteractiveServer.Jwt.Common
+@inject IdentityRedirectManager RedirectManager
+@inject IAuthService AuthService
+
+<PageTitle>Confirm email</PageTitle>
+<h1>Confirm email</h1>
+<StatusMessage Message="@statusMessage" />
+@code {
+
+    private string? statusMessage;
+    [CascadingParameter]
+    public HttpContext HttpContext { get; set; } = default!;
+    [SupplyParameterFromQuery]
+    public string? UserId { get; set; }
+    [SupplyParameterFromQuery]
+    public string? Code { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (UserId is null || Code is null)
+        {
+            RedirectManager.RedirectTo("");
+        }
+        statusMessage = await AuthService.ConfirmEmail(UserId, Code);
+    }
+}

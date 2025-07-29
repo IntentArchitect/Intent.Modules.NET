@@ -1,0 +1,105 @@
+@page "/Account/Register"
+@using System.ComponentModel.DataAnnotations
+@using Blazor.InteractiveServer.Jwt.Common
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Identity
+@inject IAuthService AuthService
+
+<PageTitle>Register</PageTitle>
+<h1>Register</h1>
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <StatusMessage Message="@Message" />
+            <EditForm Model="Input"
+                      FormName="register"
+                      OnValidSubmit="RegisterUser"
+                      method="post"
+                      asp-route-returnUrl="@ReturnUrl">
+                <DataAnnotationsValidator />
+                <h2>Create a new account.</h2>
+                <hr />
+                <ValidationSummary class="text-danger"
+                                   role="alert" />
+                <div class="form-floating mb-3">
+                    <InputText class="form-control"
+                               @bind-Value="Input.Email"
+                               autocomplete="username"
+                               aria-required="true"
+                               placeholder="name@example.com" />
+                    <label class="form-label"
+                           for="email">
+                        Email
+                    </label>
+                    <ValidationMessage class="text-danger"
+                                       For="() => Input.Email" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText class="form-control"
+                               @bind-Value="Input.Password"
+                               autocomplete="current-password"
+                               aria-required="true"
+                               placeholder="password"
+                               type="password" />
+                    <label class="form-label"
+                           for="password">
+                        Password
+                    </label>
+                    <ValidationMessage class="text-danger"
+                                       For="() => Input.Password" />
+                </div>
+                <div class="form-floating mb-3">
+                    <InputText class="form-control"
+                               @bind-Value="Input.ConfirmPassword"
+                               autocomplete="current-password"
+                               aria-required="true"
+                               placeholder="password"
+                               type="password" />
+                    <label class="form-label"
+                           for="confirm-password">
+                        Confirm Password
+                    </label>
+                    <ValidationMessage class="text-danger"
+                                       For="() => Input.ConfirmPassword" />
+                </div>
+                <div>
+                    <button class="w-100 btn btn-lg btn-primary"
+                            type="submit">
+                        Register
+                    </button>
+                </div>
+            </EditForm>
+        </section>
+    </div>
+</div>
+@code {
+
+    private IEnumerable<IdentityError>? identityErrors;
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = new();
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+    private string? Message => identityErrors is null ? null : $"Error: {string.Join(", ", identityErrors.Select(error => error.Description))}";
+
+    public async Task RegisterUser()
+    {
+        await AuthService.Register(Input.Email, Input.Password, ReturnUrl);
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = "";
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; } = "";
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; } = "";
+        [Required]
+        public string Code { get; set; } = "";
+    }
+}

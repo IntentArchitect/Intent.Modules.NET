@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="ed04e151-02db-4d04-b644-aa999cffb17a" type="Folder" typeId="3407a825-1331-4f3f-89a4-901903ed97ce">
+  <name>Implementations</name>
+  <display>Implementations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>58436585-9bd9-4608-815e-fd35c3362e19</parentFolderId>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="120aaedf-ec15-40ed-942c-743263c3dde7" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.HttpClients.HttpClient</name>
+      <display>Intent.Blazor.HttpClients.HttpClient</display>
+      <externalReference>Intent.Blazor.HttpClients</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>ed04e151-02db-4d04-b644-aa999cffb17a</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

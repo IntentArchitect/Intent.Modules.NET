@@ -43,7 +43,6 @@ namespace MudBlazor.ExampleApp.Api
             services.AddClientServices(Configuration);
 
             services.AddRazorComponents()
-                .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
 
             services.AddMudServices();
@@ -76,7 +75,6 @@ namespace MudBlazor.ExampleApp.Api
                 endpoints.MapControllers();
 
                 endpoints.MapRazorComponents<App>()
-                    .AddInteractiveServerRenderMode()
                     .AddInteractiveWebAssemblyRenderMode()
                     .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
             });
