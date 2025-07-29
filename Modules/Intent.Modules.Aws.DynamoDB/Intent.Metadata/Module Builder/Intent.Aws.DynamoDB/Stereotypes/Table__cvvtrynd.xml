@@ -38,7 +38,7 @@
       <placeholder>(optional)</placeholder>
     </property>
     <property id="ace7ecc8-2874-4afc-8e4d-b4cad3c93488">
-      <hint>[Throughput](https://learn.microsoft.com/azure/cosmos-db/set-throughput#set-throughput-on-a-container) of the container. Defaults to parent value if available or otherwise uses the default of [400 RUs](https://github.com/IEvangelist/azure-cosmos-dotnet-repository/blob/2c2903cf59d0f5c480276afd472d502e52e49c3d/src/Microsoft.Azure.CosmosRepository/Builders/ContainerOptionsBuilder.cs#L42-L46).</hint>
+      <hint />
       <name>Throughput Mode</name>
       <type>string</type>
       <controlType>select</controlType>
