@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.SqlServerImporter</id>
-  <version>1.2.1-pre.6</version>
+  <version>1.2.1</version>
   <supportedClientVersions>[4.5.4-a, 5.0.0-a)</supportedClientVersions>
   <summary>Obsolete. The functionality of this module has moved to Intent.Rdbms.Importer. It can safely be uninstalled.</summary>
   <description>Obsolete. The functionality of this module has moved to Intent.Rdbms.Importer. It can safely be uninstalled.</description>
@@ -17,7 +17,7 @@
   <dependencies>
     <dependency id="Intent.Common" version="3.7.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Rdbms.Importer" version="1.0.0-pre.5" />
+    <dependency id="Intent.Rdbms.Importer" version="1.0.0" />
   </dependencies>
   <files>
     <file src="$outDir$/$id$.dll" />
