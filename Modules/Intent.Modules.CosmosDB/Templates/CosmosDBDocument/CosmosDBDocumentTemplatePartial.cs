@@ -192,7 +192,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
             }
 
 
-            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDB().UseOptimisticConcurrency() && Model.ParentClass == null;
+            var useOptimisticConcurrency = ExecutionContext.Settings.GetCosmosDBSettings().UseOptimisticConcurrency() && Model.ParentClass == null;
             if (useOptimisticConcurrency)
             {
                 // Etag implementation:
@@ -282,7 +282,7 @@ namespace Intent.Modules.CosmosDB.Templates.CosmosDBDocument
                     }
 
                     if (classAttribute2.TypeReference?.Element?.IsEnumModel() == true &&
-                        ExecutionContext.Settings.GetCosmosDB().StoreEnumsAsStrings())
+                        ExecutionContext.Settings.GetCosmosDBSettings().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{UseType("Newtonsoft.Json.JsonConverter")}(typeof({this.GetEnumJsonConverterName()}))");
                     }

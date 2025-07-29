@@ -45,7 +45,7 @@ namespace Intent.Modules.CosmosDB.Templates
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonProperty")}(\"{attribute.GetFieldSettings().Name()}\")");
                     }
 
-                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDB().StoreEnumsAsStrings())
+                    if (attribute.TypeReference?.Element?.IsEnumModel() == true && template.ExecutionContext.Settings.GetCosmosDBSettings().StoreEnumsAsStrings())
                     {
                         property.AddAttribute($"{template.UseType("Newtonsoft.Json.JsonConverter")}(typeof({template.GetEnumJsonConverterName()}))");
                     }
@@ -152,7 +152,7 @@ namespace Intent.Modules.CosmosDB.Templates
             bool isAggregate,
             bool hasBaseType)
         {
-            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDB().UseOptimisticConcurrency();
+            var useOptimisticConcurrency = template.ExecutionContext.Settings.GetCosmosDBSettings().UseOptimisticConcurrency();
             var genericTypeArguments = @class.GenericParameters.Any()
                 ? $"<{string.Join(", ", @class.GenericParameters.Select(x => x.TypeName))}>"
                 : string.Empty;

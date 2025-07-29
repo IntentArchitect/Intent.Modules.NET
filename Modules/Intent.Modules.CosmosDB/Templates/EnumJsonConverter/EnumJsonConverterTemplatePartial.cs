@@ -68,7 +68,7 @@ namespace Intent.Modules.CosmosDB.Templates.EnumJsonConverter
 
         public override bool CanRunTemplate()
         {
-            return ExecutionContext.Settings.GetCosmosDB().StoreEnumsAsStrings();
+            return ExecutionContext.Settings.GetCosmosDBSettings().StoreEnumsAsStrings();
         }
 
         [IntentManaged(Mode.Fully)]

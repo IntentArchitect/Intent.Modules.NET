@@ -866,14 +866,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>0977cbf1-de20-4c39-b227-b8053152727c</ProjectId>
-      <CorrelationId>Intent.Entities.Repositories.Api.CursorPagedListInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Domain/Repositories/ICursorPagedList.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ICursorPagedList.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>0977cbf1-de20-4c39-b227-b8053152727c</ProjectId>
       <CorrelationId>Intent.Entities.Repositories.Api.EntityRepositoryInterface#3933f64d-614a-4ad7-a8a8-9397b67f4e78</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.EntityInterfaces.Domain/Repositories/ICustomerRepository.cs</ApplicationRelativeFilePath>
