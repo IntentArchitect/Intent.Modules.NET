@@ -114,5 +114,19 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="314c3cbb-9b35-4351-923c-41c9e8e74497" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>cb2369a2-d643-4c07-b8fd-79c1676b4f19</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

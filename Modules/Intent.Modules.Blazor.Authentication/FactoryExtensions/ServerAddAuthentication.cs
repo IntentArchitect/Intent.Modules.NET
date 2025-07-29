@@ -10,6 +10,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServic
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityNoOpEmailSender;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAuthServiceConcrete;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthenticationOptions;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingServerAuthenticationStateProvider;
@@ -65,6 +66,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     else if (startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsOidc())
                     {
                         statements.AddStatement($"{context.Services}.AddHttpClient(\"oidcClient\", client => client.BaseAddress = {context.Configuration}.GetValue<Uri?>(\"TokenEndpoint:Uri\"));");
+                        statements.AddStatement($"{context.Services}.Configure<{startup.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}>({context.Configuration});");
                     }
                     statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
 

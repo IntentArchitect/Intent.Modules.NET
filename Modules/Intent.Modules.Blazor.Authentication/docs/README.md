@@ -1,98 +1,34 @@
-﻿# Intent.Blazor.Components.MudBlazor
+﻿# Intent.Blazor.Authentication
 
-MudBlazor is a modern, open-source UI component library for Blazor that follows Material Design principles, providing a rich set of customizable components for building sleek and responsive web applications.
-It simplifies Blazor development by offering built-in theming, form validation, and a wide range of ready-to-use components like tables, dialogs, and charts.
+The **Intent.Blazor.Authentication** module provides a fully integrated authentication setup for Blazor applications generated with Intent Architect.  
+It supports all three Blazor rendering modes — **InteractiveServer**, **InteractiveWebAssembly**, and **InteractiveAuto** — and can be configured to work with multiple authentication strategies:
 
-This module enables you to realize your UI design using MudBlazor.
+- **ASP.NET Core Identity**
+- **JWT Bearer Authentication**
+- **OIDC Password Flow**
 
-For more information on MudBlazor, refer to the official [documentation](https://mudblazor.com/docs/overview).
+## Rendering Mode Support
 
-## Webinar - Blazor Frontend Automation
+The appropriate services, `AuthenticationStateProvider` implementations, and dependency injection (DI) registrations are generated according to the selected rendering mode to ensure a seamless authentication flow.
 
-In this [webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=frontendwebinar), we'll explore how we can automate and continuously manage these patterns in Blazor & MudBlazor, dramatically accelerating our .NET development!
+Each rendering mode uses a tailored implementation of the `AuthenticationStateProvider` to match its runtime environment.  
+By default, authentication state is persisted using cookies in all modes, unless overridden.
 
-## Sample Application
+## Supported Authentication Modes
 
-We also have a technology sample available, which you can download and try out from our GitHub repository [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor.git).
+You can configure this module to support:
 
-## Tips for Styling Your MudBlazor Application
+- **ASP.NET Core Identity** – For individual accounts using a local store. This mode sets up an Entity Framework Core database to store user data and account information. It includes built-in functionality for user registration, login, password reset, and email confirmation. **Note:** This mode does not support attaching a token to a third-party API.
+  
+- **JWT (JSON Web Token)** – For stateless authentication using tokens. A `TokenEndpoint:Uri` must be configured in your app settings. The module handles typical user flows including login, registration, password reset, and forgot password — assuming your token provider supports these endpoints.
+  
+- **OIDC Password Flow** – For integration with third-party identity providers like IdentityServer, Auth0, or Azure AD B2C. This mode supports the **Resource Owner Password Credentials (ROPC)** grant flow, allowing users to authenticate using their username and password directly against the identity provider.
 
-### Customize Your Site Colors and Fonts
+In all three modes, the authenticated `ClaimsPrincipal` is stored in either the `IdentityCookie` or a general `Cookie`, depending on the configuration.
 
-You can set up a custom `MudTheme` to customize your site's color palette and typography.
+## Third-Party API Authentication
 
-#### In `MainLayout.razor`
+Authentication for secure third-party APIs can be achieved using either **JWT** or **OIDC** modes.
 
-1. Add a `Theme` attribute to the `MudThemeProvider`.
-2. Set the `Theme` attribute to your backing field for the theme.
-
-```razor
-@inherits LayoutComponentBase
-
-<!-- Specify the backing field for your theme -->
-<MudThemeProvider Theme="_mySiteTheme" />
-
-<MudPopoverProvider />
-```
-
-#### In `MainLayout.razor.cs`
-
-1. Add a private field `_mySiteTheme` of type `MudTheme`.
-2. Configure the theme according to your preferences.
-3. Add an `[IntentMerge]` attribute to the `MainLayout` class so that Intent Architect preserves your customizations.
-
-```csharp
-[IntentMerge]
-public partial class MainLayout
-{
-    private MudTheme _mySiteTheme = new MudTheme
-    {
-        PaletteLight = new PaletteLight
-        {
-            Primary = "#ADD8E6", // Light Blue
-            Secondary = "#1B2550", // Dark Blue
-            Background = "#F4F6F9", // Light grayish background
-            Surface = "#FFFFFF", // White content area
-            AppbarBackground = "#1976D2", // Match primary
-            DrawerBackground = "#F4F6F9", // Darker blue for sidebar
-            TextPrimary = "#212121",
-            TextSecondary = "#757575"
-        }
-        /*
-        You may also want to configure the following properties:
-        - PaletteDark
-        - Typography
-        */
-    };
-}
-```
-
-### Flexible Layouts Using the `Layout` Stereotype
-
-MudBlazor's layout system is based on CSS flexbox and grid principles, leveraging Bootstrap-style breakpoints to create responsive designs.
-
-A common way to layout components in MudBlazor is by using a `MudGrid` with `MudItem`s, as shown below:
-
-```razor
-<MudGrid>
-    <MudItem xs="12">
-        <MudCard>Item 1</MudCard>
-    </MudItem>
-    <MudItem xs="12" md="6">
-        <MudCard>Item 2</MudCard>
-    </MudItem>
-    <MudItem xs="12" md="6">
-        <MudCard>Item 3</MudCard>
-    </MudItem>
-</MudGrid>
-```
-
-To achieve this using the `User Interface Designer`, model it as follows:
-
-1. Add three `Card` components.
-2. Apply the `Layout` stereotype to the `Card` components.
-3. Configure the stereotypes accordingly.
-
-![Using Layout Stereotypes](images/using-layout-stereotypes.png)
-
-For more details on MudBlazor layouts, refer to the official [documentation](https://mudblazor.com/components/grid#basic-grid).
+In these modes, the access token (`auth_token`) retrieved from the configured token provider is automatically attached to any outgoing HTTP requests targeting `Secured` API endpoints.  
+This ensures that all protected resources are accessed with the appropriate authorization headers without requiring manual token handling.

@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRedirectManager;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthenticationOptions;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -33,12 +34,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                 .AddUsing("System.Net.Http.Json")
                 .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Security.Claims")
+                .AddUsing("Microsoft.Extensions.Options")
                 .AddClass($"OidcAuthService", @class =>
                 {
                     @class.Internal();
                     @class.ImplementsInterface(GetTypeName(AuthServiceInterfaceTemplate.TemplateId));
 
                     @class.AddField("HttpClient", "_httpClient");
+                    @class.AddField($"{GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}", "_oidcAuthOptions");
 
                     @class.AddConstructor(ctor =>
                     {
@@ -52,6 +55,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                         {
                             param.IntroduceReadonlyField();
                         });
+                        ctor.AddParameter($"IOptions<{GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}>", "oidcAuthOptions");
+                        ctor.AddStatement("_oidcAuthOptions = oidcAuthOptions.Value;");
                     });
 
                     @class.AddMethod("Task", "Login", method =>
@@ -62,7 +67,17 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                         method.AddParameter("bool", "rememberMe");
                         method.AddParameter("string", "returnUrl");
 
-                        method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsJsonAsync(\"/login\", new { Email = username, Password = password });"));
+                        method.AddStatements(@"var tokenRequest = new Dictionary<string, string>
+                        {
+                            { ""grant_type"", ""password"" },
+                            { ""client_id"", _oidcAuthOptions.ClientId },
+                            { ""client_secret"", _oidcAuthOptions.ClientSecret },
+                            { ""username"", username },
+                            { ""password"", password },
+                            { ""scope"", _oidcAuthOptions.DefaultScopes }
+                        };".ConvertToStatements());
+
+                        method.AddAssignmentStatement("var tokenResponse", new CSharpStatement("await _httpClient.PostAsJsonAsync(\"/connect/token\", new FormUrlEncodedContent(tokenRequest));"));
 
                         method.AddIfStatement("tokenResponse.IsSuccessStatusCode", @if =>
                         {
@@ -72,9 +87,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                                 new Claim(ClaimTypes.NameIdentifier, username),
                                 new Claim(ClaimTypes.Email, username),
                                 new Claim(""access_token"", tokens.AccessToken),
-                                new Claim(""refresh_token"", tokens.RefreshToken),
-                                new Claim(""token_type"", tokens.TokenType),
-                                new Claim(""expires_at"", tokens.ExpiresIn.ToString())
+                                new Claim(""refresh_token"", tokens.RefreshToken)
                             };".ConvertToStatements());
                             @if.AddAssignmentStatement("var claimsIdentity", new CSharpStatement("new ClaimsIdentity(claims);"));
                             @if.AddAssignmentStatement("var claimsPrincipal", new CSharpStatement("new ClaimsPrincipal(claimsIdentity);"));

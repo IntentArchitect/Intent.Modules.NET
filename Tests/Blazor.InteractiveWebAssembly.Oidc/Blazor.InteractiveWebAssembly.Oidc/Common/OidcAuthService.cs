@@ -8,6 +8,7 @@ using Blazor.InteractiveWebAssembly.Oidc.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate", Version = "1.0")]
@@ -19,19 +20,31 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Common
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IdentityRedirectManager _redirectManager;
         private HttpClient _httpClient;
+        private OidcAuthenticationOptions _oidcAuthOptions;
 
         public OidcAuthService(IHttpContextAccessor httpContextAccessor,
             IHttpClientFactory httpClientFactory,
-            IdentityRedirectManager redirectManager)
+            IdentityRedirectManager redirectManager,
+            IOptions<OidcAuthenticationOptions> oidcAuthOptions)
         {
             _httpContextAccessor = httpContextAccessor;
             _httpClient = httpClientFactory.CreateClient("oidcClient");
             _redirectManager = redirectManager;
+            _oidcAuthOptions = oidcAuthOptions.Value;
         }
 
         public async Task Login(string username, string password, bool rememberMe, string returnUrl)
         {
-            var tokenResponse = await _httpClient.PostAsJsonAsync("/login", new { Email = username, Password = password });
+            var tokenRequest = new Dictionary<string, string>
+                                    {
+                                        { "grant_type", "password" },
+                                        { "client_id", _oidcAuthOptions.ClientId },
+                                        { "client_secret", _oidcAuthOptions.ClientSecret },
+                                        { "username", username },
+                                        { "password", password },
+                                        { "scope", _oidcAuthOptions.DefaultScopes }
+                                    };
+            var tokenResponse = await _httpClient.PostAsJsonAsync("/connect/token", new FormUrlEncodedContent(tokenRequest));
 
             if (tokenResponse.IsSuccessStatusCode)
             {
@@ -41,9 +54,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc.Common
                                                 new Claim(ClaimTypes.NameIdentifier, username),
                                                 new Claim(ClaimTypes.Email, username),
                                                 new Claim("access_token", tokens.AccessToken),
-                                                new Claim("refresh_token", tokens.RefreshToken),
-                                                new Claim("token_type", tokens.TokenType),
-                                                new Claim("expires_at", tokens.ExpiresIn.ToString())
+                                                new Claim("refresh_token", tokens.RefreshToken)
                                             };
                 var claimsIdentity = new ClaimsIdentity(claims);
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);

@@ -134,6 +134,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
     </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate" externalReference="614d58ce-5ba0-47d2-af7a-74fbb37a5857">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Default</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate" externalReference="7be3c1f1-74cf-4775-bd5d-bc737260fac0">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -215,6 +223,8 @@
   <tags />
   <releaseNotes>release-notes.md</releaseNotes>
   <moduleSettingsExtensions />
-  <metadata />
+  <metadata>
+    <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Intent.Blazor.Authentication.pkg.config" externalReference="b9d38f7c-7a8d-4007-b33d-7f386ccf119a" />
+  </metadata>
   <migrations />
 </package>

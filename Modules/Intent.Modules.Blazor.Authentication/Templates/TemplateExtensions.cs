@@ -17,6 +17,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityRe
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.IdentityUserAccessor;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthenticationOptions;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAuthServiceConcrete;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingRevalidatingAuthenticationStateProvider;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.PersistingServerAuthenticationStateProvider;
@@ -90,6 +91,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetJwtAuthServiceConcreteTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(JwtAuthServiceConcreteTemplate.TemplateId);
+        }
+
+        public static string GetOidcAuthenticationOptionsTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId);
         }
 
         public static string GetOidcAuthServiceConcreteTemplateName(this IIntentTemplate template)

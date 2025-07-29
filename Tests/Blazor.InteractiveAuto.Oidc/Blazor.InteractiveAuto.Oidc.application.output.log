@@ -272,6 +272,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>cb2369a2-d643-4c07-b8fd-79c1676b4f19</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.OidcAuthenticationOptionsTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveAuto.Oidc/OidcAuthenticationOptions.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OidcAuthenticationOptions.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>cb2369a2-d643-4c07-b8fd-79c1676b4f19</ProjectId>
       <CorrelationId>Intent.AspNetCore.Program</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveAuto.Oidc/Program.cs</ApplicationRelativeFilePath>

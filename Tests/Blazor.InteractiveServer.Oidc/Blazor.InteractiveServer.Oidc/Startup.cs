@@ -43,12 +43,14 @@ namespace Blazor.InteractiveServer.Oidc
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddHttpClient("oidcClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
+            services.Configure<OidcAuthenticationOptions>(Configuration);
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
             services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, OidcAuthService>();
             services.AddAuthorization();
             services.AddApiAuthorization();
+
             services.AddAuthentication(options =>
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
