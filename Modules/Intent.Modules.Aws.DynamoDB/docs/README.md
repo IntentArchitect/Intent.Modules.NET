@@ -20,6 +20,22 @@ This module consumes your `Domain Model`, which you build in the `Domain Designe
 
 These DynamoDB patterns are realized mostly using the [DynamoDBContext class from the .NET object persistence model](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DotNetDynamoDBContext.html).
 
+## Developing and testing with a local DynamoDB emulator
+
+Amazon provides [NoSQL Workbench for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html) which includes a DynamoDB emulator you can run on your own machine for development and testing purposes.
+
+By default this module adds the `AWS:DynamoDB:UseLocalEmulator` with a value of `true` to the generated `appsettings.json`:
+
+```json
+"AWS": {
+  "DynamoDB": {
+    "UseLocalEmulator": true
+  }
+}
+```
+
+When deploying your application to production this setting key will need to be removed or set to `false`. For more information on customizing configuration settings in production, refer to Microsoft's [Configuration in ASP.NET Core](https://learn.microsoft.com/aspnet/core/fundamentals/configuration) article.
+
 ## Domain Designer
 
 When designing domain models for DynamoDB your domain package must be annotated with the `Document Database` stereotype. If you have multiple Document DB technologies modules, you must explicitly indicate which Domain Packages contain DynamoDB domain models, by setting `Document Database`'s `Provider` property to DynamoDB.
