@@ -130,6 +130,8 @@ namespace Intent.Modules.Eventing.AzureEventGrid.Templates.AzureEventGridEventBu
                                 .SeparatedFromPrevious()
                             ));
                         });
+                        
+                        method.AddStatement("_messageQueue.Clear();");
                     });
 
                     @class.AddMethod("void", "ValidateMessage", method =>

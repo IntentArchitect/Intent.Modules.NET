@@ -90,6 +90,7 @@ namespace Intent.Modules.Eventing.AzureServiceBus.Templates.AzureServiceBusEvent
                         });
 
                         method.AddStatement("scope.Complete();");
+                        method.AddStatement("_messageQueue.Clear();");
                     });
 
                     @class.AddMethod("void", "ValidateMessage", method =>
