@@ -1,6 +1,10 @@
+### Version 1.0.7
+
+- Improvement: Add `IConfiguration` support to `SignalRConfiguration`.
+
 ### Version 1.0.6
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preparation for Intent Architect 4.5. 
 
 ### Version 1.0.5
 

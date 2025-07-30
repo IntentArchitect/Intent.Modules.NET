@@ -27,6 +27,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.SignalRConfiguration
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
+                .AddUsing("Microsoft.Extensions.Configuration")
                 .AddUsing("Microsoft.AspNetCore.Builder")
                 .AddClass($"SignalRConfiguration", @class =>
                 {
@@ -35,15 +36,17 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.SignalRConfiguration
                     {
                         method.Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
                         method.AddStatements(@"
                                 services.AddSignalR();
-                                services.RegisterServices();
+                                services.RegisterServices(configuration);
                                 return services;");
                     });
                     @class.AddMethod("void", "RegisterServices", method =>
                     {
-                        method.Static();
+                        method.Private().Static();
                         method.AddParameter("IServiceCollection", "services", param => param.WithThisModifier());
+                        method.AddParameter("IConfiguration", "configuration");
                         foreach (var hubModel in Model)
                         {
                             method.AddStatement($"services.AddTransient<{this.GetHubServiceInterfaceName(hubModel)}, {this.GetHubServiceName(hubModel)}>();");
@@ -69,7 +72,7 @@ namespace Intent.Modules.AspNetCore.SignalR.Templates.SignalRConfiguration
         public override void BeforeTemplateExecution()
         {
             ExecutionContext.EventDispatcher.Publish(ServiceConfigurationRequest
-                .ToRegister("ConfigureSignalR")
+                .ToRegister("ConfigureSignalR", ServiceConfigurationRequest.ParameterType.Configuration)
                 .HasDependency(this));
 
             var startup = ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);

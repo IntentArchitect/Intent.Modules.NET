@@ -1,6 +1,7 @@
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SignalR.Api.Hubs;
 using SignalR.Api.Hubs.Services;
@@ -14,14 +15,14 @@ namespace SignalR.Api.Configuration
 {
     public static class SignalRConfiguration
     {
-        public static IServiceCollection ConfigureSignalR(this IServiceCollection services)
+        public static IServiceCollection ConfigureSignalR(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSignalR();
-            services.RegisterServices();
+            services.RegisterServices(configuration);
             return services;
         }
 
-        public static void RegisterServices(this IServiceCollection services)
+        private static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddTransient<INotificationsHub, NotificationsHubService>();
         }
