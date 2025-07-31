@@ -1,5 +1,6 @@
 ### Version 3.8.14
 
+- Fixed: Fixed Solution Relative Location path using `Path.GetFullPath` to correctly handle relative locations like ../.
 - Improvement: Updated `.gitignore` to exclude Intent Architect `*.application.log` files.
 
 ### Version 3.8.13

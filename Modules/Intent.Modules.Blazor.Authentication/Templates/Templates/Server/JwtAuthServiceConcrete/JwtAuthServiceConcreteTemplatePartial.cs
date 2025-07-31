@@ -126,7 +126,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                             @if.AddStatement("throw new Exception(\"Registration failed\");");
                         });
 
-                        method.AddStatement("_redirectManager.RedirectTo(\"Account/RegisterConfirmation\", new() { [\"email\"] = email, [\"returnUrl\"] = returnUrl });");
+                        method.AddStatement("_redirectManager.RedirectTo(returnUrl);");
                     });
 
 

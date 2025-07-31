@@ -136,21 +136,19 @@ namespace Intent.Modules.VisualStudio.Projects.Templates.VisualStudioSolution
 
         public ITemplateFileConfig GetTemplateFileConfig()
         {
-            return new SolutionFileMetadata(
+            var solutionFileMetadata = new SolutionFileMetadata(
                 outputType: "VisualStudioSolution",
                 overwriteBehaviour: OverwriteBehaviour.Always,
                 codeGenType: CodeGenType.UserControlledWeave,
                 fileName: GetSolutionFilename(),
-                fileLocation: GetSolutionLocation(Application.OutputRootDirectory));
-        }
+                fileLocation: Application.OutputRootDirectory);
 
-        private string GetSolutionLocation(string defaultPath)
-        {
             if (Model.HasVisualStudioSolutionOptions() && !string.IsNullOrWhiteSpace(Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation()))
             {
-                return Path.Combine(defaultPath, Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation());
+                solutionFileMetadata.LocationInProject = Model.GetVisualStudioSolutionOptions().SolutionRelativeLocation();
             }
-            return defaultPath;
+
+            return solutionFileMetadata;
         }
 
         private string GetSolutionFilename()
