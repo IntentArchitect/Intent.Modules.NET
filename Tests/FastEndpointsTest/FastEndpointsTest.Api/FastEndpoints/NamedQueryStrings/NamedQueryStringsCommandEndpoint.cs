@@ -43,7 +43,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.NamedQueryStrings
         public override async Task HandleAsync(NamedQueryStringsCommand req, CancellationToken ct)
         {
             await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.NoContent());
+            await Send.ResultAsync(TypedResults.NoContent());
         }
     }
 }

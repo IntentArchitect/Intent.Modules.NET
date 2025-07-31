@@ -45,7 +45,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.ScalarCollectionReturnType
         {
             var result = default(List<string>);
             result = await _mediator.Send(new QueryWithCollectionReturn(), ct);
-            await SendResultAsync(TypedResults.Ok(new JsonResponse<List<string>>(result)));
+            await Send.ResultAsync(TypedResults.Ok(new JsonResponse<List<string>>(result)));
         }
     }
 }

@@ -46,7 +46,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateRoots
         {
             var result = default(AggregateRootCompositeManyBDto);
             result = await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }

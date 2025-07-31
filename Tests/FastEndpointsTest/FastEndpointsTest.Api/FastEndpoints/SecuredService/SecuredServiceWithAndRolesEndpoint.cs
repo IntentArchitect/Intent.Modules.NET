@@ -41,7 +41,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.SecuredService
         public override async Task HandleAsync(CancellationToken ct)
         {
             await _mediator.Send(new SecuredServiceWithAndRoles(), ct);
-            await SendResultAsync(TypedResults.NoContent());
+            await Send.ResultAsync(TypedResults.NoContent());
         }
     }
 }

@@ -43,7 +43,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.Headers
         public override async Task HandleAsync(HeaderFieldCommand req, CancellationToken ct)
         {
             await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.NoContent());
+            await Send.ResultAsync(TypedResults.NoContent());
         }
     }
 }

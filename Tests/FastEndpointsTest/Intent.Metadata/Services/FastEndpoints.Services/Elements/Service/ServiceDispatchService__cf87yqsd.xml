@@ -38,6 +38,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -78,6 +82,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -142,6 +150,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -176,6 +188,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -238,6 +254,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -305,6 +325,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -347,6 +371,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>
@@ -384,6 +412,10 @@
       <parentFolderId>11455aa5-0c08-4824-9c8e-d44560c4f4ce</parentFolderId>
       <packageId>bfe1e818-38ff-431b-876f-ff6c0db3a259</packageId>
       <packageName>FastEndpoints.Services</packageName>
+      <traits>
+        <trait id="0a932465-ea1f-42e7-b1eb-9f90aa8961fd" name="[Invokable]" />
+        <trait id="2b6729eb-e2ae-4b5f-86fe-4f611d1f912e" name="[Processing Handler]" />
+      </traits>
       <stereotypes>
         <stereotype stereotypeDefinitionId="b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6" name="Http Settings">
           <addedByDefault>false</addedByDefault>

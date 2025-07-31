@@ -45,7 +45,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateWithUniqueConstraintIndex
         {
             var result = default(List<AggregateWithUniqueConstraintIndexStereotypeDto>);
             result = await _mediator.Send(new GetAggregateWithUniqueConstraintIndexStereotypesQuery(), ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }

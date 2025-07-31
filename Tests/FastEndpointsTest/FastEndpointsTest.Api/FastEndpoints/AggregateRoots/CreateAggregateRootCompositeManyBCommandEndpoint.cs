@@ -46,7 +46,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateRoots
         {
             var result = Guid.Empty;
             result = await _mediator.Send(req, ct);
-            await SendCreatedAtAsync<GetAggregateRootByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
+            await Send.CreatedAtAsync<GetAggregateRootByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
         }
     }
 }

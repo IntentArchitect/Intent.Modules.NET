@@ -44,7 +44,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.SimpleProductsService
         {
             var result = default(List<SimpleProductDto>);
             result = await _appService.FindSimpleProducts(ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }

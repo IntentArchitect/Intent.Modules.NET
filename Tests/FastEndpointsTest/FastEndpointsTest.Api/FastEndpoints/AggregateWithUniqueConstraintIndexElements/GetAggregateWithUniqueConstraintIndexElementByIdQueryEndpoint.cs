@@ -48,7 +48,7 @@ namespace FastEndpointsTest.Api.FastEndpoints.AggregateWithUniqueConstraintIndex
         {
             var result = default(AggregateWithUniqueConstraintIndexElementDto);
             result = await _mediator.Send(req, ct);
-            await SendResultAsync(TypedResults.Ok(result));
+            await Send.ResultAsync(TypedResults.Ok(result));
         }
     }
 }
