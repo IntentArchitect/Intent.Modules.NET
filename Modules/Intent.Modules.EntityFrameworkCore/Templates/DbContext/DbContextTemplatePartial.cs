@@ -92,7 +92,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.DbContext
                             .AddStatements(@"
 // Seed data
 // https://rehansaeed.com/migrating-to-entity-framework-core-seed-data/
-/* Eg.
+/* E.g.
 modelBuilder.Entity<Car>().HasData(
     new Car() { CarId = 1, Make = ""Ferrari"", Model = ""F40"" },
     new Car() { CarId = 2, Make = ""Ferrari"", Model = ""F50"" },
