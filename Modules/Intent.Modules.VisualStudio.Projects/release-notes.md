@@ -1,3 +1,7 @@
+### Version 3.8.14
+
+- Improvement: Updated `.gitignore` to exclude Intent Architect `*.application.log` files.
+
 ### Version 3.8.13
 
 - Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
