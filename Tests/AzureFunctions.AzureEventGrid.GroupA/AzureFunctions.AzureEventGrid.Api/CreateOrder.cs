@@ -37,7 +37,9 @@ namespace AzureFunctions.AzureEventGrid.Api
         [Function("CreateOrder")]
         [OpenApiOperation("CreateOrderCommand", tags: new[] { "AzureFunctionsAzureEventGridGroupAServices" }, Description = "Create order command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateOrderCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "azure-functions-azure-event-grid-group-a-services")] HttpRequest req,
             CancellationToken cancellationToken)

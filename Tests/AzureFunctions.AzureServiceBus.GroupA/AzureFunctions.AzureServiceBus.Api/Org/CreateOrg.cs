@@ -37,7 +37,9 @@ namespace AzureFunctions.AzureServiceBus.Api.Org
         [Function("Org_CreateOrg")]
         [OpenApiOperation("CreateOrgCommand", tags: new[] { "Org" }, Description = "Create org command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(CreateOrgCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "org")] HttpRequest req,
             CancellationToken cancellationToken)

@@ -31,7 +31,9 @@ namespace AzureFunctions.NET8.Api.ListedUnlistedServices
         [Function("ListedUnlistedServices_ListedServiceFunc")]
         [OpenApiOperation("ListedServiceFunc", tags: new[] { "ListedUnlistedServices" }, Description = "Listed service func")]
         [OpenApiParameter(name: "param", In = ParameterLocation.Query, Required = true, Type = typeof(string))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "listed-unlisted-services/listed-service-func")] HttpRequest req,
             CancellationToken cancellationToken)

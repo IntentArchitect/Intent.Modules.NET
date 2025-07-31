@@ -32,7 +32,9 @@ namespace AzureFunctions.NET8.Api.Validation
         [Function("Validation_InboundComVal")]
         [OpenApiOperation("InboundComValCommand", tags: new[] { "Validation" }, Description = "Inbound com val command")]
         [OpenApiRequestBody(contentType: "application/json", bodyType: typeof(InboundComValCommand))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.NoContent)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "put", Route = "validation/inbound")] HttpRequest req,
             CancellationToken cancellationToken)

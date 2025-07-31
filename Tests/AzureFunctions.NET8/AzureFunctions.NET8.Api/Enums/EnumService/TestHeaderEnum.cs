@@ -30,7 +30,9 @@ namespace AzureFunctions.NET8.Api.Enums.EnumService
         [Function("Enums_EnumService_TestHeaderEnum")]
         [OpenApiOperation("TestHeaderEnum", tags: new[] { "Enum" }, Description = "Test header enum")]
         [OpenApiParameter(name: "testEnum", In = ParameterLocation.Header, Required = true, Type = typeof(Company))]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.Created)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = "enum/test-header-enum")] HttpRequest req,
             CancellationToken cancellationToken)

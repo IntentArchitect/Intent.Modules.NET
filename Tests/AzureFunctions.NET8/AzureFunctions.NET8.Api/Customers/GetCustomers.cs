@@ -30,6 +30,7 @@ namespace AzureFunctions.NET8.Api.Customers
         [OpenApiOperation("GetCustomersQuery", tags: new[] { "Customers" }, Description = "Get customers query")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(List<CustomerDto>))]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.BadRequest, contentType: "application/json", bodyType: typeof(object))]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.NotFound, contentType: "application/json", bodyType: typeof(object))]
         public async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "customers")] HttpRequest req,
             CancellationToken cancellationToken)
