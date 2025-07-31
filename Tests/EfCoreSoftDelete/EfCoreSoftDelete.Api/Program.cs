@@ -1,4 +1,5 @@
 using EfCoreSoftDelete.Api.Configuration;
+using EfCoreSoftDelete.Api.Filters;
 using EfCoreSoftDelete.Application;
 using EfCoreSoftDelete.Infrastructure;
 using Intent.RoslynWeaver.Attributes;
@@ -15,9 +16,19 @@ namespace EfCoreSoftDelete.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddControllers(
+                opt =>
+                {
+                    opt.Filters.Add<ExceptionFilter>();
+                });
             builder.Services.AddApplication(builder.Configuration);
+            builder.Services.ConfigureApplicationSecurity(builder.Configuration);
+
             builder.Services.ConfigureProblemDetails();
+
             builder.Services.AddInfrastructure(builder.Configuration);
+
+            builder.Services.ConfigureSwagger(builder.Configuration);
 
             var app = builder.Build();
 
@@ -25,8 +36,10 @@ namespace EfCoreSoftDelete.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            app.MapControllers();
+            app.UseSwashbuckle(builder.Configuration);
 
             app.Run();
         }

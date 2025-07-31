@@ -1,6 +1,7 @@
 ### Version 1.0.2
 
 - Fixed: Depending on which other modules were installed, the `SaveChanges` overrides in `DbContext` classes would not be generated meaning that `SetSoftDeleteProperties` would not be called.
+- Fixed: Owned entities / value objects of soft deleted items would be fully deleted.
 
 ### Version 1.0.1
 

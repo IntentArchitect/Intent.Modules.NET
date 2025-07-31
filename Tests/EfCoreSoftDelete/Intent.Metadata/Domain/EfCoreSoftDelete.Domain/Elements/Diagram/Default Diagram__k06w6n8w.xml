@@ -4,10 +4,11 @@
   <display>Default Diagram</display>
   <externalReference>1b7fb00b-5ce4-45b8-876c-8f0f1874fdbb</externalReference>
   <isAbstract>false</isAbstract>
-  <order>1</order>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</parentFolderId>
+  <packageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</packageId>
+  <packageName>EfCoreSoftDelete.Domain</packageName>
   <diagram>
     <targetPackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</targetPackageId>
   </diagram>

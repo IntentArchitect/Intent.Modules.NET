@@ -1,5 +1,7 @@
 using EfCoreSoftDelete.Domain.Common.Interfaces;
+using EfCoreSoftDelete.Domain.Repositories;
 using EfCoreSoftDelete.Infrastructure.Persistence;
+using EfCoreSoftDelete.Infrastructure.Repositories;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +22,7 @@ namespace EfCoreSoftDelete.Infrastructure
                 options.UseLazyLoadingProxies();
             });
             services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             return services;
         }
     }

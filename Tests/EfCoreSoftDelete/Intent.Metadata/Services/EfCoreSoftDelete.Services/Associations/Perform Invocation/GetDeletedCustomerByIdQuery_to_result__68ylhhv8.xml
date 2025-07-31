@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="0a95fe5a-9368-47e3-9afa-b76ff9d7a832">
+  <sourceEnd id="f92383b8-ca20-4743-868e-05bbeebb661b" type="Perform Invocation Source End" typeId="ee56bd48-8eff-4fff-8d3a-87731d002335">
+    <display>called by : Customers.GetDeletedCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="5f62852f-c9e7-4589-a17c-2ea90d3a1673">
+      <typeId>0344f213-4bcb-43cc-a114-fa6111aabe00</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+      <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="0a95fe5a-9368-47e3-9afa-b76ff9d7a832" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
+    <name>result</name>
+    <display>[call] result: FindDeletedByIdAsync(...): Customer?</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="08dde016-7c70-4bbf-9698-93a64edc2dc7">
+      <typeId>120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+      <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Invocation Mapping" typeId="a4c4c5cc-76df-48ed-9d4e-c35caf44b567">
+        <source applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="0344f213-4bcb-43cc-a114-fa6111aabe00" location="[EfCoreSoftDelete].[Services].[GetDeletedCustomerByIdQuery]" />
+        <target applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c" location="[EfCoreSoftDelete].[Services].[FindDeletedByIdAsync]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{GetDeletedCustomerByIdQuery}</expression>
+            <path>
+              <target id="120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c" name="FindDeletedByIdAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+            </path>
+            <sources>
+              <source identifier="GetDeletedCustomerByIdQuery" mappingType="Invocation Mapping" mappingTypeId="7ca5c18a-bdbe-434b-a68a-421899a077e7">
+                <path>
+                  <target id="0344f213-4bcb-43cc-a114-fa6111aabe00" name="GetDeletedCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="120c9ebe-bca7-4aef-b9a5-c5dafd5e7d1c" name="FindDeletedByIdAsync" type="element" specialization="Operation" specializationId="e042bb67-a1df-480c-9935-b26210f78591" />
+              <target id="1858d615-3228-4c2e-87fb-17118eec929e" name="id" type="element" specialization="Parameter" specializationId="c26d8d0a-a26b-4b5f-b449-e9bdb60b3a4b" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Data Mapping" mappingTypeId="1ad97d12-2aa8-4f03-8cb0-3a8a4e71b4d9">
+                <path>
+                  <target id="0344f213-4bcb-43cc-a114-fa6111aabe00" name="GetDeletedCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="6b5bf3f1-0a7e-4e0b-b99f-a532a120a544" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Perform Invocation</associationType>
+  <associationTypeId>3e69085c-fa2f-44bd-93eb-41075fd472f8</associationTypeId>
+  <stereotypes />
+</association>

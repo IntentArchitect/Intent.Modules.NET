@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<association id="04152f8a-535c-44bf-b382-d00c6a9f0ad6">
+  <sourceEnd id="df144226-27ec-4006-841c-03bc72aa8d9e" type="Query Entity Action Source End" typeId="32a65f26-2555-4616-8a2c-6a90805600bb">
+    <display>: GetCustomerByIdQuery</display>
+    <order>0</order>
+    <typeReference id="66dab344-1661-4a4b-a1ec-99fd19643af3">
+      <typeId>92c3e5fe-9646-48ad-a47c-77922e01a9b2</typeId>
+      <isNavigable>false</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Services</typePackageName>
+      <typePackageId>a741f575-70c9-4466-aa95-ace1ade8595f</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <metadata />
+    <childElements />
+  </sourceEnd>
+  <targetEnd id="04152f8a-535c-44bf-b382-d00c6a9f0ad6" type="Query Entity Action Target End" typeId="93ef6675-cba4-4998-adff-cb22d5343ed4">
+    <name>customer</name>
+    <display>[query] customer: Customer</display>
+    <order>1</order>
+    <traits>
+      <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />
+    </traits>
+    <typeReference id="a8dab03a-df60-4b43-ac67-2d3b5d31e7a6">
+      <typeId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</typeId>
+      <isNavigable>true</isNavigable>
+      <isNullable>false</isNullable>
+      <isCollection>false</isCollection>
+      <isRequired>true</isRequired>
+      <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+      <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+      <stereotypes />
+      <genericTypeParameters />
+    </typeReference>
+    <stereotypes />
+    <mappings>
+      <mapping type="Query Entity Mapping" typeId="25f25af9-c38b-4053-9474-b0fabe9d7ea7">
+        <source applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="81104ae6-2bc5-4bae-b05a-f987b0372d81" elementId="92c3e5fe-9646-48ad-a47c-77922e01a9b2" location="[EfCoreSoftDelete].[Services].[GetCustomerByIdQuery]" />
+        <target applicationId="ec449965-5357-4c9d-971a-ff0dcce48c52" designerId="6ab29b31-27af-4f56-a67c-986d82097d63" elementId="2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9" location="[EfCoreSoftDelete].[Services].[Customer]" />
+        <mappedEnds>
+          <mappedEnd>
+            <expression>{Id}</expression>
+            <path>
+              <target id="2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9" name="Customer" type="element" specialization="Class" specializationId="04e12b51-ed12-42a3-9667-a6aa81bb6d10" />
+              <target id="3d535ca2-9528-49ce-8883-f2edb895b0b7" name="Id" type="element" specialization="Attribute" specializationId="0090fb93-483e-41af-a11d-5ad2dc796adf" />
+            </path>
+            <sources>
+              <source identifier="Id" mappingType="Filter Mapping" mappingTypeId="01d09a7f-0e7c-4670-b7bc-395d7e893ef2">
+                <path>
+                  <target id="92c3e5fe-9646-48ad-a47c-77922e01a9b2" name="GetCustomerByIdQuery" type="element" specialization="Query" specializationId="e71b0662-e29d-4db2-868b-8a12464b25d0" />
+                  <target id="09921e42-cf86-4ab7-a8e0-792b6b145854" name="Id" type="element" specialization="DTO-Field" specializationId="7baed1fd-469b-4980-8fd9-4cefb8331eb2" />
+                </path>
+              </source>
+            </sources>
+          </mappedEnd>
+        </mappedEnds>
+      </mapping>
+    </mappings>
+    <metadata />
+    <childElements />
+  </targetEnd>
+  <associationType>Query Entity Action</associationType>
+  <associationTypeId>47ab5888-a258-4bec-a9fc-a83de69eb79d</associationTypeId>
+  <stereotypes />
+</association>
