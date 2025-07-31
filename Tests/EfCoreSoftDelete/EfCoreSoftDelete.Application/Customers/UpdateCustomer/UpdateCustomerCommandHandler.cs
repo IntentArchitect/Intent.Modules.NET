@@ -87,10 +87,8 @@ namespace EfCoreSoftDelete.Application.Customers.UpdateCustomer
                     line2: dto.Line2,
                     city: dto.City,
                     postal: dto.Postal,
-                    otherBuildings: UpdateHelper.CreateOrUpdateCollection(valueObject.OtherBuildings.ToList(), dto.OtherBuildings, (e, d) => e.Equals(new AddressBuilding(
-                name: d.Name)), CreateOrUpdateAddressBuilding),
-                    primaryBuilding: new AddressBuilding(
-                        name: dto.PrimaryBuilding.Name));
+                    otherBuildings:  dto.OtherBuildings.Select(x => new AddressBuilding(name: x.Name)).ToArray(),
+                    primaryBuilding: new AddressBuilding(name: dto.PrimaryBuilding.Name));
             }
             return valueObject;
         }
