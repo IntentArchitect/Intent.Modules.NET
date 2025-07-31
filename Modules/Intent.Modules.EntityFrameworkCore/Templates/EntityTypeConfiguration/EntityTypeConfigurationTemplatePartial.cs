@@ -463,17 +463,21 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 return EfCoreFieldConfigStatement.CreateProperty(attribute, ExecutionContext.Settings.GetDatabaseSettings(), _enforceColumnOrdering ? _columnCurrentOrder++ : null);
             }
 
-            @class.AddMethod("void", $"Configure{attribute.Name.ToPascalCase()}", method =>
+            var methodName = $"Configure{attribute.Name.ToPascalCase()}";
+            if (@class.Methods.All(x => x.Name != methodName))
             {
-                method.Static();
-                method.AddMetadata("model", attribute.TypeReference.Element);
-                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>",
-                    "builder");
-                method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, ownedRelationship).ToArray());
-                method.Statements.SeparateAll();
+                @class.AddMethod("void", methodName, method =>
+                {
+                    method.Static();
+                    method.AddMetadata("model", attribute.TypeReference.Element);
+                    method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>",
+                        "builder");
+                    method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, ownedRelationship).ToArray());
+                    method.Statements.SeparateAll();
 
-                AddIgnoreForNonPersistent(method, isOwned: true);
-            });
+                    AddIgnoreForNonPersistent(method, isOwned: true);
+                });
+            }
 
             return attribute.TypeReference.IsCollection
                 ? EfCoreFieldConfigStatement.CreateOwnsMany(attribute)
@@ -495,19 +499,24 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     if (IsOwned(associationEnd.Element))
                     {
                         var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd, targetType);
-                        @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+
+                        var methodName = $"Configure{associationEnd.Name.ToPascalCase()}";
+                        if (@class.Methods.All(x => x.Name != methodName))
                         {
-                            method.Static();
+                            @class.AddMethod("void", methodName, method =>
+                            {
+                                method.Static();
 
-                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                            method.AddMetadata("model", (IElement)associationEnd.Element);
-                            method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                            method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
-                            method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToOne).ToArray());
-                            method.Statements.SeparateAll();
+                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                                method.AddMetadata("model", (IElement)associationEnd.Element);
+                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
+                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToOne).ToArray());
+                                method.Statements.SeparateAll();
 
-                            AddIgnoreForNonPersistent(method, isOwned: true);
-                        });
+                                AddIgnoreForNonPersistent(method, isOwned: true);
+                            });
+                        }
 
                         return field;
                     }
@@ -524,19 +533,24 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         if (IsOwned(associationEnd.Element))
                         {
                             var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd, targetType);
-                            @class.AddMethod("void", $"Configure{associationEnd.Name.ToPascalCase()}", method =>
+
+                            var methodName = $"Configure{associationEnd.Name.ToPascalCase()}";
+                            if (@class.Methods.All(x => x.Name != methodName))
                             {
-                                method.Static();
+                                @class.AddMethod("void", methodName, method =>
+                                {
+                                    method.Static();
 
-                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
-                                method.AddMetadata("model", (IElement)associationEnd.Element);
-                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
-                                method.AddStatement(field.CreateWithOwner().WithForeignKey((!ForCosmosDb() || !field.HasDefaultAssociationSourceName()) && associationEnd.Element.IsClassModel()));
-                                method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToMany).ToArray());
-                                method.Statements.SeparateAll();
+                                    var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
+                                    method.AddMetadata("model", (IElement)associationEnd.Element);
+                                    method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                    method.AddStatement(field.CreateWithOwner().WithForeignKey((!ForCosmosDb() || !field.HasDefaultAssociationSourceName()) && associationEnd.Element.IsClassModel()));
+                                    method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToMany).ToArray());
+                                    method.Statements.SeparateAll();
 
-                                AddIgnoreForNonPersistent(method, isOwned: true);
-                            });
+                                    AddIgnoreForNonPersistent(method, isOwned: true);
+                                });
+                            }
 
                             return field;
                         }
