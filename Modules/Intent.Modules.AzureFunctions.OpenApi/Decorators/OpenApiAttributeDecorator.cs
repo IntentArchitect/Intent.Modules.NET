@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Xml.Linq;
 using Intent.AzureFunctions.Api;
 using Intent.Engine;
@@ -113,25 +115,74 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     }
                 }
 
+                var responseStatusCode = GetResponseStatusCodes(runMethod);
+
                 if (_template.Model.ReturnType != null)
                 {
-                    runMethod.AddAttribute("OpenApiResponseWithBody", att =>
+                    foreach (var response in responseStatusCode)
                     {
-                        att.AddArgument("statusCode: HttpStatusCode.OK");
-                        att.AddArgument($"contentType: \"application/json\"");
-                        att.AddArgument($"bodyType: typeof({_template.UseType(template.GetTypeInfo(_template.Model.ReturnType).WithIsNullable(false))})");
-                    });
-
+                        runMethod.AddAttribute("OpenApiResponseWithBody", att =>
+                        {
+                            att.AddArgument($"statusCode: HttpStatusCode.{response}");
+                            att.AddArgument($"contentType: \"application/json\"");
+                            att.AddArgument($"bodyType: typeof({_template.UseType(template.GetTypeInfo(_template.Model.ReturnType).WithIsNullable(false))})");
+                        });
+                    }
                 }
+                else
+                {
+                    foreach (var response in responseStatusCode)
+                    {
+                        runMethod.AddAttribute("OpenApiResponseWithoutBody", att =>
+                        {
+                            att.AddArgument($"statusCode: HttpStatusCode.{response}");
+                        });
+                    }
+                }
+
                 runMethod.AddAttribute("OpenApiResponseWithBody", att =>
                 {
-
                     att.AddArgument("statusCode: HttpStatusCode.BadRequest");
                     att.AddArgument($"contentType: \"application/json\"");
                     att.AddArgument($"bodyType: typeof(object)");
                 });
 
+                AddExceptionResponseWithBodyAttribute(runMethod);
+
             }, 10);
+        }
+
+        private static void AddExceptionResponseWithBodyAttribute(CSharpClassMethod runMethod)
+        {
+            foreach (CSharpStatement statement in runMethod.Statements)
+            {
+                if (statement is CSharpCatchBlock catchBlock && catchBlock.HasMetadata("exception-response-type"))
+                {
+                    runMethod.AddAttribute("OpenApiResponseWithBody", att =>
+                    {
+                        att.AddArgument($"statusCode: HttpStatusCode.{catchBlock.GetMetadata<string>("exception-response-type")}");
+                        att.AddArgument($"contentType: \"application/json\"");
+                        att.AddArgument($"bodyType: typeof(object)");
+                    });
+                }
+            }
+            
+        }
+
+        private List<string> GetResponseStatusCodes(CSharpClassMethod runMethod)
+        {
+            var responseCodes = new List<string>();
+
+            foreach (CSharpStatement statement in runMethod.Statements)
+            {
+                if (statement is CSharpTryBlock tryBlock)
+                {
+                    responseCodes.AddRange(tryBlock.Statements.Where(s => s.HasMetadata("return-response-type"))
+                        .Select(s => s.GetMetadata<string>("return-response-type")));
+                }
+            }
+            
+            return responseCodes;
         }
 
         private string GetParameterLocation(HttpInputSource? source)

@@ -1,3 +1,7 @@
+### Version 2.0.5
+
+- Improvement: Enhanced the OpenApiResponse attributes added to the `Run` method
+
 ### Version 2.0.4
 
 - Improvement: Added OpenAPI Operation stereotype, to allow OpenApiOperation customisation.

@@ -110,9 +110,9 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 : new CSharpStatement($@"await _mediator.Send({payload}, cancellationToken);");
         }
 
-        private static CSharpStatement GetReturnStatement(string statement)
+        private static CSharpStatement GetReturnStatement(string statement, string statusCode)
         {
-            return new CSharpStatement(statement).AddMetadata("return", true);
+            return new CSharpStatement(statement).AddMetadata("return", true).AddMetadata("return-response-type", statusCode);
         }
 
         private static CSharpStatement GetReturnStatement(IAzureFunctionModel operationModel)
@@ -123,15 +123,15 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                 case HttpVerb.Get:
                     if (operationModel.ReturnType == null)
                     {
-                        return GetReturnStatement("return new NoContentResult();");
+                        return GetReturnStatement("return new NoContentResult();", "NoContent");
                     }
 
                     if (operationModel.ReturnType.IsCollection)
                     {
-                        return GetReturnStatement("return new OkObjectResult(result);");
+                        return GetReturnStatement("return new OkObjectResult(result);", "OK");
                     }
 
-                    return GetReturnStatement(@"return result != null ? new OkObjectResult(result) : new NotFoundResult();");
+                    return GetReturnStatement(@"return result != null ? new OkObjectResult(result) : new NotFoundResult();", "OK");
                 case HttpVerb.Post:
                     var getByIdFunction = (operationModel.InternalElement.ParentElement?.ChildElements ?? operationModel.InternalElement.Package.ChildElements)
                             .Where(x => x.IsAzureFunctionModel())
@@ -143,18 +143,18 @@ namespace Intent.Modules.AzureFunctions.Dispatch.MediatR.FactoryExtensions
                                 x.Parameters.FirstOrDefault()?.Name == "id");
                     if (getByIdFunction != null && new[] { "guid", "long", "int" }.Contains(operationModel.ReturnType?.Element.Name))
                     {
-                        return GetReturnStatement($@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});");
+                        return GetReturnStatement($@"return new CreatedResult(new Uri(""{getByIdFunction.GetAzureFunction().Route()}"", UriKind.Relative), new {{ id = result }});", "Created");
                     }
-                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);");
+                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new CreatedResult(string.Empty, null);" : @"return new CreatedResult(string.Empty, result);", "Created");
                 case HttpVerb.Put:
                 case HttpVerb.Patch:
-                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new NoContentResult();" : @"return new OkObjectResult(result);");
+                    return operationModel.ReturnType == null ? GetReturnStatement(@"return new NoContentResult();", "NoContent") : GetReturnStatement(@"return new OkObjectResult(result);", "OK");
                 case HttpVerb.Delete:
-                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);");
+                    return GetReturnStatement(operationModel.ReturnType == null ? @"return new OkResult();" : @"return new OkObjectResult(result);", "OK");
                 case null:
                     if (operationModel.ReturnType != null)
                     {
-                        return GetReturnStatement($"return result;");
+                        return GetReturnStatement($"return result;", "OK");
                     }
                     break;
                 default:
