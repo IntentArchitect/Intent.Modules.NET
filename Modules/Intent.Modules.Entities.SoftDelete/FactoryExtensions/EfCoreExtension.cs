@@ -9,6 +9,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Constants;
 using Intent.Modules.Entities.SoftDelete.Templates;
+using Intent.Modules.EntityFrameworkCore.Shared;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -76,9 +77,8 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
 
                 AddSetSoftDeletePropertiesMethod(dbContext, priClass);
 
-                var asyncSaveChanges =
-                    priClass.Methods.Where(p => p.Name == "SaveChangesAsync").MaxBy(o => o.Parameters.Count);
-                var normalSaveChanges = priClass.Methods.Where(p => p.Name == "SaveChanges").MaxBy(o => o.Parameters.Count);
+                var asyncSaveChanges = dbContext.GetSaveChangesAsyncMethod();
+                var normalSaveChanges = dbContext.GetSaveChangesMethod();
 
                 asyncSaveChanges?.FindStatement(s => s.HasMetadata("save-changes"))
                     ?.InsertAbove("SetSoftDeleteProperties();");

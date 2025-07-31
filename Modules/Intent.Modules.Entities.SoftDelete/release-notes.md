@@ -1,6 +1,10 @@
+### Version 1.0.2
+
+- Fixed: Depending on which other modules were installed, the `SaveChanges` overrides in `DbContext` classes would not be generated meaning that `SetSoftDeleteProperties` would not be called.
+
 ### Version 1.0.1
 
-- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5. 
+- Improvement: Added stereotype descriptions in preperation for Intent Architect 4.5.
 
 ### Version 1.0.0
 
