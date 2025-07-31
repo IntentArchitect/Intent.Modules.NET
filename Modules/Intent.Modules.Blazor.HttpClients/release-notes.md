@@ -1,3 +1,7 @@
+### Version 4.0.13
+
+- Improvement: Updated referenced packages.
+
 ### Version 4.0.12
 
 - Improvement: Updated NuGet package versions.

@@ -25,7 +25,7 @@ public class PagedResultTypeSource : ITypeSource
 
     public IResolvedTypeInfo GetType(ITypeReference typeInfo)
     {
-        if (typeInfo?.Element?.Id == PagedResultTemplateBase.TypeDefinitionElementId)
+        if (typeInfo?.Element?.Id == PagedResultTemplateBase.TypeDefinitionElementId && _template is not null)
         {
             return CSharpResolvedTypeInfo.Create(
                 resolvedTypeInfo: ResolvedTypeInfo.Create(

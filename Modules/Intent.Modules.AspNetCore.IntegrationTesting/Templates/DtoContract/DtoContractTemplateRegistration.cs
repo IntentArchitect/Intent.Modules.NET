@@ -38,8 +38,10 @@ namespace Intent.Modules.AspNetCore.IntegrationTesting.Templates.DtoContract
         [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
         public override IEnumerable<DTOModel> GetModels(IApplication application)
         {
-            return _metadataManager.GetServicesAsProxyModels(application).SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true)).Distinct()
-            .ToList();
+            var models = _metadataManager.GetServicesAsProxyModels(application)
+                 .SelectMany(p => RegistrationHelper.GetReferencedDTOModels(p, true));
+
+            return models.DistinctBy(x => x.Id).ToList(); ;
         }
 
 
