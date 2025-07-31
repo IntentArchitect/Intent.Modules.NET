@@ -135,9 +135,8 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             {
                 method.Private();
                 method.AddMethodChainStatement("var entities = ChangeTracker", stmt => stmt
-                    .AddChainStatement("Entries()")
-                    .AddChainStatement(
-                        $"Where(t => t.State == EntityState.Deleted && t.Entity is {template.GetSoftDeleteInterfaceName()})")
+                    .AddChainStatement($"Entries<{template.GetSoftDeleteInterfaceName()}>()")
+                    .AddChainStatement("Where(t => t.State == EntityState.Deleted)")
                     .AddChainStatement("ToArray()"));
 
                 method.AddIfStatement("entities.Length == 0", stmt =>
@@ -149,7 +148,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
                 method.AddForEachStatement("entry", "entities", stmt =>
                 {
                     stmt.SeparatedFromPrevious();
-                    stmt.AddStatement($"var entity = ({template.GetSoftDeleteInterfaceName()})entry.Entity;");
+                    stmt.AddStatement("var entity = entry.Entity;");
                     stmt.AddStatement("entity.SetDeleted(true);");
                     stmt.AddStatement("entry.State = EntityState.Modified;");
                     stmt.AddStatement("UpdateOwnedEntriesRecursive(entry);");

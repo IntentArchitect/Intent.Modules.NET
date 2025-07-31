@@ -56,8 +56,8 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence
         private void SetSoftDeleteProperties()
         {
             var entities = ChangeTracker
-                .Entries()
-                .Where(t => t.State == EntityState.Deleted && t.Entity is ISoftDelete)
+                .Entries<ISoftDelete>()
+                .Where(t => t.State == EntityState.Deleted)
                 .ToArray();
 
             if (entities.Length == 0)
@@ -67,7 +67,7 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence
 
             foreach (var entry in entities)
             {
-                var entity = (ISoftDelete)entry.Entity;
+                var entity = entry.Entity;
                 entity.SetDeleted(true);
                 entry.State = EntityState.Modified;
                 UpdateOwnedEntriesRecursive(entry);
