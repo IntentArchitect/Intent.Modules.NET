@@ -137,12 +137,6 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Regist
                                 email.AddAttribute("Compare(\"Password\", ErrorMessage = \"The password and confirmation password do not match.\")");
                                 email.WithInitialValue("\"\"");
                             });
-
-                            inputModel.AddProperty("string", "Code", email =>
-                            {
-                                email.AddAttribute("Required");
-                                email.WithInitialValue("\"\"");
-                            });
                         });
                     });
                 });
