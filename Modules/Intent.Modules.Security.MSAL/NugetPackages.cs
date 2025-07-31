@@ -74,55 +74,55 @@ namespace Intent.Modules.Security.MSAL
             NugetRegistry.Register(MicrosoftIdentityWebPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.10.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.12.1")
-                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.12.1")
+                        ( >= 9, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.11.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.13.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.13.0")
                             .WithNugetDependency("System.Formats.Asn1", "9.0.0")
-                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.12.1"),
-                        ( >= 8, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.10.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.12.1")
-                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.12.1")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.13.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.11.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.13.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.13.0")
                             .WithNugetDependency("System.Formats.Asn1", "8.0.1")
-                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.12.1"),
-                        ( >= 7, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.10.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.12.1")
-                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.12.1")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.13.0"),
+                        ( >= 7, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.11.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.13.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.13.0")
                             .WithNugetDependency("System.Formats.Asn1", "8.0.1")
-                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.12.1"),
-                        ( >= 6, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.10.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.12.1")
-                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.12.1")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.13.0"),
+                        ( >= 6, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.11.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.13.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.13.0")
                             .WithNugetDependency("System.Formats.Asn1", "6.0.1")
-                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.12.1"),
-                        ( >= 2, >= 0) => new PackageVersion("3.10.0")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.13.0"),
+                        ( >= 2, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.AspNetCore.DataProtection", "2.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Caching.Memory", "2.1.0")
                             .WithNugetDependency("Microsoft.Extensions.Hosting", "2.1.1")
                             .WithNugetDependency("Microsoft.Extensions.Http", "3.1.3")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.10.0")
-                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.12.1")
-                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.12.1")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificate", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.Certificateless", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenCache", "3.11.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Protocols.OpenIdConnect", "8.13.0")
+                            .WithNugetDependency("Microsoft.IdentityModel.Validators", "8.13.0")
                             .WithNugetDependency("System.Formats.Asn1", "8.0.1")
-                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.12.1")
+                            .WithNugetDependency("System.IdentityModel.Tokens.Jwt", "8.13.0")
                             .WithNugetDependency("System.Security.Cryptography.Xml", "4.7.1")
                             .WithNugetDependency("System.Text.Json", "8.0.5"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftIdentityWebPackageName}'"),
@@ -131,35 +131,35 @@ namespace Intent.Modules.Security.MSAL
             NugetRegistry.Register(MicrosoftIdentityWebMicrosoftGraphPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("3.10.0")
+                        ( >= 9, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0"),
-                        ( >= 8, >= 0) => new PackageVersion("3.10.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0"),
-                        ( >= 7, >= 0) => new PackageVersion("3.10.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0"),
+                        ( >= 7, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0"),
-                        ( >= 6, >= 0) => new PackageVersion("3.10.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0"),
+                        ( >= 6, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0"),
-                        ( >= 2, >= 0) => new PackageVersion("3.10.0")
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0"),
+                        ( >= 2, >= 0) => new PackageVersion("3.11.0")
                             .WithNugetDependency("Microsoft.Graph", "4.36.0")
-                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.10.0"),
+                            .WithNugetDependency("Microsoft.Identity.Web.TokenAcquisition", "3.11.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftIdentityWebMicrosoftGraphPackageName}'"),
                     }
                 );
             NugetRegistry.Register(MicrosoftIdentityWebUIPackageName,
                 (framework) => (framework.Major, framework.Minor) switch
                     {
-                        ( >= 9, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web", "3.10.0"),
-                        ( >= 8, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web", "3.10.0"),
-                        ( >= 7, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web", "3.10.0"),
-                        ( >= 6, >= 0) => new PackageVersion("3.10.0")
-                            .WithNugetDependency("Microsoft.Identity.Web", "3.10.0"),
+                        ( >= 9, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web", "3.11.0"),
+                        ( >= 8, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web", "3.11.0"),
+                        ( >= 7, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web", "3.11.0"),
+                        ( >= 6, >= 0) => new PackageVersion("3.11.0")
+                            .WithNugetDependency("Microsoft.Identity.Web", "3.11.0"),
                         _ => throw new Exception($"Unsupported Framework `{framework.Major}` for NuGet package '{MicrosoftIdentityWebUIPackageName}'"),
                     }
                 );

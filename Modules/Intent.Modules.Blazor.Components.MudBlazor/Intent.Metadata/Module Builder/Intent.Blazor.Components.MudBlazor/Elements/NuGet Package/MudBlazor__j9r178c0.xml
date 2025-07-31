@@ -214,7 +214,7 @@
     </childElement>
     <childElement id="e8c1514a-7083-432d-b3dd-3e3ffc053468" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
       <comment />
-      <name>8.9.0</name>
+      <name>8.10.0</name>
       <display>8.9.0 ( &gt;= .NETCoreApp,Version=v8.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -236,44 +236,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="9eb4f872-bf8d-4c5b-a22a-264efa7fdda1" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="65d5324e-60b9-406c-967e-40a7afab3861" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
-          <display>Microsoft.AspNetCore.Components (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="fe6207f2-ba3a-46de-ab74-199c5ea982dc" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7cd1dbce-8834-4149-baf3-d9260aa72b9d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="f7098f15-1b3d-4c2a-b0a3-7dd8c418a968" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="3439f9f9-dc25-4fb9-89b3-613818cac19d" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
-          <display>Microsoft.Extensions.Localization (8.0.12)</display>
           <isAbstract>false</isAbstract>
           <value>8.0.12</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>e8c1514a-7083-432d-b3dd-3e3ffc053468</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
@@ -281,7 +272,7 @@
       </childElements>
     </childElement>
     <childElement id="d8480efb-395e-4ed9-b226-f020ed3567b9" type="Package Version" typeId="231f8cf8-517b-4801-9682-991d22f4e662">
-      <name>8.9.0</name>
+      <name>8.10.0</name>
       <display>8.9.0 ( &gt;= .NETCoreApp,Version=v9.0 )</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-by-name</sort-children>
@@ -303,44 +294,35 @@
       </stereotypes>
       <metadata />
       <childElements>
-        <childElement id="7b30e435-d709-4ed8-8599-90dc33d3a0ad" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="bbd999cb-d3f0-47e0-abdb-5392cfe6ce45" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components</name>
-          <display>Microsoft.AspNetCore.Components (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="26f7f7a2-9dea-4dee-b2c4-5d399446be36" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="a9c371b7-3970-4325-9192-d9b0ff17eef8" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.AspNetCore.Components.Web</name>
-          <display>Microsoft.AspNetCore.Components.Web (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />
         </childElement>
-        <childElement id="be3d617b-40ec-4721-8b9d-6559ae795d15" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
+        <childElement id="7d1033aa-1f5e-4676-a57f-02ae150bc279" type="NuGet Dependency" typeId="3097322a-a058-4058-beed-4fcd6272f61d">
           <name>Microsoft.Extensions.Localization</name>
-          <display>Microsoft.Extensions.Localization (9.0.1)</display>
           <isAbstract>false</isAbstract>
           <value>9.0.1</value>
           <genericTypes />
           <isMapped>false</isMapped>
           <parentFolderId>d8480efb-395e-4ed9-b226-f020ed3567b9</parentFolderId>
-          <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
-          <packageName>Intent.Blazor.Components.MudBlazor</packageName>
           <stereotypes />
           <metadata />
           <childElements />

@@ -61,7 +61,7 @@ public class CreateClientCommandEndpoint : Endpoint<CreateClientCommand, JsonRes
     public override async Task HandleAsync(CreateClientCommand req, CancellationToken ct)
     {
         var result = await _mediator.Send(req, ct);
-        await SendCreatedAtAsync<GetClientByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
+        await Send.CreatedAtAsync<GetClientByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
     }
 }
 ```
