@@ -61,7 +61,7 @@ artifacts/
 *.tlh
 *.tmp
 *.tmp_proj
-*.log
+# *.log
 *.vspscc
 *.vssscc
 .builds
@@ -245,8 +245,7 @@ ModelManifest.xml
 # INTENT FILES:
 *.imod
 *.iat
-!*.application.output.log
-!*.application.deviations.log
+!**/*.application.output.log
 .intent/
 
 .idea/
