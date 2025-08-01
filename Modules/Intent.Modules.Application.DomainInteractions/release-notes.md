@@ -1,3 +1,7 @@
+### Version 1.1.1
+
+- Fixed: Value Object update mappings incorrectly being applied to nested Value Object collections.
+
 ### Version 1.1.0
 
 - Improvement: Created `EntityPatchMappingTypeResolver` to support PATCH type update operations with null checks before assignment.
