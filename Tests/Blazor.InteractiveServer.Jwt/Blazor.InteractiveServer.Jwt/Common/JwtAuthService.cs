@@ -82,7 +82,7 @@ namespace Blazor.InteractiveServer.Jwt.Common
             {
                 throw new Exception("Registration failed");
             }
-            _redirectManager.RedirectTo("Account/RegisterConfirmation", new() { ["email"] = email, ["returnUrl"] = returnUrl });
+            _redirectManager.RedirectTo(returnUrl);
         }
 
         public async Task ResendEmailConfirmation(string email)
