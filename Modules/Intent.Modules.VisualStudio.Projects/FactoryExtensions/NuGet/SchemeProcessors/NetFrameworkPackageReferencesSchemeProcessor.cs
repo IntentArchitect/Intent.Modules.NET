@@ -100,7 +100,7 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
                 packageReferenceItemGroup.Add(packageReferenceElement = new XElement(
                     XName.Get("PackageReference", namespaceName),
                     new XAttribute("Include", packageId),
-                    new XElement(XName.Get("Version", namespaceName), package.Version.OriginalString)));
+                    new XElement(XName.Get("Version", namespaceName), package.Version.OriginalVersion)));
             }
 
             var versionElement = packageReferenceElement.XPathSelectElement($"{prefix}:Version", namespaceManager); // try element first
@@ -110,14 +110,14 @@ internal class NetFrameworkPackageReferencesSchemeProcessor : INuGetSchemeProces
                 throw new Exception("Missing version element from PackageReference element.");
             }
 
-            if (VersionRange.Parse(versionElement?.Value ?? versionAttribute.Value).MinVersion >= package.Version.MinVersion)
+            if (new VersionInfo(versionElement?.Value ?? versionAttribute.Value) >= package.Version)
             {
                 continue;
             }
 
             tracing.Info($"Upgrading {packageId} from {versionElement?.Value ?? versionAttribute.Value} to {package.Version} in project {projectName}");
-            versionElement?.SetValue(package.Version.OriginalString);
-            versionAttribute?.SetValue(package.Version.OriginalString);
+            versionElement?.SetValue(package.Version.OriginalVersion);
+            versionAttribute?.SetValue(package.Version.OriginalVersion);
         }
 
         SortAlphabetically(packageReferenceItemGroup);

@@ -81,7 +81,7 @@ internal class NetFrameworkPackagesDotConfigSchemeProcessor : INuGetSchemeProces
             .Where(x => !installedPackages.ContainsKey(x.Key))
             .ToArray();
         var upgradesRequired = requestedPackages
-            .Where(x => installedPackages.TryGetValue(x.Key, out var nuGetPackage) && nuGetPackage.Version.MinVersion < x.Value.Version.MinVersion)
+            .Where(x => installedPackages.TryGetValue(x.Key, out var nuGetPackage) && nuGetPackage.Version < x.Value.Version)
             .ToArray();
 
         if (!installationsRequired.Any() && !upgradesRequired.Any())
