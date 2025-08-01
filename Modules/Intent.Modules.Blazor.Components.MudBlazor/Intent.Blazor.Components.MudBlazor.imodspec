@@ -23,15 +23,16 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.Components.MudBlazor.MudBlazorComponentInstaller" externalReference="ea521efb-a5fa-4076-adac-154b24c0c10a" />
     <factoryExtension id="Intent.Blazor.Components.MudBlazor.MudBlazorInstaller" externalReference="dd277b16-0158-4a95-ac69-c6ffaa4c9612" />
+    <factoryExtension id="Intent.Blazor.Components.MudBlazor.SnackbarInstaller" externalReference="b2ba5f61-72f5-4ef2-972e-cfb5566b8054" />
   </factoryExtensions>
   <moduleSettings></moduleSettings>
   <dependencies>
-    <dependency id="Intent.Blazor" version="1.0.0-beta.17" />
-    <dependency id="Intent.Common" version="3.7.3" />
+    <dependency id="Intent.Blazor" version="1.0.1-alpha.0" />
+    <dependency id="Intent.Common" version="3.8.0" />
     <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.10" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.10" />
+    <dependency id="Intent.Modelers.UI.Core" version="1.0.1-alpha.0" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
   </dependencies>
   <interoperability>

@@ -12,9 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Intent.Modules.Blazor.Api;
-internal static class SecuredHelper
+public static class SecuredHelper
 {
-    public static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
+
+    internal static string AuthorizationAttribute(this Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured model, ICSharpTemplate template)
     {
         var authText = GetSecuredText(model.Policy(), model.Roles());
 

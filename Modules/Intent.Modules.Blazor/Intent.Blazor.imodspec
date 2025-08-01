@@ -82,6 +82,38 @@
       <role>Startup</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" externalReference="65e03e1e-140e-44e8-8ffb-fbc628a9571b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services.Interfaces</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedExecutorTemplate" externalReference="828e31ec-b76f-49c0-9868-9d4c68fb63d2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate" externalReference="2d896c99-c250-4d32-8542-016c28146f44">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services.Interfaces</role>
+      <location></location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedMediatorTemplate" externalReference="89cd5e16-4c2b-475c-b257-19deb991cd50">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location></location>
+    </template>
     <template id="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" externalReference="f4e96c35-f23e-49b2-ae25-151ec6564357">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />

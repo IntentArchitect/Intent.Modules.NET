@@ -41,7 +41,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
         public RazorComponentTemplate(IOutputTarget outputTarget, ComponentModel model) : base(TemplateId, outputTarget, model)
         {
             SetDefaultCollectionFormatter(CSharpCollectionFormatter.CreateList());
-            //AddTypeSource("Intent.Blazor.HttpClients.PagedResult");
             AddTypeSource(ModelDefinitionTemplate.TemplateId);
             AddTypeSource("Blazor.HttpClient.Contracts.Dto");
             AddTypeSource("Blazor.HttpClient.ServiceContract");

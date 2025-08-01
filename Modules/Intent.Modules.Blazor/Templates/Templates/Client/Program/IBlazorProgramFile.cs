@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Common.CSharp.Builder;
 
-namespace Intent.Modules.Blazor.Wasm.Templates.Templates.Program;
+namespace Intent.Modules.Blazor.Templates.Templates.Client.Program;
 
 public interface IBlazorProgramFile
 {

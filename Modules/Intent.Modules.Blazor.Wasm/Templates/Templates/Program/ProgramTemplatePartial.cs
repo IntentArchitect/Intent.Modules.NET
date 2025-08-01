@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Common;
 using Intent.Modules.Common.Configuration;
 using Intent.Modules.Common.CSharp.AppStartup;

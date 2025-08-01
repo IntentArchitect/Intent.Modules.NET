@@ -1,6 +1,6 @@
 ﻿using Intent.Modules.Common.CSharp.Builder;
 
-namespace Intent.Modules.Blazor.Wasm.Templates.Templates.Program;
+namespace Intent.Modules.Blazor.Templates.Templates.Client.Program;
 
 /// <summary>
 /// Abstracts working with methods for <c>Program.cs</c> file as depending on whether the use

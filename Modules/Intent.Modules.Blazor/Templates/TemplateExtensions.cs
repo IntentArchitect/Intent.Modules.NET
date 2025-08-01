@@ -9,6 +9,10 @@ using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
+using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor;
+using Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutorInterface;
+using Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediator;
+using Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediatorInterface;
 using Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -59,6 +63,26 @@ namespace Intent.Modules.Blazor.Templates
         public static string GetRazorLayoutCodeBehindTemplateName(this IIntentTemplate template, LayoutModel model)
         {
             return template.GetTypeName(RazorLayoutCodeBehindTemplate.TemplateId, model);
+        }
+
+        public static string GetScopedExecutorTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ScopedExecutorTemplate.TemplateId);
+        }
+
+        public static string GetScopedExecutorInterfaceTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ScopedExecutorInterfaceTemplate.TemplateId);
+        }
+
+        public static string GetScopedMediatorTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ScopedMediatorTemplate.TemplateId);
+        }
+
+        public static string GetScopedMediatorInterfaceTemplateName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(ScopedMediatorInterfaceTemplate.TemplateId);
         }
 
         public static string GetRazorComponentTemplateName<T>(this IIntentTemplate<T> template) where T : ComponentModel

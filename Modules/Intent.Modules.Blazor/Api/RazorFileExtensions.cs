@@ -1,16 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.UI.Api;
 using Intent.Modelers.UI.Core.Api;
+using Intent.Modules.Blazor.Api.Mappings;
+using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.Interactions;
+using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.Modules.Common.TypeResolution;
+using Intent.Modules.Constants;
 using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Api;
@@ -115,14 +123,11 @@ public static class RazorFileExtensions
                 {
                     methodName += "Async";
                 }
-                if (methodName == "OnBobAutoAsync")
-                {
-
-                }
                 block.AddMethod(block.Template.GetTypeName(operation.TypeReference), methodName, method =>
                 {
                     method.Private();
                     method.RepresentsModel(child);
+                    method.AddMetadata("model", child);
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase)/* && operation.CallServiceOperationActionTargets().Any()*/)
                     {
                         method.Async();
@@ -185,76 +190,96 @@ public static class RazorFileExtensions
                             {
                                 var serviceCall = action.AsCallServiceOperationActionTargetEndModel();
                                 var parentElement = ((IElement)serviceCall.Element).ParentElement;
-
-                                var serviceName = block.InjectServiceProperty(block.Template.GetTypeName(parentElement));
                                 var invocationMapping = serviceCall.GetMapInvocationMapping();
+                                var targetElement = (IElement)invocationMapping.TargetElement;
 
                                 const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
                                 const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
                                 const string dtoFieldTypeId = "7baed1fd-469b-4980-8fd9-4cefb8331eb2";
                                 const string httpSettingsDefinitionId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
+                                const string serviceOperationSpecializationTypeId = "e030c97a-e066-40a7-8188-808c275df3cb";
 
-                                CSharpStatement? invocation;
-                                var targetElement = (IElement)invocationMapping.TargetElement;
-                                if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
+                                string? serviceName = null;
+                                CSharpStatement? invocation = null;
+
+                                if (template.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && IsLocalServiceInvocatiion(action, targetElement, parentElement))
                                 {
-                                    if (!targetElement.HasStereotype(httpSettingsDefinitionId))
+                                    if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                     {
-                                        throw new ElementException(action, "Target CQRS request is not exposed with HTTP");
-                                    }
-
-                                    var nameOfMethodToInvoke = block.Template
-                                        .GetAllTypeInfo(parentElement.AsTypeReference())
-                                        .Select(x => x.Template)
-                                        .OfType<ICSharpTemplate>()
-                                        .FirstOrDefault(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
-                                        ?.RootCodeContext.GetReferenceForModel(targetElement.Id).Name;
-
-                                    if (nameOfMethodToInvoke == null)
-                                    {
-                                        throw new FriendlyException("Unable to resolve the service type for the service call to `" + targetElement.DisplayText + "`. Try installing a module to realize this service (e.g. `Intent.Blazor.HttpClients`)");
-                                    }
-
-                                    var csharpInvocationStatement = new CSharpInvocationStatement(nameOfMethodToInvoke);
-                                    if (targetElement.ChildElements.Any(x => x.SpecializationTypeId is dtoFieldTypeId))
-                                    {
+                                        serviceName = block.InjectServiceProperty(block.Template.GetScopedMediatorInterfaceTemplateName(), "Mediator");
+                                        var csharpInvocationStatement = new CSharpInvocationStatement("Send");
                                         csharpInvocationStatement.AddArgument(mappingManager.GenerateCreationStatement(invocationMapping));
+                                        invocation = csharpInvocationStatement;
                                     }
-
-                                    invocation = csharpInvocationStatement;
-                                }
-                                else
-                                {
-                                    invocation = mappingManager.GenerateUpdateStatements(invocationMapping).First();
-                                }
-
-                                if (serviceCall.GetMapResponseMapping() != null)
-                                {
-                                    var responseStaticElementId = "2f68b1a4-a523-4987-b3da-f35e6e8e146b";
-                                    if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
+                                    else //Traditional Service
                                     {
-                                        method.AddStatement(new CSharpAssignmentStatement(
-                                            lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
-                                            rhs: new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
-                                    }
-                                    else
-                                    {
-                                        var variableName = serviceCall.TypeReference.Element.TypeReference.Element.Name.ToLocalVariableName();
-                                        method.AddStatement(new CSharpAssignmentStatement($"var {variableName}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
-                                        mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), variableName);
-                                        var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
-                                        foreach (var statement in response)
+                                        var executorServiceName = block.InjectServiceProperty(block.Template.GetScopedExecutorInterfaceTemplateName(), "ScopedExecutor");
+
+                                        //Service Invocation
+                                        if (!block.Template.TryGetTemplate<ICSharpFileBuilderTemplate>(TemplateRoles.Application.Services.Interface, targetElement.ParentId, out var serviceInterfaceTemplate))
                                         {
-                                            statement.WithSemicolon();
+                                            return;
                                         }
 
-                                        method.AddStatements(response);
+                                        // So that the mapping system can resolve the name of the operation from the interface itself:
+                                        block.Template.AddTypeSource(serviceInterfaceTemplate.Id);
+                                        block.Template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+                                        block.Template.AddTypeSource(TemplateRoles.Application.Contracts.Enum);
+
+                                        string tradServiceInterfaceName = block.Template.GetTypeName(serviceInterfaceTemplate);
+                                        string tradServiceVariable = tradServiceInterfaceName.Substring(1).ToCamelCase();
+
+                                        serviceName = tradServiceVariable;
+                                        var csharpInvocationStatement = mappingManager.GenerateCreationStatement(invocationMapping);
+
+                                        //Scoped Wrapper for Invocation
+                                        var csharpInvocationStatementWrapper = new CSharpInvocationStatement($"await {executorServiceName}.ExecuteAsync");
+                                        csharpInvocationStatementWrapper.AddArgument(new CSharpLambdaBlock("async sp")
+                                            .AddStatement($"var {tradServiceVariable} = sp.GetRequiredService<{tradServiceInterfaceName}>();")
+                                            .AddStatements(GetCallServiceOperation(serviceCall, mappingManager, serviceName, csharpInvocationStatement))
+                                            );
+                                        method.AddStatement(csharpInvocationStatementWrapper);
+                                        continue;
                                     }
                                 }
                                 else
                                 {
-                                    method.AddStatement(new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation)));
+                                    serviceName = block.InjectServiceProperty(block.Template.GetTypeName(parentElement));
+
+                                    if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
+                                    {
+                                        if (!targetElement.HasStereotype(httpSettingsDefinitionId))
+                                        {
+                                            throw new ElementException(action, "Target CQRS request is not exposed with HTTP");
+                                        }
+
+                                        var nameOfMethodToInvoke = block.Template
+                                            .GetAllTypeInfo(parentElement.AsTypeReference())
+                                            .Select(x => x.Template)
+                                            .OfType<ICSharpTemplate>()
+                                            .FirstOrDefault(x => x.RootCodeContext.TryGetReferenceForModel(targetElement.Id, out _))
+                                            ?.RootCodeContext.GetReferenceForModel(targetElement.Id).Name;
+
+                                        if (nameOfMethodToInvoke == null)
+                                        {
+                                            throw new FriendlyException("Unable to resolve the service type for the service call to `" + targetElement.DisplayText + "`. Try installing a module to realize this service (e.g. `Intent.Blazor.HttpClients`)");
+                                        }
+
+                                        var csharpInvocationStatement = new CSharpInvocationStatement(nameOfMethodToInvoke);
+                                        if (targetElement.ChildElements.Any(x => x.SpecializationTypeId is dtoFieldTypeId))
+                                        {
+                                            csharpInvocationStatement.AddArgument(mappingManager.GenerateCreationStatement(invocationMapping));
+                                        }
+
+                                        invocation = csharpInvocationStatement;
+                                    }
+                                    else // Proxies
+                                    {
+                                        invocation = mappingManager.GenerateUpdateStatements(invocationMapping).First();
+                                    }
                                 }
+                                method.AddStatements(GetCallServiceOperation(serviceCall, mappingManager, serviceName, invocation));
+
                                 continue;
                             }
 
@@ -325,13 +350,6 @@ public static class RazorFileExtensions
                                 continue;
                             }
                         }
-
-                        //var hasImplicitEventEmitter = componentElement.ChildElements.SingleOrDefault(x => method.Name == $"On{x.Name.ToPropertyName()}");
-                        //if (hasImplicitEventEmitter != null)
-                        //{
-                        //    method.Async();
-                        //    method.AddStatement(new CSharpAwaitExpression(new CSharpStatement($"{hasImplicitEventEmitter.Name.ToPropertyName()}.InvokeAsync();")));
-                        //}
 
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))
                         {
@@ -419,6 +437,60 @@ public static class RazorFileExtensions
         //        });
         //    }
         //}
+    }
+
+    private static IEnumerable<CSharpStatement> GetCallServiceOperation(CallServiceOperationActionTargetEndModel serviceCall
+        , CSharpClassMappingManager mappingManager
+        , string serviceName
+        , CSharpStatement invocation)
+    {
+        var result = new List<CSharpStatement>();
+        if (serviceCall.GetMapResponseMapping() != null)
+        {
+            var responseStaticElementId = "2f68b1a4-a523-4987-b3da-f35e6e8e146b";
+            if (serviceCall.GetMapResponseMapping().MappedEnds.Count == 1 && serviceCall.GetMapResponseMapping().MappedEnds.Single().SourceElement.Id == responseStaticElementId)
+            {
+                result.Add(new CSharpAssignmentStatement(
+                    lhs: mappingManager.GenerateTargetStatementForMapping(serviceCall.GetMapResponseMapping(), serviceCall.GetMapResponseMapping().MappedEnds.Single()),
+                    rhs: new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
+            }
+            else
+            {
+                var variableName = serviceCall.TypeReference.Element.TypeReference.IsCollection ? serviceCall.TypeReference.Element.TypeReference.Element.Name.Pluralize().ToLocalVariableName() : serviceCall.TypeReference.Element.TypeReference.Element.Name.ToLocalVariableName();
+                result.Add(new CSharpAssignmentStatement($"var {variableName}", new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation))));
+                mappingManager.SetFromReplacement(new StaticMetadata(responseStaticElementId), variableName);
+                var response = mappingManager.GenerateUpdateStatements(serviceCall.GetMapResponseMapping());
+                foreach (var statement in response)
+                {
+                    statement.WithSemicolon();
+                }
+
+                result.AddRange(response);
+            }
+        }
+        else
+        {
+            result.Add(new CSharpAwaitExpression(new CSharpAccessMemberStatement($"{serviceName}", invocation)));
+        }
+        return result;
+    }
+
+    private static bool IsLocalServiceInvocatiion(IElement? action, IElement targetElement, IElement parentElement)
+    {
+        const string commandSpecializationTypeId = "ccf14eb6-3a55-4d81-b5b9-d27311c70cb9";
+        const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
+        const string serviceOperationSpecializationTypeId = "e030c97a-e066-40a7-8188-808c275df3cb";
+
+        if (targetElement.SpecializationTypeId is not (commandSpecializationTypeId or querySpecializationTypeId or serviceOperationSpecializationTypeId))
+        {
+            return false;
+        }
+        
+        if (parentElement.Application.Id == action?.Application?.Id)
+        {
+            return true;
+        }
+        return false;
     }
 
     private static List<IElement> GetProcessingActions(this ComponentOperationModel operation)
