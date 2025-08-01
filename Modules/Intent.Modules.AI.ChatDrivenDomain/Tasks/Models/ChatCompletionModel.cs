@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace Intent.Modules.AI.ChatDrivenDomain.Tasks;
+namespace Intent.Modules.AI.ChatDrivenDomain.Tasks.Models;
 
-public class InputModel
+public class ChatCompletionModel
 {
     public string Prompt { get; set; }
     public List<ClassModel> Classes { get; set; }

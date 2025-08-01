@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.Json;
-using Intent.Modules.AI.ChatDrivenDomain.Tasks;
+using Intent.Modules.AI.ChatDrivenDomain.Tasks.Models;
 using Microsoft.SemanticKernel;
 
 namespace Intent.Modules.AI.ChatDrivenDomain.Plugins;
 
 public class ModelMutationPlugin
 {
-    private readonly InputModel _inputModel;
+    private readonly ChatCompletionModel _inputModel;
     private readonly List<ClassModel> _classes;
 
-    public ModelMutationPlugin(InputModel inputModel)
+    public ModelMutationPlugin(ChatCompletionModel inputModel)
     {
         _inputModel = inputModel;
         _classes = new List<ClassModel>(inputModel.Classes);

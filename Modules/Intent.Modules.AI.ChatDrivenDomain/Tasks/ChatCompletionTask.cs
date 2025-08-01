@@ -1,51 +1,43 @@
 using System;
-using System.Net.Http;
-using System.Text.Encodings.Web;
 using System.Text.Json;
-using System.Text.Unicode;
 using Intent.Engine;
 using Intent.Modules.AI.ChatDrivenDomain.Plugins;
+using Intent.Modules.AI.ChatDrivenDomain.Tasks.Helpers;
+using Intent.Modules.AI.ChatDrivenDomain.Tasks.Models;
 using Intent.Modules.Common.AI;
-using Intent.Modules.Common.AI.Settings;
-using Intent.Plugins;
 using Intent.Utils;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.Connectors.OpenAI;
-using OllamaSharp;
-using SoftwareFactoryLoggingProvider = Intent.Modules.AI.ChatDrivenDomain.Utils.SoftwareFactoryLoggingProvider;
 
 namespace Intent.Modules.AI.ChatDrivenDomain.Tasks;
 
-public class ChatCompletionTask : IModuleTask
+public class ChatCompletionTask : ModuleTaskSingleInputBase<ChatCompletionModel>
 {
-    private readonly IApplicationConfigurationProvider _applicationConfigurationProvider;
     private readonly IUserSettingsProvider _userSettingsProvider;
 
-    private static readonly JsonSerializerOptions SerializerOptions = new()
+    public ChatCompletionTask(IUserSettingsProvider userSettingsProvider)
     {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        WriteIndented = false
-    };
-
-    public ChatCompletionTask(IApplicationConfigurationProvider applicationConfigurationProvider, IUserSettingsProvider userSettingsProvider)
-    {
-        _applicationConfigurationProvider = applicationConfigurationProvider;
         _userSettingsProvider = userSettingsProvider;
     }
 
-    public string TaskTypeId => "Intent.Modules.ChatDrivenDomain.Tasks.ChatCompletionTask";
-    public string TaskTypeName => "Consulting the great LLAMA...";
-    public int Order => 0;
+    public override string TaskTypeId => "Intent.Modules.ChatDrivenDomain.Tasks.ChatCompletionTask";
+    public override string TaskTypeName => "Consulting the great LLAMA...";
 
-    public string Execute(params string[] args)
+    protected override ValidationResult ValidateInputModel(ChatCompletionModel inputModel)
     {
-        Logging.Log.Info($"Args: {string.Join(",", args)}");
+        if (string.IsNullOrWhiteSpace(inputModel?.Prompt))
+        {
+            return ValidationResult.ErrorResult("Prompt is required");
+        }
 
+        return ValidationResult.SuccessResult();
+    }
+
+    protected override ExecuteResult ExecuteModuleTask(ChatCompletionModel inputModel)
+    {
+        var executeResult = new ExecuteResult();
+        
         try
         {
-            var inputModel = JsonSerializer.Deserialize<InputModel>(args[0], SerializerOptions)!;
             var modelMutationPlugin = new ModelMutationPlugin(inputModel);
             var kernel = new IntentSemanticKernelFactory(_userSettingsProvider).BuildSemanticKernel((builder) =>
             {
@@ -66,12 +58,14 @@ public class ChatCompletionTask : IModuleTask
             
             Logging.Log.Debug($"Result: \r\n{jsonResult}");
             
-            return jsonResult;
+            executeResult.Result = finalModel;
+            return executeResult;
         }
         catch (Exception e)
         {
             Logging.Log.Failure(e);
-            return Fail(e.GetBaseException().Message);
+            executeResult.Errors.Add(e.GetBaseException().Message);
+            return executeResult;
         }
     }
 
@@ -158,13 +152,5 @@ public class ChatCompletionTask : IModuleTask
                 FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
             });
         return requestFunction;
-    }
-
-    private static string Fail(string reason)
-    {
-        Logging.Log.Failure(reason);
-        var errorObject = new { errorMessage = reason };
-        var json = JsonSerializer.Serialize(errorObject, SerializerOptions);
-        return json;
     }
 }

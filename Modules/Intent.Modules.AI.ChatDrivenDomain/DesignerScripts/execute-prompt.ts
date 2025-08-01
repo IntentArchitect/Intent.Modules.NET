@@ -86,19 +86,33 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
         return;
     }
 
-    // Parse the result from the AI task
-    let updatedClasses: any;
+    // Parse the result as ExecuteResult
+    let executeResult: any;
     try {
-        updatedClasses = JSON.parse(outputStr);
+        executeResult = JSON.parse(outputStr);
     } catch (error) {
         dialogService.error(`Failed to parse AI task result: ${error.message}`);
         return;
     }
 
-    // Check for errors in the AI response
-    if (updatedClasses.errorMessage) {
-        dialogService.error(updatedClasses.errorMessage);
+    // Check for errors in the ExecuteResult
+    if (executeResult.errors && executeResult.errors.length > 0) {
+        const errorMessage = executeResult.errors.join('\n');
+        dialogService.error(`AI task errors:\n${errorMessage}`);
         return;
+    }
+
+    // Extract the actual classes array from the result
+    const updatedClasses = executeResult.result;
+    if (!updatedClasses || !Array.isArray(updatedClasses)) {
+        dialogService.error("AI task did not return a valid classes array.");
+        return;
+    }
+
+    // Optionally show warnings
+    if (executeResult.warnings && executeResult.warnings.length > 0) {
+        const warningMessage = executeResult.warnings.join('\n');
+        dialogService.warn(`AI task warnings:\n${warningMessage}`);
     }
 
     // Create a lookup of type names to IDs
