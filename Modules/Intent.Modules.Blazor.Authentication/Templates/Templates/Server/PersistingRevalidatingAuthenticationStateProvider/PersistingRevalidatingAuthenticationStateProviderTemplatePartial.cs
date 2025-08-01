@@ -1,15 +1,16 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -71,7 +72,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         method.AddParameter("AuthenticationState", "authenticationState");
                         method.AddParameter("CancellationToken", "cancellationToken");
 
-                        if (ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsAspnetcoreIdentity())
+                        if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                         {
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
                             method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>>();");
@@ -83,7 +84,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         }
                     });
 
-                    if (ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsAspnetcoreIdentity())
+                    if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                     {
                         @class.AddMethod("Task<bool>", "ValidateSecurityStampAsync", method =>
                         {

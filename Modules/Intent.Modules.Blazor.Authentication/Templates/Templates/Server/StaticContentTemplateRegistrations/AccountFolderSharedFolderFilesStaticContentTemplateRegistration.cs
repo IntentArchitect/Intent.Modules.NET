@@ -1,10 +1,11 @@
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -34,7 +35,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (application.GetSettings().GetAuthenticationType().Authentication().IsAspnetcoreIdentity())
+            if (application.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
             {
                 base.Register(registry, application);
             }

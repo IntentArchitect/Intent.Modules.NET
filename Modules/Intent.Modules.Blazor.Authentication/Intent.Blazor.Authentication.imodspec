@@ -193,22 +193,10 @@
     <factoryExtension id="Intent.Blazor.Authentication.ClientAddAuthentication" externalReference="472bc746-3023-4cf6-97d7-5f25394e6c38" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
   </factoryExtensions>
-  <moduleSettings>
-    <group id="56d61127-105b-43db-9bcd-07e49b80c64b" title="Authentication Type" type="application-settings" externalReference="56d61127-105b-43db-9bcd-07e49b80c64b">
-      <settings>
-        <setting id="f45912f0-4c74-47f7-8657-7329c4257c23" title="Authentication" type="select">
-          <defaultValue>aspnetcore-identity</defaultValue>
-          <options>
-            <option value="aspnetcore-identity" description="Asp.Net Core Identity" />
-            <option value="jwt" description="JWT" />
-            <option value="oidc" description="OIDC" />
-          </options>
-        </setting>
-      </settings>
-    </group>
-  </moduleSettings>
+  <moduleSettings />
   <dependencies>
-    <dependency id="Intent.Blazor" version="1.0.0-beta.28" />
+    <dependency id="Intent.Blazor" version="1.0.0-beta.31" />
+    <dependency id="Intent.Code.Weaving.Razor" version="1.0.7" />
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
@@ -222,7 +210,20 @@
   </files>
   <tags />
   <releaseNotes>release-notes.md</releaseNotes>
-  <moduleSettingsExtensions />
+  <moduleSettingsExtensions>
+    <groupExtension id="07c676e1-b7dc-48aa-bf7a-41653e793cd0" groupId="489a67db-31b2-4d51-96d7-52637c3795be" externalReference="07c676e1-b7dc-48aa-bf7a-41653e793cd0">
+      <settings>
+        <setting id="5ec4a775-6208-405b-b66f-0dd5c6e591bb" title="Authentication" type="select">
+          <isRequired>false</isRequired>
+          <options>
+            <option value="aspnetcore-identity" description="Asp.Net Core Identity" />
+            <option value="jwt" description="JWT" />
+            <option value="oidc" description="OIDC" />
+          </options>
+        </setting>
+      </settings>
+    </groupExtension>
+  </moduleSettingsExtensions>
   <metadata>
     <install target="User Interface" src="Intent.Metadata/Module Builder/Intent.Blazor.Authentication/Intent.Blazor.Authentication.pkg.config" externalReference="b9d38f7c-7a8d-4007-b33d-7f386ccf119a" />
   </metadata>

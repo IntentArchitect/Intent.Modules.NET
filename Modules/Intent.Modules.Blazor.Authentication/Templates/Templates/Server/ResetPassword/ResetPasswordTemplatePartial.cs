@@ -1,14 +1,15 @@
-using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
+using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial", Version = "1.0")]
@@ -162,7 +163,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetP
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsOidc();
+            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc();
         }
     }
 }

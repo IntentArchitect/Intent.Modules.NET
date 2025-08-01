@@ -9,37 +9,11 @@ using Intent.RoslynWeaver.Attributes;
 
 namespace Intent.Modules.Blazor.Authentication.Settings
 {
-    public static class ModuleSettingsExtensions
+
+    public static class BlazorExtensions
     {
-        public static AuthenticationType GetAuthenticationType(this IApplicationSettingsProvider settings)
-        {
-            return new AuthenticationType(settings.GetGroup("56d61127-105b-43db-9bcd-07e49b80c64b"));
-        }
-    }
-
-    public class AuthenticationType : IGroupSettings
-    {
-        private readonly IGroupSettings _groupSettings;
-
-        public AuthenticationType(IGroupSettings groupSettings)
-        {
-            _groupSettings = groupSettings;
-        }
-
-        public string Id => _groupSettings.Id;
-
-        public string Title
-        {
-            get => _groupSettings.Title;
-            set => _groupSettings.Title = value;
-        }
-
-        public ISetting GetSetting(string settingId)
-        {
-            return _groupSettings.GetSetting(settingId);
-        }
-
-        public AuthenticationOptions Authentication() => new AuthenticationOptions(_groupSettings.GetSetting("f45912f0-4c74-47f7-8657-7329c4257c23")?.Value);
+        [IntentIgnore]
+        public static AuthenticationOptions Authentication(this Intent.Modules.Blazor.Settings.Blazor groupSettings) => new AuthenticationOptions(groupSettings.GetSetting("5ec4a775-6208-405b-b66f-0dd5c6e591bb")?.Value);
 
         public class AuthenticationOptions
         {

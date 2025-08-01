@@ -59,18 +59,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     statements.AddStatement($"{context.Services}.AddCascadingAuthenticationState();");
                     statements.AddStatement($"{context.Services}.AddHttpContextAccessor();");
 
-                    if (startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsJwt())
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt())
                     {
                         statements.AddStatement($"{context.Services}.AddHttpClient(\"jwtClient\", client => client.BaseAddress = {context.Configuration}.GetValue<Uri?>(\"TokenEndpoint:Uri\"));");
                     }
-                    else if (startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsOidc())
+                    else if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc())
                     {
                         statements.AddStatement($"{context.Services}.AddHttpClient(\"oidcClient\", client => client.BaseAddress = {context.Configuration}.GetValue<Uri?>(\"TokenEndpoint:Uri\"));");
                         statements.AddStatement($"{context.Services}.Configure<{startup.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}>({context.Configuration});");
                     }
                     statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
 
-                    if (startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsAspnetcoreIdentity())
+                    if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                     {
                         file.AddUsing("Microsoft.EntityFrameworkCore");
                         AddPersistanceProvider(startup, statements, context);
@@ -104,7 +104,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         {
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(ServerAuthorizationMessageHandlerTemplate.TemplateId)}>();");
                         }
-                        if (startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsJwt())
+                        if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsJwt())
                         {
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(JwtAuthServiceConcreteTemplate.TemplateId)}>();");
                         }
@@ -135,7 +135,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             });
 
             if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() &&
-                !startup.ExecutionContext.GetSettings().GetAuthenticationType().Authentication().IsAspnetcoreIdentity())
+                !startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
             {
 
                 var httpClients = application.FindTemplateInstance<ICSharpFileBuilderTemplate>("Intent.Blazor.HttpClients.HttpClientConfiguration");
