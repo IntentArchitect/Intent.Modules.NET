@@ -17,6 +17,7 @@ namespace EfCoreSoftDelete.IntegrationTests.Tests.Customers
         }
 
         [Fact]
+        [IntentMergeBody]
         public async Task UpdateCustomer_ShouldUpdateCustomer()
         {
             // Arrange
@@ -35,6 +36,9 @@ namespace EfCoreSoftDelete.IntegrationTests.Tests.Customers
             var customer = await client.GetCustomerByIdAsync(customerId, TestContext.Current.CancellationToken);
             Assert.NotNull(customer);
             Assert.Equal(command.Name, customer.Name);
+            Assert.Equal(command.OtherAddresses[0].Line1, customer.OtherAddresses[0].Line1);
+            Assert.Equal(command.OtherAddresses[0].Line2, customer.OtherAddresses[0].Line2);
+            Assert.Equal(command.OtherAddresses[0].OtherBuildings[0].Name, customer.OtherAddresses[0].OtherBuildings[0].Name);
         }
     }
 }

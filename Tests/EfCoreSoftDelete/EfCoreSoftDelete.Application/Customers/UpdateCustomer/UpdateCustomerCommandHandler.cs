@@ -36,8 +36,10 @@ namespace EfCoreSoftDelete.Application.Customers.UpdateCustomer
                 line2: d.Line2,
                 city: d.City,
                 postal: d.Postal,
-                otherBuildings: UpdateHelper.CreateOrUpdateCollection(e.OtherBuildings.ToList(), d.OtherBuildings, (e, d) => e.Equals(new AddressBuilding(
-                name: d.Name)), CreateOrUpdateAddressBuilding),
+                otherBuildings: d.OtherBuildings
+                    .Select(ob => new AddressBuilding(
+                        name: ob.Name))
+                    .ToList(),
                 primaryBuilding: new AddressBuilding(
                     name: d.PrimaryBuilding.Name))), CreateOrUpdateAddress);
             customer.PrimaryAddress = new Address(
@@ -45,36 +47,12 @@ namespace EfCoreSoftDelete.Application.Customers.UpdateCustomer
                 line2: request.PrimaryAddress.Line2,
                 city: request.PrimaryAddress.City,
                 postal: request.PrimaryAddress.Postal,
-                otherBuildings: UpdateHelper.CreateOrUpdateCollection(customer.PrimaryAddress.OtherBuildings.ToList(), request.OtherBuildings, (e, d) => e.Equals(new AddressBuilding(
-                name: d.Name)), CreateOrUpdateAddressBuilding),
+                otherBuildings: request.OtherBuildings
+                    .Select(ob => new AddressBuilding(
+                        name: ob.Name))
+                    .ToList(),
                 primaryBuilding: new AddressBuilding(
                     name: request.PrimaryBuilding.Name));
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static AddressBuilding CreateOrUpdateAddressBuilding(
-            AddressBuilding? valueObject,
-            UpdateCustomerCommandOtherBuildingsDto1 dto)
-        {
-            if (valueObject is null)
-            {
-                return new AddressBuilding(
-                    name: dto.Name);
-            }
-            return valueObject;
-        }
-
-        [IntentManaged(Mode.Fully)]
-        private static AddressBuilding CreateOrUpdateAddressBuilding(
-            AddressBuilding? valueObject,
-            UpdateCustomerCommandOtherBuildingsDto dto)
-        {
-            if (valueObject is null)
-            {
-                return new AddressBuilding(
-                    name: dto.Name);
-            }
-            return valueObject;
         }
 
         [IntentManaged(Mode.Fully)]
@@ -87,8 +65,12 @@ namespace EfCoreSoftDelete.Application.Customers.UpdateCustomer
                     line2: dto.Line2,
                     city: dto.City,
                     postal: dto.Postal,
-                    otherBuildings:  dto.OtherBuildings.Select(x => new AddressBuilding(name: x.Name)).ToArray(),
-                    primaryBuilding: new AddressBuilding(name: dto.PrimaryBuilding.Name));
+                    otherBuildings: dto.OtherBuildings
+                        .Select(ob => new AddressBuilding(
+                            name: ob.Name))
+                        .ToList(),
+                    primaryBuilding: new AddressBuilding(
+                        name: dto.PrimaryBuilding.Name));
             }
             return valueObject;
         }
