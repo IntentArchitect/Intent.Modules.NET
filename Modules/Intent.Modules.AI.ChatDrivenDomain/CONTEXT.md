@@ -27,6 +27,8 @@ public class ChatCompletionModel {
 
 **Impact:** AI-created associations now properly appear in Intent Architect designer.
 
+**✅ LEGACY CODE REMOVED:** Eliminated competing extraction strategies - now uses only the corrected element/association separation throughout.
+
 ---
 
 ## 🏗️ Project Architecture & Components
