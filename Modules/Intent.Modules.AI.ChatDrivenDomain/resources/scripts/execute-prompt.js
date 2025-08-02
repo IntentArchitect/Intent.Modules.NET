@@ -68,57 +68,12 @@ async function executePrompt(element) {
             associationType: "Composite" // Default - AI can override this
         };
     }));
-    // Backward compatibility - also include legacy structure for transition period
-    const currentClasses = lookupTypesOf("Class").map(clazz => {
-        const associations = clazz.getAssociations().map(assoc => {
-            const isSource = assoc.isSourceEnd();
-            const sourceEnd = isSource ? assoc : assoc.getOtherEnd();
-            if (isSource && !sourceEnd.typeReference.isNavigable) {
-                return null;
-            }
-            const targetEnd = isSource ? assoc.getOtherEnd() : assoc;
-            const sourceTypeRef = sourceEnd.typeReference;
-            const targetTypeRef = targetEnd.typeReference;
-            const sourceMultiplicity = sourceTypeRef.getIsCollection() ? "*" :
-                sourceTypeRef.getIsNullable() ? "0..1" : "1";
-            const targetMultiplicity = targetTypeRef.getIsCollection() ? "*" :
-                targetTypeRef.getIsNullable() ? "0..1" : "1";
-            const relationship = `${sourceMultiplicity} -> ${targetMultiplicity}`;
-            return {
-                id: assoc.id,
-                name: assoc.getName(),
-                classId: assoc.typeReference.getTypeId(),
-                type: relationship,
-                specializationEndType: isSource ? "Source End" : "Target End",
-                relationship: relationship,
-                associationEndType: isSource ? "Source End" : "Target End",
-                isNullable: assoc.typeReference.isNullable,
-                isCollection: assoc.typeReference.isCollection
-            };
-        }).filter(x => x != null);
-        return {
-            id: clazz.id,
-            name: clazz.getName(),
-            comment: clazz.getComment(),
-            attributes: clazz.getChildren("Attribute")
-                .filter(attr => !attr.hasMetadata("is-managed-key") && !attr.hasMetadata("set-by-infrastructure"))
-                .map(attr => ({
-                id: attr.id,
-                name: attr.getName(),
-                type: attr.typeReference ? attr.typeReference.getType().getName() : null,
-                isNullable: attr.typeReference ? attr.typeReference.getIsNullable() : false,
-                isCollection: attr.typeReference ? attr.typeReference.getIsCollection() : false,
-                comment: attr.getComment()
-            })),
-            associations: associations
-        };
-    });
-    // Prepare input for the AI module task with separated elements and associations
+    // Prepare input for the AI module task with corrected separated structure
     const input = {
         prompt: promptResult.prompt,
         elements: currentElements, // Elements only (classes + attributes)
         associations: currentAssociations, // Associations separately
-        classes: currentClasses // Legacy structure for backward compatibility
+        classes: [] // Empty - using new structure only
     };
     // Execute the AI module task
     let outputStr;
