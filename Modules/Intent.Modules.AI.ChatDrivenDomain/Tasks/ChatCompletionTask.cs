@@ -52,8 +52,8 @@ public class ChatCompletionTask : ModuleTaskSingleInputBase<ChatCompletionModel>
 
             Logging.Log.Info($"LLM Interaction Complete");
 
-            // Get the final domain model from the plugin
-            var finalModel = modelMutationPlugin.GetClasses();
+            // Get the final domain model from the plugin using new ElementModel structure
+            var finalModel = modelMutationPlugin.GetCurrentModel();
             var jsonResult = JsonSerializer.Serialize(finalModel, SerializerOptions);
             
             Logging.Log.Debug($"Result: \r\n{jsonResult}");
@@ -112,24 +112,61 @@ public class ChatCompletionTask : ModuleTaskSingleInputBase<ChatCompletionModel>
                - Composite relationship will have the "Source End" on the Class being the "owner" and the "Target End" on the Class "being owned".
                - Aggregate relationship will favor the "Source End" on the Class needing the association on the other class while still retaining a unidirectional relationship (unless explicitly asked to make bidirectional by the user). 
 
-            ## Available Functions
+            ## Available Validated Functions
 
-            Instead of generating JSON directly, you must use the following functions to modify the domain model:
+            You MUST use these validated functions that provide proper Intent Architect integration and DDD semantics:
 
-            1. `CreateClass(name, comment)` - Creates a new class and returns its ID
-            2. `UpdateClass(classId, name, comment)` - Updates an existing class by ID and returns ID|name
-            3. `RemoveClass(classId)` - Removes a class by ID and all its associations
+            ### Core Domain Functions
+            1. `GetDomainContext()` - Gets current domain model context (call this FIRST to understand current state)
+            2. `CreateClass(className, comment, packageId)` - Creates a new class with validation
+            3. `CreateOrUpdateAttribute(classId, attributeName, typeName, isNullable, isCollection, comment, existingAttributeId)` - Creates/updates a single attribute
+            4. `CreateAttributesForClass(classId, attributesJson)` - Creates multiple attributes in one operation
+            5. `CreateAssociation(sourceClassId, targetClassId, sourceEndName, targetEndName, sourceCardinality, targetCardinality, associationType)` - Creates bidirectional associations with DDD validation
 
-            4. `CreateAttribute(classId, name, type, isNullable, isCollection, comment)` - Creates an attribute for a class and returns its ID
-            5. `UpdateAttribute(classId, attributeId, name, type, isNullable, isCollection, comment)` - Updates an attribute by ID
-            6. `RemoveAttribute(classId, attributeId)` - Removes an attribute by ID
+            ### Context Management Functions
+            6. `GetCurrentContext()` - Gets comprehensive project context and state tracking information
+            7. `UpdateContext(operation, details, status, metadata)` - Updates context with operation results for AI session tracking
 
-            7. `CreateAssociation(sourceClassId, targetClassId, relationship)` - Creates an association between classes and returns its ID
-            8. `RemoveAssociation(sourceClassId, targetClassId)` - Removes an association between classes
+            ### Function Details
 
-            9. `ListClasses()` - Lists all classes in the model
-            10. `GetClassDetails(classNameOrId)` - Gets detailed information about a class (can use name or ID)
-            11. `GetDomainModel()` - Gets the current domain model as JSON
+            **CreateClass Parameters:**
+            - className: The name of the class
+            - comment: Optional description
+            - packageId: Optional package ID (leave empty for current package)
+
+            **CreateOrUpdateAttribute Parameters:**
+            - classId: The ID of the class
+            - attributeName: Name of the attribute
+            - typeName: Type (string, int, bool, decimal, DateTime, Guid, or custom class name)
+            - isNullable: Whether nullable (true/false)
+            - isCollection: Whether collection (true/false)
+            - comment: Optional description
+            - existingAttributeId: For updates only (leave empty for new attributes)
+
+            **CreateAttributesForClass Parameters:**
+            - classId: The ID of the class
+            - attributesJson: JSON array like: [{"name":"Email","type":"string","isNullable":true,"comment":"Contact email"}]
+
+            **CreateAssociation Parameters:**
+            - sourceClassId, targetClassId: Class IDs
+            - sourceEndName, targetEndName: Association names (e.g., "Orders", "Customer")
+            - sourceCardinality, targetCardinality: "1", "0..1", or "*"
+            - associationType: "Composite" (ownership) or "Aggregate" (collaboration)
+
+            **GetCurrentContext Parameters:**
+            - No parameters - returns comprehensive context summary
+
+            **UpdateContext Parameters:**
+            - operation: The operation performed (e.g., "CreateClass", "CreateAssociation")
+            - details: Detailed description of what was done
+            - status: "success", "warning", or "error"
+            - metadata: Additional information as JSON string (optional)
+
+            ### DDD Rules Enforced by Tools
+            - **Composite**: Owner controls lifecycle, only one composite owner per entity
+            - **Aggregate**: Independent lifecycles, collaboration relationships
+            - **Validation**: All tools validate before execution and return structured results
+            - **ID Management**: Tools handle Intent Architect ID mapping automatically
 
             ## User Instructions
 
@@ -137,12 +174,23 @@ public class ChatCompletionTask : ModuleTaskSingleInputBase<ChatCompletionModel>
             {{$prompt}}
             ```
 
-            ## Current Domain Model
+            ## Workflow
 
-            First, analyze the current domain model by calling ListClasses() and GetClassDetails() for each class of interest.
-            Then, implement the user's instructions by calling the appropriate functions.
+            1. **ALWAYS start by calling `GetDomainContext()`** to understand the current state
+            2. **Optionally call `GetCurrentContext()`** for comprehensive project context and state tracking
+            3. Use the specific validated functions to implement changes
+            4. Each function returns a JSON result with success/failure and detailed information
+            5. If a function fails, read the error message and correct your approach
+            6. For associations, understand that ONE call creates BOTH ends of the relationship
+            7. **Optionally use `UpdateContext()`** to track significant operations for future AI sessions
 
-            DO NOT generate JSON directly. ONLY use the provided functions to modify the domain model.
+            ### Context Tracking Benefits
+            - Enables seamless handoff between AI sessions
+            - Maintains project state and operation history
+            - Provides DDD pattern analysis and validation insights
+            - Tracks model evolution and complexity metrics
+
+            IMPORTANT: Use ONLY the listed functions. Do not generate JSON directly.
             """;
         
         var requestFunction = kernel.CreateFunctionFromPrompt(
