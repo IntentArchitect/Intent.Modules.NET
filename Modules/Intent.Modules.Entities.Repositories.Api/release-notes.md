@@ -1,3 +1,7 @@
+### Version 5.1.9
+
+- Fixed: Resolved issue where the cursor based paged result interface was not always being output when it should
+
 ### Version 5.1.8
 
 - Fixed: When a repository method name was suffixed with `Async` a Software Factory error would occur due to generation of multiple `cancellationToken` parameters.
