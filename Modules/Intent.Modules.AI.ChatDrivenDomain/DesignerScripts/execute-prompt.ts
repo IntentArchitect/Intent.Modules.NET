@@ -19,11 +19,11 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
 
     // Extract elements (classes and their attributes) - SEPARATE from associations
     const currentElements = lookupTypesOf("Class").map(clazz => ({
-            id: clazz.id,
+        id: clazz.id,
         specialization: clazz.specialization,
         specializationId: clazz.specializationId,
-            name: clazz.getName(),
-            comment: clazz.getComment(),
+        name: clazz.getName(),
+        comment: clazz.getComment(),
         value: clazz.getValue(),
         isAbstract: clazz.getIsAbstract(),
         isStatic: clazz.getIsStatic(),
@@ -56,7 +56,7 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
     }));
 
     // Extract associations separately from elements
-    const currentAssociations = lookupTypesOf("Class").flatMap(clazz => 
+    const currentAssociations = lookupTypesOf("Class").flatMap(clazz =>
         clazz.getAssociations()
             .filter(assoc => assoc.isSourceEnd()) // Only extract source ends to avoid duplicates
             .map(assoc => {
@@ -75,8 +75,8 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
     );
 
     // Prepare input for the AI module task with corrected separated structure
-    const input = { 
-        prompt: promptResult.prompt, 
+    const input = {
+        prompt: promptResult.prompt,
         elements: currentElements,      // Elements only (classes + attributes)
         associations: currentAssociations, // Associations separately
         classes: [] as any[]            // Empty - using new structure only
@@ -119,7 +119,7 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
     // Handle both new structure {elements, associations} and legacy array structure
     const updatedElements = aiResult.elements || aiResult;
     const updatedAssociations = aiResult.associations || [];
-    
+
     if (!Array.isArray(updatedElements)) {
         dialogService.error("AI task did not return valid elements.");
         console.error("AI task did not return valid elements.");
@@ -150,9 +150,9 @@ async function executePrompt(element: MacroApi.Context.IElementApi) {
 async function applyAiModelChanges(aiElements: any[], aiAssociations: any[], targetPackage: MacroApi.Context.IElementApi): Promise<void> {
     // Create ID mapping to track AI temporary IDs -> Intent Architect real IDs
     const idMapping = new Map<string, string>();
-    
+
     console.log(`Starting sync: ${aiElements.length} elements, ${aiAssociations.length} associations`);
-    
+
     // Phase 1: Sync elements (classes and their attributes)
     for (const aiElement of aiElements) {
         if (aiElement.specialization === "Class") {
@@ -161,7 +161,7 @@ async function applyAiModelChanges(aiElements: any[], aiAssociations: any[], tar
             await syncClass(aiElement, currentClasses, idMapping, targetPackage);
         }
     }
-    
+
     // Phase 2: Sync associations (after all classes exist)
     if (aiAssociations.length > 0) {
         await syncAssociations(aiAssociations, idMapping);
@@ -171,19 +171,19 @@ async function applyAiModelChanges(aiElements: any[], aiAssociations: any[], tar
 async function syncClass(aiClass: any, currentClasses: MacroApi.Context.IElementApi[], idMapping: Map<string, string>, targetPackage: MacroApi.Context.IElementApi): Promise<void> {
     // Find existing class by ID or create new one
     let intentClass = currentClasses.find(c => c.id === aiClass.id);
-    
+
     console.log(`Syncing class ${aiClass.name} with ID ${aiClass.id}`);
     console.log(`Found existing class: ${intentClass ? 'YES' : 'NO'}`);
-    
+
     if (!intentClass) {
         console.log(`Creating new class ${aiClass.name} in package ${targetPackage.id}`);
         // Create new class - use correct API: createElement(specialization, name, parentId)
         // Use the target package ID as the parent
         intentClass = createElement("Class", aiClass.name, targetPackage.id);
         intentClass.setComment(aiClass.comment || "");
-        
+
         console.log(`Created class ${aiClass.name} with new ID ${intentClass.id}`);
-        
+
         // Map AI ID to real Intent Architect ID (should be the same if AI tools worked correctly)
         idMapping.set(aiClass.id, intentClass.id);
     } else {
@@ -195,32 +195,32 @@ async function syncClass(aiClass: any, currentClasses: MacroApi.Context.IElement
         if (intentClass.getComment() !== aiClass.comment) {
             intentClass.setComment(aiClass.comment || "");
         }
-        
+
         // Ensure mapping exists for existing elements too
         idMapping.set(aiClass.id, intentClass.id);
     }
-    
+
     // Sync attributes (only attributes, not associations)
     await syncAttributes(aiClass, intentClass, idMapping);
 }
 
 async function syncAttributes(aiClass: any, intentClass: MacroApi.Context.IElementApi, idMapping: Map<string, string>): Promise<void> {
     const currentAttributes = intentClass.getChildren("Attribute");
-    
+
     // Find attributes in AI model
     const aiAttributes = aiClass.children?.filter((child: any) => child.specialization === "Attribute") || [];
-    
+
     for (const aiAttr of aiAttributes) {
         let intentAttr = currentAttributes.find((attr: any) => attr.id === aiAttr.id);
-        
+
         if (!intentAttr) {
             // Create new attribute using correct API: createElement(specialization, name, parentId)
             intentAttr = createElement("Attribute", aiAttr.name, intentClass.id);
             intentAttr.setComment(aiAttr.comment || "");
-            
+
             // Map AI temporary ID to real Intent Architect ID
             idMapping.set(aiAttr.id, intentAttr.id);
-            
+
             // Set type reference - use mapped ID if it's a custom type
             if (aiAttr.typeReference) {
                 const typeRef = intentAttr.typeReference;
@@ -238,10 +238,10 @@ async function syncAttributes(aiClass: any, intentClass: MacroApi.Context.IEleme
             if (intentAttr.getComment() !== aiAttr.comment) {
                 intentAttr.setComment(aiAttr.comment || "");
             }
-            
+
             // Ensure mapping exists for existing elements too
             idMapping.set(aiAttr.id, intentAttr.id);
-            
+
             // Update type reference if changed
             if (aiAttr.typeReference) {
                 const typeRef = intentAttr.typeReference;
@@ -263,50 +263,50 @@ async function syncAttributes(aiClass: any, intentClass: MacroApi.Context.IEleme
 
 async function syncAssociations(aiAssociations: any[], idMapping: Map<string, string>): Promise<void> {
     console.log(`Syncing ${aiAssociations.length} associations`);
-    
+
     for (const aiAssoc of aiAssociations) {
         console.log(`Syncing association: ${aiAssoc.sourceEndName} -> ${aiAssoc.targetEndName}`);
-        
+
         // Map source and target element IDs
         const mappedSourceId = idMapping.get(aiAssoc.sourceElementId) || aiAssoc.sourceElementId;
         const mappedTargetId = idMapping.get(aiAssoc.targetElementId) || aiAssoc.targetElementId;
-        
+
         console.log(`Mapped IDs: ${aiAssoc.sourceElementId} -> ${mappedSourceId}, ${aiAssoc.targetElementId} -> ${mappedTargetId}`);
-        
+
         // Check if association already exists
         const sourceClass = lookupTypesOf("Class").find(c => c.id === mappedSourceId);
         if (!sourceClass) {
             console.error(`Source class with ID ${mappedSourceId} not found`);
             continue;
         }
-        
+
         const targetClass = lookupTypesOf("Class").find(c => c.id === mappedTargetId);
         if (!targetClass) {
             console.error(`Target class with ID ${mappedTargetId} not found`);
             continue;
         }
-        
+
         // Check if this association already exists
-        const existingAssoc = sourceClass.getAssociations().find(assoc => 
-            assoc.typeReference.getTypeId() === mappedTargetId && 
+        const existingAssoc = sourceClass.getAssociations().find(assoc =>
+            assoc.typeReference.getTypeId() === mappedTargetId &&
             assoc.getName() === aiAssoc.sourceEndName
         );
-        
+
         if (!existingAssoc) {
             console.log(`Creating new association between ${sourceClass.getName()} and ${targetClass.getName()}`);
-            
+
             // Create bidirectional association using global createAssociation
             const intentAssoc = createAssociation("Association", mappedSourceId, mappedTargetId);
-            
+
             // Set source end name (this end)
             intentAssoc.setName(aiAssoc.sourceEndName);
-            
+
             // Set source end cardinality
             const sourceTypeRef = intentAssoc.typeReference;
             const sourceCardinality = parseCardinality(aiAssoc.sourceCardinality);
             sourceTypeRef.setIsNullable(sourceCardinality.isNullable);
             sourceTypeRef.setIsCollection(sourceCardinality.isCollection);
-            
+
             // Set target end name and cardinality
             const otherEnd = intentAssoc.getOtherEnd();
             if (otherEnd) {
@@ -316,7 +316,7 @@ async function syncAssociations(aiAssociations: any[], idMapping: Map<string, st
                 targetTypeRef.setIsNullable(targetCardinality.isNullable);
                 targetTypeRef.setIsCollection(targetCardinality.isCollection);
             }
-            
+
             console.log(`Created association: ${aiAssoc.sourceEndName} (${aiAssoc.sourceCardinality}) -> ${aiAssoc.targetEndName} (${aiAssoc.targetCardinality})`);
         } else {
             console.log(`Association already exists: ${aiAssoc.sourceEndName} -> ${aiAssoc.targetEndName}`);
