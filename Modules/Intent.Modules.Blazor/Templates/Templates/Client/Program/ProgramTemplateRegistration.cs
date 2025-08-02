@@ -11,7 +11,7 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Wasm.Templates.Templates.Program
+namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 {
     [IntentManaged(Mode.Merge, Body = Mode.Merge, Signature = Mode.Fully)]
     public class ProgramTemplateRegistration : SingleFileTemplateRegistration

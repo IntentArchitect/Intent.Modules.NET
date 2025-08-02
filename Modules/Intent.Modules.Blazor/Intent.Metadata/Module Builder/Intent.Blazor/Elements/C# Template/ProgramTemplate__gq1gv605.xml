@@ -16,9 +16,9 @@
     <genericTypeParameters />
   </typeReference>
   <isMapped>false</isMapped>
-  <parentFolderId>52ae45d8-754d-4ba6-8a02-b50870d0de3b</parentFolderId>
-  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
-  <packageName>Intent.Blazor.Wasm</packageName>
+  <parentFolderId>7b97f119-983f-479a-a3bd-0199bf1c8d33</parentFolderId>
+  <packageId>3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484</packageId>
+  <packageName>Intent.Blazor</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="78be0482-1cd7-4b9f-b457-5ebe1536786e" name="C# Template Settings">
       <addedByDefault>true</addedByDefault>

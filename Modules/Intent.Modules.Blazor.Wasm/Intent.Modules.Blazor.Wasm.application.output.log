@@ -33,11 +33,11 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>c46b3df3-628d-48c6-a8db-d1afc2cb7cf5</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.NugetPackages</CorrelationId>
+      <ProjectId>7aa02d7b-7865-4998-92ff-bc82cc3bddba</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnUninstallMigration#aba2a10b-de55-4a0e-b0f0-71cef2e87f12</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>NugetPackages.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>NugetPackages.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Migrations/OnUninstallMigration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>OnUninstallMigration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -46,30 +46,6 @@
       <OverwriteBehaviour>once-off</OverwriteBehaviour>
       <ApplicationRelativeFilePath>release-notes.md</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>release-notes.md</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b1f52a0c-24c8-48c7-9b95-e0985a6abefb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.TemplateExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/TemplateExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>TemplateExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b1f52a0c-24c8-48c7-9b95-e0985a6abefb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Program/ProgramTemplatePartial.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Program/ProgramTemplatePartial.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>b1f52a0c-24c8-48c7-9b95-e0985a6abefb</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#1bd5dbd4-1bdd-4133-88b7-ccf452399b4a</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Program/ProgramTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Program/ProgramTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

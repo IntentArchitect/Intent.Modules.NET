@@ -354,6 +354,7 @@ public static class RazorFileExtensions
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))
                         {
                             method.Async();
+                            /*
                             method.AddTryBlock(tryBlock =>
                             {
                                 foreach (var statement in method.Statements.Where(x => x != tryBlock).ToList())
@@ -379,7 +380,7 @@ public static class RazorFileExtensions
                             if (mappings.Count == 0)
                             {
                                 method.AddStatement("StateHasChanged();");
-                            }
+                            }*/
                         }
                     });
                 });

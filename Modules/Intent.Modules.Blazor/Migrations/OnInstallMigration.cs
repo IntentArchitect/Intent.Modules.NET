@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
+using Intent.IArchitect.Agent.Persistence.Model.Common;
 using Intent.Metadata;
 using Intent.Plugins;
 using Intent.RoslynWeaver.Attributes;
@@ -70,7 +71,7 @@ namespace Intent.Modules.Blazor.Migrations
             var designer = app.GetDesigner(VisualStudioDesignerId);
             var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
 
-            ElementPersistable? startupRole = null;
+            StartupDetails? startupDetails = null;
             foreach (var package in packages)
             {
                 var elements = package.GetElementsOfType(RoleSpecializationId);
@@ -78,16 +79,19 @@ namespace Intent.Modules.Blazor.Migrations
                 {
                     return false;
                 }
-                if (startupRole == null)
+                if (startupDetails == null)
                 {
-                    startupRole = elements.FirstOrDefault(x => x.Name == "Startup");
+                    var startupRole = elements.FirstOrDefault(x => x.Name == "Startup");
+                    if (startupRole != null)
+                    {
+                        startupDetails = new StartupDetails(package, startupRole);
+                    }
                 }
             }
 
-            if (startupRole != null)
+            if (startupDetails != null)
             {
-                var package = packages.First(p => p.Id == startupRole.PackageId);
-                var project = startupRole.Parent;
+                var project = startupDetails.Role.Parent;
                 project.AddElement(new ElementPersistable { SpecializationTypeId = RoleSpecializationId, SpecializationType = "Role", Name = "Blazor" });
                 return true;
             }
@@ -96,6 +100,8 @@ namespace Intent.Modules.Blazor.Migrations
                 throw new Exception("Could not find (Startup) or (Blazor) Role.");
             }
         }
+
+        private record StartupDetails(PackageModelPersistable Pacakge, ElementPersistable Role);
 
         public void OnUninstall()
         {
