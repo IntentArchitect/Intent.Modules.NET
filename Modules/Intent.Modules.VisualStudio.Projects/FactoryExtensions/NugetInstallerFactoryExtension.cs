@@ -245,7 +245,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             {
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
-                    DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.Version);
+                    DetermineHighest(highestRequestedVersions, kvp.Key, kvp.Value.VersionInfo);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() == true)
                     {
                         foreach (var dependant in kvp.Value.RequestedPackage.Dependencies)
@@ -262,7 +262,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
                     var highestRequested = highestRequestedVersions[kvp.Key];
-                    if (kvp.Value.Version < highestRequested)
+                    if (kvp.Value.VersionInfo < highestRequested)
                     {
                         kvp.Value.Update(highestRequested, null, null);
                     }
@@ -294,7 +294,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 var requestedPackages = new Dictionary<string, VersionInfo>();
                 foreach (var kvp in projectPackage.RequestedPackages)
                 {
-                    AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.Version);
+                    AddUpdatePackageVersion(requestedPackages, kvp.Key, kvp.Value.VersionInfo);
                     if (kvp.Value.RequestedPackage?.Dependencies?.Any() != true)
                     {
                         continue;
@@ -324,7 +324,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         }
                         //The requested package is higher than the dependent so install the higher version, 
                         //This scenario happens if an implicit version is lower than requested as the explicits are consolidated.
-                        if (projectPackage.RequestedPackages[dependantPackage.Key].Version > dependantPackage.Value)
+                        if (projectPackage.RequestedPackages[dependantPackage.Key].VersionInfo > dependantPackage.Value)
                         {
                             continue;
                         }
@@ -365,7 +365,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         }
 
                         var dependentVersion = new VersionInfo(dependant.Version);
-                        if (projectPackage.RequestedPackages[dependant.Name].Version <= dependentVersion)
+                        if (projectPackage.RequestedPackages[dependant.Name].VersionInfo <= dependentVersion)
                         {
                             toRemove.Add(dependant.Name);
                         }
@@ -503,9 +503,9 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
             foreach (var (packageId, value) in installedPackages)
             {
                 if (!highestVersionsInProject.TryGetValue(packageId, out var highestVersion) ||
-                    highestVersion < value.Version)
+                    highestVersion < value.VersionInfo)
                 {
-                    highestVersionsInProject[packageId] = value.Version;
+                    highestVersionsInProject[packageId] = value.VersionInfo;
                 }
             }
 
@@ -530,7 +530,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
                 if (requestedPackages.TryGetValue(install.Package.Name, out var requestedPackage))
                 {
-                    if (requestedPackage.Version < semanticVersion)
+                    if (requestedPackage.VersionInfo < semanticVersion)
                     {
                         requestedPackage.Update(semanticVersion, install.Package, requestedPackage.Options);
                     }
@@ -565,16 +565,16 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                 {
                     if (projectPackage.RequestedPackages.TryGetValue(highestVersion.Key, out var requestedPackage))
                     {
-                        if (requestedPackage.Version < highestVersion.Value)
+                        if (requestedPackage.VersionInfo < highestVersion.Value)
                         {
-                            requestedPackage.Version = highestVersion.Value;
+                            requestedPackage.VersionInfo = highestVersion.Value;
                         }
 
                         continue;
                     }
 
                     if (projectPackage.InstalledPackages.TryGetValue(highestVersion.Key, out var installedPackage) &&
-                        installedPackage.Version < highestVersion.Value)
+                        installedPackage.VersionInfo < highestVersion.Value)
                     {
                         projectPackage.RequestedPackages.Add(highestVersion.Key, installedPackage.Clone(highestVersion.Value));
                     }
@@ -594,7 +594,7 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
 
             var packagesWithMultipleVersions = resolvedProjects
                 .SelectMany(x => x.ConsolidatedPackageVersions)
-                .GroupBy(x => x.Key, x => x.Value.Version)
+                .GroupBy(x => x.Key, x => x.Value.VersionInfo)
                 .Where(x => x.Distinct().Count() > 1)
                 .Select(x => x.Key)
                 .ToArray();
@@ -613,11 +613,11 @@ namespace Intent.Modules.VisualStudio.Projects.FactoryExtensions
                         .Select(x => new
                         {
                             x.ProjectName,
-                            x.ConsolidatedPackageVersions[packageId].Version
+                            x.ConsolidatedPackageVersions[packageId].VersionInfo
                         })
-                        .OrderByDescending(x => x.Version.ToString())
+                        .OrderByDescending(x => x.VersionInfo)
                         .ThenBy(x => x.ProjectName)
-                        .Select(x => $"    Version {x.Version} in '{x.ProjectName}'")
+                        .Select(x => $"    Version {x.VersionInfo.Version} in '{x.ProjectName}'")
                         .Aggregate((x, y) => x + Environment.NewLine + y)
                 })
                 .Select(x => $"{x.PackageId} has the following versions installed:{Environment.NewLine}{x.VersionReport}")

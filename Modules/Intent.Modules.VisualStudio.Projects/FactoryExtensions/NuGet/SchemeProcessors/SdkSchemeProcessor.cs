@@ -146,7 +146,7 @@ internal class SdkSchemeProcessor : INuGetSchemeProcessor
                 continue;
             }
 
-            var requestedVersion = package.Version;
+            var requestedVersion = package.VersionInfo;
 
             var packageReferenceItem = project.Items.FirstOrDefault(x => x.ItemType == "PackageReference" && string.Equals(x.Include, packageId, StringComparison.OrdinalIgnoreCase));
             if (packageReferenceItem == null)

@@ -34,7 +34,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             Assert.Collection(installedPackages, x =>
             {
                 Assert.Equal("TestPackage.One", x.Key);
-                Assert.Equal(x.Value.Version, VersionRange.Parse("1.0.0"));
+                Assert.Equal("1.0.0", x.Value.VersionInfo.Version);
             });
         }
 
@@ -56,7 +56,7 @@ namespace Intent.Modules.VisualStudio.Projects.Tests.NuGet.SchemeTests
             Assert.Collection(installedPackages, x =>
             {
                 Assert.Equal("TestPackage.Three", x.Key);
-                Assert.Equal(x.Value.Version, VersionRange.Parse("1.0.0"));
+                Assert.Equal("1.0.0", x.Value.VersionInfo.Version );
             });
         }
 

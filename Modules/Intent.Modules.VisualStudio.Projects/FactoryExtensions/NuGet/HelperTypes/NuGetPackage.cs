@@ -20,7 +20,7 @@ internal class NuGetPackage
     public string Name { get; set; }
 
 
-    public VersionInfo Version { get; set; }
+    public VersionInfo VersionInfo { get; set; }
     public List<string> PrivateAssets { get; private init; }
 
     public List<string> IncludeAssets { get; private init; }
@@ -37,7 +37,7 @@ internal class NuGetPackage
             RequestedPackage = nugetPackageInfo,
             Options = options,
             Name = nugetPackageInfo.Name,
-            Version = version != null ? new VersionInfo(version)  : new VersionInfo(nugetPackageInfo.Version),
+            VersionInfo = version != null ? new VersionInfo(version)  : new VersionInfo(nugetPackageInfo.Version),
             IncludeAssets = [..nugetPackageInfo.IncludeAssets ?? []],
             PrivateAssets = [..nugetPackageInfo.PrivateAssets ?? []]
         };
@@ -51,7 +51,7 @@ internal class NuGetPackage
         {
             Options = new NuGetInstallOptions(),
             Name = packageName,
-            Version = new VersionInfo(version),
+            VersionInfo = new VersionInfo(version),
             IncludeAssets = [..includeAssets ?? []],
             PrivateAssets = [..privateAssets ?? []]
         };
@@ -64,9 +64,9 @@ internal class NuGetPackage
             Options.Consolidate(options);
         }
 
-        if (Version < highestVersion)
+        if (VersionInfo < highestVersion)
         {
-            Version = highestVersion;
+            VersionInfo = highestVersion;
         }
 
         if (nugetPackageInfo == null)
@@ -95,7 +95,7 @@ internal class NuGetPackage
         return new NuGetPackage
         {
             Options = Options,
-            Version = version ?? Version,
+            VersionInfo = version ?? VersionInfo,
             PrivateAssets = [..PrivateAssets],
             IncludeAssets = [..IncludeAssets]
         };

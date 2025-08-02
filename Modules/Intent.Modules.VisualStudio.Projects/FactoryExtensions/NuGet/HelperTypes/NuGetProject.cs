@@ -28,6 +28,6 @@ internal class NuGetProject
 
         return allPackages
             .GroupBy(x => x.Key, x => x.Value)
-            .ToDictionary(x => x.Key, x => x.OrderByDescending(y => y.Version).First());
+            .ToDictionary(x => x.Key, x => x.OrderByDescending(y => y.VersionInfo).First());
     }
 }
