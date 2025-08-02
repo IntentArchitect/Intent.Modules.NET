@@ -39,8 +39,8 @@ public class ModelMutationPlugin
             };
 
             // Convert current model to ElementModel structure
-            var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
-            var associations = _inputModel.Associations ?? new List<AssociationModel>();
+            var elements = _inputModel.Elements;
+            var associations = _inputModel.Associations ?? [];
             
             result.Metadata["elements"] = elements;
             result.Metadata["associations"] = associations;
@@ -66,8 +66,7 @@ public class ModelMutationPlugin
     [Description("Creates a new class with validation and proper Intent Architect integration")]
     public string CreateClass(
         [Description("The name of the class")] string className,
-        [Description("Optional comment/description for the class")] string comment = "",
-        [Description("Optional package ID - uses current package if not specified")] string packageId = "")
+        [Description("Optional comment/description for the class")] string comment = "")
     {
         var result = new ToolResult { Success = true };
         
@@ -416,7 +415,7 @@ public class ModelMutationPlugin
         }
 
         // VALIDATION: Check naming conflicts with existing associations
-        var associations = _inputModel.Associations ?? new List<AssociationModel>();
+        var associations = _inputModel.Associations ?? [];
         var sourceAssocConflict = associations.Any(a => 
             a.SourceElementId == sourceClass.Id && 
             string.Equals(a.SourceEndName, sourceEndName, StringComparison.OrdinalIgnoreCase));
@@ -558,7 +557,7 @@ public class ModelMutationPlugin
 
         try
         {
-            var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
+            var elements = _inputModel.Elements;
             
             var contextSummary = new
             {
@@ -570,7 +569,7 @@ public class ModelMutationPlugin
                     Classes = elements.Count(e => e.Specialization == "Class"),
                     TotalAttributes = elements.SelectMany(e => e.Children).Count(c => c.Specialization == "Attribute"),
                     TotalAssociations = elements.SelectMany(e => e.Children).Count(c => c.IsSourceEnd || c.IsTargetEnd),
-                    CompositeRelationships = elements.SelectMany(e => e.Children).Count(c => IsCompositeRelationship(c)),
+                    CompositeRelationships = elements.SelectMany(e => e.Children).Count(IsCompositeRelationship),
                     AggregateRelationships = elements.SelectMany(e => e.Children).Count(c => (c.IsSourceEnd || c.IsTargetEnd) && !IsCompositeRelationship(c))
                 },
                 CurrentClasses = elements.Where(e => e.Specialization == "Class").Select(e => new {
@@ -581,7 +580,7 @@ public class ModelMutationPlugin
                 }).ToList(),
                 DDDPatterns = new
                 {
-                    HasCompositeRelationships = elements.SelectMany(e => e.Children).Any(c => IsCompositeRelationship(c)),
+                    HasCompositeRelationships = elements.SelectMany(e => e.Children).Any(IsCompositeRelationship),
                     HasAggregateRelationships = elements.SelectMany(e => e.Children).Any(c => (c.IsSourceEnd || c.IsTargetEnd) && !IsCompositeRelationship(c)),
                     WellFormedDomainModel = elements.Count > 0
                 },
@@ -617,7 +616,7 @@ public class ModelMutationPlugin
     /// </summary>
     private bool ClassNameExists(string className)
     {
-        var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
+        var elements = _inputModel.Elements;
         return elements.Any(e => e.Specialization == "Class" && 
                                 string.Equals(e.Name, className, StringComparison.OrdinalIgnoreCase));
     }
@@ -627,7 +626,7 @@ public class ModelMutationPlugin
     /// </summary>
     private ElementModel? FindClassById(string classId)
     {
-        var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
+        var elements = _inputModel.Elements;
         return elements.FirstOrDefault(e => e.Specialization == "Class" && e.Id == classId);
     }
 
@@ -675,61 +674,10 @@ public class ModelMutationPlugin
     /// </summary>
     private string? ResolveCustomClassTypeId(string className)
     {
-        var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
+        var elements = _inputModel.Elements;
         var classElement = elements.FirstOrDefault(e => e.Specialization == "Class" && 
                                                        string.Equals(e.Name, className, StringComparison.OrdinalIgnoreCase));
         return classElement?.Id;
-    }
-
-    /// <summary>
-    /// Converts legacy ClassModel structure to new ElementModel structure for backward compatibility
-    /// </summary>
-    private List<ElementModel> ConvertLegacyClassesToElements(List<LegacyClassModel> classes)
-    {
-        if (classes == null || classes.Count == 0)
-        {
-            return new List<ElementModel>();
-        }
-
-        return classes.Select(cls => new ClassModel
-        {
-            Id = cls.Id,
-            Name = cls.Name,
-            Comment = cls.Comment,
-            Children = cls.Attributes.Select(attr => new AttributeModel
-            {
-                Id = attr.Id,
-                Name = attr.Name,
-                Comment = attr.Comment,
-                TypeReference = new TypeReferenceModel
-                {
-                    TypeId = ResolveTypeNameToId(attr.Type),
-                    IsNavigable = true,
-                    IsNullable = attr.IsNullable,
-                    IsCollection = attr.IsCollection,
-                    Display = attr.IsCollection ? $"{attr.Type}[*]" : attr.Type
-                }
-            }).Cast<ElementModel>().ToList()
-        }).Cast<ElementModel>().ToList();
-    }
-
-    /// <summary>
-    /// Helper to resolve legacy type names to Intent Architect type IDs
-    /// </summary>
-    private string ResolveTypeNameToId(string typeName)
-    {
-        return typeName.ToLowerInvariant() switch
-        {
-            "string" => IntentArchitectIds.StringTypeId,
-            "int" => IntentArchitectIds.IntTypeId,
-            "long" => IntentArchitectIds.LongTypeId,
-            "bool" or "boolean" => IntentArchitectIds.BoolTypeId,
-            "guid" => IntentArchitectIds.GuidTypeId,
-            "datetime" => IntentArchitectIds.DateTimeTypeId,
-            "decimal" => IntentArchitectIds.DecimalTypeId,
-            "double" => IntentArchitectIds.DoubleTypeId,
-            _ => Guid.NewGuid().ToString() // Fallback for unknown types
-        };
     }
 
     /// <summary>
@@ -737,8 +685,8 @@ public class ModelMutationPlugin
     /// </summary>
     public object GetCurrentModel()
     {
-        var elements = _inputModel.Elements ?? ConvertLegacyClassesToElements(_inputModel.Classes);
-        var associations = _inputModel.Associations ?? new List<AssociationModel>();
+        var elements = _inputModel.Elements;
+        var associations = _inputModel.Associations ?? [];
         
         return new
         {
@@ -756,20 +704,6 @@ public class ModelMutationPlugin
         {
             "1" or "0..1" or "*" => true,
             _ => false
-        };
-    }
-
-    /// <summary>
-    /// Parses cardinality string to nullable/collection properties
-    /// </summary>
-    private (bool isNullable, bool isCollection) ParseCardinality(string cardinality)
-    {
-        return cardinality switch
-        {
-            "1" => (false, false),
-            "0..1" => (true, false),
-            "*" => (false, true),
-            _ => (false, false)
         };
     }
 

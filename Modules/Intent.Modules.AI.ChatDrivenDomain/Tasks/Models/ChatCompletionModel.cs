@@ -11,9 +11,6 @@ public class ChatCompletionModel
     public string Prompt { get; set; } = string.Empty;
     public List<ElementModel> Elements { get; set; } = [];
     public List<AssociationModel> Associations { get; set; } = [];
-    
-    // Backward compatibility - will be removed after migration
-    public List<LegacyClassModel> Classes { get; set; } = [];
 }
 
 /// <summary>

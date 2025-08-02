@@ -65,15 +65,14 @@ async function executePrompt(element) {
             targetEndName: otherEnd.getName(),
             sourceCardinality: assoc.typeReference.isCollection ? "*" : (assoc.typeReference.isNullable ? "0..1" : "1"),
             targetCardinality: otherEnd.typeReference.isCollection ? "*" : (otherEnd.typeReference.isNullable ? "0..1" : "1"),
-            associationType: "Composite" // Default - AI can override this
+            associationType: "Aggregate" // Default - AI can override this
         };
     }));
     // Prepare input for the AI module task with corrected separated structure
     const input = {
         prompt: promptResult.prompt,
-        elements: currentElements, // Elements only (classes + attributes)
-        associations: currentAssociations, // Associations separately
-        classes: [] // Empty - using new structure only
+        elements: currentElements,
+        associations: currentAssociations
     };
     // Execute the AI module task
     let outputStr;
