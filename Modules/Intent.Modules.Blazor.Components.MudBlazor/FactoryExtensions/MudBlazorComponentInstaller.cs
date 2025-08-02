@@ -67,6 +67,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
                 configurator.AddTagNameAttributeMatch("MudSelect", "Label");
                 configurator.AddTagNameAttributeMatch("MudAutocomplete", "Label");
                 configurator.AddTagNameAttributeMatch("MudRadioGroup", "Label");
+                configurator.AddTagNameAttributeMatch("MudDataGrid", "@ref");
 
                 configurator.AllowMatchByTagNameOnly("CardHeaderContent");
                 configurator.AllowMatchByTagNameOnly("CellTemplate");
