@@ -1,6 +1,7 @@
 ### Version 1.1.1
 
-- Fixed: Value Object update mappings incorrectly being applied to nested Value Object collections.
+- Fixed: Value Object update mappings are incorrectly being applied to nested Value Object collections.
+- Fixed: Accessing owning entities should now be possible if the owning entity's PK naming convention includes the entity name.
 
 ### Version 1.1.0
 
