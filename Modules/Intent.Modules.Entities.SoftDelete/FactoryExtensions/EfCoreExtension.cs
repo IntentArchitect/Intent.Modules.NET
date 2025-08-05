@@ -131,6 +131,7 @@ namespace Intent.Modules.Entities.SoftDelete.FactoryExtensions
             ICSharpFileBuilderTemplate template,
             CSharpClass priClass)
         {
+            template.AddUsing("Microsoft.EntityFrameworkCore.ChangeTracking");
             priClass.AddMethod("void", "SetSoftDeleteProperties", method =>
             {
                 method.Private();
