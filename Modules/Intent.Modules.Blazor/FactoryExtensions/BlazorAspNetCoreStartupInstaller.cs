@@ -41,6 +41,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     var addRazorComponents = new CSharpMethodChainStatement($"{context.Services}.AddRazorComponents()");
                     if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
                     {
+                        ApplyAddAuthorizationConfiguration(statements, context);
                         addRazorComponents.AddChainStatement("AddInteractiveWebAssemblyComponents()");
                     }
                     else if (startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() || startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveAuto())
@@ -91,6 +92,14 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     statements.AddStatement(addRazorComponents);
                 });
             });
+        }
+        
+        private static void ApplyAddAuthorizationConfiguration(IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)
+        {
+            if (statements.FindStatement(m => m.Text.Contains("AddAuthorization")) is null)
+            {
+                statements.AddStatement($"{context.Services}.AddAuthorization();");                
+            }
         }
     }
 }
