@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -40,17 +42,27 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor
                             param.IntroduceReadonlyField();
                         });
 
+                        bool doPrincipalPropogation = ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication");
+
                         @class.AddMethod("Task<IServiceScope>", "CreateScope", method =>
                         {
                             method.Async();
 
-                            method.AddStatement("var currentUser = _serviceProvider.GetRequiredService<ICurrentUserService>();");
-                            method.AddStatement("var principal = await currentUser.GetPrincipalAsync();");
-                            method.AddStatement("var scope = _scopeFactory.CreateScope();");
-                            method.AddStatement("var scopedUser = scope.ServiceProvider.GetRequiredService<ICurrentUserService>() as ISetCurrentUserContext;");
-                            method.AddIfStatement("scopedUser is not null", ifs => { ifs.AddStatement("scopedUser.SetContext(principal);"); });
+                            if (doPrincipalPropogation)
+                            {
+                                method.AddStatement("var currentUser = _serviceProvider.GetRequiredService<ICurrentUserService>();");
+                                method.AddStatement("var principal = await currentUser.GetPrincipalAsync();");
+                                method.AddStatement("var scope = _scopeFactory.CreateScope();");
+                                method.AddStatement("var scopedUser = scope.ServiceProvider.GetRequiredService<ICurrentUserService>() as ISetCurrentUserContext;");
+                                method.AddIfStatement("scopedUser is not null", ifs => { ifs.AddStatement("scopedUser.SetContext(principal);"); });
+                                method.AddStatement("return scope;");
 
-                            method.AddStatement("return scope;");
+                            }
+                            else
+                            {
+                                method.AddStatement("return _scopeFactory.CreateScope();");
+                            }
+
                         });
                         @class.AddMethod("Task", "ExecuteAsync", method =>
                         {
@@ -90,6 +102,16 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor
         public override bool CanRunTemplate()
         {
             return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!CanRunTemplate()) return;
+
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .WithPerServiceCallLifeTime()
+                .ForInterface(this.GetScopedExecutorInterfaceTemplateName()));
         }
 
         [IntentManaged(Mode.Fully)]

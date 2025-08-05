@@ -13,12 +13,12 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations
+namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations
 {
     [IntentMerge]
     public class SamplePagesStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration";
 
         public SamplePagesStaticContentTemplateRegistration() : base(TemplateId)
         {
@@ -45,14 +45,17 @@ namespace Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (!application.GetSettings().GetBlazor().IncludeSamplePages() && NoComponentLibraryInstalled(application))
-            {
+            if (ComponentLibraryInstalled(application))
                 return;
-            }
+            if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                return;
+            if (!application.GetSettings().GetBlazor().IncludeSamplePages())
+                return;
+
             base.Register(registry, application);
         }
 
-        private bool NoComponentLibraryInstalled(IApplication application)
+        private bool ComponentLibraryInstalled(IApplication application)
         {
 #warning consolidate this with other one
             return application.InstalledModules.Any(x => x.ModuleId == "Intent.Modelers.UI.Core");//This is base component library

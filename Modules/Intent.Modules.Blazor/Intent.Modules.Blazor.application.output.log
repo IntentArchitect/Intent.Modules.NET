@@ -25,6 +25,22 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>dab870d2-16e4-46ee-82d9-e78558ed569d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#1847a039-bc0e-41ec-9b51-a56f93d1c1b6</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/WasmNoSamplePages/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/WasmNoSamplePages/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dab870d2-16e4-46ee-82d9-e78558ed569d</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#cf0d83f6-5edf-461b-bc7f-91a5e241dc13</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/WasmSamplePages/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/WasmSamplePages/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>9f4a6d78-dacf-479a-94eb-52629753f7f0</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b649e2a1-96a8-4b1b-ba82-b48cb32f6a66</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -258,6 +274,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1847a039-bc0e-41ec-9b51-a56f93d1c1b6</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cf0d83f6-5edf-461b-bc7f-91a5e241dc13</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Client/StaticContentTemplateRegistrations/WasmSamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Client/StaticContentTemplateRegistrations/WasmSamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/AppRazor/AppRazorTemplatePartial.cs</ApplicationRelativeFilePath>
@@ -356,16 +388,16 @@
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Static/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Static/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
       <ProjectId>d5442271-71f6-4546-8550-bd40d94eaf89</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Templates/Templates/Static/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Templates/Static/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Templates/Templates/Server/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Server/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

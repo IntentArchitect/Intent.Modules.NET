@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
+using Intent.Modules.Common.CSharp.DependencyInjection;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
@@ -118,6 +119,17 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediator
         {
             return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
         }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!CanRunTemplate()) return;
+
+            ExecutionContext.EventDispatcher.Publish(ContainerRegistrationRequest.ToRegister(this)
+                .ForConcern("Infrastructure")
+                .WithPerServiceCallLifeTime()
+                .ForInterface(this.GetScopedMediatorInterfaceTemplateName()));
+        }
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

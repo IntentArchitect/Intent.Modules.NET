@@ -127,7 +127,7 @@ public static class RazorFileExtensions
                 {
                     method.Private();
                     method.RepresentsModel(child);
-                    method.AddMetadata("model", child);
+                    method.AddMetadata("model", operation);
                     if (methodName.EndsWith("Async", StringComparison.InvariantCultureIgnoreCase)/* && operation.CallServiceOperationActionTargets().Any()*/)
                     {
                         method.Async();
@@ -197,7 +197,6 @@ public static class RazorFileExtensions
                                 const string querySpecializationTypeId = "e71b0662-e29d-4db2-868b-8a12464b25d0";
                                 const string dtoFieldTypeId = "7baed1fd-469b-4980-8fd9-4cefb8331eb2";
                                 const string httpSettingsDefinitionId = "b4581ed2-42ec-4ae2-83dd-dcdd5f0837b6";
-                                const string serviceOperationSpecializationTypeId = "e030c97a-e066-40a7-8188-808c275df3cb";
 
                                 string? serviceName = null;
                                 CSharpStatement? invocation = null;

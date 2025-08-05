@@ -23,10 +23,11 @@ using Intent.Templates;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 {
-    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
-    public partial class ProgramTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
+    [IntentManaged(Mode.Fully, Body = Mode.Merge, Signature = Mode.Ignore)]
+    public partial class ProgramTemplate : CSharpTemplateBase<object>, IBlazorProgramTemplate
     {
         public const string TemplateId = "Intent.Blazor.Templates.Client.ProgramTemplate";
+        private bool _askedForLaunch = false;
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public ProgramTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
@@ -93,16 +94,20 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 
                 ExecutionContext.EventDispatcher.Subscribe<HostingSettingsCreatedEvent>(x =>
                 {
+                    if (_askedForLaunch) return;
+                    _askedForLaunch = true;
+
                     var profileName = OutputTarget.GetProject().ApplicationName() + ".Client";
                     ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
                     {
                         ForProjectWithRole = "Distribution",
                         Name = profileName,
+                        DotnetRunMessages = true,
                         CommandName = "Project",
                         LaunchBrowser = true,
-                        ApplicationUrl = $"https://localhost:{x.SslPort}/",
-                        LaunchUrl = $"https://localhost:{x.SslPort}",
+                        ApplicationUrl = $"https://localhost:{x.SslPort};https://localhost:{x.Port}",
                         PublishAllPorts = false,
+                        InspectUri = "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
                         EnvironmentVariables = new Dictionary<string, string> { { "ASPNETCORE_ENVIRONMENT", "Development" } }
                     });
                 });
@@ -112,6 +117,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.Program
 #warning this should probably go in a better place.
                 ExecutionContext.EventDispatcher.Subscribe<HostingSettingsCreatedEvent>(x =>
                 {
+                    if (_askedForLaunch) return;
+                    _askedForLaunch = true;
+
                     var profileName = OutputTarget.GetProject().ApplicationName() + ".Web";
                     ExecutionContext.EventDispatcher.Publish(new LaunchProfileRegistrationRequest
                     {

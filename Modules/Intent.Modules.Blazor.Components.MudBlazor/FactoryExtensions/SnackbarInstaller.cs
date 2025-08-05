@@ -39,20 +39,21 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
         /// </remarks>
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
-            var components = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(RazorComponentCodeBehindTemplate.TemplateId);
-            AddErrorHandling(application, components);
-            var layouts = application.FindTemplateInstances<ICSharpFileBuilderTemplate>(RazorLayoutCodeBehindTemplate.TemplateId);
-            AddErrorHandling(application, layouts);
+            var razorComponents = application.FindTemplateInstances<IRazorComponentTemplate>(RazorComponentTemplate.TemplateId);
+            AddErrorHandling(application, razorComponents);
+            var razorLayouts = application.FindTemplateInstances<IRazorComponentTemplate>(RazorLayoutTemplate.TemplateId);
+            AddErrorHandling(application, razorLayouts);
         }
 
-        private static void AddErrorHandling(IApplication application, IEnumerable<ICSharpFileBuilderTemplate> components)
+        private static void AddErrorHandling(IApplication application, IEnumerable<IRazorComponentTemplate> components)
         {
             foreach (var component in components)
             {
-                component.CSharpFile.OnBuild(file =>
+                component.RazorFile.OnBuild(file =>
                 {
-                    var @class = file.Classes.First();
-                    var methods = @class.Methods.Where(m => m.HasMetadata("model") && m.GetMetadata<ComponentOperationModel>("model") is not null);
+                    var block = component.GetCodeBehind(); 
+
+                    var methods = block.Declarations.OfType< CSharpClassMethod>().Where(m => m.HasMetadata("model") && m.GetMetadata<ComponentOperationModel>("model") is not null);
                     foreach (var method in methods)
                     {
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))
@@ -68,35 +69,42 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
                             method.AddCatchBlock(catchBlock =>
                             {
-                                catchBlock.WithExceptionType(component.UseType("System.Exception")).WithParameterName("e");
+                                catchBlock.WithExceptionType(block.Template.UseType("System.Exception")).WithParameterName("e");
 
-                                InjectServiceProperty(component, @class, "MudBlazor.ISnackbar", "Snackbar");
-                                catchBlock.AddStatement($"Snackbar.Add(e.Message, {component.UseType("MudBlazor.Severity")}.Error);");
+                                InjectServiceProperty(block, "MudBlazor.ISnackbar", "Snackbar");
+                                catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
                             });
                         }
                     }
 
-                }, 100);
+                }, 10);
             }
         }
-
-        public static void InjectServiceProperty(ICSharpFileBuilderTemplate template, CSharpClass @class, string fullyQualifiedTypeName, string? propertyName = null)
+        public static string InjectServiceProperty(IBuildsCSharpMembers block, string fullyQualifiedTypeName, string? propertyName = null)
         {
-            var type = template.UseType(fullyQualifiedTypeName);
+            var type = block.Template.UseType(fullyQualifiedTypeName);
             propertyName ??= type.Length > 2 && type[0] == 'I' && char.IsUpper(type[1]) ? type[1..] : type; // remove 'I' prefix if necessary.
 
-            if (@class.Properties.Any(x => x.Type == type))
+            if (block is IRazorCodeBlock razorCodeBlock)
             {
-                return;
+                razorCodeBlock.RazorFile.AddInjectDirective(fullyQualifiedTypeName, propertyName);
             }
-            @class.AddProperty(
-                type: type,
-                name: propertyName ?? type,
-                configure: property =>
+            else if (block is ICSharpClass @class)
+            {
+                if (@class.Properties.Any(x => x.Type == type))
                 {
-                    property.AddAttribute(template.UseType("Microsoft.AspNetCore.Components.Inject"));
-                    property.WithInitialValue("default!");
-                });
+                    return propertyName;
+                }
+                @class.AddProperty(
+                    type: type,
+                    name: propertyName ?? type,
+                    configure: property =>
+                    {
+                        property.AddAttribute(block.Template.UseType("Microsoft.AspNetCore.Components.Inject"));
+                        property.WithInitialValue("default!");
+                    });
+            }
+            return propertyName;
         }
     }
 }

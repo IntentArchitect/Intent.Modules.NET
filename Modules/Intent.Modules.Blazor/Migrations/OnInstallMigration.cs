@@ -92,7 +92,7 @@ namespace Intent.Modules.Blazor.Migrations
             if (startupDetails != null)
             {
                 var project = startupDetails.Role.Parent;
-                project.AddElement(new ElementPersistable { SpecializationTypeId = RoleSpecializationId, SpecializationType = "Role", Name = "Blazor" });
+                project.AddElement(new ElementPersistable { SpecializationTypeId = RoleSpecializationId, SpecializationType = "Role", Name = "Blazor", Id = Guid.NewGuid().ToString() });
                 return true;
             }
             else

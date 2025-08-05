@@ -12,19 +12,18 @@ using Intent.Templates;
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
 
-namespace Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations
+namespace Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations
 {
-
     [IntentMerge]
-    public class NoSamplePagesStaticContentTemplateRegistration : StaticContentTemplateRegistration
+    public class WasmSamplePagesStaticContentTemplateRegistration : StaticContentTemplateRegistration
     {
-        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration";
+        public new const string TemplateId = "Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration";
 
-        public NoSamplePagesStaticContentTemplateRegistration() : base(TemplateId)
+        public WasmSamplePagesStaticContentTemplateRegistration() : base(TemplateId)
         {
         }
 
-        public override string ContentSubFolder => "NoSamplePages";
+        public override string ContentSubFolder => "WasmSamplePages";
 
 
         public override string[] BinaryFileGlobbingPatterns => new string[] { "*.jpg", "*.png", "*.xlsx", "*.ico", "*.pdf" };
@@ -45,15 +44,19 @@ namespace Intent.Modules.Blazor.Templates.Templates.Static.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (application.GetSettings().GetBlazor().IncludeSamplePages() || !NoComponentLibraryInstalled(application))
-            {
+            if (ComponentLibraryInstalled(application))
                 return;
-            }
+            if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly())
+                return;
+            if (!application.GetSettings().GetBlazor().IncludeSamplePages())
+                return;
+
             base.Register(registry, application);
         }
 
-        private bool NoComponentLibraryInstalled(IApplication application)
+        private bool ComponentLibraryInstalled(IApplication application)
         {
+#warning consolidate this with other one
             return application.InstalledModules.Any(x => x.ModuleId == "Intent.Modelers.UI.Core");//This is base component library
         }
     }

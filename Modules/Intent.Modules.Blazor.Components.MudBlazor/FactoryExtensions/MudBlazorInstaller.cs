@@ -67,7 +67,7 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
 
         private void RegisterInClientProgram(IApplication application)
         {
-            var program = application.FindTemplateInstance<IBlazorProgramTemplate>("Intent.Blazor.Wasm.Templates.ProgramTemplate");
+            var program = application.FindTemplateInstance<IBlazorProgramTemplate>(ProgramTemplate.TemplateId);
 
             if (program == null)
             {

@@ -12,7 +12,7 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9641452Z</approvedAt>
       <deviationsHash>4952755CE6BDC0936CB35781E416897F46153F726BAD40450FDADA30AFACEB04</deviationsHash>
-      <fileHash>26244424E2F556B0728C188118C122AD9176D2AA9D5B10C8E8A29B2F8723A9E8</fileHash>
+      <fileHash>434D0D340C5D4A814BE22777E9357AA39382F905049A940F2F4912ED7559383D</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#1132514b-15dd-4dac-b602-462278e1128d</correlationId>
@@ -64,7 +64,27 @@
       <approvedByDisplayName>Joel Turner</approvedByDisplayName>
       <approvedAt>2024-11-14T18:08:05.9726532Z</approvedAt>
       <deviationsHash>54A1C27F1CF048A4FA7369BF01D455FE04C3E36F1F8742A570EE7BF090964567</deviationsHash>
-      <fileHash>DB1A7905C92F957198E7DEB3463F993B0D6A491FF28377E4A46502BC8E751B3A</fileHash>
+      <fileHash>F57B7BFB35FEEFD6CBBA729E4EE4D49336FE52204DE6B4E11A0DBD0E70090EBE</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#1847a039-bc0e-41ec-9b51-a56f93d1c1b6</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmNoSampleStaticContentTemplateRegistration.cs</path>
+      <count>2</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-04T09:00:58.5327645Z</updatedAt>
+      <deviationsHash>E84EEAD9491DE031C71E195B973DA03CE6930F24B4D0CC8BCA488E524FB1AE49</deviationsHash>
+      <fileHash>75BCC4CCFF94E9354928D17CA060283B9AA93C783E768D0BD64EEE5649C8ED9F</fileHash>
+    </file>
+    <file>
+      <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#cf0d83f6-5edf-461b-bc7f-91a5e241dc13</correlationId>
+      <path>Intent.Modules.Blazor/Templates/Templates/Client/StaticContentTemplateRegistrations/WasmSamplePagesStaticContentTemplateRegistration.cs</path>
+      <count>1</count>
+      <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
+      <updatedByDisplayName>Joel Turner</updatedByDisplayName>
+      <updatedAt>2025-08-04T09:00:58.5327854Z</updatedAt>
+      <deviationsHash>D8BE9AEC1B3F71D743515743297A7085A277A3E7663E64A6AC18D4CA4D30259A</deviationsHash>
+      <fileHash>4C0C57D750BDAF789E39E1D9431AC67D3B3A255B230F07412DD6F160CE9A3F42</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.CSharp.Templates.RazorTemplatePartial#b7665695-e7e7-4a21-883a-da6fa2d84710</correlationId>
@@ -81,23 +101,23 @@
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#39c87006-657c-4f64-b82c-d9dd57f9670b</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Static/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</path>
+      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/NoSamplePagesStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-07-25T11:27:53.6368268Z</updatedAt>
       <deviationsHash>A90CF0AA5A831C6182C70721EABEA2C3BBF66C92C90C44E8584E53B1321E17D3</deviationsHash>
-      <fileHash>8E38FE8AB75A98F29F0627B74443126D7B9459E18E60749F5A06E0F9B2291E7D</fileHash>
+      <fileHash>B12C9F8FFDE3EF49E43895AA2666F8C65DBA225244DEF1C7A0EA38FFF4D863B0</fileHash>
     </file>
     <file>
       <correlationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#0a626c1c-206c-4b4f-b299-a0bbb8ba0eea</correlationId>
-      <path>Intent.Modules.Blazor/Templates/Templates/Static/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</path>
+      <path>Intent.Modules.Blazor/Templates/Templates/Server/StaticContentTemplateRegistrations/SamplePagesStaticContentTemplateRegistration.cs</path>
       <count>1</count>
       <updatedByAccountName>joel.turner@intentarchitect.com</updatedByAccountName>
       <updatedByDisplayName>Joel Turner</updatedByDisplayName>
       <updatedAt>2025-07-24T09:32:00.9913414Z</updatedAt>
       <deviationsHash>A410DB2FCD80280E1ED391DECF98D4F467D9A16FB48F6FA710827D95D942A5B9</deviationsHash>
-      <fileHash>B3651123E18D8CA8F63DFC1CEF9ED4236237A1926DCF16F78B80A3FF474A0A77</fileHash>
+      <fileHash>F8666736E5F48D0E96CFA3AD72DD7468EB475EF8E4283E9AE59823F7B261B746</fileHash>
     </file>
   </files>
 </deviationsLog>
