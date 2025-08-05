@@ -215,6 +215,7 @@
       <settings>
         <setting id="5ec4a775-6208-405b-b66f-0dd5c6e591bb" title="Authentication" type="select">
           <isRequired>false</isRequired>
+          <defaultValue>aspnetcore-identity</defaultValue>
           <options>
             <option value="aspnetcore-identity" description="Asp.Net Core Identity" />
             <option value="jwt" description="JWT" />
