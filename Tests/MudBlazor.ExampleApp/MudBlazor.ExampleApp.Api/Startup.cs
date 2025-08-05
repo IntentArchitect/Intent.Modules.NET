@@ -42,6 +42,8 @@ namespace MudBlazor.ExampleApp.Api
             services.ConfigureSwagger(Configuration);
             services.AddClientServices(Configuration);
 
+            services.AddAuthorization();
+
             services.AddRazorComponents()
                 .AddInteractiveWebAssemblyComponents();
 
