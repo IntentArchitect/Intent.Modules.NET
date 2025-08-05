@@ -1,4 +1,8 @@
-### Version 1.0.2
+﻿### Version 1.1.0
+
+> ⚠️ **NOTE**
+>
+> It is highly recommended to update to at least this version as previous versions of this module would generate code which not did prevent owned entities from being hard deleted.
 
 - Fixed: Depending on which other modules were installed, the `SaveChanges` overrides in `DbContext` classes would not be generated meaning that `SetSoftDeleteProperties` would not be called.
 - Fixed: Owned entities / value objects of soft deleted items would be fully deleted.
