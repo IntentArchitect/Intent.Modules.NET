@@ -1,3 +1,7 @@
+### Version 4.7.15
+
+- Improvement: Better "non-implemented" message when the provider does not support stored procedures.
+
 ### Version 4.7.14
 
 - Fixed: Stored procedure implementations would generate incorrect code if parameter input names differed from those of the containing method.
