@@ -41,8 +41,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                 .AddUsing("System")
                 .AddUsing("System.Collections.Generic")
                 .AddUsing("System.Linq")
-                .AddUsing($"{outputTarget.ApplicationName()}.Components.Account.Pages.Manage")
-                .AddUsing($"{outputTarget.ApplicationName()}.Components.Account.Pages")
+                .AddUsing($"{outputTarget.GetNamespace()}.Pages.Manage")
+                .AddUsing($"{outputTarget.GetNamespace()}.Pages")
                 .AddClass($"IdentityComponentsEndpointRouteBuilderExtensions", @class =>
                 {
                     @class.Internal().Static();

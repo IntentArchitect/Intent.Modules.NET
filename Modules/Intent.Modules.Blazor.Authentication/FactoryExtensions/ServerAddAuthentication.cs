@@ -76,7 +76,6 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         AddPersistanceProvider(startup, statements, context);
                         statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(AspNetCoreIdentityAuthServiceConcreteTemplate.TemplateId)}>();");
                         statements.AddStatement($"{context.Services}.AddAuthorization();");
-                        statements.AddStatement($"{context.Services}.AddApiAuthorization();");
                         statements.AddStatement($"{context.Services}.AddScoped<IdentityUserAccessor>();");
                         statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
                         statements.AddStatements(@$"{context.Services}.AddAuthentication(options =>
@@ -113,7 +112,6 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                             statements.AddStatement($"{context.Services}.AddScoped<{startup.GetTypeName(AuthServiceInterfaceTemplate.TemplateId)}, {startup.GetTypeName(OidcAuthServiceConcreteTemplate.TemplateId)}>();");
                         }
                         statements.AddStatement($"{context.Services}.AddAuthorization();");
-                        statements.AddStatement($"{context.Services}.AddApiAuthorization();");
                         statements.AddStatements(@$"{context.Services}.AddAuthentication(options =>
                         {{
                             options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
