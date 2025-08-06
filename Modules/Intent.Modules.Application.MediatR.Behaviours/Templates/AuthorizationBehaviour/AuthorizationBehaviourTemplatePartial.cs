@@ -59,7 +59,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.AuthorizationB
                         method.AddForEachStatement("authorizeAttribute", "authorizeAttributes", foreachAttribute =>
                         {
                             foreachAttribute.AddStatement("// Must be an authenticated user");
-                            foreachAttribute.AddIfStatement("_currentUserService.UserId is null", @if =>
+                            foreachAttribute.AddIfStatement("await _currentUserService.GetAsync() is null", @if =>
                             {
                                 @if.SeparatedFromPrevious(false);
                                 @if.AddStatement("throw new UnauthorizedAccessException();");

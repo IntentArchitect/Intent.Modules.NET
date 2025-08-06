@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -8,8 +10,6 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
-using System.Collections.Generic;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -33,6 +33,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => ReplacementsPrivate(outputTarget);
 
+        [IntentIgnore]
         private Dictionary<string, string> ReplacementsPrivate(IOutputTarget outputTarget)
         {
             var replacements = new Dictionary<string, string>();

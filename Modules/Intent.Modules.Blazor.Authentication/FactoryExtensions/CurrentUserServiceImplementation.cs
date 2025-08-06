@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Net.Mail;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Threading;
 using Intent.Engine;
@@ -28,7 +29,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
         public override int Order => 0;
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
-        {
+        {            
             AdjustCurrentUserService(application);
         }
 
@@ -38,6 +39,21 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             {
                 return;
             }
+
+            var securityConfigTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Application.Identity.ApplicationSecurityConfiguration"));
+            if (securityConfigTemplate != null)
+            {
+                securityConfigTemplate.CSharpFile.AfterBuild(file =>
+                {
+                    var @class = file.Classes.First();
+                    var method = @class.FindMethod("ConfigureApplicationSecurity");
+                    var statement = method?.FindStatement(s => s.GetText("").StartsWith("services.AddSingleton<ICurrentUserService"));
+                    if (statement != null)
+                    {
+                        statement.Replace(statement.GetText("").Replace("AddSingleton", "AddScoped"));
+                    }
+                }, 100);
+            }            
 
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.CurrentUserService"));
             if (template == null)

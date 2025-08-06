@@ -45,12 +45,12 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
 
                     @class.AddMethod(UseType("System.Threading.Tasks.Task"), "Process", method =>
                     {
+                        method.Async();
                         method.AddParameter("TRequest", "request")
                             .AddParameter(UseType("System.Threading.CancellationToken"), "cancellationToken");
 
                         method.AddObjectInitStatement("var requestName", "typeof(TRequest).Name;");
-                        method.AddObjectInitStatement("var userId", "_currentUserService.UserId;");
-                        method.AddObjectInitStatement("var userName", "_currentUserService.UserName;", cfg => cfg.SeparatedFromNext());
+                        method.AddObjectInitStatement("var user", "await _currentUserService.GetAsync();", cfg => cfg.SeparatedFromNext());
 
                         method.AddIfStatement("_logRequestPayload", logIf =>
                         {
@@ -58,8 +58,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
                             {
                                 cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Request: {{Name}} {{@UserId}} {{@UserName}} {{@Request}}\"")
                                     .AddArgument("requestName")
-                                    .AddArgument("userId")
-                                    .AddArgument("userName")
+                                    .AddArgument("user?.Id")
+                                    .AddArgument("user?.Name")
                                     .AddArgument("request");
                             });
                         });
@@ -69,12 +69,11 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.LoggingBehavio
                             {
                                 cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Request: {{Name}} {{@UserId}} {{@UserName}}\"")
                                     .AddArgument("requestName")
-                                    .AddArgument("userId")
-                                    .AddArgument("userName");
+                                    .AddArgument("user?.Id")
+                                    .AddArgument("user?.Name");
                             });
                         });
                         
-                        method.AddReturn("Task.CompletedTask");
                     });
                 });
         }

@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modelers.Domain.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
@@ -22,11 +27,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -144,8 +144,11 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         statements.Statements.Remove(routing);
                     }
 
-                    statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.UseAuthorization();")),
-                        new CSharpStatement("app.UseAuthentication();"));
+                    if (statements.Statements.FirstOrDefault(s => s.Text == "app.UseAuthentication();") == null)
+                    {
+                        statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.UseAuthorization();")),
+                            new CSharpStatement("app.UseAuthentication();"));
+                    }
                 });
             });
 
@@ -212,9 +215,10 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             }
         }
 
-        
+
     }
 
+    [IntentIgnore]
     public static class IdentityHelperExtensions
     {
         public static string GetIdentityUserClass(ICSharpTemplate template)
@@ -232,7 +236,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             else
             {
                 var identityModel = GetIdentityUserClass(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
-                var identityUserClass = template.GetTypeName("Domain.Entity", identityModel);
+                var identityUserClass = identityModel is not null ? template.GetTypeName("Domain.Entity", identityModel) : null;
 
                 return identityUserClass ?? template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
             }

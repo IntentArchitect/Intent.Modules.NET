@@ -1,3 +1,7 @@
+### Version 4.4.0
+
+- Improvement: Upgraded to new ICurrentUserService interface.
+
 ### Version 4.3.8
 
 - Improvement: Added support for DynamoDB unit of work.

@@ -48,13 +48,18 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor
                         {
                             method.Async();
 
-                            if (doPrincipalPropogation)
+                            if (doPrincipalPropogation && this.TryGetTemplate<ICSharpFileBuilderTemplate>("Intent.Application.Identity.CurrentUserServiceInterface", out var userServiceInterface))
                             {
-                                method.AddStatement("var currentUser = _serviceProvider.GetRequiredService<ICurrentUserService>();");
-                                method.AddStatement("var principal = await currentUser.GetPrincipalAsync();");
+                                var interfaceName = this.GetTypeName(userServiceInterface);
+                                method.AddStatement($"var currentUser = _serviceProvider.GetRequiredService<{interfaceName}>();");
+                                method.AddStatement("var user = await currentUser.GetAsync();");
                                 method.AddStatement("var scope = _scopeFactory.CreateScope();");
-                                method.AddStatement("var scopedUser = scope.ServiceProvider.GetRequiredService<ICurrentUserService>() as ISetCurrentUserContext;");
-                                method.AddIfStatement("scopedUser is not null", ifs => { ifs.AddStatement("scopedUser.SetContext(principal);"); });
+                                method.AddIfStatement("user is not null", ifs => 
+                                {
+                                    ifs.AddStatement("// AuthenticationStateProvider can't be invoked in the a child container. Propagating the ClaimsPrincipal to the child container.");
+                                    ifs.AddStatement($"var scopedUser = scope.ServiceProvider.GetRequiredService<{interfaceName}>() as {this.GetTypeName("Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface")};");
+                                    ifs.AddStatement("scopedUser?.SetContext(user.Principal);"); 
+                                });
                                 method.AddStatement("return scope;");
 
                             }
