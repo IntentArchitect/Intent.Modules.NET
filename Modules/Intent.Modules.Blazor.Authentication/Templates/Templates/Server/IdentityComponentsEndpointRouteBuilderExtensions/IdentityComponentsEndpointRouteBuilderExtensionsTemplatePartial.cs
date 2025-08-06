@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Settings;
@@ -10,6 +9,9 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -46,7 +48,15 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                 .AddClass($"IdentityComponentsEndpointRouteBuilderExtensions", @class =>
                 {
                     @class.Internal().Static();
-
+                    var identityUserName = string.Empty;
+                    if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                    {
+                        identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                    }
+                    else
+                    {
+                        identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                    }
                     @class.AddMethod("IEndpointConventionBuilder", "MapAdditionalIdentityEndpoints", mapAdditionalIdentityEndpoints =>
                     {
                         mapAdditionalIdentityEndpoints.Static();
@@ -60,7 +70,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapPost(""/PerformExternalLogin"", (
                             HttpContext context,
-                            [FromServices] SignInManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}> signInManager,
+                            [FromServices] SignInManager<{identityUserName}> signInManager,
                             [FromForm] string provider,
                             [FromForm] string returnUrl) =>
                         {{
@@ -79,7 +89,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapPost(""/Logout"", async (
                             ClaimsPrincipal user,
-                            SignInManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}> signInManager,
+                            SignInManager<{identityUserName}> signInManager,
                             [FromForm] string returnUrl) =>
                             {{
                                 await signInManager.SignOutAsync();
@@ -90,7 +100,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"manageGroup.MapPost(""/LinkExternalLogin"", async (
                             HttpContext context,
-                            [FromServices] SignInManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}> signInManager,
+                            [FromServices] SignInManager<{identityUserName}> signInManager,
                             [FromForm] string provider) =>
                             {{
                                 // Clear the existing external cookie to ensure a clean login process
@@ -110,7 +120,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"manageGroup.MapPost(""/DownloadPersonalData"", async (
                             HttpContext context,
-                            [FromServices] UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}> userManager,
+                            [FromServices] UserManager<{identityUserName}> userManager,
                             [FromServices] AuthenticationStateProvider authenticationStateProvider) =>
                             {{
                                 var user = await userManager.GetUserAsync(context.User);
@@ -124,7 +134,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
                                 // Only include personal data for download
                                 var personalData = new Dictionary<string, string>();
-                                var personalDataProps = typeof(ApplicationUser).GetProperties().Where(
+                                var personalDataProps = typeof({identityUserName}).GetProperties().Where(
                                     prop => Attribute.IsDefined(prop, typeof(PersonalDataAttribute)));
                                 foreach (var p in personalDataProps)
                                 {{

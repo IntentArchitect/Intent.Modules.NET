@@ -1,6 +1,5 @@
-using System.Linq;
-using System.Threading;
 using Intent.Engine;
+using Intent.Modelers.Domain.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.ServerAuthorizationMessageHandler;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationDbContext;
@@ -23,6 +22,11 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -84,16 +88,29 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                             options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
                         }}).AddIdentityCookies();".ConvertToStatements());
 
-                        statements.AddStatements(@$"var connectionString = {context.Configuration}.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""Connection string 'DefaultConnection' not found."");
+                        if (!startup.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                        {
+                            statements.AddStatements(@$"var connectionString = {context.Configuration}.GetConnectionString(""DefaultConnection"") ?? throw new InvalidOperationException(""Connection string 'DefaultConnection' not found."");
                         {context.Services}.AddDbContext<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>(options =>
                             options.UseSqlServer(connectionString));".ConvertToStatements());
 
-                        statements.AddStatements(@$"{context.Services}.AddIdentityCore<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>(options => options.SignIn.RequireConfirmedAccount = true)
+                            statements.AddStatements(@$"{context.Services}.AddIdentityCore<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>(options => options.SignIn.RequireConfirmedAccount = true)
                         .AddEntityFrameworkStores<{startup.GetTypeName(ApplicationDbContextTemplate.TemplateId)}>()
                         .AddSignInManager()
                         .AddDefaultTokenProviders();".ConvertToStatements());
 
-                        statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
+                            statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{startup.GetTypeName(ApplicationUserTemplate.TemplateId)}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
+                        }
+                        else
+                        {
+                            var identityUserName = IdentityHelperExtensions.GetIdentityUserClass(startup);
+                            statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = true)
+                        .AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
+                        .AddSignInManager()
+                        .AddDefaultTokenProviders();".ConvertToStatements());
+
+                            statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{identityUserName}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
+                        }
                     }
                     else
                     {
@@ -193,6 +210,87 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 default:
                     break;
             }
+        }
+
+        
+    }
+
+    public static class IdentityHelperExtensions
+    {
+        public static string GetIdentityUserClass(ICSharpTemplate template)
+        {
+            var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
+
+            var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
+
+            var identityModels = GetIdentityClassModels(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+
+            if (identityModels.Count > 0)
+            {
+                return $"{GetName(identityModels, "IdentityUser", template, false)}";
+            }
+            else
+            {
+                var identityModel = GetIdentityUserClass(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+                var identityUserClass = template.GetTypeName("Domain.Entity", identityModel);
+
+                return identityUserClass ?? template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
+            }
+        }
+
+        private static string GetName(List<ClassModel> classModels, string entityName, ICSharpTemplate template, bool includeGeneric = true)
+        {
+            if (classModels.Any(c => c.Name == entityName))
+            {
+                var @class = classModels.First(c => c.Name == entityName).ChildClasses.First();
+                template.GetTypeName("Domain.Entity", @class);
+
+                var entityTemplate = template.GetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", @class);
+
+                entityTemplate.CSharpFile.AfterBuild(c =>
+                {
+                    c.AddUsing("Microsoft.AspNetCore.Identity");
+                });
+                return @class.Name;
+            }
+
+            if (includeGeneric)
+            {
+                return $"{entityName}<string>";
+            }
+            return $"{entityName}";
+        }
+
+        public static List<ClassModel> GetIdentityClassModels(IMetadataManager metadataManager, string applicationId)
+        {
+            var associations = metadataManager.Domain(applicationId).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
+
+            var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
+
+            return models.Select(p => p.ParentElement.AsClassModel())
+                .Where(m => m is not null && (m.Name == "IdentityUserRole" || m.Name == "IdentityRole" ||
+                                               m.Name == "IdentityUser" || m.Name == "IdentityRoleClaim" || m.Name == "IdentityUserToken" || m.Name == "IdentityUserClaim" ||
+                                               m.Name == "IdentityUserLogin")).ToList();
+        }
+
+        internal static ClassModel GetIdentityUserClass(IMetadataManager metadataManager, string applicationId)
+        {
+            var identityModels = metadataManager.Domain(applicationId).GetClassModels()
+                .Where(x => x.HasStereotype("Identity User"))
+                .ToArray();
+            if (identityModels.Length > 1)
+            {
+                var sb = new StringBuilder("More than one class has the \"Identity User\" stereotype applied to it:");
+                foreach (var model in identityModels)
+                {
+                    sb.Append($"{Environment.NewLine}- \"{model.Name}\" [{model.Id}]");
+                }
+
+                Logging.Log.Failure(sb.ToString());
+                return null;
+            }
+
+            return identityModels.SingleOrDefault();
         }
     }
 }

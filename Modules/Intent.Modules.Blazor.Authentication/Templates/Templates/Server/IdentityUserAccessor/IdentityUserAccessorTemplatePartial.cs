@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Settings;
@@ -10,6 +9,9 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -30,10 +32,20 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"IdentityUserAccessor", @class =>
                 {
+                    var identityUserName = string.Empty;
+                    if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                    {
+                        identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                    }
+                    else
+                    {
+                        identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                    }
                     @class.Internal().Sealed();
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "userManager", param =>
+                        
+                        ctor.AddParameter($"UserManager<{identityUserName}>", "userManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -43,7 +55,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                         });
                     });
 
-                    @class.AddMethod("Task<ApplicationUser>", "GetRequiredUserAsync", getRequiredUserAsync =>
+                    @class.AddMethod($"Task<{identityUserName}>", "GetRequiredUserAsync", getRequiredUserAsync =>
                     {
                         getRequiredUserAsync.Async();
 

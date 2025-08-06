@@ -200,6 +200,7 @@
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.5-pre.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />

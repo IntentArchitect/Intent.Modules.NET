@@ -1,11 +1,15 @@
-using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
+using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates.StaticContent;
 using Intent.Registrations;
 using Intent.RoslynWeaver.Attributes;
+using System.Collections.Generic;
+using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration", Version = "1.0")]
@@ -27,10 +31,27 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
 
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => new Dictionary<string, string>
+        public override IReadOnlyDictionary<string, string> Replacements(IOutputTarget outputTarget) => ReplacementsPrivate(outputTarget);
+
+        private Dictionary<string, string> ReplacementsPrivate(IOutputTarget outputTarget)
         {
-            ["Namespace"] = outputTarget.GetNamespace().Replace("Components.Account.Shared", "")
-        };
+            var replacements = new Dictionary<string, string>();
+
+            if (!outputTarget.ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+            {
+                replacements.Add("IdentityClass", "ApplicationUser");
+                replacements.Add("NamespaceData", $"@using {outputTarget.GetNamespace().Replace("Components.Account.Shared", "")}Data");
+            }
+            else
+            {
+                var startup = outputTarget.ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
+                var identityClass = IdentityHelperExtensions.GetIdentityUserClass(startup);
+                replacements.Add("IdentityClass", identityClass);
+                replacements.Add("NamespaceData", $"@using Domain.Entities");
+            }
+
+            return replacements;
+        }
 
         [IntentIgnore]
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)

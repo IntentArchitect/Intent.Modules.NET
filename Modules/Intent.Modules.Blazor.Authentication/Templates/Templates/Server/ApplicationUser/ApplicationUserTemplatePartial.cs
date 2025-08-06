@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Settings;
@@ -47,6 +48,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Applic
 
         public override bool CanRunTemplate()
         {
+            if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+            {
+                return false;
+            }
             return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity();
         }
     }
