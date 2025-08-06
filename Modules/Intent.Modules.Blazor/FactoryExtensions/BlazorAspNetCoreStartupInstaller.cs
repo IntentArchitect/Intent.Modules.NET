@@ -33,6 +33,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             ConfigureRazorWeaving(application);
         }
 
+
         private void CheckBlazorWasmInstalled(IApplication application)
         {
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && !application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Wasm"))
@@ -113,6 +114,12 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                             elseStatement.AddStatement("app.UseWebAssemblyDebugging();");
                             ifDevStatement.InsertBelow(elseStatement);
                         }
+                    }
+
+                    //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs tro be fixed
+                    if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
+                    {
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
                     }
 
                     statements.FindStatement(m => m.Text.StartsWith("app.UseEndpoints"))?
