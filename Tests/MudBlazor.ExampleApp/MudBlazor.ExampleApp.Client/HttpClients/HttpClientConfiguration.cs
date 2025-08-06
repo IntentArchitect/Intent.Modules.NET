@@ -13,6 +13,12 @@ namespace MudBlazor.ExampleApp.Client.HttpClients
         public static void AddHttpClients(this IServiceCollection services, IConfiguration configuration)
         {
             services
+                .AddHttpClient<ICollectionsService, CollectionsServiceHttpClient>(http =>
+                {
+                    http.BaseAddress = GetUrl(configuration, "MudBlazorExampleApp");
+                });
+
+            services
                 .AddHttpClient<ICustomersService, CustomersServiceHttpClient>(http =>
                 {
                     http.BaseAddress = GetUrl(configuration, "MudBlazorExampleApp");

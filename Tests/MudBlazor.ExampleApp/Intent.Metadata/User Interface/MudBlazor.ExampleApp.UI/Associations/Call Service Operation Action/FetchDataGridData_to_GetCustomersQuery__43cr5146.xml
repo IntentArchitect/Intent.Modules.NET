@@ -22,6 +22,9 @@
     <name>GetCustomersQuery</name>
     <display>[call] Customers.GetCustomersQuery: PagedResult&lt;CustomerDto&gt;</display>
     <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="0ce99456-2a2e-44d2-83cb-64d1392af44e">
       <typeId>675cead0-622c-4331-b54d-00cc4c59bee0</typeId>
       <isNavigable>true</isNavigable>
@@ -124,17 +127,17 @@
         <target applicationId="00727c17-aeb5-470b-991f-68c0b481117e" designerId="f492faed-0665-4513-9853-5a230721786f" elementId="0dc39b57-b081-4dc6-a294-7e0628233b03" location="[MudBlazor.ExampleApp].[User Interface].[CustomerList]" />
         <mappedEnds>
           <mappedEnd>
-            <expression>{FetchDataGridData.GetCustomersQuery1.response}</expression>
+            <expression>{FetchDataGridData.GetCustomersQuery.response}</expression>
             <path>
               <target id="0dc39b57-b081-4dc6-a294-7e0628233b03" name="CustomerList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
               <target id="9a87db77-f5f6-4e59-8c17-fbf9e6d3167c" name="Model" type="element" specialization="Property" specializationId="356fbe17-bc63-4e16-b915-feefbc063cbe" />
             </path>
             <sources>
-              <source identifier="FetchDataGridData.GetCustomersQuery1.response" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
+              <source identifier="FetchDataGridData.GetCustomersQuery.response" mappingType="Data Mapping" mappingTypeId="9cccf6be-31be-4ac0-a026-ed0c4f5578bf">
                 <path>
                   <target id="0dc39b57-b081-4dc6-a294-7e0628233b03" name="CustomerList" type="element" specialization="Component" specializationId="b1c481e1-e91e-4c29-9817-00ab9cad4b6b" />
                   <target id="cb2a3513-8f54-4773-b608-d7a24d56bda9" name="FetchDataGridData" type="element" specialization="Component Operation" specializationId="e030c97a-e066-40a7-8188-808c275df3cb" />
-                  <target id="f624743b-100c-4b63-b078-8c94e5715088" name="GetCustomersQuery1" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
+                  <target id="f624743b-100c-4b63-b078-8c94e5715088" name="GetCustomersQuery" type="association" specialization="Call Service Operation Action Target End" specializationId="475f0810-2b4a-40da-8eb8-697cb62f7dbe" />
                   <target id="2f68b1a4-a523-4987-b3da-f35e6e8e146b" name="response" type="static-mappable" specialization="response" specializationId="2f68b1a4-a523-4987-b3da-f35e6e8e146b">
                     <typeReference>
                       <typeId>9204e067-bdc8-45e7-8970-8a833fdc5253</typeId>

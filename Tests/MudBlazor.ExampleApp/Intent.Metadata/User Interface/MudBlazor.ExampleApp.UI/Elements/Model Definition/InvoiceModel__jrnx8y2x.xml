@@ -187,7 +187,6 @@
       <name>OrderLines</name>
       <display>OrderLines: InvoiceLineModel[*]</display>
       <isAbstract>false</isAbstract>
-      <value />
       <genericTypes />
       <typeReference id="be0f1987-4d76-47af-a331-99a98c2ed9c0">
         <typeId>f05c40b2-9e14-4f95-9536-d4a9822a9c1d</typeId>
