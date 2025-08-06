@@ -45,7 +45,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
 
         protected override void Register(ITemplateInstanceRegistry registry, IApplication application)
         {
-            if (ComponentLibraryInstalled(application))
+            if (TemplateHelper.ComponentLibraryInstalled(application))
                 return;
             if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
                 return;
@@ -53,12 +53,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplate
                 return;
 
             base.Register(registry, application);
-        }
-
-        private bool ComponentLibraryInstalled(IApplication application)
-        {
-#warning consolidate this with other one
-            return application.InstalledModules.Any(x => x.ModuleId == "Intent.Modelers.UI.Core");//This is base component library
         }
     }
 }
