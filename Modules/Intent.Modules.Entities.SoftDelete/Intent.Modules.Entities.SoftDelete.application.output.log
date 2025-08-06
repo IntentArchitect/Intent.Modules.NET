@@ -66,6 +66,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>4347d7e6-5990-493f-bc37-f1d4c1f4ef77</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#6fcaf286-8a1b-4907-b5ab-c7ac94d7fe02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplatePartial.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplatePartial.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4347d7e6-5990-493f-bc37-f1d4c1f4ef77</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.TemplateRegistration.SingleFileNoModel#6fcaf286-8a1b-4907-b5ab-c7ac94d7fe02</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SoftDeleteEFCoreInterceptor/SoftDeleteEFCoreInterceptorTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>4347d7e6-5990-493f-bc37-f1d4c1f4ef77</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial#101e6e54-4d63-4561-982d-59e6ad7bc425</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/SoftDeleteInterface/SoftDeleteInterfaceTemplatePartial.cs</ApplicationRelativeFilePath>
