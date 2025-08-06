@@ -1,6 +1,7 @@
 ### Version 4.0.13
 
 - Improvement: Updated referenced packages.
+- Fixed: Variable names are unique when multiple collection parameters are present on endpoint
 
 ### Version 4.0.12
 
