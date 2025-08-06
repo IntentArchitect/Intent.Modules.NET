@@ -23,6 +23,8 @@ using ComponentModel = Intent.Modelers.UI.Api.ComponentModel;
 
 namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
 {
+    using Intent.Blazor.Api;
+
     /// <summary>
     /// A Razor template.
     /// </summary>
