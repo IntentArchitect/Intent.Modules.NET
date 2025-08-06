@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Intent.Modules.Application.Identity.Templates.ApplicationSecurityConfiguration;
 using Intent.Modules.Application.Identity.Templates.AuthorizeAttribute;
+using Intent.Modules.Application.Identity.Templates.CurrentUserInterface;
 using Intent.Modules.Application.Identity.Templates.CurrentUserService;
 using Intent.Modules.Application.Identity.Templates.CurrentUserServiceInterface;
 using Intent.Modules.Application.Identity.Templates.ForbiddenAccessException;
@@ -22,6 +23,11 @@ namespace Intent.Modules.Application.Identity.Templates
         public static string GetAuthorizeAttributeName(this IIntentTemplate template)
         {
             return template.GetTypeName(AuthorizeAttributeTemplate.TemplateId);
+        }
+
+        public static string GetCurrentUserInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(CurrentUserInterfaceTemplate.TemplateId);
         }
 
         public static string GetCurrentUserServiceName(this IIntentTemplate template)

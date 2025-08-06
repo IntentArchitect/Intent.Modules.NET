@@ -34,9 +34,17 @@ public partial class CurrentUserServiceTemplate : CSharpTemplateBase<object>, IC
                 var priClass = file.Classes.First();
                 priClass.ImplementsInterface(this.GetCurrentUserServiceInterfaceName());
                 priClass.AddConstructor();
-                string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
-                priClass.AddProperty($"{this.UseType(userIdType)}?", "UserId");
-                priClass.AddProperty("string?", "UserName");
+                if (ExecutionContext.Settings.GetIdentitySettings().KeepSyncAccessors())
+                {
+                    string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
+                    priClass.AddProperty($"{this.UseType(userIdType)}?", "UserId");
+                    priClass.AddProperty("string?", "UserName");
+                }
+
+                priClass.AddMethod($"Task<{this.GetCurrentUserInterfaceName()}?>", "GetAsync", method =>
+                {
+                    method.AddStatement("return Task.FromResult<ICurrentUser?>(null);");
+                });
                 priClass.AddMethod($"Task<bool>", "AuthorizeAsync", method =>
                 {
                     method.Async();

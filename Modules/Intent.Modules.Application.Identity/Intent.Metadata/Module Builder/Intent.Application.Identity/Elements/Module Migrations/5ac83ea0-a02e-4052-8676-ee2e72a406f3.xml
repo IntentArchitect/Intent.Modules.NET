@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5ac83ea0-a02e-4052-8676-ee2e72a406f3" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</parentFolderId>
+  <packageId>b09f5a25-2251-4e93-acf2-8a84e42e4cb6</packageId>
+  <packageName>Intent.Application.Identity</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

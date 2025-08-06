@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Authentication</id>
-  <version>1.0.0-pre.2</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Automates Authentication components for a Blazor application</summary>
   <description>Automates Authentication components for a Blazor application</description>
@@ -178,6 +178,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
     </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" externalReference="71383371-74d6-4655-9df0-484b7354d4c0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location></location>
+    </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="b1dde391-adec-41d2-a5c8-e4d2bb58db7c">
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
@@ -191,6 +199,7 @@
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.Authentication.ChangeRenderMode" externalReference="22649449-21b2-4068-8ec0-a8ab4e3fd8dd" />
     <factoryExtension id="Intent.Blazor.Authentication.ClientAddAuthentication" externalReference="472bc746-3023-4cf6-97d7-5f25394e6c38" />
+    <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
   </factoryExtensions>
   <moduleSettings />

@@ -24,6 +24,7 @@ using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persisting
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Register;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResendEmailConfirmation;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ResetPassword;
+using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.SetUserContextInterface;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 
@@ -111,6 +112,11 @@ namespace Intent.Modules.Blazor.Authentication.Templates
         public static string GetPersistingServerAuthenticationStateProviderTemplateName(this IIntentTemplate template)
         {
             return template.GetTypeName(PersistingServerAuthenticationStateProviderTemplate.TemplateId);
+        }
+
+        public static string GetSetUserContextInterfaceName(this IIntentTemplate template)
+        {
+            return template.GetTypeName(SetUserContextInterfaceTemplate.TemplateId);
         }
 
         public static string GetServerAuthorizationMessageHandlerTemplateName(this IIntentTemplate template)
