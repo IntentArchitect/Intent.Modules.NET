@@ -22,6 +22,9 @@
     <name>GetProductsLookupQuery</name>
     <display>[call] ProductsService.GetProductsLookupQuery(): ProductDto[*]</display>
     <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="db16e71e-1ff9-4fb5-a418-5e393eb1d1ce">
       <typeId>a366ba35-aa3a-4754-804a-bd6f2768f561</typeId>
       <isNavigable>true</isNavigable>

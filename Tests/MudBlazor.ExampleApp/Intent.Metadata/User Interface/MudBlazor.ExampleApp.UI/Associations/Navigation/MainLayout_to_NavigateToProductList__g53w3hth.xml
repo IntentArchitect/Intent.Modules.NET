@@ -22,6 +22,9 @@
     <name>NavigateToProductList</name>
     <display>[navigate] ProductList</display>
     <order>3</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="797104e3-9b16-4c88-9ffd-02a8bd637b03">
       <typeId>88648126-3b19-4608-8c41-6c230a2b2ecd</typeId>
       <isNavigable>true</isNavigable>
