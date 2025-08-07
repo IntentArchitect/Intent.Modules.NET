@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="0e71e467-28a8-4a86-aa69-60fde36c6c1f" type="Value Object" typeId="5fe6bb0a-7fc3-42ae-a351-d9188f5b8bc5">
+  <name>OrderLine</name>
+  <display>OrderLine</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>c78d51a0-1cf7-4b04-8a65-77287d209e75</parentFolderId>
+  <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+  <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="1ec1fd0f-45f7-4cc3-a118-9d5d5547f9d0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Units</name>
+      <display>Units: int</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="bf9e3b49-3690-48f2-a579-9101a3d20353">
+        <typeId>fb0a362d-e9e2-40de-b6ff-5ce8167cbe74</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>Intent.Common.Types</typePackageName>
+        <typePackageId>870ad967-cbd4-4ea9-b86d-9c3a5d55ea67</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e71e467-28a8-4a86-aa69-60fde36c6c1f</parentFolderId>
+      <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+      <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="97c08768-35d5-442a-ac56-e3d19000fda0" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Price</name>
+      <display>Price: Money</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="4757e3e8-5406-4f53-8b32-4b48309f6301">
+        <typeId>550e25a2-afff-4373-abe0-e86fbdd6eab0</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+        <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e71e467-28a8-4a86-aa69-60fde36c6c1f</parentFolderId>
+      <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+      <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="5d5c5a02-b0f3-4ad3-b467-1a0858ea17d6" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Discount</name>
+      <display>Discount: Money?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="c16ea21d-3000-45b3-9538-af38d802aadc">
+        <typeId>550e25a2-afff-4373-abe0-e86fbdd6eab0</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+        <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>0e71e467-28a8-4a86-aa69-60fde36c6c1f</parentFolderId>
+      <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+      <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>

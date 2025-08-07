@@ -9,10 +9,17 @@ namespace EntityFrameworkCore.SQLLite.Domain.Entities
         public Order()
         {
             RefNo = null!;
+            Total = null!;
         }
 
         public Guid Id { get; set; }
 
         public string RefNo { get; set; }
+
+        public Money Total { get; set; }
+
+        public ICollection<Money> QuotedAmounts { get; set; } = [];
+
+        public ICollection<OrderLine> OrderLines { get; set; } = [];
     }
 }
