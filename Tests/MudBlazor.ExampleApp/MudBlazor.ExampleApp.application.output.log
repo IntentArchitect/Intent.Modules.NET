@@ -76,6 +76,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>c54329c2-ce25-47b5-a839-a35441048aff</ProjectId>
+      <CorrelationId>Intent.AspNetCore.Controllers.Controller#c980023b-6260-4282-8491-aaa648c0bf29</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Api/Controllers/CollectionsController.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionsController.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>c54329c2-ce25-47b5-a839-a35441048aff</ProjectId>
       <CorrelationId>Intent.AspNetCore.Controllers.Controller#5db8a97e-49a4-4cfc-8787-4bd45da976db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Api/Controllers/CustomersController.cs</ApplicationRelativeFilePath>
@@ -184,6 +192,62 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Api/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#b32afd72-39b3-4a3e-8a57-2364b31ca0af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataSingleCollection/GetDataSingleCollectionQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#b32afd72-39b3-4a3e-8a57-2364b31ca0af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataSingleCollection/GetDataSingleCollectionQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#b32afd72-39b3-4a3e-8a57-2364b31ca0af</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataSingleCollection/GetDataSingleCollectionQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataSingleCollection/GetDataSingleCollectionQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryModels#e4980e90-5d50-4ec3-a1e3-6632938d278d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQuery.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQuery.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.QueryHandler#e4980e90-5d50-4ec3-a1e3-6632938d278d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.MediatR.FluentValidation.QueryValidator#e4980e90-5d50-4ec3-a1e3-6632938d278d</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryValidator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/GetDataWithCollectionParams/GetDataWithCollectionParamsQueryValidator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>dc41a6ed-6d8f-41df-872d-b94532e31928</ProjectId>
+      <CorrelationId>Intent.Application.Dtos.DtoModel#19a701c5-4cc6-411b-90d6-b4e164fe60a4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Application/Collections/ResponseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Collections/ResponseDto.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -1060,6 +1124,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.DtoContract#19a701c5-4cc6-411b-90d6-b4e164fe60a4</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Collections/ResponseDto.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Services/Collections/ResponseDto.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>8fc80e74-d99a-427b-a9c7-5ad76814c625</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.DtoContract#57820936-fd38-4056-8484-11c122deb91b</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Contracts/Services/Customers/CreateCustomerAddressDto.cs</ApplicationRelativeFilePath>
@@ -1340,6 +1412,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#f5bde2f5-6556-48a7-98bf-69678558f9b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/ICollectionsService.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICollectionsService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>add2c42d-ca06-4190-9a19-ca7ed0de1f78</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.ServiceContract#5db8a97e-49a4-4cfc-8787-4bd45da976db</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/ICustomersService.cs</ApplicationRelativeFilePath>
@@ -1360,6 +1440,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/IInvoiceService.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>IInvoiceService.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>147210ba-42bc-4466-8e95-d397b4024083</ProjectId>
+      <CorrelationId>Intent.Blazor.HttpClients.HttpClient#f5bde2f5-6556-48a7-98bf-69678558f9b9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MudBlazor.ExampleApp.Client/HttpClients/Implementations/CollectionsServiceHttpClient.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>CollectionsServiceHttpClient.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

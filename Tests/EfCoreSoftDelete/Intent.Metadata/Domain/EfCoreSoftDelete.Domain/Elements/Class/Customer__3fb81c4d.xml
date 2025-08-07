@@ -116,5 +116,29 @@
       </metadata>
       <childElements />
     </childElement>
+    <childElement id="90ac6c57-fede-457b-b807-a0e000e63adc" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>PrimaryBuilding</name>
+      <display>PrimaryBuilding: AddressBuilding?</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="2764fb51-2465-4740-a8f0-c5f323afd2ce">
+        <typeId>6c9755da-57f8-476a-a9ef-31ebeef738b2</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>true</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EfCoreSoftDelete.Domain</typePackageName>
+        <typePackageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>2d2ea131-1be7-4b0e-b8c5-34ab2e848ad9</parentFolderId>
+      <packageId>b6ce5576-2037-4e9d-b081-93fd1b478e5d</packageId>
+      <packageName>EfCoreSoftDelete.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>

@@ -28,6 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
     // This is for disambiguating the extension method
     using Intent.Modelers.Domain.Api;
+    using System.Threading;
 
     [IntentManaged(Mode.Merge)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
@@ -220,12 +221,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetKeyMappings(classModel, ownedRelationship).Where(s => s.GetText("") != ""));
             }
 
-            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
-                HasSerializationType(valueObjectTemplate, out var serializationType) &&
-                serializationType == "JSON" &&
-                HasSerializationSupport())
+            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate))
             {
-                statements.Add("builder.ToJson();");
+                if (HasSerializationType(valueObjectTemplate, out var serializationType) &&
+                    serializationType == "JSON" &&
+                    HasSerializationSupport())
+                {
+                    statements.Add("builder.ToJson();");
+                }
+                else if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlLite() && ownedRelationship == RelationshipType.OneToMany)
+                {
+                    statements.Add("builder.HasKey(\"Id\");"); // This is required by SqlLite, otherwise it doesn't add the id incrementation.
+                }
             }
 
             statements.AddRange(GetAttributes(targetType)
@@ -464,15 +471,16 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
             }
 
             var methodName = $"Configure{attribute.Name.ToPascalCase()}";
-            if (@class.Methods.All(x => x.Name != methodName))
+            var parameterType = $"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>";
+
+            if (!@class.Methods.Any(x => x.Name == methodName && x.Parameters.FirstOrDefault()?.Type == parameterType))
             {
                 @class.AddMethod("void", methodName, method =>
                 {
                     method.Static();
                     method.AddMetadata("model", attribute.TypeReference.Element);
-                    method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(attribute.InternalElement.ParentElement)}, {GetTypeName((IElement)attribute.TypeReference.Element)}>",
-                        "builder");
-                    method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, ownedRelationship).ToArray());
+                    method.AddParameter(parameterType, "builder");
+                    method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, attribute.TypeReference.IsCollection ? RelationshipType.OneToMany : RelationshipType.OneToOne).ToArray());
                     method.Statements.SeparateAll();
 
                     AddIgnoreForNonPersistent(method, isOwned: true);
@@ -500,16 +508,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     {
                         var field = EfCoreAssociationConfigStatement.CreateOwnsOne(associationEnd, targetType);
 
+                        var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                         var methodName = $"Configure{associationEnd.Name.ToPascalCase()}";
-                        if (@class.Methods.All(x => x.Name != methodName))
+                        var parameterType = $"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>";
+
+                        if (!@class.Methods.Any(x => x.Name == methodName && x.Parameters.FirstOrDefault()?.Type == parameterType))
                         {
                             @class.AddMethod("void", methodName, method =>
                             {
                                 method.Static();
 
-                                var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                                 method.AddMetadata("model", (IElement)associationEnd.Element);
-                                method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                method.AddParameter(parameterType, "builder");
                                 method.AddStatement(field.CreateWithOwner().WithForeignKey(!ForCosmosDb() && associationEnd.Element.IsClassModel()));
                                 method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToOne).ToArray());
                                 method.Statements.SeparateAll();
@@ -534,16 +544,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                         {
                             var field = EfCoreAssociationConfigStatement.CreateOwnsMany(associationEnd, targetType);
 
+                            var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                             var methodName = $"Configure{associationEnd.Name.ToPascalCase()}";
-                            if (@class.Methods.All(x => x.Name != methodName))
+                            var parameterType = $"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>";
+
+                            if (!@class.Methods.Any(x => x.Name == methodName && x.Parameters.FirstOrDefault()?.Type == parameterType))
                             {
                                 @class.AddMethod("void", methodName, method =>
                                 {
                                     method.Static();
 
-                                    var sourceType = Model.IsSubclassOf(associationEnd.OtherEnd().Class) ? Model.InternalElement : (IElement)associationEnd.OtherEnd().Element;
                                     method.AddMetadata("model", (IElement)associationEnd.Element);
-                                    method.AddParameter($"OwnedNavigationBuilder<{GetTypeName(sourceType)}, {GetTypeName((IElement)associationEnd.Element)}>", "builder");
+                                    method.AddParameter(parameterType, "builder");
                                     method.AddStatement(field.CreateWithOwner().WithForeignKey((!ForCosmosDb() || !field.HasDefaultAssociationSourceName()) && associationEnd.Element.IsClassModel()));
                                     method.AddStatements(GetTypeConfiguration((IElement)associationEnd.Element, @class, RelationshipType.OneToMany).ToArray());
                                     method.Statements.SeparateAll();

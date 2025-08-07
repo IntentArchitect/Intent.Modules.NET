@@ -22,6 +22,9 @@
     <name>DeleteProductCommand</name>
     <display>[call] ProductsService.DeleteProductCommand(id: guid): void</display>
     <order>1</order>
+    <traits>
+      <trait id="dc813928-0ce1-4f66-ae31-b5e5d506b4a3" name="[Invokable]" />
+    </traits>
     <typeReference id="9a872a1f-cf75-44d1-8451-5f814518063f">
       <typeId>43ff9e39-f9d5-445c-a725-f37bccbb55ba</typeId>
       <isNavigable>true</isNavigable>

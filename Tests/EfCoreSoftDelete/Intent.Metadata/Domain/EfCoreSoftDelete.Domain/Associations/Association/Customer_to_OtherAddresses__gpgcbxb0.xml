@@ -22,7 +22,7 @@
   <targetEnd id="be0496d4-0fd0-4047-84b5-fa02428229c3" type="Association Target End" typeId="0a66489f-30aa-417b-a75d-b945863366fd">
     <name>OtherAddresses</name>
     <display>OtherAddresses: Address[*]</display>
-    <order>3</order>
+    <order>4</order>
     <typeReference id="b1f39666-7363-4856-9b16-bf390c6522d6">
       <typeId>2aec1cd1-d74f-416a-9371-d8b94cab38c1</typeId>
       <isNavigable>true</isNavigable>

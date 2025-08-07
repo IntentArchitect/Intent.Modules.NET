@@ -19,6 +19,8 @@ namespace EfCoreSoftDelete.Domain.Entities
 
         public bool IsDeleted { get; set; }
 
+        public AddressBuilding? PrimaryBuilding { get; set; }
+
         public ICollection<Address> OtherAddresses { get; set; } = [];
 
         public Address PrimaryAddress { get; set; }
