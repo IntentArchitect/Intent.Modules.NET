@@ -68,6 +68,14 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
                         method.AddParameter("bool", "rememberMe");
                         method.AddParameter("string", "returnUrl");
 
+                        method.AddStatement(@"            if (_oidcAuthOptions is null ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.ClientId) ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.ClientSecret) ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.DefaultScopes))
+            {
+                throw new InvalidOperationException(""OIDC authentication options are not configured correctly."");
+            }", s => s.SeparatedFromNext());
+
                         method.AddStatements(@"var tokenRequest = new Dictionary<string, string>
                         {
                             { ""grant_type"", ""password"" },

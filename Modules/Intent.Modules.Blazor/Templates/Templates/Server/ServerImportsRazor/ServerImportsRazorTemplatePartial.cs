@@ -2,6 +2,7 @@ using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Templates.Templates.Client.ClientImportsRazor;
+using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -41,6 +42,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ServerImportsRazor
                 file.AddUsing("Microsoft.JSInterop");
                 file.AddUsing("Microsoft.AspNetCore.Http");
                 file.AddUsing(GetTemplate<IRazorFileTemplate>(ClientImportsRazorTemplate.TemplateId).Namespace);
+                file.AddUsing(GetTemplate<IRazorFileTemplate>(RoutesRazorTemplate.TemplateId).Namespace);
             });
         }
 

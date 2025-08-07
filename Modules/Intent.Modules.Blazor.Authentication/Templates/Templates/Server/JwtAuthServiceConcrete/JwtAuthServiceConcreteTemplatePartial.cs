@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Metadata.Models;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
@@ -162,6 +163,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.JwtAut
                         nested.AddProperty("DateTime", "ExpiresIn");
                     });
                 });
+        }
+
+        public override void BeforeTemplateExecution()
+        {
+            if (!CanRunTemplate()) return;
+            this.ApplyAppSetting($"TokenEndpoint:Uri", "https://localhost:{sts_port}");
         }
 
         [IntentManaged(Mode.Fully)]

@@ -70,7 +70,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     else if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsOidc())
                     {
                         statements.AddStatement($"{context.Services}.AddHttpClient(\"oidcClient\", client => client.BaseAddress = {context.Configuration}.GetValue<Uri?>(\"TokenEndpoint:Uri\"));");
-                        statements.AddStatement($"{context.Services}.Configure<{startup.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}>({context.Configuration});");
+                        statements.AddStatement($"{context.Services}.Configure<{startup.GetTypeName(OidcAuthenticationOptionsTemplate.TemplateId)}>({context.Configuration}).GetSection(\"Authentication:OIDC\");");
                     }
                     statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
 

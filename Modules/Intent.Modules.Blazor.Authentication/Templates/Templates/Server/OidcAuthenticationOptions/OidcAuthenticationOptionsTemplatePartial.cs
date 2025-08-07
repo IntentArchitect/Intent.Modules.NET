@@ -26,9 +26,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.OidcAu
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddClass($"OidcAuthenticationOptions", @class =>
                 {
-                    @class.AddProperty("string", "ClientId");
-                    @class.AddProperty("string", "ClientSecret");
-                    @class.AddProperty("string", "DefaultScopes");
+                    @class.AddProperty("string?", "ClientId");
+                    @class.AddProperty("string?", "ClientSecret");
+                    @class.AddProperty("string?", "DefaultScopes");
                 });
         }
 
