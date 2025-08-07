@@ -82,5 +82,53 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="c1fe9b6d-e1da-440e-b012-77445fd8c15e" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>Total</name>
+      <display>Total: Money</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="9d8ab647-2a00-4e4a-84b5-486c6129873e">
+        <typeId>550e25a2-afff-4373-abe0-e86fbdd6eab0</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>false</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+        <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9</parentFolderId>
+      <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+      <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="d4d7ced8-2f8a-41c3-9928-273416d56496" type="Attribute" typeId="0090fb93-483e-41af-a11d-5ad2dc796adf">
+      <name>QuotedAmounts</name>
+      <display>QuotedAmounts: Money[*]</display>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <typeReference id="5a8efd13-ee33-4089-823c-c03a87451736">
+        <typeId>550e25a2-afff-4373-abe0-e86fbdd6eab0</typeId>
+        <isNavigable>true</isNavigable>
+        <isNullable>false</isNullable>
+        <isCollection>true</isCollection>
+        <isRequired>true</isRequired>
+        <typePackageName>EntityFrameworkCore.SQLLite.Domain</typePackageName>
+        <typePackageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</typePackageId>
+        <stereotypes />
+        <genericTypeParameters />
+      </typeReference>
+      <isMapped>false</isMapped>
+      <parentFolderId>c34a3a4d-fa3e-40f0-b94c-ffb9f47de0d9</parentFolderId>
+      <packageId>c78d51a0-1cf7-4b04-8a65-77287d209e75</packageId>
+      <packageName>EntityFrameworkCore.SQLLite.Domain</packageName>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
   </childElements>
 </class>
