@@ -99,9 +99,9 @@
     </childElement>
     <childElement id="dba9fce6-0bc4-4df3-96d5-fb0667d169b3" type="Module" typeId="6a811790-b322-4340-8b68-84dae5ffafa8">
       <name>Intent.Application.Identity</name>
-      <display>Intent.Application.Identity 3.5.6</display>
+      <display>Intent.Application.Identity 3.6.0-pre.0</display>
       <isAbstract>false</isAbstract>
-      <value>3.5.6</value>
+      <value>3.6.0-pre.0</value>
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>99e8d3b6-9f62-4836-8318-159a93f60917</parentFolderId>

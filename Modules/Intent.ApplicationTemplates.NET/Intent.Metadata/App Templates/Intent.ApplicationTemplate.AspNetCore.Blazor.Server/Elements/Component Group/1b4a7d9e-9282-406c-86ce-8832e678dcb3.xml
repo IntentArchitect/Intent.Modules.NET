@@ -23,8 +23,8 @@
   <metadata />
   <childElements>
     <childElement id="ec87f919-d89f-4a3a-9881-6cdfdb5a561d" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Blazor Security</name>
-      <display>Blazor Security (1)</display>
+      <name>Blazor Security (BETA)</name>
+      <display>Blazor Security (BETA) (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />
@@ -63,7 +63,7 @@
               <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
               <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
               <properties>
-                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.1" isActive="true" />
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-pre.3" isActive="true" />
                 <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
                 <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
                 <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
@@ -96,7 +96,7 @@
             <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Use ASP.NET Core Identity as your User Store." isActive="true" />
             <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
             <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
-            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[&quot;ec87f919-d89f-4a3a-9881-6cdfdb5a561d&quot;]" isActive="true" />
           </properties>
         </stereotype>
       </stereotypes>
