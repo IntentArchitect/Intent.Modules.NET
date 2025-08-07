@@ -148,6 +148,16 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     {
                         statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.UseAuthorization();")),
                             new CSharpStatement("app.UseAuthentication();"));
+
+                    }
+
+                    if (statements.Statements.FirstOrDefault(s => s.Text == "app.Run();") != null)
+                    {
+                        if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
+                        {
+                            statements.InsertStatement(statements.Statements.IndexOf(statements.Statements.First(s => s.Text == "app.Run();")),
+                            new CSharpStatement("app.MapAdditionalIdentityEndpoints();"));
+                        }
                     }
                 });
             });

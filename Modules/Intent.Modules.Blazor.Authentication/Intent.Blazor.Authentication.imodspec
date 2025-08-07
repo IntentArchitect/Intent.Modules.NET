@@ -139,8 +139,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Default</role>
-      <location></location>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
     </template>
     <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate" externalReference="7be3c1f1-74cf-4775-bd5d-bc737260fac0">
       <config>
@@ -193,6 +193,10 @@
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration" externalReference="1145f97b-3ae3-4bc4-8759-87905618b27f">
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
+    </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration" externalReference="bac0ff15-dd32-4618-b598-a0c72013e3de">
+      <role>Startup,Blazor</role>
+      <location>wwwroot</location>
     </template>
   </templates>
   <decorators></decorators>

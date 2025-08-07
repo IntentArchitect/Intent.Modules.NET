@@ -22,6 +22,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.SetUse
         public SetUserContextInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System.Security.Claims")
                 .AddInterface($"ISetUserContext", @interface =>
                 {
                     @interface.AddMethod("void", "SetContext", method =>

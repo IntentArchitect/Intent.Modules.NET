@@ -66,9 +66,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Login
                                         .AddHtmlElement("label", element => element.AddClass("form-label").AddAttribute("for", "password").WithText("Password"))
                                         .AddHtmlElement("ValidationMessage", element => element.AddClass("text-danger").AddAttribute("For", "() => Input.Password"))
                                     )
-                                    .AddHtmlElement("div", element => element.AddClass("form-floating mb-3")
-                                        .AddHtmlElement("label", element => element.AddClass("form-label")
-                                            .AddHtmlElement("InputCheckbox", element => element.AddClass("darker-border-checkbox form-check-input").AddAttribute("@bind-Value", "Input.RememberMe").WithText("Remember me"))
+
+                                    .AddHtmlElement("div", element => element.AddClass("form-check mb-3")
+                                            .AddHtmlElement("InputCheckbox", element => element.AddClass("darker-border-checkbox form-check-input").AddAttribute("@bind-Value", "Input.RememberMe"))
+                                            .AddHtmlElement("label", element => element.AddClass("form-check-label").AddAttribute("for", "rememberMe").WithText("Remember me")
                                             )
                                     )
                                     .AddHtmlElement("div", element => element

@@ -25,6 +25,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>24706897-5aa1-4842-b13a-bcb948b0ffd0</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentOutputReadme#bac0ff15-dd32-4618-b598-a0c72013e3de</CorrelationId>
+      <OverwriteBehaviour>once-off</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>content/wwwroot/readme.txt</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>content/wwwroot/readme.txt</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>f76e6d80-9503-42da-9856-e43c5b163bd7</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#22649449-21b2-4068-8ec0-a8ab4e3fd8dd</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
@@ -542,6 +550,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Templates/Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Templates/Server/StaticContentTemplateRegistrations/AccountFolderSharedFolderFilesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>90f36029-b4b8-4117-bacd-1c4851022c9f</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.StaticContentTemplateRegistration#bac0ff15-dd32-4618-b598-a0c72013e3de</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Templates/Templates/Server/StaticContentTemplateRegistrations/WwwRootCssFilesStaticContentTemplateRegistration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Templates/Server/StaticContentTemplateRegistrations/WwwRootCssFilesStaticContentTemplateRegistration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>
