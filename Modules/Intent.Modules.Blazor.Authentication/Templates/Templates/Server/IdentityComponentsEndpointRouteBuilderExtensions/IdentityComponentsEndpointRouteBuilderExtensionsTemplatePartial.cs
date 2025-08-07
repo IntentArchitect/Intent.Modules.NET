@@ -96,6 +96,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                                 return TypedResults.LocalRedirect($""~/{{returnUrl}}"");
                             }});".ConvertToStatements());
 
+                        mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapGet(""/Logout"", async (SignInManager<ApplicationIdentityUser> signInManager, string? returnUrl) =>
+                        {{
+                            await signInManager.SignOutAsync();
+                            return Results.Redirect(string.IsNullOrEmpty(returnUrl) ? ""/"" : returnUrl);
+                        }});".ConvertToStatements());
+
                         mapAdditionalIdentityEndpoints.AddStatement("var manageGroup = accountGroup.MapGroup(\"/Manage\").RequireAuthorization();");
 
                         mapAdditionalIdentityEndpoints.AddStatements(@$"manageGroup.MapPost(""/LinkExternalLogin"", async (
