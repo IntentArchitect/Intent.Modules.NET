@@ -116,7 +116,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                         }
                     }
 
-                    //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs tro be fixed
+                    //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs to be fixed
                     if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
                     {
                         statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
