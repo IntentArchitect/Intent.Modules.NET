@@ -155,10 +155,14 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
                 startup.StartupFile.ConfigureApp((statements, context) =>
                 {
-                    var routing = statements.Statements.FirstOrDefault(s => s.Text == "app.UseRouting();");
-                    if (routing is not null)
+                    //Not 100% sure whats happing here I think we need to remove app.UseRouting() on Blazor Server. because it doesn't us EndPoints.
+                    if (statements.Statements.FirstOrDefault(s => s.Text == "app.UseEndpoints") == null)
                     {
-                        statements.Statements.Remove(routing);
+                        var routing = statements.Statements.FirstOrDefault(s => s.Text == "app.UseRouting();");
+                        if (routing is not null)
+                        {
+                            statements.Statements.Remove(routing);
+                        }
                     }
 
                     if (statements.Statements.FirstOrDefault(s => s.Text == "app.UseAuthentication();") == null)

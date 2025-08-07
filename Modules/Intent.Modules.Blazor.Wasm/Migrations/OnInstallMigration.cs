@@ -6,6 +6,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Intent.Engine;
 using Intent.IArchitect.Agent.Persistence.Model;
@@ -48,6 +49,7 @@ namespace Intent.Modules.Blazor.Wasm.Migrations
             var designer = app.GetDesigner(VisualStudioDesignerId);
             var packages = designer.GetPackages().Where(x => x.SpecializationTypeId == VisualStudioSolutionPackageSpecializationId);
 
+
             foreach (var package in packages)
             {
                 var elements = package.GetElementsOfType(RoleSpecializationId);
@@ -56,16 +58,18 @@ namespace Intent.Modules.Blazor.Wasm.Migrations
                 {
                     continue;
                 }
-                if (!IsClientProject(blazorElement))
+                if (IsClientProject(blazorElement))
                 {
-                    package.RemoveElement(blazorElement);
-                    var templateRoles = package.GetElementsOfType(TemplateOutputRoleSpecializationId);
-                    foreach (var templateRole in templateRoles)
+                    return;
+                }
+                //This is a Blazor Server project
+                package.RemoveElement(blazorElement);
+                var templateRoles = package.GetElementsOfType(TemplateOutputRoleSpecializationId);
+                foreach (var templateRole in templateRoles)
+                {
+                    if (templateRole.Name.StartsWith("Intent.Blazor.Templates.Client") || templateRole.Name.StartsWith("Intent.Blazor.HttpClients") || templateRole.Name.StartsWith("Intent.Modules.Blazor.Templates.Templates.Client"))
                     {
-                        if (templateRole.Name.StartsWith("Intent.Blazor.Templates.Client") || templateRole.Name.StartsWith("Intent.Blazor.HttpClients") || templateRole.Name.StartsWith("Intent.Modules.Blazor.Templates.Templates.Client"))
-                        {
-                            templateRole.Delete();
-                        }
+                        templateRole.Delete();
                     }
                 }
                 package.Save();

@@ -120,6 +120,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
                     {
                         statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
                     }
 
                     statements.FindStatement(m => m.Text.StartsWith("app.UseEndpoints"))?

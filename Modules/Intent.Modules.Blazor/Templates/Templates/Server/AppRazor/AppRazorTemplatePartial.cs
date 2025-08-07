@@ -61,7 +61,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
                                 .AddAttribute("href", $"{outputTarget.GetProject().Name}.styles.css"));
                             if (this.ExecutionContext.GetSettings().GetBlazor().IncludeSamplePages())
                             {
-
                                 head.AddHtmlElement("link", t => t
                                     .AddAttribute("rel", "icon")
                                     .AddAttribute("type", "image/png")

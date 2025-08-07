@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Intent.Engine;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
@@ -31,6 +32,12 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.SetUse
                     });
                 });
         }
+
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
+        }
+
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }
