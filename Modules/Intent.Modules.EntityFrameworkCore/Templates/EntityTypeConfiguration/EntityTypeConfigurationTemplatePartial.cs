@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Intent.Engine;
 using Intent.EntityFrameworkCore.Api;
 using Intent.Metadata.Models;
@@ -19,6 +15,10 @@ using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
 using Intent.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using ClassExtensionModel = Intent.Metadata.RDBMS.Api.ClassExtensionModel;
 
 [assembly: DefaultIntentManaged(Mode.Merge)]
@@ -28,6 +28,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
 {
     // This is for disambiguating the extension method
     using Intent.Modelers.Domain.Api;
+    using System.Threading;
 
     [IntentManaged(Mode.Merge)]
     public partial class EntityTypeConfigurationTemplate : CSharpTemplateBase<ClassModel, ITemplateDecorator>, ICSharpFileBuilderTemplate
@@ -220,12 +221,18 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                 statements.AddRange(GetKeyMappings(classModel, ownedRelationship).Where(s => s.GetText("") != ""));
             }
 
-            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate) &&
-                HasSerializationType(valueObjectTemplate, out var serializationType) &&
-                serializationType == "JSON" &&
-                HasSerializationSupport())
+            if (targetType.IsValueObject(ExecutionContext, out var valueObjectTemplate))
             {
-                statements.Add("builder.ToJson();");
+                if (HasSerializationType(valueObjectTemplate, out var serializationType) &&
+                    serializationType == "JSON" &&
+                    HasSerializationSupport())
+                {
+                    statements.Add("builder.ToJson();");
+                }
+                else if (ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().IsSqlLite() && ownedRelationship == RelationshipType.OneToMany)
+                {
+                    statements.Add("builder.HasKey(\"Id\");"); // This is required by SqlLite, otherwise it doesn't add the id incrementation.
+                }
             }
 
             statements.AddRange(GetAttributes(targetType)
@@ -473,7 +480,7 @@ namespace Intent.Modules.EntityFrameworkCore.Templates.EntityTypeConfiguration
                     method.Static();
                     method.AddMetadata("model", attribute.TypeReference.Element);
                     method.AddParameter(parameterType, "builder");
-                    method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, ownedRelationship).ToArray());
+                    method.AddStatements(GetTypeConfiguration((IElement)attribute.TypeReference.Element, @class, attribute.TypeReference.IsCollection ? RelationshipType.OneToMany : RelationshipType.OneToOne).ToArray());
                     method.Statements.SeparateAll();
 
                     AddIgnoreForNonPersistent(method, isOwned: true);
