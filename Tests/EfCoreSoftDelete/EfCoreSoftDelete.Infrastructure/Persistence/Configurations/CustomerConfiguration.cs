@@ -21,6 +21,8 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence.Configurations
             builder.Property(x => x.IsDeleted)
                 .IsRequired();
 
+            builder.OwnsOne(x => x.PrimaryBuilding, ConfigurePrimaryBuilding);
+
             builder.OwnsMany(x => x.OtherAddresses, ConfigureOtherAddresses);
 
             builder.OwnsOne(x => x.PrimaryAddress, ConfigurePrimaryAddress)
@@ -52,6 +54,12 @@ namespace EfCoreSoftDelete.Infrastructure.Persistence.Configurations
         }
 
         public static void ConfigureOtherBuildings(OwnedNavigationBuilder<Address, AddressBuilding> builder)
+        {
+            builder.Property(x => x.Name)
+                .IsRequired();
+        }
+
+        public static void ConfigurePrimaryBuilding(OwnedNavigationBuilder<Customer, AddressBuilding> builder)
         {
             builder.Property(x => x.Name)
                 .IsRequired();
