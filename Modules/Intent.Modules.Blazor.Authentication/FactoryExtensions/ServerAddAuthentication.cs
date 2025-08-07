@@ -248,6 +248,30 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
     [IntentIgnore]
     public static class IdentityHelperExtensions
     {
+        public static (string Namespace, string Name) GetIdentityUserClassTuple(ICSharpTemplate template)
+        {
+            var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
+
+            var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
+
+            var identityModels = GetIdentityClassModels(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+
+            if (identityModels.Count > 0)
+            {
+                string name = GetName(identityModels, "IdentityUser", template, out var ns, false);
+                return (ns ?? "Microsoft.AspNetCore.Identity", $"{name}");
+            }
+            else
+            {
+                var identityModel = GetIdentityUserClass(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+                if (identityModel is not null && template.TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", identityModel, out var domainTemplate))
+                {
+                    return (domainTemplate.Namespace, domainTemplate.ClassName);
+                }
+                template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
+                return ("Microsoft.AspNetCore.Identity", "IdentityUser");
+            }
+        }
         public static string GetIdentityUserClass(ICSharpTemplate template)
         {
             var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
@@ -258,7 +282,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
             if (identityModels.Count > 0)
             {
-                return $"{GetName(identityModels, "IdentityUser", template, false)}";
+                return $"{GetName(identityModels, "IdentityUser", template, out var _, false)}";
             }
             else
             {
@@ -279,7 +303,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
             if (identityModels.Count > 0)
             {
-                return $"{GetName(identityModels, "IdentityRole", template)}";
+                return $"{GetName(identityModels, "IdentityRole", template, out var _)}";
             }
             else
             {
@@ -290,8 +314,9 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             }
         }
 
-        private static string GetName(List<ClassModel> classModels, string entityName, ICSharpTemplate template, bool includeGeneric = true)
+        private static string GetName(List<ClassModel> classModels, string entityName, ICSharpTemplate template, out string ns, bool includeGeneric = true)
         {
+            ns = null;
             if (classModels.Any(c => c.Name == entityName))
             {
                 var @class = classModels.First(c => c.Name == entityName).ChildClasses.First();
@@ -303,6 +328,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 {
                     c.AddUsing("Microsoft.AspNetCore.Identity");
                 });
+                ns = entityTemplate.Namespace;
                 return @class.Name;
             }
 

@@ -96,7 +96,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                                 return TypedResults.LocalRedirect($""~/{{returnUrl}}"");
                             }});".ConvertToStatements());
 
-                        mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapGet(""/Logout"", async (SignInManager<ApplicationIdentityUser> signInManager, string? returnUrl) =>
+                        mapAdditionalIdentityEndpoints.AddStatements(@$"accountGroup.MapGet(""/Logout"", async (SignInManager<{identityUserName}> signInManager, string? returnUrl) =>
                         {{
                             await signInManager.SignOutAsync();
                             return Results.Redirect(string.IsNullOrEmpty(returnUrl) ? ""/"" : returnUrl);

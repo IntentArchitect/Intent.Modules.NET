@@ -46,9 +46,9 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Static
             else
             {
                 var startup = outputTarget.ExecutionContext.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
-                var identityClass = IdentityHelperExtensions.GetIdentityUserClass(startup);
-                replacements.Add("IdentityClass", identityClass);
-                replacements.Add("NamespaceData", $"@using Domain.Entities");
+                var identityClass = IdentityHelperExtensions.GetIdentityUserClassTuple(startup);
+                replacements.Add("IdentityClass", identityClass.Name);
+                replacements.Add("NamespaceData", $"@using {identityClass.Namespace}");
             }
 
             return replacements;
