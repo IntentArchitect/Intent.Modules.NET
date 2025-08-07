@@ -152,7 +152,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         method.AddParameter("string", "returnUrl");
 
                         method.AddAssignmentStatement("var user", new CSharpStatement("CreateUser();"));
-
+                        if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                        {
+                            method.AddStatement("user.Id = Guid.NewGuid().ToString();");
+                        }
                         method.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         method.AddAssignmentStatement("var emailStore", new CSharpStatement("GetEmailStore();"));
                         method.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");

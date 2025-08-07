@@ -104,10 +104,27 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         else
                         {
                             var identityUserName = IdentityHelperExtensions.GetIdentityUserClass(startup);
-                            statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = false)
-                        .AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
-                        .AddSignInManager()
-                        .AddDefaultTokenProviders();".ConvertToStatements());
+                            var aspNetCoreIdentityConfiguration = startup.GetTemplate<ICSharpFileBuilderTemplate>("Intent.AspNetCore.Identity.AspNetCoreIdentityConfiguration");
+
+                            aspNetCoreIdentityConfiguration.CSharpFile.AfterBuild(file =>
+                            {
+                                var @class = file.Classes.First();
+
+                                var configureMethod = @class.Methods.First(x => x.Name == "ConfigureIdentity");
+
+                                var addIdentity = configureMethod.FindAndReplaceStatement(
+                                    m => m.Text.Contains($"services.AddIdentityWithoutCookieAuth<{identityUserName}, {IdentityHelperExtensions.GetIdentityRoleClass(startup)}>()"),
+                                    new CSharpMethodChainStatement($"services.AddIdentityCore<{identityUserName}>()")
+                                        .AddChainStatement("AddSignInManager()")
+                                        .AddChainStatement($"AddRoles<{IdentityHelperExtensions.GetIdentityRoleClass(startup)}>()")
+                                        .AddChainStatement($"AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()")
+                                        .AddChainStatement("AddDefaultTokenProviders()"));
+                            });
+
+                        //    statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = false)
+                        //.AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
+                        //.AddSignInManager()
+                        //.AddDefaultTokenProviders();".ConvertToStatements());
 
                             statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{identityUserName}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
                         }
@@ -242,6 +259,27 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             if (identityModels.Count > 0)
             {
                 return $"{GetName(identityModels, "IdentityUser", template, false)}";
+            }
+            else
+            {
+                var identityModel = GetIdentityUserClass(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+                var identityUserClass = identityModel is not null ? template.GetTypeName("Domain.Entity", identityModel) : null;
+
+                return identityUserClass ?? template.UseType("Microsoft.AspNetCore.Identity.IdentityUser");
+            }
+        }
+
+        public static string GetIdentityRoleClass(ICSharpTemplate template)
+        {
+            var associations = template.ExecutionContext.MetadataManager.Domain(template.ExecutionContext.GetApplicationConfig().Id).GetClassModels().Select(c => c.InternalElement).SelectMany(a => a.AssociatedElements);
+
+            var models = associations.Where(a => a is not null).Where(e => e.Association.SourceEnd is not null).Select(s => s.Association.SourceEnd);
+
+            var identityModels = GetIdentityClassModels(template.ExecutionContext.MetadataManager, template.ExecutionContext.GetApplicationConfig().Id);
+
+            if (identityModels.Count > 0)
+            {
+                return $"{GetName(identityModels, "IdentityRole", template)}";
             }
             else
             {
