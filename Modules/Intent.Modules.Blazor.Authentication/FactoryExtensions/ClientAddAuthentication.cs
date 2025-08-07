@@ -70,18 +70,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 return;
             }
 
-            app.OnBuild(file =>
+            app.AfterBuild(file =>
             {
                 // Add Blazorise dependencies
-                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "app.css"));
+                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "_content/MudBlazor/MudBlazor.min.css"));
                 if (baseElement != null)
                 {
-                    baseElement.AddBelow(
+                    baseElement.AddAbove(
                         new HtmlElement("link", app)
                             .AddAttribute("rel", "stylesheet")
-                            .AddAttribute("href", "auth-forms.css"));
+                            .AddAttribute("href", "AccountForms.css"));
                 }
-            });
+            }, 100);
         }
     }
 }

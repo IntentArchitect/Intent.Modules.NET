@@ -104,7 +104,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         else
                         {
                             var identityUserName = IdentityHelperExtensions.GetIdentityUserClass(startup);
-                            statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = true)
+                            statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = false)
                         .AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
                         .AddSignInManager()
                         .AddDefaultTokenProviders();".ConvertToStatements());
