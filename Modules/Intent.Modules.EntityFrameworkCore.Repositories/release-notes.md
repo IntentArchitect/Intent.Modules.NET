@@ -1,6 +1,8 @@
 ### Version 4.7.15
 
 - Improvement: Better "non-implemented" message when the provider does not support stored procedures.
+- Fixed: DataContracts will now only appear in the DbContexts where their Stored Procedures are located in.
+- Fixed: Stored Procedure invocation fixed especially for PostgreSQL in some situations.
 
 ### Version 4.7.14
 

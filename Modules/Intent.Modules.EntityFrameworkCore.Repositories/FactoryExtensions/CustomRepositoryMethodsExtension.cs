@@ -15,6 +15,7 @@ using Intent.Modules.EntityFrameworkCore.Repositories.Api;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.DataContractEntityTypeConfiguration;
 using Intent.Modules.EntityFrameworkCore.Repositories.Templates.Repository;
+using Intent.Modules.EntityFrameworkCore.Templates;
 using Intent.Modules.Metadata.RDBMS.Settings;
 using Intent.Modules.Modelers.Domain.StoredProcedures.Api;
 using Intent.Plugins.FactoryExtensions;
@@ -44,7 +45,8 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
             {
                 var hasTypeDefinitionResults = repositoryModels
                     .SelectMany(EntityFrameworkRepositoryHelpers.GetStoredProcedureModels)
-                    .Select(x => x.TypeReference?.Element.AsTypeDefinitionModel())
+                    .Where(x => dbContextTemplate.ClassName == x.DbContextInstance.DbContextName)
+                    .Select(x => x.StoredProcedureModel.TypeReference?.Element.AsTypeDefinitionModel())
                     .Any(x => x != null);
 
                 if (hasTypeDefinitionResults)
@@ -93,7 +95,10 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
                     });
                 }
 
-                var dataContractResults = EntityFrameworkRepositoryHelpers.GetEntityTypeConfigurationDataContractModels(application);
+                var dataContractResults = EntityFrameworkRepositoryHelpers.GetEntityTypeConfigurationDataContractModels(application)
+                    .Where(x => dbContextTemplate.ClassName == x.DbContextInstance.DbContextName)
+                    .Select(x => x.DataContractModel)
+                    .ToList();
 
                 if (dataContractResults.Count != 0)
                 {
@@ -108,7 +113,7 @@ namespace Intent.Modules.EntityFrameworkCore.Repositories.FactoryExtensions
 
                             @class.AddProperty(
                                 type: $"DbSet<{typeName}>",
-                                name: typeName.Pluralize(),
+                                name: typeName.Pluralize().ToPascalCase().Replace(".", string.Empty),
                                 configure: prop => prop.AddMetadata("model", dc));
 
                             // try find a EntityTypeConfiguration instance for the DataContract model
