@@ -1,0 +1,20 @@
+using AzureFunctions.AzureEventGrid.Application.Common.Interfaces;
+using AzureFunctions.AzureEventGrid.Api.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Api.Configuration
+{
+    public static class ApplicationSecurityConfiguration
+    {
+        public static IServiceCollection ConfigureApplicationSecurity(
+            this IServiceCollection services,
+            IConfiguration configuration)
+        {
+            services.AddSingleton<ICurrentUserService, CurrentUserService>();
+            return services;
+        }
+    }
+}

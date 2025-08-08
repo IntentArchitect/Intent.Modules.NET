@@ -1,0 +1,12 @@
+using System.Threading;
+using System.Threading.Tasks;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Domain.Common.Interfaces
+{
+    public interface IUnitOfWork
+    {
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+    }
+}

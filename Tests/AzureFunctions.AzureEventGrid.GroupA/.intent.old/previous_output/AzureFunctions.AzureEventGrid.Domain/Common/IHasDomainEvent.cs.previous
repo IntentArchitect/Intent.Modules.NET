@@ -1,0 +1,12 @@
+using System;
+using System.Collections.Generic;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Domain.Common
+{
+    public interface IHasDomainEvent
+    {
+        List<DomainEvent> DomainEvents { get; set; }
+    }
+}

@@ -1,0 +1,14 @@
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.GroupA.Eventing.Messages
+{
+    public record ClientCreatedEvent
+    {
+        public ClientCreatedEvent()
+        {
+            Name = null!;
+        }
+
+        public string Name { get; init; }
+    }
+}

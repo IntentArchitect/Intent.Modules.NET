@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadataFileCorrelations>
+  <files>
+    <file relativePath="AzureFunctions.AzureEventGrid.Api/AzureFunctions.AzureEventGrid.Api.csproj">
+      <metadataModels>
+        <model id="123230fb-082f-488b-8a13-63f10ce34188" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Api/CreateClient.cs">
+      <metadataModels>
+        <model id="4af9acd7-dd01-4c7e-8390-4257615af688" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Api/CreateOrder.cs">
+      <metadataModels>
+        <model id="1e88c249-cabf-4647-9660-8e1357bc5cf3" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Api/SpecificTopicMessageConsumer.cs">
+      <metadataModels>
+        <model id="0dbad813-a470-45ec-8b8f-ead93d749ca0" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/AzureFunctions.AzureEventGrid.Application.csproj">
+      <metadataModels>
+        <model id="5a484fc2-eb94-438e-9fc8-8323b2723e13" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/CreateClient/CreateClientCommand.cs">
+      <metadataModels>
+        <model id="4af9acd7-dd01-4c7e-8390-4257615af688" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/CreateClient/CreateClientCommandHandler.cs">
+      <metadataModels>
+        <model id="4af9acd7-dd01-4c7e-8390-4257615af688" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/CreateOrder/CreateOrderCommand.cs">
+      <metadataModels>
+        <model id="1e88c249-cabf-4647-9660-8e1357bc5cf3" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/CreateOrder/CreateOrderCommandHandler.cs">
+      <metadataModels>
+        <model id="1e88c249-cabf-4647-9660-8e1357bc5cf3" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/IntegrationEvents/ClientCreatedEvent.cs">
+      <metadataModels>
+        <model id="1a56a2eb-1642-43af-bff7-a99f62ed7ffd" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/IntegrationEvents/EventHandlers/SpecificTopicMessageHandler.cs">
+      <metadataModels>
+        <model id="0dbad813-a470-45ec-8b8f-ead93d749ca0" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/IntegrationEvents/OrderCreatedEvent.cs">
+      <metadataModels>
+        <model id="f4ce0d72-9e34-492c-b7d3-e1e15c2dc395" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/IntegrationEvents/SpecificTopicOneMessageEvent.cs">
+      <metadataModels>
+        <model id="0b75d2e1-5ba8-4c05-a8d6-b863725ae6ee" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/IntegrationEvents/SpecificTopicTwoMessageEvent.cs">
+      <metadataModels>
+        <model id="dbf559b7-be03-427c-9f16-41a3f76d98b6" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/PayloadDto.cs">
+      <metadataModels>
+        <model id="c32af656-e7e2-4b42-831e-dfefb7f83857" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/Validators/CreateClient/CreateClientCommandValidator.cs">
+      <metadataModels>
+        <model id="4af9acd7-dd01-4c7e-8390-4257615af688" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Application/Validators/CreateOrder/CreateOrderCommandValidator.cs">
+      <metadataModels>
+        <model id="1e88c249-cabf-4647-9660-8e1357bc5cf3" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Domain/AzureFunctions.AzureEventGrid.Domain.csproj">
+      <metadataModels>
+        <model id="33432848-8a33-4d90-83db-6e32db54b454" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Infrastructure/AzureFunctions.AzureEventGrid.Infrastructure.csproj">
+      <metadataModels>
+        <model id="53ddaa35-c94d-4f45-a584-723be91d5ea6" />
+      </metadataModels>
+    </file>
+    <file relativePath="AzureFunctions.AzureEventGrid.Infrastructure/Persistence/ApplicationDbContext.cs">
+      <metadataModels>
+        <model id="DefaultConnection" />
+      </metadataModels>
+    </file>
+  </files>
+</metadataFileCorrelations>

@@ -1,0 +1,12 @@
+using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
+using System.Collections.Generic;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Infrastructure.Eventing
+{
+    public class EventContext : IEventContext
+    {
+        public IDictionary<string, object> AdditionalData { get; } = new Dictionary<string, object>();
+    }
+}

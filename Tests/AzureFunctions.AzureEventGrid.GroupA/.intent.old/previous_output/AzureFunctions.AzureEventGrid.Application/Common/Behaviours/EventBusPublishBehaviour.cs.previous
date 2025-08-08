@@ -1,0 +1,28 @@
+using AzureFunctions.AzureEventGrid.Application.Common.Eventing;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.Common.Behaviours;
+
+public class EventBusPublishBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+where TRequest : notnull
+{
+    private readonly IEventBus _eventBus;
+
+    public EventBusPublishBehaviour(IEventBus eventBus)
+    {
+        _eventBus = eventBus;
+    }
+    
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+    {
+        var response = await next(cancellationToken);
+
+        await _eventBus.FlushAllAsync(cancellationToken);
+
+        return response;
+    }
+}

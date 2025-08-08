@@ -1,0 +1,11 @@
+using System.Collections.Generic;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.Common.Eventing
+{
+    public interface IEventContext
+    {
+        IDictionary<string, object> AdditionalData { get; }
+    }
+}

@@ -1,0 +1,29 @@
+using AzureFunctions.AzureEventGrid.Infrastructure.Persistence;
+using AzureFunctions.AzureEventGrid.Domain.Common.Interfaces;
+using AzureFunctions.AzureEventGrid.Infrastructure.Configuration;
+using AzureFunctions.AzureEventGrid.Infrastructure.Services;
+using AzureFunctions.AzureEventGrid.Application.Common.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Infrastructure
+{
+    public static class DependencyInjection
+    {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<ApplicationDbContext>((sp, options) =>
+            {
+                options.UseInMemoryDatabase("DefaultConnection");
+                options.UseLazyLoadingProxies();
+            });
+            services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+            services.AddScoped<IDomainEventService, DomainEventService>();
+            services.ConfigureEventGrid(configuration);
+            return services;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+using AzureFunctions.AzureEventGrid.Application.Common.Interfaces;
+using MediatR;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace AzureFunctions.AzureEventGrid.Application.CreateClient
+{
+    public class CreateClientCommand : IRequest, ICommand
+    {
+        public CreateClientCommand(string name)
+        {
+            Name = name;
+        }
+
+        public string Name { get; set; }
+    }
+}
