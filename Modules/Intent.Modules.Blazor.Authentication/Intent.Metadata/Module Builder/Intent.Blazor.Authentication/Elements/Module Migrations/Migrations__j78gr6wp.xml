@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="5bb2e6ea-97f7-45fb-9d1d-b7f4ffb93bb5" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</parentFolderId>
+  <packageId>b9d38f7c-7a8d-4007-b33d-7f386ccf119a</packageId>
+  <packageName>Intent.Blazor.Authentication</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

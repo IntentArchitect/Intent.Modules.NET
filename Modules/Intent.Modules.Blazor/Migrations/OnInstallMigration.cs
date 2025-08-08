@@ -24,12 +24,10 @@ namespace Intent.Modules.Blazor.Migrations
         private const string VisualStudioSolutionPackageSpecializationId = "07e7b690-a59d-4b72-8440-4308a121d32c";
         private const string RoleSpecializationId = "025e933b-b602-4b6d-95ab-0ec36ae940da";
         private readonly IApplicationConfigurationProvider _configurationProvider;
-        private readonly IMetadataInstaller _metadataInstaller;
 
-        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider, IMetadataInstaller metadataInstaller)
+        public OnInstallMigration(IApplicationConfigurationProvider configurationProvider)
         {
             _configurationProvider = configurationProvider;
-            _metadataInstaller = metadataInstaller;
         }
 
         [IntentFully]

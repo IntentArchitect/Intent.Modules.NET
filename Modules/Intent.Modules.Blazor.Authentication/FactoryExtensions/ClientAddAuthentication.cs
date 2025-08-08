@@ -1,4 +1,7 @@
+using System.Linq;
+using System.Threading;
 using Intent.Engine;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.PersistentAuthenticationStateProvider;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
@@ -11,9 +14,6 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using System.Threading;
-using Intent.Modules.Blazor.Api;
-using System.Linq;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]

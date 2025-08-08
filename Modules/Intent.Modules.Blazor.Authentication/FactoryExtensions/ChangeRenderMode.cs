@@ -44,26 +44,9 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
                     if (renderModeMethod is not null)
                     {
-                        renderModeMethod.Statements.Clear();
-                        renderModeMethod.AddIfStatement("HttpContext.Request.Path.StartsWithSegments(\"/Account\")", cif =>
-                        {
-                            cif.AddReturn(new CSharpStatement("null"));
-                        });
-
-                        switch (app.Template.ExecutionContext.GetSettings().GetGroup("489a67db-31b2-4d51-96d7-52637c3795be").GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa").Value)
-                        {
-                            case "interactive-web-assembly":
-                                renderModeMethod.AddStatements("return InteractiveWebAssembly;");
-                                break;
-                            case "interactive-auto":
-                                renderModeMethod.AddStatements("return InteractiveAuto;");
-                                break;
-                            case "interactive-server":
-                                renderModeMethod.AddStatements("return InteractiveServer;");
-                                break;
-                            default:
-                                break;
-                        }
+                        var cif = new CSharpIfStatement("HttpContext.Request.Path.StartsWithSegments(\"/Account\")");
+                        cif.AddReturn(new CSharpStatement("null"));
+                        renderModeMethod.InsertStatement(0, cif);
                     }
                 }
 

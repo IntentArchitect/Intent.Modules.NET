@@ -90,7 +90,15 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.AppRazor
 
                         code.AddMethod("IComponentRenderMode?", "GetRenderModeForPage", method =>
                         {
-                            method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
+                            // Server with out pre-render
+                            if (!ExecutionContext.Settings.GetBlazor().RenderMode().IsInteractiveWebAssembly() && !ExecutionContext.Settings.GetBlazor().ServerPrerendering())
+                            {
+                                method.AddStatement($"return new {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())}RenderMode(prerender: false);");
+                            }
+                            else
+                            {
+                                method.AddStatement($"return {GetRenderModeConfiguration(ExecutionContext.Settings.GetBlazor()?.RenderMode()?.AsEnum())};");
+                            }
                         });
                     });
                 });

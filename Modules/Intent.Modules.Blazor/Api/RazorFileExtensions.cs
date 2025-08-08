@@ -353,33 +353,6 @@ public static class RazorFileExtensions
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))
                         {
                             method.Async();
-                            /*
-                            method.AddTryBlock(tryBlock =>
-                            {
-                                foreach (var statement in method.Statements.Where(x => x != tryBlock).ToList())
-                                {
-                                    statement.Remove();
-                                    tryBlock.AddStatement(statement);
-                                }
-                            });
-
-
-                            method.AddCatchBlock(catchBlock =>
-                            {
-                                catchBlock.WithExceptionType(block.Template.UseType("System.Exception")).WithParameterName("e");
-                                //if (errorMessageProperty != null)
-                                //{
-                                //    catchBlock.AddStatement(new CSharpAssignmentStatement(errorMessageProperty, "e.Message"), s => s.WithSemicolon());
-                                //}
-
-                                block.InjectServiceProperty("MudBlazor.ISnackbar", "Snackbar");
-                                catchBlock.AddStatement($"Snackbar.Add(e.Message, {block.Template.UseType("MudBlazor.Severity")}.Error);");
-                            });
-
-                            if (mappings.Count == 0)
-                            {
-                                method.AddStatement("StateHasChanged();");
-                            }*/
                         }
                     });
                 });

@@ -231,7 +231,7 @@
           <isRequired>false</isRequired>
           <defaultValue>aspnetcore-identity</defaultValue>
           <options>
-            <option value="aspnetcore-identity" description="Asp.Net Core Identity" />
+            <option value="aspnetcore-identity" description="ASP.NET Core Identity" />
             <option value="jwt" description="JWT" />
             <option value="oidc" description="OIDC" />
           </options>

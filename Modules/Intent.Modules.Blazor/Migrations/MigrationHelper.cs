@@ -18,7 +18,7 @@ namespace Intent.Modules.Blazor.Migrations
                 {
                     Id = "489a67db-31b2-4d51-96d7-52637c3795be",
                     Module = "Intent.Blazor",
-                    Title = "Blazor",
+                    Title = "Blazor Settings",
                     Settings = []
                 };
 

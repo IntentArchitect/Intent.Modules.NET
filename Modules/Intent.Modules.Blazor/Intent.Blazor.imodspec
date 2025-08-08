@@ -170,6 +170,11 @@
         <setting id="bbddad39-3601-4244-bf8d-0da805ee6376" title="Include Sample Pages" type="switch">
           <defaultValue>false</defaultValue>
         </setting>
+        <setting id="d851b4d1-b230-461f-9873-80d6857fa175" title="Server Prerendering" type="switch">
+          <hint>Enable prerendering for Interactive Server mode</hint>
+          <defaultValue>false</defaultValue>
+          <isActiveFunction>return getProperty("Render Mode").value != "interactive-web-assembly";</isActiveFunction>
+        </setting>
       </settings>
     </group>
   </moduleSettings>
