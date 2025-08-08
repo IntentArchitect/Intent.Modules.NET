@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication((ctx, builder) =>
     {
+        builder.UseMiddleware<GlobalExceptionMiddleware>();
     })
     .ConfigureServices((ctx, services) =>
     {
@@ -33,6 +34,7 @@ var host = new HostBuilder()
                 options.Rules.Remove(toRemove);
             }
         });
+        services.AddSingleton<GlobalExceptionMiddleware>();
         services.AddApplication(configuration);
         services.ConfigureApplicationSecurity(configuration);
         services.AddInfrastructure(configuration);

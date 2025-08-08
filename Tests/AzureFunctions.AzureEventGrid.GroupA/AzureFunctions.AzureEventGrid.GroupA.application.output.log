@@ -58,6 +58,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
+      <CorrelationId>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/GlobalExceptionMiddleware.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>GlobalExceptionMiddleware.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123230fb-082f-488b-8a13-63f10ce34188</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.AzureFunctions.HostJson#123230fb-082f-488b-8a13-63f10ce34188</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.AzureEventGrid.Api/host.json</ApplicationRelativeFilePath>

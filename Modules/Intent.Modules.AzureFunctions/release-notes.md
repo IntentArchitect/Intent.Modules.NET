@@ -1,3 +1,7 @@
+### Version 5.0.12
+
+- Improvement: Added a setting to enable global exception handling.
+
 ### Version 5.0.11
 
 - Improvement: Updated NuGet package versions.
