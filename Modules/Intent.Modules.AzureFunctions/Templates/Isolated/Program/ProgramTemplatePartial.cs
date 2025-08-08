@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.AzureFunctions.Settings;
+using Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddleware;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Configuration;
@@ -45,6 +47,34 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 ExecutionContext.EventDispatcher.Publish(new RemoveNugetPackageEvent(NugetPackages.MicrosoftAzureFunctionsExtensionsPackageName, outputTarget));
             }
 
+            //var configStatements = new CSharpLambdaBlock("(ctx, services)")
+            //    .AddStatement("var configuration = ctx.Configuration;")
+            //                    .AddStatement("services.AddApplicationInsightsTelemetryWorkerService();")
+            //                    .AddStatement("services.ConfigureFunctionsApplicationInsights();")
+            //                    .AddInvocationStatement($"services.Configure<{UseType("Microsoft.Extensions.Logging.LoggerFilterOptions")}>", conf => conf
+            //                        .AddArgument(new CSharpLambdaBlock("options"), arg =>
+            //                        {
+            //                            arg.AddStatement(
+            //                                "// The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.");
+            //                            arg.AddStatement(
+            //                                "// Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/en-us/azure/azure-monitor/app/worker-service#ilogger-logs");
+            //                            arg.AddStatement(
+            //                                """const string applicationInsightsLoggerProvider = "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider";""");
+            //                            arg.AddStatement("var toRemove = options.Rules.FirstOrDefault(rule => rule.ProviderName == applicationInsightsLoggerProvider);");
+            //                            arg.AddIfStatement("toRemove is not null", fi =>
+            //                            {
+            //                                fi.AddStatement("options.Rules.Remove(toRemove);");
+            //                            });
+            //                        }));
+
+            //var globalExceptionConfigStatement = new CSharpLambdaBlock("(ctx, builder)");
+
+            //if (ExecutionContext.Settings.GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
+            //{
+            //    configStatements.AddStatement("services.AddSingleton<GlobalExceptionMiddleware>();");
+            //    globalExceptionConfigStatement.AddStatement($"builder.UseMiddleware<GlobalExceptionMiddleware>();");
+            //}
+
             var configStatements = new CSharpLambdaBlock("(ctx, services)");
 
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -55,12 +85,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                 .AddUsing("System.Linq")
                 .AddTopLevelStatements(tls =>
                 {
-                    var hostConfigStatement = new CSharpStatement("new HostBuilder()")
-                        .AddInvocation("ConfigureFunctionsWebApplication", i => i.OnNewLine().AddArgument(new CSharpLambdaBlock("(ctx, builder)")))
-                        .AddInvocation("ConfigureServices", cs => cs
-                            .OnNewLine()
-                            .AddArgument(configStatements
-                                .AddStatement("var configuration = ctx.Configuration;")
+                    configStatements.AddStatement("var configuration = ctx.Configuration;")
                                 .AddStatement("services.AddApplicationInsightsTelemetryWorkerService();")
                                 .AddStatement("services.ConfigureFunctionsApplicationInsights();")
                                 .AddInvocationStatement($"services.Configure<{UseType("Microsoft.Extensions.Logging.LoggerFilterOptions")}>", conf => conf
@@ -77,8 +102,24 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                                         {
                                             fi.AddStatement("options.Rules.Remove(toRemove);");
                                         });
-                                    }))
+                                    }));
+
+                    var globalExceptionConfigStatement = new CSharpLambdaBlock("(ctx, builder)");
+
+                    if (ExecutionContext.Settings.GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
+                    {
+                        configStatements.AddStatement($"services.AddSingleton<{GetTypeName(GlobalExceptionMiddlewareTemplate.TemplateId)}>();");
+                        globalExceptionConfigStatement.AddStatement($"builder.UseMiddleware<GlobalExceptionMiddleware>();");
+                    }
+
+                    var hostConfigStatement = new CSharpStatement("new HostBuilder()")
+                        .AddInvocation("ConfigureFunctionsWebApplication", i => i
+                            .OnNewLine()
+                            .AddArgument(globalExceptionConfigStatement)
                             )
+                        .AddInvocation("ConfigureServices", cs => cs
+                            .OnNewLine()
+                            .AddArgument(configStatements)
                         )
                         .AddInvocation("Build", i => i.OnNewLine());
 
