@@ -1,3 +1,7 @@
+### Version 4.3.0
+
+- Improvement: Supporting async User access.
+
 ### Version 4.2.10
 
 - Improvement: Updated NuGet package versions.

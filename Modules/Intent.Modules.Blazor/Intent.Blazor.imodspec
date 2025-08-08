@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.0.1-alpha.0</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -170,8 +170,8 @@
         <setting id="bbddad39-3601-4244-bf8d-0da805ee6376" title="Include Sample Pages" type="switch">
           <defaultValue>false</defaultValue>
         </setting>
-        <setting id="d851b4d1-b230-461f-9873-80d6857fa175" title="Server Prerendering" type="switch">
-          <hint>Enable prerendering for Interactive Server mode</hint>
+        <setting id="d851b4d1-b230-461f-9873-80d6857fa175" title="Prerendering" type="switch">
+          <hint>Enable prerendering for Interactive Server mode.</hint>
           <defaultValue>false</defaultValue>
           <isActiveFunction>return getProperty("Render Mode").value != "interactive-web-assembly";</isActiveFunction>
         </setting>
@@ -209,6 +209,6 @@
     <install target="User Interface;Module Builder" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
   <migrations has-on-install-migration="true">
-    <migration version="1.0.1-alpha.0" />
+    <migration version="1.0.0-pre.0" />
   </migrations>
 </package>

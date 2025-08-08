@@ -66,10 +66,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>61f8de8f-cbf0-44e7-8366-5a53ba2021e0</ProjectId>
-      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#7434e0fc-5aab-4d54-a959-463966cf8156</CorrelationId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.Migrations.OnVersionMigration#8a74bf46-5f2c-4832-ad41-6ed933ffcee9</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Migrations/Migration_01_00_01_Alpha_00.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Migration_01_00_01_Alpha_00.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Migrations/Migration_01_00_00_Pre_00.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Migration_01_00_00_Pre_00.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

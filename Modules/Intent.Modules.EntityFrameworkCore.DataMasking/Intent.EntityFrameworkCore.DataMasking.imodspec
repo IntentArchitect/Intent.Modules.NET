@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.EntityFrameworkCore.DataMasking</id>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
   <supportedClientVersions>[4.3.0-a,5.0.0)</supportedClientVersions>
   <summary>Introduces role based, field-level data masking support for Entity Framework Core providers</summary>
   <description>Introduces role based, field-level data masking support for Entity Framework Core providers</description>
@@ -35,6 +35,7 @@
     <dependency id="Intent.Modelers.Domain" version="3.12.0" />
     <dependency id="Intent.Modelers.Services" version="3.8.2" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
+    <dependency id="Intent.Application.Identity" version="3.6.0-pre.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.Security.JWT">

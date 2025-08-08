@@ -29,6 +29,5 @@
     <application id="da6e8e1c-f5b0-44f6-ae70-82c956f7c08c" name="IaC.Terraform.Metadata" solutionFolder="Modules" relativePath="IaC.Terraform.Metadata/IaC.Terraform.Metadata.application.config" />
     <application id="f3e65ec8-6e3f-4d49-a1d6-31a93689f6db" name="Intent.Blazor.Wasm.Metadata" solutionFolder="Modules" relativePath="Intent.Blazor.Wasm.Metadata/Intent.Blazor.Wasm.Metadata.application.config" />
     <application id="2c68b267-002e-4d9c-9e5a-9e24c93d2f2e" name="BlazorServer" solutionFolder="Application Templates" relativePath="BlazorServer/BlazorServer.application.config" />
-    <application id="b316d279-5228-41a2-9bff-548a72716d40" name="BlazorStandalone" solutionFolder="Modules" relativePath="BlazorStandalone/BlazorStandalone.application.config" />
   </applications>
 </solution>

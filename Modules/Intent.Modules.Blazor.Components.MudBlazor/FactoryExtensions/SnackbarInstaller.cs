@@ -51,9 +51,9 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             {
                 component.RazorFile.OnBuild(file =>
                 {
-                    var block = component.GetCodeBehind(); 
+                    var block = component.GetCodeBehind();
 
-                    var methods = block.Declarations.OfType< CSharpClassMethod>().Where(m => m.HasMetadata("model") && m.GetMetadata<ComponentOperationModel>("model") is not null);
+                    var methods = block.Declarations.OfType<CSharpClassMethod>().Where(m => m.HasMetadata("model") && m.GetMetadata<ComponentOperationModel>("model") is not null);
                     foreach (var method in methods)
                     {
                         if (method.Statements.Any(x => x.ToString().Contains("await ")))

@@ -23,8 +23,8 @@
   <metadata />
   <childElements>
     <childElement id="ec87f919-d89f-4a3a-9881-6cdfdb5a561d" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
-      <name>Blazor Security (BETA)</name>
-      <display>Blazor Security (BETA) (1)</display>
+      <name>Blazor Security</name>
+      <display>Blazor Security (1)</display>
       <isAbstract>false</isAbstract>
       <sort-children>by-type-then-manually</sort-children>
       <genericTypes />

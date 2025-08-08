@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Threading;
 using Intent.Engine;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -24,8 +25,15 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
 
         protected override void OnAfterTemplateRegistrations(IApplication application)
         {
+            CurrentUserHelper.UpdateCurrentUserService(application);
+            /*
             var template = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Security.CurrentUserService"));
             if (template == null)
+            {
+                return;
+            }
+            var currentUserTemplate = application.FindTemplateInstance<ICSharpFileBuilderTemplate>(TemplateDependency.OnTemplate("Intent.Application.Identity.CurrentUserInterface"));
+            if (currentUserTemplate == null)
             {
                 return;
             }
@@ -44,15 +52,36 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
                 ctor.AddStatement($@"_httpContextAccessor = httpContextAccessor;");
 
-                var userIdProperty = priClass.Properties.First(p => p.Name == "UserId");
-                userIdProperty
-                    .WithoutSetter()
-                    .Getter
-                    .WithExpressionImplementation(GetUserIdImplimentation(userIdProperty));
-                priClass.Properties.First(p => p.Name == "UserName")
-                    .WithoutSetter()
-                    .Getter
-                    .WithExpressionImplementation("GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Name)?.Value");
+
+                var userIdProperty = priClass.Properties.FirstOrDefault(p => p.Name == "UserId");
+                if (userIdProperty is not null)
+                {
+                    userIdProperty
+                        .WithoutSetter()
+                        .Getter
+                        .WithExpressionImplementation("GetUserId(GetClaimsPrincipal())");
+                }
+                var userNameProperty = priClass.Properties.FirstOrDefault(p => p.Name == "UserName");
+                if (userNameProperty is not null)
+                { 
+                    userNameProperty
+                        .WithoutSetter()
+                        .Getter
+                        .WithExpressionImplementation("GetUserName(GetClaimsPrincipal())");
+                }
+
+                var getMethod = priClass.FindMethod("GetAsync");
+
+                getMethod.Statements.Clear();
+
+                getMethod.AddStatement("var claimsPrincipal = GetClaimsPrincipal();");
+                getMethod.AddIfStatement("claimsPrincipal is null", ifs => ifs.AddStatement("return Task.FromResult((ICurrentUser?)null);"));
+                getMethod.AddStatement(@"ICurrentUser currentUser = new CurrentUser(
+                GetUserId(claimsPrincipal),
+                GetUserName(claimsPrincipal),
+                claimsPrincipal);", s => s.SeparatedFromPrevious());
+                getMethod.AddStatement("return Task.FromResult<ICurrentUser?>(currentUser);", s => s.SeparatedFromPrevious());
+
 
                 var authMethod = priClass.FindMethod("AuthorizeAsync");
                 authMethod.Statements.Clear();
@@ -87,20 +116,55 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                     method.Private();
                     method.WithExpressionBody("_httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService");
                 });
-            });
-        }
 
+                priClass.AddMethod($"string?", "GetUserName", method =>
+                {
+                    method
+                        .Static()
+                        .Private()
+                        .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
+
+                    method.WithExpressionBody("claimsPrincipal ?.FindFirst(JwtClaimTypes.Name)?.Value");
+                });
+
+
+                priClass.AddMethod(userIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                {
+                    method
+                        .Static()
+                        .Private()
+                        .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
+
+                    method.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
+                });
+
+                file.AddRecord("CurrentUser", @record =>
+                {
+
+                    record
+                        .ImplementsInterface(template.GetTypeName(currentUserTemplate))
+                        .AddPrimaryConstructor(ctor =>
+                        {
+                            ctor
+                                .AddParameter(userIdProperty.Type.Replace("?", ""), "Id")
+                                .AddParameter("string", "Name")
+                                .AddParameter("ClaimsPrincipal", "Principal");
+                        });
+                });
+            });*/
+        }
+        /*
         private string GetUserIdImplimentation(CSharpProperty p)
         {
             var propertyType = p.Type.Replace("?", "");
             if (propertyType == "string")
             {
-                return "GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value";
+                return "claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value";
             }
             else
             {
-                return $"{propertyType}.TryParse(GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : null";
+                return $"{propertyType}.TryParse(claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : default";
             }
-        }
+        }*/
     }
 }
