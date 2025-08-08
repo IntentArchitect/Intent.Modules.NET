@@ -23,6 +23,13 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddle
         public GlobalExceptionMiddlewareTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("Microsoft.Azure.Functions.Worker")
+                .AddUsing("Microsoft.Azure.Functions.Worker.Http")
+                .AddUsing("System.Threading.Tasks")
+                .AddUsing("System")
+                .AddUsing("System.Net")
+                .AddUsing("System.Text.Json")
+                .AddUsing("System.ComponentModel.DataAnnotations")
                 .AddClass($"GlobalExceptionMiddleware", @class =>
                 {
                     @class.ImplementsInterface(UseType("Microsoft.Azure.Functions.Worker.Middleware.IFunctionsWorkerMiddleware"));
@@ -34,7 +41,7 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.GlobalExceptionMiddle
                         invoke
                         .AddTryBlock(@try => @try.AddStatement("await next(context);"))
                         .AddCatchBlock("ValidationException", "ve", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.BadRequest, ve.ValidationResult?.ErrorMessage ?? ve.Message);"))
-                        .AddCatchBlock("NotFoundException", "nf", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.NotFound, nf.Message);"))
+                        .AddCatchBlock($"{GetTypeName("Intent.Entities.NotFoundException")}", "nf", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.NotFound, nf.Message);"))
                         .AddCatchBlock("JsonException", "je", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.BadRequest, je.Message);"))
                         .AddCatchBlock("FormatException", "fe", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.BadRequest, fe.Message);"))
                         .AddCatchBlock("Exception", "ex", @catch => @catch.AddStatement("await WriteJsonError(context, HttpStatusCode.InternalServerError, \"Internal server error!!!!\");"));

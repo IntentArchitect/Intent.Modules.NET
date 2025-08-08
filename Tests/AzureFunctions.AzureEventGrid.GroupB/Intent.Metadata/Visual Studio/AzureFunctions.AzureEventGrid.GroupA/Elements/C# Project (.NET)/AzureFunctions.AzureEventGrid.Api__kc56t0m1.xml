@@ -158,5 +158,19 @@
       <metadata />
       <childElements />
     </childElement>
+    <childElement id="9e5b7fda-1103-4550-8fa0-50326ea52dc3" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate</name>
+      <display>Intent.AzureFunctions.Isolated.GlobalExceptionMiddlewareTemplate</display>
+      <externalReference>Intent.AzureFunctions</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>123230fb-082f-488b-8a13-63f10ce34188</parentFolderId>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
   </childElements>
 </class>

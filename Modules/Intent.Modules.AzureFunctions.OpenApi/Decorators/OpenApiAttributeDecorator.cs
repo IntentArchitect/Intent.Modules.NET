@@ -8,6 +8,7 @@ using Intent.Engine;
 using Intent.Metadata.Models;
 using Intent.Modelers.Services.Api;
 using Intent.Modelers.Services.CQRS.Api;
+using Intent.Modules.AzureFunctions.Settings;
 using Intent.Modules.AzureFunctions.Templates.AzureFunctionClass;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
@@ -116,7 +117,7 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                 }
 
                 var responseStatusCode = GetResponseStatusCodes(runMethod);
-
+                
                 if (_template.Model.ReturnType != null)
                 {
                     foreach (var response in responseStatusCode)
@@ -147,6 +148,16 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
                     att.AddArgument($"bodyType: typeof(object)");
                 });
 
+                if (_template.ExecutionContext.Settings.GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
+                {
+                    runMethod.AddAttribute("OpenApiResponseWithBody", att =>
+                    {
+                        att.AddArgument($"statusCode: HttpStatusCode.NotFound");
+                        att.AddArgument($"contentType: \"application/json\"");
+                        att.AddArgument($"bodyType: typeof(object)");
+                    });
+                }
+
                 AddExceptionResponseWithBodyAttribute(runMethod);
 
             }, 10);
@@ -175,6 +186,10 @@ namespace Intent.Modules.AzureFunctions.OpenApi.Decorators
 
             foreach (CSharpStatement statement in runMethod.Statements)
             {
+                if (statement.HasMetadata("return-response-type"))
+                {
+                    responseCodes.Add(statement.GetMetadata<string>("return-response-type"));
+                }
                 if (statement is CSharpTryBlock tryBlock)
                 {
                     responseCodes.AddRange(tryBlock.Statements.Where(s => s.HasMetadata("return-response-type"))
