@@ -149,6 +149,11 @@ namespace Intent.Modules.AzureFunctions.Templates.Isolated.Program
                         }
                     }
                 });
+
+            if (ExecutionContext.GetSettings().GetAzureFunctionsSettings().UseGlobalExceptionMiddleware())
+            {
+                CSharpFile.AddUsing(this.GetNamespace());
+            }
         }
 
         public override bool CanRunTemplate()

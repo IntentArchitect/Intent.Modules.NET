@@ -1,5 +1,6 @@
 using System.Configuration;
 using System.Linq;
+using AzureFunctions.AzureEventGrid.Api;
 using AzureFunctions.AzureEventGrid.Api.Configuration;
 using AzureFunctions.AzureEventGrid.Application;
 using AzureFunctions.AzureEventGrid.Infrastructure;
