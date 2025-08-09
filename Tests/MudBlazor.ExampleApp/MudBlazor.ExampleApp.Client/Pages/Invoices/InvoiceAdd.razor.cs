@@ -79,7 +79,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
     }
 }

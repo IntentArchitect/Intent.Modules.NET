@@ -19,6 +19,11 @@ namespace Entities.PrivateSetters.EF.SqlServer.Api.Services
         [IntentManaged(Mode.Ignore)]
         public string? UserName { get; set; } = "SYSTEM";
 
+        public Task<ICurrentUser?> GetAsync()
+        {
+            return Task.FromResult<ICurrentUser?>(null);
+        }
+
         public async Task<bool> AuthorizeAsync(string policy)
         {
             return await Task.FromResult(true);

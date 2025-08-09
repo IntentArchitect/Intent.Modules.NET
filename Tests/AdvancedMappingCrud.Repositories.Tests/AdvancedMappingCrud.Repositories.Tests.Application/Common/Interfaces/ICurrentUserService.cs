@@ -8,8 +8,7 @@ namespace AdvancedMappingCrud.Repositories.Tests.Application.Common.Interfaces
 {
     public interface ICurrentUserService
     {
-        string? UserId { get; }
-        string? UserName { get; }
+        Task<ICurrentUser?> GetAsync();
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

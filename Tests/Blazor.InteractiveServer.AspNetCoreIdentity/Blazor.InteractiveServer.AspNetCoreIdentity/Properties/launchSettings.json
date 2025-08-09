@@ -24,6 +24,17 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Blazor.InteractiveServer.AspNetCoreIdentity.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44392;https://localhost:59744",
+      "dotnetRunMessages": true,
+      "launchUrl": "https://localhost:44392",
+      "publishAllPorts": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
   }
 }

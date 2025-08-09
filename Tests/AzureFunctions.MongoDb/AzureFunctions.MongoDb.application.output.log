@@ -154,6 +154,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>1c7c47c9-351e-4308-b3d1-c0afca9b2516</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>1c7c47c9-351e-4308-b3d1-c0afca9b2516</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>AzureFunctions.MongoDb.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

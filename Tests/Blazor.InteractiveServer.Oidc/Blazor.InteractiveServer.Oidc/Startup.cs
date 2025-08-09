@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveServer.Oidc.Client;
+using Blazor.InteractiveServer.Oidc.Client.Common.Validation;
 using Blazor.InteractiveServer.Oidc.Client.Components.Account.Shared;
 using Blazor.InteractiveServer.Oidc.Common;
 using Blazor.InteractiveServer.Oidc.Components;
 using Blazor.InteractiveServer.Oidc.Components.Account;
 using Blazor.InteractiveServer.Oidc.Configuration;
+using Blazor.InteractiveServer.Oidc.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -39,17 +41,19 @@ namespace Blazor.InteractiveServer.Oidc
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureProblemDetails();
-            services.AddClientServices(Configuration);
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddScoped<IScopedExecutor, ScopedExecutor>();
+            services.AddScoped<IScopedMediator, ScopedMediator>();
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddHttpClient("oidcClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
-            services.Configure<OidcAuthenticationOptions>(Configuration);
+            services.Configure<OidcAuthenticationOptions>(Configuration.GetSection("Authentication:OIDC"));
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
             services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, OidcAuthService>();
+
             services.AddAuthorization();
-            services.AddApiAuthorization();
 
             services.AddAuthentication(options =>
                                     {
@@ -77,6 +81,7 @@ namespace Blazor.InteractiveServer.Oidc
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();
@@ -84,8 +89,7 @@ namespace Blazor.InteractiveServer.Oidc
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorComponents<App>()
-                    .AddInteractiveServerRenderMode()
-                    .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
+                    .AddInteractiveServerRenderMode();
             });
         }
     }

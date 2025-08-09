@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveServer.Jwt.Client;
+using Blazor.InteractiveServer.Jwt.Client.Common.Validation;
 using Blazor.InteractiveServer.Jwt.Client.Components.Account.Shared;
 using Blazor.InteractiveServer.Jwt.Common;
 using Blazor.InteractiveServer.Jwt.Components;
 using Blazor.InteractiveServer.Jwt.Components.Account;
 using Blazor.InteractiveServer.Jwt.Configuration;
+using Blazor.InteractiveServer.Jwt.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -39,7 +41,9 @@ namespace Blazor.InteractiveServer.Jwt
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureProblemDetails();
-            services.AddClientServices(Configuration);
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddScoped<IScopedExecutor, ScopedExecutor>();
+            services.AddScoped<IScopedMediator, ScopedMediator>();
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddHttpClient("jwtClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
@@ -48,7 +52,7 @@ namespace Blazor.InteractiveServer.Jwt
             services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, JwtAuthService>();
             services.AddAuthorization();
-            services.AddApiAuthorization();
+
             services.AddAuthentication(options =>
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -75,6 +79,7 @@ namespace Blazor.InteractiveServer.Jwt
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();
@@ -82,8 +87,7 @@ namespace Blazor.InteractiveServer.Jwt
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorComponents<App>()
-                    .AddInteractiveServerRenderMode()
-                    .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
+                    .AddInteractiveServerRenderMode();
             });
         }
     }

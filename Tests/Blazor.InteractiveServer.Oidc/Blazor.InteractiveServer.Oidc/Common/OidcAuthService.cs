@@ -35,6 +35,14 @@ namespace Blazor.InteractiveServer.Oidc.Common
 
         public async Task Login(string username, string password, bool rememberMe, string returnUrl)
         {
+            if (_oidcAuthOptions is null ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.ClientId) ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.ClientSecret) ||
+                string.IsNullOrWhiteSpace(_oidcAuthOptions.DefaultScopes))
+            {
+                throw new InvalidOperationException("OIDC authentication options are not configured correctly.");
+            }
+
             var tokenRequest = new Dictionary<string, string>
                                     {
                                         { "grant_type", "password" },

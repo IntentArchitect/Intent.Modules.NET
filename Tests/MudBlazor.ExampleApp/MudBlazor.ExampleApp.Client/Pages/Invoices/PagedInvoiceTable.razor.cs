@@ -33,7 +33,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
 
         private async Task OnPageChanged(int pageNo)

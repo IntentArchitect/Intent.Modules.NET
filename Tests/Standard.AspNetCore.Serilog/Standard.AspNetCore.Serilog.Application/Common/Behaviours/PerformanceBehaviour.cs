@@ -47,16 +47,15 @@ namespace Standard.AspNetCore.Serilog.Application.Common.Behaviours
             if (elapsedMilliseconds > 500)
             {
                 var requestName = typeof(TRequest).Name;
-                var userId = _currentUserService.UserId;
-                var userName = _currentUserService.UserName;
+                var user = await _currentUserService.GetAsync();
 
                 if (_logRequestPayload)
                 {
-                    _logger.LogWarning("Standard.AspNetCore.Serilog Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, userId, userName, request);
+                    _logger.LogWarning("Standard.AspNetCore.Serilog Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}", requestName, elapsedMilliseconds, user?.Id, user?.Name, request);
                 }
                 else
                 {
-                    _logger.LogWarning("Standard.AspNetCore.Serilog Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, userId, userName);
+                    _logger.LogWarning("Standard.AspNetCore.Serilog Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName}", requestName, elapsedMilliseconds, user?.Id, user?.Name);
                 }
             }
 

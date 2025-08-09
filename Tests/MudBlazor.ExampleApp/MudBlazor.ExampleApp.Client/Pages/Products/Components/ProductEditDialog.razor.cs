@@ -38,7 +38,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
 
         private async Task OnSaveClicked()
@@ -117,7 +116,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Products.Components
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
     }
 }

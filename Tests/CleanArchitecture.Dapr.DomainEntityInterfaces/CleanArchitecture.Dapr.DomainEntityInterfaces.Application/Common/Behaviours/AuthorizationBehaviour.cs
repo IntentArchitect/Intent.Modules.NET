@@ -30,7 +30,7 @@ namespace CleanArchitecture.Dapr.DomainEntityInterfaces.Application.Common.Behav
             foreach (var authorizeAttribute in authorizeAttributes)
             {
                 // Must be an authenticated user
-                if (_currentUserService.UserId is null)
+                if (await _currentUserService.GetAsync() is null)
                 {
                     throw new UnauthorizedAccessException();
                 }

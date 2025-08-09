@@ -10,6 +10,7 @@ namespace SecurityConfig.Tests.Application.Common.Interfaces
     {
         string? UserId { get; }
         string? UserName { get; }
+        Task<ICurrentUser?> GetAsync();
         Task<bool> IsInRoleAsync(string role);
         Task<bool> AuthorizeAsync(string policy);
     }

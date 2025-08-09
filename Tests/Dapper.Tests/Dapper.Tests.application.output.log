@@ -204,6 +204,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e3f521f2-6029-455d-a677-7f224fc94f6e</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Dapper.Tests.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e3f521f2-6029-455d-a677-7f224fc94f6e</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Dapper.Tests.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

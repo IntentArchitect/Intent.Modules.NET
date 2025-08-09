@@ -170,6 +170,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>9d7fb56b-6c53-4be9-88fe-6ac4fdaa1246</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EfCoreSoftDelete.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9d7fb56b-6c53-4be9-88fe-6ac4fdaa1246</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EfCoreSoftDelete.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

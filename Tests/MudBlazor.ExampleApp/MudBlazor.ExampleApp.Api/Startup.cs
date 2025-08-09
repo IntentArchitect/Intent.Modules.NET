@@ -67,8 +67,6 @@ namespace MudBlazor.ExampleApp.Api
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
             app.UseStaticFiles();
             app.UseAntiforgery();
             app.UseEndpoints(endpoints =>

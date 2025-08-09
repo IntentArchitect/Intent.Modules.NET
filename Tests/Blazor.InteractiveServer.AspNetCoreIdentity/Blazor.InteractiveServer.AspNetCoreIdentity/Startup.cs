@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Client;
+using Blazor.InteractiveServer.AspNetCoreIdentity.Client.Common.Validation;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Common;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Components;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Configuration;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
+using Blazor.InteractiveServer.AspNetCoreIdentity.Services;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -39,14 +41,15 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureProblemDetails();
-            services.AddClientServices(Configuration);
+            services.AddScoped<IValidatorProvider, ValidatorProvider>();
+            services.AddScoped<IScopedExecutor, ScopedExecutor>();
+            services.AddScoped<IScopedMediator, ScopedMediator>();
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
             services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
             services.AddAuthorization();
-            services.AddApiAuthorization();
             services.AddScoped<IdentityUserAccessor>();
             services.AddScoped<IdentityRedirectManager>();
             services.AddAuthentication(options =>
@@ -84,6 +87,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();
@@ -91,8 +95,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorComponents<App>()
-                    .AddInteractiveServerRenderMode()
-                    .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
+                    .AddInteractiveServerRenderMode();
             });
         }
     }

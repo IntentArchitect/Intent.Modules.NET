@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using Intent.Engine;
@@ -41,6 +42,11 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 ctor.AddParameter("IHttpContextAccessor", "httpContextAccessor");
                 ctor.AddStatement($@"_httpContextAccessor = httpContextAccessor;");
 
+                var contractedUserIdProperty = currentUserTemplate.CSharpFile.Interfaces.FirstOrDefault()?.Properties?.FirstOrDefault(p => p.Name == "Id");
+                if (contractedUserIdProperty is null)
+                {
+                    throw new Exception($"Didn't find Id on {currentUserTemplate.ClassName}");
+                }
 
                 var userIdProperty = priClass.Properties.FirstOrDefault(p => p.Name == "UserId");
                 if (userIdProperty is not null)
@@ -60,39 +66,46 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 }
 
                 var getMethod = priClass.FindMethod("GetAsync");
+                if (getMethod is not null)
+                {
+                    getMethod.Statements.Clear();
 
-                getMethod.Statements.Clear();
-
-                getMethod.AddStatement("var claimsPrincipal = GetClaimsPrincipal();");
-                getMethod.AddIfStatement("claimsPrincipal is null", ifs => ifs.AddStatement("return Task.FromResult((ICurrentUser?)null);"));
-                getMethod.AddStatement(@"ICurrentUser currentUser = new CurrentUser(
+                    getMethod.AddStatement("var claimsPrincipal = GetClaimsPrincipal();");
+                    getMethod.AddIfStatement("claimsPrincipal is null", ifs => ifs.AddStatement("return Task.FromResult((ICurrentUser?)null);"));
+                    getMethod.AddStatement(@"ICurrentUser currentUser = new CurrentUser(
                 GetUserId(claimsPrincipal),
                 GetUserName(claimsPrincipal),
                 claimsPrincipal);", s => s.SeparatedFromPrevious());
-                getMethod.AddStatement("return Task.FromResult<ICurrentUser?>(currentUser);", s => s.SeparatedFromPrevious());
-
+                    getMethod.AddStatement("return Task.FromResult<ICurrentUser?>(currentUser);", s => s.SeparatedFromPrevious());
+                }
 
                 var authMethod = priClass.FindMethod("AuthorizeAsync");
-                authMethod.Statements.Clear();
-                authMethod.Statements.Add(@"if (GetClaimsPrincipal() == null)
+                if (authMethod is not null)
+                {
+                    authMethod.Statements.Clear();
+                    authMethod.Statements.Add(@"if (GetClaimsPrincipal() == null)
                 {
                     return false;
                 }");
-                authMethod.Statements.Add("");
-                authMethod.AddObjectInitStatement("var authService", " GetAuthorizationService();");
-                authMethod.AddIfStatement("authService == null", @if =>
-                {
-                    @if.AddReturn("false");
-                });
+                    authMethod.Statements.Add("");
+                    authMethod.AddObjectInitStatement("var authService", " GetAuthorizationService();");
+                    authMethod.AddIfStatement("authService == null", @if =>
+                    {
+                        @if.AddReturn("false");
+                    });
 
-                authMethod.Statements.Add("");
-                authMethod.AddObjectInitStatement("var claimsPrinciple", "  GetClaimsPrincipal();");
+                    authMethod.Statements.Add("");
+                    authMethod.AddObjectInitStatement("var claimsPrinciple", "  GetClaimsPrincipal();");
 
-                authMethod.Statements.Add("return (await authService.AuthorizeAsync(claimsPrinciple!, policy))?.Succeeded ?? false;");
+                    authMethod.Statements.Add("return (await authService.AuthorizeAsync(claimsPrinciple!, policy))?.Succeeded ?? false;");
 
+                }
                 var roleMethod = priClass.FindMethod("IsInRoleAsync");
-                roleMethod.Statements.Clear();
-                roleMethod.Statements.Add("return await Task.FromResult(GetClaimsPrincipal()?.IsInRole(role) ?? false);");
+                if (roleMethod is not null)
+                {
+                    roleMethod.Statements.Clear();
+                    roleMethod.Statements.Add("return await Task.FromResult(GetClaimsPrincipal()?.IsInRole(role) ?? false);");
+                }
 
                 priClass.AddMethod("ClaimsPrincipal?", "GetClaimsPrincipal", method =>
                 {
@@ -117,14 +130,14 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                 });
 
 
-                priClass.AddMethod(userIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
+                priClass.AddMethod(contractedUserIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
                 {
                     method
                         .Static()
                         .Private()
                         .AddParameter("ClaimsPrincipal?", "claimsPrincipal ");
 
-                    method.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
+                    method.WithExpressionBody(GetUserIdImplimentation(contractedUserIdProperty));
                 });
 
                 file.AddRecord("CurrentUser", @record =>
@@ -135,8 +148,8 @@ namespace Intent.Modules.Security.JWT.FactoryExtensions
                         .AddPrimaryConstructor(ctor =>
                         {
                             ctor
-                                .AddParameter(userIdProperty.Type.Replace("?", ""), "Id")
-                                .AddParameter("string", "Name")
+                                .AddParameter(contractedUserIdProperty.Type.Replace("?", "") + "?", "Id")
+                                .AddParameter("string?", "Name")
                                 .AddParameter("ClaimsPrincipal", "Principal");
                         });
                 });

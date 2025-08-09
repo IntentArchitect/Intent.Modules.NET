@@ -2,7 +2,7 @@
 <package>
   <id>Intent.Application.Identity</id>
   <version>3.6.0-pre.0</version>
-  <supportedClientVersions>[4.2.4, 5.0.0-a)</supportedClientVersions>
+  <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Application level identity and security components</summary>
   <description>Application level identity and security components</description>
   <authors>Intent Architect</authors>
@@ -90,7 +90,7 @@
       <install>
         <package id="Intent.Application.MediatR.Behaviours" version="4.4.0-pre.0" />
       </install>
-    </detect>    
+    </detect>
   </interoperability>
   <files>
     <file src="$outDir$/$id$.dll" />
@@ -119,5 +119,7 @@
   </moduleSettings>
   <moduleSettingsExtensions />
   <tags />
-  <migrations has-on-install-migration="true" />
+  <migrations has-on-install-migration="true">
+    <migration version="3.6.0-pre.0" />
+  </migrations>
 </package>

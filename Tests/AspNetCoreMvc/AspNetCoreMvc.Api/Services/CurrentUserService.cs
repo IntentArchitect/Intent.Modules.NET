@@ -20,8 +20,25 @@ namespace AspNetCoreMvc.Api.Services
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string? UserId => GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value;
-        public string? UserName => GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Name)?.Value;
+        public string? UserId => GetUserId(GetClaimsPrincipal());
+        public string? UserName => GetUserName(GetClaimsPrincipal());
+
+        public Task<ICurrentUser?> GetAsync()
+        {
+            var claimsPrincipal = GetClaimsPrincipal();
+
+            if (claimsPrincipal is null)
+            {
+                return Task.FromResult((ICurrentUser?)null);
+            }
+
+            ICurrentUser currentUser = new CurrentUser(
+                GetUserId(claimsPrincipal),
+                GetUserName(claimsPrincipal),
+                claimsPrincipal);
+
+            return Task.FromResult<ICurrentUser?>(currentUser);
+        }
 
         public async Task<bool> AuthorizeAsync(string policy)
         {
@@ -49,5 +66,11 @@ namespace AspNetCoreMvc.Api.Services
         private ClaimsPrincipal? GetClaimsPrincipal() => _httpContextAccessor?.HttpContext?.User;
 
         private IAuthorizationService? GetAuthorizationService() => _httpContextAccessor?.HttpContext?.RequestServices.GetService(typeof(IAuthorizationService)) as IAuthorizationService;
+
+        private static string? GetUserName(ClaimsPrincipal? claimsPrincipal) => claimsPrincipal?.FindFirst(JwtClaimTypes.Name)?.Value;
+
+        private static string? GetUserId(ClaimsPrincipal? claimsPrincipal) => claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
     }
+
+    public record CurrentUser(string Id, string Name, ClaimsPrincipal Principal) : ICurrentUser;
 }

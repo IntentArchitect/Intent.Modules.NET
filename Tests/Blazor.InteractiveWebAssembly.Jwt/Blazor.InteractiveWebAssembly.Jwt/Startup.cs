@@ -46,12 +46,10 @@ namespace Blazor.InteractiveWebAssembly.Jwt
             services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
             services.AddScoped<IAuthService, JwtAuthService>();
             services.AddAuthorization();
-            services.AddApiAuthorization();
             services.AddAuthentication(options =>
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                                     }).AddCookie();
-
             services.AddRazorComponents()
                 .AddInteractiveWebAssemblyComponents();
 
@@ -73,6 +71,7 @@ namespace Blazor.InteractiveWebAssembly.Jwt
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();

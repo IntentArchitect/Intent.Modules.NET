@@ -364,6 +364,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>f91ff7ba-f5a7-4e6f-b0cd-8ff7d2b83a2d</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Ardalis.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>f91ff7ba-f5a7-4e6f-b0cd-8ff7d2b83a2d</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Ardalis.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

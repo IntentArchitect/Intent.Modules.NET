@@ -7,8 +7,8 @@ namespace Blazor.InteractiveAuto.Oidc
 {
     public class OidcAuthenticationOptions
     {
-        public string ClientId { get; set; }
-        public string ClientSecret { get; set; }
-        public string DefaultScopes { get; set; }
+        public string? ClientId { get; set; }
+        public string? ClientSecret { get; set; }
+        public string? DefaultScopes { get; set; }
     }
 }

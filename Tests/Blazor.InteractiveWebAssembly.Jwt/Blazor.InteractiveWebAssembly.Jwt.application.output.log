@@ -334,5 +334,13 @@
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
+    <FileLog>
+      <ProjectId>0538b5c2-1c71-4dfe-9ba0-ee563640b14d</ProjectId>
+      <CorrelationId>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration#AccountForms.css</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveWebAssembly.Jwt/wwwroot/AccountForms.css</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountForms.css</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
   </FileLogs>
 </outputLog>

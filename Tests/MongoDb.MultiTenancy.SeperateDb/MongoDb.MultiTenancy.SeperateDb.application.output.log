@@ -234,6 +234,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>57fc1b1c-5336-4bcc-8846-c50183b8d17b</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>57fc1b1c-5336-4bcc-8846-c50183b8d17b</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>MongoDb.MultiTenancy.SeperateDb.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

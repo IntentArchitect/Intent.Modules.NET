@@ -178,6 +178,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>e211efdd-d6e3-4967-87f9-84522f71094a</ProjectId>
+      <CorrelationId>Intent.Application.Identity.CurrentUserInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>DynamoDbTests.EnumAsStrings.Application/Common/Interfaces/ICurrentUser.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ICurrentUser.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>e211efdd-d6e3-4967-87f9-84522f71094a</ProjectId>
       <CorrelationId>Intent.Application.Identity.CurrentUserServiceInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>DynamoDbTests.EnumAsStrings.Application/Common/Interfaces/ICurrentUserService.cs</ApplicationRelativeFilePath>

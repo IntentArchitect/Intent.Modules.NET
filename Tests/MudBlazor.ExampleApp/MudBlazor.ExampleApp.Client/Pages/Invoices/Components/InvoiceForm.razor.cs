@@ -43,7 +43,6 @@ namespace MudBlazor.ExampleApp.Client.Pages.Invoices.Components
             {
                 Snackbar.Add(e.Message, Severity.Error);
             }
-            StateHasChanged();
         }
 
         private async Task OnSaveClicked()

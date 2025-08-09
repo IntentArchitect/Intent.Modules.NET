@@ -46,7 +46,6 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
             services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
             services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
             services.AddAuthorization();
-            services.AddApiAuthorization();
             services.AddScoped<IdentityUserAccessor>();
             services.AddScoped<IdentityRedirectManager>();
             services.AddAuthentication(options =>
@@ -84,6 +83,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();

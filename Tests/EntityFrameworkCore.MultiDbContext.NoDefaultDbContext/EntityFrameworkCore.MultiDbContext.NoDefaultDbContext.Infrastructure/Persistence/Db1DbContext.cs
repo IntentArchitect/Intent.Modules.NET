@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Application.Common.Interfaces;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Common;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Common.Interfaces;
-using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Contracts;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Domain.Entities;
 using EntityFrameworkCore.MultiDbContext.NoDefaultDbContext.Infrastructure.Persistence.Configurations;
 using Intent.RoslynWeaver.Attributes;

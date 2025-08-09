@@ -28,8 +28,8 @@ namespace Intent.Modules.Application.Identity.Templates.CurrentUserInterface
                 {
                     string userIdType = ExecutionContext.Settings.GetIdentitySettings().UserIdType().ToCSharpType();
 
-                    @interface.AddProperty(this.UseType(userIdType), "Id", p => p.ReadOnly());
-                    @interface.AddProperty($"string", "Name", p => p.ReadOnly());
+                    @interface.AddProperty(this.UseType(userIdType) + "?", "Id", p => p.ReadOnly());
+                    @interface.AddProperty($"string?", "Name", p => p.ReadOnly());
                     @interface.AddProperty($"ClaimsPrincipal", "Principal", p => p.ReadOnly());
                 });
         }

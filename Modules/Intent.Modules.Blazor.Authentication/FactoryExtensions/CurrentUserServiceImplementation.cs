@@ -137,18 +137,18 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     method.AddStatement("return _cachedUser;", s => s.SeparatedFromPrevious());
                 });
 
-                @class.AddMethod($"string", "GetUserName", method =>
+                @class.AddMethod($"string?", "GetUserName", method =>
                 {
                     method
                         .Static()
                         .Private()
                         .AddParameter("ClaimsPrincipal", "user");
 
-                    method.WithExpressionBody("user.Identity?.Name ?? \"\"");
+                    method.WithExpressionBody("user.Identity?.Name");
                 });
 
 
-                @class.AddMethod(userIdProperty.Type.Replace("?", ""), "GetUserId", method =>
+                @class.AddMethod(userIdProperty.Type.Replace("?", "") + "?", "GetUserId", method =>
                 {
                     method
                         .Static()
@@ -174,8 +174,8 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         .AddPrimaryConstructor(ctor =>
                         {
                             ctor
-                                .AddParameter(userIdProperty.Type.Replace("?", ""), "Id")
-                                .AddParameter("string", "Name")
+                                .AddParameter(userIdProperty.Type.Replace("?", "") + "?", "Id")
+                                .AddParameter("string?", "Name")
                                 .AddParameter("ClaimsPrincipal", "Principal");
                         });
                 });
@@ -187,7 +187,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
             var propertyType = p.Type.Replace("?", "");
             if (propertyType == "string")
             {
-                return "user.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? \"\"";
+                return "user.FindFirst(ClaimTypes.NameIdentifier)?.Value";
             }
             else
             {

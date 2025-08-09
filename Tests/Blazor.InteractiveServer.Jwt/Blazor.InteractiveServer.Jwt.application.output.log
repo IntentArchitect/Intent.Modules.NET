@@ -10,14 +10,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a073fa3a-7b23-4dcc-a96c-efa7d3fae808</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/_Imports.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>_Imports.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a073fa3a-7b23-4dcc-a96c-efa7d3fae808</ProjectId>
       <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#a073fa3a-7b23-4dcc-a96c-efa7d3fae808</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/Blazor.InteractiveServer.Jwt.Client.csproj</ApplicationRelativeFilePath>
@@ -90,14 +82,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>a073fa3a-7b23-4dcc-a96c-efa7d3fae808</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.DependencyInjection</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/DependencyInjection.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>DependencyInjection.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a073fa3a-7b23-4dcc-a96c-efa7d3fae808</ProjectId>
       <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
@@ -154,10 +138,10 @@
     </FileLog>
     <FileLog>
       <ProjectId>a073fa3a-7b23-4dcc-a96c-efa7d3fae808</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.ProgramTemplate</CorrelationId>
+      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#a073fa3a-7b23-4dcc-a96c-efa7d3fae808</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/Program.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Program.cs</ProjectRelativeFilePath>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt.Client/Properties/launchSettings.json</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -327,11 +311,59 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>9a5b5153-49be-455a-a508-6ad54f026c3c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Services/IScopedExecutor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IScopedExecutor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a5b5153-49be-455a-a508-6ad54f026c3c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Services/IScopedMediator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>IScopedMediator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a5b5153-49be-455a-a508-6ad54f026c3c</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Services/ISetUserContext.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ISetUserContext.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a5b5153-49be-455a-a508-6ad54f026c3c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedExecutorTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Services/ScopedExecutor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScopedExecutor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>9a5b5153-49be-455a-a508-6ad54f026c3c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Services/ScopedMediator.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ScopedMediator.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>8840a1e1-f6c0-4df8-9444-d1e629932d69</ProjectId>
       <CorrelationId>Intent.AspNetCore.Startup</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/Startup.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>Startup.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d7bdb272-e460-4e26-82f3-722aa3b3fcca</ProjectId>
+      <CorrelationId>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration#AccountForms.css</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.Jwt/wwwroot/AccountForms.css</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>AccountForms.css</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
   </FileLogs>

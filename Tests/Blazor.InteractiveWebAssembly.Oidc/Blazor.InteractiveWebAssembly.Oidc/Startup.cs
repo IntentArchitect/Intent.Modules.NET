@@ -42,13 +42,11 @@ namespace Blazor.InteractiveWebAssembly.Oidc
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddHttpClient("oidcClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
-            services.Configure<OidcAuthenticationOptions>(Configuration);
+            services.Configure<OidcAuthenticationOptions>(Configuration.GetSection("Authentication:OIDC"));
             services.AddScoped<IdentityRedirectManager>();
             services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
             services.AddScoped<IAuthService, OidcAuthService>();
             services.AddAuthorization();
-            services.AddApiAuthorization();
-
             services.AddAuthentication(options =>
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -75,6 +73,7 @@ namespace Blazor.InteractiveWebAssembly.Oidc
             }
             app.UseExceptionHandler();
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseStaticFiles();

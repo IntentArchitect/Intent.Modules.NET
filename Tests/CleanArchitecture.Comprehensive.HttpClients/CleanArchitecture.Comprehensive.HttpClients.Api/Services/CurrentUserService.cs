@@ -15,6 +15,11 @@ namespace CleanArchitecture.Comprehensive.HttpClients.Api.Services
         public string? UserId { get; set; }
         public string? UserName { get; set; }
 
+        public Task<ICurrentUser?> GetAsync()
+        {
+            return Task.FromResult<ICurrentUser?>(null);
+        }
+
         public async Task<bool> AuthorizeAsync(string policy)
         {
             return await Task.FromResult(true);

@@ -56,6 +56,11 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account
                                             await signInManager.SignOutAsync();
                                             return TypedResults.LocalRedirect($"~/{returnUrl}");
                                         });
+            accountGroup.MapGet("/Logout", async (SignInManager<ApplicationUser> signInManager, string? returnUrl) =>
+                                    {
+                                        await signInManager.SignOutAsync();
+                                        return Results.Redirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                                    });
             var manageGroup = accountGroup.MapGroup("/Manage").RequireAuthorization();
             manageGroup.MapPost("/LinkExternalLogin", async (
                                         HttpContext context,
