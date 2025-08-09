@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="d731b3b0-ea34-462e-a090-4b45e2039c4f" type="Component View" typeId="624513a6-cba8-4dde-8ebe-6b19f00f0364">
+  <name>[view]</name>
+  <display>[view]</display>
+  <externalReference>df564f66-db25-4356-8f5f-f481b3de9fe5</externalReference>
+  <isAbstract>false</isAbstract>
+  <sort-children>manually</sort-children>
+  <order>0</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>20779ee0-0941-4801-8fcc-97967a49c732</parentFolderId>
+  <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>
+  <packageName>Blazor.InteractiveAuto.Oidc.UI</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements>
+    <childElement id="26a10c34-dcad-4d31-866e-e05b9c1c4097" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Head</name>
+      <display>Head = ###Hello, world!</display>
+      <externalReference>7f8968fe-e7ee-4719-bc8c-6d357b2fa7ed</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>###Hello, world!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d731b3b0-ea34-462e-a090-4b45e2039c4f</parentFolderId>
+      <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="b7c5acbc-b554-42c3-97ab-c7494a41c939" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text</name>
+      <display>Text = Welcome to your new app, code-automated by Intent Architect,</display>
+      <externalReference>be4cad91-1a36-47b1-9168-e55611e51558</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>Welcome to your new app, code-automated by Intent Architect,</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d731b3b0-ea34-462e-a090-4b45e2039c4f</parentFolderId>
+      <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+    <childElement id="66f3e684-618b-483b-a1d7-e821015b35c9" type="Text" typeId="922150d2-42e6-4805-a002-f9580cdf7f6f">
+      <name>Text2</name>
+      <display>Text2 = and powered by MudBlazor and .NET 8!</display>
+      <externalReference>991229f0-d10f-47b1-8499-fc679a245c1d</externalReference>
+      <isAbstract>false</isAbstract>
+      <value>and powered by MudBlazor and .NET 8!</value>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>d731b3b0-ea34-462e-a090-4b45e2039c4f</parentFolderId>
+      <packageId>eac4dfb0-a151-45ab-ae09-035b522bbe4c</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc.UI</packageName>
+      <traits>
+        <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+      </traits>
+      <stereotypes />
+      <metadata />
+      <childElements />
+    </childElement>
+  </childElements>
+</class>
