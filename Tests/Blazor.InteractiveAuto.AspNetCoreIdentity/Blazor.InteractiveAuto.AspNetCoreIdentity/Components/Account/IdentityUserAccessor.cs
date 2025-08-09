@@ -1,7 +1,5 @@
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

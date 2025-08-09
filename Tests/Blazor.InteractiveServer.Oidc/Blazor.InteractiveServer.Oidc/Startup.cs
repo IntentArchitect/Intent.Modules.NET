@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Blazor.InteractiveServer.Oidc.Client;
-using Blazor.InteractiveServer.Oidc.Client.Common.Validation;
-using Blazor.InteractiveServer.Oidc.Client.Components.Account.Shared;
 using Blazor.InteractiveServer.Oidc.Common;
 using Blazor.InteractiveServer.Oidc.Components;
 using Blazor.InteractiveServer.Oidc.Components.Account;
+using Blazor.InteractiveServer.Oidc.Components.Account.Shared;
 using Blazor.InteractiveServer.Oidc.Configuration;
 using Blazor.InteractiveServer.Oidc.Services;
 using Intent.RoslynWeaver.Attributes;
@@ -41,9 +39,7 @@ namespace Blazor.InteractiveServer.Oidc
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureProblemDetails();
-            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddScoped<IScopedExecutor, ScopedExecutor>();
-            services.AddScoped<IScopedMediator, ScopedMediator>();
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddHttpClient("oidcClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
@@ -52,9 +48,7 @@ namespace Blazor.InteractiveServer.Oidc
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
             services.AddScoped<ServerAuthorizationMessageHandler>();
             services.AddScoped<IAuthService, OidcAuthService>();
-
             services.AddAuthorization();
-
             services.AddAuthentication(options =>
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;

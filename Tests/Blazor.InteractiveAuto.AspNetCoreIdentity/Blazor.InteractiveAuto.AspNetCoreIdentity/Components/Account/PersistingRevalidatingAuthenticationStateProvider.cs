@@ -1,8 +1,5 @@
-using System;
 using System.Diagnostics;
 using System.Security.Claims;
-using System.Threading;
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Client.Components.Account.Shared;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
@@ -11,8 +8,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

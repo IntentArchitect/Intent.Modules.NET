@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Client;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Common;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Components;
@@ -9,15 +5,9 @@ using Blazor.InteractiveAuto.AspNetCoreIdentity.Components.Account;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Configuration;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Data;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MudBlazor.Services;
 

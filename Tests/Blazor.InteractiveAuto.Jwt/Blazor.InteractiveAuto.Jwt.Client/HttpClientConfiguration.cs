@@ -1,7 +1,4 @@
-using System;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]

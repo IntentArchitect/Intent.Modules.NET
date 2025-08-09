@@ -1,6 +1,4 @@
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.AspNetCore.Program", Version = "1.0")]

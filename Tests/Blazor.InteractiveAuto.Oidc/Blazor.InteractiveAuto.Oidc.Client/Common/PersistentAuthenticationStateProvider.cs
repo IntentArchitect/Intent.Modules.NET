@@ -1,6 +1,4 @@
-using System;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.Oidc.Client.Components.Account.Shared;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;

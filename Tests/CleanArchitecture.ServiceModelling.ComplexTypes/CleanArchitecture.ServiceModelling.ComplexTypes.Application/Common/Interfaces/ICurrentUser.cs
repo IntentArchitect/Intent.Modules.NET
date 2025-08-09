@@ -8,8 +8,8 @@ namespace CleanArchitecture.ServiceModelling.ComplexTypes.Application.Common.Int
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

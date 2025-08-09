@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using Blazor.InteractiveServer.Jwt.Data;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;

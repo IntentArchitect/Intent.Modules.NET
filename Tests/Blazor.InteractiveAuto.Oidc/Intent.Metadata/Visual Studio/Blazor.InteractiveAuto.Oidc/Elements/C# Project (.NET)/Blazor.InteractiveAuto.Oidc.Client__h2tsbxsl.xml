@@ -4,10 +4,12 @@
   <display>Blazor.InteractiveAuto.Oidc.Client</display>
   <externalReference>c51c435a-8c0a-48b6-9281-57f039a7d9e3</externalReference>
   <isAbstract>false</isAbstract>
-  <order>2</order>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</parentFolderId>
+  <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+  <packageName>Blazor.InteractiveAuto.Oidc</packageName>
   <stereotypes>
     <stereotype stereotypeDefinitionId="a490a23f-5397-40a1-a3cb-6da7e0b467c0" name=".NET Settings">
       <addedByDefault>true</addedByDefault>
@@ -16,20 +18,20 @@
       <properties>
         <property name="1f0cdbc4-7a18-40a5-aeca-90452cce4fcf" display="SDK" value="Microsoft.NET.Sdk.BlazorWebAssembly" isActive="true" />
         <property name="252d4572-8255-4e87-9bd9-ede6220f44c1" display="Use top-level statements" value="false" isActive="true" />
-        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="false" />
+        <property name="8f218e6c-9115-42d1-ad23-9b0403bfbcb4" display="Use minimal hosting model" value="false" isActive="true" />
         <property name="6a7d81d7-351e-4cdf-a596-142a74507455" display="Output Type" isActive="true" />
         <property name="9da51e12-529a-4592-9119-491d7bc9d5d5" display="Azure Functions Version" isActive="true" />
         <property name="e1cab7e9-28f1-4e82-8c02-bfb9e460d9e0" display="Target Multiple Frameworks" value="false" isActive="true" />
         <property name="d53ab03c-90cf-4b6a-b733-73b6983ab603" display="Target Framework" value="f8b1618d-1e64-4c2c-9787-e0725c3633a1" isActive="true" />
         <property name="b9685057-b337-42d8-9536-d0185ea69b73" display="Target Frameworks" value="null" isActive="false" />
-        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
         <property name="c9fc7052-9557-4485-a759-fa33363472b3" display="Configurations" isActive="true" />
         <property name="c27f8813-bee4-4289-81e5-570e755a8f30" display="Root Namespace" isActive="true" />
         <property name="a6660df2-6016-40c6-8453-8e5993f407c9" display="User Secrets Id" isActive="true" />
         <property name="16ac8254-c83f-42d9-98bb-db9c0532bce6" display="Generate Runtime Configuration Files" isActive="true" />
         <property name="94e630db-ee2b-4d4f-a423-19d3469178fa" display="Generate Documentation File" value="true" isActive="true" />
         <property name="d6c50001-ac9d-4819-94a9-8b6aa7f02e47" display="Assembly Name" isActive="true" />
-        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" isActive="true" />
+        <property name="7cc174e3-ca2f-4f79-bb52-c7a3a4a7e5eb" display="Implicit Usings" value="enable" isActive="true" />
+        <property name="8ee6e435-e556-439c-9712-a3f287972813" display="Runtime Identifiers" isActive="true" />
         <property name="575dbd4e-f038-4c92-a411-63c1e3e0d8d7" display="Suppress Warnings" value="$(NoWarn);1591" isActive="true" />
         <property name="6de4cc6f-2476-461c-9be9-b6ac0592a827" display="Manage Package Versions Centrally" isActive="true" />
       </properties>
@@ -48,144 +50,6 @@
   </stereotypes>
   <metadata />
   <childElements>
-    <childElement id="a0cf8673-982c-4372-be4a-eaa18acbadc4" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
-      <name>Blazor</name>
-      <display>Blazor</display>
-      <externalReference>e25d34ff-b583-46e4-b728-39ad6ad9e9b1</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata />
-      <childElements />
-    </childElement>
-    <childElement id="fa838497-ba69-48c0-864b-e45d84f0e879" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</name>
-      <display>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="1cf31d3e-76eb-4fc8-ae2e-7a0f43f4f76b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.DependencyInjection</name>
-      <display>Intent.Blazor.Templates.Client.DependencyInjection</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="92fa6c52-98d4-4740-83fb-3bf0ac4a731a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.ModelDefinitionTemplate</name>
-      <display>Intent.Blazor.Templates.Client.ModelDefinitionTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="6525956d-cf5f-4085-ab8b-06d8d012bf2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.ProgramTemplate</name>
-      <display>Intent.Blazor.Templates.Client.ProgramTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="07e66adb-0b1a-4db4-9441-3998cbe007ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate</name>
-      <display>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="a5160fb4-36dc-4124-88a6-8e6c4ea10e2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.RazorComponentTemplate</name>
-      <display>Intent.Blazor.Templates.Client.RazorComponentTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="2cb6f66e-1c9f-4c7b-96e7-1579f51432e2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate</name>
-      <display>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="0522dc47-854a-4dad-98c2-6d0e1c0d344a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.RazorLayoutTemplate</name>
-      <display>Intent.Blazor.Templates.Client.RazorLayoutTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="72e6368f-4a91-4d32-94f9-490046992b49" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Templates.Client.RoutesRazorTemplate</name>
-      <display>Intent.Blazor.Templates.Client.RoutesRazorTemplate</display>
-      <externalReference>Intent.Blazor</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
     <childElement id="5a5f0c4f-e377-460e-9f1c-583a1fa8942f" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.FluentValidation.ModelDefinitionValidator</name>
       <display>Intent.Blazor.FluentValidation.ModelDefinitionValidator</display>
@@ -194,6 +58,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -208,6 +74,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -222,6 +90,152 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="fa838497-ba69-48c0-864b-e45d84f0e879" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Client.ClientImportsRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="1cf31d3e-76eb-4fc8-ae2e-7a0f43f4f76b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.DependencyInjection</name>
+      <display>Intent.Blazor.Templates.Client.DependencyInjection</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="92fa6c52-98d4-4740-83fb-3bf0ac4a731a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.ModelDefinitionTemplate</name>
+      <display>Intent.Blazor.Templates.Client.ModelDefinitionTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="6525956d-cf5f-4085-ab8b-06d8d012bf2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.ProgramTemplate</name>
+      <display>Intent.Blazor.Templates.Client.ProgramTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="07e66adb-0b1a-4db4-9441-3998cbe007ed" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate</name>
+      <display>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a5160fb4-36dc-4124-88a6-8e6c4ea10e2e" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.RazorComponentTemplate</name>
+      <display>Intent.Blazor.Templates.Client.RazorComponentTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="2cb6f66e-1c9f-4c7b-96e7-1579f51432e2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate</name>
+      <display>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="0522dc47-854a-4dad-98c2-6d0e1c0d344a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.RazorLayoutTemplate</name>
+      <display>Intent.Blazor.Templates.Client.RazorLayoutTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="72e6368f-4a91-4d32-94f9-490046992b49" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Templates.Client.RoutesRazorTemplate</name>
+      <display>Intent.Blazor.Templates.Client.RoutesRazorTemplate</display>
+      <externalReference>Intent.Blazor</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -236,6 +250,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -250,6 +266,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -264,6 +282,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -278,10 +298,26 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
       </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="a0cf8673-982c-4372-be4a-eaa18acbadc4" type="Role" typeId="025e933b-b602-4b6d-95ab-0ec36ae940da">
+      <name>Blazor</name>
+      <display>Blazor</display>
+      <externalReference>e25d34ff-b583-46e4-b728-39ad6ad9e9b1</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>14e15bda-af30-4e46-a1e6-203cfc707335</parentFolderId>
+      <packageId>40217c3d-bdeb-4c35-abd9-a7eb3a2dcada</packageId>
+      <packageName>Blazor.InteractiveAuto.Oidc</packageName>
+      <stereotypes />
+      <metadata />
       <childElements />
     </childElement>
   </childElements>

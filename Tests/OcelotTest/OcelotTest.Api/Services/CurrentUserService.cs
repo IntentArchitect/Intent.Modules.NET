@@ -70,5 +70,5 @@ namespace OcelotTest.Api.Services
         private static string? GetUserId(ClaimsPrincipal? claimsPrincipal) => claimsPrincipal?.FindFirst(JwtClaimTypes.Subject)?.Value;
     }
 
-    public record CurrentUser(string Id, string Name, ClaimsPrincipal Principal) : ICurrentUser;
+    public record CurrentUser(string? Id, string? Name, ClaimsPrincipal Principal) : ICurrentUser;
 }

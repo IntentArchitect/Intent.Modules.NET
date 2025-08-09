@@ -8,8 +8,8 @@ namespace Publish.CleanArch.MassTransit.OutboxEF.TestApplication.Application.Com
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

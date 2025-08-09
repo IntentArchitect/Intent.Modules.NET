@@ -2,8 +2,6 @@ using System.Reflection;
 using Blazor.InteractiveAuto.AspNetCoreIdentity.Client.Common.Validation;
 using FluentValidation;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.DependencyInjection", Version = "1.0")]

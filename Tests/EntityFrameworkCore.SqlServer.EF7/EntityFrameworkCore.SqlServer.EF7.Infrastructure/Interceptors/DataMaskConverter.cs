@@ -79,7 +79,7 @@ namespace EntityFrameworkCore.SqlServer.EF7.Infrastructure.Interceptors
         public static bool IsAuthorized(ICurrentUserService currentUserService, string[] roles, string[] policies)
         {
             // Must be an authenticated user
-            if (currentUserService.GetUser().GetAwaiter().GetResult() is null)
+            if (currentUserService.GetAsync().GetAwaiter().GetResult() is null)
             {
                 return false;
             }

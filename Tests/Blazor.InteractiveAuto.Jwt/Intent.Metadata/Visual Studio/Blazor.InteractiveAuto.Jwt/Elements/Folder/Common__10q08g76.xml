@@ -3,10 +3,22 @@
   <name>Common</name>
   <display>Common</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>ca2e6d18-343d-4d89-8377-2050df89f8ad</parentFolderId>
-  <stereotypes />
+  <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+  <packageName>Blazor.InteractiveAuto.Jwt</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="d2777843-37e3-4990-b73e-0bea7e24efcb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aeeecc0e-5927-49a6-aa6c-35fca5e2699a</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aeeecc0e-5927-49a6-aa6c-35fca5e2699a</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aeeecc0e-5927-49a6-aa6c-35fca5e2699a</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>aeeecc0e-5927-49a6-aa6c-35fca5e2699a</parentFolderId>
+      <packageId>d352ec30-da6b-48b9-b552-7e170e3aac54</packageId>
+      <packageName>Blazor.InteractiveAuto.Jwt</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

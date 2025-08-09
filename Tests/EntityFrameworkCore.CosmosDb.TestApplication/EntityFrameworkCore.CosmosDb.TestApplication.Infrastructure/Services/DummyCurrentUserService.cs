@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using EntityFrameworkCore.CosmosDb.TestApplication.Application.Common.Interfaces;
 
@@ -18,4 +19,12 @@ public class DummyCurrentUserService : ICurrentUserService
     {
         return Task.FromResult(true);
     }
+
+    public Task<ICurrentUser?> GetAsync()
+    {
+        ICurrentUser? user = new CurrentUser("user@test.com", "Test User", null);
+        return Task.FromResult<ICurrentUser?>(user);
+    }
 }
+
+public record CurrentUser(string? Id, string? Name, ClaimsPrincipal Principal) : ICurrentUser;

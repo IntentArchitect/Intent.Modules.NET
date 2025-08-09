@@ -8,8 +8,8 @@ namespace EntityFrameworkCore.MultiDbContext.WithDefaultDbContext.Application.Co
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

@@ -9,158 +9,6 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CSharpProject#58c84e69-0119-43d6-9d34-40590dddb774</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Blazor.InteractiveServer.AspNetCoreIdentity.Client.csproj</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client.csproj</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientRequestException</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Common/HttpClientRequestException.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientRequestException.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>dda8d270-f9d5-4724-bb30-d0ff7fffd2fc</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.ProblemDetailsWithErrors</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Common/ProblemDetailsWithErrors.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ProblemDetailsWithErrors.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba73c780-e331-4dbb-ad98-834cfa570f96</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProviderInterface</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Common/Validation/IValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba73c780-e331-4dbb-ad98-834cfa570f96</ProjectId>
-      <CorrelationId>Intent.Blazor.FluentValidation.ValidatorProvider</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Common/Validation/ValidatorProvider.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorProvider.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>ba73c780-e331-4dbb-ad98-834cfa570f96</ProjectId>
-      <CorrelationId>Intent.Blazor.Components.MudBlazor.FluentValidationProviderExtensions</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Common/Validation/ValidatorProviderExtensions.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ValidatorProviderExtensions.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a0ac0232-596b-44a8-8108-9109493175a1</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Components/Account/Shared/RedirectToLogin.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>RedirectToLogin.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a0ac0232-596b-44a8-8108-9109493175a1</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Components/Account/Shared/ServerAuthorizationMessageHandler.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ServerAuthorizationMessageHandler.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>a0ac0232-596b-44a8-8108-9109493175a1</ProjectId>
-      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Components/Account/Shared/UserInfo.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>UserInfo.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.HttpClients.HttpClientConfiguration</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/HttpClientConfiguration.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>HttpClientConfiguration.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorLayoutTemplate#4a4f221d-c912-4232-9893-19301cd9e2c9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Layout/MainLayout.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Layout/MainLayout.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#4a4f221d-c912-4232-9893-19301cd9e2c9</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Layout/MainLayout.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Layout/MainLayout.razor.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#b743f98e-6a16-4a95-b91c-278aa36ec5fd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Pages/ExamplePage.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/ExamplePage.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#b743f98e-6a16-4a95-b91c-278aa36ec5fd</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Pages/ExamplePage.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/ExamplePage.razor.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#79894591-841f-4730-a1d3-67ef0bdbe675</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Pages/Home.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/Home.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#79894591-841f-4730-a1d3-67ef0bdbe675</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Pages/Home.razor.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Pages/Home.razor.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.LaunchSettings#58c84e69-0119-43d6-9d34-40590dddb774</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Properties/launchSettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Properties/launchSettings.json</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/Routes.razor</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>Routes.razor</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>58c84e69-0119-43d6-9d34-40590dddb774</ProjectId>
-      <CorrelationId>Intent.VisualStudio.Projects.CoreWeb.AppSettings-Default#58c84e69-0119-43d6-9d34-40590dddb774</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.Client/wwwroot/appsettings.json</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>wwwroot/appsettings.json</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
       <CorrelationId>Intent.VisualStudio.Projects.VisualStudioSolution#9348e91a-6b57-419d-9d01-1256b8c91369</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity.sln</ApplicationRelativeFilePath>
@@ -536,6 +384,22 @@
     </FileLog>
     <FileLog>
       <ProjectId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/RedirectToLogin.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>RedirectToLogin.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ServerAuthorizationMessageHandler.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>ServerAuthorizationMessageHandler.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</ProjectId>
       <CorrelationId>Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderSharedFolderFilesStaticContentTemplateRegistration#ShowRecoveryCodes.razor</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/ShowRecoveryCodes.razor</ApplicationRelativeFilePath>
@@ -551,11 +415,75 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>6450b9c0-96ff-4afe-abf7-16f1f8e203a1</ProjectId>
+      <CorrelationId>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Account/Shared/UserInfo.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>UserInfo.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
       <CorrelationId>Intent.Blazor.Templates.Server.AppRazorTemplate</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/App.razor</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>App.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorLayoutTemplate#4a4f221d-c912-4232-9893-19301cd9e2c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Layout/MainLayout.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Layout/MainLayout.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate#4a4f221d-c912-4232-9893-19301cd9e2c9</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Layout/MainLayout.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Layout/MainLayout.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#b743f98e-6a16-4a95-b91c-278aa36ec5fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Pages/ExamplePage.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ExamplePage.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#b743f98e-6a16-4a95-b91c-278aa36ec5fd</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Pages/ExamplePage.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/ExamplePage.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentTemplate#79894591-841f-4730-a1d3-67ef0bdbe675</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Pages/Home.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Home.razor</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate#79894591-841f-4730-a1d3-67ef0bdbe675</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Pages/Home.razor.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Pages/Home.razor.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>123af4ec-788d-465e-8257-6c101f8da87c</ProjectId>
+      <CorrelationId>Intent.Blazor.Templates.Client.RoutesRazorTemplate</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Components/Routes.razor</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>Routes.razor</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
@@ -608,14 +536,6 @@
     </FileLog>
     <FileLog>
       <ProjectId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Services/IScopedMediator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>IScopedMediator.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</ProjectId>
       <CorrelationId>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Services/ISetUserContext.cs</ApplicationRelativeFilePath>
@@ -628,14 +548,6 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Services/ScopedExecutor.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>ScopedExecutor.cs</ProjectRelativeFilePath>
-      <IsIgnored>false</IsIgnored>
-    </FileLog>
-    <FileLog>
-      <ProjectId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</ProjectId>
-      <CorrelationId>Intent.Blazor.Templates.Server.ScopedMediatorTemplate</CorrelationId>
-      <OverwriteBehaviour>always</OverwriteBehaviour>
-      <ApplicationRelativeFilePath>Blazor.InteractiveServer.AspNetCoreIdentity/Services/ScopedMediator.cs</ApplicationRelativeFilePath>
-      <ProjectRelativeFilePath>ScopedMediator.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>

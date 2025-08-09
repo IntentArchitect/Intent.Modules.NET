@@ -3,12 +3,72 @@
   <name>Shared</name>
   <display>Shared</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>3087debd-70fe-4a3e-a1ec-21d3ea91e5bf</parentFolderId>
-  <stereotypes />
+  <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+  <packageName>Blazor.InteractiveServer.Oidc</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="30be9dbe-02fc-40ff-9f6e-844e8a7355dd" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.RedirectToLoginTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72c59bb6-fe04-4554-8bd1-b0f043598030</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="091e21cf-d372-431c-af4b-d17629a0519b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.ServerAuthorizationMessageHandlerTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72c59bb6-fe04-4554-8bd1-b0f043598030</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
+    <childElement id="20eb2559-f5a3-46af-8939-f6da0f0ea3fb" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</name>
+      <display>Intent.Blazor.Authentication.Templates.Client.UserInfoTemplate</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>72c59bb6-fe04-4554-8bd1-b0f043598030</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="942f6246-1fd8-4f69-9594-5b9e32e2d48a" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</name>
       <display>Intent.Blazor.Authentication.Templates.Server.AccountLayoutTemplate</display>
@@ -17,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>72c59bb6-fe04-4554-8bd1-b0f043598030</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>72c59bb6-fe04-4554-8bd1-b0f043598030</parentFolderId>
+      <packageId>7109cb5c-8ab7-45d6-b48c-2c0042d46bdb</packageId>
+      <packageName>Blazor.InteractiveServer.Oidc</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

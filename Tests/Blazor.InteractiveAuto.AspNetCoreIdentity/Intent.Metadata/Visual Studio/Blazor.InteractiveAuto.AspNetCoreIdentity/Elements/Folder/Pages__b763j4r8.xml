@@ -3,10 +3,22 @@
   <name>Pages</name>
   <display>Pages</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>0d517a33-32c5-41cc-81c8-3b56dc0de53a</parentFolderId>
-  <stereotypes />
+  <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+  <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
     <childElement id="2bfafb41-9981-4b53-acd1-5f4d083eaff2" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
@@ -17,6 +29,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -73,6 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -87,6 +109,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -101,6 +125,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>38fc0c94-de50-4730-87d6-4aae461f0644</parentFolderId>
+      <packageId>6ba2e10b-69af-45d7-a21f-d66be5fa348b</packageId>
+      <packageName>Blazor.InteractiveAuto.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />

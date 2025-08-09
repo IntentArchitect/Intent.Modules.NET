@@ -8,8 +8,8 @@ namespace CleanArchitecture.Comprehensive.Application.Common.Interfaces
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

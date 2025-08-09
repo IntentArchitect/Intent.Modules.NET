@@ -1,7 +1,5 @@
-using System;
 using System.Runtime.CompilerServices;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.Extensions.DependencyInjection;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Server.ScopedExecutorTemplate", Version = "1.0")]

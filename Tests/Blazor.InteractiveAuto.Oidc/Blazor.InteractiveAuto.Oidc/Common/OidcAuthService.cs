@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Json;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.Oidc.Components.Account;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]

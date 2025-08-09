@@ -8,8 +8,8 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Application.Common.In
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

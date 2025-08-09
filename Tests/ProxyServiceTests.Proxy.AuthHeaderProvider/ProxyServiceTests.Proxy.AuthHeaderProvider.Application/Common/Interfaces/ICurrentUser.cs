@@ -8,8 +8,8 @@ namespace ProxyServiceTests.Proxy.AuthHeaderProvider.Application.Common.Interfac
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Blazor.InteractiveServer.AspNetCoreIdentity.Client;
-using Blazor.InteractiveServer.AspNetCoreIdentity.Client.Common.Validation;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Common;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Components;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Components.Account;
@@ -11,15 +5,9 @@ using Blazor.InteractiveServer.AspNetCoreIdentity.Configuration;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Data;
 using Blazor.InteractiveServer.AspNetCoreIdentity.Services;
 using Intent.RoslynWeaver.Attributes;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MudBlazor.Services;
 
@@ -41,9 +29,7 @@ namespace Blazor.InteractiveServer.AspNetCoreIdentity
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureProblemDetails();
-            services.AddScoped<IValidatorProvider, ValidatorProvider>();
             services.AddScoped<IScopedExecutor, ScopedExecutor>();
-            services.AddScoped<IScopedMediator, ScopedMediator>();
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddScoped<IdentityRedirectManager>();

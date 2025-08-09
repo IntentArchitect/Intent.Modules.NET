@@ -8,8 +8,8 @@ namespace Google.Cloud.Storage.Multitenancy.SeperateAccount.Tests.Application.Co
 {
     public interface ICurrentUser
     {
-        string Id { get; }
-        string Name { get; }
+        string? Id { get; }
+        string? Name { get; }
         ClaimsPrincipal Principal { get; }
     }
 }

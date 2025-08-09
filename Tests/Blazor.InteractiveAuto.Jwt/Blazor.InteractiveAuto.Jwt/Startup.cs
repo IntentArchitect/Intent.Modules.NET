@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Blazor.InteractiveAuto.Jwt.Client;
 using Blazor.InteractiveAuto.Jwt.Common;
 using Blazor.InteractiveAuto.Jwt.Components;
@@ -9,14 +5,8 @@ using Blazor.InteractiveAuto.Jwt.Components.Account;
 using Blazor.InteractiveAuto.Jwt.Configuration;
 using Intent.RoslynWeaver.Attributes;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MudBlazor.Services;
 

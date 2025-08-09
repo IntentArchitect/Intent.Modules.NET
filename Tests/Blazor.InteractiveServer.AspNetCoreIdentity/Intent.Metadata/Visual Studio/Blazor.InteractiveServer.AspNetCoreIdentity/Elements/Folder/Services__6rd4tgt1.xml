@@ -3,12 +3,40 @@
   <name>Services</name>
   <display>Services</display>
   <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
   <genericTypes />
   <isMapped>false</isMapped>
   <parentFolderId>fcc944a0-2052-4d43-be01-b22892c9dcd4</parentFolderId>
-  <stereotypes />
+  <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+  <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="61132551-825d-4c6e-b9f1-0f95249d08d4" name="Folder Options">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.VisualStudio.Projects</definitionPackageName>
+      <definitionPackageId>a0636ab7-d3a1-430b-9609-11a18aa3cc7f</definitionPackageId>
+      <properties>
+        <property name="4bfbefd0-d22e-4ca0-9723-92ae273feca4" display="Namespace Provider" value="true" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
   <metadata />
   <childElements>
+    <childElement id="45e6da73-b87e-441a-bb3c-1e05618f4aee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
+      <name>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</name>
+      <display>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</display>
+      <externalReference>Intent.Blazor.Authentication</externalReference>
+      <isAbstract>false</isAbstract>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
+      <stereotypes />
+      <metadata>
+        <entry key="status" value="assigned" />
+      </metadata>
+      <childElements />
+    </childElement>
     <childElement id="44b85e7d-30fe-4eb6-9d1c-234e2472169b" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
       <name>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</name>
       <display>Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate</display>
@@ -17,6 +45,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -31,6 +61,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -45,6 +77,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
@@ -59,20 +93,8 @@
       <genericTypes />
       <isMapped>false</isMapped>
       <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
-      <stereotypes />
-      <metadata>
-        <entry key="status" value="assigned" />
-      </metadata>
-      <childElements />
-    </childElement>
-    <childElement id="45e6da73-b87e-441a-bb3c-1e05618f4aee" type="Template Output" typeId="d421c322-7a51-4094-89fa-e5d8a0a97b27">
-      <name>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</name>
-      <display>Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface</display>
-      <externalReference>Intent.Blazor.Authentication</externalReference>
-      <isAbstract>false</isAbstract>
-      <genericTypes />
-      <isMapped>false</isMapped>
-      <parentFolderId>c9a9bb61-c2ef-499a-8f7f-32f36305b95f</parentFolderId>
+      <packageId>9348e91a-6b57-419d-9d01-1256b8c91369</packageId>
+      <packageName>Blazor.InteractiveServer.AspNetCoreIdentity</packageName>
       <stereotypes />
       <metadata>
         <entry key="status" value="assigned" />
