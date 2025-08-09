@@ -121,14 +121,6 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                                         .AddChainStatement("AddDefaultTokenProviders()"));
                             });
 
-
-
-
-                            //    statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = false)
-                            //.AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
-                            //.AddSignInManager()
-                            //.AddDefaultTokenProviders();".ConvertToStatements());
-
                             statements.AddStatement($"{context.Services}.AddSingleton<IEmailSender<{identityUserName}>, {startup.GetTypeName(IdentityNoOpEmailSenderTemplate.TemplateId)}>();");
                         }
                     }
