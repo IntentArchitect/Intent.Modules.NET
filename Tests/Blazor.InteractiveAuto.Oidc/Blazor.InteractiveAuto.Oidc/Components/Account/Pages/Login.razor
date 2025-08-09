@@ -48,16 +48,12 @@
                     <ValidationMessage class="text-danger"
                                        For="() => Input.Password" />
                 </div>
-                <div class="form-floating mb-3 form-check">
+                <div class="form-check mb-3">
+                    <InputCheckbox class="darker-border-checkbox form-check-input"
+                                   @bind-Value="Input.RememberMe" />
                     <label class="form-check-label"
                            for="rememberMe">
                         Remember me
-                    </label>
-                    <label class="form-label">
-                        <InputCheckbox class="darker-border-checkbox form-check-input"
-                                       @bind-Value="Input.RememberMe">
-                            Remember me
-                        </InputCheckbox>
                     </label>
                 </div>
                 <div>
