@@ -158,13 +158,26 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     method.WithExpressionBody(GetUserIdImplimentation(userIdProperty));
                 });
 
-                @class.AddProperty($"{userIdProperty.Type.Replace("?", "")}?", "UserId", p => p.ReadOnly().Getter.WithExpressionImplementation(@"_httpContextAccessor?.HttpContext?.User is null 
+                var syncUserIdProperty = @class.Properties.FirstOrDefault(p => p.Name == "UserId");
+                if (syncUserIdProperty is not null)
+                {
+                    syncUserIdProperty
+                        .WithoutSetter()
+                        .Getter
+                        .WithExpressionImplementation(@"_httpContextAccessor?.HttpContext?.User is null 
             ? null 
-            : GetUserId(_httpContextAccessor.HttpContext.User)"));
-
-                @class.AddProperty($"string?", "Name", p => p.ReadOnly().Getter.WithExpressionImplementation(@"_httpContextAccessor?.HttpContext?.User is null 
+            : GetUserId(_httpContextAccessor.HttpContext.User)");
+                }
+                var syncUserNameProperty = @class.Properties.FirstOrDefault(p => p.Name == "UserName");
+                if (syncUserNameProperty is not null)
+                {
+                    syncUserNameProperty
+                        .WithoutSetter()
+                        .Getter
+                        .WithExpressionImplementation(@"_httpContextAccessor?.HttpContext?.User is null 
             ? null : 
-            GetUserName(_httpContextAccessor.HttpContext.User)"));
+            GetUserName(_httpContextAccessor.HttpContext.User)");
+                }
 
                 file.AddRecord("CurrentUser", @record =>
                 {
