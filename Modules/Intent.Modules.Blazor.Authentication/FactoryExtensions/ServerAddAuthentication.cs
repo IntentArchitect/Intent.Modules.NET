@@ -123,6 +123,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
 
 
+
                             //    statements.AddStatements(@$"{context.Services}.AddIdentityCore<{identityUserName}>(options => options.SignIn.RequireConfirmedAccount = false)
                             //.AddEntityFrameworkStores<{startup.GetTypeName("Intent.EntityFrameworkCore.DbContext")}>()
                             //.AddSignInManager()
