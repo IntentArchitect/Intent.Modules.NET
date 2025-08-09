@@ -48,7 +48,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     {
                         identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
                     }
-                    else
+                    else if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                     {
                         identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
                     }

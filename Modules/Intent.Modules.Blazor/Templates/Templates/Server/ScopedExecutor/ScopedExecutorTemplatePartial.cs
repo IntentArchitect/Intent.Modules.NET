@@ -26,6 +26,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutor
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddUsing("System.Runtime.CompilerServices")
                 .AddUsing("Microsoft.Extensions.DependencyInjection")
                 .AddClass($"ScopedExecutor", @class =>

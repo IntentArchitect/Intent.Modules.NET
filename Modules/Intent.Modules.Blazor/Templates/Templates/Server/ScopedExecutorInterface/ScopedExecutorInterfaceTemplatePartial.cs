@@ -23,6 +23,10 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedExecutorInterfa
         public ScopedExecutorInterfaceTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddUsing("System")
+                .AddUsing("System.Collections.Generic")
+                .AddUsing("System.Threading")
+                .AddUsing("System.Threading.Tasks")
                 .AddInterface($"IScopedExecutor", @interface =>
                 {
                     @interface.AddMethod("Task", "ExecuteAsync", method =>

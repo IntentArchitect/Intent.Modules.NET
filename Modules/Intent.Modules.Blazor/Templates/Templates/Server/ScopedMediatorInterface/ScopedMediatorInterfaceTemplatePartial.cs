@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
@@ -31,7 +32,9 @@ namespace Intent.Modules.Blazor.Templates.Templates.Server.ScopedMediatorInterfa
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
+            return base.CanRunTemplate() 
+                && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer()
+                && ExecutionContext.InstalledModules.Any(m => m.ModuleId == "Intent.Application.MediatR"); 
         }
 
 
