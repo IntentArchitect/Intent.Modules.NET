@@ -52,8 +52,8 @@
       <metadata />
       <childElements>
         <childElement id="cac2cf5e-7b5d-4dbc-b3ad-8b9b870011d0" type="Module Settings Field Option" typeId="1592709a-89b1-4cb0-9801-ce9d3b94545a">
-          <name>Asp.Net Core Identity</name>
-          <display>Asp.Net Core Identity = aspnetcore-identity</display>
+          <name>ASP.NET Core Identity</name>
+          <display>ASP.NET Core Identity = aspnetcore-identity</display>
           <isAbstract>false</isAbstract>
           <value>aspnetcore-identity</value>
           <genericTypes />

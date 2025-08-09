@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
@@ -75,7 +77,16 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
                         if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                         {
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
-                            method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>>();");
+                            var identityUserName = string.Empty;
+                            if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                            {
+                                identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                            }
+                            else
+                            {
+                                identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                            }
+                            method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{identityUserName}>>();");
                             method.AddReturn("await ValidateSecurityStampAsync(userManager, authenticationState.User);");
                         }
                         else

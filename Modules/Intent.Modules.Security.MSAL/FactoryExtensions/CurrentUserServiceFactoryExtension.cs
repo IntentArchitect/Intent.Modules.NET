@@ -6,6 +6,7 @@ using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.CSharp.VisualStudio;
 using Intent.Modules.Common.Plugins;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Security.JWT.FactoryExtensions;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 
@@ -34,7 +35,12 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
                 NugetPackages.IdentityModelPackageName, template.OutputTarget));
 
             template.AddNugetDependency(NugetPackages.DuendeIdentityModel(template.OutputTarget));
+
+            CurrentUserHelper.UpdateCurrentUserService(application);
+        }
             
+            /*
+
             template.CSharpFile.AfterBuild(file =>
             {
                 file.AddUsing("System.Security.Claims");
@@ -109,7 +115,7 @@ namespace Intent.Modules.Security.MSAL.FactoryExtensions
             {
                 return $"{propertyType}.TryParse(GetClaimsPrincipal()?.FindFirst(JwtClaimTypes.Subject)?.Value, out var parsed) ? parsed : null";
             }
-        }
+        }*/
 
     }
 }

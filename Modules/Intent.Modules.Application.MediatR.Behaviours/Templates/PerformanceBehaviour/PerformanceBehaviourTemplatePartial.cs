@@ -69,8 +69,7 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                         method.AddIfStatement("elapsedMilliseconds > 500", elapsedIf =>
                         {
                             elapsedIf.AddObjectInitStatement("var requestName", "typeof(TRequest).Name;");
-                            elapsedIf.AddObjectInitStatement("var userId", "_currentUserService.UserId;");
-                            elapsedIf.AddObjectInitStatement("var userName", "_currentUserService.UserName;", cfg => cfg.SeparatedFromNext());
+                            elapsedIf.AddObjectInitStatement("var user", "await _currentUserService.GetAsync();", cfg => cfg.SeparatedFromNext());
 
                             elapsedIf.AddIfStatement("_logRequestPayload", logIf =>
                             {
@@ -79,8 +78,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                                     cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}} {{@Request}}\"")
                                         .AddArgument("requestName")
                                         .AddArgument("elapsedMilliseconds")
-                                        .AddArgument("userId")
-                                        .AddArgument("userName")
+                                        .AddArgument("user?.Id")
+                                        .AddArgument("user?.Name")
                                         .AddArgument("request");
                                 });
                             });
@@ -91,8 +90,8 @@ namespace Intent.Modules.Application.MediatR.Behaviours.Templates.PerformanceBeh
                                     cfg.AddArgument($"\"{ExecutionContext.GetApplicationConfig().Name} Long Running Request: {{Name}} ({{ElapsedMilliseconds}} milliseconds) {{@UserId}} {{@UserName}}\"")
                                         .AddArgument("requestName")
                                         .AddArgument("elapsedMilliseconds")
-                                        .AddArgument("userId")
-                                        .AddArgument("userName");
+                                        .AddArgument("user?.Id")
+                                        .AddArgument("user?.Name");
                                 });
                             });
                         });

@@ -9,6 +9,9 @@
   <parentFolderId>30eb8a90-664b-483b-9dfd-794c8e85f9eb</parentFolderId>
   <packageId>47e5f8d0-3892-4408-b6f9-88bf8591af2d</packageId>
   <packageName>Intent.Blazor.Components.MudBlazor</packageName>
+  <traits>
+    <trait id="b407aace-ad14-484e-ac93-4762a3d182d8" name="[Component]" />
+  </traits>
   <stereotypes>
     <stereotype stereotypeDefinitionId="d8f6f331-d4f0-4c75-aa91-f2e715cd9591" name="Type Reference Settings">
       <addedByDefault>true</addedByDefault>

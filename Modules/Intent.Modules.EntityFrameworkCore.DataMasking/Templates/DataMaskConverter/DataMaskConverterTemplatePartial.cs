@@ -137,7 +137,7 @@ namespace Intent.Modules.EntityFrameworkCore.DataMasking.Templates.DataMaskConve
 
 
                         method.AddStatement("// Must be an authenticated user");
-                        method.AddIfStatement("currentUserService.UserId is null", @if =>
+                        method.AddIfStatement("currentUserService.GetUser().GetAwaiter().GetResult() is null", @if =>
                         {
                             @if.BeforeSeparator = CSharpCodeSeparatorType.None;
                             @if.AddReturn("false");

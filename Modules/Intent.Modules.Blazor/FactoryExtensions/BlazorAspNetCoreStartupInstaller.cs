@@ -1,7 +1,11 @@
+using System;
+using System.Linq;
 using Intent.Engine;
+using Intent.Exceptions;
 using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates;
 using Intent.Modules.Common;
+using Intent.Modules.Common.CSharp;
 using Intent.Modules.Common.CSharp.AppStartup;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.Plugins;
@@ -21,6 +25,31 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
         [IntentManaged(Mode.Ignore)]
         public override int Order => 0;
+
+        protected override void OnBeforeTemplateRegistrations(IApplication application)
+        {
+            base.OnBeforeTemplateRegistrations(application);
+            CheckBlazorWasmInstalled(application);
+            ConfigureRazorWeaving(application);
+        }
+
+
+        private void CheckBlazorWasmInstalled(IApplication application)
+        {
+            if (!application.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && !application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Wasm"))
+            {
+                throw new FriendlyException($"For Render Module : {application.GetSettings().GetBlazor().RenderMode().AsEnum()}, please install the `Intent.Blazor.Wasm` module");
+            }
+        }
+
+        private void ConfigureRazorWeaving(IApplication application)
+        {
+            application.ConfigureRazor(configurator =>
+            {
+                configurator.AddTagNameAttributeMatch("link", "href");
+                configurator.AddTagNameAttributeMatch("script", "src");
+            });
+        }
 
         [IntentIgnore]
         protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -68,6 +97,32 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                             elseStatement.AddStatement("app.UseHsts();");
                         });
                     }
+                    else
+                    {
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseExceptionHandler"))?.Remove();
+                        var position = statements.FindStatement(m => m.Text.StartsWith("app.UseHttpsRedirection"));
+                        var ifDevStatement = new CSharpIfStatement("!app.Environment.IsDevelopment()");
+                        position.InsertBelow(ifDevStatement, statement => 
+                        {
+                            var ifs = (CSharpIfStatement)statement;
+                            ifs.AddStatement("app.UseExceptionHandler(\"/Error\");");
+                            ifs.AddStatement("// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.");
+                            ifs.AddStatement("app.UseHsts();");
+                        });
+                        if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                        {
+                            var elseStatement = new CSharpElseStatement();
+                            elseStatement.AddStatement("app.UseWebAssemblyDebugging();");
+                            ifDevStatement.InsertBelow(elseStatement);
+                        }
+                    }
+
+                    //This is a hack because in the way Asp.Identity always registers use.Authentication even if there isn't anything configured. That module needs to be fixed
+                    if (!application.InstalledModules.Any(m => m.ModuleId == "Intent.Blazor.Authentication"))
+                    {
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthentication"))?.Remove();
+                        statements.FindStatement(m => m.Text.StartsWith("app.UseAuthorization"))?.Remove();
+                    }
 
                     statements.FindStatement(m => m.Text.StartsWith("app.UseEndpoints"))?
                         .InsertAbove("app.UseStaticFiles();")
@@ -87,8 +142,11 @@ namespace Intent.Modules.Blazor.FactoryExtensions
                     {
                         addRazorComponents.AddChainStatement("AddInteractiveServerRenderMode()");
                     }
-                    addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)")
-                        .WithSemicolon();
+                    if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                    {
+                        addRazorComponents.AddChainStatement($"AddAdditionalAssemblies(typeof({startup.GetClientImportsRazorTemplateName()}).Assembly)");                            
+                    }
+                    addRazorComponents.WithSemicolon();
                     statements.AddStatement(addRazorComponents);
                 });
             });

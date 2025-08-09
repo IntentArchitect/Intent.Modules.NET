@@ -113,6 +113,14 @@
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
+      <ProjectId>2bda8633-69d4-4d31-a183-4e938c79f6a8</ProjectId>
+      <CorrelationId>Intent.ModuleBuilder.Templates.FactoryExtension#b2ba5f61-72f5-4ef2-972e-cfb5566b8054</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>FactoryExtensions/SnackbarInstaller.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SnackbarInstaller.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
       <ProjectId>b3844f12-304a-475a-99d2-b54e8d202e97</ProjectId>
       <CorrelationId>Intent.ModuleBuilder.IModSpecFile</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>

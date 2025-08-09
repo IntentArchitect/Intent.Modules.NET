@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="9ae48bc2-1fe5-4229-b2b7-0853f9b05e77" type="Component Group" typeId="027f8bb9-9b28-4c1d-a516-8c3daa70e46d">
+  <name>Integration</name>
+  <display>Integration (6)</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-manually</sort-children>
+  <order>10</order>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>a4d094db-4aab-467a-970a-2c6c9aaabe82</parentFolderId>
+  <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+  <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+  <stereotypes>
+    <stereotype stereotypeDefinitionId="08b4c68f-3654-44cc-b3a1-87de79c23936" name="Component Group Settings">
+      <addedByDefault>true</addedByDefault>
+      <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+      <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+      <properties>
+        <property name="54b29a03-082b-407a-b42e-cbacbcfa7fd7" display="Selection Mode" value="Allow Multiple" isActive="true" />
+      </properties>
+    </stereotype>
+  </stereotypes>
+  <metadata />
+  <childElements>
+    <childElement id="2ecd69bc-093f-4428-bc06-64b8daa96781" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>MassTransit</name>
+      <display>MassTransit (3)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/png;base64,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&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Integrate applications using a Pub/Sub pattern with MassTransit." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4c3abf11-d54c-4c1b-8b8e-b7d9917e2470" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Eventing.MassTransit</name>
+          <display>Intent.Eventing.MassTransit</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2ecd69bc-093f-4428-bc06-64b8daa96781</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="7.0.5" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="f35a50d4-7be3-4e06-ada9-9b058b9b7090" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Eventing.MassTransit.RequestResponse</name>
+          <display>Intent.Eventing.MassTransit.RequestResponse</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2ecd69bc-093f-4428-bc06-64b8daa96781</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.8" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="false" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+        <childElement id="c0c8f629-50d5-43ba-8ad0-d3dbc841254c" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Eventing.MassTransit.Scheduling</name>
+          <display>Intent.Eventing.MassTransit.Scheduling</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2ecd69bc-093f-4428-bc06-64b8daa96781</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.4" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="false" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="false" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="82d5e8cc-7d9e-46b0-b759-6fda0f046b3f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Http Clients</name>
+      <display>Http Clients (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudDdhOTI4ZjExLTE1ZDYtNDIxNS05ZGJiLTI4NjU4NTJkMmM5YSIgeDE9IjI1IiB5MT0iLjkiIHgyPSIyNSIgeTI9IjQ5LjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjOWM1N2IzIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iLjEiIHN0b3AtY29sb3I9IiM5MjRmYTkiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIuNyIgc3RvcC1jb2xvcj0iIzczMzM4NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM2NzI5N2EiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOC43LjIsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAxLjIuMCBCdWlsZCAxNTQpICAtLT4KICA8Zz4KICAgIDxnIGlkPSJMYXllcl8xIj4KICAgICAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjQuNCIgZmlsbD0idXJsKCNsaW5lYXItZ3JhZGllbnQ3YTkyOGYxMS0xNWQ2LTQyMTUtOWRiYi0yODY1ODUyZDJjOWEpIi8+CiAgICAgIDxwYXRoIGQ9Ik0zOS4zLDE4LjdoLTQuOHYtMS43aDExLjZ2MS43aC00Ljh2MTRoLTJ2LTE0WiIgZmlsbD0iI2ZmZiIvPgogICAgICA8cGF0aCBkPSJNMzIuNiwyNS40aC02LjF2NS43aDYuOHYxLjdoLTguOHYtMTUuN2g4LjV2MS43aC02LjR2NWg2LjF2MS43aC0uMVoiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTkuMiwzMi43di0xNS43aDIuMmw1LDcuOWMxLjIsMS44LDIuMSwzLjUsMi44LDUuMWgwYy0uMi0yLjEtLjItNC0uMi02LjV2LTYuNmgxLjl2MTUuN2gtMmwtNS04Yy0xLjEtMS43LTIuMS0zLjUtMi45LTUuMmgwYy4xLDIsLjIsMy45LjIsNi41djYuN2gtMloiIGZpbGw9IiNmZmYiLz4KICAgICAgPHBhdGggZD0iTTMuOCwzMS41YzAtLjkuNi0xLjUsMS40LTEuNXMxLjQuNiwxLjQsMS41LS41LDEuNS0xLjQsMS41LTEuNC0uNi0xLjQtMS41WiIgZmlsbD0iI2ZmZiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Introduces a Http Client implementation that can make service calls against a referenced service Restful API." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="fe074060-8733-4598-9663-1bbd97b7ca23" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Integration.HttpClients</name>
+          <display>Intent.Integration.HttpClients</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>82d5e8cc-7d9e-46b0-b759-6fda0f046b3f</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="6.0.4" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="10c85664-78b9-4c27-9f59-439e5c62acd1" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>SignalR</name>
+      <display>SignalR (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHZpZXdCb3g9IjAgMCA1MCA1MCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC1kYTBjMTZkNi1lM2M1LTRkNDEtYTE5Yy02ZjI5NDk4M2U4M2QiIHgxPSIyNSIgeTE9Ii43IiB4Mj0iMjUiIHkyPSI0OC4xIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2E4ZTdmZiIvPgogICAgICA8c3RvcCBvZmZzZXQ9Ii41IiBzdG9wLWNvbG9yPSIjMDBhYmVjIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNzI5ZSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjcuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDEuMi4wIEJ1aWxkIDE1NCkgIC0tPgogIDxnPgogICAgPGcgaWQ9IkxheWVyXzEiPgogICAgICA8ZyBpZD0idXVpZC1iYmMwZmM0Mi1jZmY1LTQ4ZDgtOGE2Zi0zYTA1YTNlNGIxYjUiPgogICAgICAgIDxwYXRoIGQ9Ik00OC43LDI1YzAsOC00LDE1LjEtMTAuMiwxOS41bC04LjgtOC44YzUuNy0uMiwxMC4zLTQuNywxMC4zLTEwLjdzLTQuOC0xMC44LTEwLjgtMTAuOGgtOC42di00LjNsLTEwLjgsMTAuOGgxOS40YzIuNCwwLDQuMywxLjksNC4zLDQuM3MtMS45LDQuMy00LjMsNC4zaC02bC0yLjcsNi41LDEwLjYsMTAuNiwyLjIsMi4yYy0xLjgsMC00LjYuMS04LjUuMS0xMy4xLDAtMjMuNy0xMC42LTIzLjctMjMuN1MxMS45LDEuMywyNSwxLjNzMjMuNywxMC42LDIzLjcsMjMuN1oiIGZpbGw9InVybCgjbGluZWFyLWdyYWRpZW50LWRhMGMxNmQ2LWUzYzUtNGQ0MS1hMTljLTZmMjk0OTgzZTgzZCkiLz4KICAgICAgPC9nPgogICAgICA8cG9seWxpbmUgcG9pbnRzPSIzNC40IDQ5LjQgMzMuNSA0OC41IDMyLjQgNDcuNSAzMS4zIDQ2LjMiIGZpbGw9Im5vbmUiLz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg==&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Server to Client side communication using SignalR." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="de8a2eba-0b87-4a84-a601-6c0a09a4b10d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore.SignalR</name>
+          <display>Intent.AspNetCore.SignalR</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>10c85664-78b9-4c27-9f59-439e5c62acd1</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.6" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="84b74c19-5db9-4656-8ab7-d9a09cbc0322" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>gRPC (BETA)</name>
+      <display>gRPC (BETA) (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB2aWV3Qm94PSIwIC0xNTIgNTEyIDUxMiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCI+CiAgICA8dGl0bGU+Z1JQQzwvdGl0bGU+CiAgICA8c3R5bGU+CiAgICAgICAgLmdycGNMb2dvMjAyNTAyMjAgewogICAgICAgICAgICBmaWxsOiAjMjQ0QjVBOwogICAgICAgIH0KCiAgICAgICAgW2RhdGEtdGhlbWU9ImRhcmsiXSAuZ3JwY0xvZ28yMDI1MDIyMCB7CiAgICAgICAgICAgIGZpbGw6ICNmZmZmZmY7CiAgICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iMTAwJSIgeTE9IjAlIiB4Mj0iMCUiIHkyPSIxMDAlIiBpZD0ibGluZWFyR3JhZGllbnQtMSI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM3MkM5QzkiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzAyQjBBRCIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjEwMCUiIHkxPSIwJSIgeDI9Ii04Ljg4MTc4NDJlLTE0JSIgeTI9IjEwMCUiIGlkPSJsaW5lYXJHcmFkaWVudC0yIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzAzQjZCNCIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNzRDQkNBIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGc+CiAgICAgICAgPHBhdGggY2xhc3M9ImdycGNMb2dvMjAyNTAyMjAiIGQ9Ik01Ni42NzgxMzg3LDE3OS44Njc5NDIgQzYwLjQ3OTM4MDMsMTg0LjkyNTM3IDY1LjQxOTQwMzIsMTg5LjAxNTM4OSA3MS4wOTczMzY1LDE5MS44MDYxMDQgQzc3LjIzODAxMjgsMTk0Ljg0Nzc5NCA4NC4wMTM5MjQxLDE5Ni4zODU3ODkgOTAuODY2MDE5NiwxOTYuMjkzMTk3IEM5Ni40MDYyNjMsMTk2LjQzODQ1IDEwMS45MjEzNjIsMTk1LjQ5Nzc4MiAxMDcuMTAwMjIxLDE5My41MjQyNTQgQzExMS4yNDIyNzcsMTkxLjg5NjkwOCAxMTQuOTQwMDMsMTg5LjMxMTcwOSAxMTcuODkwNzM4LDE4NS45ODAzMTIgQzEyMC42NTk3OCwxODIuNzM0Nzc3IDEyMi42ODEyODUsMTc4LjkyMDA1NCAxMjMuODEyMDU2LDE3NC44MDYzNjMgQzEyNS4wNDQ5MywxNzAuMzYwNDI1IDEyNS42NTUzMDMsMTY1Ljc2NDk5NSAxMjUuNjI1NzMzLDE2MS4xNTEzNzcgTDEyNS42MjU3MzMsMTQ1LjEwODIyOCBMMTI1LjI0NDk1NCwxNDUuMTA4MjI4IEMxMjEuNjUzODcyLDE1MC44MDAwMTYgMTE2LjQ3NDA4OSwxNTUuMzE1MTQ2IDExMC4zNDU0NywxNTguMDk1ODU1IEMxMDQuNTAxOTU2LDE2MC42Mzk4NjIgOTguMTkzMTgzLDE2MS45NDA2NTMgOTEuODE5OTU4MSwxNjEuOTE1NTg5IEM4NS41NzQ5ODYzLDE2MS45NjI1MjMgNzkuMzgwNDQ0LDE2MC43OTQ5OTEgNzMuNTgxMDI2MSwxNTguNDc3OTYxIEM2OC4wODk4MjQzLDE1Ni4yOTc3NiA2My4wNjU1OTEyLDE1My4wODg3NzIgNTguNzc4Mzk1NCwxNDkuMDIzNDg5IEM1NC41MjQzMDU4LDE0NC45MzkxNzggNTEuMTQ1MTQ1NSwxNDAuMDMyNDg5IDQ4Ljg0NjI5MDYsMTM0LjYwMTYzOCBDNDYuNDAwMDU0NCwxMjguODY4MyA0NS4xNjQ2NzU0LDEyMi42OTE0MDQgNDUuMjE3NjA5NSwxMTYuNDU4MjMyIEM0NS4xNjQ4NTIzLDExMC4yNDMxNjMgNDYuMzMzMjg0NCwxMDQuMDc4MjQxIDQ4LjY1NjU2NDMsOTguMzEzNTAwMSBDNTAuODUyNTU5MSw5Mi44NTk1NjkgNTQuMDU5OTM4NCw4Ny44NzAwMTIxIDU4LjEwOTcwOTgsODMuNjA3NzIyNyBDNjIuMTU4OTIzOCw3OS4zODAzNzI3IDY3LjAzNTE1NjIsNzYuMDMxOTk5NCA3Mi40MzQ3MDc4LDczLjc3MTE0NDUgQzc4LjIxMjM4NTQsNzEuMzY5MDAwMiA4NC40MTgyMjU4LDcwLjE2NjkyMzMgOTAuNjc0OTY2NSw3MC4yMzc5ODk5IEM5My41MjM5MjgyLDcwLjI1NDUwNzggOTYuMzY2NDk3Myw3MC41MDk2OTU1IDk5LjE3Mjg0NjgsNzEuMDAwODc1MyBDMTAyLjI1OTAzNCw3MS41NDAwMTc0IDEwNS4yNzE3MTMsNzIuNDM3Njc2NSAxMDguMTQ5Njg2LDczLjY3NTYxNzkgQzExNC45ODI1MzYsNzYuNjM3MDYwNSAxMjAuODg4ODY2LDgxLjM4ODcxMTEgMTI1LjI0NDk1NCw4Ny40Mjg3ODM2IEwxMjUuNjI1NzMzLDg3LjQyODc4MzYgTDEyNS42MjU3MzMsNzIuNTI5Mjk5NyBMMTM4LjIzMjU4LDcyLjUyOTI5OTcgTDEzOC4yMzI1OCwxNjEuMTUxMzc3IEMxMzguMTg5NTIxLDE2Ni4zNTg1NDggMTM3LjU4MDk1LDE3MS41NDU2MzYgMTM2LjQxNzU3NiwxNzYuNjIxMzY3IEMxMzUuMjAwNTU5LDE4Mi4xMDkxODYgMTMyLjc4Nzc4LDE4Ny4yNjA5MTcgMTI5LjM1MTI2NywxOTEuNzA5MjUgQzEyNS40NDEwMTEsMTk2LjYxNjg0MSAxMjAuNDM3MjUxLDIwMC41NDE5NzMgMTE0LjczOTY5LDIwMy4xNzExMDYgQzEwOC40OTk1MDgsMjA2LjIyNTMwMSAxMDAuMzUwMTIzLDIwNy43NTIzOTkgOTAuMjkxNTMzNywyMDcuNzUyMzk5IEM4Mi4xMjA3MDQ2LDIwNy44OTE2OTMgNzQuMDA0MjU4NSwyMDYuMzk4NjcxIDY2LjQxNzg2MzcsMjAzLjM2MDgzMiBDNTkuMTU5NzcyNSwyMDAuMjUxMzgxIDUyLjY0ODk1MzksMTk1LjYyODU4MiA0Ny4zMjA1MTk4LDE4OS44MDEzNzMgTDU2LjY3ODEzODcsMTc5Ljg2Nzk0MiBaIE01OC45Njk0NDg1LDExNi4wNzc0NTMgQzU4LjkzNzkyMTMsMTIwLjYyOTI0OCA1OS44MTQ3NzE0LDEyNS4xNDE1OTggNjEuNTQ4NjY0NiwxMjkuMzUwMzMzIEM2My4yMDE3MDk1LDEzMy4zODkxMzkgNjUuNTk4MjAwMywxMzcuMDgxNzYgNjguNjEzNjQ2OSwxNDAuMjM2Mzc2IEM3MS42MTE1ODE5LDE0My4zNjMwMDggNzUuMTc2NjM3NiwxNDUuODkxMTQ1IDc5LjExODkxMDksMTQ3LjY4NjExOCBDODMuMjI1NjgzMSwxNDkuNTUyNjY0IDg3LjY5MTIxNjIsMTUwLjQ5Nzc1OCA5Mi4yMDIwNjQxLDE1MC40NTUwNiBDMTAxLjEzNTQ2OSwxNTAuNDg3Mjg0IDEwOS43NDM3NjMsMTQ3LjEwNTc1OSAxMTYuMjY2Nzg3LDE0MS4wMDE5MTUgQzExOS40NzA1MjEsMTM3Ljk3ODkxIDEyMS45Nzk3MiwxMzQuMjk2MzY3IDEyMy42MjEwMDMsMTMwLjIwODc0NSBDMTI1LjM4OTk1MywxMjUuNzE1MzI0IDEyNi4yMDMyOSwxMjAuOTAyNjMgMTI2LjAwOTE2NiwxMTYuMDc3NDUzIEMxMjYuMDQxMjA0LDExMS41NTEwOSAxMjUuMjY0ODA5LDEwNy4wNTUzNjcgMTIzLjcxNjUyOSwxMDIuODAxOTIgQzEyMi4yNDUyNTksOTguNzU5MzY1MSAxMTkuOTcxMTA2LDk1LjA1NjM2MzcgMTE3LjAzMDk5OSw5MS45MTU4NzY3IEMxMTQuMDA5MDc3LDg4LjczMjIzNDIgMTEwLjM3MDAzLDg2LjE5Nzg1NzIgMTA2LjMzNjAwOSw4NC40Njc0NjE0IEMxMDEuODY5MjksODIuNTY4OTYyOCA5Ny4wNTQ5NzIsODEuNjI1MzUxIDkyLjIwMjA2NDEsODEuNjk3MTkyMyBDODcuNjkxMjA3NCw4MS42NTU4MTIyIDgzLjIyNTg2MjYsODIuNjAxMzE4OCA3OS4xMTg5MTA5LDg0LjQ2NzQ2MTQgQzc1LjE3Nzg5MDgsODYuMjY0MDI3OCA3MS42MTMxOTY2LDg4Ljc5MTQ1ODEgNjguNjEzNjQ2OSw5MS45MTU4NzY3IEM2NS41OTkxNTk0LDk1LjA3MTUxNDcgNjMuMjAyMzk5OCw5OC43NjM4NTY1IDYxLjU0NzMzNzgsMTAyLjgwMTkyIEM1OS44MTQyMzY4LDEwNy4wMTE3NzggNTguOTM3ODU4NywxMTEuNTI0OTIyIDU4Ljk2OTQ0ODUsMTE2LjA3NzQ1MyBMNTguOTY5NDQ4NSwxMTYuMDc3NDUzIFogTTE4OS42MDcyNzUsMTYxLjkxNTU4OSBMMTc1Ljg1Njc2MiwxNjEuOTE1NTg5IEwxNzUuODU2NzYyLDI2LjY4OTgzNjYgTDIxNy40OTMwNTksMjYuNjg5ODM2NiBDMjMxLjI0NDQ1NSwyNi42ODk4MzY2IDI0Mi4wOTkwOTksMjkuNjgyMTE2NCAyNTAuMDU2OTg5LDM1LjY2NjY3NjEgQzI1OC4wMTM5OTQsNDEuNjUzMDA0OSAyNjEuOTkzMzgxLDUwLjY5MzUyODggMjYxLjk5NTE1LDYyLjc4ODI0NzkgQzI2Mi4yMzcxNzcsNzEuNTY3MjY4IDI1OS4wNTE3Nyw4MC4wOTU2MzIgMjUzLjExMzgzNyw4Ni41NjYzOTE0IEMyNDcuMTkyMDc4LDkyLjk5NzYyNjEgMjM4LjYyOTE4Niw5Ni43MjE4MzM3IDIyNy40MjUxNjMsOTcuNzM5MDE0MyBMMjY2LjM4ODA0NCwxNjEuOTE1NTg5IEwyNDkuNTc5MzU2LDE2MS45MTU1ODkgTDIxMi41MjgzMzMsOTkuMDc3NzEyMyBMMTg5LjYwODYwMSw5OS4wNzc3MTIzIEwxODkuNjA3Mjc1LDE2MS45MTU1ODkgWiBNMTg5LjYwNzI3NSw4Ni40NzIxOTE3IEwyMTQuMDU1NDMxLDg2LjQ3MjE5MTcgQzIxOS4zMDg1OTEsODYuNTgyNzUyOSAyMjQuNTUwNDU3LDg1LjkzOTM1OTggMjI5LjYyMDk0Nyw4NC41NjE2NjEyIEMyMzMuMzI5MzcxLDgzLjU3MDEyNTEgMjM2LjgwMzE3Miw4MS44NDk5MTI0IDIzOS44Mzk2MzEsNzkuNTAxNDA5IEMyNDIuMjg5MTIzLDc3LjUzMDA5MyAyNDQuMTk1MTksNzQuOTY2NDQ2MyAyNDUuMzc3NTE2LDcyLjA1Mjk5MzggQzI0Ni41Mzk1MTEsNjkuMTAzNTg5OSAyNDcuMTIzMjc3LDY1Ljk1ODE4ODkgMjQ3LjA5Njk5Myw2Mi43ODgyNDc5IEMyNDcuMTEwOTc1LDU5LjY4MjI2NzQgMjQ2LjUyNzIwNCw1Ni42MDI2MDc2IDI0NS4zNzc1MTYsNTMuNzE3MjA4NiBDMjQ0LjE4MTQ2Myw1MC43ODQyMzI2IDI0Mi4yNzkxMDQsNDguMTkyMzAyMyAyMzkuODM5NjMxLDQ2LjE3MTk0MDEgQzIzNi44MzIzOTgsNDMuNzc2ODAyIDIzMy4zNDg1NTEsNDIuMDUxMTYyNCAyMjkuNjIwOTQ3LDQxLjExMDM2MTIgQzIyNC41Mzg4NDMsMzkuODAxOTM5NyAyMTkuMzAyMjE0LDM5LjE5MTc3MzQgMjE0LjA1NTQzMSwzOS4yOTY2ODQgTDE4OS42MDcyNzUsMzkuMjk2Njg0IEwxODkuNjA3Mjc1LDg2LjQ3MjE5MTcgWiBNMjkwLjA2ODAwNywyNi42ODk4MzY2IEwzMjkuNDE0MzIsMjYuNjg5ODM2NiBDMzQzLjE2NDgzMiwyNi42ODk4MzY2IDM1NC4wMTkwMzQsMjkuNjgyNTU4NyAzNjEuOTc2OTI0LDM1LjY2ODAwMjkgQzM2OS45MzM5MjksNDEuNjU0MzMxNiAzNzMuOTEzMzE2LDUwLjY5NDg1NTYgMzczLjkxNTA4NSw2Mi43ODk1NzQ3IEMzNzMuOTE1MDg1LDc0Ljg4NzgzMTggMzY5LjkzNTY5OCw4My45NTk3NTU3IDM2MS45NzY5MjQsOTAuMDA1MzQ2MiBDMzU0LjAxOTAzNCw5Ni4wNTQ0NzQ4IDM0My4xNjQ4MzIsOTkuMDc4NTk2OCAzMjkuNDE0MzIsOTkuMDc3NzEyMyBMMzAzLjgyMTE3Myw5OS4wNzc3MTIzIEwzMDMuODIxMTczLDE2MS45MTU1ODkgTDI5MC4wNjgwMDcsMTYxLjkxNTU4OSBMMjkwLjA2ODAwNywyNi42ODk4MzY2IFogTTMwMy44MjI1LDg2LjQ3MzUxODQgTDMyNS45NzgwMTksODYuNDczNTE4NCBDMzMxLjIzMTE2OSw4Ni41ODM4NzgzIDMzNi40NzMwMDcsODUuOTQwNDg4NyAzNDEuNTQzNTM1LDg0LjU2Mjk4OCBDMzQ1LjI1MTgwOCw4My41NzEwNTIxIDM0OC43MjU1MzQsODEuODUwODc2OSAzNTEuNzYyMjE5LDc5LjUwMjczNTggQzM1NC4yMTE0NTcsNzcuNTMxMTc0MyAzNTYuMTE3NDcsNzQuOTY3NTk5NSAzNTcuMzAwMTA0LDcyLjA1NDMyMDYgQzM1OC40NjI1NzksNjkuMTA1MDU0MiAzNTkuMDQ2MzYyLDY1Ljk1OTU1OTIgMzU5LjAxOTU4Miw2Mi43ODk1NzQ3IEMzNTkuMDM0MDU5LDU5LjY4MzU0ODcgMzU4LjQ1MDI3MSw1Ni42MDM3OTUgMzU3LjMwMDEwNCw1My43MTg1MzUzIEMzNTYuMTAzODEsNTAuNzg1Njk0NCAzNTQuMjAxNDkxLDQ4LjE5MzgxODcgMzUxLjc2MjIxOSw0Ni4xNzMyNjY4IEMzNDguNzU0NzQ0LDQzLjc3ODUwOTIgMzQ1LjI3MDk4Myw0Mi4wNTI5MTIxIDM0MS41NDM1MzUsNDEuMTExNjg3OSBDMzM2LjQ2MTM5OCwzOS44MDM0NDUxIDMzMS4yMjQ3OTQsMzkuMTkzMjgxNiAzMjUuOTc4MDE5LDM5LjI5ODAxMDcgTDMwMy44MjExNzMsMzkuMjk4MDEwNyBMMzAzLjgyMjUsODYuNDczNTE4NCBaIE01MTIsMTQwLjUyNDI4MiBDNTA5LjU4MDMwOCwxNDQuMTA5MjIxIDUwNi43MjY0NTQsMTQ3LjM4MTA4MSA1MDMuNTAzNDQ3LDE1MC4yNjUzMzQgQzUwMC4wMTM5NTUsMTUzLjQwMDEzMSA0OTYuMTI4ODkyLDE1Ni4wNjQzNjYgNDkxLjk0NzM5MSwxNTguMTkwMDU1IEM0ODcuNDgzMzY5LDE2MC40Njk0NDcgNDgyLjc3Mzg5MywxNjIuMjMyMTYyIDQ3Ny45MTAyOTksMTYzLjQ0NDAxNCBDNDcyLjY5MzE4NywxNjQuNzM4ODU5IDQ2Ny4zMzUzNTIsMTY1LjM4MDE3NyA0NjEuOTYwMDIzLDE2NS4zNTMyMTcgQzQ1Mi4zNzE2MDQsMTY1LjQ0Mjk0IDQ0Mi44NjEwMjYsMTYzLjYyNTQzMSA0MzMuOTgxMzY2LDE2MC4wMDYzODYgQzQxNy4wNDY2NjIsMTUzLjE2Mjk3MSA0MDMuNjMyMDY1LDEzOS43MTM4NzkgMzk2LjgzMjE2MywxMjIuNzYxNjU2IEMzOTMuMTkzMjU4LDExMy43MTk5ODMgMzkxLjM3NjIwMywxMDQuMDQ4NTYzIDM5MS40ODUzMzIsOTQuMzAyNzEzIEMzOTEuMzc2MzQzLDg0LjU1Njg3NTYgMzkzLjE5MzM5Miw3NC44ODU0ODI3IDM5Ni44MzIxNjMsNjUuODQzNzY5OSBDNDAzLjYzMTg3Nyw0OC44OTIwMzIzIDQxNy4wNDY2NiwzNS40NDM3MTIyIDQzMy45ODEzNjYsMjguNjAxNjkzOCBDNDQyLjg2MDgwMiwyNC45ODE3NTE4IDQ1Mi4zNzE0NzMsMjMuMTYzNzc0MSA0NjEuOTYwMDIzLDIzLjI1MzUzNTMgQzQ3MC42MDI0MiwyMy4yOTk4MzU5IDQ3OS4xNTc2NTcsMjQuOTg0NTAxNCA0ODcuMTcyMzkyLDI4LjIxODI2MDkgQzQ5NS43MjA0NCwzMS42MzkyMTc4IDUwMy4xNzkzOTMsMzcuMzE2NjYxIDUwOC43NTM0MjUsNDQuNjQ0ODQyNSBMNDk2LjcyMjM5LDUzLjYyMTY4MjEgQzQ5NS4xMDYyMDMsNTEuMjEzODkyNSA0OTMuMTc4OTk5LDQ5LjAzMDE3NCA0OTAuOTkwNzk5LDQ3LjEyNzIwNTMgQzQ4OC40NjM1NjIsNDQuODg5NDgxMiA0ODUuNjc0Nzg1LDQyLjk2NTg0ODggNDgyLjY4NTI5OCw0MS4zOTgyNjc1IEM0NzkuNDkxMDEzLDM5LjcxNTkzODEgNDc2LjEyOTgwNSwzOC4zNzE3MjE3IDQ3Mi42NTYzNCwzNy4zODc0ODAzIEM0NjkuMTc5NjQ3LDM2LjM4MTU4MjEgNDY1LjU3OTMsMzUuODY3MTE5NCA0NjEuOTYwMDIzLDM1Ljg1OTA1NTkgQzQ1My45Mzc0MzcsMzUuNzI3NDcyIDQ0NS45ODM2NTUsMzcuMzU3NDQ5MiA0MzguNjU5NTEzLDQwLjYzNDA1NTMgQzQzMi4wMTQ3NTMsNDMuNjQ4NzU2MiA0MjYuMDY1MjU1LDQ4LjAwNTA2NjEgNDIxLjE4NDc5Myw1My40MjkzMDIzIEM0MTYuMzU0NDEsNTguODY5MTM2OCA0MTIuNjI0MjEyLDY1LjE5MzY2NzcgNDEwLjIwMDU2OSw3Mi4wNTI5OTM4IEM0MDUuMTA4NDkxLDg2LjQ0OTEyNDQgNDA1LjEwODQ5MSwxMDIuMTU2MzAyIDQxMC4yMDA1NjksMTE2LjU1MjQzMiBDNDEyLjYyMzc4NSwxMjMuNDExNTU5IDQxNi4zNTQwMzksMTI5LjczNTczMyA0MjEuMTg0NzkzLDEzNS4xNzQ3OTcgQzQyNi4wNjM4NjEsMTQwLjYwMDkxMSA0MzIuMDEzNjgxLDE0NC45NTc5MDkgNDM4LjY1OTUxMywxNDcuOTcxMzcxIEM0NDUuOTgyOTY2LDE1MS4yNTAyNTEgNDUzLjkzNzE2MSwxNTIuODgwNzY1IDQ2MS45NjAwMjMsMTUyLjc0NzY5NyBDNDY1LjUxNTE3MywxNTIuNzQ5MDY3IDQ2OS4wNjMxODIsMTUyLjQyOTM0NyA0NzIuNTYwODE0LDE1MS43OTI0MzIgQzQ3Ni4xMTkyMjMsMTUxLjEzODE1MSA0NzkuNTgzNDEzLDE1MC4wNDc3MzggNDgyLjg3NTAyNSwxNDguNTQ1ODU3IEM0ODYuMzQ0OTA5LDE0Ni45NTQzMzEgNDg5LjU2MjUwOCwxNDQuODYyMzExIDQ5Mi40MjUwMjMsMTQyLjMzNjYzMyBDNDk1LjY0MDk0MiwxMzkuNDYzOTU0IDQ5OC40MzcyMjUsMTM2LjE1MzYxMiA1MDAuNzMxODUxLDEzMi41MDI3MDggTDUxMiwxNDAuNTI0MjgyIFoiPjwvcGF0aD4KICAgICAgICA8cG9seWdvbiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNS40ODE4NjgsIDM1LjQ4MTg2OCkgcm90YXRlKC0xMzUuMjEzMDAwKSB0cmFuc2xhdGUoLTM1LjQ4MTg2OCwgLTM1LjQ4MTg2OCkgIiBwb2ludHM9IjEwLjM5MjIyNTIgMTAuMzkyMjI1MiA2MC41NzE1MTEzIDEwLjM5MjIyNTIgNjAuNTcxNTExMyA2MC41NzE1MTEzIDEwLjM5MjIyNTIgNjAuNTcxNTExMyI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5Z29uIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMi40NDYyMDcsIDM1LjA2MjYxMCkgcm90YXRlKC0xMzUuMjEzMDAwKSB0cmFuc2xhdGUoLTEzMi40NDYyMDcsIC0zNS4wNjI2MTApICIgcG9pbnRzPSIxMTcuNzI5ODE1IDIwLjM0NjIxOCAxNDcuMTYyNTk4IDIwLjM0NjIxOCAxNDcuMTYyNTk4IDQ5Ljc3OTAwMSAxMTcuNzI5ODE1IDQ5Ljc3OTAwMSI+PC9wb2x5Z29uPgogICAgICAgIDxwb2x5Z29uIGNsYXNzPSJncnBjTG9nbzIwMjUwMjIwIiBwb2ludHM9IjM2LjkwOTQ1NTYgMTQuMDI3MjY1MyAxNS41MDIyMjczIDM1LjU5NTAzMTMgMzcuMDY4NjY2NSA1Ny4wMDIyNTk1IDU1LjMxNDIzMjIgNTYuOTM0NTk0OSAzNi4xODEwNjU5IDM3Ljk1NTMzMjQgMTMwLjY1ODEyMyAzNy42MDUwNjg1IDEyMi4zNzc4MzEgNDUuOTQxMDg0MyAxMzEuNTAwNjE0IDQ1LjkwNzkxNTQgMTQyLjIwNDg5MiAzNS4xMjQwMzI0IDEzMS40MjEwMDkgMjQuNDIxMDgxNyAxMjIuMjk4MjI2IDI0LjQ1NDI1MDYgMTMwLjY0MDg3NSAzMi43MzA1NjIzIDM2LjE2MzgxOCAzMy4wODA4MjYzIDU1LjE1MzY5NDYgMTMuOTU5NjAwNyI+PC9wb2x5Z29uPgogICAgPC9nPgo8L3N2Zz4=&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="High-performance RPC framework using HTTP/2 and Protocol Buffers for APIs." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="eebd0cda-d73b-40d2-93e4-94e9a65c3637" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.AspNetCore.Grpc</name>
+          <display>Intent.AspNetCore.Grpc</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>84b74c19-5db9-4656-8ab7-d9a09cbc0322</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.7" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="2110c29f-18b1-4715-9dd0-35e6c4bb6a5f" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Kafka</name>
+      <display>Kafka (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;type&quot;:0,&quot;source&quot;:&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMzIgMzIiIHZlcnNpb249IjEuMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPgogIDxzdHlsZT4KICAgIC5rYWZrYUxvZ28gewogICAgICBmaWxsOiAjMDAwMDAwCiAgICB9CgogICAgW2RhdGEtdGhlbWU9ImRhcmsiXSAua2Fma2FMb2dvIHsKICAgICAgZmlsbDogI2ZmZmZmZgogICAgfQogIDwvc3R5bGU+CiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC4wNjcwMzE3OCwwLDAsMC4wNjcwMzIwNCw1LjYwOTU4NjYsMS4wMTUwODEpIj4KICAgIDxwYXRoIGNsYXNzPSJrYWZrYUxvZ28iIGQ9Im0gMjM3LjYxNjg2LDI0OS4yNjc3NCBjIC0xOC41OTAxNywwIC0zNS4yNTY1NSw4LjIzNjE0IC00Ni42Njk1MywyMS4yMDMwOSBMIDE2MS43MDIyLDI0OS43NjczNiBjIDMuMTA0NDksLTguNTQ3MzkgNC44ODcwMiwtMTcuNzI1MzMgNC44ODcwMiwtMjcuMzMxNjcgMCwtOS40Mzk4IC0xLjcyMDUxLC0xOC40NjM4MyAtNC43MjI3OCwtMjYuODg0ODkgbCAyOS4xNzk2NiwtMjAuNDg0MSBjIDExLjQxMTg0LDEyLjkwMTQ4IDI4LjAzNDU3LDIxLjA5MjgzIDQ2LjU3MDc2LDIxLjA5MjgzIDM0LjMxMjQ2LDAgNjIuMjMyMTgsLTI3LjkxNTEzIDYyLjIzMjE4LC02Mi4yMzIxOCAwLC0zNC4zMTcwNDkgLTI3LjkxOTcyLC02Mi4yMzIxNzEgLTYyLjIzMjE4LC02Mi4yMzIxNzEgLTM0LjMxMjQ1LDAgLTYyLjIzMjE3LDI3LjkxNTEyMiAtNjIuMjMyMTcsNjIuMjMyMTcxIDAsNi4xNDIzNiAwLjkyODAyLDEyLjA2NTM1IDIuNTkzMzksMTcuNjc0NzkgTCAxNDguNzc4OSwxNzIuMDk2NTkgQyAxMzYuNTgxNDcsMTU2Ljk2NDY1IDExOS4wMTkyMywxNDYuMzk5MjggOTkuMDA5NDczLDE0My4xNzQyIGwgMCwtMzUuMTkxMDggYyAyOC4xODk2MTcsLTUuOTIwNyA0OS40Mjk0NTcsLTMwLjk2Njc4MiA0OS40Mjk0NTcsLTYwLjg5NDEzNiAwLC0zNC4zMTcwNTIgLTI3LjkxOTcxLC02Mi4yMzIxNzQgLTYyLjIzMjE2NywtNjIuMjMyMTc0IC0zNC4zMTI0NTgsMCAtNjIuMjMyMTc0LDI3LjkxNTEyMiAtNjIuMjMyMTc0LDYyLjIzMjE3NCAwLDI5LjUyNjUxNSAyMC42ODk2OTQsNTQuMjYzNjQ2IDQ4LjMxNTM4Niw2MC42MDY5OTYgbCAwLDM1LjY0ODIgYyAtMzcuNzAxNzgyLDYuNjE3ODYgLTY2LjQ2NTY3MTIsMzkuNTIxMDYgLTY2LjQ2NTY3MTIsNzkuMDkxNTEgMCwzOS43NjM0IDI5LjA0ODcyNTIsNzIuNzg3MiA2Ny4wMjI3MTAyLDc5LjE3OTk0IGwgMCwzNy42NDIwNiBjIC0yNy45MDgyMzEsNi4xMzQzMiAtNDguODcyNDI1LDMxLjAyMzA2IC00OC44NzI0MjUsNjAuNzUwNTcgMCwzNC4zMTcwNSAyNy45MTk3MTYsNjIuMjMyMTcgNjIuMjMyMTc0LDYyLjIzMjE3IDM0LjMxMjQ1NywwIDYyLjIzMjE2NywtMjcuOTE1MTIgNjIuMjMyMTY3LC02Mi4yMzIxNyAwLC0yOS43Mjc1MSAtMjAuOTY0MTksLTU0LjYxNjI1IC00OC44NzI0MTgsLTYwLjc1MDU3IGwgMCwtMzcuNjQzMiBDIDExOS4xODIzMiwyOTguMzExMyAxMzYuNDIxODIsMjg3Ljk1NDk3IDE0OC40OTQwNiwyNzMuMTU4NCBsIDI5LjQ0MDM4LDIwLjgzNzg2IGMgLTEuNjM0MzcsNS41NTg5IC0yLjU0OTc1LDExLjQyMzMyIC0yLjU0OTc1LDE3LjUwMzY2IDAsMzQuMzE3MDUgMjcuOTE5NzIsNjIuMjMyMTcgNjIuMjMyMTcsNjIuMjMyMTcgMzQuMzEyNDYsMCA2Mi4yMzIxOCwtMjcuOTE1MTIgNjIuMjMyMTgsLTYyLjIzMjE3IDAsLTM0LjMxNzA1IC0yNy45MTk3MiwtNjIuMjMyMTggLTYyLjIzMjE4LC02Mi4yMzIxOCBsIDAsMCB6IG0gMCwtMTQ1LjUxMzUzIGMgMTYuNjM4ODIsMCAzMC4xNzIsMTMuNTM4OTIgMzAuMTcyLDMwLjE3MzE0IDAsMTYuNjM0MjIgLTEzLjUzMzE4LDMwLjE3MTk5IC0zMC4xNzIsMzAuMTcxOTkgLTE2LjYzODgxLDAgLTMwLjE3MTk5LC0xMy41Mzc3NyAtMzAuMTcxOTksLTMwLjE3MTk5IDAsLTE2LjYzNDIyIDEzLjUzMzE4LC0zMC4xNzMxNCAzMC4xNzE5OSwtMzAuMTczMTQgbCAwLDAgeiBNIDU2LjAzMzYyMiw0Ny4wODg5ODQgYyAwLC0xNi42MzQyMiAxMy41MzQzMjcsLTMwLjE3MTk5MiAzMC4xNzMxNDEsLTMwLjE3MTk5MiAxNi42Mzg4MTcsMCAzMC4xNzE5ODcsMTMuNTM3NzcyIDMwLjE3MTk4NywzMC4xNzE5OTIgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkxIC0zMC4xNzE5ODcsMzAuMTcxOTkxIC0xNi42Mzg4MTQsMCAtMzAuMTczMTQxLC0xMy41Mzc3NzEgLTMwLjE3MzE0MSwtMzAuMTcxOTkxIGwgMCwwIHogTSAxMTYuMzc4NzUsNDAwLjAwODI2IGMgMCwxNi42MzQyMiAtMTMuNTMzMTcsMzAuMTcxOTkgLTMwLjE3MTk4NywzMC4xNzE5OSAtMTYuNjM4ODE0LDAgLTMwLjE3MzE0MSwtMTMuNTM3NzcgLTMwLjE3MzE0MSwtMzAuMTcxOTkgMCwtMTYuNjM0MjIgMTMuNTM0MzI3LC0zMC4xNzIgMzAuMTczMTQxLC0zMC4xNzIgMTYuNjM4ODE3LDAgMzAuMTcxOTg3LDEzLjUzNzc4IDMwLjE3MTk4NywzMC4xNzIgbCAwLDAgeiBNIDg2LjIwNDQ2NiwyNjQuNTE1NjggYyAtMjMuMjA2MTMzLDAgLTQyLjA4NDU4OCwtMTguODc1MDEgLTQyLjA4NDU4OCwtNDIuMDc5OTkgMCwtMjMuMjA2MTMgMTguODc4NDU1LC00Mi4wODQ1OSA0Mi4wODQ1ODgsLTQyLjA4NDU5IDIzLjIwNDk4NCwwIDQyLjA4MzQzNCwxOC44Nzg0NiA0Mi4wODM0MzQsNDIuMDg0NTkgMCwyMy4yMDQ5OCAtMTguODc4NDUsNDIuMDc5OTkgLTQyLjA4MzQzNCw0Mi4wNzk5OSBsIDAsMCB6IG0gMTUxLjQxMjM5NCw3Ny4xNTczOCBjIC0xNi42Mzg4MSwwIC0zMC4xNzE5OSwtMTMuNTM4OTIgLTMwLjE3MTk5LC0zMC4xNzMxNCAwLC0xNi42MzQyMiAxMy41MzMxOCwtMzAuMTcxOTkgMzAuMTcxOTksLTMwLjE3MTk5IDE2LjYzODgyLDAgMzAuMTcyLDEzLjUzNzc3IDMwLjE3MiwzMC4xNzE5OSAwLDE2LjYzNDIyIC0xMy41MzMxOCwzMC4xNzMxNCAtMzAuMTcyLDMwLjE3MzE0IGwgMCwwIHoiLz4KICA8L2c+Cjwvc3ZnPgo=&quot;}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Integrate applications using a Pub/Sub pattern with Kafka." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="4a4f0852-8058-4fed-9a92-46d06b11f954" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Eventing.Kafka</name>
+          <display>Intent.Eventing.Kafka</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>2110c29f-18b1-4715-9dd0-35e6c4bb6a5f</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.0.0-beta.26" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+    <childElement id="336b3caf-a269-40c2-8dd9-4d1c3b0571fe" type="Component" typeId="47064ef1-2295-4287-8301-c446910a1b1e">
+      <name>Azure Service Bus</name>
+      <display>Azure Service Bus (1)</display>
+      <isAbstract>false</isAbstract>
+      <sort-children>by-type-then-manually</sort-children>
+      <genericTypes />
+      <isMapped>false</isMapped>
+      <parentFolderId>9ae48bc2-1fe5-4229-b2b7-0853f9b05e77</parentFolderId>
+      <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+      <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+      <stereotypes>
+        <stereotype stereotypeDefinitionId="78da9b5b-428f-4b1e-a5e5-120c7b3d87d3" name="Component Settings">
+          <addedByDefault>true</addedByDefault>
+          <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+          <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+          <properties>
+            <property name="004dc68b-f2c0-4859-9f03-fb2e29505437" display="Icon" value="{&quot;source&quot;:&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOCAxOCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJiYmQwMjg3OC0zMDlhLTQ0OTAtODE5Ni05NDYzMzhkMGY1OTMiIHgxPSI4Ljk5NSIgeTE9IjEwLjI5OSIgeDI9IjguOTk1IiB5Mj0iMTMuMTk5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDA1YmExIi8+PHN0b3Agb2Zmc2V0PSIwLjI1OCIgc3RvcC1jb2xvcj0iIzAwNTg5ZCIvPjxzdG9wIG9mZnNldD0iMC41MjUiIHN0b3AtY29sb3I9IiMwMDRmOTAiLz48c3RvcCBvZmZzZXQ9IjAuNzk2IiBzdG9wLWNvbG9yPSIjMDAzZjdjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDAzMDY3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PGc+PGcgaWQ9ImI1MzJlNjAwLTM2MjMtNGJlNi05ZmE2LTMwZDA1ZmZmNTZiMSI+PHBvbHlnb24gcG9pbnRzPSIxMy4zODcgNy40IDEzLjM4MiA3LjM5NiAxMy4zODIgNy4zODQgMTMuMzYzIDcuMzg0IDguOTk3IDQuNDA1IDQuNjMxIDcuMzg0IDQuNjEyIDcuMzg0IDQuNjEyIDcuMzk2IDQuNjA2IDcuNCA0LjYxMiA3LjQgNC42MTIgMTMuMjAxIDEzLjM4MiAxMy4yMDEgMTMuMzgyIDcuNCAxMy4zODcgNy40IiBmaWxsPSIjNTBlNmZmIi8+PHBhdGggZD0iTTQuNjA2LDcuNGMwLS4xLjAwOCw1LjY4MS4wMDgsNS44TDguOTk1LDEwLjNaIiBmaWxsPSIjMzJiZWRkIi8+PHBhdGggZD0iTTEzLjM4NCw3LjQsOC45OTUsMTAuMywxMy4zNzYsMTMuMkMxMy4zNzYsMTMuMDgzLDEzLjM4NCw3LjMsMTMuMzg0LDcuNFoiIGZpbGw9IiMxOThhYjMiLz48cG9seWdvbiBwb2ludHM9IjguOTk1IDEwLjI5OSA0LjYxNCAxMy4xOTQgNC42MTQgMTMuMTk5IDEzLjM3NiAxMy4xOTkgMTMuMzc2IDEzLjE5NCA4Ljk5NSAxMC4yOTkiIGZpbGw9InVybCgjYmJkMDI4NzgtMzA5YS00NDkwLTgxOTYtOTQ2MzM4ZDBmNTkzKSIvPjxnPjxwYXRoIGQ9Ik0xLjA3MiwxLjQzaDEuMjlhMCwwLDAsMCwxLDAsMHYzLjZhLjI4Ni4yODYsMCwwLDEtLjI4Ni4yODZILjc4NkEuMjg2LjI4NiwwLDAsMSwuNSw1LjAzNVYyQS41NzIuNTcyLDAsMCwxLDEuMDcyLDEuNDNaIiBmaWxsPSIjOTk5Ii8+PHBhdGggZD0iTTEuMDcyLDEuNDNoMS4yOWEwLDAsMCwwLDEsMCwwdjMuNmEuMjg2LjI4NiwwLDAsMS0uMjg2LjI4NkguNzg2QS4yODYuMjg2LDAsMCwxLC41LDUuMDM1VjJBLjU3Mi41NzIsMCwwLDEsMS4wNzIsMS40M1oiIGZpbGw9IiM5OTkiIG9wYWNpdHk9IjAuNSIvPjwvZz48Zz48cGF0aCBkPSJNMTUuNjM4LDEuNDNoMS4yOUEuNTcyLjU3MiwwLDAsMSwxNy41LDJWNS4wMzVhLjI4Ni4yODYsMCwwLDEtLjI4Ni4yODZoLTEuMjlhLjI4Ni4yODYsMCwwLDEtLjI4Ni0uMjg2VjEuNDNBMCwwLDAsMCwxLDE1LjYzOCwxLjQzWiIgZmlsbD0iIzk5OSIvPjxwYXRoIGQ9Ik0xNS42MzgsMS40M2gxLjI5QS41NzIuNTcyLDAsMCwxLDE3LjUsMlY1LjAzNWEuMjg2LjI4NiwwLDAsMS0uMjg2LjI4NmgtMS4yOWEuMjg2LjI4NiwwLDAsMS0uMjg2LS4yODZWMS40M0EwLDAsMCwwLDEsMTUuNjM4LDEuNDNaIiBmaWxsPSIjOTk5IiBvcGFjaXR5PSIwLjUiLz48L2c+PHBhdGggZD0iTTguNjYtNi4xNjNIOS45MDdhMCwwLDAsMCwxLDAsMHYxN2EwLDAsMCwwLDEsMCwwSDguNjZhLjU2Ny41NjcsMCwwLDEtLjU2Ny0uNTY3Vi01LjZBLjU2Ny41NjcsMCwwLDEsOC42Ni02LjE2M1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDExLjMzNyAtNi42NjMpIHJvdGF0ZSg5MCkiIGZpbGw9IiM5NDk0OTQiLz48Zz48cGF0aCBkPSJNLjc4NiwxMi42NzloMS4yOWEuMjg2LjI4NiwwLDAsMSwuMjg2LjI4NnYzLjZhMCwwLDAsMCwxLDAsMEgxLjA3MkEuNTcyLjU3MiwwLDAsMSwuNSwxNlYxMi45NjVBLjI4Ni4yODYsMCwwLDEsLjc4NiwxMi42NzlaIiBmaWxsPSIjOTk5Ii8+PHBhdGggZD0iTS43ODYsMTIuNjc5aDEuMjlhLjI4Ni4yODYsMCwwLDEsLjI4Ni4yODZ2My42YTAsMCwwLDAsMSwwLDBIMS4wNzJBLjU3Mi41NzIsMCwwLDEsLjUsMTZWMTIuOTY1QS4yODYuMjg2LDAsMCwxLC43ODYsMTIuNjc5WiIgZmlsbD0iIzk5OSIgb3BhY2l0eT0iMC41Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0xNS45MjQsMTIuNjc5aDEuMjlhLjI4Ni4yODYsMCwwLDEsLjI4Ni4yODZWMTZhLjU3Mi41NzIsMCwwLDEtLjU3Mi41NzJoLTEuMjlhMCwwLDAsMCwxLDAsMHYtMy42QS4yODYuMjg2LDAsMCwxLDE1LjkyNCwxMi42NzlaIiBmaWxsPSIjOTk5Ii8+PHBhdGggZD0iTTE1LjkyNCwxMi42NzloMS4yOWEuMjg2LjI4NiwwLDAsMSwuMjg2LjI4NlYxNmEuNTcyLjU3MiwwLDAsMS0uNTcyLjU3MmgtMS4yOWEwLDAsMCwwLDEsMCwwdi0zLjZBLjI4Ni4yODYsMCwwLDEsMTUuOTI0LDEyLjY3OVoiIGZpbGw9IiM5OTkiIG9wYWNpdHk9IjAuNSIvPjwvZz48cGF0aCBkPSJNOC42Niw3LjE2M0g5LjkwN2EwLDAsMCwwLDEsMCwwdjE3YTAsMCwwLDAsMSwwLDBIOC42NmEuNTY3LjU2NywwLDAsMS0uNTY3LS41NjdWNy43M0EuNTY3LjU2NywwLDAsMSw4LjY2LDcuMTYzWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTYuNjYzIDI0LjY2Mykgcm90YXRlKC05MCkiIGZpbGw9IiM5NDk0OTQiLz48L2c+PC9nPjwvc3ZnPg==&quot;,&quot;type&quot;:0,&quot;absolutePathRelativeTo&quot;:null}" isActive="true" />
+            <property name="476744d2-a4bc-4750-a9db-7022edf576c5" display="Description" value="Integrate applications using a Pub/Sub pattern with Azure Service Bus directly." isActive="true" />
+            <property name="b928f640-5dfd-4676-b8c9-4aadac826d18" display="Include by Default" value="false" isActive="true" />
+            <property name="07af017d-20a4-4e73-978f-ca4a59351f70" display="Is Required" value="false" isActive="true" />
+            <property name="ed4d09bb-52e7-43dc-91db-6244d5390e53" display="Dependencies" value="[]" isActive="true" />
+          </properties>
+        </stereotype>
+      </stereotypes>
+      <metadata />
+      <childElements>
+        <childElement id="209d9294-8777-4426-903c-d862ca697a4d" type="Component Module" typeId="ef75f8f0-520c-4ab8-814f-5e75f4877dd7">
+          <name>Intent.Eventing.AzureServiceBus</name>
+          <display>Intent.Eventing.AzureServiceBus</display>
+          <isAbstract>false</isAbstract>
+          <genericTypes />
+          <isMapped>false</isMapped>
+          <parentFolderId>336b3caf-a269-40c2-8dd9-4d1c3b0571fe</parentFolderId>
+          <packageId>a4d094db-4aab-467a-970a-2c6c9aaabe82</packageId>
+          <packageName>Intent.ApplicationTemplate.AspNetCore.Blazor.Server</packageName>
+          <stereotypes>
+            <stereotype stereotypeDefinitionId="7033e6f4-2a22-4357-bd65-f0ec06c516d5" name="Module Settings">
+              <addedByDefault>true</addedByDefault>
+              <definitionPackageName>Intent.ApplicationTemplate.Builder</definitionPackageName>
+              <definitionPackageId>002e9a7f-e5b7-4392-a60f-b60ae4e86262</definitionPackageId>
+              <properties>
+                <property name="8235e942-6dec-4576-be44-3543b35ca44c" display="Version" value="1.1.3" isActive="true" />
+                <property name="860a2a3a-9812-4fff-acc6-b342ddb23f96" display="Include By Default" value="true" isActive="true" />
+                <property name="42e43cfe-4073-4f7f-8a7e-ef79c150c8c7" display="Is Required" value="true" isActive="true" />
+                <property name="4bdd0a51-5a47-4119-b0bb-cd1240ac7850" display="Include Assets" value="All" isActive="true" />
+                <property name="478326e2-5290-428e-aef9-10f2c67f24c2" display="Included Assets" value="null" isActive="false" />
+              </properties>
+            </stereotype>
+          </stereotypes>
+          <metadata />
+          <childElements />
+        </childElement>
+      </childElements>
+    </childElement>
+  </childElements>
+</class>

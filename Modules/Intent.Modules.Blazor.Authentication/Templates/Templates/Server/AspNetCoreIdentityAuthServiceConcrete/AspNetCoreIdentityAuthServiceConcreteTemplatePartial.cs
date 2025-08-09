@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AuthServiceInterface;
@@ -38,19 +40,29 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                 .AddUsing("System.Collections.Generic")
                 .AddClass($"AspNetCoreIdentityAuthServiceConcrete", @class =>
                 {
+                    var identityUserName = string.Empty;
+                    if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                    {
+                        identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                    }
+                    else
+                    {
+                        identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                    }
+
                     @class.Internal();
                     @class.ImplementsInterface(GetTypeName(AuthServiceInterfaceTemplate.TemplateId));
                     @class.AddConstructor(ctor =>
                     {
-                        ctor.AddParameter($"SignInManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "signInManager", param =>
+                        ctor.AddParameter($"SignInManager<{identityUserName}>", "signInManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "userManager", param =>
+                        ctor.AddParameter($"UserManager<{identityUserName}>", "userManager", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"IUserStore<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "userStore", param =>
+                        ctor.AddParameter($"IUserStore<{identityUserName}>", "userStore", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -62,7 +74,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         {
                             param.IntroduceReadonlyField();
                         });
-                        ctor.AddParameter($"IEmailSender<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "emailSender", param =>
+                        ctor.AddParameter($"IEmailSender<{identityUserName}>", "emailSender", param =>
                         {
                             param.IntroduceReadonlyField();
                         });
@@ -140,7 +152,10 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         method.AddParameter("string", "returnUrl");
 
                         method.AddAssignmentStatement("var user", new CSharpStatement("CreateUser();"));
-
+                        if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                        {
+                            method.AddStatement("user.Id = Guid.NewGuid().ToString();");
+                        }
                         method.AddStatement("await _userStore.SetUserNameAsync(user, email, CancellationToken.None);");
                         method.AddAssignmentStatement("var emailStore", new CSharpStatement("GetEmailStore();"));
                         method.AddStatement("await emailStore.SetEmailAsync(user, email, CancellationToken.None);");
@@ -168,19 +183,19 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                         });
                     });
 
-                    @class.AddMethod(GetTypeName(ApplicationUserTemplate.TemplateId), "CreateUser", method =>
+                    @class.AddMethod(identityUserName, "CreateUser", method =>
                     {
                         method.Private();
                         method.AddTryBlock(@try =>
                         {
-                            @try.AddReturn($"Activator.CreateInstance<{GetTypeName(ApplicationUserTemplate.TemplateId)}>();");
+                            @try.AddReturn($"Activator.CreateInstance<{identityUserName}>();");
                         }).AddCatchBlock(@catch =>
                         {
-                            @catch.AddStatement($"throw new InvalidOperationException($\"Can't create an instance of '{{nameof({GetTypeName(ApplicationUserTemplate.TemplateId)})}}'. \" + $\"Ensure that '{{nameof({GetTypeName(ApplicationUserTemplate.TemplateId)})}}' is not an abstract class and has a parameterless constructor.\");");
+                            @catch.AddStatement($"throw new InvalidOperationException($\"Can't create an instance of '{{nameof({identityUserName})}}'. \" + $\"Ensure that '{{nameof({identityUserName})}}' is not an abstract class and has a parameterless constructor.\");");
                         });
                     });
 
-                    @class.AddMethod($"IUserEmailStore<{GetTypeName(ApplicationUserTemplate.TemplateId)}>", "GetEmailStore", method =>
+                    @class.AddMethod($"IUserEmailStore<{identityUserName}>", "GetEmailStore", method =>
                     {
                         method.Private();
                         method.AddIfStatement("!_userManager.SupportsUserEmail", @if =>
@@ -188,7 +203,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.AspNet
                             @if.AddStatement("throw new NotSupportedException(\"The default UI requires a user store with email support.\");");
                         });
 
-                        method.AddReturn($"(IUserEmailStore<{GetTypeName(ApplicationUserTemplate.TemplateId)}>)_userStore");
+                        method.AddReturn($"(IUserEmailStore<{identityUserName}>)_userStore");
                     });
 
                     @class.AddMethod("Task", "ResendEmailConfirmation", method =>

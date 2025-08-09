@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<class id="a726a9ac-e016-40b5-a8cb-b2cb3d9c6832" type="Module Migrations" typeId="8cfd2eab-c1bf-46bc-a86f-3ed0263a380f">
+  <name>Migrations</name>
+  <display>Migrations</display>
+  <isAbstract>false</isAbstract>
+  <sort-children>by-type-then-by-name</sort-children>
+  <genericTypes />
+  <isMapped>false</isMapped>
+  <parentFolderId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</parentFolderId>
+  <packageId>0b3d2a28-1ba9-4097-af45-7d93fdd4dc3a</packageId>
+  <packageName>Intent.Blazor.Wasm</packageName>
+  <stereotypes />
+  <metadata />
+  <childElements />
+</class>

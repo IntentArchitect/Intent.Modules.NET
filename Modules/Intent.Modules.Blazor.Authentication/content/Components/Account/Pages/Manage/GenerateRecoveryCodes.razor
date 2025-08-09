@@ -2,7 +2,7 @@
 
 @using Microsoft.AspNetCore.Identity
 
-@inject UserManager<ApplicationUser> UserManager
+@inject UserManager<<#= IdentityClass #>> UserManager
 @inject IdentityUserAccessor UserAccessor
 @inject IdentityRedirectManager RedirectManager
 @inject ILogger<GenerateRecoveryCodes> Logger
@@ -39,7 +39,7 @@ else
 
 @code {
     private string? message;
-    private ApplicationUser user = default!;
+    private <#= IdentityClass #> user = default!;
     private IEnumerable<string>? recoveryCodes;
 
     [CascadingParameter]

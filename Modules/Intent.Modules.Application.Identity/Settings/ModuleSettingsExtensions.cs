@@ -89,5 +89,7 @@ namespace Intent.Modules.Application.Identity.Settings
             Long,
             Int,
         }
+
+        public bool KeepSyncAccessors() => bool.TryParse(_groupSettings.GetSetting("fb7918a2-c5e5-4eb1-b840-5359765e2392")?.Value.ToPascalCase(), out var result) && result;
     }
 }

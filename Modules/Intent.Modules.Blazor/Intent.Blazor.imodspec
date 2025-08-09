@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor</id>
-  <version>1.0.0-beta.32</version>
+  <version>1.0.0-pre.0</version>
   <supportedClientVersions>[4.5.0-a, 5.0.0-a)</supportedClientVersions>
   <summary>Automates the bootstrapping and core patterns of a Blazor web application.</summary>
   <description>Automates the bootstrapping and core patterns of a Blazor web application.</description>
@@ -32,9 +32,9 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Model.Definition</role>
-      <location></location>
+      <location>Components</location>
     </template>
-    <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="2d5ee2ba-5a78-4ac9-9905-ccd9f68247f9">
+    <template id="Intent.Blazor.Templates.Client.ProgramTemplate" externalReference="1bd5dbd4-1bdd-4133-88b7-ccf452399b4a">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
@@ -48,7 +48,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Component</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.RazorComponentTemplate" externalReference="1132514b-15dd-4dac-b602-462278e1128d">
       <config>
@@ -56,7 +56,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Component</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.RazorLayoutCodeBehindTemplate" externalReference="b08b0ac8-c7ef-4a54-b7fc-1e379e32b449">
       <config>
@@ -64,7 +64,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Layout</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.RazorLayoutTemplate" externalReference="4220376c-a610-4599-b89c-83599b2f49f0">
       <config>
@@ -72,7 +72,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Layout</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Client.RoutesRazorTemplate" externalReference="92022c0f-33eb-40fd-9d2a-88fb20eefaac">
       <config>
@@ -80,7 +80,7 @@
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
       <role>Blazor.Client.Routes</role>
-      <location></location>
+      <location>Components</location>
     </template>
     <template id="Intent.Blazor.Templates.Server.AppRazorTemplate" externalReference="b7665695-e7e7-4a21-883a-da6fa2d84710">
       <config>
@@ -90,6 +90,38 @@
       <role>Startup</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedExecutorInterfaceTemplate" externalReference="65e03e1e-140e-44e8-8ffb-fbc628a9571b">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services.Interfaces</role>
+      <location>Services</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedExecutorTemplate" externalReference="828e31ec-b76f-49c0-9868-9d4c68fb63d2">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location>Services</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedMediatorInterfaceTemplate" externalReference="2d896c99-c250-4d32-8542-016c28146f44">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services.Interfaces</role>
+      <location>Services</location>
+    </template>
+    <template id="Intent.Blazor.Templates.Server.ScopedMediatorTemplate" externalReference="89cd5e16-4c2b-475c-b257-19deb991cd50">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location>Services</location>
+    </template>
     <template id="Intent.Blazor.Templates.Server.ServerImportsRazorTemplate" externalReference="f4e96c35-f23e-49b2-ae25-151ec6564357">
       <config>
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
@@ -98,13 +130,29 @@
       <role>Startup,RazorImportsFile</role>
       <location>Components</location>
     </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmNoSampleStaticContentTemplateRegistration" externalReference="1847a039-bc0e-41ec-9b51-a56f93d1c1b6">
+      <role>Blazor.NoSample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Client.StaticContentTemplateRegistrations.WasmSamplePagesStaticContentTemplateRegistration" externalReference="cf0d83f6-5edf-461b-bc7f-91a5e241dc13">
+      <role>Blazor.Sample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.NoSamplePagesStaticContentTemplateRegistration" externalReference="39c87006-657c-4f64-b82c-d9dd57f9670b">
+      <role>Blazor.NoSample</role>
+      <location></location>
+    </template>
+    <template id="Intent.Modules.Blazor.Templates.Templates.Server.StaticContentTemplateRegistrations.SamplePagesStaticContentTemplateRegistration" externalReference="0a626c1c-206c-4b4f-b299-a0bbb8ba0eea">
+      <role>Blazor.Sample</role>
+      <location></location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.BlazorAspNetCoreStartupInstaller" externalReference="b649e2a1-96a8-4b1b-ba82-b48cb32f6a66" />
   </factoryExtensions>
   <moduleSettings>
-    <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
+    <group id="489a67db-31b2-4d51-96d7-52637c3795be" title="Blazor Settings" externalReference="489a67db-31b2-4d51-96d7-52637c3795be" type="application-settings">
       <settings>
         <setting id="4c4c903b-6fbb-4a6b-b1f7-98a180f010f2" title="Use Code Behind Files for Components" type="switch">
           <hint>Use [code-behind](https://learn.microsoft.com/aspnet/core/blazor/components#partial-class-support) files for Razor components.</hint>
@@ -112,12 +160,20 @@
         </setting>
         <setting id="3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa" title="Render Mode" type="select">
           <hint>Determines how the page content is rendered at runtime.</hint>
-          <defaultValue>interactive-web-assembly</defaultValue>
+          <defaultValue>interactive-server</defaultValue>
           <options>
             <option value="interactive-server" description="Interactive Server" />
             <option value="interactive-web-assembly" description="Interactive Web Assembly" />
             <option value="interactive-auto" description="Interactive Auto" />
           </options>
+        </setting>
+        <setting id="bbddad39-3601-4244-bf8d-0da805ee6376" title="Include Sample Pages" type="switch">
+          <defaultValue>false</defaultValue>
+        </setting>
+        <setting id="d851b4d1-b230-461f-9873-80d6857fa175" title="Prerendering" type="switch">
+          <hint>Enable prerendering for Interactive Server mode.</hint>
+          <defaultValue>false</defaultValue>
+          <isActiveFunction>return getProperty("Render Mode").value != "interactive-web-assembly";</isActiveFunction>
         </setting>
       </settings>
     </group>
@@ -127,14 +183,18 @@
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.9.2-pre.5" />
     <dependency id="Intent.Common.Types" version="4.0.0-pre.1" />
-    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
-    <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.14" />
+    <dependency id="Intent.Modelers.UI" version="1.0.0-beta.16" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.8.0-pre.0" />
   </dependencies>
   <interoperability>
     <detect id="Intent.VisualStudio.Projects">
       <install>
         <package id="Intent.VisualStudio.Projects" version="3.8.0-pre.2" />
+      </install>
+    </detect>
+    <detect id="Intent.Modelers.UI.Core">
+      <install>
+        <package id="Intent.Modelers.UI.Core" version="1.0.0-beta.16" />
       </install>
     </detect>
   </interoperability>
@@ -148,5 +208,7 @@
     <install src="modelers/Blazor UI Extensions.designer.settings" externalReference="07ebdd16-a83c-401c-95bc-0ec02d4c7daf" target="User Interface" />
     <install target="User Interface;Module Builder" src="Intent.Metadata/Module Builder/Intent.Blazor/Intent.Blazor.pkg.config" externalReference="3ac5ff1e-5fc9-46a2-95e5-2d9ca579e484" />
   </metadata>
-  <migrations has-on-install-migration="true" />
+  <migrations has-on-install-migration="true">
+    <migration version="1.0.0-pre.0" />
+  </migrations>
 </package>

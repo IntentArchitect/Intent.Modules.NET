@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
 using Intent.Modules.Blazor.Settings;
@@ -30,8 +32,17 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                 .AddUsing("System.Threading.Tasks")
                 .AddClass($"IdentityNoOpEmailSender", @class =>
                 {
-                    @class.Internal().Sealed();
-                    @class.ImplementsInterface($"{UseType("Microsoft.AspNetCore.Identity.IEmailSender")}<{GetTypeName(ApplicationUserTemplate.TemplateId)}>");
+                    var identityUserName = string.Empty;
+                    if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                    {
+                        identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                    }
+                    else
+                    {
+                        identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                    }
+                        @class.Internal().Sealed();
+                    @class.ImplementsInterface($"{UseType("Microsoft.AspNetCore.Identity.IEmailSender")}<{identityUserName}>");
 
                     @class.AddField("IEmailSender", "emailSender", emailSender =>
                     {
@@ -42,7 +53,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     @class.AddMethod("Task", "SendConfirmationLinkAsync", sendConfirmationLinkAsync =>
                     {
                         sendConfirmationLinkAsync.Async();
-                        sendConfirmationLinkAsync.AddParameter(GetTypeName(ApplicationUserTemplate.TemplateId), "user");
+                        sendConfirmationLinkAsync.AddParameter(identityUserName, "user");
                         sendConfirmationLinkAsync.AddParameter("string", "email");
                         sendConfirmationLinkAsync.AddParameter("string", "confirmationLink");
 
@@ -52,7 +63,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     @class.AddMethod("Task", "SendPasswordResetLinkAsync", sendPasswordResetLinkAsync =>
                     {
                         sendPasswordResetLinkAsync.Async();
-                        sendPasswordResetLinkAsync.AddParameter(GetTypeName(ApplicationUserTemplate.TemplateId), "user");
+                        sendPasswordResetLinkAsync.AddParameter(identityUserName, "user");
                         sendPasswordResetLinkAsync.AddParameter("string", "email");
                         sendPasswordResetLinkAsync.AddParameter("string", "resetLink");
 
@@ -62,7 +73,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                     @class.AddMethod("Task", "SendPasswordResetCodeAsync", sendPasswordResetCodeAsync =>
                     {
                         sendPasswordResetCodeAsync.Async();
-                        sendPasswordResetCodeAsync.AddParameter(GetTypeName(ApplicationUserTemplate.TemplateId), "user");
+                        sendPasswordResetCodeAsync.AddParameter(identityUserName, "user");
                         sendPasswordResetCodeAsync.AddParameter("string", "email");
                         sendPasswordResetCodeAsync.AddParameter("string", "resetCode");
 

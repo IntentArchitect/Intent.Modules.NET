@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <id>Intent.Blazor.Authentication</id>
-  <version>1.0.0-pre.1</version>
+  <version>1.0.0-pre.3</version>
   <supportedClientVersions>[4.5.0-a,5.0.0)</supportedClientVersions>
   <summary>Automates Authentication components for a Blazor application</summary>
   <description>Automates Authentication components for a Blazor application</description>
@@ -139,8 +139,8 @@
         <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
         <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
       </config>
-      <role>Default</role>
-      <location></location>
+      <role>Startup,Blazor</role>
+      <location>Common</location>
     </template>
     <template id="Intent.Blazor.Authentication.Templates.Server.OidcAuthServiceConcreteTemplate" externalReference="7be3c1f1-74cf-4775-bd5d-bc737260fac0">
       <config>
@@ -178,6 +178,14 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
     </template>
+    <template id="Intent.Blazor.Authentication.Templates.Server.SetUserContextInterface" externalReference="71383371-74d6-4655-9df0-484b7354d4c0">
+      <config>
+        <add key="ClassName" description="Class name formula override (e.g. '${Model.Name}')" />
+        <add key="Namespace" description="Class namespace formula override (e.g. '${Project.Name}'" />
+      </config>
+      <role>Infrastructure.Services</role>
+      <location>Services</location>
+    </template>
     <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.AccountFolderPagesFolderFilesStaticContentTemplateRegistration" externalReference="b1dde391-adec-41d2-a5c8-e4d2bb58db7c">
       <role>Startup,Blazor</role>
       <location>Components/Account/Pages</location>
@@ -186,11 +194,16 @@
       <role>Startup,Blazor</role>
       <location>Components/Account/Shared</location>
     </template>
+    <template id="Intent.Modules.Blazor.Authentication.Templates.Templates.Server.StaticContentTemplateRegistrations.WwwRootCssFilesStaticContentTemplateRegistration" externalReference="bac0ff15-dd32-4618-b598-a0c72013e3de">
+      <role>Startup,Blazor</role>
+      <location>wwwroot</location>
+    </template>
   </templates>
   <decorators></decorators>
   <factoryExtensions>
     <factoryExtension id="Intent.Blazor.Authentication.ChangeRenderMode" externalReference="22649449-21b2-4068-8ec0-a8ab4e3fd8dd" />
     <factoryExtension id="Intent.Blazor.Authentication.ClientAddAuthentication" externalReference="472bc746-3023-4cf6-97d7-5f25394e6c38" />
+    <factoryExtension id="Intent.Blazor.Authentication.CurrentUserServiceImplementation" externalReference="c38e0867-e297-48c6-bdd8-8d3d2cbb41e5" />
     <factoryExtension id="Intent.Blazor.Authentication.ServerAddAuthentication" externalReference="de4442b6-372c-43eb-a5c0-b4b3679b9c6a" />
   </factoryExtensions>
   <moduleSettings />
@@ -200,6 +213,7 @@
     <dependency id="Intent.Common" version="3.7.3" />
     <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
+    <dependency id="Intent.Modelers.Domain" version="3.12.5-pre.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />
     <dependency id="Intent.Modelers.UI.Core" version="1.0.0-beta.10" />
     <dependency id="Intent.OutputManager.RoslynWeaver" version="4.5.1" />
@@ -217,7 +231,7 @@
           <isRequired>false</isRequired>
           <defaultValue>aspnetcore-identity</defaultValue>
           <options>
-            <option value="aspnetcore-identity" description="Asp.Net Core Identity" />
+            <option value="aspnetcore-identity" description="ASP.NET Core Identity" />
             <option value="jwt" description="JWT" />
             <option value="oidc" description="OIDC" />
           </options>

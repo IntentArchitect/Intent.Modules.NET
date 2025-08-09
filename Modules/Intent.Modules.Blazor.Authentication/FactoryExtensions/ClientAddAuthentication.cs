@@ -1,9 +1,12 @@
+using System.Linq;
 using System.Threading;
 using Intent.Engine;
+using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.PersistentAuthenticationStateProvider;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
+using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
@@ -58,6 +61,27 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                 Logging.Log.Warning("Unable to install authentication in Routes.razor.");
                 return;
             }
+
+            var app = application.FindTemplateInstance<IRazorFileTemplate>(AppRazorTemplate.TemplateId)?.RazorFile;
+
+            if (app == null)
+            {
+                Logging.Log.Warning("Unable to install auth-css. App.razor could not be found.");
+                return;
+            }
+
+            app.AfterBuild(file =>
+            {
+                // Add Blazorise dependencies
+                var baseElement = file.SelectHtmlElements("/html/head/link").SingleOrDefault(x => x.HasAttribute("href", "_content/MudBlazor/MudBlazor.min.css"));
+                if (baseElement != null)
+                {
+                    baseElement.AddAbove(
+                        new HtmlElement("link", app)
+                            .AddAttribute("rel", "stylesheet")
+                            .AddAttribute("href", "AccountForms.css"));
+                }
+            }, 100);
         }
     }
 }

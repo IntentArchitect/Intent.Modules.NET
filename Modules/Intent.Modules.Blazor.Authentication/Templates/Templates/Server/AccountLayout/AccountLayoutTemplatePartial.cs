@@ -1,11 +1,13 @@
 using System;
 using Intent.Engine;
 using Intent.Modules.Blazor.Api;
+using Intent.Modules.Blazor.Templates.Templates.Client.RazorLayout;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.RazorBuilder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
+using Intent.Modules.Common.Templates.StaticContent;
 using Intent.RoslynWeaver.Attributes;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
@@ -33,7 +35,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Accoun
                 .Configure(file =>
                 {
                     file.AddInheritsDirective("LayoutComponentBase");
-                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@layout {outputTarget.ApplicationName()}.Client.Layout.MainLayout"), file));
+
+                    file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@layout {GetTemplate<RazorLayoutTemplate>("Intent.Blazor.Templates.Client.RazorLayoutTemplate").Namespace}.MainLayout"), file));
                     file.AddInjectDirective("Microsoft.AspNetCore.Components.NavigationManager", "NavigationManager");
                     file.AddEmptyLine();
                     file.AddChildNode(IRazorCodeDirective.Create(new CSharpStatement($"@if(HttpContext is null)"), file));

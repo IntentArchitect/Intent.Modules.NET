@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Authentication.FactoryExtensions;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
@@ -41,6 +43,16 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                 .AddUsing("System.Diagnostics")
                 .AddClass($"IdentityRevalidatingAuthenticationStateProvider", @class =>
                 {
+                    var identityUserName = string.Empty;
+                    if (ExecutionContext.InstalledModules.Any(im => im.ModuleId == "Intent.AspNetCore.Identity"))
+                    {
+                        identityUserName = IdentityHelperExtensions.GetIdentityUserClass(this);
+                    }
+                    else
+                    {
+                        identityUserName = GetTypeName(ApplicationUserTemplate.TemplateId);
+                    }
+
                     @class.WithBaseType("RevalidatingServerAuthenticationStateProvider");
                     @class.AddField("IdentityOptions", "options", f => f.PrivateReadOnly());
                     @class.AddField("PersistingComponentStateSubscription", "subscription", f => f.PrivateReadOnly());
@@ -71,7 +83,8 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                         if (ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                         {
                             method.AddStatement("await using var scope = _serviceScopeFactory.CreateAsyncScope();");
-                            method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{GetTypeName(ApplicationUserTemplate.TemplateId)}>>();");
+
+                            method.AddStatement($"var userManager = scope.ServiceProvider.GetRequiredService<UserManager<{identityUserName}>>();");
                             method.AddReturn("await ValidateSecurityStampAsync(userManager, authenticationState.User);");
                         }
                         else
@@ -85,7 +98,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
                         @class.AddMethod("Task<bool>", "ValidateSecurityStampAsync", method =>
                         {
                             method.Async().Private();
-                            method.AddParameter("UserManager<ApplicationUser>", "userManager");
+                            method.AddParameter($"UserManager<{identityUserName}>", "userManager");
                             method.AddParameter("ClaimsPrincipal", "principal");
 
                             method.AddStatement("var user = await userManager.GetUserAsync(principal);");

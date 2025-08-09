@@ -1,3 +1,7 @@
+### Version 3.6.0
+
+- Improvement: Made User Info assessable asynchronously, which is required for technologies like Blazor. Synchronous accessors are still available for backward compatibility on existing projects.
+
 ### Version 3.5.6
 
 - Improvement: The `ICurrentUserService` implementation is now added as a singleton

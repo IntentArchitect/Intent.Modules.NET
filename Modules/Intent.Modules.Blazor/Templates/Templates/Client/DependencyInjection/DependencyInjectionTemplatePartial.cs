@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Intent.Engine;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.DependencyInjection;
@@ -58,13 +59,21 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.DependencyInjection
                     method.AddStatement("return services;");
                 }, 1000);
 
-            ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
-            ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
+            if (!ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+            {
+                ExecutionContext.EventDispatcher.Subscribe<ContainerRegistrationRequest>(HandleEvent);
+                ExecutionContext.EventDispatcher.Subscribe<ServiceConfigurationRequest>(HandleEvent);
+            }
         }
 
+        public override bool CanRunTemplate()
+        {
+            return base.CanRunTemplate() && !ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer(); ;
+        }
 
         public override void BeforeTemplateExecution()
         {
+            if (!CanRunTemplate()) return;
             ExecutionContext.EventDispatcher.Publish(
                 ServiceConfigurationRequest
                     .ToRegister(

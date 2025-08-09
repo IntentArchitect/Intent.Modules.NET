@@ -82,7 +82,7 @@ public class NavigationBarComponentBuilder : IRazorComponentBuilder
         bool isGroup = menuItemModel.InternalElement.ChildElements.Any(c => c.IsMenuItemModel());
         var parentElement = parent;
 
-        if (menuItemModel.InternalElement is IElement element && element.HasStereotype(Intent.Blazor.Api.ComponentModelStereotypeExtensions.Secured.DefinitionId))
+        if (menuItemModel.InternalElement is IElement element && element.HasStereotype(Intent.Modelers.UI.Core.Api.ComponentModelStereotypeExtensions.Secured.DefinitionId))
         {
             var authComponent = parentElement.AuthorizeComponent(element, _componentTemplate);
             parentElement = authComponent;
