@@ -75,9 +75,13 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         var exampleJson = JsonConvert.SerializeObject(exampleFiles, Formatting.Indented);
 
+        var applicationConfig = _solution.GetApplicationConfig(args[0]);
+        var environmentMetadata = GetEnvironmentMetadata(applicationConfig);
+
         var requestFunction = CreatePromptFunction(kernel);
         var fileChangesResult = requestFunction.InvokeFileChangesPrompt(kernel, new KernelArguments()
         {
+            ["environmentMetadata"] = environmentMetadata,
             ["inputFilesJson"] = jsonInput,
             ["userProvidedContext"] = userProvidedContext,
             ["targetFileName"] = componentModel.Name + "Handler",
@@ -85,7 +89,6 @@ public class GenerateBlazorWithAITask : IModuleTask
         });
 
         // Output the updated file changes.
-        var applicationConfig = _solution.GetApplicationConfig(args[0]);
         var basePath = Path.GetFullPath(Path.Combine(applicationConfig.DirectoryPath, applicationConfig.OutputLocation));
         foreach (var fileChange in fileChangesResult.FileChanges)
         {
@@ -95,13 +98,42 @@ public class GenerateBlazorWithAITask : IModuleTask
         return "success";
     }
 
+    private string GetEnvironmentMetadata(IApplicationConfig applicationConfig)
+    {
+        //We need a better way to get this data.
+
+        var blazorSettings = applicationConfig.ModuleSetting.FirstOrDefault(s => s.Id == "489a67db-31b2-4d51-96d7-52637c3795be");// Blazor Settings
+        var prerendering = blazorSettings.GetSetting("d851b4d1-b230-461f-9873-80d6857fa175");// Prerendering
+        var renderMode = blazorSettings.GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa");// RenderMode
+
+        // Build a dictionary so values can be easily swapped or extended
+        var metadata = new Dictionary<string, object>
+        {
+            ["renderMode"] = GetRenderMode(renderMode?.Value),
+            ["prerenderingMode"] = prerendering?.Value == "false" ? "disabled":"enabled",
+
+        };
+        if (applicationConfig.Modules.Any(m => m.ModuleId == "Intent.Blazor.Components.MudBlazor"))
+        {
+            metadata["componentLibrary"] = new Dictionary<string, string>
+            {
+                ["name"] = "MudBlazor",
+                ["version"] = "8.10.0"
+            };
+        }
+
+        return JsonConvert.SerializeObject(metadata, Formatting.Indented);
+    }
 
     private static KernelFunction CreatePromptFunction(Kernel kernel)
     {
         const string promptTemplate =
             """
             ## Role and Context
-            You are a senior C# Blazor developer specializing MudBlazor in WASM mode. You are an expert in UI layout and always implement exceptional modern user interfaces that follow best practices.
+            You are a senior C# Blazor. You are an expert in UI layout and always implement exceptional modern user interfaces that follow best practices.
+            
+            ## Environment Metadata
+            {{$environmentMetadata}}
 
             ## Primary Objective
             Completely implement the MudBlazor component by reading and updating the `.razor` file, and `.razor.cs` file if necessary.
@@ -192,4 +224,18 @@ public class GenerateBlazorWithAITask : IModuleTask
 
         return inputFiles;
     }
+
+    private static string GetRenderMode(string? value)
+    {
+        switch (value)
+        {
+            case "interactive-server": return "InteractiveServer";
+            case "interactive-auto": return "InteractiveAuto";
+            case "interactive-web-assembly":
+            default:
+                return "InteractiveWebAssembly";
+        }
+    }
+
+
 }

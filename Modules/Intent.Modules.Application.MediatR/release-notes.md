@@ -1,3 +1,7 @@
+### Version 4.4.2
+
+- Improvement: `Query` not represent `QueryModels`.
+
 ### Version 4.4.1
 
 - Improvement: Locked MediatR NuGet package version

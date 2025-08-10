@@ -44,6 +44,8 @@ namespace Intent.Modules.Application.MediatR.Templates.QueryModels
                 .AddUsing("MediatR")
                 .AddClass($"{Model.Name}", @class =>
                 {
+                    @class.RepresentsModel(model);
+
                     @class.TryAddXmlDocComments(Model.InternalElement);
                     CqrsTemplateHelpers.AddAuthorization(this, @class, Model.InternalElement);
                     @class.ImplementsInterface($"IRequest<{GetTypeName(Model.TypeReference)}>");

@@ -45,6 +45,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
             AddTypeSource(ModelDefinitionTemplate.TemplateId);
             AddTypeSource("Blazor.HttpClient.Contracts.Dto");
             AddTypeSource("Blazor.HttpClient.ServiceContract");
+            AddTypeSource("Intent.Application.Dtos.DtoModel");
             AddTypeSource(TemplateId);
 
             RazorFile = IRazorFile.Create(this, $"{Model.Name}")

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Intent.Exceptions;
 using Intent.Metadata.Models;
@@ -203,10 +204,18 @@ public static class RazorFileExtensions
 
                                 if (template.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer() && IsLocalServiceInvocatiion(action, targetElement, parentElement))
                                 {
+                                    if (method.Name == "LoadCategories" )
+                                    {
+
+                                    }
                                     if (targetElement.SpecializationTypeId is commandSpecializationTypeId or querySpecializationTypeId)
                                     {
                                         serviceName = block.InjectServiceProperty(block.Template.GetScopedMediatorInterfaceTemplateName(), "Mediator");
                                         var csharpInvocationStatement = new CSharpInvocationStatement("Send");
+
+                                        block.Template.AddTypeSource(TemplateRoles.Application.Command);
+                                        block.Template.AddTypeSource(TemplateRoles.Application.Query);
+
                                         csharpInvocationStatement.AddArgument(mappingManager.GenerateCreationStatement(invocationMapping));
                                         invocation = csharpInvocationStatement;
                                     }
@@ -222,7 +231,7 @@ public static class RazorFileExtensions
 
                                         // So that the mapping system can resolve the name of the operation from the interface itself:
                                         block.Template.AddTypeSource(serviceInterfaceTemplate.Id);
-                                        block.Template.AddTypeSource(TemplateRoles.Application.Contracts.Dto);
+                                        block.Template.AddTypeSource("Intent.Application.Dtos.DtoModel");
                                         block.Template.AddTypeSource(TemplateRoles.Application.Contracts.Enum);
 
                                         string tradServiceInterfaceName = block.Template.GetTypeName(serviceInterfaceTemplate);
@@ -306,7 +315,17 @@ public static class RazorFileExtensions
                                 }
 
                                 var serviceName = block.InjectServiceProperty("Microsoft.AspNetCore.Components.NavigationManager");
-                                method.AddStatement($"{serviceName}.NavigateTo({(route.Route.Contains("{") ? $"${route.Route}" : route.Route)});");
+
+                                if (route.Route.Contains("{"))
+                                {
+                                    var adjusted = FixParameterCasing(route.Route, method.Parameters.Select(p => p.Name).ToList());
+                                    method.AddStatement($"{serviceName}.NavigateTo(${adjusted});");
+                                }
+                                else
+                                {
+                                    method.AddStatement($"{serviceName}.NavigateTo({route.Route});");
+                                }
+
                                 continue;
                             }
 
@@ -410,6 +429,27 @@ public static class RazorFileExtensions
         //        });
         //    }
         //}
+    }
+
+    static string FixParameterCasing(string route, List<string> localVariableNames)
+    {
+        // Matches {Name} or {Name:type}
+        var regex = new Regex(@"\{(?<name>[^}:]+)(:[^}]*)?\}", RegexOptions.Compiled);
+
+        return regex.Replace(route, match =>
+        {
+            string name = match.Groups["name"].Value;
+
+            // Find matching correct name (case-insensitive)
+            string correctName = localVariableNames.Find(n =>
+                string.Equals(n, name, StringComparison.OrdinalIgnoreCase));
+
+            // Always output without :type
+            if (!string.IsNullOrEmpty(correctName))
+                return $"{{{correctName}}}";
+
+            return $"{{{name}}}";
+        });
     }
 
     private static IEnumerable<CSharpStatement> GetCallServiceOperation(CallServiceOperationActionTargetEndModel serviceCall
