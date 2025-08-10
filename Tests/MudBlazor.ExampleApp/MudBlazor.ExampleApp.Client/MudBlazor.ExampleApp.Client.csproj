@@ -23,4 +23,7 @@
     <Folder Include="Layout\" />
   </ItemGroup>
 
-</Project>
+  <ItemGroup>
+    <ProjectReference Include="..\MudBlazor.ExampleApp.Application\MudBlazor.ExampleApp.Application.csproj" />
+  </ItemGroup>
+  </Project>
