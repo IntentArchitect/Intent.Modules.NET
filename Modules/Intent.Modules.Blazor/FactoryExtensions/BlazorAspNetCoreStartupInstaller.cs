@@ -44,11 +44,16 @@ namespace Intent.Modules.Blazor.FactoryExtensions
 
         private void ConfigureRazorWeaving(IApplication application)
         {
-            application.ConfigureRazor(configurator =>
-            {
-                configurator.AddTagNameAttributeMatch("link", "href");
-                configurator.AddTagNameAttributeMatch("script", "src");
-            });
+            application.ConfigureRazorTagMatchingFor("link", c => c
+                .AllowMatchByAttributes("href"));
+            application.ConfigureRazorTagMatchingFor("script", c => c
+                .AllowMatchByAttributes("src"));
+            application.ConfigureRazorTagMatchingFor("EditForm", c => c
+                .AllowMatchByAttributes("FormName"));
+            application.ConfigureRazorTagMatchingFor("EditForm", c => c
+                .AllowMatchByAttributes("Input"));
+            application.ConfigureRazorTagMatchingFor("StatusMessage", c => c
+                .AllowMatchByAttributes("Message"));
         }
 
         [IntentIgnore]
@@ -58,7 +63,7 @@ namespace Intent.Modules.Blazor.FactoryExtensions
             RegisterStartup(application);
         }
 
-        private void RegisterStartup(IApplication application)
+        private static void RegisterStartup(IApplication application)
         {
             var startup = application.FindTemplateInstance<IAppStartupTemplate>(IAppStartupTemplate.RoleName);
             startup?.AddNugetDependency(NugetPackages.MicrosoftAspNetCoreComponentsWebAssemblyServer(startup.OutputTarget));

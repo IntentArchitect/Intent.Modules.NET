@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Intent.Modules.Common" Version="3.8.0" />
-    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3-pre.1" />
+    <PackageReference Include="Intent.Modules.Common.CSharp" Version="3.9.3-pre.2" />
     <PackageReference Include="Intent.Modules.VisualStudio.Projects" Version="3.7.7" />
     <PackageReference Include="Intent.Packager" Version="3.6.0-pre.2">
       <PrivateAssets>all</PrivateAssets>
@@ -18,9 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Intent.Modules.Blazor\Intent.Modules.Blazor.csproj" />
     <ProjectReference Include="..\Intent.Modules.Constants\Intent.Modules.Constants.csproj" PrivateAssets="All" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Templates\Templates\" />
   </ItemGroup>
 
 </Project>

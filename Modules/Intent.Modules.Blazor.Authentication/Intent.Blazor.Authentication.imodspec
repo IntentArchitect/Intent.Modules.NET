@@ -211,7 +211,7 @@
     <dependency id="Intent.Blazor" version="1.0.0-beta.31" />
     <dependency id="Intent.Code.Weaving.Razor" version="1.0.7" />
     <dependency id="Intent.Common" version="3.7.3" />
-    <dependency id="Intent.Common.CSharp" version="3.9.0-pre.2" />
+    <dependency id="Intent.Common.CSharp" version="3.9.3-pre.2" />
     <dependency id="Intent.Common.Types" version="3.4.0" />
     <dependency id="Intent.Modelers.Domain" includeAssets="none" version="3.12.5-pre.0" />
     <dependency id="Intent.Modelers.UI" version="1.0.0-beta.7" />

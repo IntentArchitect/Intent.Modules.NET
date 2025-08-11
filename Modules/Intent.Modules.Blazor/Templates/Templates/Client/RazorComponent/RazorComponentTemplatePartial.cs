@@ -91,7 +91,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponent
                 });
         }
 
-
         /// <inheritdoc />
         [IntentManaged(Mode.Ignore)]
         public sealed override IRazorFile RazorFile { get; }

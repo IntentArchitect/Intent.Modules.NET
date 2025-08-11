@@ -24,6 +24,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorLayoutCodeBehind
         {
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")
+                .IntentManagedMerge()
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.Partial();

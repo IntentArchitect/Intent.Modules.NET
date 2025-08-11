@@ -27,6 +27,7 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
             AddTypeSource(TemplateId);
             CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
                 .WithFileExtension("razor.cs")
+                .IntentManagedMerge()
                 .AddClass($"{Model.Name}", @class =>
                 {
                     @class.Partial();
@@ -34,7 +35,6 @@ namespace Intent.Modules.Blazor.Templates.Templates.Client.RazorComponentCodeBeh
         }
 
         public override ICSharpCodeContext RootCodeContext => CSharpFile.Classes.Single();
-
 
         [IntentManaged(Mode.Fully)]
         public CSharpFile CSharpFile { get; }

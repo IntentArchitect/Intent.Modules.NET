@@ -51,46 +51,41 @@ namespace Intent.Modules.Blazor.Components.MudBlazor.FactoryExtensions
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new MudBlazorLayoutInterceptor(provider, componentTemplate));
             DefaultRazorComponentBuilderProvider.AddInterceptor((provider, componentTemplate) => new AuthorizedInterceptor(componentTemplate));
 
-            application.ConfigureRazor(configurator =>
-            {
-                configurator.AddTagNameAttributeMatch("MudButton", "Href");
-                configurator.AddTagNameAttributeMatch("MudButton", "OnClick");
-                configurator.AddTagNameAttributeMatch("MudDatePicker", "@bind-Date");
-                configurator.AddTagNameAttributeMatch("MudIconButton", "Href");
-                configurator.AddTagNameAttributeMatch("MudImage", "Src");
-                configurator.AddTagNameAttributeMatch("MudMenu", "Label");
-                configurator.AddTagNameAttributeMatch("MudMenuItem", "Href");
-                configurator.AddTagNameAttributeMatch("MudPagination", "@bind-Selected");
-                configurator.AddTagNameAttributeMatch("MudNavGroup", "href");
-                configurator.AddTagNameAttributeMatch("MudNavGroup", "title");
-                configurator.AddTagNameAttributeMatch("MudNavLink", "href");
-                configurator.AddTagNameAttributeMatch("MudSelect", "Label");
-                configurator.AddTagNameAttributeMatch("MudAutocomplete", "Label");
-                configurator.AddTagNameAttributeMatch("MudRadioGroup", "Label");
-                configurator.AddTagNameAttributeMatch("MudDataGrid", "@ref");
-
-                configurator.AllowMatchByTagNameOnly("CardHeaderContent");
-                configurator.AllowMatchByTagNameOnly("CellTemplate");
-                configurator.AllowMatchByTagNameOnly("Columns");
-                configurator.AllowMatchByTagNameOnly("DialogActions");
-                configurator.AllowMatchByTagNameOnly("HeaderContent");
-                configurator.AllowMatchByTagNameOnly("MudCardActions");
-                configurator.AllowMatchByTagNameOnly("MudCardContent");
-                configurator.AllowMatchByTagNameOnly("MudCardHeader");
-                configurator.AllowMatchByTagNameOnly("MudDataGridPager");
-                configurator.AllowMatchByTagNameOnly("MudDialogProvider");
-                configurator.AllowMatchByTagNameOnly("MudDrawer"); // Although it seems possible to have more than one, I am guessing it's highly unusual.
-                configurator.AllowMatchByTagNameOnly("MudLayout");
-                configurator.AllowMatchByTagNameOnly("MudMainContent");
-                configurator.AllowMatchByTagNameOnly("MudNavMenu");
-                configurator.AllowMatchByTagNameOnly("MudPopoverProvider");
-                configurator.AllowMatchByTagNameOnly("MudSnackbarProvider");
-                configurator.AllowMatchByTagNameOnly("MudThemeProvider");
-                configurator.AllowMatchByTagNameOnly("PagerContent");
-                configurator.AllowMatchByTagNameOnly("RowTemplate");
-                configurator.AllowMatchByTagNameOnly("TitleContent");
-                configurator.AllowMatchByTagNameOnly("ToolBarContent");
-            });
+            application.ConfigureRazorTagMatchingFor("CardHeaderContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("CellTemplate", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("Columns", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("DialogActions", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("HeaderContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudAutocomplete", c => c.AllowMatchByAttributes("Label"));
+            application.ConfigureRazorTagMatchingFor("MudButton", c => c.AllowMatchByAttributes("Href", "OnClick"));
+            application.ConfigureRazorTagMatchingFor("MudCardActions", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudCardContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudCardHeader", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudDataGrid", c => c.AllowMatchByAttributes("@ref", "Items"));
+            application.ConfigureRazorTagMatchingFor("MudDataGridPager", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudDatePicker", c => c.AllowMatchByAttributes("@bind-Date"));
+            application.ConfigureRazorTagMatchingFor("MudDialogProvider", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudDrawer", c => c.AllowMatchByNameOnly()); // Although it seems possible to have more than one, I am guessing it's highly unusual.
+            application.ConfigureRazorTagMatchingFor("MudGrid", c => c.AllowMatchByDescendant(["MudItem"]));
+            application.ConfigureRazorTagMatchingFor("MudIconButton", c => c.AllowMatchByAttributes("Href"));
+            application.ConfigureRazorTagMatchingFor("MudImage", c => c.AllowMatchByAttributes("Src"));
+            application.ConfigureRazorTagMatchingFor("MudLayout", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudMainContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudMenu", c => c.AllowMatchByAttributes("Label"));
+            application.ConfigureRazorTagMatchingFor("MudMenuItem", c => c.AllowMatchByAttributes("Href", "OnClick"));
+            application.ConfigureRazorTagMatchingFor("MudNavGroup", c => c.AllowMatchByAttributes("href", "title"));
+            application.ConfigureRazorTagMatchingFor("MudNavLink", c => c.AllowMatchByAttributes("href"));
+            application.ConfigureRazorTagMatchingFor("MudNavMenu", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudPagination", c => c.AllowMatchByAttributes("@bind-Selected"));
+            application.ConfigureRazorTagMatchingFor("MudPopoverProvider", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudRadioGroup", c => c.AllowMatchByAttributes("Label"));
+            application.ConfigureRazorTagMatchingFor("MudSelect", c => c.AllowMatchByAttributes("Label"));
+            application.ConfigureRazorTagMatchingFor("MudSnackbarProvider", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("MudThemeProvider", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("PagerContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("RowTemplate", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("TitleContent", c => c.AllowMatchByNameOnly());
+            application.ConfigureRazorTagMatchingFor("ToolBarContent", c => c.AllowMatchByNameOnly());
         }
     }
 }
