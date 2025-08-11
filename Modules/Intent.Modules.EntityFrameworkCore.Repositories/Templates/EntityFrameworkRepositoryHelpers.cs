@@ -9,6 +9,7 @@ using Intent.Exceptions;
 using Intent.Metadata.Models;
 using Intent.Modelers.Domain.Api;
 using Intent.Modelers.Domain.Repositories.Api;
+using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Mapping;
 using Intent.Modules.Common.CSharp.Templates;
@@ -507,7 +508,7 @@ internal static class EntityFrameworkRepositoryHelpers
             method.AddStatement("// IntentInitialGen");
             method.AddStatement("// Stored procedure implementation is not supported with the selected database provider.");
             method.AddStatement("// IntentInitialGen");
-            method.AddStatement($@"throw new {template.UseType("System.NotImplementedException")}(""In-Memory does not have Stored Procedures. Custom implementation here."");");
+            method.AddStatement($@"throw new {template.UseType("System.NotImplementedException")}(""In-Memory does not have Stored Procedures. Add custom implementation here."");");
 
             resultExpressionsByModel = outputs.ToDictionary(x => x.Model, x => x.Expression); // Check this
             return;
@@ -645,11 +646,22 @@ internal static class EntityFrameworkRepositoryHelpers
                 var operationModel = OperationModelExtensions.AsOperationModel(childElement);
                 if (operationModel != null)
                 {
-                    return operationModel.StoredProcedureInvocationTargets()
+                    var invokedStoredProcedures = operationModel.StoredProcedureInvocationTargets()
                         .Select(x => x.TypeReference?.Element?.AsStoredProcedureModel())
                         .Where(x => x != null)
                         .Cast<StoredProcedureModel>()
-                        .Select(x => new StoredProcedureModelPair(x));
+                        .Select(x => new StoredProcedureModelPair(x))
+                        .ToArray();
+
+                    if (invokedStoredProcedures.Length > 0)
+                    {
+                        return invokedStoredProcedures;
+                    }
+                    
+                    if (operationModel.HasStereotype("Stored Procedure"))
+                    {
+                        return [new StoredProcedureModelPair(new StoredProcedureModel(operationModel.InternalElement, OperationModel.SpecializationType))];
+                    }
                 }
 
                 return [];
