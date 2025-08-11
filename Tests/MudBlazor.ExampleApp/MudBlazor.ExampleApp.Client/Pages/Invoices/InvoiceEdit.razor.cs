@@ -4,7 +4,7 @@ using MudBlazor.ExampleApp.Client.HttpClients;
 using MudBlazor.ExampleApp.Client.HttpClients.Contracts.Services.Invoices;
 using MudBlazor.ExampleApp.Client.Pages.Invoices.Components;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: DefaultIntentManaged(Mode.Merge)]
 [assembly: IntentTemplate("Intent.Blazor.Templates.Client.RazorComponentCodeBehindTemplate", Version = "1.0")]
 
 namespace MudBlazor.ExampleApp.Client.Pages.Invoices
