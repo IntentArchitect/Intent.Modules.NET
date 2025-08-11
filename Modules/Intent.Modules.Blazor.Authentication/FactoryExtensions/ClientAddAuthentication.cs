@@ -4,6 +4,7 @@ using Intent.Engine;
 using Intent.Modules.Blazor.Api;
 using Intent.Modules.Blazor.Authentication.Settings;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.PersistentAuthenticationStateProvider;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Blazor.Templates.Templates.Client.Program;
 using Intent.Modules.Blazor.Templates.Templates.Client.RoutesRazor;
 using Intent.Modules.Blazor.Templates.Templates.Server.AppRazor;
@@ -42,7 +43,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
             program.CSharpFile.AfterBuild(_ =>
             {
-                if (program.ExecutionContext.GetSettings().GetGroup("489a67db-31b2-4d51-96d7-52637c3795be").GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa").Value != "interactive-server")
+                if (!program.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
                 {
                     program.ProgramFile.ConfigureMainStatementsBlock(main =>
                     {

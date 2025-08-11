@@ -27,6 +27,7 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
+using static Intent.Modules.Blazor.Settings.Blazor;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
@@ -224,19 +225,19 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
 
         private void AddPersistanceProvider(IAppStartupTemplate startupTemplate, IHasCSharpStatements statements, IAppStartupFile.IServiceConfigurationContext context)
         {
-            switch (startupTemplate.ExecutionContext.GetSettings().GetGroup("489a67db-31b2-4d51-96d7-52637c3795be").GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa").Value)
+            switch (startupTemplate.ExecutionContext.GetSettings().GetBlazor().RenderMode().AsEnum())
             {
-                case "interactive-web-assembly":
+                case RenderModeOptionsEnum.InteractiveWebAssembly:
                     {
                         statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingServerAuthenticationStateProviderTemplate.TemplateId)}>();");
                         break;
                     }
-                case "interactive-auto":
+                case RenderModeOptionsEnum.InteractiveAuto:
                     {
                         statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(PersistingRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
                         break;
                     }
-                case "interactive-server":
+                case RenderModeOptionsEnum.InteractiveServer:
                     {
                         statements.AddStatement($"{context.Services}.AddScoped<AuthenticationStateProvider, {startupTemplate.GetTypeName(IdentityRevalidatingAuthenticationStateProviderTemplate.TemplateId)}>();");
                         break;

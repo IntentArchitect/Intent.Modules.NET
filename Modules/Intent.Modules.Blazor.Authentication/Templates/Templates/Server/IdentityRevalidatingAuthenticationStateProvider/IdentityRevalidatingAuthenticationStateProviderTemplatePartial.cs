@@ -137,7 +137,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Identi
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetGroup("489a67db-31b2-4d51-96d7-52637c3795be").GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa").Value == "interactive-server";
+            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer();
         }
     }
 }

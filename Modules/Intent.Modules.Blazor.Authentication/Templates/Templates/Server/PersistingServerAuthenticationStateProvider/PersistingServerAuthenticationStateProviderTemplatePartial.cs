@@ -1,14 +1,15 @@
-using System;
-using System.Collections.Generic;
 using Intent.Engine;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Client.UserInfo;
 using Intent.Modules.Blazor.Authentication.Templates.Templates.Server.ApplicationUser;
+using Intent.Modules.Blazor.Settings;
 using Intent.Modules.Common;
 using Intent.Modules.Common.CSharp.Builder;
 using Intent.Modules.Common.CSharp.Templates;
 using Intent.Modules.Common.Templates;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Templates;
+using System;
+using System.Collections.Generic;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.CSharp.Templates.CSharpTemplatePartial", Version = "1.0")]
@@ -141,7 +142,7 @@ namespace Intent.Modules.Blazor.Authentication.Templates.Templates.Server.Persis
 
         public override bool CanRunTemplate()
         {
-            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetGroup("489a67db-31b2-4d51-96d7-52637c3795be").GetSetting("3e3d24f8-ad29-44d6-b7e5-e76a5af2a7fa").Value == "interactive-web-assembly";
+            return base.CanRunTemplate() && ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveWebAssembly();
         }
     }
 }
