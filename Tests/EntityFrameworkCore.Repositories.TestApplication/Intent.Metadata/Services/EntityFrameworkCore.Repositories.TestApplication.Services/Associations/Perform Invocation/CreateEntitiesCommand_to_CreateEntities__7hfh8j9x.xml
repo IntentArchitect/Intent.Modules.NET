@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="7b057d6c-3d2e-4ff0-a9df-bcbee4dab1a5" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : CreateEntities(...): null</display>
+    <display>[call] : CreateEntities(...): void</display>
     <order>1</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

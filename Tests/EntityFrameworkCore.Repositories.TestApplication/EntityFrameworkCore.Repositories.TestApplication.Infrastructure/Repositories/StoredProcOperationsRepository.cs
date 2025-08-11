@@ -26,7 +26,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
             _dbContext = dbContext;
         }
 
-        public async Task<SpResult> MyProc(IEnumerable<SpParameter> param, CancellationToken cancellationToken = default)
+        public async Task<SpOpResult> MyProc(IEnumerable<SpParameter> param, CancellationToken cancellationToken = default)
         {
             var paramParameter = new SqlParameter
             {
@@ -36,7 +36,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Reposi
                 TypeName = "SpParameter"
             };
 
-            var result = (await _dbContext.SpResults
+            var result = (await _dbContext.SpOpResults
                 .FromSqlInterpolated($"EXECUTE MyProc {paramParameter}")
                 .IgnoreQueryFilters()
                 .ToListAsync(cancellationToken))

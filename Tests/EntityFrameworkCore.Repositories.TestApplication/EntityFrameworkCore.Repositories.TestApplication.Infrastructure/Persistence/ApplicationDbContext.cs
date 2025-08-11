@@ -37,6 +37,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
         public DbSet<EntityRecord> EntityRecords { get; set; }
         public DbSet<MappedSpResultItem> MappedSpResultItems { get; set; }
         public DbSet<MappedSpCollectionPassthroughResult> MappedSpCollectionPassthroughResults { get; set; }
+        public DbSet<SpOpResult> SpOpResults { get; set; }
 
         public DbSet<AggregateRoot1> AggregateRoot1s { get; set; }
         public DbSet<AggregateRoot2Composition> AggregateRoot2Compositions { get; set; }
@@ -119,6 +120,7 @@ namespace EntityFrameworkCore.Repositories.TestApplication.Infrastructure.Persis
             modelBuilder.ApplyConfiguration(new EntityRecordConfiguration());
             modelBuilder.ApplyConfiguration(new MappedSpResultItemConfiguration());
             modelBuilder.ApplyConfiguration(new MappedSpCollectionPassthroughResultConfiguration());
+            modelBuilder.ApplyConfiguration(new SpOpResultConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot1Configuration());
             modelBuilder.ApplyConfiguration(new AggregateRoot2CompositionConfiguration());
             modelBuilder.ApplyConfiguration(new AggregateRoot3AggCollectionConfiguration());

@@ -19,7 +19,7 @@
     <childElements />
   </sourceEnd>
   <targetEnd id="7294fc25-c809-4fed-8082-05d15fd43e26" type="Perform Invocation Target End" typeId="093e5909-ffe4-4510-b3ea-532f30212f3c">
-    <display>[call] : sp_out_params_multiple(...): null</display>
+    <display>[call] : sp_out_params_multiple(...): void</display>
     <order>0</order>
     <traits>
       <trait id="d00a2ab0-9a23-4192-b8bb-166798fc7dba" name="[Processing Action]" />

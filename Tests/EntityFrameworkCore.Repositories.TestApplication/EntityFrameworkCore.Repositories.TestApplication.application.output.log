@@ -1068,6 +1068,14 @@
     </FileLog>
     <FileLog>
       <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
+      <CorrelationId>Intent.Entities.DataContract#961240b3-a1a6-4983-9ae5-e9f38925ba3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/SpOpResult.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpOpResult.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>d4f5bdd7-e97d-4495-8a9e-159a181af582</ProjectId>
       <CorrelationId>Intent.Entities.DataContract#bb0e978c-48ce-41eb-a41f-a9ea73ec2d05</CorrelationId>
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Domain/Contracts/SpParameter.cs</ApplicationRelativeFilePath>
@@ -1832,6 +1840,14 @@
       <OverwriteBehaviour>always</OverwriteBehaviour>
       <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/PrimaryKeyTypes/NewClassShortConfiguration.cs</ApplicationRelativeFilePath>
       <ProjectRelativeFilePath>PrimaryKeyTypes/NewClassShortConfiguration.cs</ProjectRelativeFilePath>
+      <IsIgnored>false</IsIgnored>
+    </FileLog>
+    <FileLog>
+      <ProjectId>02a2a7ea-16ed-4f4c-9963-2afd18522337</ProjectId>
+      <CorrelationId>Intent.EntityFrameworkCore.Repositories.DataContractEntityTypeConfiguration#961240b3-a1a6-4983-9ae5-e9f38925ba3a</CorrelationId>
+      <OverwriteBehaviour>always</OverwriteBehaviour>
+      <ApplicationRelativeFilePath>EntityFrameworkCore.Repositories.TestApplication.Infrastructure/Persistence/Configurations/SpOpResultConfiguration.cs</ApplicationRelativeFilePath>
+      <ProjectRelativeFilePath>SpOpResultConfiguration.cs</ProjectRelativeFilePath>
       <IsIgnored>false</IsIgnored>
     </FileLog>
     <FileLog>
