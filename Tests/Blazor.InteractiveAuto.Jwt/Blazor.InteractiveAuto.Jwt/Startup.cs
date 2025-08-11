@@ -33,6 +33,7 @@ namespace Blazor.InteractiveAuto.Jwt
             services.AddHttpContextAccessor();
             services.AddHttpClient("jwtClient", client => client.BaseAddress = Configuration.GetValue<Uri?>("TokenEndpoint:Uri"));
             services.AddScoped<IdentityRedirectManager>();
+            services.AddApiAuthorization();
             services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
             services.AddScoped<IAuthService, JwtAuthService>();
             services.AddAuthorization();
@@ -40,6 +41,7 @@ namespace Blazor.InteractiveAuto.Jwt
                                     {
                                         options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                                     }).AddCookie();
+
             services.AddRazorComponents()
                 .AddInteractiveWebAssemblyComponents();
 

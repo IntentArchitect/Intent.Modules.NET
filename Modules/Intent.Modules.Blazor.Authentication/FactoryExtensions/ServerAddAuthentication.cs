@@ -74,6 +74,11 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                     }
                     statements.AddStatement($"{context.Services}.AddScoped<IdentityRedirectManager>();");
 
+                    if (!startup.ExecutionContext.GetSettings().GetBlazor().RenderMode().IsInteractiveServer())
+                    {
+                        statements.AddStatement($"{context.Services}.AddApiAuthorization();");
+                    }
+
                     if (startup.ExecutionContext.GetSettings().GetBlazor().Authentication().IsAspnetcoreIdentity())
                     {
                         file.AddUsing("Microsoft.EntityFrameworkCore");

@@ -43,6 +43,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddScoped<IdentityRedirectManager>();
+            services.AddApiAuthorization();
             services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
             services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
             services.AddAuthorization();

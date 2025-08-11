@@ -49,7 +49,7 @@ namespace Intent.Modules.Blazor.Authentication.FactoryExtensions
                         main.FindStatement(x => x.HasMetadata("run-builder"))
                             ?.InsertAbove(new CSharpMethodChainStatement("builder.Services.AddCascadingAuthenticationState()").SeparatedFromNext())
                             ?.InsertAbove(new CSharpMethodChainStatement($"builder.Services.AddSingleton<AuthenticationStateProvider, {program.GetTypeName(PersistentAuthenticationStateProviderTemplate.TemplateId)}>()").SeparatedFromNext())
-                            ?.InsertAbove(new CSharpMethodChainStatement($"builder.Services.AddApiAuthorization();").SeparatedFromNext());
+                            ?.InsertAbove(new CSharpMethodChainStatement($"builder.Services.AddApiAuthorization()").SeparatedFromNext());
                     });
                 }
             });

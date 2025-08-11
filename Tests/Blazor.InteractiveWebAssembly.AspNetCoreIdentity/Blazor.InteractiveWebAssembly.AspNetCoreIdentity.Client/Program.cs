@@ -28,8 +28,7 @@ namespace Blazor.InteractiveWebAssembly.AspNetCoreIdentity.Client
 
             builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
-            builder.Services.AddApiAuthorization(); ;
-
+            builder.Services.AddApiAuthorization();
             builder.Services.AddMudServices();
 
             await builder.Build().RunAsync();

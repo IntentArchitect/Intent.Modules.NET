@@ -33,6 +33,7 @@ namespace Blazor.InteractiveAuto.AspNetCoreIdentity
             services.AddCascadingAuthenticationState();
             services.AddHttpContextAccessor();
             services.AddScoped<IdentityRedirectManager>();
+            services.AddApiAuthorization();
             services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
             services.AddScoped<IAuthService, AspNetCoreIdentityAuthServiceConcrete>();
             services.AddAuthorization();
